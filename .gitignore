@@ -1,0 +1,10 @@
+.coverage
+*.egg-info
+*~
+*.swp
+__pycache__
+build
+dist
+*.bak
+secrets.py
+data
