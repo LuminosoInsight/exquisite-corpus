@@ -8,3 +8,4 @@ dist
 *.bak
 secrets.py
 data
+.snakemake

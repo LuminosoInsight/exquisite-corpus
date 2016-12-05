@@ -15,6 +15,6 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     entry_points={
-        'excorpus': ['excorpus = exquisite_corpus.cli:cli'],
+        'console_scripts': ['xc = exquisite_corpus.cli:cli'],
     },
 )
