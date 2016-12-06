@@ -87,8 +87,7 @@ rule download_europarl_monolingual:
         "data/downloaded/europarl/{lang}.txt"
     run:
         source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        lang = wildcards.lang
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{lang}.gz' | zcat | sed 's/([A-Z][A-Z]+)//g' | ftfy > {output}")
+        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat | sed 's/([A-Z][A-Z]+)//g' | ftfy > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
