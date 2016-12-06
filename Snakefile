@@ -74,10 +74,21 @@ rule all:
 
 rule download_opensubtitles_monolingual:
     output:
-        "data/downloaded/opensubtitles/{lang}.opus.tar.gz"
+        "data/downloaded/opensubtitles/{lang}.txt.gz"
     run:
         source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/{source_lang}.tar.gz' -o {output}")
+        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/mono/OpenSubtitles2016.raw.{source_lang}.gz' -o {output}")
+    resources:
+        download=1, opusdownload=1
+    priority: 0
+
+rule download_europarl_monolingual:
+    output:
+        "data/downloaded/europarl/{lang}.txt"
+    run:
+        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        lang = wildcards.lang
+        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{lang}.gz' | zcat | sed 's/([A-Z][A-Z]+)//g' | ftfy > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
@@ -93,22 +104,12 @@ rule download_wikipedia:
         download=1, wpdownload=1
     priority: 0
 
-rule download_europarl_monolingual:
-    output:
-        "data/downloaded/europarl/{lang}.opus.tar.gz"
-    run:
-        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/{source_lang}.tar.gz' -o {output}")
-    resources:
-        download=1, opusdownload=1
-    priority: 0
-
 
 # Processing steps
 # ================
 
 # Extracting Wikipedia
-rule extract_wikipedia:
+rule tokenize_wikipedia:
     input:
         "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
     output:
@@ -118,13 +119,23 @@ rule extract_wikipedia:
 
 
 # Extracting tokens from OPUS XML packages
-rule get_opus_tokens:
+rule tokenize_text:
     input:
-        "data/downloaded/{dir}/{lang}.opus.tar.gz"
+        "data/downloaded/{dir}/{lang}.txt"
     output:
         "data/tokenized/{dir}/{lang}.txt"
     shell:
-        "tar xf {input} --ignore-command-error --to-command ./scripts/extract-opus.sh > {output}"
+        "xc tokenize {input} {output} -l {wildcards.lang}"
+
+
+# Extracting tokens from OPUS XML packages
+rule tokenize_gzipped_text:
+    input:
+        "data/downloaded/{dir}/{lang}.txt.gz"
+    output:
+        "data/tokenized/{dir}/{lang}.txt"
+    shell:
+        "zcat {input} | xc tokenize -l {wildcards.lang} > {output}"
 
 
 # Counting tokens
