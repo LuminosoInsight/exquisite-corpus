@@ -8,8 +8,7 @@ SUPPORTED_LANGUAGES = {
     # Include languages with at least 500 subtitle files, but skip:
     # - 'ze' because that's not a real language code
     #   (it seems to represent code-switching Chinese and English)
-    # - 'th' because they don't really tokenize Thai, unsurprisingly,
-    #   even when they claim to
+    # - 'th' because we don't know how to tokenize it
     'opensubtitles': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
         'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
@@ -37,7 +36,14 @@ SUPPORTED_LANGUAGES = {
     # 99.2% of Reddit is in English. Some text that's in other languages is
     # just spam, but there are large enough Spanish-speaking subreddits.
     'reddit': ['en', 'es'],
-    'subtlex': ['en', 'de', 'nl', 'zh']
+
+    # Get data from SUBTLEX in languages where it doesn't seem to overlap
+    # too much with OpenSubtitles.
+    'subtlex': ['en', 'de', 'nl', 'zh'],
+
+    # NewsCrawl 2014, from the EMNLP Workshops on Statistical Machine Translation
+    'newscrawl': ['en', 'fr', 'fi', 'de', 'cs', 'ru'],
+
 }
 
 OPUS_LANGUAGE_MAP = {
@@ -66,6 +72,10 @@ rule all:
             lang=SUPPORTED_LANGUAGES['europarl'],
             version=[WP_VERSION]
         ),
+        expand(
+            "data/tokenized/newscrawl/{lang}.txt",
+            lang=SUPPORTED_LANGUAGES['newscrawl']
+        )
 
 
 
@@ -103,11 +113,26 @@ rule download_wikipedia:
         download=1, wpdownload=1
     priority: 0
 
+rule download_newscrawl:
+    output:
+        "data/downloaded/newscrawl-2014-monolingual.tar.gz"
+    shell:
+        "curl -L 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
+
+# Handling downloaded data
+# ========================
+rule extract_newscrawl:
+    input:
+        "data/downloaded/newscrawl-2014-monolingual.tar.gz"
+    output:
+        expand("data/downloaded/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled", lang=SUPPORTED_LANGUAGES['newscrawl'])
+    shell:
+        "tar xf {input} -C data/downloaded/newscrawl"
 
 # Processing steps
 # ================
 
-# Extracting Wikipedia
+# Extracting and tokenizing Wikipedia
 rule tokenize_wikipedia:
     input:
         "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
@@ -117,12 +142,22 @@ rule tokenize_wikipedia:
         "bunzip2 -c {input} | wiki2text | xc tokenize -l {wildcards.lang} > {output}"
 
 
-# Extracting tokens from OPUS XML packages
+# Extracting tokens from OPUS raw text
 rule tokenize_text:
     input:
         "data/downloaded/{dir}/{lang}.txt"
     output:
         "data/tokenized/{dir}/{lang}.txt"
+    shell:
+        "xc tokenize {input} {output} -l {wildcards.lang}"
+
+
+# A similar rule for NewsCrawl filenames
+rule tokenize_text_newscrawl:
+    input:
+        "data/downloaded/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
+    output:
+        "data/tokenized/newscrawl/{lang}.txt"
     shell:
         "xc tokenize {input} {output} -l {wildcards.lang}"
 
