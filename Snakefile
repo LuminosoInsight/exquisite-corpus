@@ -44,6 +44,9 @@ SUPPORTED_LANGUAGES = {
     # NewsCrawl 2014, from the EMNLP Workshops on Statistical Machine Translation
     'newscrawl': ['en', 'fr', 'fi', 'de', 'cs', 'ru'],
 
+    # Google Ngrams 2012
+    'google-ngrams': ['en', 'zh-Hans', 'fr', 'de', 'he', 'it', 'ru', 'es']
+
 }
 
 OPUS_LANGUAGE_MAP = {
@@ -56,6 +59,21 @@ WP_LANGUAGE_MAP = {
     'nb': 'no',
 }
 WP_VERSION = '20161120'
+GOOGLE_LANGUAGE_MAP = {
+    'en': 'eng',
+    'zh-Hans': 'chi',
+    'fr': 'fre',
+    'de': 'ger',
+    'he': 'heb',
+    'it': 'ita',
+    'ru': 'rus',
+    'es': 'spa'
+}
+GOOGLE_1GRAM_SHARDS = [
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
+    'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
+    'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+]
 
 rule all:
     input:
@@ -75,6 +93,10 @@ rule all:
         expand(
             "data/tokenized/newscrawl/{lang}.txt",
             lang=SUPPORTED_LANGUAGES['newscrawl']
+        ),
+        expand(
+            "data/counts/messy/google/1grams-{lang}.txt",
+            lang=SUPPORTED_LANGUAGES['google-ngrams']
         )
 
 
@@ -119,6 +141,14 @@ rule download_newscrawl:
     shell:
         "curl -L 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
 
+rule download_google:
+    output:
+        "data/downloaded/google/1grams-{lang}-{shard}.txt.gz"
+    run:
+        source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shard = wildcards.shard
+        shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+
 # Handling downloaded data
 # ========================
 rule extract_newscrawl:
@@ -127,7 +157,17 @@ rule extract_newscrawl:
     output:
         expand("data/downloaded/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled", lang=SUPPORTED_LANGUAGES['newscrawl'])
     shell:
-        "tar xf {input} -C data/downloaded/newscrawl"
+        "tar xf {input} -C data/downloaded/newscrawl && touch data/downloaded/newscrawl/training-monolingual-news-2014/*"
+
+rule extract_google:
+    input:
+        expand("data/downloaded/google/1grams-{{lang}}-{shard}.txt.gz", shard=GOOGLE_1GRAM_SHARDS)
+    output:
+        "data/counts/messy/google/1grams-{lang}.txt"
+    shell:
+        # Lowercase the terms, remove part-of-speech tags such as _NOUN, and
+        # run the result through the 'countmerge' utility
+        r"zcat {input} | sed -n -e 's/\([^_	]\+\)\(_[A-Z]\+\)/\L\1/p' | countmerge > {output}"
 
 # Processing steps
 # ================
