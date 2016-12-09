@@ -61,7 +61,7 @@ WP_LANGUAGE_MAP = {
 WP_VERSION = '20161120'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
-    'zh-Hans': 'chi',
+    'zh-Hans': 'chi-sim',
     'fr': 'fre',
     'de': 'ger',
     'he': 'heb',
@@ -74,28 +74,32 @@ GOOGLE_1GRAM_SHARDS = [
     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 ]
+REDDIT_SHARDS = ['{}-{}'.format(y, m) for (y, m) in (
+    [(2007, month) for month in range(10, 12 + 1)] +
+    [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
+    [(2015, month) for month in range(1, 5 + 1)]
+)]
 
 rule all:
     input:
         expand(
-            "data/tokenized/opensubtitles/{lang}.txt",
+            "data/counts/opensubtitles/{lang}.txt",
             lang=SUPPORTED_LANGUAGES['opensubtitles']
         ),
         expand(
-            "data/tokenized/wikipedia/{lang}.txt",
+            "data/counts/wikipedia/{lang}.txt",
             lang=SUPPORTED_LANGUAGES['wikipedia'],
         ),
         expand(
-            "data/tokenized/europarl/{lang}.txt",
+            "data/counts/europarl/{lang}.txt",
             lang=SUPPORTED_LANGUAGES['europarl'],
-            version=[WP_VERSION]
         ),
         expand(
-            "data/tokenized/newscrawl/{lang}.txt",
+            "data/counts/newscrawl/{lang}.txt",
             lang=SUPPORTED_LANGUAGES['newscrawl']
         ),
         expand(
-            "data/counts/messy/google/1grams-{lang}.txt",
+            "data/counts/google/{lang}.txt",
             lang=SUPPORTED_LANGUAGES['google-ngrams']
         )
 
@@ -119,7 +123,7 @@ rule download_europarl_monolingual:
         "data/downloaded/europarl/{lang}.txt"
     run:
         source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat | sed 's/([A-Z][A-Z]+)//g' | ftfy > {output}")
+        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
@@ -147,7 +151,12 @@ rule download_google:
     run:
         source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         shard = wildcards.shard
-        shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+        if source_lang == 'heb' and shard == 'other':
+            # This file happens not to exist
+            shell("echo -n '' | gzip -c > {output}")
+        else:
+            # Do a bit of pre-processing as we download
+            shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
 # Handling downloaded data
 # ========================
@@ -155,24 +164,32 @@ rule extract_newscrawl:
     input:
         "data/downloaded/newscrawl-2014-monolingual.tar.gz"
     output:
-        expand("data/downloaded/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled", lang=SUPPORTED_LANGUAGES['newscrawl'])
+        expand("data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled", lang=SUPPORTED_LANGUAGES['newscrawl'])
     shell:
-        "tar xf {input} -C data/downloaded/newscrawl && touch data/downloaded/newscrawl/training-monolingual-news-2014/*"
+        "tar xf {input} -C data/extracted/newscrawl && touch data/extracted/newscrawl/training-monolingual-news-2014/*"
 
 rule extract_google:
     input:
-        expand("data/downloaded/google/1grams-{{lang}}-{shard}.txt.gz", shard=GOOGLE_1GRAM_SHARDS)
+        expand("data/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
+               shard=GOOGLE_1GRAM_SHARDS)
     output:
-        "data/counts/messy/google/1grams-{lang}.txt"
+        "data/messy-counts/google/{lang}.txt"
     shell:
         # Lowercase the terms, remove part-of-speech tags such as _NOUN, and
         # run the result through the 'countmerge' utility
         r"zcat {input} | sed -n -e 's/\([^_	]\+\)\(_[A-Z]\+\)/\L\1/p' | countmerge > {output}"
 
-# Processing steps
-# ================
+rule extract_reddit:
+    input:
+        "data/raw/reddit/{year}/RC_{year}-{month}.bz2"
+    output:
+        "data/extracted/reddit/{year}-{month}.txt.gz"
+    shell:
+        "bunzip2 -c {input} | jq -r 'select(.score > 0) | .body' | fgrep -v '[deleted]' | sed -e 's/&gt;/>/g' -e 's/&lt;/</g' -e 's/&amp;/\&/g' | gzip -c > {output}"
 
-# Extracting and tokenizing Wikipedia
+# Tokenizing
+# ==========
+
 rule tokenize_wikipedia:
     input:
         "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
@@ -181,28 +198,23 @@ rule tokenize_wikipedia:
     shell:
         "bunzip2 -c {input} | wiki2text | xc tokenize -l {wildcards.lang} > {output}"
 
-
-# Extracting tokens from OPUS raw text
-rule tokenize_text:
+rule tokenize_europarl:
     input:
-        "data/downloaded/{dir}/{lang}.txt"
+        "data/downloaded/europarl/{lang}.txt"
     output:
-        "data/tokenized/{dir}/{lang}.txt"
+        "data/tokenized/europarl/{lang}.txt"
     shell:
-        "xc tokenize {input} {output} -l {wildcards.lang}"
+        # Remove country codes and fix mojibake
+        "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -l {wildcards.lang} > {output}"
 
-
-# A similar rule for NewsCrawl filenames
 rule tokenize_text_newscrawl:
     input:
-        "data/downloaded/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
+        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
     output:
         "data/tokenized/newscrawl/{lang}.txt"
     shell:
         "xc tokenize {input} {output} -l {wildcards.lang}"
 
-
-# Extracting tokens from OPUS XML packages
 rule tokenize_gzipped_text:
     input:
         "data/downloaded/{dir}/{lang}.txt.gz"
@@ -213,34 +225,20 @@ rule tokenize_gzipped_text:
 
 
 # Counting tokens
+# ===============
 rule count_tokens:
     input:
         "data/tokenized/{source}/{lang}.txt"
     output:
         "data/counts/{source}/{lang}.txt"
     shell:
-        # The pattern that's being kind of buried under miscellaneous
-        # configuration is:
-        #
-        #   sort | uniq -c | sort -nrk 1
-        #
-        # This groups together matching tokens using 'sort', counts their
-        # occurrences with 'uniq -c', then sorts in numerical reverse order
-        # (-nr) by the first column (-k 1), so that the highest counts
-        # come first.
-        #
-        # I use this pattern a lot. It's really useful. Now here are the
-        # changes to make to it:
-        #
-        # - Adding the -d flag to uniq skips things that only occur once,
-        #   so the minimum count becomes 2.
-        #
-        # - Setting LANG=C on the first 'sort' and 'uniq' makes them faster,
-        #   as they'll compare UTF-8 bytes instead of trying to do a
-        #   full-blown Unicode sort.
-        #
-        # - Sorting creates a lot of temporary data that could fill up your
-        #   /tmp. At least in my case, the data/ directory is on an external
-        #   HD that can handle a lot more data, so let's make sure data/tmp
-        #   exists and use that as the tmp directory.
-        "mkdir -p data/tmp && LANG=C sort -T data/tmp {input} | LANG=C uniq -cd | sort -nrk 1 > {output}"
+        "xc count {input} {output}"
+
+rule recount_messy_tokens:
+    input:
+        "data/messy-counts/{source}/{lang}.txt"
+    output:
+        "data/counts/{source}/{lang}.txt"
+    shell:
+        "xc recount {input} {output}"
+
