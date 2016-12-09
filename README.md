@@ -1,5 +1,8 @@
 Requirements:
 
-- The `xml2` command line tool (apt install xml2)
-- wikiparsec
+- wordfreq with jieba and mecab
+- mecab-dev
+- jq (apt install jq)
+- countmerge (https://github.com/rspeer/countmerge)
+- wikiparsec (https://github.com/LuminosoInsight/wikiparsec)
   - wikiparsec itself depends on libicu-dev and haskell-stack

@@ -241,10 +241,10 @@ rule transform_leeds:
     shell:
         "sed -rn -e 's/([0-9]+) ([0-9]+).([0-9][0-9]) (.*)/\\4\t\\2\\3/p' {input} | grep -v 'EOS\t' > {output}"
 
-# The Mokk corpus comes from scraping all known .hu Web sites and filtering
-# the results for whether they seemed to actually be Hungarian. The list
-# contains different counts at different levels of filtering; we choose the
-# second-strictest level, which is in the 4th tab-separated field.
+# The Mokk Hungarian Web corpus comes from scraping all known .hu Web sites and
+# filtering the results for whether they seemed to actually be Hungarian. The
+# list contains different counts at different levels of filtering; we choose
+# the second most permissive level, which is in the 3rd tab-separated field.
 
 rule transform_mokk:
     input:
@@ -252,7 +252,7 @@ rule transform_mokk:
     output:
         "data/messy-counts/mokk/hu.txt"
     shell:
-        "iconv -f iso-8859-2 -t utf-8 {input} | cut -f 1,4 > {output}"
+        "iconv -f iso-8859-2 -t utf-8 {input} | cut -f 1,3 > {output}"
 
 # SUBTLEX is different in each instance.
 # The main issue with German is that it's mostly (but not entirely) in
