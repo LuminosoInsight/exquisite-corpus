@@ -1,5 +1,5 @@
 from collections import Counter
-from wordfreq.tokens import simple_tokenize
+from wordfreq.tokens import tokenize
 import regex
 
 PUNCT_RE = regex.compile(r'\p{punct}')
@@ -30,7 +30,7 @@ def count_tokenized(infile, outfile):
             print('{}\t{}'.format(token, adjcount + 1), file=outfile)
 
 
-def recount_messy(infile, outfile):
+def recount_messy(infile, outfile, language):
     """
     Take in a file of counts from another source (such as Google Books), and
     make it consistent with our tokenization and format.
@@ -42,7 +42,7 @@ def recount_messy(infile, outfile):
         if line:
             text, strcount = line.split('\t', 1)
             count = int(strcount)
-            for token in simple_tokenize(text):
+            for token in tokenize(text, language):
                 counts[token] += count
                 total += count
 

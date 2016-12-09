@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
+from exquisite_corpus.tokens import CLD2_REASONABLE_LANGUAGES
+
 
 SUPPORTED_LANGUAGES = {
     # OPUS's data files of OpenSubtitles 2016
@@ -35,7 +37,10 @@ SUPPORTED_LANGUAGES = {
 
     # 99.2% of Reddit is in English. Some text that's in other languages is
     # just spam, but there are large enough Spanish-speaking subreddits.
-    'reddit': ['en', 'es'],
+    'reddit': ['en', 'es', 'fr', 'de', 'sv'],
+
+    # Twitter 2014-2015, in all the languages we detect
+    'twitter': CLD2_REASONABLE_LANGUAGES,
 
     # Get data from SUBTLEX in languages where it doesn't seem to overlap
     # too much with OpenSubtitles.
@@ -45,8 +50,19 @@ SUPPORTED_LANGUAGES = {
     'newscrawl': ['en', 'fr', 'fi', 'de', 'cs', 'ru'],
 
     # Google Ngrams 2012
-    'google-ngrams': ['en', 'zh-Hans', 'fr', 'de', 'he', 'it', 'ru', 'es']
+    'google-ngrams': ['en', 'zh-Hans', 'fr', 'de', 'he', 'it', 'ru', 'es'],
 
+    # Jieba's built-in wordlist
+    'jieba': ['zh'],
+
+    # Leeds
+    'leeds': ['ar', 'de', 'el', 'en', 'es', 'fr', 'it', 'ja', 'pt', 'ru', 'zh'],
+
+    # The Hungarian Webcorpus by Halácsy et al., from http://mokk.bme.hu/resources/webcorpus/
+    'mokk': ['hu'],
+
+    # SUBTLEX: word counts from subtitles
+    'subtlex': ['en-US', 'en-GB', 'de', 'nl', 'pl', 'zh-Hans'],
 }
 
 OPUS_LANGUAGE_MAP = {
@@ -74,7 +90,7 @@ GOOGLE_1GRAM_SHARDS = [
     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 ]
-REDDIT_SHARDS = ['{}-{}'.format(y, m) for (y, m) in (
+REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
     [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
     [(2015, month) for month in range(1, 5 + 1)]
@@ -101,8 +117,25 @@ rule all:
         expand(
             "data/counts/google/{lang}.txt",
             lang=SUPPORTED_LANGUAGES['google-ngrams']
-        )
-
+        ),
+        expand(
+            "data/counts/reddit/{lang}.txt",
+            lang=SUPPORTED_LANGUAGES['reddit']
+        ),
+        expand(
+            "data/counts/twitter/{lang}.txt",
+            lang=SUPPORTED_LANGUAGES['twitter']
+        ),
+        expand(
+            "data/counts/leeds/{lang}.txt",
+            lang=SUPPORTED_LANGUAGES['leeds']
+        ),
+        expand(
+            "data/counts/subtlex/{lang}.txt",
+            lang=SUPPORTED_LANGUAGES['subtlex']
+        ),
+        "data/counts/jieba/zh.txt",
+        "data/counts/mokk/hu.txt"
 
 
 # Downloaders
@@ -187,6 +220,91 @@ rule extract_reddit:
     shell:
         "bunzip2 -c {input} | jq -r 'select(.score > 0) | .body' | fgrep -v '[deleted]' | sed -e 's/&gt;/>/g' -e 's/&lt;/</g' -e 's/&amp;/\&/g' | gzip -c > {output}"
 
+# Transforming existing word lists
+# ================================
+# To convert the Leeds corpus, look for space-separated lines that start with
+# an integer and a decimal. The integer is the rank, which we discard. The
+# decimal is the frequency, and the remaining text is the term. Use sed -n
+# with /p to output only lines where the match was successful.
+#
+# The decimals all have 2 digits after the decimal point; we drop the decimal
+# point to effectively multiply them by 100 and get integers.
+#
+# Grep out the term "EOS", an indication that Leeds used MeCab and didn't
+# strip out the EOS lines.
+
+rule transform_leeds:
+    input:
+        "data/source-lists/leeds/internet-{lang}-forms.num"
+    output:
+        "data/messy-counts/leeds/{lang}.txt"
+    shell:
+        "sed -rn -e 's/([0-9]+) ([0-9]+).([0-9][0-9]) (.*)/\\4\t\\2\\3/p' {input} | grep -v 'EOS\t' > {output}"
+
+# The Mokk corpus comes from scraping all known .hu Web sites and filtering
+# the results for whether they seemed to actually be Hungarian. The list
+# contains different counts at different levels of filtering; we choose the
+# second-strictest level, which is in the 4th tab-separated field.
+
+rule transform_mokk:
+    input:
+        "data/source-lists/mokk/web2.2-freq-sorted.txt"
+    output:
+        "data/messy-counts/mokk/hu.txt"
+    shell:
+        "iconv -f iso-8859-2 -t utf-8 {input} | cut -f 1,4 > {output}"
+
+# SUBTLEX is different in each instance.
+# The main issue with German is that it's mostly (but not entirely) in
+# double-UTF-8.
+rule transform_subtlex_de:
+    input:
+        "data/source-lists/subtlex/subtlex.de.txt"
+    output:
+        "data/messy-counts/subtlex/de.txt"
+    shell:
+        "tail -n +2 {input} | cut -f 1,3 | ftfy > {output}"
+
+rule transform_subtlex_en:
+    input:
+        "data/source-lists/subtlex/subtlex.en-{region}.txt"
+    output:
+        "data/messy-counts/subtlex/en-{region}.txt"
+    shell:
+        "tail -n +2 {input} | cut -f 1,2 > {output}"
+
+rule transform_subtlex_nl:
+    input:
+        "data/source-lists/subtlex/subtlex.nl.txt"
+    output:
+        "data/messy-counts/subtlex/nl.txt"
+    shell:
+        "tail -n +2 {input} | cut -f 1,2 > {output}"
+
+rule transform_subtlex_pl:
+    input:
+        "data/source-lists/subtlex/subtlex.pl.txt"
+    output:
+        "data/messy-counts/subtlex/pl.txt"
+    shell:
+        "tail -n +2 {input} | cut -f 1,5 > {output}"
+
+rule transform_subtlex_zh:
+    input:
+        "data/source-lists/subtlex/subtlex.zh.txt"
+    output:
+        "data/messy-counts/subtlex/zh-Hans.txt"
+    shell:
+        "tail -n +2 {input} | cut -f 1,5 > {output}"
+
+rule transform_jieba:
+    input:
+        "data/source-lists/jieba/dict.txt.big"
+    output:
+        "data/messy-counts/jieba/zh.txt"
+    shell:
+        "cut -d ' ' -f 1,2 {input} | tr ' ' '    ' | xc simplify-chinese - {output}"
+
 # Tokenizing
 # ==========
 
@@ -223,9 +341,34 @@ rule tokenize_gzipped_text:
     shell:
         "zcat {input} | xc tokenize -l {wildcards.lang} > {output}"
 
+rule tokenize_reddit:
+    input:
+        expand("data/extracted/reddit/{date}.txt.gz", date=REDDIT_SHARDS)
+    output:
+        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SUPPORTED_LANGUAGES['reddit'])
+    shell:
+        "zcat {input} | xc tokenize_by_language -m reddit - data/tokenized/reddit"
+
+rule tokenize_twitter:
+    input:
+        "data/raw/twitter/twitter-2014.txt.gz",
+        "data/raw/twitter/twitter-2015.txt.gz"
+    output:
+        expand("data/tokenized/twitter/{lang}.txt", lang=SUPPORTED_LANGUAGES['twitter'])
+    shell:
+        "zcat {input} | xc tokenize_by_language -m twitter - data/tokenized/twitter"
+
 
 # Counting tokens
 # ===============
+rule count_reddit_tokens:
+    input:
+        expand("data/tokenized/reddit/{date}/{{lang}}.txt", date=REDDIT_SHARDS)
+    output:
+        "data/counts/reddit/{lang}.txt"
+    shell:
+        "cat {input} | xc count - {output}"
+
 rule count_tokens:
     input:
         "data/tokenized/{source}/{lang}.txt"
@@ -240,5 +383,5 @@ rule recount_messy_tokens:
     output:
         "data/counts/{source}/{lang}.txt"
     shell:
-        "xc recount {input} {output}"
+        "xc recount {input} {output} -l {wildcards.lang}"
 
