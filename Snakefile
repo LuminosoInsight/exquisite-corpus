@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
-from exquisite_corpus.tokens import CLD2_REASONABLE_LANGUAGES
+from exquisite_corpus.tokens import CLD2_LANGUAGES
 
 
 SUPPORTED_LANGUAGES = {
@@ -36,11 +36,19 @@ SUPPORTED_LANGUAGES = {
     ],
 
     # 99.2% of Reddit is in English. Some text that's in other languages is
-    # just spam, but there are large enough Spanish-speaking subreddits.
-    'reddit': ['en', 'es', 'fr', 'de', 'sv'],
+    # just spam, but these languages seem to have a reasonable amount of
+    # representative text.
+    #
+    # The frequency of the Balkan languages is surprising, but it seems to be
+    # legit, except I have no idea if Croatian, Bosnian, and Serbian are being
+    # distinguished in any valid way.
+    'reddit': [
+        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'no', 'da', 'fi',
+        'hr', 'sr', 'bs', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar'
+    ],
 
     # Twitter 2014-2015, in all the languages we detect
-    'twitter': CLD2_REASONABLE_LANGUAGES,
+    'twitter': CLD2_LANGUAGES,
 
     # Get data from SUBTLEX in languages where it doesn't seem to overlap
     # too much with OpenSubtitles.
@@ -343,11 +351,11 @@ rule tokenize_gzipped_text:
 
 rule tokenize_reddit:
     input:
-        expand("data/extracted/reddit/{date}.txt.gz", date=REDDIT_SHARDS)
+        "data/extracted/reddit/{date}.txt.gz"
     output:
         expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SUPPORTED_LANGUAGES['reddit'])
     shell:
-        "zcat {input} | xc tokenize_by_language -m reddit - data/tokenized/reddit"
+        "zcat {input} | xc tokenize-by-language -m reddit - data/tokenized/reddit/{wildcards.date}"
 
 rule tokenize_twitter:
     input:
@@ -356,7 +364,7 @@ rule tokenize_twitter:
     output:
         expand("data/tokenized/twitter/{lang}.txt", lang=SUPPORTED_LANGUAGES['twitter'])
     shell:
-        "zcat {input} | xc tokenize_by_language -m twitter - data/tokenized/twitter"
+        "zcat {input} | xc tokenize-by-language -m twitter - data/tokenized/twitter"
 
 
 # Counting tokens

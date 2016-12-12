@@ -33,22 +33,18 @@ MARKDOWN_URL_RESIDUE_RE = regex.compile(r'\]\(\)')
 # This list is larger than the list that wordfreq ultimately generates, so we
 # can look here as a source of future data.
 
-CLD2_REASONABLE_LANGUAGES = {
-    'af', 'ast', 'ar', 'az', 'be', 'br', 'bs', 'ca', 'cs', 'cy', 'da', 'de',
-    'el', 'en', 'es', 'et', 'eo', 'eu', 'fa', 'fi', 'fil', 'fo', 'fr', 'ga',
-    'gd', 'gl', 'he', 'hi', 'hr', 'hu', 'hy', 'id', 'is', 'it', 'ja', 'jv',
-    'ka', 'ko', 'kk', 'kn', 'ku', 'lv', 'mg', 'mk', 'ms', 'nl', 'nn', 'no',
-    'nv', 'oc', 'pl', 'pt', 'ro', 'ru', 'sa', 'sco', 'sk', 'sl', 'sq', 'sr',
-    'sv', 'sw', 'ta', 'te', 'th', 'tr', 'uk', 'ur', 'vi', 'xh', 'zh-Hant',
-    'zh-Hans'
-}
-
 
 CLD2_LANGUAGE_MAP = {
     'tl': 'fil',
     'jw': 'jv',
     'iw': 'he'
 }
+
+CLD2_LANGUAGES = sorted(set([
+    CLD2_LANGUAGE_MAP.get(_lang, _lang)
+    for _name, _lang in pycld2.LANGUAGES
+    if not _lang.startswith('xx')
+]))
 
 # Problems to watch out for:
 #
@@ -105,7 +101,7 @@ def tokenize_by_language(in_file, out_dir, mode='twitter'):
     """
     out_files = {
         language: open('%s/%s.txt' % (out_dir, language), 'w', encoding='utf-8')
-        for language in CLD2_REASONABLE_LANGUAGES
+        for language in CLD2_LANGUAGES
     }
     try:
         for line in in_file:
@@ -118,7 +114,7 @@ def tokenize_by_language(in_file, out_dir, mode='twitter'):
                 text = MARKDOWN_URL_RESIDUE_RE.sub(']', text)
 
             lang, confident = cld2_detect_language(text)
-            if lang in CLD2_REASONABLE_LANGUAGES:
+            if lang in CLD2_LANGUAGES:
                 # Keep the line if 2 out of 3 of the following are true:
                 #
                 # - CLD2 is confident about the language it detected
