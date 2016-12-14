@@ -37,7 +37,8 @@ MARKDOWN_URL_RESIDUE_RE = regex.compile(r'\]\(\)')
 CLD2_LANGUAGE_MAP = {
     'tl': 'fil',
     'jw': 'jv',
-    'iw': 'he'
+    'iw': 'he',
+    'no': 'nb'
 }
 
 CLD2_LANGUAGES = sorted(set([

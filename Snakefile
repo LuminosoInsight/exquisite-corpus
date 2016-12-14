@@ -15,7 +15,7 @@ SOURCE_LANGUAGES = {
     'opensubtitles': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
         'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
-        'nl', 'no', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh', 'si', 'sk',
+        'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh-Latn', 'si', 'sk',
         'sl', 'sq', 'sr', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
@@ -40,7 +40,7 @@ SOURCE_LANGUAGES = {
     'tatoeba': [
         'en', 'eo', 'de', 'fr', 'es', 'ja', 'ru', 'tr', 'it', 'pt', 'he',
         'pl', 'zh-Hans', 'zh', 'hu', 'nl', 'uk', 'fi', 'mn', 'fa', 'ar',
-        'da', 'sv', 'bg', 'ia', 'is', 'no', 'la', 'el', 'fil', 'lt', 'jbo',
+        'da', 'sv', 'bg', 'ia', 'is', 'nb', 'la', 'el', 'fil', 'lt', 'jbo',
         'sr'
     ],
 
@@ -51,8 +51,8 @@ SOURCE_LANGUAGES = {
     'wikipedia': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et',
         'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hu', 'hr', 'hy', 'id', 'it',
-        'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'no', 'nl', 'pl', 'pt',
-        'ro', 'ru', 'sh', 'sk', 'sl', 'sr-Cyrl', 'sv', 'tr', 'uk', 'uz',
+        'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt',
+        'ro', 'ru', 'sh-Latn', 'sk', 'sl', 'sr-Cyrl', 'sv', 'tr', 'uk', 'uz',
         'vi', 'zh'
     ],
 
@@ -63,8 +63,8 @@ SOURCE_LANGUAGES = {
     # The frequency of the Balkan languages is surprising, but it seems to be
     # legit.
     'reddit': [
-        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'no', 'da', 'fi', 'is',
-        'sh', 'sr-Cyrl', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
+        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'nb', 'da', 'fi', 'is',
+        'sh-Latn', 'sr-Cyrl', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
         'eo', 'fil'
     ],
 
@@ -72,9 +72,9 @@ SOURCE_LANGUAGES = {
     # spam
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh', 'sr-Cyrl',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh-Latn', 'sr-Cyrl',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
-        'mn', 'su', 'bn', 'lv', 'jv', 'no', 'bg', 'mk', 'cs', 'ro', 'hu',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'mk', 'cs', 'ro', 'hu',
         'sw', 'vi', 'az', 'sq'
     ],
 
@@ -108,6 +108,7 @@ OPUS_LANGUAGE_MAP = {
     'pt-BR': 'pt_br',
     'zh-Hans': 'zh_cn',
     'zh-Hant': 'zh_tw',
+    'nb': 'no',
 }
 GLOBALVOICES_LANGUAGE_MAP = {
     'ja': 'jp',
@@ -116,7 +117,6 @@ GLOBALVOICES_LANGUAGE_MAP = {
 }
 TATOEBA_LANGUAGE_MAP = {
     'zh-Hans': 'cmn',
-    'no': 'nb',
     'fa': 'pes',
     'fil': 'tl'
 }
@@ -484,7 +484,7 @@ rule debalkanize_reddit_sh:
     input:
         expand("data/counts/reddit/{{date}}/{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/counts/reddit/{date}/sh.txt"
+        "data/counts/reddit/{date}/sh-Latn.txt"
     shell:
         "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
 
@@ -493,7 +493,7 @@ rule debalkanize_twitter_sh:
     input:
         expand("data/counts/twitter/{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/counts/twitter/sh.txt"
+        "data/counts/twitter/sh-Latn.txt"
     shell:
         "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
 
@@ -503,7 +503,7 @@ rule debalkanize_opensubtitles_sh:
     input:
         expand("data/counts/opensubtitles/{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/counts/opensubtitles/sh.txt"
+        "data/counts/opensubtitles/sh-Latn.txt"
     shell:
         "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
 
