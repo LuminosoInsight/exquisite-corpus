@@ -15,7 +15,7 @@ def count_tokenized(infile, outfile):
     for line in infile:
         line = line.rstrip()
         if line:
-            toks = line.split(' ')
+            toks = [t.strip("'") for t in line.split(' ')]
             counts.update(toks)
             total += len(toks)
 
@@ -39,7 +39,7 @@ def recount_messy(infile, outfile, language):
     total = 0
     for line in infile:
         line = line.rstrip()
-        if line:
+        if line and not line.startswith('__total__'):
             text, strcount = line.split('\t', 1)
             count = int(strcount)
             for token in tokenize(text, language):

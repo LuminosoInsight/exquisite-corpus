@@ -2,9 +2,10 @@
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
 from exquisite_corpus.tokens import CLD2_LANGUAGES
+from collections import defaultdict
 
 
-SUPPORTED_LANGUAGES = {
+SOURCE_LANGUAGES = {
     # OPUS's data files of OpenSubtitles 2016
     #
     # Include languages with at least 500 subtitle files, but skip:
@@ -14,14 +15,33 @@ SUPPORTED_LANGUAGES = {
     'opensubtitles': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
         'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
-        'nl', 'no', 'pl', 'pt-PT', 'pt-BR', 'ro', 'ru', 'si', 'sk', 'sl', 'sq',
-        'sr', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant'
+        'nl', 'no', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh', 'si', 'sk',
+        'sl', 'sq', 'sr', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # Europarl v7, which also comes from OPUS
     'europarl': [
         'bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'it',
-        'lt', 'lv', 'nl', 'pl', 'pt-PT', 'ro', 'sk', 'sl', 'sv'
+        'lt', 'lv', 'nl', 'pl', 'pt-PT', 'pt', 'ro', 'sk', 'sl', 'sv'
+    ],
+
+    # GlobalVoices (LREC 2012), from OPUS -- languages with over 50,000 tokens
+    'globalvoices': [
+        'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
+        'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
+        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sr', 'sv', 'sw', 'tr', 'ur',
+        'zh-Hans', 'zh-Hant', 'zh'
+    ],
+
+    # Tatoeba 2014, from OPUS -- languages with over 50,000 tokens.
+    # Skip 'ber' (we don't have the ability to sort out the dialects and
+    # scripts of Berber and Tamazight) and 'tlh' (Klingon is not useful enough
+    # for the tokenization code it would require).
+    'tatoeba': [
+        'en', 'eo', 'de', 'fr', 'es', 'ja', 'ru', 'tr', 'it', 'pt', 'he',
+        'pl', 'zh-Hans', 'zh', 'hu', 'nl', 'uk', 'fi', 'mn', 'fa', 'ar',
+        'da', 'sv', 'bg', 'ia', 'is', 'no', 'la', 'el', 'fil', 'lt', 'jbo',
+        'sr'
     ],
 
     # Sufficiently large, non-spammy Wikipedias.
@@ -31,8 +51,9 @@ SUPPORTED_LANGUAGES = {
     'wikipedia': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et',
         'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hu', 'hr', 'hy', 'id', 'it',
-        'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt',
-        'ro', 'ru', 'sh', 'sk', 'sl', 'sr', 'sv', 'tr', 'uk', 'uz', 'vi', 'zh'
+        'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'no', 'nl', 'pl', 'pt',
+        'ro', 'ru', 'sh', 'sk', 'sl', 'sr-Cyrl', 'sv', 'tr', 'uk', 'uz',
+        'vi', 'zh'
     ],
 
     # 99.2% of Reddit is in English. Some text that's in other languages is
@@ -40,25 +61,28 @@ SUPPORTED_LANGUAGES = {
     # representative text.
     #
     # The frequency of the Balkan languages is surprising, but it seems to be
-    # legit, except I have no idea if Croatian, Bosnian, and Serbian are being
-    # distinguished in any valid way.
+    # legit.
     'reddit': [
-        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'no', 'da', 'fi',
-        'hr', 'sr', 'bs', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar'
+        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'no', 'da', 'fi', 'is',
+        'sh', 'sr-Cyrl', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
+        'eo', 'fil'
     ],
 
-    # Twitter 2014-2015, in all the languages we detect
-    'twitter': CLD2_LANGUAGES,
-
-    # Get data from SUBTLEX in languages where it doesn't seem to overlap
-    # too much with OpenSubtitles.
-    'subtlex': ['en', 'de', 'nl', 'zh'],
+    # Skip Greek because of kaomoji, Simplified Chinese because it's largely
+    # spam
+    'twitter': [
+        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh', 'sr-Cyrl',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
+        'mn', 'su', 'bn', 'lv', 'jv', 'no', 'bg', 'mk', 'cs', 'ro', 'hu',
+        'sw', 'vi', 'az', 'sq'
+    ],
 
     # NewsCrawl 2014, from the EMNLP Workshops on Statistical Machine Translation
     'newscrawl': ['en', 'fr', 'fi', 'de', 'cs', 'ru'],
 
     # Google Ngrams 2012
-    'google-ngrams': ['en', 'zh-Hans', 'fr', 'de', 'he', 'it', 'ru', 'es'],
+    'google-ngrams': ['en', 'zh-Hans', 'zh', 'fr', 'de', 'he', 'it', 'ru', 'es'],
 
     # Jieba's built-in wordlist
     'jieba': ['zh'],
@@ -70,7 +94,13 @@ SUPPORTED_LANGUAGES = {
     'mokk': ['hu'],
 
     # SUBTLEX: word counts from subtitles
-    'subtlex': ['en-US', 'en-GB', 'de', 'nl', 'pl', 'zh-Hans'],
+    'subtlex': ['en-US', 'en-GB', 'en', 'de', 'nl', 'pl', 'zh-Hans', 'zh'],
+}
+
+LANGUAGE_VARIANTS = {
+    'pt': ['pt-PT', 'pt-BR'],
+    'en': ['en-US', 'en-GB'],
+    'zh': ['zh-Hans', 'zh-Hant']
 }
 
 OPUS_LANGUAGE_MAP = {
@@ -79,8 +109,19 @@ OPUS_LANGUAGE_MAP = {
     'zh-Hans': 'zh_cn',
     'zh-Hant': 'zh_tw',
 }
+GLOBALVOICES_LANGUAGE_MAP = {
+    'ja': 'jp',
+    'zh-Hant': 'zht',
+    'zh-Hans': 'zhs'
+}
+TATOEBA_LANGUAGE_MAP = {
+    'zh-Hans': 'cmn',
+    'no': 'nb',
+    'fa': 'pes',
+    'fil': 'tl'
+}
 WP_LANGUAGE_MAP = {
-    'nb': 'no',
+    'sr-Cyrl': 'sr'
 }
 WP_VERSION = '20161120'
 GOOGLE_LANGUAGE_MAP = {
@@ -104,43 +145,60 @@ REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2015, month) for month in range(1, 5 + 1)]
 )]
 
+
+LANGUAGE_SOURCES = defaultdict(list)
+for source in SOURCE_LANGUAGES:
+    for lang in SOURCE_LANGUAGES[source]:
+        LANGUAGE_SOURCES[lang].append(source)
+
+SUPPORTED_LANGUAGES = sorted([lang for lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[lang]) >= 3])
+print(SUPPORTED_LANGUAGES)
+
 rule all:
     input:
         expand(
             "data/counts/opensubtitles/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['opensubtitles']
+            lang=SOURCE_LANGUAGES['opensubtitles']
         ),
         expand(
             "data/counts/wikipedia/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['wikipedia'],
+            lang=SOURCE_LANGUAGES['wikipedia'],
         ),
         expand(
             "data/counts/europarl/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['europarl'],
+            lang=SOURCE_LANGUAGES['europarl'],
         ),
         expand(
             "data/counts/newscrawl/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['newscrawl']
+            lang=SOURCE_LANGUAGES['newscrawl']
         ),
         expand(
             "data/counts/google/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['google-ngrams']
+            lang=SOURCE_LANGUAGES['google-ngrams']
         ),
         expand(
-            "data/counts/reddit/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['reddit']
+            "data/counts/reddit/merged/{lang}.txt",
+            lang=SOURCE_LANGUAGES['reddit']
         ),
         expand(
             "data/counts/twitter/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['twitter']
+            lang=SOURCE_LANGUAGES['twitter']
         ),
         expand(
             "data/counts/leeds/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['leeds']
+            lang=SOURCE_LANGUAGES['leeds']
         ),
         expand(
             "data/counts/subtlex/{lang}.txt",
-            lang=SUPPORTED_LANGUAGES['subtlex']
+            lang=SOURCE_LANGUAGES['subtlex']
+        ),
+        expand(
+            "data/counts/globalvoices/{lang}.txt",
+            lang=SOURCE_LANGUAGES['globalvoices']
+        ),
+        expand(
+            "data/counts/tatoeba/{lang}.txt",
+            lang=SOURCE_LANGUAGES['tatoeba']
         ),
         "data/counts/jieba/zh.txt",
         "data/counts/mokk/hu.txt"
@@ -168,6 +226,29 @@ rule download_europarl_monolingual:
     resources:
         download=1, opusdownload=1
     priority: 0
+
+rule download_globalvoices_monolingual:
+    output:
+        "data/downloaded/globalvoices/{lang}.txt"
+    run:
+        source_lang = GLOBALVOICES_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
+    resources:
+        download=1, opusdownload=1
+    priority: 0
+
+
+rule download_tatoeba_monolingual:
+    output:
+        "data/downloaded/tatoeba/{lang}.txt"
+    run:
+        source_lang = TATOEBA_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
+    resources:
+        download=1, opusdownload=1
+    priority: 0
+
+
 
 rule download_wikipedia:
     output:
@@ -205,7 +286,7 @@ rule extract_newscrawl:
     input:
         "data/downloaded/newscrawl-2014-monolingual.tar.gz"
     output:
-        expand("data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled", lang=SUPPORTED_LANGUAGES['newscrawl'])
+        expand("data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled", lang=SOURCE_LANGUAGES['newscrawl'])
     shell:
         "tar xf {input} -C data/extracted/newscrawl && touch data/extracted/newscrawl/training-monolingual-news-2014/*"
 
@@ -311,7 +392,7 @@ rule transform_jieba:
     output:
         "data/messy-counts/jieba/zh.txt"
     shell:
-        "cut -d ' ' -f 1,2 {input} | tr ' ' '    ' | xc simplify-chinese - {output}"
+        "cut -d ' ' -f 1,2 {input} | tr ' ' '\t' | xc simplify-chinese - {output}"
 
 # Tokenizing
 # ==========
@@ -333,6 +414,22 @@ rule tokenize_europarl:
         # Remove country codes and fix mojibake
         "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -l {wildcards.lang} > {output}"
 
+rule tokenize_tatoeba:
+    input:
+        "data/downloaded/tatoeba/{lang}.txt"
+    output:
+        "data/tokenized/tatoeba/{lang}.txt"
+    shell:
+        "xc tokenize -l {wildcards.lang} {input} {output}"
+
+rule tokenize_globalvoices:
+    input:
+        "data/downloaded/globalvoices/{lang}.txt"
+    output:
+        "data/tokenized/globalvoices/{lang}.txt"
+    shell:
+        "xc tokenize -l {wildcards.lang} {input} {output}"
+
 rule tokenize_text_newscrawl:
     input:
         "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
@@ -353,7 +450,7 @@ rule tokenize_reddit:
     input:
         "data/extracted/reddit/{date}.txt.gz"
     output:
-        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SUPPORTED_LANGUAGES['reddit'])
+        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SOURCE_LANGUAGES['reddit'])
     shell:
         "zcat {input} | xc tokenize-by-language -m reddit - data/tokenized/reddit/{wildcards.date}"
 
@@ -362,21 +459,13 @@ rule tokenize_twitter:
         "data/raw/twitter/twitter-2014.txt.gz",
         "data/raw/twitter/twitter-2015.txt.gz"
     output:
-        expand("data/tokenized/twitter/{lang}.txt", lang=SUPPORTED_LANGUAGES['twitter'])
+        expand("data/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
     shell:
         "zcat {input} | xc tokenize-by-language -m twitter - data/tokenized/twitter"
 
 
 # Counting tokens
 # ===============
-rule count_reddit_tokens:
-    input:
-        expand("data/tokenized/reddit/{date}/{{lang}}.txt", date=REDDIT_SHARDS)
-    output:
-        "data/counts/reddit/{lang}.txt"
-    shell:
-        "cat {input} | xc count - {output}"
-
 rule count_tokens:
     input:
         "data/tokenized/{source}/{lang}.txt"
@@ -385,6 +474,56 @@ rule count_tokens:
     shell:
         "xc count {input} {output}"
 
+# Reddit has a fair amount of conversation in Serbo-Croatian. cld2 cannot
+# actually distinguish what country the speaker is in, so the Latin text
+# ends up spread pretty much arbitrarily between Serbian, Croatian, and
+# Bosnian. Here, we re-split the data into Latin text (Serbo-Croatian)
+# and Cyrillic (Serbian).
+
+rule debalkanize_reddit_sh:
+    input:
+        expand("data/counts/reddit/{{date}}/{lang}.txt", lang=['bs', 'hr', 'sr'])
+    output:
+        "data/counts/reddit/{date}/sh.txt"
+    shell:
+        "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
+
+# Twitter has the same effect.
+rule debalkanize_twitter_sh:
+    input:
+        expand("data/counts/twitter/{lang}.txt", lang=['bs', 'hr', 'sr'])
+    output:
+        "data/counts/twitter/sh.txt"
+    shell:
+        "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
+
+# OpenSubtitles is presumably separated by country, but we also want to align
+# it with the 'sh' data we have from other sources.
+rule debalkanize_opensubtitles_sh:
+    input:
+        expand("data/counts/opensubtitles/{lang}.txt", lang=['bs', 'hr', 'sr'])
+    output:
+        "data/counts/opensubtitles/sh.txt"
+    shell:
+        "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
+
+rule debalkanize_reddit_sr:
+    input:
+        "data/counts/reddit/{date}/sr.txt"
+    output:
+        "data/counts/reddit/{date}/sr-Cyrl.txt"
+    shell:
+        "egrep '[А-Яа-я]|__total__' {input} | xc recount - {output} -l sr"
+
+# Twitter has the same effect.
+rule debalkanize_twitter_sr:
+    input:
+        "data/counts/twitter/sr.txt"
+    output:
+        "data/counts/twitter/sr-Cyrl.txt"
+    shell:
+        "egrep '[А-Яа-я]|__total__' {input} | xc recount - {output} -l sr"
+
 rule recount_messy_tokens:
     input:
         "data/messy-counts/{source}/{lang}.txt"
@@ -392,4 +531,87 @@ rule recount_messy_tokens:
         "data/counts/{source}/{lang}.txt"
     shell:
         "xc recount {input} {output} -l {wildcards.lang}"
+
+rule merge_reddit:
+    input:
+        expand("data/counts/reddit/{date}/{{lang}}.txt", date=REDDIT_SHARDS)
+    output:
+        "data/counts/reddit/merged/{lang}.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l {wildcards.lang}"
+
+rule merge_subtlex_en:
+    input:
+        "data/counts/subtlex/en-GB.txt",
+        "data/counts/subtlex/en-US.txt",
+    output:
+        "data/counts/subtlex/en.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l en"
+
+rule merge_opensubtitles_pt:
+    input:
+        "data/counts/opensubtitles/pt-BR.txt",
+        "data/counts/opensubtitles/pt-PT.txt",
+    output:
+        "data/counts/opensubtitles/pt.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l pt"
+
+rule merge_opensubtitles_zh:
+    input:
+        "data/counts/opensubtitles/zh-Hans.txt",
+        "data/counts/opensubtitles/zh-Hant.txt",
+    output:
+        "data/counts/opensubtitles/zh.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l zh"
+
+rule merge_globalvoices_zh:
+    input:
+        "data/counts/globalvoices/zh-Hans.txt",
+        "data/counts/globalvoices/zh-Hant.txt",
+    output:
+        "data/counts/globalvoices/zh.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l zh"
+
+rule copy_google_zh:
+    input:
+        "data/counts/google/zh-Hans.txt"
+    output:
+        "data/counts/google/zh.txt"
+    shell:
+        "cp {input} {output}"
+
+rule copy_tatoeba_zh:
+    input:
+        "data/counts/tatoeba/zh-Hans.txt"
+    output:
+        "data/counts/tatoeba/zh.txt"
+    shell:
+        "cp {input} {output}"
+
+rule copy_subtlex_zh:
+    input:
+        "data/counts/subtlex/zh-Hans.txt"
+    output:
+        "data/counts/subtlex/zh.txt"
+    shell:
+        "cp {input} {output}"
+
+rule copy_europarl_pt:
+    input:
+        "data/counts/europarl/pt-PT.txt"
+    output:
+        "data/counts/europarl/pt.txt"
+    shell:
+        "cp {input} {output}"
+
+ruleorder:
+    merge_reddit > \
+    merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
+    debalkanize_reddit_sh > debalkanize_twitter_sh > debalkanize_reddit_sr > debalkanize_twitter_sr > \
+    copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
+    recount_messy_tokens > count_tokens
 
