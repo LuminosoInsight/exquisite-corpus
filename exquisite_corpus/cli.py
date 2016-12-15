@@ -1,6 +1,7 @@
 import click
 from .tokens import tokenize_file, tokenize_by_language
 from .count import count_tokenized, recount_messy
+from .freq import merge_count_files_to_freqs
 from wordfreq.chinese import simplify_chinese
 import os
 
@@ -14,8 +15,9 @@ def cli():
 @click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
 @click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
 @click.option('--language', '-l')
-def run_tokenize(input_file, output_file, language):
-    tokenize_file(input_file, output_file, language)
+@click.option('--check-language', '-c', is_flag=True, default=False)
+def run_tokenize(input_file, output_file, language, check_language):
+    tokenize_file(input_file, output_file, language, check_language)
 
 
 @cli.command(name='tokenize-by-language')
@@ -40,6 +42,13 @@ def run_count(input_file, output_file):
 @click.option('--language', '-l', default='en')
 def run_recount(input_file, output_file, language):
     recount_messy(input_file, output_file, language)
+
+
+@cli.command(name='merge-freqs')
+@click.argument('input_filenames', type=click.Path(readable=True, dir_okay=False), nargs=-1)
+@click.argument('output_filename', type=click.Path(writable=True, dir_okay=False))
+def run_merge_freqs(input_filenames, output_filename):
+    merge_count_files_to_freqs(input_filenames, output_filename)
 
 
 @cli.command(name='simplify-chinese')

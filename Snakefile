@@ -62,7 +62,7 @@ SOURCE_LANGUAGES = {
     #
     # The frequency of the Balkan languages is surprising, but it seems to be
     # legit.
-    'reddit': [
+    'reddit/merged': [
         'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'nb', 'da', 'fi', 'is',
         'sh-Latn', 'sr-Cyrl', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
         'eo', 'fil'
@@ -82,7 +82,7 @@ SOURCE_LANGUAGES = {
     'newscrawl': ['en', 'fr', 'fi', 'de', 'cs', 'ru'],
 
     # Google Ngrams 2012
-    'google-ngrams': ['en', 'zh-Hans', 'zh', 'fr', 'de', 'he', 'it', 'ru', 'es'],
+    'google': ['en', 'zh-Hans', 'zh', 'fr', 'de', 'he', 'it', 'ru', 'es'],
 
     # Jieba's built-in wordlist
     'jieba': ['zh'],
@@ -96,6 +96,11 @@ SOURCE_LANGUAGES = {
     # SUBTLEX: word counts from subtitles
     'subtlex': ['en-US', 'en-GB', 'en', 'de', 'nl', 'pl', 'zh-Hans', 'zh'],
 }
+
+FULL_TEXT_SOURCES = [
+    'wikipedia', 'reddit/merged', 'twitter', 'opensubtitles', 'tatoeba',
+    'newscrawl', 'europarl', 'globalvoices'
+]
 
 LANGUAGE_VARIANTS = {
     'pt': ['pt-PT', 'pt-BR'],
@@ -118,10 +123,12 @@ GLOBALVOICES_LANGUAGE_MAP = {
 TATOEBA_LANGUAGE_MAP = {
     'zh-Hans': 'cmn',
     'fa': 'pes',
-    'fil': 'tl'
+    'fil': 'tl',
+    'sr-Cyrl': 'sr'
 }
 WP_LANGUAGE_MAP = {
-    'sr-Cyrl': 'sr'
+    'sr-Cyrl': 'sr',
+    'fil': 'tl'
 }
 WP_VERSION = '20161120'
 GOOGLE_LANGUAGE_MAP = {
@@ -148,60 +155,35 @@ REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
 
 LANGUAGE_SOURCES = defaultdict(list)
 for source in SOURCE_LANGUAGES:
-    for lang in SOURCE_LANGUAGES[source]:
-        LANGUAGE_SOURCES[lang].append(source)
+    for _lang in SOURCE_LANGUAGES[source]:
+        LANGUAGE_SOURCES[_lang].append(source)
 
-SUPPORTED_LANGUAGES = sorted([lang for lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[lang]) >= 3])
-print(SUPPORTED_LANGUAGES)
+SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
+TOKENIZED_LANGUAGES = [_lang for _lang in SUPPORTED_LANGUAGES if '-' not in _lang and _lang != 'zh' and _lang != 'sr' and _lang != 'sh' and _lang != 'pt']
+
+
+def language_count_sources(lang):
+    """
+    Get all the source of word counts we have in a language.
+    """
+    return [
+        "data/counts/{source}/{lang}.txt".format(source=source, lang=lang)
+        for source in LANGUAGE_SOURCES[lang]
+    ]
+
+
+def language_text_sources(lang):
+    return [
+        "data/tokenized/{source}/{lang}.txt".format(source=source, lang=lang)
+        for source in LANGUAGE_SOURCES[lang]
+        if source in FULL_TEXT_SOURCES
+    ]
+
 
 rule all:
     input:
-        expand(
-            "data/counts/opensubtitles/{lang}.txt",
-            lang=SOURCE_LANGUAGES['opensubtitles']
-        ),
-        expand(
-            "data/counts/wikipedia/{lang}.txt",
-            lang=SOURCE_LANGUAGES['wikipedia'],
-        ),
-        expand(
-            "data/counts/europarl/{lang}.txt",
-            lang=SOURCE_LANGUAGES['europarl'],
-        ),
-        expand(
-            "data/counts/newscrawl/{lang}.txt",
-            lang=SOURCE_LANGUAGES['newscrawl']
-        ),
-        expand(
-            "data/counts/google/{lang}.txt",
-            lang=SOURCE_LANGUAGES['google-ngrams']
-        ),
-        expand(
-            "data/counts/reddit/merged/{lang}.txt",
-            lang=SOURCE_LANGUAGES['reddit']
-        ),
-        expand(
-            "data/counts/twitter/{lang}.txt",
-            lang=SOURCE_LANGUAGES['twitter']
-        ),
-        expand(
-            "data/counts/leeds/{lang}.txt",
-            lang=SOURCE_LANGUAGES['leeds']
-        ),
-        expand(
-            "data/counts/subtlex/{lang}.txt",
-            lang=SOURCE_LANGUAGES['subtlex']
-        ),
-        expand(
-            "data/counts/globalvoices/{lang}.txt",
-            lang=SOURCE_LANGUAGES['globalvoices']
-        ),
-        expand(
-            "data/counts/tatoeba/{lang}.txt",
-            lang=SOURCE_LANGUAGES['tatoeba']
-        ),
-        "data/counts/jieba/zh.txt",
-        "data/counts/mokk/hu.txt"
+        expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES),
+        expand("data/shuffled/{lang}.txt", lang=TOKENIZED_LANGUAGES)
 
 
 # Downloaders
@@ -428,15 +410,15 @@ rule tokenize_globalvoices:
     output:
         "data/tokenized/globalvoices/{lang}.txt"
     shell:
-        "xc tokenize -l {wildcards.lang} {input} {output}"
+        "sed -e 's/· Global Voices//' {input} | xc tokenize -c -l {wildcards.lang} - {output}"
 
-rule tokenize_text_newscrawl:
+rule tokenize_newscrawl:
     input:
         "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
     output:
         "data/tokenized/newscrawl/{lang}.txt"
     shell:
-        "xc tokenize {input} {output} -l {wildcards.lang}"
+        "xc tokenize -c -l {wildcards.lang} {input} {output}"
 
 rule tokenize_gzipped_text:
     input:
@@ -450,7 +432,7 @@ rule tokenize_reddit:
     input:
         "data/extracted/reddit/{date}.txt.gz"
     output:
-        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SOURCE_LANGUAGES['reddit'])
+        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SOURCE_LANGUAGES['reddit/merged'])
     shell:
         "zcat {input} | xc tokenize-by-language -m reddit - data/tokenized/reddit/{wildcards.date}"
 
@@ -473,6 +455,19 @@ rule count_tokens:
         "data/counts/{source}/{lang}.txt"
     shell:
         "xc count {input} {output}"
+
+# Merging frequencies
+rule merge_freqs:
+    input:
+        lambda wildcards: language_count_sources(wildcards.lang)
+    output:
+        "data/freqs/{lang}.txt"
+    shell:
+        "xc merge-freqs {input} {output}"
+
+
+# Handling overlapping languages
+# ==============================
 
 # Reddit has a fair amount of conversation in Serbo-Croatian. cld2 cannot
 # actually distinguish what country the speaker is in, so the Latin text
@@ -607,6 +602,29 @@ rule copy_europarl_pt:
         "data/counts/europarl/pt.txt"
     shell:
         "cp {input} {output}"
+
+
+# Assembling corpus text
+# ======================
+
+rule combine_reddit:
+    input:
+        expand("data/tokenized/reddit/{date}/{{lang}}.txt", date=REDDIT_SHARDS)
+    output:
+        "data/tokenized/reddit/merged/{lang}.txt"
+    run:
+        if wildcards.lang == 'en':
+            shell("cat {input} | split -n r/1/50 > {output}")
+        else:
+            shell("cat {input} > {output}")
+
+rule shuffle_full_text:
+    input:
+        lambda wildcards: language_text_sources(wildcards.lang)
+    output:
+        "data/shuffled/{lang}.txt"
+    shell:
+        "cat {input} | shuf > {output}"
 
 ruleorder:
     merge_reddit > \

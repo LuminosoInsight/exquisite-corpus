@@ -59,14 +59,18 @@ CLD2_LANGUAGES = sorted(set([
 #   - Breton (the word "memes" itself)
 
 
-def tokenize_file(infile, outfile, language):
+def tokenize_file(infile, outfile, language, check_language=False):
     """
     Take in a file of plain text, tokenize it as the given language, and write
     the result as lines of space-separated tokens.
     """
     for line in infile:
         tokens = tokenize(line.rstrip(), language, include_punctuation=True, external_wordlist=True)
-        print(' '.join(tokens), file=outfile)
+        checked_lang = None
+        if check_language:
+            checked_lang, _confident = cld2_detect_language(line.rstrip())
+        if (not check_language) or (simplify_language_code(checked_lang) == simplify_language_code(language)):
+            print(' '.join(tokens), file=outfile)
 
 
 def cld2_detect_language(text):
@@ -91,6 +95,10 @@ def cld2_detect_language(text):
     # becomes 'zh'
     code = CLD2_LANGUAGE_MAP.get(lang, lang)
     return code, confident
+
+
+def simplify_language_code(code):
+    return code.split('-')[0]
 
 
 def tokenize_by_language(in_file, out_dir, mode='twitter'):

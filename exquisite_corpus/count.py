@@ -1,4 +1,5 @@
 from collections import Counter
+from ftfy.fixes import uncurl_quotes
 from wordfreq.tokens import tokenize
 import regex
 
@@ -13,7 +14,7 @@ def count_tokenized(infile, outfile):
     counts = Counter()
     total = 0
     for line in infile:
-        line = line.rstrip()
+        line = uncurl_quotes(line.rstrip())
         if line:
             toks = [t.strip("'") for t in line.split(' ')]
             counts.update(toks)
@@ -52,3 +53,14 @@ def recount_messy(infile, outfile, language):
         if not PUNCT_RE.match(token):
             print('{}\t{}'.format(token, count), file=outfile)
 
+
+def counts_to_freqs(infile, outfile):
+    total = None
+    for line in infile:
+        word, strcount = line.rstrip().split('\t', 1)
+        count = int(strcount)
+        if word == '__total__':
+            total = count
+        else:
+            freq = count / total
+            print('{:.5g}\t{}'.format(freq, count), file=outfile)
