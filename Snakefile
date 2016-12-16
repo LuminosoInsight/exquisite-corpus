@@ -12,11 +12,13 @@ SOURCE_LANGUAGES = {
     # - 'ze' because that's not a real language code
     #   (it seems to represent code-switching Chinese and English)
     # - 'th' because we don't know how to tokenize it
+    # - 'vi' because its tokens are sub-words and the text is often
+    #   seriously mojibaked
     'opensubtitles': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
         'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
         'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh-Latn', 'si', 'sk',
-        'sl', 'sq', 'sr', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant', 'zh'
+        'sl', 'sq', 'sr-Cyrl', 'sv', 'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # Europarl v7, which also comes from OPUS
@@ -29,7 +31,7 @@ SOURCE_LANGUAGES = {
     'globalvoices': [
         'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
         'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
-        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sr', 'sv', 'sw', 'tr', 'ur',
+        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh-Latn', 'sv', 'sw', 'tr', 'ur',
         'zh-Hans', 'zh-Hant', 'zh'
     ],
 
@@ -41,7 +43,7 @@ SOURCE_LANGUAGES = {
         'en', 'eo', 'de', 'fr', 'es', 'ja', 'ru', 'tr', 'it', 'pt', 'he',
         'pl', 'zh-Hans', 'zh', 'hu', 'nl', 'uk', 'fi', 'mn', 'fa', 'ar',
         'da', 'sv', 'bg', 'ia', 'is', 'nb', 'la', 'el', 'fil', 'lt', 'jbo',
-        'sr'
+        'sh-Latn', 'sr-Cyrl'
     ],
 
     # Sufficiently large, non-spammy Wikipedias.
@@ -59,12 +61,9 @@ SOURCE_LANGUAGES = {
     # 99.2% of Reddit is in English. Some text that's in other languages is
     # just spam, but these languages seem to have a reasonable amount of
     # representative text.
-    #
-    # The frequency of the Balkan languages is surprising, but it seems to be
-    # legit.
     'reddit/merged': [
-        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'nb', 'da', 'fi', 'is',
-        'sh-Latn', 'sr-Cyrl', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
+        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'nb', 'da', 'fi',
+        'sh-Latn', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
         'eo', 'fil'
     ],
 
@@ -102,12 +101,6 @@ FULL_TEXT_SOURCES = [
     'newscrawl', 'europarl', 'globalvoices'
 ]
 
-LANGUAGE_VARIANTS = {
-    'pt': ['pt-PT', 'pt-BR'],
-    'en': ['en-US', 'en-GB'],
-    'zh': ['zh-Hans', 'zh-Hant']
-}
-
 OPUS_LANGUAGE_MAP = {
     'pt-PT': 'pt',
     'pt-BR': 'pt_br',
@@ -118,7 +111,8 @@ OPUS_LANGUAGE_MAP = {
 GLOBALVOICES_LANGUAGE_MAP = {
     'ja': 'jp',
     'zh-Hant': 'zht',
-    'zh-Hans': 'zhs'
+    'zh-Hans': 'zhs',
+    'sh-Latn': 'sr'
 }
 TATOEBA_LANGUAGE_MAP = {
     'zh-Hans': 'cmn',
@@ -159,8 +153,8 @@ for source in SOURCE_LANGUAGES:
         LANGUAGE_SOURCES[_lang].append(source)
 
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
-TOKENIZED_LANGUAGES = [_lang for _lang in SUPPORTED_LANGUAGES if '-' not in _lang and _lang != 'zh' and _lang != 'sr' and _lang != 'sh' and _lang != 'pt']
-
+CORE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 7])
+print(CORE_LANGUAGES)
 
 def language_count_sources(lang):
     """
@@ -179,11 +173,27 @@ def language_text_sources(lang):
         if source in FULL_TEXT_SOURCES
     ]
 
+def balkanize_cld2_languages(languages):
+    """
+    CLD2 detects 'sr', 'hr', and 'bs' separately, and outputs them in
+    separate files that we'll have to merge together, because it's not actually
+    reliably distinguishing them.
+    """
+    result = set()
+    for lang in languages:
+        if lang == 'sh-Latn':
+            result.update(['sr', 'hr', 'bs'])
+        elif lang == 'sr-Cyrl':
+            result.add('sr')
+        else:
+            result.add(lang)
+    return sorted(result)
+
 
 rule all:
     input:
         expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES),
-        expand("data/skipgrams/{lang}.vec", lang=TOKENIZED_LANGUAGES)
+        expand("data/shuffled/{lang}.txt", lang=SUPPORTED_LANGUAGES)
 
 
 # Downloaders
@@ -385,7 +395,7 @@ rule tokenize_wikipedia:
     output:
         "data/tokenized/wikipedia/{lang}.txt"
     shell:
-        "bunzip2 -c {input} | wiki2text | xc tokenize -l {wildcards.lang} > {output}"
+        "bunzip2 -c {input} | wiki2text | xc tokenize -l {wildcards.lang} - {output}"
 
 rule tokenize_europarl:
     input:
@@ -394,7 +404,7 @@ rule tokenize_europarl:
         "data/tokenized/europarl/{lang}.txt"
     shell:
         # Remove country codes and fix mojibake
-        "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -l {wildcards.lang} > {output}"
+        "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -l {wildcards.lang} - {output}"
 
 rule tokenize_tatoeba:
     input:
@@ -426,13 +436,13 @@ rule tokenize_gzipped_text:
     output:
         "data/tokenized/{dir}/{lang}.txt"
     shell:
-        "zcat {input} | xc tokenize -l {wildcards.lang} > {output}"
+        "zcat {input} | xc tokenize -l {wildcards.lang} - {output}"
 
 rule tokenize_reddit:
     input:
         "data/extracted/reddit/{date}.txt.gz"
     output:
-        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SOURCE_LANGUAGES['reddit/merged'])
+        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=balkanize_cld2_languages(SOURCE_LANGUAGES['reddit/merged']))
     shell:
         "zcat {input} | xc tokenize-by-language -m reddit - data/tokenized/reddit/{wildcards.date}"
 
@@ -441,7 +451,7 @@ rule tokenize_twitter:
         "data/raw/twitter/twitter-2014.txt.gz",
         "data/raw/twitter/twitter-2015.txt.gz"
     output:
-        expand("data/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
+        expand("data/tokenized/twitter/{lang}.txt", lang=balkanize_cld2_languages(SOURCE_LANGUAGES['twitter']))
     shell:
         "zcat {input} | xc tokenize-by-language -m twitter - data/tokenized/twitter"
 
@@ -477,47 +487,69 @@ rule merge_freqs:
 
 rule debalkanize_reddit_sh:
     input:
-        expand("data/counts/reddit/{{date}}/{lang}.txt", lang=['bs', 'hr', 'sr'])
+        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/counts/reddit/{date}/sh-Latn.txt"
+        "data/tokenized/reddit/{date}/sh-Latn.txt"
     shell:
-        "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
+        "grep -vh '[А-Яа-я]' {input} > {output}"
 
 # Twitter has the same effect.
 rule debalkanize_twitter_sh:
     input:
-        expand("data/counts/twitter/{lang}.txt", lang=['bs', 'hr', 'sr'])
+        expand("data/tokenized/twitter/{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/counts/twitter/sh-Latn.txt"
+        "data/tokenized/twitter/sh-Latn.txt"
     shell:
-        "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
+        "grep -vh '[А-Яа-я]' {input} > {output}"
 
 # OpenSubtitles is presumably separated by country, but we also want to align
 # it with the 'sh' data we have from other sources.
 rule debalkanize_opensubtitles_sh:
     input:
-        expand("data/counts/opensubtitles/{lang}.txt", lang=['bs', 'hr', 'sr'])
+        expand("data/tokenized/opensubtitles/{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/counts/opensubtitles/sh-Latn.txt"
+        "data/tokenized/opensubtitles/sh-Latn.txt"
     shell:
-        "grep -vh '[А-Яа-я]' {input} | xc recount - {output} -l sh"
+        "grep -vh '[А-Яа-я]' {input} > {output}"
 
+rule debalkanize_tatoeba_sh:
+    input:
+        "data/tokenized/tatoeba/sr.txt"
+    output:
+        "data/tokenized/tatoeba/sh-Latn.txt"
+    shell:
+        "grep -vh '[А-Яа-я]' {input} > {output}"
 rule debalkanize_reddit_sr:
     input:
-        "data/counts/reddit/{date}/sr.txt"
+        "data/tokenized/reddit/{date}/sr.txt"
     output:
-        "data/counts/reddit/{date}/sr-Cyrl.txt"
+        "data/tokenized/reddit/{date}/sr-Cyrl.txt"
     shell:
-        "egrep '[А-Яа-я]|__total__' {input} | xc recount - {output} -l sr"
+        "grep '[А-Яа-я]' {input} > {output}"
 
-# Twitter has the same effect.
 rule debalkanize_twitter_sr:
     input:
-        "data/counts/twitter/sr.txt"
+        "data/tokenized/twitter/sr.txt"
     output:
-        "data/counts/twitter/sr-Cyrl.txt"
+        "data/tokenized/twitter/sr-Cyrl.txt"
     shell:
-        "egrep '[А-Яа-я]|__total__' {input} | xc recount - {output} -l sr"
+        "grep '[А-Яа-я]' {input} > {output}"
+
+rule debalkanize_opensubtitles_sr:
+    input:
+        "data/tokenized/opensubtitles/sr.txt"
+    output:
+        "data/tokenized/opensubtitles/sr-Cyrl.txt"
+    shell:
+        "grep '[А-Яа-я]' {input} > {output}"
+
+rule debalkanize_tatoeba_sr:
+    input:
+        "data/tokenized/tatoeba/sr.txt"
+    output:
+        "data/tokenized/tatoeba/sr-Cyrl.txt"
+    shell:
+        "grep '[А-Яа-я]' {input} > {output}"
 
 rule recount_messy_tokens:
     input:
@@ -546,30 +578,30 @@ rule merge_subtlex_en:
 
 rule merge_opensubtitles_pt:
     input:
-        "data/counts/opensubtitles/pt-BR.txt",
-        "data/counts/opensubtitles/pt-PT.txt",
+        "data/tokenized/opensubtitles/pt-BR.txt",
+        "data/tokenized/opensubtitles/pt-PT.txt",
     output:
-        "data/counts/opensubtitles/pt.txt"
+        "data/tokenized/opensubtitles/pt.txt"
     shell:
-        "cat {input} | xc recount - {output} -l pt"
+        "cat {input} > {output}"
 
 rule merge_opensubtitles_zh:
     input:
-        "data/counts/opensubtitles/zh-Hans.txt",
-        "data/counts/opensubtitles/zh-Hant.txt",
+        "data/tokenized/opensubtitles/zh-Hans.txt",
+        "data/tokenized/opensubtitles/zh-Hant.txt",
     output:
-        "data/counts/opensubtitles/zh.txt"
+        "data/tokenized/opensubtitles/zh.txt"
     shell:
-        "cat {input} | xc recount - {output} -l zh"
+        "cat {input} | xc simplify-chinese - {output}"
 
 rule merge_globalvoices_zh:
     input:
-        "data/counts/globalvoices/zh-Hans.txt",
-        "data/counts/globalvoices/zh-Hant.txt",
+        "data/tokenized/globalvoices/zh-Hans.txt",
+        "data/tokenized/globalvoices/zh-Hant.txt",
     output:
-        "data/counts/globalvoices/zh.txt"
+        "data/tokenized/globalvoices/zh.txt"
     shell:
-        "cat {input} | xc recount - {output} -l zh"
+        "cat {input} | xc simplify-chinese > {output}"
 
 rule copy_google_zh:
     input:
@@ -577,13 +609,13 @@ rule copy_google_zh:
     output:
         "data/counts/google/zh.txt"
     shell:
-        "cp {input} {output}"
+        "xc simplify-chinese {input} {output}"
 
 rule copy_tatoeba_zh:
     input:
-        "data/counts/tatoeba/zh-Hans.txt"
+        "data/tokenized/tatoeba/zh-Hans.txt"
     output:
-        "data/counts/tatoeba/zh.txt"
+        "data/tokenized/tatoeba/zh.txt"
     shell:
         "cp {input} {output}"
 
@@ -593,13 +625,13 @@ rule copy_subtlex_zh:
     output:
         "data/counts/subtlex/zh.txt"
     shell:
-        "cp {input} {output}"
+        "xc simplify-chinese {input} {output}"
 
 rule copy_europarl_pt:
     input:
-        "data/counts/europarl/pt-PT.txt"
+        "data/tokenized/europarl/pt-PT.txt"
     output:
-        "data/counts/europarl/pt.txt"
+        "data/tokenized/europarl/pt.txt"
     shell:
         "cp {input} {output}"
 
@@ -632,13 +664,16 @@ rule fasttext_skipgrams:
     output:
         "data/skipgrams/{lang}.vec",
         "data/skipgrams/{lang}.bin"
-    shell:
-        "fasttext skipgram -epoch 10 -input {input} -output data/skipgrams/{wildcards.lang}"
+    run:
+        if wildcards.lang == 'en':
+            shell("fasttext skipgram -dim 300 -input {input} -output data/skipgrams/{wildcards.lang}")
+        else:
+           shell("fasttext skipgram -epoch 10 -input {input} -output data/skipgrams/{wildcards.lang}")
 
 ruleorder:
     merge_reddit > \
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
     debalkanize_reddit_sh > debalkanize_twitter_sh > debalkanize_reddit_sr > debalkanize_twitter_sr > \
-    copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
+    combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     recount_messy_tokens > count_tokens
 

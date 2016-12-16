@@ -2,6 +2,7 @@ from wordfreq import tokenize
 from ftfy.fixes import unescape_html
 import regex
 import pycld2
+import langcodes
 
 CLD2_BAD_CHAR_RANGE = "[%s]" % "".join(
     [
@@ -69,7 +70,7 @@ def tokenize_file(infile, outfile, language, check_language=False):
         checked_lang = None
         if check_language:
             checked_lang, _confident = cld2_detect_language(line.rstrip())
-        if (not check_language) or (simplify_language_code(checked_lang) == simplify_language_code(language)):
+        if (not check_language) or langcodes.tag_match_score(checked_lang, language) >= 90:
             print(' '.join(tokens), file=outfile)
 
 
@@ -95,10 +96,6 @@ def cld2_detect_language(text):
     # becomes 'zh'
     code = CLD2_LANGUAGE_MAP.get(lang, lang)
     return code, confident
-
-
-def simplify_language_code(code):
-    return code.split('-')[0]
 
 
 def tokenize_by_language(in_file, out_dir, mode='twitter'):
