@@ -183,7 +183,7 @@ def language_text_sources(lang):
 rule all:
     input:
         expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES),
-        expand("data/shuffled/{lang}.txt", lang=TOKENIZED_LANGUAGES)
+        expand("data/skipgrams/{lang}.vec", lang=TOKENIZED_LANGUAGES)
 
 
 # Downloaders
@@ -624,7 +624,16 @@ rule shuffle_full_text:
     output:
         "data/shuffled/{lang}.txt"
     shell:
-        "cat {input} | shuf > {output}"
+        "grep -h '.' {input} | scripts/imperfect-shuffle.sh {output} {wildcards.lang}"
+
+rule fasttext_skipgrams:
+    input:
+        "data/shuffled/{lang}.txt"
+    output:
+        "data/skipgrams/{lang}.vec",
+        "data/skipgrams/{lang}.bin"
+    shell:
+        "fasttext skipgram -epoch 10 -input {input} -output data/skipgrams/{wildcards.lang}"
 
 ruleorder:
     merge_reddit > \
