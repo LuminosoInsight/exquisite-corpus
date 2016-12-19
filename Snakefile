@@ -17,8 +17,8 @@ SOURCE_LANGUAGES = {
     'opensubtitles': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
         'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
-        'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh-Latn', 'si', 'sk',
-        'sl', 'sq', 'sr-Cyrl', 'sv', 'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
+        'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh', 'si', 'sk',
+        'sl', 'sq', 'sv', 'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # Europarl v7, which also comes from OPUS
@@ -31,7 +31,7 @@ SOURCE_LANGUAGES = {
     'globalvoices': [
         'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
         'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
-        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh-Latn', 'sv', 'sw', 'tr', 'ur',
+        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh', 'sv', 'sw', 'tr', 'ur',
         'zh-Hans', 'zh-Hant', 'zh'
     ],
 
@@ -43,7 +43,7 @@ SOURCE_LANGUAGES = {
         'en', 'eo', 'de', 'fr', 'es', 'ja', 'ru', 'tr', 'it', 'pt', 'he',
         'pl', 'zh-Hans', 'zh', 'hu', 'nl', 'uk', 'fi', 'mn', 'fa', 'ar',
         'da', 'sv', 'bg', 'ia', 'is', 'nb', 'la', 'el', 'fil', 'lt', 'jbo',
-        'sh-Latn', 'sr-Cyrl'
+        'sh'
     ],
 
     # Sufficiently large, non-spammy Wikipedias.
@@ -54,7 +54,7 @@ SOURCE_LANGUAGES = {
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et',
         'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hu', 'hr', 'hy', 'id', 'it',
         'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt',
-        'ro', 'ru', 'sh-Latn', 'sk', 'sl', 'sr-Cyrl', 'sv', 'tr', 'uk', 'uz',
+        'ro', 'ru', 'sh', 'sk', 'sl', 'sv', 'tr', 'uk', 'uz',
         'vi', 'zh'
     ],
 
@@ -63,7 +63,7 @@ SOURCE_LANGUAGES = {
     # representative text.
     'reddit/merged': [
         'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'nb', 'da', 'fi',
-        'sh-Latn', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
+        'sh', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
         'eo', 'fil'
     ],
 
@@ -71,7 +71,7 @@ SOURCE_LANGUAGES = {
     # spam
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh-Latn', 'sr-Cyrl',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'mk', 'cs', 'ro', 'hu',
         'sw', 'vi', 'az', 'sq'
@@ -112,16 +112,15 @@ GLOBALVOICES_LANGUAGE_MAP = {
     'ja': 'jp',
     'zh-Hant': 'zht',
     'zh-Hans': 'zhs',
-    'sh-Latn': 'sr'
+    'sh': 'sr'
 }
 TATOEBA_LANGUAGE_MAP = {
     'zh-Hans': 'cmn',
     'fa': 'pes',
     'fil': 'tl',
-    'sr-Cyrl': 'sr'
+    'sh': 'sr'
 }
 WP_LANGUAGE_MAP = {
-    'sr-Cyrl': 'sr',
     'fil': 'tl'
 }
 WP_VERSION = '20161120'
@@ -181,10 +180,8 @@ def balkanize_cld2_languages(languages):
     """
     result = set()
     for lang in languages:
-        if lang == 'sh-Latn':
+        if lang == 'sh':
             result.update(['sr', 'hr', 'bs'])
-        elif lang == 'sr-Cyrl':
-            result.add('sr')
         else:
             result.add(lang)
     return sorted(result)
@@ -194,6 +191,11 @@ rule all:
     input:
         expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES),
         expand("data/shuffled/{lang}.txt", lang=SUPPORTED_LANGUAGES)
+
+
+rule embeddings:
+    input:
+        expand("data/skipgrams/{lang}.vec", lang=SUPPORTED_LANGUAGES)
 
 
 # Downloaders
@@ -442,7 +444,7 @@ rule tokenize_reddit:
     input:
         "data/extracted/reddit/{date}.txt.gz"
     output:
-        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=balkanize_cld2_languages(SOURCE_LANGUAGES['reddit/merged']))
+        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=SOURCE_LANGUAGES['reddit/merged'])
     shell:
         "zcat {input} | xc tokenize-by-language -m reddit - data/tokenized/reddit/{wildcards.date}"
 
@@ -451,7 +453,7 @@ rule tokenize_twitter:
         "data/raw/twitter/twitter-2014.txt.gz",
         "data/raw/twitter/twitter-2015.txt.gz"
     output:
-        expand("data/tokenized/twitter/{lang}.txt", lang=balkanize_cld2_languages(SOURCE_LANGUAGES['twitter']))
+        expand("data/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
     shell:
         "zcat {input} | xc tokenize-by-language -m twitter - data/tokenized/twitter"
 
@@ -485,71 +487,15 @@ rule merge_freqs:
 # Bosnian. Here, we re-split the data into Latin text (Serbo-Croatian)
 # and Cyrillic (Serbian).
 
-rule debalkanize_reddit_sh:
-    input:
-        expand("data/tokenized/reddit/{{date}}/{lang}.txt", lang=['bs', 'hr', 'sr'])
-    output:
-        "data/tokenized/reddit/{date}/sh-Latn.txt"
-    shell:
-        "grep -vh '[А-Яа-я]' {input} > {output}"
-
-# Twitter has the same effect.
-rule debalkanize_twitter_sh:
-    input:
-        expand("data/tokenized/twitter/{lang}.txt", lang=['bs', 'hr', 'sr'])
-    output:
-        "data/tokenized/twitter/sh-Latn.txt"
-    shell:
-        "grep -vh '[А-Яа-я]' {input} > {output}"
-
 # OpenSubtitles is presumably separated by country, but we also want to align
 # it with the 'sh' data we have from other sources.
 rule debalkanize_opensubtitles_sh:
     input:
         expand("data/tokenized/opensubtitles/{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/tokenized/opensubtitles/sh-Latn.txt"
+        "data/tokenized/opensubtitles/sh.txt"
     shell:
         "grep -vh '[А-Яа-я]' {input} > {output}"
-
-rule debalkanize_tatoeba_sh:
-    input:
-        "data/tokenized/tatoeba/sr.txt"
-    output:
-        "data/tokenized/tatoeba/sh-Latn.txt"
-    shell:
-        "grep -vh '[А-Яа-я]' {input} > {output}"
-rule debalkanize_reddit_sr:
-    input:
-        "data/tokenized/reddit/{date}/sr.txt"
-    output:
-        "data/tokenized/reddit/{date}/sr-Cyrl.txt"
-    shell:
-        "grep '[А-Яа-я]' {input} > {output}"
-
-rule debalkanize_twitter_sr:
-    input:
-        "data/tokenized/twitter/sr.txt"
-    output:
-        "data/tokenized/twitter/sr-Cyrl.txt"
-    shell:
-        "grep '[А-Яа-я]' {input} > {output}"
-
-rule debalkanize_opensubtitles_sr:
-    input:
-        "data/tokenized/opensubtitles/sr.txt"
-    output:
-        "data/tokenized/opensubtitles/sr-Cyrl.txt"
-    shell:
-        "grep '[А-Яа-я]' {input} > {output}"
-
-rule debalkanize_tatoeba_sr:
-    input:
-        "data/tokenized/tatoeba/sr.txt"
-    output:
-        "data/tokenized/tatoeba/sr-Cyrl.txt"
-    shell:
-        "grep '[А-Яа-я]' {input} > {output}"
 
 rule recount_messy_tokens:
     input:
@@ -673,7 +619,6 @@ rule fasttext_skipgrams:
 ruleorder:
     merge_reddit > \
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
-    debalkanize_reddit_sh > debalkanize_twitter_sh > debalkanize_reddit_sr > debalkanize_twitter_sr > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     recount_messy_tokens > count_tokens
 

@@ -39,7 +39,10 @@ CLD2_LANGUAGE_MAP = {
     'tl': 'fil',
     'jw': 'jv',
     'iw': 'he',
-    'no': 'nb'
+    'no': 'nb',
+    'hr': 'sh',
+    'sr': 'sh',
+    'bs': 'sh'
 }
 
 CLD2_LANGUAGES = sorted(set([
