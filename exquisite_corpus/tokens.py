@@ -69,7 +69,8 @@ def tokenize_file(infile, outfile, language, check_language=False):
     the result as lines of space-separated tokens.
     """
     for line in infile:
-        tokens = tokenize(line.rstrip(), language, include_punctuation=True, external_wordlist=True)
+        line = unescape_html(line.rstrip())
+        tokens = tokenize(line, language, include_punctuation=True, external_wordlist=True)
         checked_lang = None
         if check_language:
             checked_lang, _confident = cld2_detect_language(line.rstrip())

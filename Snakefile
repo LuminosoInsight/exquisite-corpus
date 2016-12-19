@@ -98,7 +98,7 @@ SOURCE_LANGUAGES = {
 
 FULL_TEXT_SOURCES = [
     'wikipedia', 'reddit/merged', 'twitter', 'opensubtitles', 'tatoeba',
-    'newscrawl', 'europarl', 'globalvoices'
+    'newscrawl', 'europarl', 'globalvoices', 'amazon'
 ]
 
 OPUS_LANGUAGE_MAP = {
@@ -144,7 +144,15 @@ REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
     [(2015, month) for month in range(1, 5 + 1)]
 )]
-
+AMAZON_CATEGORIES = [
+    'Books', 'Electronics', 'Movies_and_TV', 'CDs_and_Vinyl',
+    'Clothing_Shoes_and_Jewelry', 'Home_and_Kitchen', 'Kindle_Store',
+    'Sports_and_Outdoors', 'Cell_Phones_and_Accessories', 'Health_and_Personal_Care',
+    'Toys_and_Games', 'Video_Games', 'Tools_and_Home_Improvement', 'Beauty',
+    'Apps_for_Android', 'Office_Products', 'Pet_Supplies', 'Automotive',
+    'Grocery_and_Gourmet_Food', 'Patio_Lawn_and_Garden', 'Baby', 'Digital_Music',
+    'Musical_Instruments', 'Amazon_Instant_Video'
+]
 
 LANGUAGE_SOURCES = defaultdict(list)
 for source in SOURCE_LANGUAGES:
@@ -192,7 +200,6 @@ rule all:
         expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES),
         expand("data/shuffled/{lang}.txt", lang=SUPPORTED_LANGUAGES)
 
-
 rule embeddings:
     input:
         expand("data/skipgrams/{lang}.vec", lang=SUPPORTED_LANGUAGES)
@@ -231,7 +238,6 @@ rule download_globalvoices_monolingual:
         download=1, opusdownload=1
     priority: 0
 
-
 rule download_tatoeba_monolingual:
     output:
         "data/downloaded/tatoeba/{lang}.txt"
@@ -241,8 +247,6 @@ rule download_tatoeba_monolingual:
     resources:
         download=1, opusdownload=1
     priority: 0
-
-
 
 rule download_wikipedia:
     output:
@@ -274,6 +278,12 @@ rule download_google:
             # Do a bit of pre-processing as we download
             shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
+rule download_amazon:
+    output:
+        "data/downloaded/amazon/{category}.json.gz"
+    shell:
+        "curl -L 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
+
 # Handling downloaded data
 # ========================
 rule extract_newscrawl:
@@ -302,6 +312,15 @@ rule extract_reddit:
         "data/extracted/reddit/{year}-{month}.txt.gz"
     shell:
         "bunzip2 -c {input} | jq -r 'select(.score > 0) | .body' | fgrep -v '[deleted]' | sed -e 's/&gt;/>/g' -e 's/&lt;/</g' -e 's/&amp;/\&/g' | gzip -c > {output}"
+
+rule extract_amazon:
+    input:
+        "data/downloaded/amazon/{category}.json.gz"
+    output:
+        "data/extracted/amazon/{category}.csv"
+    shell:
+        r"""zcat {input} | jq -r -c '"__label__\(.["overall"] | tostring)\t\(.["summary"])\t\(.["reviewText"])"' > {output}"""
+
 
 # Transforming existing word lists
 # ================================
@@ -388,6 +407,7 @@ rule transform_jieba:
     shell:
         "cut -d ' ' -f 1,2 {input} | tr ' ' '\t' | xc simplify-chinese - {output}"
 
+
 # Tokenizing
 # ==========
 
@@ -398,6 +418,14 @@ rule tokenize_wikipedia:
         "data/tokenized/wikipedia/{lang}.txt"
     shell:
         "bunzip2 -c {input} | wiki2text | xc tokenize -l {wildcards.lang} - {output}"
+
+rule tokenize_amazon:
+    input:
+        expand("data/extracted/amazon/{category}.csv", category=AMAZON_CATEGORIES)
+    output:
+        "data/tokenized/amazon/en.txt"
+    shell:
+        "sed -e 's/\t/ ¶ /g' {input} | xc tokenize -l en - {output}"
 
 rule tokenize_europarl:
     input:
