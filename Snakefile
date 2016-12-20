@@ -27,14 +27,6 @@ SOURCE_LANGUAGES = {
         'lt', 'lv', 'nl', 'pl', 'pt-PT', 'pt', 'ro', 'sk', 'sl', 'sv'
     ],
 
-    # GlobalVoices (LREC 2012), from OPUS -- languages with over 50,000 tokens
-    'globalvoices': [
-        'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
-        'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
-        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh', 'sv', 'sw', 'tr', 'ur',
-        'zh-Hans', 'zh-Hant', 'zh'
-    ],
-
     # Tatoeba 2014, from OPUS -- languages with over 50,000 tokens.
     # Skip 'ber' (we don't have the ability to sort out the dialects and
     # scripts of Berber and Tamazight) and 'tlh' (Klingon is not useful enough
@@ -61,10 +53,12 @@ SOURCE_LANGUAGES = {
     # 99.2% of Reddit is in English. Some text that's in other languages is
     # just spam, but these languages seem to have a reasonable amount of
     # representative text.
+    #
+    # Frequently-detected languages that are too spammy or mis-detected:
+    # ar, da, nl, sh, ro, ru, fil
     'reddit/merged': [
-        'en', 'es', 'fr', 'de', 'it', 'nl', 'sv', 'nb', 'da', 'fi',
-        'sh', 'pl', 'ro', 'ru', 'uk', 'hi', 'tr', 'ar', 'ja',
-        'eo', 'fil'
+        'en', 'es', 'fr', 'de', 'it', 'sv', 'nb', 'fi', 'pl', 'uk', 'hi',
+        'ja', 'eo'
     ],
 
     # Skip Greek because of kaomoji, Simplified Chinese because it's largely
@@ -75,6 +69,14 @@ SOURCE_LANGUAGES = {
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'mk', 'cs', 'ro', 'hu',
         'sw', 'vi', 'az', 'sq'
+    ],
+
+    # GlobalVoices (LREC 2012), from OPUS -- languages with over 50,000 tokens
+    'globalvoices': [
+        'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
+        'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
+        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh', 'sv', 'sw', 'tr', 'ur',
+        'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # NewsCrawl 2014, from the EMNLP Workshops on Statistical Machine Translation
@@ -94,13 +96,41 @@ SOURCE_LANGUAGES = {
 
     # SUBTLEX: word counts from subtitles
     'subtlex': ['en-US', 'en-GB', 'en', 'de', 'nl', 'pl', 'zh-Hans', 'zh'],
+
+    # Amazon reviews (US only)
+    'amazon': ['en', 'es'],
+
+    # GlobalVoices and NewsCrawl can be merged into 'news'
+    'news': [
+        'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
+        'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
+        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh', 'sv', 'sw', 'tr', 'ur',
+        'zh'
+    ],
+
+    # OpenSubtitles and SUBTLEX can be merged into 'subtitles'
+    'subtitles': [
+        'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
+        'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
+        'nl', 'nb', 'pl', 'pt', 'ro', 'ru', 'sh', 'si', 'sk', 'sl', 'sq', 'sv',
+        'tr', 'uk', 'zh'
+    ],
+
 }
+
+COUNT_SOURCES = [
+    'subtitles', 'news', 'wikipedia', 'reddit/merged', 'twitter',
+    'google', 'jieba', 'leeds', 'mokk'
+]
 
 FULL_TEXT_SOURCES = [
     'wikipedia', 'reddit/merged', 'twitter', 'opensubtitles', 'tatoeba',
     'newscrawl', 'europarl', 'globalvoices', 'amazon'
 ]
-
+MERGED_SOURCES = {
+    'news': ['newscrawl', 'globalvoices'],
+    'subtitles': ['opensubtitles', 'subtlex']
+}
 OPUS_LANGUAGE_MAP = {
     'pt-PT': 'pt',
     'pt-BR': 'pt_br',
@@ -155,17 +185,23 @@ AMAZON_CATEGORIES = [
 ]
 
 LANGUAGE_SOURCES = defaultdict(list)
-for source in SOURCE_LANGUAGES:
+for source in COUNT_SOURCES:
     for _lang in SOURCE_LANGUAGES[source]:
         LANGUAGE_SOURCES[_lang].append(source)
 
+# Determine which languages we can support and which languages we can build a
+# full-size list for. We want to have sources from 5 different registers of
+# language to build a full list, but we give Dutch a pass -- it used to have 5
+# sources before we took out Common Crawl and considered OpenSubtitles and
+# SUBTLEX to count as the same source.
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
-CORE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 7])
+CORE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
+print(SUPPORTED_LANGUAGES)
 print(CORE_LANGUAGES)
 
 def language_count_sources(lang):
     """
-    Get all the source of word counts we have in a language.
+    Get all the sources of word counts we have in a language.
     """
     return [
         "data/counts/{source}/{lang}.txt".format(source=source, lang=lang)
@@ -174,10 +210,24 @@ def language_count_sources(lang):
 
 
 def language_text_sources(lang):
+    """
+    Get all the sources of tokenized text we have in a language.
+    """
     return [
         "data/tokenized/{source}/{lang}.txt".format(source=source, lang=lang)
         for source in LANGUAGE_SOURCES[lang]
         if source in FULL_TEXT_SOURCES
+    ]
+
+def multisource_counts_to_merge(multisource, lang):
+    """
+    Given a multi-source name like 'news' and a language code, find which sources
+    of counts should be merged to produce it.
+    """
+    return [
+        "data/counts/{source}/{lang}.txt".format(source=source, lang=lang)
+        for source in MERGED_SOURCES[multisource]
+        if lang in SOURCE_LANGUAGES[source]
     ]
 
 def balkanize_cld2_languages(languages):
@@ -195,10 +245,12 @@ def balkanize_cld2_languages(languages):
     return sorted(result)
 
 
-rule all:
+# Top-level rules
+# ===============
+
+rule frequencies:
     input:
-        expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES),
-        expand("data/shuffled/{lang}.txt", lang=SUPPORTED_LANGUAGES)
+        expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES)
 
 rule embeddings:
     input:
@@ -609,6 +661,25 @@ rule copy_europarl_pt:
     shell:
         "cp {input} {output}"
 
+# Handling similar data
+# =====================
+
+rule merge_news:
+    input:
+        lambda wildcards: multisource_counts_to_merge('news', wildcards.lang)
+    output:
+        "data/counts/news/{lang}.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l {wildcards.lang}"
+
+rule merge_subtitles:
+    input:
+        lambda wildcards: multisource_counts_to_merge('subtitles', wildcards.lang)
+    output:
+        "data/counts/subtitles/{lang}.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l {wildcards.lang}"
+
 
 # Assembling corpus text
 # ======================
@@ -647,6 +718,7 @@ rule fasttext_skipgrams:
 ruleorder:
     merge_reddit > \
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
+    merge_news > merge_subtitles > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     recount_messy_tokens > count_tokens
 

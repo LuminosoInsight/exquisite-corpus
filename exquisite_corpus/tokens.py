@@ -1,5 +1,5 @@
 from wordfreq import tokenize
-from ftfy.fixes import unescape_html
+from ftfy.fixes import unescape_html, fix_surrogates
 import regex
 import pycld2
 import langcodes
@@ -69,7 +69,7 @@ def tokenize_file(infile, outfile, language, check_language=False):
     the result as lines of space-separated tokens.
     """
     for line in infile:
-        line = unescape_html(line.rstrip())
+        line = fix_surrogates(unescape_html(line.rstrip()))
         tokens = tokenize(line, language, include_punctuation=True, external_wordlist=True)
         checked_lang = None
         if check_language:
