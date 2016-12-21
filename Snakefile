@@ -62,21 +62,19 @@ SOURCE_LANGUAGES = {
     ],
 
     # Skip Greek because of kaomoji, Simplified Chinese because it's largely
-    # spam
+    # spam, Macedonian because of confusability with Bulgarian
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
         'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'mk', 'cs', 'ro', 'hu',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
         'sw', 'vi', 'az', 'sq'
     ],
 
-    # GlobalVoices (LREC 2012), from OPUS -- languages with over 50,000 tokens
+    # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
     'globalvoices': [
-        'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
-        'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
-        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh', 'sv', 'sw', 'tr', 'ur',
-        'zh-Hans', 'zh-Hant', 'zh'
+        'ar', 'bn', 'ca', 'de', 'en', 'es', 'fr', 'it', 'mg', 'mk', 'nl',
+        'pl', 'pt', 'ru', 'sw', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # NewsCrawl 2014, from the EMNLP Workshops on Statistical Machine Translation
@@ -98,14 +96,15 @@ SOURCE_LANGUAGES = {
     'subtlex': ['en-US', 'en-GB', 'en', 'de', 'nl', 'pl', 'zh-Hans', 'zh'],
 
     # Amazon reviews (US only)
-    'amazon': ['en', 'es'],
+    'amazon-snap': ['en', 'es'],
+
+    # Amazon reviews in other languages
+    'amazon-acl10': ['ja', 'de', 'fr'],
 
     # GlobalVoices and NewsCrawl can be merged into 'news'
     'news': [
-        'ar', 'aym', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'en', 'eo', 'es',
-        'fa', 'fil', 'fr', 'hi', 'hu', 'id', 'it', 'ja', 'km', 'mg', 'mk',
-        'my', 'nl', 'pl', 'pt', 'ro', 'ru', 'sh', 'sv', 'sw', 'tr', 'ur',
-        'zh'
+        'ar', 'bn', 'ca', 'cs', 'de', 'en', 'es', 'fi', 'fr', 'it', 'mg',
+        'mk', 'nl', 'pl', 'pt', 'ru', 'sw', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # OpenSubtitles and SUBTLEX can be merged into 'subtitles'
@@ -125,11 +124,12 @@ COUNT_SOURCES = [
 
 FULL_TEXT_SOURCES = [
     'wikipedia', 'reddit/merged', 'twitter', 'opensubtitles', 'tatoeba',
-    'newscrawl', 'europarl', 'globalvoices', 'amazon'
+    'newscrawl', 'europarl', 'globalvoices', 'amazon-snap', 'amazon-acl10'
 ]
 MERGED_SOURCES = {
     'news': ['newscrawl', 'globalvoices'],
-    'subtitles': ['opensubtitles', 'subtlex']
+    'subtitles': ['opensubtitles', 'subtlex'],
+    'amazon': ['amazon-snap', 'amazon-acl10']
 }
 OPUS_LANGUAGE_MAP = {
     'pt-PT': 'pt',
@@ -182,6 +182,10 @@ AMAZON_CATEGORIES = [
     'Apps_for_Android', 'Office_Products', 'Pet_Supplies', 'Automotive',
     'Grocery_and_Gourmet_Food', 'Patio_Lawn_and_Garden', 'Baby', 'Digital_Music',
     'Musical_Instruments', 'Amazon_Instant_Video'
+]
+AMAZON_ACL_DATASETS = [
+    'books/train', 'books/unlabeled', 'music/train', 'music/unlabeled',
+    'dvd/train', 'dvd/unlabeled'
 ]
 
 LANGUAGE_SOURCES = defaultdict(list)
@@ -330,11 +334,18 @@ rule download_google:
             # Do a bit of pre-processing as we download
             shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
-rule download_amazon:
+rule download_amazon_snap:
     output:
         "data/downloaded/amazon/{category}.json.gz"
     shell:
         "curl -L 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
+
+rule download_amazon_acl10:
+    output:
+        "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
+    shell:
+        "curl -L 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
+
 
 # Handling downloaded data
 # ========================
@@ -345,6 +356,16 @@ rule extract_newscrawl:
         expand("data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled", lang=SOURCE_LANGUAGES['newscrawl'])
     shell:
         "tar xf {input} -C data/extracted/newscrawl && touch data/extracted/newscrawl/training-monolingual-news-2014/*"
+
+rule extract_amazon_acl10:
+    input:
+        "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
+    output:
+        expand("data/extracted/amazon-acl10/cls-acl10-unprocessed/{lang}/{dataset}.review",
+               lang=SOURCE_LANGUAGES['amazon-acl10'],
+               dataset=AMAZON_ACL_DATASETS)
+    shell:
+        "tar xf {input} -C data/extracted/amazon-acl10 && mv data/extracted/amazon-acl10/cls-acl10-unprocessed/jp data/extracted/amazon-acl10/cls-acl10-unprocessed/ja && touch {output}"
 
 rule extract_google:
     input:
@@ -369,7 +390,7 @@ rule extract_amazon:
     input:
         "data/downloaded/amazon/{category}.json.gz"
     output:
-        "data/extracted/amazon/{category}.csv"
+        "data/extracted/amazon-snap/{category}.csv"
     shell:
         r"""zcat {input} | jq -r -c '"__label__\(.["overall"] | tostring)\t\(.["summary"])\t\(.["reviewText"])"' > {output}"""
 
