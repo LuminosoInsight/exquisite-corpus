@@ -16,7 +16,10 @@ def count_tokenized(infile, outfile):
     for line in infile:
         line = uncurl_quotes(line.rstrip())
         if line:
-            toks = [t.strip("'") for t in line.split(' ')]
+            toks = [
+                t.strip("'") for t in line.split(' ')
+                if not t.startswith('__') and t != '\N{PILCROW SIGN}'
+            ]
             counts.update(toks)
             total += len(toks)
 

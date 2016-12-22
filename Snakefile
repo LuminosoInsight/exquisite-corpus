@@ -96,7 +96,7 @@ SOURCE_LANGUAGES = {
     'subtlex': ['en-US', 'en-GB', 'en', 'de', 'nl', 'pl', 'zh-Hans', 'zh'],
 
     # Amazon reviews (US only)
-    'amazon-snap': ['en', 'es'],
+    'amazon-snap': ['en'],
 
     # Amazon reviews in other languages
     'amazon-acl10': ['ja', 'de', 'fr'],
@@ -114,12 +114,11 @@ SOURCE_LANGUAGES = {
         'nl', 'nb', 'pl', 'pt', 'ro', 'ru', 'sh', 'si', 'sk', 'sl', 'sq', 'sv',
         'tr', 'uk', 'zh'
     ],
-
 }
 
 COUNT_SOURCES = [
     'subtitles', 'news', 'wikipedia', 'reddit/merged', 'twitter',
-    'google', 'jieba', 'leeds', 'mokk'
+    'google', 'jieba', 'leeds', 'mokk', 'amazon-snap'
 ]
 
 FULL_TEXT_SOURCES = [
@@ -187,6 +186,9 @@ AMAZON_ACL_DATASETS = [
     'books/train', 'books/unlabeled', 'music/train', 'music/unlabeled',
     'dvd/train', 'dvd/unlabeled'
 ]
+# The language-country-wtf codes that the ACL10 Amazon sentiment data uses.
+# 'jp' is a country code, and we need to change it to 'ja' in a later step.
+AMAZON_ACL_CODES = ['en', 'de', 'fr', 'jp']
 
 LANGUAGE_SOURCES = defaultdict(list)
 for source in COUNT_SOURCES:
@@ -362,10 +364,10 @@ rule extract_amazon_acl10:
         "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     output:
         expand("data/extracted/amazon-acl10/cls-acl10-unprocessed/{lang}/{dataset}.review",
-               lang=SOURCE_LANGUAGES['amazon-acl10'],
+               lang=AMAZON_ACL_CODES,
                dataset=AMAZON_ACL_DATASETS)
     shell:
-        "tar xf {input} -C data/extracted/amazon-acl10 && mv data/extracted/amazon-acl10/cls-acl10-unprocessed/jp data/extracted/amazon-acl10/cls-acl10-unprocessed/ja && touch {output}"
+        "tar xf {input} -C data/extracted/amazon-acl10 && touch {output}"
 
 rule extract_google:
     input:
@@ -392,7 +394,7 @@ rule extract_amazon:
     output:
         "data/extracted/amazon-snap/{category}.csv"
     shell:
-        r"""zcat {input} | jq -r -c '"__label__\(.["overall"] | tostring)\t\(.["summary"])\t\(.["reviewText"])"' > {output}"""
+        r"""zcat {input} | jq -r -c '"label__\(.["overall"] | tostring)\t\(.["summary"])\t\(.["reviewText"])"' > {output}"""
 
 
 # Transforming existing word lists
@@ -494,11 +496,11 @@ rule tokenize_wikipedia:
 
 rule tokenize_amazon:
     input:
-        expand("data/extracted/amazon/{category}.csv", category=AMAZON_CATEGORIES)
+        expand("data/extracted/amazon-snap/{category}.csv", category=AMAZON_CATEGORIES)
     output:
-        "data/tokenized/amazon/en.txt"
+        expand("data/tokenized/amazon-snap/en.txt")
     shell:
-        "sed -e 's/\t/ ¶ /g' {input} | xc tokenize -l en - {output}"
+        "sed -e 's/\t/ ¶ /g' {input} | xc tokenize -l en | sed -e 's/label__/__label__/' > {output}"
 
 rule tokenize_europarl:
     input:

@@ -106,8 +106,8 @@ def tokenize_by_language(in_file, out_dir, mode='twitter'):
     """
     Uses CLD2 to detect the language and wordfreq tokenizer to create tokens.
 
-    The `mode` can be 'twitter' or 'reddit', which slightly changes the
-    pre-processing of the text.
+    The `mode` can be 'twitter', 'reddit', or something else, which slightly
+    changes the pre-processing of the text.
     """
     out_files = {
         language: open('%s/%s.txt' % (out_dir, language), 'w', encoding='utf-8')
@@ -130,7 +130,6 @@ def tokenize_by_language(in_file, out_dir, mode='twitter'):
                 # - CLD2 is confident about the language it detected
                 # - The language detected was English
                 # - There are at least 50 bytes of input
-
 
                 score = int(confident)
                 score += (len(text.encode('utf-8')) >= 50)
