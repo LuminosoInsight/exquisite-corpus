@@ -23,9 +23,10 @@ def merge_freqs(freq_dicts):
 
         if freqs:
             freqs.sort()
-            second = freqs[-2]
-            if second > 0.:
-                merged[term] = second
+            inliers = freqs[1:-1]
+            mean = statistics.mean(inliers)
+            if mean > 0.:
+                merged[term] = mean
 
     total = sum(merged.values())
 
