@@ -1,3 +1,10 @@
+This code represents the build process for [wordfreq][], among other things.
+I've made it public because it's good to know where the data in wordfreq comes
+from. However, I make no promises that you'll be able to run it if you don't
+work at Luminoso.
+
+## Dependencies
+
 Exquisite Corpus makes use of various libraries and command-line tools to
 process data correctly efficiently. As something that is run on a development
 machine, it uses the best, fastest libraries it can, though this leads to
