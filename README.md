@@ -3,6 +3,8 @@ I've made it public because it's good to know where the data in wordfreq comes
 from. However, I make no promises that you'll be able to run it if you don't
 work at Luminoso.
 
+[wordfreq]: https://github.com/LuminosoInsight/wordfreq
+
 ## Dependencies
 
 Exquisite Corpus makes use of various libraries and command-line tools to
