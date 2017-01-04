@@ -168,6 +168,20 @@ GOOGLE_1GRAM_SHARDS = [
     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 ]
+
+# These are the shard names for Google Books 2grams data, which I'm interested
+# in using as evidence about interesting phrases. I'm skipping numbers and
+# 'other' for now; the remaining files are split by the two-letter prefix of
+# the first word.
+#
+# All such prefixes except for 'zq' exist in the English Fiction set. This
+# list will have to be adapted as we use other languages or data sets.
+GOOGLE_2GRAM_SHARDS = [
+    _c1 + _c2
+    for _c1 in 'abcdefghijklmnopqrstuvwxyz'
+    for _c2 in 'abcdefghijklmnopqrstuvwxyz_'
+    if _c1 + _c2 != 'zq'
+]
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
     [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
@@ -262,6 +276,10 @@ rule embeddings:
     input:
         expand("data/skipgrams/{lang}.vec", lang=SUPPORTED_LANGUAGES)
 
+rule google_2grams:
+    input:
+        expand("data/downloaded/google/2grams-en-{shard}.txt.gz", shard=GOOGLE_2GRAM_SHARDS)
+
 
 # Downloaders
 # ===========
@@ -323,7 +341,7 @@ rule download_newscrawl:
     shell:
         "curl -L 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
 
-rule download_google:
+rule download_google_1grams:
     output:
         "data/downloaded/google/1grams-{lang}-{shard}.txt.gz"
     run:
@@ -335,6 +353,15 @@ rule download_google:
         else:
             # Do a bit of pre-processing as we download
             shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+
+rule download_google_2grams:
+    output:
+        "data/downloaded/google/2grams-{lang}-{shard}.txt.gz"
+    run:
+        source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shard = wildcards.shard
+        # Do a bit of pre-processing as we download
+        shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-2gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
 rule download_amazon_snap:
     output:
