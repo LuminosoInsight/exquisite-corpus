@@ -1,7 +1,7 @@
 import click
 from .tokens import tokenize_file, tokenize_by_language
 from .count import count_tokenized, recount_messy
-from .freq import merge_count_files_to_freqs
+from .freq import count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack
 from wordfreq.chinese import simplify_chinese
 import os
 
@@ -44,11 +44,26 @@ def run_recount(input_file, output_file, language):
     recount_messy(input_file, output_file, language)
 
 
+@cli.command(name='count-to-freqs')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+def run_count_to_freqs(input_file, output_file):
+    single_count_file_to_freqs(input_file, output_file)
+
+
 @cli.command(name='merge-freqs')
 @click.argument('input_filenames', type=click.Path(readable=True, dir_okay=False), nargs=-1)
 @click.argument('output_filename', type=click.Path(writable=True, dir_okay=False))
 def run_merge_freqs(input_filenames, output_filename):
-    merge_count_files_to_freqs(input_filenames, output_filename)
+    count_files_to_freqs(input_filenames, output_filename)
+
+
+@cli.command(name='export-to-wordfreq')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('wb'), default='-')
+@click.option('--cutoff', '-c', type=int, default=600)
+def run_export_to_wordfreq(input_file, output_file, cutoff):
+    freqs_to_cBpack(input_file, output_file, cutoff)
 
 
 @cli.command(name='simplify-chinese')

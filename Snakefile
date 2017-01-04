@@ -137,6 +137,8 @@ OPUS_LANGUAGE_MAP = {
     'zh-Hant': 'zh_tw',
     'nb': 'no',
 }
+# GlobalVoices has three made-up language codes, plus 'sr' which we want to
+# handle as part of 'sh'.
 GLOBALVOICES_LANGUAGE_MAP = {
     'ja': 'jp',
     'zh-Hant': 'zht',
@@ -215,9 +217,8 @@ for source in COUNT_SOURCES:
 # sources before we took out Common Crawl and considered OpenSubtitles and
 # SUBTLEX to count as the same source.
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
-CORE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
-print(SUPPORTED_LANGUAGES)
-print(CORE_LANGUAGES)
+LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
+
 
 def language_count_sources(lang):
     """
@@ -267,6 +268,12 @@ def balkanize_cld2_languages(languages):
 
 # Top-level rules
 # ===============
+
+rule wordfreq:
+    input:
+        expand("data/wordfreq/combined_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
+        expand("data/wordfreq/large_{lang}.msgpack.gz", lang=LARGE_LANGUAGES),
+        expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=SOURCE_LANGUAGES['twitter'])
 
 rule frequencies:
     input:
@@ -607,6 +614,15 @@ rule merge_freqs:
     shell:
         "xc merge-freqs {input} {output}"
 
+# Counts to frequencies without merging
+rule count_to_freqs:
+    input:
+        "data/counts/{source}/{lang}.txt"
+    output:
+        "data/freqs/{source}/{lang}.txt"
+    shell:
+        "xc count-to-freqs {input} {output}"
+
 
 # Handling overlapping languages
 # ==============================
@@ -765,8 +781,41 @@ rule fasttext_skipgrams:
         else:
            shell("fasttext skipgram -epoch 10 -input {input} -output data/skipgrams/{wildcards.lang}")
 
+
+# Building wordfreq data files
+# ============================
+#        expand("data/wordfreq/combined_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
+#        expand("data/wordfreq/large_{lang}.msgpack.gz", lang=LARGE_LANGUAGES),
+#        expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=SOURCE_LANGUAGES['twitter'])
+
+rule make_small_wordfreq_list:
+    input:
+        "data/freqs/{lang}.txt"
+    output:
+        "data/wordfreq/combined_{lang}.msgpack.gz"
+    shell:
+        "xc export-to-wordfreq {input} {output} -c 600"
+
+rule make_large_wordfreq_list:
+    input:
+        "data/freqs/{lang}.txt"
+    output:
+        "data/wordfreq/large_{lang}.msgpack.gz"
+    shell:
+        "xc export-to-wordfreq {input} {output} -c 800"
+
+rule make_twitter_wordfreq_list:
+    input:
+        "data/freqs/twitter/{lang}.txt"
+    output:
+        "data/wordfreq/twitter_{lang}.msgpack.gz"
+    shell:
+        "xc export-to-wordfreq {input} {output} -c 600"
+
+
+
 ruleorder:
-    merge_reddit > \
+    count_to_freqs > merge_freqs > merge_reddit > \
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
     merge_news > merge_subtitles > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
