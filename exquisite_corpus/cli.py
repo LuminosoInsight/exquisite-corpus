@@ -1,7 +1,10 @@
 import click
 from .tokens import tokenize_file, tokenize_by_language
 from .count import count_tokenized, recount_messy
-from .freq import count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack
+from .freq import (
+    count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack,
+    freqs_to_jieba
+)
 from wordfreq.chinese import simplify_chinese
 import os
 
@@ -64,6 +67,14 @@ def run_merge_freqs(input_filenames, output_filename):
 @click.option('--cutoff', '-c', type=int, default=600)
 def run_export_to_wordfreq(input_file, output_file, cutoff):
     freqs_to_cBpack(input_file, output_file, cutoff)
+
+
+@cli.command(name='export-to-jieba')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+@click.option('--cutoff', '-c', type=int, default=600)
+def run_export_to_jieba(input_file, output_file, cutoff):
+    freqs_to_jieba(input_file, output_file, cutoff)
 
 
 @cli.command(name='simplify-chinese')

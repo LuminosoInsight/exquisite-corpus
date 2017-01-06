@@ -3,6 +3,7 @@ from operator import itemgetter
 from ftfy.fixes import uncurl_quotes
 import math
 import msgpack
+import statistics
 
 
 def merge_freqs(freq_dicts):
@@ -75,7 +76,7 @@ def count_files_to_freqs(input_filenames, output_filename):
 
     merged_dict = merge_freqs(freq_dicts)
     with open(output_filename, 'w', encoding='utf-8') as outfile:
-        _write_frequency_file(merged_dicts, outfile)
+        _write_frequency_file(merged_dict, outfile)
 
 
 def single_count_file_to_freqs(input_file, output_file):
@@ -117,11 +118,11 @@ def freqs_to_cBpack(input_file, output_file, cutoff=600):
     cBpack = []
     for line in input_file:
         word, strfreq = line.rstrip().split('\t', 1)
-        freq = float(strfreq)
         if word == '__total__':
             raise ValueError(
                 "This is a count file, not a frequency file"
             )
+        freq = float(strfreq)
         neg_cB = -(round(math.log10(freq) * 100))
         if neg_cB >= cutoff:
             break
@@ -135,4 +136,25 @@ def freqs_to_cBpack(input_file, output_file, cutoff=600):
     cBpack_data = [{'format': 'cB', 'version': 1}] + cBpack
 
     msgpack.dump(cBpack_data, output_file)
+
+
+def freqs_to_jieba(input_file, output_file, cutoff=600):
+    """
+    Convert a frequency list into the format expected by Jieba, a Chinese
+    word segmenter for Python.
+    """
+    for line in input_file:
+        word, strfreq = line.rstrip().split('\t', 1)
+        if word == '__total__':
+            raise ValueError(
+                "This is a count file, not a frequency file"
+            )
+        if not word.strip():
+            continue
+        freq = float(strfreq)
+        neg_cB = -(math.log10(freq) * 100)
+        if neg_cB >= cutoff:
+            break
+        int_freq = round(freq * 1e9)
+        print("%s %d" % (word, int_freq), file=output_file)
 
