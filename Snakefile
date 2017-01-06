@@ -68,7 +68,7 @@ SOURCE_LANGUAGES = {
         'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
-        'sw', 'vi', 'az', 'sq'
+        'sv', 'sw', 'vi', 'az', 'sq'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
@@ -118,7 +118,7 @@ SOURCE_LANGUAGES = {
 
 COUNT_SOURCES = [
     'subtitles', 'news', 'wikipedia', 'reddit/merged', 'twitter',
-    'google', 'jieba', 'leeds', 'mokk', 'amazon-snap'
+    'google', 'jieba', 'leeds', 'mokk'
 ]
 
 FULL_TEXT_SOURCES = [
@@ -218,6 +218,7 @@ for source in COUNT_SOURCES:
 # SUBTLEX to count as the same source.
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
+TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
 
 
 def language_count_sources(lang):
@@ -273,7 +274,8 @@ rule wordfreq:
     input:
         expand("data/wordfreq/combined_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
         expand("data/wordfreq/large_{lang}.msgpack.gz", lang=LARGE_LANGUAGES),
-        expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=SOURCE_LANGUAGES['twitter'])
+        expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=TWITTER_LANGUAGES),
+        "data/wordfreq/jieba_zh.txt"
 
 rule frequencies:
     input:
@@ -794,7 +796,7 @@ rule make_small_wordfreq_list:
     output:
         "data/wordfreq/combined_{lang}.msgpack.gz"
     shell:
-        "xc export-to-wordfreq {input} {output} -c 600"
+        "xc export-to-wordfreq {input} - -c 600 | gzip -c > {output}"
 
 rule make_large_wordfreq_list:
     input:
@@ -802,7 +804,7 @@ rule make_large_wordfreq_list:
     output:
         "data/wordfreq/large_{lang}.msgpack.gz"
     shell:
-        "xc export-to-wordfreq {input} {output} -c 800"
+        "xc export-to-wordfreq {input} - -c 800 | gzip -c > {output}"
 
 rule make_twitter_wordfreq_list:
     input:
@@ -810,8 +812,15 @@ rule make_twitter_wordfreq_list:
     output:
         "data/wordfreq/twitter_{lang}.msgpack.gz"
     shell:
-        "xc export-to-wordfreq {input} {output} -c 600"
+        "xc export-to-wordfreq {input} - -c 600 | gzip -c > {output}"
 
+rule make_jieba_list:
+    input:
+        "data/freqs/{lang}.txt"
+    output:
+        "data/wordfreq/jieba_{lang}.txt"
+    shell:
+        "xc export-to-jieba {input} {output} -c 600"
 
 
 ruleorder:
