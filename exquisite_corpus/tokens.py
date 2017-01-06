@@ -25,6 +25,7 @@ TWITTER_HANDLE_RE = regex.compile(r'@[\S--\p{punct}]+')
 TCO_RE = regex.compile('http(?:s)?://t.co/[a-zA-Z0-9]+')
 URL_RE = regex.compile(r'http(?:s)?://[^) ]*')
 MARKDOWN_URL_RESIDUE_RE = regex.compile(r'\]\(\)')
+CYRILLIC_RE = regex.compile(r'[А-Яа-я]')
 
 
 # Low-frequency languages tend to be detected incorrectly by cld2. The
@@ -97,8 +98,18 @@ def cld2_detect_language(text):
     lang = pycld2.detect(text)[2][0][1]
 
     # Normalize the language code: 'iw' becomes 'he', and 'zh-Hant'
-    # becomes 'zh'
+    # becomes 'zh', for example
     code = CLD2_LANGUAGE_MAP.get(lang, lang)
+
+    if code == 'sh':
+        # Fix cases of Arabic being detected as Bosnian
+        if 'ا' in text:
+            code = 'ar'
+            confident = False
+        # Fix cases of Russian being detected as Serbian
+        if CYRILLIC_RE.search(text):
+            confident = False
+
     return code, confident
 
 
