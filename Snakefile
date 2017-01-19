@@ -123,7 +123,7 @@ COUNT_SOURCES = [
 
 FULL_TEXT_SOURCES = [
     'wikipedia', 'reddit/merged', 'twitter', 'opensubtitles', 'tatoeba',
-    'newscrawl', 'europarl', 'globalvoices', 'amazon-snap', 'amazon-acl10'
+    'newscrawl', 'europarl', 'globalvoices'
 ]
 MERGED_SOURCES = {
     'news': ['newscrawl', 'globalvoices'],
@@ -283,7 +283,7 @@ rule frequencies:
 
 rule embeddings:
     input:
-        expand("data/skipgrams/{lang}.vec", lang=SUPPORTED_LANGUAGES)
+        expand("data/skipgrams/{lang}.vec", lang=LARGE_LANGUAGES)
 
 rule google_2grams:
     input:
@@ -781,7 +781,7 @@ rule fasttext_skipgrams:
         if wildcards.lang == 'en':
             shell("fasttext skipgram -dim 300 -input {input} -output data/skipgrams/{wildcards.lang}")
         else:
-           shell("fasttext skipgram -epoch 10 -input {input} -output data/skipgrams/{wildcards.lang}")
+           shell("fasttext skipgram -dim 200 -epoch 20 -input {input} -output data/skipgrams/{wildcards.lang}")
 
 
 # Building wordfreq data files
