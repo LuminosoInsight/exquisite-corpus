@@ -45,9 +45,8 @@ SOURCE_LANGUAGES = {
     'wikipedia': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et',
         'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hu', 'hr', 'hy', 'id', 'it',
-        'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt',
-        'ro', 'ru', 'sh', 'sk', 'sl', 'sv', 'tr', 'uk', 'uz',
-        'vi', 'zh'
+        'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt', 'ro',
+        'ru', 'sh', 'sk', 'sl', 'sv', 'tr', 'uk', 'uz', 'vi', 'zh'
     ],
 
     # 99.2% of Reddit is in English. Some text that's in other languages is
@@ -101,6 +100,9 @@ SOURCE_LANGUAGES = {
     # Amazon reviews in other languages
     'amazon-acl10': ['ja', 'de', 'fr'],
 
+    # Voice of America news is translated into different languages. Here's Persian.
+    'voa': ['fa'],
+
     # GlobalVoices and NewsCrawl can be merged into 'news'
     'news': [
         'ar', 'bn', 'ca', 'cs', 'de', 'en', 'es', 'fi', 'fr', 'it', 'mg',
@@ -126,7 +128,7 @@ FULL_TEXT_SOURCES = [
     'newscrawl', 'europarl', 'globalvoices'
 ]
 MERGED_SOURCES = {
-    'news': ['newscrawl', 'globalvoices'],
+    'news': ['newscrawl', 'globalvoices', 'voa'],
     'subtitles': ['opensubtitles', 'subtlex'],
     'amazon': ['amazon-snap', 'amazon-acl10']
 }
@@ -219,6 +221,12 @@ for source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
+PARALLEL_LANGUAGES = sorted(set(LARGE_LANGUAGES) & set(SOURCE_LANGUAGES['opensubtitles']))
+LANGUAGE_PAIRS = [
+    "{}-{}".format(_lang1, _lang2)
+    for _lang1 in PARALLEL_LANGUAGES for _lang2 in PARALLEL_LANGUAGES
+    if _lang1 < _lang2
+]
 
 
 def language_count_sources(lang):
@@ -302,6 +310,12 @@ rule download_opensubtitles_monolingual:
     resources:
         download=1, opusdownload=1
     priority: 0
+
+rule download_opensubtitles_parallel:
+    output:
+        "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
+    shell:
+        "curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/{lang1}-{lang2}.txt.zip' -o {output}"
 
 rule download_europarl_monolingual:
     output:
@@ -387,6 +401,16 @@ rule download_amazon_acl10:
 
 # Handling downloaded data
 # ========================
+rule extract_opensubtitles_parallel:
+    input:
+        "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
+    output:
+        "data/extracted/opensubtitles/parallel-{lang1}-{lang2}.txt"
+    shell:
+        "unzip -d 'data/extracted/opensubtitles/' {input} && "
+        "paste data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang1} data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang2} "
+        "> {output}"
+
 rule extract_newscrawl:
     input:
         "data/downloaded/newscrawl-2014-monolingual.tar.gz"
@@ -431,6 +455,15 @@ rule extract_amazon:
         "data/extracted/amazon-snap/{category}.csv"
     shell:
         r"""zcat {input} | jq -r -c '"label__\(.["overall"] | tostring)\t\(.["summary"])\t\(.["reviewText"])"' > {output}"""
+
+rule extract_voa_fa:
+    input:
+        "data/extra/voa_fa_2003-2008_orig.txt"
+    output:
+        "data/extracted/voa/fa.txt"
+    shell:
+        "sed -e 's/^# Headline: //' -e 's/^#.*//' {input} > {output}"
+
 
 
 # Transforming existing word lists
@@ -595,6 +628,15 @@ rule tokenize_twitter:
         expand("data/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
     shell:
         "zcat {input} | xc tokenize-by-language -m twitter - data/tokenized/twitter"
+
+rule tokenize_voa:
+    input:
+        "data/extracted/voa/{lang}.txt"
+    output:
+        "data/tokenized/voa/{lang}.txt"
+    shell:
+        "xc tokenize -l {wildcards.lang} - {output}"
+
 
 
 # Counting tokens
