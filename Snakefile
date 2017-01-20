@@ -221,7 +221,7 @@ for source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
-PARALLEL_LANGUAGES = sorted(set(LARGE_LANGUAGES) & set(SOURCE_LANGUAGES['opensubtitles']))
+PARALLEL_LANGUAGES = sorted(set(LARGE_LANGUAGES) & set(SOURCE_LANGUAGES['opensubtitles'])) + ['fa']
 LANGUAGE_PAIRS = [
     "{}-{}".format(_lang1, _lang2)
     for _lang1 in PARALLEL_LANGUAGES for _lang2 in PARALLEL_LANGUAGES
@@ -285,6 +285,10 @@ rule wordfreq:
         expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=TWITTER_LANGUAGES),
         "data/wordfreq/jieba_zh.txt"
 
+rule parallel:
+    input:
+        expand("data/parallel/opensubtitles/{pair}.txt", pair=LANGUAGE_PAIRS)
+
 rule frequencies:
     input:
         expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES)
@@ -315,7 +319,7 @@ rule download_opensubtitles_parallel:
     output:
         "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
     shell:
-        "curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/{lang1}-{lang2}.txt.zip' -o {output}"
+        "curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/{wildcards.lang1}-{wildcards.lang2}.txt.zip' -o {output}"
 
 rule download_europarl_monolingual:
     output:
@@ -405,11 +409,10 @@ rule extract_opensubtitles_parallel:
     input:
         "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
     output:
-        "data/extracted/opensubtitles/parallel-{lang1}-{lang2}.txt"
+        "data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang1}",
+        "data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang2}"
     shell:
-        "unzip -d 'data/extracted/opensubtitles/' {input} && "
-        "paste data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang1} data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang2} "
-        "> {output}"
+        "unzip -o -d 'data/extracted/opensubtitles/' {input} && touch {output}"
 
 rule extract_newscrawl:
     input:
@@ -603,6 +606,23 @@ rule tokenize_newscrawl:
         "data/tokenized/newscrawl/{lang}.txt"
     shell:
         "xc tokenize -c -l {wildcards.lang} {input} {output}"
+
+rule tokenize_parallel_opensubtitles:
+    input:
+        "data/extracted/opensubtitles/OpenSubtitles2016.{langpair}.{lang}"
+    output:
+        "data/tokenized/opensubtitles/parallel/{langpair}.{lang}.txt"
+    shell:
+        "xc tokenize -l {wildcards.lang} {input} {output}"
+
+rule parallel_opensubtitles:
+    input:
+        "data/tokenized/opensubtitles/parallel/{lang1}-{lang2}.{lang1}.txt",
+        "data/tokenized/opensubtitles/parallel/{lang1}-{lang2}.{lang2}.txt"
+    output:
+        "data/parallel/opensubtitles/{lang1}-{lang2}.txt"
+    shell:
+        "paste {input} > {output}"
 
 rule tokenize_gzipped_text:
     input:
@@ -870,5 +890,6 @@ ruleorder:
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
     merge_news > merge_subtitles > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
-    recount_messy_tokens > count_tokens
+    recount_messy_tokens > count_tokens > \
+    tokenize_parallel_opensubtitles > tokenize_gzipped_text
 

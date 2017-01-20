@@ -64,14 +64,14 @@ CLD2_LANGUAGES = sorted(set([
 #   - Breton (the word "memes" itself)
 
 
-def tokenize_file(infile, outfile, language, check_language=False):
+def tokenize_file(infile, outfile, language, check_language=False, punctuation=False):
     """
     Take in a file of plain text, tokenize it as the given language, and write
     the result as lines of space-separated tokens.
     """
     for line in infile:
         line = fix_surrogates(unescape_html(line.rstrip()))
-        tokens = tokenize(line, language, include_punctuation=True, external_wordlist=True)
+        tokens = tokenize(line, language, include_punctuation=punctuation, combine_numbers=True, external_wordlist=True)
         checked_lang = None
         if check_language:
             checked_lang, _confident = cld2_detect_language(line.rstrip())

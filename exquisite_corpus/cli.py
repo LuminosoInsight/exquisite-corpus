@@ -19,8 +19,9 @@ def cli():
 @click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
 @click.option('--language', '-l')
 @click.option('--check-language', '-c', is_flag=True, default=False)
-def run_tokenize(input_file, output_file, language, check_language):
-    tokenize_file(input_file, output_file, language, check_language)
+@click.option('--punctuation/--no-punctuation', '-p', is_flag=True, default=False)
+def run_tokenize(input_file, output_file, language, check_language, punctuation):
+    tokenize_file(input_file, output_file, language, check_language, punctuation)
 
 
 @cli.command(name='tokenize-by-language')
