@@ -8,9 +8,9 @@ work at Luminoso.
 ## Dependencies
 
 Exquisite Corpus makes use of various libraries and command-line tools to
-process data correctly efficiently. As something that is run on a development
-machine, it uses the best, fastest libraries it can, though this leads to
-somewhat complex system requirements.
+process data correctly and efficiently. As something that is run on a
+development machine, it uses the best, fastest libraries it can, though this
+leads to somewhat complex system requirements.
 
 You will need three programming environments installed:
 
@@ -21,7 +21,7 @@ You will need three programming environments installed:
 
 You also need certain tools to be available:
 
-- The `mecab-dev` C library (apt install mecab-dev)
+- The C library for `mecab` (apt install libmecab-dev)
 - The ICU Unicode libraries (apt install libicu-dev)
 - The JSON processor `jq` (apt install jq)
 - countmerge (https://github.com/rspeer/countmerge)
