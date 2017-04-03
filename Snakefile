@@ -624,6 +624,14 @@ rule parallel_opensubtitles:
     shell:
         "paste {input} > {output}"
 
+rule intersperse_parallel:
+    input:
+        "data/parallel/{dir}/{lang1}-{lang2}.txt"
+    output:
+        "data/interspersed/{dir}/{lang1}-{lang2}.txt"
+    shell:
+        "xc intersperse {input} {output} {wildcards.lang1} {wildcards.lang2}"
+
 rule tokenize_gzipped_text:
     input:
         "data/downloaded/{dir}/{lang}.txt.gz"

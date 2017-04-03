@@ -1,6 +1,6 @@
 import click
 from .tokens import tokenize_file, tokenize_by_language
-from .sparse_assoc import make_sparse_assoc
+from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
 from .freq import (
     count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack,
@@ -104,3 +104,14 @@ def run_sparse_assoc(parallel_text_dir, vocab_dir, output_dir, languages, vocab_
         language_list,
         vocab_size
     )
+
+
+@cli.command(name='intersperse')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+@click.argument('lang1')
+@click.argument('lang2')
+def run_intersperse(input_file, output_file, lang1, lang2):
+    intersperse_parallel_text(input_file, output_file, lang1, lang2)
+
+
