@@ -221,7 +221,8 @@ for source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
-PARALLEL_LANGUAGES = sorted(set(LARGE_LANGUAGES) & set(SOURCE_LANGUAGES['opensubtitles'])) + ['fa']
+PARALLEL_LANGUAGES = ['ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru', 'sv']
+print(PARALLEL_LANGUAGES)
 LANGUAGE_PAIRS = [
     "{}-{}".format(_lang1, _lang2)
     for _lang1 in PARALLEL_LANGUAGES for _lang2 in PARALLEL_LANGUAGES
@@ -287,7 +288,7 @@ rule wordfreq:
 
 rule parallel:
     input:
-        expand("data/parallel/opensubtitles/{pair}.txt", pair=LANGUAGE_PAIRS)
+        "data/interspersed/shuffled.txt"
 
 rule frequencies:
     input:
@@ -624,14 +625,6 @@ rule parallel_opensubtitles:
     shell:
         "paste {input} > {output}"
 
-rule intersperse_parallel:
-    input:
-        "data/parallel/{dir}/{lang1}-{lang2}.txt"
-    output:
-        "data/interspersed/{dir}/{lang1}-{lang2}.txt"
-    shell:
-        "xc intersperse {input} {output} {wildcards.lang1} {wildcards.lang2}"
-
 rule tokenize_gzipped_text:
     input:
         "data/downloaded/{dir}/{lang}.txt.gz"
@@ -854,11 +847,30 @@ rule fasttext_skipgrams:
            shell("fasttext skipgram -dim 200 -epoch 20 -input {input} -output data/skipgrams/{wildcards.lang}")
 
 
+# Making training data from parallel text
+# =======================================
+
+rule intersperse_parallel:
+    input:
+        "data/parallel/{dir}/{lang1}-{lang2}.txt"
+    output:
+        "data/interspersed/{dir}/{lang1}-{lang2}.txt"
+    shell:
+        "xc intersperse {input} {output} {wildcards.lang1} {wildcards.lang2}"
+
+rule shuffle_interspersed_parallel:
+    input:
+        expand("data/interspersed/opensubtitles/{pair}.txt", pair=LANGUAGE_PAIRS)
+    output:
+        "data/interspersed/shuffled.txt"
+    shell:
+        "cat {input} | scripts/imperfect-shuffle.sh {output} interspersed"
+
+
+
+
 # Building wordfreq data files
 # ============================
-#        expand("data/wordfreq/combined_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
-#        expand("data/wordfreq/large_{lang}.msgpack.gz", lang=LARGE_LANGUAGES),
-#        expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=SOURCE_LANGUAGES['twitter'])
 
 rule make_small_wordfreq_list:
     input:
