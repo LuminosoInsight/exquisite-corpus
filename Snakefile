@@ -41,12 +41,17 @@ SOURCE_LANGUAGES = {
     # Sufficiently large, non-spammy Wikipedias.
     # See https://meta.wikimedia.org/wiki/List_of_Wikipedias -- we're looking
     # for Wikipedias that have at least 100,000 articles and a "depth" measure
-    # of 10 or more (indicated that they're not mostly written by bots).
+    # of 20 or more (indicating that they're not mostly written by bots).
+    # Some Wikipedias with a depth of 10 or more are grandfathered into this list.
     'wikipedia': [
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et',
         'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hu', 'hr', 'hy', 'id', 'it',
-        'ja', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt', 'ro',
-        'ru', 'sh', 'sk', 'sl', 'sv', 'tr', 'uk', 'uz', 'vi', 'zh'
+        'ja', 'ka', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt',
+        'ro', 'ru', 'sh', 'sk', 'sl', 'sv', 'th', 'tr', 'uk', 'ur', 'uz', 'vi',
+        'zh',
+
+        # Smaller but high-quality, high-depth Wikipedias
+        'mk', 'my', 'te', 'ml', 'bn', 'mr', 'is', 'ku', 'mn', 'si', 'or'
     ],
 
     # 99.2% of Reddit is in English. Some text that's in other languages is
@@ -114,7 +119,7 @@ SOURCE_LANGUAGES = {
         'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
         'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
         'nl', 'nb', 'pl', 'pt', 'ro', 'ru', 'sh', 'si', 'sk', 'sl', 'sq', 'sv',
-        'tr', 'uk', 'zh'
+        'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 }
 
@@ -156,7 +161,7 @@ TATOEBA_LANGUAGE_MAP = {
 WP_LANGUAGE_MAP = {
     'fil': 'tl'
 }
-WP_VERSION = '20161120'
+WP_VERSION = '20170420'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
     'zh-Hans': 'chi-sim',
@@ -221,7 +226,7 @@ for source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
-PARALLEL_LANGUAGES = sorted(set(LARGE_LANGUAGES) & set(SOURCE_LANGUAGES['opensubtitles'])) + ['fa']
+PARALLEL_LANGUAGES = sorted(set(LARGE_LANGUAGES) & set(SOURCE_LANGUAGES['opensubtitles'])) + ['fa', 'zh-Hans', 'zh-Hant']
 LANGUAGE_PAIRS = [
     "{}-{}".format(_lang1, _lang2)
     for _lang1 in PARALLEL_LANGUAGES for _lang2 in PARALLEL_LANGUAGES
