@@ -1,5 +1,6 @@
 import click
 from .tokens import tokenize_file, tokenize_by_language
+from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
 from .freq import (
     count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack,
@@ -7,6 +8,7 @@ from .freq import (
 )
 from wordfreq.chinese import simplify_chinese
 import os
+import pathlib
 
 
 @click.group()
@@ -85,4 +87,31 @@ def run_simplify_chinese(input_file, output_file):
     for line in input_file:
         line = line.rstrip()
         print(simplify_chinese(line), file=output_file)
+
+
+@cli.command(name='sparse-assoc')
+@click.argument('parallel_text_dir', type=click.Path(readable=True, dir_okay=True, file_okay=False))
+@click.argument('vocab_dir', type=click.Path(readable=True, dir_okay=True, file_okay=False))
+@click.argument('output_dir', type=click.Path(writable=True, dir_okay=True, file_okay=False))
+@click.option('--languages', '-l', default='de,en,es,it,fa')
+@click.option('--vocab_size', '-s', type=int, default=100000)
+def run_sparse_assoc(parallel_text_dir, vocab_dir, output_dir, languages, vocab_size):
+    language_list = languages.split(',')
+    make_sparse_assoc(
+        pathlib.Path(vocab_dir),
+        pathlib.Path(parallel_text_dir),
+        pathlib.Path(output_dir),
+        language_list,
+        vocab_size
+    )
+
+
+@cli.command(name='intersperse')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+@click.argument('lang1')
+@click.argument('lang2')
+def run_intersperse(input_file, output_file, lang1, lang2):
+    intersperse_parallel_text(input_file, output_file, lang1, lang2)
+
 
