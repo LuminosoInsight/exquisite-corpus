@@ -159,7 +159,8 @@ TATOEBA_LANGUAGE_MAP = {
     'sh': 'sr'
 }
 WP_LANGUAGE_MAP = {
-    'fil': 'tl'
+    'fil': 'tl',
+    'nb': 'no'
 }
 WP_VERSION = '20170420'
 GOOGLE_LANGUAGE_MAP = {
