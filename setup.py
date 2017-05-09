@@ -13,6 +13,7 @@ setup(
     zip_safe=False,
     classifiers=[
         "Programming Language :: Python :: 3",
+        'License :: OSI Approved :: MIT License',
     ],
     entry_points={
         'console_scripts': ['xc = exquisite_corpus.cli:cli'],
