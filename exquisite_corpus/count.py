@@ -5,6 +5,9 @@ import regex
 
 PUNCT_RE = regex.compile(r'\p{punct}')
 
+BAD_TOKENS = {
+    '', '\N{PILCROW SIGN}', '\ufffc', '\ufffd',
+}
 
 def count_tokenized(infile, outfile):
     """
@@ -18,7 +21,7 @@ def count_tokenized(infile, outfile):
         if line:
             toks = [
                 t.strip("'") for t in line.split(' ')
-                if not t.startswith('__') and t != '\N{PILCROW SIGN}'
+                if not t.startswith('__') and t not in BAD_TOKENS
             ]
             counts.update(toks)
             total += len(toks)
