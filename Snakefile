@@ -6,19 +6,18 @@ from collections import defaultdict
 
 
 SOURCE_LANGUAGES = {
-    # OPUS's data files of OpenSubtitles 2016
+    # OPUS's data files of OpenSubtitles 2018
     #
-    # Include languages with at least 500 subtitle files, but skip:
+    # Include languages with at least 400 subtitle files, but skip:
     # - 'ze' because that's not a real language code
     #   (it seems to represent code-switching Chinese and English)
     # - 'th' because we don't know how to tokenize it
-    # - 'vi' because its tokens are sub-words and the text is often
-    #   seriously mojibaked
     'opensubtitles': [
-        'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
-        'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
+        'ar', 'bg', 'bn', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'eu',
+        'fa', 'fi', 'fr', 'gl', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt',
+        'lv', 'mk', 'ml', 'ms',
         'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh', 'si', 'sk',
-        'sl', 'sq', 'sv', 'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
+        'sl', 'sq', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # Europarl v7, which also comes from OPUS
@@ -192,6 +191,12 @@ GOOGLE_2GRAM_SHARDS = [
     for _c2 in 'abcdefghijklmnopqrstuvwxyz_'
     if _c1 + _c2 != 'zq'
 ]
+GOOGLE_3GRAM_SHARDS = [
+    _c1 + _c2
+    for _c1 in 'abcdefghijklmnopqrstuvwxyz'
+    for _c2 in 'abcdefghijklmnopqrstuvwxyz_'
+    if _c1 + _c2 not in {'qg', 'qz', 'xg', 'xq', 'zq'}
+]
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
     [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
@@ -305,7 +310,11 @@ rule embeddings:
 
 rule google_2grams:
     input:
-        expand("data/downloaded/google/2grams-en-{shard}.txt.gz", shard=GOOGLE_2GRAM_SHARDS)
+        expand("data/downloaded/google-ngrams/2grams-en-{shard}.txt.gz", shard=GOOGLE_2GRAM_SHARDS)
+
+rule google_3grams:
+    input:
+        expand("data/downloaded/google-ngrams/3grams-en-{shard}.txt.gz", shard=GOOGLE_3GRAM_SHARDS)
 
 
 # Downloaders
@@ -316,7 +325,7 @@ rule download_opensubtitles_monolingual:
         "data/downloaded/opensubtitles/{lang}.txt.gz"
     run:
         source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/mono/OpenSubtitles2016.raw.{source_lang}.gz' -o {output}")
+        shell("curl -L 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/mono/OpenSubtitles2018.raw.{source_lang}.gz' -o {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
@@ -325,7 +334,7 @@ rule download_opensubtitles_parallel:
     output:
         "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
     shell:
-        "curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/{wildcards.lang1}-{wildcards.lang2}.txt.zip' -o {output}"
+        "curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2018/{wildcards.lang1}-{wildcards.lang2}.txt.zip' -o {output}"
 
 rule download_europarl_monolingual:
     output:
@@ -387,14 +396,15 @@ rule download_google_1grams:
             # Do a bit of pre-processing as we download
             shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
-rule download_google_2grams:
+rule download_google_ngrams:
     output:
-        "data/downloaded/google/2grams-{lang}-{shard}.txt.gz"
+        "data/downloaded/google-ngrams/{n}grams-{lang}-{shard}.txt.gz"
     run:
         source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         shard = wildcards.shard
+        n = wildcards.n
         # Do a bit of pre-processing as we download
-        shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-2gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+        shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-{n}gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
 rule download_amazon_snap:
     output:
@@ -415,8 +425,8 @@ rule extract_opensubtitles_parallel:
     input:
         "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
     output:
-        "data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang1}",
-        "data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang2}"
+        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}-{lang2}.{lang1}",
+        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}-{lang2}.{lang2}"
     shell:
         "unzip -o -d 'data/extracted/opensubtitles/' {input} && touch {output}"
 
@@ -438,7 +448,7 @@ rule extract_amazon_acl10:
     shell:
         "tar xf {input} -C data/extracted/amazon-acl10 && touch {output}"
 
-rule extract_google:
+rule extract_google_1grams:
     input:
         expand("data/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
                shard=GOOGLE_1GRAM_SHARDS)
@@ -560,6 +570,38 @@ rule transform_jieba:
     shell:
         "cut -d ' ' -f 1,2 {input} | tr ' ' '\t' | xc simplify-chinese - {output}"
 
+rule transform_2grams:
+    input:
+        "data/downloaded/google-ngrams/2grams-{lang}-{prefix}.txt.gz"
+    output:
+        "data/messy-counts/google-ngrams/2grams-{lang}-{prefix}.txt"
+    shell:
+        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | countmerge > {output}"
+
+rule transform_3grams:
+    input:
+        "data/downloaded/google-ngrams/3grams-{lang}-{prefix}.txt.gz"
+    output:
+        "data/messy-counts/google-ngrams/3grams-{lang}-{prefix}.txt"
+    shell:
+        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | countmerge > {output}"
+
+rule concat_2grams:
+    input:
+        expand("data/messy-counts/google-ngrams/2grams-en-{prefix}.txt", prefix=GOOGLE_2GRAM_SHARDS)
+    output:
+        "data/messy-counts/google-ngrams/2grams-combined-en.txt.gz"
+    shell:
+        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | countmerge | gzip -c > {output}"
+
+rule concat_3grams:
+    input:
+        expand("data/messy-counts/google-ngrams/3grams-en-{prefix}.txt", prefix=GOOGLE_3GRAM_SHARDS)
+    output:
+        "data/messy-counts/google-ngrams/3grams-combined-en.txt.gz"
+    shell:
+        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | countmerge | gzip -c > {output}"
+
 
 # Tokenizing
 # ==========
@@ -615,7 +657,7 @@ rule tokenize_newscrawl:
 
 rule tokenize_parallel_opensubtitles:
     input:
-        "data/extracted/opensubtitles/OpenSubtitles2016.{langpair}.{lang}"
+        "data/extracted/opensubtitles/OpenSubtitles2018.{langpair}.{lang}"
     output:
         "data/tokenized/opensubtitles/parallel/{langpair}.{lang}.txt"
     shell:
@@ -662,7 +704,6 @@ rule tokenize_voa:
         "data/tokenized/voa/{lang}.txt"
     shell:
         "xc tokenize -l {wildcards.lang} - {output}"
-
 
 
 # Counting tokens
