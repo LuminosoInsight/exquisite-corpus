@@ -1,4 +1,4 @@
-from wordfreq import tokenize
+from wordfreq.tokens import tokenize, lossy_tokenize
 from ftfy.fixes import unescape_html, fix_surrogates
 import regex
 import pycld2
@@ -71,7 +71,7 @@ def tokenize_file(infile, outfile, language, check_language=False, punctuation=F
     """
     for line in infile:
         line = fix_surrogates(unescape_html(line.rstrip()))
-        tokens = tokenize(line, language, include_punctuation=punctuation, combine_numbers=True, external_wordlist=True)
+        tokens = lossy_tokenize(line, language, include_punctuation=punctuation, external_wordlist=True)
         checked_lang = None
         if check_language:
             checked_lang, _confident = cld2_detect_language(line.rstrip())

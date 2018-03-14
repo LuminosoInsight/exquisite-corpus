@@ -291,9 +291,8 @@ def balkanize_cld2_languages(languages):
 
 rule wordfreq:
     input:
-        expand("data/wordfreq/combined_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
+        expand("data/wordfreq/small_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
         expand("data/wordfreq/large_{lang}.msgpack.gz", lang=LARGE_LANGUAGES),
-        expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=TWITTER_LANGUAGES),
         "data/wordfreq/jieba_zh.txt"
 
 rule parallel:
@@ -922,7 +921,7 @@ rule make_small_wordfreq_list:
     input:
         "data/freqs/{lang}.txt"
     output:
-        "data/wordfreq/combined_{lang}.msgpack.gz"
+        "data/wordfreq/small_{lang}.msgpack.gz"
     shell:
         "xc export-to-wordfreq {input} - -c 600 | gzip -c > {output}"
 
