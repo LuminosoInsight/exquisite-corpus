@@ -171,19 +171,26 @@ GOOGLE_LANGUAGE_MAP = {
     'ru': 'rus',
     'es': 'spa'
 }
+
+# Google Books unigrams are sharded by the first letter or digit of the token,
+# or 'other'.
+
 GOOGLE_1GRAM_SHARDS = [
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 ]
 
-# These are the shard names for Google Books 2grams data, which I'm interested
-# in using as evidence about interesting phrases. I'm skipping numbers and
-# 'other' for now; the remaining files are split by the two-letter prefix of
-# the first word.
+# These are the shard names for Google Books data, which I'm interested in
+# using as evidence about interesting phrases. I'm skipping numbers and 'other'
+# for now; the remaining files are split by the two-letter prefix of the first
+# token.
 #
-# All such prefixes except for 'zq' exist in the English Fiction set. This
-# list will have to be adapted as we use other languages or data sets.
+# Unfortunately, the 2-letter prefixes that never occur in any tokens in the
+# vocabulary correspond to files that simply don't exist. In order to avoid
+# errors, we need to exclude those prefixes: 'zq' from the 2grams, and four
+# additional prefixes from 3grams.
+
 GOOGLE_2GRAM_SHARDS = [
     _c1 + _c2
     for _c1 in 'abcdefghijklmnopqrstuvwxyz'
@@ -196,11 +203,17 @@ GOOGLE_3GRAM_SHARDS = [
     for _c2 in 'abcdefghijklmnopqrstuvwxyz_'
     if _c1 + _c2 not in {'qg', 'qz', 'xg', 'xq', 'zq'}
 ]
+
+# We have Reddit data that's sharded by month, from 2017-10 to 2015-05.
+
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
     [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
     [(2015, month) for month in range(1, 5 + 1)]
 )]
+
+# SNAP's Amazon data is sharded by product department.
+
 AMAZON_CATEGORIES = [
     'Books', 'Electronics', 'Movies_and_TV', 'CDs_and_Vinyl',
     'Clothing_Shoes_and_Jewelry', 'Home_and_Kitchen', 'Kindle_Store',
@@ -210,24 +223,35 @@ AMAZON_CATEGORIES = [
     'Grocery_and_Gourmet_Food', 'Patio_Lawn_and_Garden', 'Baby', 'Digital_Music',
     'Musical_Instruments', 'Amazon_Instant_Video'
 ]
+
+
+# The Amazon ACL dataset is split into 'books', 'music', and 'dvd', and also
+# separated into labeled training data and unlabeled data.
+
 AMAZON_ACL_DATASETS = [
     'books/train', 'books/unlabeled', 'music/train', 'music/unlabeled',
     'dvd/train', 'dvd/unlabeled'
 ]
+
 # The language-country-wtf codes that the ACL10 Amazon sentiment data uses.
 # 'jp' is a country code, and we need to change it to 'ja' in a later step.
+
 AMAZON_ACL_CODES = ['en', 'de', 'fr', 'jp']
 
+# Create a mapping from language codes to sources that we have for that
+# language.
+
 LANGUAGE_SOURCES = defaultdict(list)
-for source in COUNT_SOURCES:
+for _source in COUNT_SOURCES:
     for _lang in SOURCE_LANGUAGES[source]:
-        LANGUAGE_SOURCES[_lang].append(source)
+        LANGUAGE_SOURCES[_lang].append(_source)
 
 # Determine which languages we can support and which languages we can build a
 # full-size list for. We want to have sources from 5 different registers of
 # language to build a full list, but we give Dutch a pass -- it used to have 5
 # sources before we took out Common Crawl and considered OpenSubtitles and
 # SUBTLEX to count as the same source.
+
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
@@ -334,7 +358,7 @@ rule download_opensubtitles_parallel:
     run:
         lang1 = OPUS_LANGUAGE_MAP.get(wildcards.lang1, wildcards.lang1)
         lang2 = OPUS_LANGUAGE_MAP.get(wildcards.lang2, wildcards.lang2)
-        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2018/{lang1}-{lang2}.txt.zip' -o {output}")
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/{lang1}-{lang2}.txt.zip' -o {output}")
 
 rule download_europarl_monolingual:
     output:
@@ -344,7 +368,7 @@ rule download_europarl_monolingual:
     priority: 0
     run:
         source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_globalvoices_monolingual:
     output:
@@ -354,7 +378,7 @@ rule download_globalvoices_monolingual:
     priority: 0
     run:
         source_lang = GLOBALVOICES_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_tatoeba_monolingual:
     output:
@@ -364,7 +388,7 @@ rule download_tatoeba_monolingual:
     priority: 0
     run:
         source_lang = TATOEBA_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_wikipedia:
     output:
