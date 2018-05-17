@@ -243,7 +243,7 @@ AMAZON_ACL_CODES = ['en', 'de', 'fr', 'jp']
 
 LANGUAGE_SOURCES = defaultdict(list)
 for _source in COUNT_SOURCES:
-    for _lang in SOURCE_LANGUAGES[source]:
+    for _lang in SOURCE_LANGUAGES[_source]:
         LANGUAGE_SOURCES[_lang].append(_source)
 
 # Determine which languages we can support and which languages we can build a
