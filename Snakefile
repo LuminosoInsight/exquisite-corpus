@@ -232,9 +232,9 @@ for source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
-PARALLEL_LANGUAGES = ['ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru', 'sv', 'zh-Hans', 'zh-Hant', 'zh']
+PARALLEL_LANGUAGES = ['ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru', 'sv', 'zh-Hans', 'zh-Hant']
 LANGUAGE_PAIRS = [
-    "{}-{}".format(_lang1, _lang2)
+    "{}_{}".format(_lang1, _lang2)
     for _lang1 in PARALLEL_LANGUAGES for _lang2 in PARALLEL_LANGUAGES
     if _lang1 < _lang2
 ]
@@ -322,65 +322,67 @@ rule google_3grams:
 rule download_opensubtitles_monolingual:
     output:
         "data/downloaded/opensubtitles/{lang}.txt.gz"
-    run:
-        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/mono/OpenSubtitles2018.raw.{source_lang}.gz' -o {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/mono/OpenSubtitles2018.raw.{source_lang}.gz' -o {output}")
 
 rule download_opensubtitles_parallel:
     output:
-        "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
-    shell:
-        "curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2018/{wildcards.lang1}-{wildcards.lang2}.txt.zip' -o {output}"
+        "data/downloaded/opensubtitles/{lang1}_{lang2}.zip"
+    run:
+        lang1 = OPUS_LANGUAGE_MAP.get(wildcards.lang1, wildcards.lang1)
+        lang2 = OPUS_LANGUAGE_MAP.get(wildcards.lang2, wildcards.lang2)
+        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2018/{lang1}-{lang2}.txt.zip' -o {output}")
 
 rule download_europarl_monolingual:
     output:
         "data/downloaded/europarl/{lang}.txt"
-    run:
-        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_globalvoices_monolingual:
     output:
         "data/downloaded/globalvoices/{lang}.txt"
-    run:
-        source_lang = GLOBALVOICES_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = GLOBALVOICES_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_tatoeba_monolingual:
     output:
         "data/downloaded/tatoeba/{lang}.txt"
-    run:
-        source_lang = TATOEBA_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = TATOEBA_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.lingfil.uu.se/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_wikipedia:
     output:
         "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
+    resources:
+        download=1, wpdownload=1
+    priority: 0
     run:
         source_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         version = WP_VERSION
         shell("curl 'ftp://ftpmirror.your.org/pub/wikimedia/dumps/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
-    resources:
-        download=1, wpdownload=1
-    priority: 0
 
 rule download_newscrawl:
     output:
         "data/downloaded/newscrawl-2014-monolingual.tar.gz"
     shell:
-        "curl -L 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
+        "curl -Lf 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
 
 rule download_google_1grams:
     output:
@@ -393,7 +395,7 @@ rule download_google_1grams:
             shell("echo -n '' | gzip -c > {output}")
         else:
             # Do a bit of pre-processing as we download
-            shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+            shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
 rule download_google_ngrams:
     output:
@@ -403,29 +405,29 @@ rule download_google_ngrams:
         shard = wildcards.shard
         n = wildcards.n
         # Do a bit of pre-processing as we download
-        shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-{n}gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+        shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-{n}gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
 rule download_amazon_snap:
     output:
         "data/downloaded/amazon/{category}.json.gz"
     shell:
-        "curl -L 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
+        "curl -Lf 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
 
 rule download_amazon_acl10:
     output:
         "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     shell:
-        "curl -L 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
+        "curl -Lf 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
 
 
 # Handling downloaded data
 # ========================
 rule extract_opensubtitles_parallel:
     input:
-        "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
+        "data/downloaded/opensubtitles/{lang1}_{lang2}.zip"
     output:
-        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}-{lang2}.{lang1}",
-        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}-{lang2}.{lang2}"
+        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang1}",
+        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang2}"
     shell:
         "unzip -o -d 'data/extracted/opensubtitles/' {input} && touch {output}"
 
@@ -664,10 +666,10 @@ rule tokenize_parallel_opensubtitles:
 
 rule parallel_opensubtitles:
     input:
-        "data/tokenized/opensubtitles/parallel/{lang1}-{lang2}.{lang1}.txt",
-        "data/tokenized/opensubtitles/parallel/{lang1}-{lang2}.{lang2}.txt"
+        "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang2}.txt"
     output:
-        "data/parallel/opensubtitles/{lang1}-{lang2}.txt"
+        "data/parallel/opensubtitles/{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
@@ -897,9 +899,9 @@ rule fasttext_skipgrams:
 
 rule intersperse_parallel:
     input:
-        "data/parallel/{dir}/{lang1}-{lang2}.txt"
+        "data/parallel/{dir}/{lang1}_{lang2}.txt"
     output:
-        "data/interspersed/{dir}/{lang1}-{lang2}.txt"
+        "data/interspersed/{dir}/{lang1}_{lang2}.txt"
     shell:
         "xc intersperse {input} {output} {wildcards.lang1} {wildcards.lang2}"
 
