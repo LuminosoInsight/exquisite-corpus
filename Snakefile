@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
-from exquisite_corpus.tokens import CLD2_LANGUAGES
 from collections import defaultdict
 
 
