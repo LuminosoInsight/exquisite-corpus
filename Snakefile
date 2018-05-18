@@ -451,8 +451,19 @@ rule extract_opensubtitles_parallel:
     output:
         "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang1}",
         "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang2}"
-    shell:
-        "unzip -o -d 'data/extracted/opensubtitles/' {input} && touch {output}"
+    run:
+        # The contents of the zip file have OPUS language codes joined by hyphens.
+        # We need to rename them to our BCP 47 language codes joined by underscores.
+        code1 = OPUS_LANGUAGE_MAP.get(wildcards.lang1, wildcards.lang1)
+        code2 = OPUS_LANGUAGE_MAP.get(wildcards.lang2, wildcards.lang2)
+        zip_output1 = "data/extracted/opensubtitles/OpenSubtitles2018.{code1}-{code2}.{code1}".format(
+            code1=code1, code2=code2
+        )
+        zip_output2 = "data/extracted/opensubtitles/OpenSubtitles2018.{code1}-{code2}.{code2}".format(
+            code1=code1, code2=code2
+        )
+        output1, output2 = output
+        shell("unzip -o -d 'data/extracted/opensubtitles/' {input} && mv {zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
 
 rule extract_newscrawl:
     input:
