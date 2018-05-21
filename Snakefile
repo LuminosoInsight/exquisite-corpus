@@ -1,24 +1,22 @@
 #!/usr/bin/env python3
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
-from exquisite_corpus.tokens import CLD2_LANGUAGES
 from collections import defaultdict
 
 
 SOURCE_LANGUAGES = {
-    # OPUS's data files of OpenSubtitles 2016
+    # OPUS's data files of OpenSubtitles 2018
     #
-    # Include languages with at least 500 subtitle files, but skip:
+    # Include languages with at least 400 subtitle files, but skip:
     # - 'ze' because that's not a real language code
     #   (it seems to represent code-switching Chinese and English)
     # - 'th' because we don't know how to tokenize it
-    # - 'vi' because its tokens are sub-words and the text is often
-    #   seriously mojibaked
     'opensubtitles': [
-        'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
-        'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
+        'ar', 'bg', 'bn', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'eu',
+        'fa', 'fi', 'fr', 'gl', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt',
+        'lv', 'mk', 'ml', 'ms',
         'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh', 'si', 'sk',
-        'sl', 'sq', 'sv', 'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
+        'sl', 'sq', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # Europarl v7, which also comes from OPUS
@@ -173,30 +171,49 @@ GOOGLE_LANGUAGE_MAP = {
     'ru': 'rus',
     'es': 'spa'
 }
+
+# Google Books unigrams are sharded by the first letter or digit of the token,
+# or 'other'.
+
 GOOGLE_1GRAM_SHARDS = [
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
     'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
 ]
 
-# These are the shard names for Google Books 2grams data, which I'm interested
-# in using as evidence about interesting phrases. I'm skipping numbers and
-# 'other' for now; the remaining files are split by the two-letter prefix of
-# the first word.
+# These are the shard names for Google Books data, which I'm interested in
+# using as evidence about interesting phrases. I'm skipping numbers and 'other'
+# for now; the remaining files are split by the two-letter prefix of the first
+# token.
 #
-# All such prefixes except for 'zq' exist in the English Fiction set. This
-# list will have to be adapted as we use other languages or data sets.
+# Unfortunately, the 2-letter prefixes that never occur in any tokens in the
+# vocabulary correspond to files that simply don't exist. In order to avoid
+# errors, we need to exclude those prefixes: 'zq' from the 2grams, and four
+# additional prefixes from 3grams.
+
 GOOGLE_2GRAM_SHARDS = [
     _c1 + _c2
     for _c1 in 'abcdefghijklmnopqrstuvwxyz'
     for _c2 in 'abcdefghijklmnopqrstuvwxyz_'
     if _c1 + _c2 != 'zq'
 ]
+GOOGLE_3GRAM_SHARDS = [
+    _c1 + _c2
+    for _c1 in 'abcdefghijklmnopqrstuvwxyz'
+    for _c2 in 'abcdefghijklmnopqrstuvwxyz_'
+    if _c1 + _c2 not in {'qg', 'qz', 'xg', 'xq', 'zq'}
+]
+
+# We have Reddit data that's sharded by month, from 2017-10 to 2015-05.
+
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
     [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
     [(2015, month) for month in range(1, 5 + 1)]
 )]
+
+# SNAP's Amazon data is sharded by product department.
+
 AMAZON_CATEGORIES = [
     'Books', 'Electronics', 'Movies_and_TV', 'CDs_and_Vinyl',
     'Clothing_Shoes_and_Jewelry', 'Home_and_Kitchen', 'Kindle_Store',
@@ -206,30 +223,41 @@ AMAZON_CATEGORIES = [
     'Grocery_and_Gourmet_Food', 'Patio_Lawn_and_Garden', 'Baby', 'Digital_Music',
     'Musical_Instruments', 'Amazon_Instant_Video'
 ]
+
+
+# The Amazon ACL dataset is split into 'books', 'music', and 'dvd', and also
+# separated into labeled training data and unlabeled data.
+
 AMAZON_ACL_DATASETS = [
     'books/train', 'books/unlabeled', 'music/train', 'music/unlabeled',
     'dvd/train', 'dvd/unlabeled'
 ]
+
 # The language-country-wtf codes that the ACL10 Amazon sentiment data uses.
 # 'jp' is a country code, and we need to change it to 'ja' in a later step.
+
 AMAZON_ACL_CODES = ['en', 'de', 'fr', 'jp']
 
+# Create a mapping from language codes to sources that we have for that
+# language.
+
 LANGUAGE_SOURCES = defaultdict(list)
-for source in COUNT_SOURCES:
-    for _lang in SOURCE_LANGUAGES[source]:
-        LANGUAGE_SOURCES[_lang].append(source)
+for _source in COUNT_SOURCES:
+    for _lang in SOURCE_LANGUAGES[_source]:
+        LANGUAGE_SOURCES[_lang].append(_source)
 
 # Determine which languages we can support and which languages we can build a
 # full-size list for. We want to have sources from 5 different registers of
 # language to build a full list, but we give Dutch a pass -- it used to have 5
 # sources before we took out Common Crawl and considered OpenSubtitles and
 # SUBTLEX to count as the same source.
+
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
-PARALLEL_LANGUAGES = ['ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru', 'sv', 'zh-Hans', 'zh-Hant', 'zh']
+PARALLEL_LANGUAGES = ['ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru', 'sv', 'zh-Hans', 'zh-Hant']
 LANGUAGE_PAIRS = [
-    "{}-{}".format(_lang1, _lang2)
+    "{}_{}".format(_lang1, _lang2)
     for _lang1 in PARALLEL_LANGUAGES for _lang2 in PARALLEL_LANGUAGES
     if _lang1 < _lang2
 ]
@@ -286,9 +314,8 @@ def balkanize_cld2_languages(languages):
 
 rule wordfreq:
     input:
-        expand("data/wordfreq/combined_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
+        expand("data/wordfreq/small_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
         expand("data/wordfreq/large_{lang}.msgpack.gz", lang=LARGE_LANGUAGES),
-        expand("data/wordfreq/twitter_{lang}.msgpack.gz", lang=TWITTER_LANGUAGES),
         "data/wordfreq/jieba_zh.txt"
 
 rule parallel:
@@ -305,7 +332,11 @@ rule embeddings:
 
 rule google_2grams:
     input:
-        expand("data/downloaded/google/2grams-en-{shard}.txt.gz", shard=GOOGLE_2GRAM_SHARDS)
+        expand("data/downloaded/google-ngrams/2grams-en-{shard}.txt.gz", shard=GOOGLE_2GRAM_SHARDS)
+
+rule google_3grams:
+    input:
+        expand("data/downloaded/google-ngrams/3grams-en-{shard}.txt.gz", shard=GOOGLE_3GRAM_SHARDS)
 
 
 # Downloaders
@@ -314,65 +345,67 @@ rule google_2grams:
 rule download_opensubtitles_monolingual:
     output:
         "data/downloaded/opensubtitles/{lang}.txt.gz"
-    run:
-        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/mono/OpenSubtitles2016.raw.{source_lang}.gz' -o {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/mono/OpenSubtitles2018.raw.{source_lang}.gz' -o {output}")
 
 rule download_opensubtitles_parallel:
     output:
-        "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
-    shell:
-        "curl -L 'http://opus.lingfil.uu.se/download.php?f=OpenSubtitles2016/{wildcards.lang1}-{wildcards.lang2}.txt.zip' -o {output}"
+        "data/downloaded/opensubtitles/{lang1}_{lang2}.zip"
+    run:
+        lang1 = OPUS_LANGUAGE_MAP.get(wildcards.lang1, wildcards.lang1)
+        lang2 = OPUS_LANGUAGE_MAP.get(wildcards.lang2, wildcards.lang2)
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/{lang1}-{lang2}.txt.zip' -o {output}")
 
 rule download_europarl_monolingual:
     output:
         "data/downloaded/europarl/{lang}.txt"
-    run:
-        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_globalvoices_monolingual:
     output:
         "data/downloaded/globalvoices/{lang}.txt"
-    run:
-        source_lang = GLOBALVOICES_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = GLOBALVOICES_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_tatoeba_monolingual:
     output:
         "data/downloaded/tatoeba/{lang}.txt"
-    run:
-        source_lang = TATOEBA_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -L 'http://opus.lingfil.uu.se/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
     resources:
         download=1, opusdownload=1
     priority: 0
+    run:
+        source_lang = TATOEBA_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
 
 rule download_wikipedia:
     output:
         "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
+    resources:
+        download=1, wpdownload=1
+    priority: 0
     run:
         source_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         version = WP_VERSION
         shell("curl 'ftp://ftpmirror.your.org/pub/wikimedia/dumps/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
-    resources:
-        download=1, wpdownload=1
-    priority: 0
 
 rule download_newscrawl:
     output:
         "data/downloaded/newscrawl-2014-monolingual.tar.gz"
     shell:
-        "curl -L 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
+        "curl -Lf 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
 
 rule download_google_1grams:
     output:
@@ -385,40 +418,52 @@ rule download_google_1grams:
             shell("echo -n '' | gzip -c > {output}")
         else:
             # Do a bit of pre-processing as we download
-            shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+            shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
-rule download_google_2grams:
+rule download_google_ngrams:
     output:
-        "data/downloaded/google/2grams-{lang}-{shard}.txt.gz"
+        "data/downloaded/google-ngrams/{n}grams-{lang}-{shard}.txt.gz"
     run:
         source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         shard = wildcards.shard
+        n = wildcards.n
         # Do a bit of pre-processing as we download
-        shell("curl -L 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-2gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+        shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-{n}gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
 rule download_amazon_snap:
     output:
         "data/downloaded/amazon/{category}.json.gz"
     shell:
-        "curl -L 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
+        "curl -Lf 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
 
 rule download_amazon_acl10:
     output:
         "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     shell:
-        "curl -L 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
+        "curl -Lf 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
 
 
 # Handling downloaded data
 # ========================
 rule extract_opensubtitles_parallel:
     input:
-        "data/downloaded/opensubtitles/{lang1}-{lang2}.zip"
+        "data/downloaded/opensubtitles/{lang1}_{lang2}.zip"
     output:
-        "data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang1}",
-        "data/extracted/opensubtitles/OpenSubtitles2016.{lang1}-{lang2}.{lang2}"
-    shell:
-        "unzip -o -d 'data/extracted/opensubtitles/' {input} && touch {output}"
+        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang1}",
+        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang2}"
+    run:
+        # The contents of the zip file have OPUS language codes joined by hyphens.
+        # We need to rename them to our BCP 47 language codes joined by underscores.
+        code1 = OPUS_LANGUAGE_MAP.get(wildcards.lang1, wildcards.lang1)
+        code2 = OPUS_LANGUAGE_MAP.get(wildcards.lang2, wildcards.lang2)
+        zip_output1 = "data/extracted/opensubtitles/OpenSubtitles2018.{code1}-{code2}.{code1}".format(
+            code1=code1, code2=code2
+        )
+        zip_output2 = "data/extracted/opensubtitles/OpenSubtitles2018.{code1}-{code2}.{code2}".format(
+            code1=code1, code2=code2
+        )
+        output1, output2 = output
+        shell("unzip -o -d 'data/extracted/opensubtitles/' {input} && mv {zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
 
 rule extract_newscrawl:
     input:
@@ -438,7 +483,7 @@ rule extract_amazon_acl10:
     shell:
         "tar xf {input} -C data/extracted/amazon-acl10 && touch {output}"
 
-rule extract_google:
+rule extract_google_1grams:
     input:
         expand("data/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
                shard=GOOGLE_1GRAM_SHARDS)
@@ -560,6 +605,38 @@ rule transform_jieba:
     shell:
         "cut -d ' ' -f 1,2 {input} | tr ' ' '\t' | xc simplify-chinese - {output}"
 
+rule transform_2grams:
+    input:
+        "data/downloaded/google-ngrams/2grams-{lang}-{prefix}.txt.gz"
+    output:
+        "data/messy-counts/google-ngrams/2grams-{lang}-{prefix}.txt"
+    shell:
+        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | countmerge > {output}"
+
+rule transform_3grams:
+    input:
+        "data/downloaded/google-ngrams/3grams-{lang}-{prefix}.txt.gz"
+    output:
+        "data/messy-counts/google-ngrams/3grams-{lang}-{prefix}.txt"
+    shell:
+        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | countmerge > {output}"
+
+rule concat_2grams:
+    input:
+        expand("data/messy-counts/google-ngrams/2grams-en-{prefix}.txt", prefix=GOOGLE_2GRAM_SHARDS)
+    output:
+        "data/messy-counts/google-ngrams/2grams-combined-en.txt.gz"
+    shell:
+        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | countmerge | gzip -c > {output}"
+
+rule concat_3grams:
+    input:
+        expand("data/messy-counts/google-ngrams/3grams-en-{prefix}.txt", prefix=GOOGLE_3GRAM_SHARDS)
+    output:
+        "data/messy-counts/google-ngrams/3grams-combined-en.txt.gz"
+    shell:
+        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | countmerge | gzip -c > {output}"
+
 
 # Tokenizing
 # ==========
@@ -615,7 +692,7 @@ rule tokenize_newscrawl:
 
 rule tokenize_parallel_opensubtitles:
     input:
-        "data/extracted/opensubtitles/OpenSubtitles2016.{langpair}.{lang}"
+        "data/extracted/opensubtitles/OpenSubtitles2018.{langpair}.{lang}"
     output:
         "data/tokenized/opensubtitles/parallel/{langpair}.{lang}.txt"
     shell:
@@ -623,10 +700,10 @@ rule tokenize_parallel_opensubtitles:
 
 rule parallel_opensubtitles:
     input:
-        "data/tokenized/opensubtitles/parallel/{lang1}-{lang2}.{lang1}.txt",
-        "data/tokenized/opensubtitles/parallel/{lang1}-{lang2}.{lang2}.txt"
+        "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang2}.txt"
     output:
-        "data/parallel/opensubtitles/{lang1}-{lang2}.txt"
+        "data/parallel/opensubtitles/{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
@@ -662,7 +739,6 @@ rule tokenize_voa:
         "data/tokenized/voa/{lang}.txt"
     shell:
         "xc tokenize -l {wildcards.lang} - {output}"
-
 
 
 # Counting tokens
@@ -857,9 +933,9 @@ rule fasttext_skipgrams:
 
 rule intersperse_parallel:
     input:
-        "data/parallel/{dir}/{lang1}-{lang2}.txt"
+        "data/parallel/{dir}/{lang1}_{lang2}.txt"
     output:
-        "data/interspersed/{dir}/{lang1}-{lang2}.txt"
+        "data/interspersed/{dir}/{lang1}_{lang2}.txt"
     shell:
         "xc intersperse {input} {output} {wildcards.lang1} {wildcards.lang2}"
 
@@ -881,7 +957,7 @@ rule make_small_wordfreq_list:
     input:
         "data/freqs/{lang}.txt"
     output:
-        "data/wordfreq/combined_{lang}.msgpack.gz"
+        "data/wordfreq/small_{lang}.msgpack.gz"
     shell:
         "xc export-to-wordfreq {input} - -c 600 | gzip -c > {output}"
 
