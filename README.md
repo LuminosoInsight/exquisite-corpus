@@ -24,6 +24,7 @@ You also need certain tools to be available:
 - The C library for `mecab` (apt install libmecab-dev)
 - The ICU Unicode libraries (apt install libicu-dev)
 - The JSON processor `jq` (apt install jq)
+- The XML processor `xml2` (apt install xml2)
 - countmerge (https://github.com/rspeer/countmerge)
 - wikiparsec (https://github.com/LuminosoInsight/wikiparsec)
 
@@ -35,7 +36,7 @@ Some steps here probably need to be filled in better.
 - Install system-level dependencies:
 
 ```sh
-apt install python3-dev haskell-stack mecab-dev libicu-dev jq
+apt install python3-dev haskell-stack mecab-dev libicu-dev jq xml2
 ```
 
 - Install Rust: https://www.rust-lang.org/en-US/install.html
