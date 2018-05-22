@@ -22,8 +22,9 @@ def cli():
 @click.option('--language', '-l')
 @click.option('--check-language', '-c', is_flag=True, default=False)
 @click.option('--punctuation/--no-punctuation', '-p', is_flag=True, default=False)
-def run_tokenize(input_file, output_file, language, check_language, punctuation):
-    tokenize_file(input_file, output_file, language, check_language, punctuation)
+@click.option('--ftfy', '-f', is_flag=True, default=False)
+def run_tokenize(input_file, output_file, language, check_language, punctuation, ftfy):
+    tokenize_file(input_file, output_file, language, check_language, punctuation, ftfy=ftfy)
 
 
 @cli.command(name='tokenize-by-language')
