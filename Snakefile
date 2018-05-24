@@ -996,6 +996,14 @@ rule merge_subtitles:
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
+rule merge_web:
+    input:
+        lambda wildcards: multisource_counts_to_merge('web', wildcards.lang)
+    output:
+        "data/counts/web/{lang}.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l {wildcards.lang}"
+
 
 # Assembling corpus text
 # ======================
