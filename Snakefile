@@ -172,7 +172,7 @@ WP_LANGUAGE_MAP = {
     'fil': 'tl',
     'nb': 'no'
 }
-WP_VERSION = '20170420'
+WP_VERSION = '20180520'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
     'zh-Hans': 'chi-sim',
@@ -436,7 +436,7 @@ rule download_wikipedia:
     run:
         source_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         version = WP_VERSION
-        shell("curl 'ftp://ftpmirror.your.org/pub/wikimedia/dumps/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
+        shell("curl 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
 
 rule download_newscrawl:
     output:
