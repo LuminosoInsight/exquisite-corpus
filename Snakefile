@@ -343,7 +343,7 @@ def paracrawl_language_pair_source(lang):
     else:
         langpair = 'en_{}'.format(lang)
 
-    return "data/extracted/paracrawl/{langpair}.{lang}.txt".format(langpair=langpair, lang=lang)
+    return "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt".format(langpair=langpair, lang=lang)
 
 
 # Top-level rules
@@ -778,7 +778,7 @@ rule tokenize_paracrawl:
     input:
         "data/extracted/paracrawl/{langpair}.{lang}.txt"
     output:
-        "data/tokenized/paracrawl/{langpair}.{lang}.txt"
+        "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt"
     shell:
         "xc tokenize -f -l {wildcards.lang} {input} {output}"
 
@@ -804,8 +804,8 @@ rule parallel_opensubtitles:
 
 rule parallel_paracrawl:
     input:
-        "data/tokenized/paracrawl/{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/paracrawl/{lang1}_{lang2}.{lang2}.txt"
+        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
     output:
         "data/parallel/paracrawl/{lang1}_{lang2}.txt"
     shell:
