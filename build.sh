@@ -1,2 +1,2 @@
 #!/bin/sh
-snakemake $@ -j 4 --resources download=4 --resources opusdownload=1
+snakemake $@ -j 8 --resources download=4 --resources opusdownload=1
