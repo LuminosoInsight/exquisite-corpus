@@ -16,8 +16,6 @@ You will need three programming environments installed:
 
 - Python 3.4 or later
 - Haskell, installed with `haskell-stack`, used to compile and run `wikiparsec`
-- The Rust programming language, version 1.14 or later, installed with `rustup`,
-  used to compile `countmerge`
 
 You also need certain tools to be available:
 
@@ -25,7 +23,6 @@ You also need certain tools to be available:
 - The ICU Unicode libraries (apt install libicu-dev)
 - The JSON processor `jq` (apt install jq)
 - The XML processor `xml2` (apt install xml2)
-- countmerge (https://github.com/rspeer/countmerge)
 - wikiparsec (https://github.com/LuminosoInsight/wikiparsec)
 
 
@@ -39,20 +36,12 @@ Some steps here probably need to be filled in better.
 apt install python3-dev haskell-stack mecab-dev libicu-dev jq xml2
 ```
 
-- Install Rust: https://www.rust-lang.org/en-US/install.html
-
 - Clone, build, and install `wikiparsec`:
 
 ```sh
 git clone https://github.com/LuminosoInsight/wikiparsec
 cd wikiparsec
 stack install
-```
-
-- Install `countmerge`:
-
-```sh
-cargo install countmerge
 ```
 
 - Finally, return to this directory and install `exquisite-corpus` itself,
