@@ -94,7 +94,7 @@ SOURCE_LANGUAGES = {
     # The Hungarian Webcorpus by Halácsy et al., from http://mokk.bme.hu/resources/webcorpus/
     'mokk': ['hu'],
 
-    # ParaCrawl, which aligns Web-crawled text from English to 13 other languages
+    # ParaCrawl, which aligns Web-crawled text from English to 11 other languages
     'paracrawl': [
         'cs', 'de', 'en', 'es', 'fi', 'fr', 'it', 'lv', 'nl', 'pl', 'pt', 'ro'
     ],
@@ -303,6 +303,7 @@ def language_text_sources(lang):
         if source in FULL_TEXT_SOURCES
     ]
 
+
 def multisource_counts_to_merge(multisource, lang):
     """
     Given a multi-source name like 'news' and a language code, find which sources
@@ -313,6 +314,7 @@ def multisource_counts_to_merge(multisource, lang):
         for source in MERGED_SOURCES[multisource]
         if lang in SOURCE_LANGUAGES[source]
     ]
+
 
 def balkanize_cld2_languages(languages):
     """
@@ -328,15 +330,23 @@ def balkanize_cld2_languages(languages):
             result.add(lang)
     return sorted(result)
 
+
 def paracrawl_language_pair_source(lang):
     """
-    ParaCrawl is parallel data, so its input files refer to language pairs.
-    In practice, each language pair is English and a non-English language.
+    Given a language code in ParaCrawl, we find the "paired" file that contains
+    monolingual tokenized data from that language.
 
-    Given a language code, we find the language-pair-tagged file that contains
-    monolingual data from that language. Most languages are paired with
-    English, of course. English is paired with French, as that language pair
-    yields the most text.
+    ParaCrawl is parallel data, so its input files refer to language pairs. In
+    practice, each language pair is English and a non-English language. So the
+    result for most languages is that they are paired with English. English is
+    paired with French, as that language pair yields the most text.
+
+    A "paired" filename is tagged with both a language pair and a single
+    language. All the text in the file is in that single language, but the
+    filename also refers to the language pair that it came from. The other file
+    from that language pair has corresponding lines in the same order, so you
+    could 'paste' them together to get tabular parallel text, with text in one
+    language and its translation in another.
     """
     if lang == 'en':
         langpair = 'en_fr'
@@ -775,6 +785,8 @@ rule tokenize_parallel_opensubtitles:
         "xc tokenize -f -l {wildcards.lang} {input} {output}"
 
 rule tokenize_paracrawl:
+    # Tokenize the text from Paracrawl, in one language at a time, but keeping
+    # track of the language pair they originated from.
     input:
         "data/extracted/paracrawl/{langpair}.{lang}.txt"
     output:
@@ -783,10 +795,15 @@ rule tokenize_paracrawl:
         "xc tokenize -f -l {wildcards.lang} {input} {output}"
 
 rule tokenize_paracrawl_monolingual:
+    # We've already tokenized the text of Paracrawl in the rule above.
+    # For the benefit of builds that don't care about parallel text, we
+    # need to find the one 'correct' file containing monolingual text for
+    # each language.
+    #
+    # Those files already exist; we just need them to exist under a
+    # filename where we only need to know the language code to find them.
+    # So we make a temporary copy of the file under that name.
     input:
-        # We've got monolingual text files named after the language pairs they
-        # were extracted from. Now we need to choose which one is the correct
-        # source of monolingual text in each language.
         lambda wildcards: paracrawl_language_pair_source(wildcards.lang)
     output:
         temp("data/tokenized/paracrawl/{lang}.txt")
@@ -794,6 +811,8 @@ rule tokenize_paracrawl_monolingual:
         "cp {input} {output}"
 
 rule parallel_opensubtitles:
+    # Join parallel text from OpenSubtitles that has been tokenized in
+    # separate, monolingual files.
     input:
         "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang1}.txt",
         "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang2}.txt"
@@ -803,6 +822,8 @@ rule parallel_opensubtitles:
         "paste {input} > {output}"
 
 rule parallel_paracrawl:
+    # Join parallel text from ParaCrawl that has been tokenized in
+    # separate, monolingual files.
     input:
         "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
         "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
