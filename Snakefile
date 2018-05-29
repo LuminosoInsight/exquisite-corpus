@@ -492,7 +492,7 @@ rule extract_google_1grams:
     shell:
         # Lowercase the terms, remove part-of-speech tags such as _NOUN, and
         # run the result through the 'countmerge' utility
-        r"zcat {input} | sed -n -e 's/\([^_	]\+\)\(_[A-Z]\+\)/\L\1/p' | countmerge > {output}"
+        r"zcat {input} | sed -n -e 's/\([^_	]\+\)\(_[A-Z]\+\)/\L\1/p' | awk -f scripts/countmerge.awk > {output}"
 
 rule extract_reddit:
     input:
@@ -611,7 +611,7 @@ rule transform_2grams:
     output:
         "data/messy-counts/google-ngrams/2grams-{lang}-{prefix}.txt"
     shell:
-        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | countmerge > {output}"
+        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | awk -f scripts/countmerge.awk > {output}"
 
 rule transform_3grams:
     input:
@@ -619,7 +619,7 @@ rule transform_3grams:
     output:
         "data/messy-counts/google-ngrams/3grams-{lang}-{prefix}.txt"
     shell:
-        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | countmerge > {output}"
+        r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | awk -f scripts/countmerge.awk > {output}"
 
 rule concat_2grams:
     input:
@@ -627,7 +627,7 @@ rule concat_2grams:
     output:
         "data/messy-counts/google-ngrams/2grams-combined-en.txt.gz"
     shell:
-        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | countmerge | gzip -c > {output}"
+        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | awk -f scripts/countmerge.awk | gzip -c > {output}"
 
 rule concat_3grams:
     input:
@@ -635,7 +635,7 @@ rule concat_3grams:
     output:
         "data/messy-counts/google-ngrams/3grams-combined-en.txt.gz"
     shell:
-        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | countmerge | gzip -c > {output}"
+        "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | awk -f scripts/countmerge.awk | gzip -c > {output}"
 
 
 # Tokenizing
