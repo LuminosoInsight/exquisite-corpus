@@ -94,6 +94,11 @@ SOURCE_LANGUAGES = {
     # The Hungarian Webcorpus by Halácsy et al., from http://mokk.bme.hu/resources/webcorpus/
     'mokk': ['hu'],
 
+    # ParaCrawl, which aligns Web-crawled text from English to 11 other languages
+    'paracrawl': [
+        'cs', 'de', 'en', 'es', 'fi', 'fr', 'it', 'lv', 'nl', 'pl', 'pt', 'ro'
+    ],
+
     # SUBTLEX: word counts from subtitles
     'subtlex': ['en-US', 'en-GB', 'en', 'de', 'nl', 'pl', 'zh-Hans', 'zh'],
 
@@ -119,11 +124,17 @@ SOURCE_LANGUAGES = {
         'nl', 'nb', 'pl', 'pt', 'ro', 'ru', 'sh', 'si', 'sk', 'sl', 'sq', 'sv',
         'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
     ],
+
+    # 'web' merges Web-crawled sources: ParaCrawl, Leeds, and Mokk
+    'web': [
+        'ar', 'cs', 'de', 'el', 'en', 'es', 'fi', 'fr', 'hu', 'it', 'ja', 'lv',
+        'nl', 'pl', 'pt', 'ro', 'ru', 'zh'
+    ]
 }
 
 COUNT_SOURCES = [
     'subtitles', 'news', 'wikipedia', 'reddit/merged', 'twitter',
-    'google', 'jieba', 'leeds', 'mokk'
+    'google', 'jieba', 'web'
 ]
 
 FULL_TEXT_SOURCES = [
@@ -132,6 +143,7 @@ FULL_TEXT_SOURCES = [
 ]
 MERGED_SOURCES = {
     'news': ['newscrawl', 'globalvoices', 'voa'],
+    'web': ['mokk', 'leeds', 'paracrawl'],
     'subtitles': ['opensubtitles', 'subtlex'],
     'amazon': ['amazon-snap', 'amazon-acl10']
 }
@@ -160,7 +172,7 @@ WP_LANGUAGE_MAP = {
     'fil': 'tl',
     'nb': 'no'
 }
-WP_VERSION = '20170420'
+WP_VERSION = '20180520'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
     'zh-Hans': 'chi-sim',
@@ -255,11 +267,19 @@ for _source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
-PARALLEL_LANGUAGES = ['ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru', 'sv', 'zh-Hans', 'zh-Hant']
-LANGUAGE_PAIRS = [
+OPENSUB_PARALLEL_LANGUAGES = [
+    'ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru',
+    'sv', 'zh-Hans', 'zh-Hant'
+]
+OPENSUB_LANGUAGE_PAIRS = [
     "{}_{}".format(_lang1, _lang2)
-    for _lang1 in PARALLEL_LANGUAGES for _lang2 in PARALLEL_LANGUAGES
+    for _lang1 in OPENSUB_PARALLEL_LANGUAGES for _lang2 in OPENSUB_PARALLEL_LANGUAGES
     if _lang1 < _lang2
+]
+PARACRAWL_LANGUAGE_PAIRS = [
+    "en_{}".format(_lang)
+    for _lang in SOURCE_LANGUAGES['paracrawl']
+    if _lang != 'en'
 ]
 
 
@@ -283,6 +303,7 @@ def language_text_sources(lang):
         if source in FULL_TEXT_SOURCES
     ]
 
+
 def multisource_counts_to_merge(multisource, lang):
     """
     Given a multi-source name like 'news' and a language code, find which sources
@@ -293,6 +314,7 @@ def multisource_counts_to_merge(multisource, lang):
         for source in MERGED_SOURCES[multisource]
         if lang in SOURCE_LANGUAGES[source]
     ]
+
 
 def balkanize_cld2_languages(languages):
     """
@@ -307,6 +329,31 @@ def balkanize_cld2_languages(languages):
         else:
             result.add(lang)
     return sorted(result)
+
+
+def paracrawl_language_pair_source(lang):
+    """
+    Given a language code in ParaCrawl, we find the "paired" file that contains
+    monolingual tokenized data from that language.
+
+    ParaCrawl is parallel data, so its input files refer to language pairs. In
+    practice, each language pair is English and a non-English language. So the
+    result for most languages is that they are paired with English. English is
+    paired with French, as that language pair yields the most text.
+
+    A "paired" filename is tagged with both a language pair and a single
+    language. All the text in the file is in that single language, but the
+    filename also refers to the language pair that it came from. The other file
+    from that language pair has corresponding lines in the same order, so you
+    could 'paste' them together to get tabular parallel text, with text in one
+    language and its translation in another.
+    """
+    if lang == 'en':
+        langpair = 'en_fr'
+    else:
+        langpair = 'en_{}'.format(lang)
+
+    return "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt".format(langpair=langpair, lang=lang)
 
 
 # Top-level rules
@@ -399,7 +446,7 @@ rule download_wikipedia:
     run:
         source_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         version = WP_VERSION
-        shell("curl 'ftp://ftpmirror.your.org/pub/wikimedia/dumps/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
+        shell("curl 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
 
 rule download_newscrawl:
     output:
@@ -441,6 +488,12 @@ rule download_amazon_acl10:
         "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     shell:
         "curl -Lf 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
+
+rule download_paracrawl:
+    output:
+        "data/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
+    shell:
+        "curl -lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.{wildcards.lang1}-{wildcards.lang2}.withstats.filtered-bicleaner.tmx.gz' -o {output}"
 
 
 # Handling downloaded data
@@ -637,6 +690,39 @@ rule concat_3grams:
     shell:
         "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | countmerge | gzip -c > {output}"
 
+rule transform_paracrawl:
+    # To save computation time, we use fast command-line tools to do as much
+    # processing as possible, particularly for tasks such as streaming XML
+    # processing. Python's SAX would do this, but it's slow and its API is
+    # painful. So we use 'xml2' instead.
+    #
+    # xml2 is a command-line XML processor that outputs a stream of lines
+    # representing completed elements and their attributes. The output is
+    # suited for processing with further command-line tools; in this case,
+    # it seems that 'awk' is the best one for the job. This awk script
+    # assembles the stream of XML elements into language-tagged lines.
+    input:
+        "data/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
+    output:
+        "data/extracted/paracrawl/pairs/{lang1}_{lang2}.txt"
+    shell:
+        "zcat {input} | xml2 | awk -f ./scripts/tmx-language-tagger.awk > {output}"
+
+
+rule select_paracrawl_language:
+    # The output of tmx-language-tagger.awk is tab-separated lines of
+    # a language code and text in that language, which occur in parallel
+    # pairs from two different languages.
+    #
+    # This rule selects just the text from the lines in one language. (We'll
+    # track the language in the filename.)
+    input:
+        "data/extracted/paracrawl/pairs/{langpair}.txt"
+    output:
+        "data/extracted/paracrawl/{langpair}.{lang}.txt"
+    shell:
+        "grep '^{wildcards.lang}\\s' {input} | cut -f 2 > {output}"
+
 
 # Tokenizing
 # ==========
@@ -696,14 +782,53 @@ rule tokenize_parallel_opensubtitles:
     output:
         "data/tokenized/opensubtitles/parallel/{langpair}.{lang}.txt"
     shell:
-        "xc tokenize -l {wildcards.lang} {input} {output}"
+        "xc tokenize -f -l {wildcards.lang} {input} {output}"
+
+rule tokenize_paracrawl:
+    # Tokenize the text from Paracrawl, in one language at a time, but keeping
+    # track of the language pair they originated from.
+    input:
+        "data/extracted/paracrawl/{langpair}.{lang}.txt"
+    output:
+        "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt"
+    shell:
+        "xc tokenize -f -l {wildcards.lang} {input} {output}"
+
+rule tokenize_paracrawl_monolingual:
+    # We've already tokenized the text of Paracrawl in the rule above.
+    # For the benefit of builds that don't care about parallel text, we
+    # need to find the one 'correct' file containing monolingual text for
+    # each language.
+    #
+    # Those files already exist; we just need them to exist under a
+    # filename where we only need to know the language code to find them.
+    # So we make a temporary copy of the file under that name.
+    input:
+        lambda wildcards: paracrawl_language_pair_source(wildcards.lang)
+    output:
+        temp("data/tokenized/paracrawl/{lang}.txt")
+    shell:
+        "cp {input} {output}"
 
 rule parallel_opensubtitles:
+    # Join parallel text from OpenSubtitles that has been tokenized in
+    # separate, monolingual files.
     input:
         "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang1}.txt",
         "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang2}.txt"
     output:
         "data/parallel/opensubtitles/{lang1}_{lang2}.txt"
+    shell:
+        "paste {input} > {output}"
+
+rule parallel_paracrawl:
+    # Join parallel text from ParaCrawl that has been tokenized in
+    # separate, monolingual files.
+    input:
+        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
+    output:
+        "data/parallel/paracrawl/{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
@@ -892,6 +1017,14 @@ rule merge_subtitles:
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
+rule merge_web:
+    input:
+        lambda wildcards: multisource_counts_to_merge('web', wildcards.lang)
+    output:
+        "data/counts/web/{lang}.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l {wildcards.lang}"
+
 
 # Assembling corpus text
 # ======================
@@ -941,7 +1074,8 @@ rule intersperse_parallel:
 
 rule shuffle_interspersed_parallel:
     input:
-        expand("data/interspersed/opensubtitles/{pair}.txt", pair=LANGUAGE_PAIRS)
+        expand("data/interspersed/opensubtitles/{pair}.txt", pair=OPENSUB_LANGUAGE_PAIRS),
+        expand("data/interspersed/paracrawl/{pair}.txt", pair=PARACRAWL_LANGUAGE_PAIRS)
     output:
         "data/interspersed/shuffled.txt"
     shell:
@@ -991,6 +1125,6 @@ ruleorder:
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
     merge_news > merge_subtitles > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
-    recount_messy_tokens > count_tokens > \
+    count_tokens > recount_messy_tokens > \
     tokenize_parallel_opensubtitles > tokenize_gzipped_text
 
