@@ -1,4 +1,4 @@
-from wordfreq.tokens import tokenize, lossy_tokenize
+from wordfreq.tokens import tokenize
 from ftfy import fix_text
 from ftfy.fixes import unescape_html, fix_surrogates
 import regex
@@ -77,7 +77,7 @@ def tokenize_file(infile, outfile, language, check_language=False, punctuation=F
         else:
             # Run only specific quick fixes from ftfy
             line = fix_surrogates(unescape_html(line.rstrip()))
-        tokens = lossy_tokenize(line, language, include_punctuation=punctuation, external_wordlist=True)
+        tokens = tokenize(line, language, include_punctuation=punctuation, external_wordlist=True)
         checked_lang = None
         if check_language:
             checked_lang, _confident = cld2_detect_language(line.rstrip())
