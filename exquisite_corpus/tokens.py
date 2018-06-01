@@ -1,4 +1,5 @@
 from wordfreq.tokens import tokenize, lossy_tokenize
+from ftfy import fix_text
 from ftfy.fixes import unescape_html, fix_surrogates
 import regex
 import pycld2
@@ -64,13 +65,18 @@ CLD2_LANGUAGES = sorted(set([
 #   - Breton (the word "memes" itself)
 
 
-def tokenize_file(infile, outfile, language, check_language=False, punctuation=False):
+def tokenize_file(infile, outfile, language, check_language=False, punctuation=False, ftfy=False):
     """
     Take in a file of plain text, tokenize it as the given language, and write
     the result as lines of space-separated tokens.
     """
     for line in infile:
-        line = fix_surrogates(unescape_html(line.rstrip()))
+        if ftfy:
+            # Run all ftfy fixes, but don't let it introduce line breaks
+            line = fix_text(line.rstrip()).replace('\n', ' ')
+        else:
+            # Run only specific quick fixes from ftfy
+            line = fix_surrogates(unescape_html(line.rstrip()))
         tokens = lossy_tokenize(line, language, include_punctuation=punctuation, external_wordlist=True)
         checked_lang = None
         if check_language:
