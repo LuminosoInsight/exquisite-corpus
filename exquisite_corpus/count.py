@@ -1,9 +1,7 @@
 from collections import Counter
 from ftfy.fixes import uncurl_quotes
-from wordfreq.tokens import tokenize
+from wordfreq.tokens import lossy_tokenize, TOKEN_RE
 import regex
-
-PUNCT_RE = regex.compile(r'\p{punct}')
 
 BAD_TOKENS = {
     '', '\N{PILCROW SIGN}', '\ufffc', '\ufffd',
@@ -49,14 +47,14 @@ def recount_messy(infile, outfile, language):
         if line and not line.startswith('__total__'):
             text, strcount = line.split('\t', 1)
             count = int(strcount)
-            for token in tokenize(text, language, external_wordlist=True):
+            for token in lossy_tokenize(text, language, external_wordlist=True):
                 counts[token] += count
                 total += count
 
     # Write the counted tokens to outfile
     print('__total__\t{}'.format(total), file=outfile)
     for token, count in counts.most_common():
-        if not PUNCT_RE.match(token):
+        if TOKEN_RE.match(token):
             print('{}\t{}'.format(token, count), file=outfile)
 
 

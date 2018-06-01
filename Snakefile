@@ -872,7 +872,7 @@ rule count_tokens:
     input:
         "data/tokenized/{source}/{lang}.txt"
     output:
-        "data/counts/{source}/{lang}.txt"
+        "data/messy-counts/{source}/{lang}.txt"
     shell:
         "xc count {input} {output}"
 
