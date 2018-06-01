@@ -49,7 +49,7 @@ def recount_messy(infile, outfile, language):
         if line and not line.startswith('__total__'):
             text, strcount = line.split('\t', 1)
             count = int(strcount)
-            for token in tokenize(text, language):
+            for token in tokenize(text, language, external_wordlist=True):
                 counts[token] += count
                 total += count
 
