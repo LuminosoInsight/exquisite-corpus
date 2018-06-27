@@ -9,7 +9,7 @@ setup(
     description="Download and process many gigabytes of natural language data, assembled from various corpora.",
     packages=['exquisite_corpus'],
     include_package_data=True,
-    install_requires=['snakemake', 'wordfreq[jieba,mecab] >= 2', 'click', 'regex >= 2016', 'pycld2', 'msgpack-python', 'ordered-set'],
+    install_requires=['snakemake', 'wordfreq[jieba,mecab] >= 2', 'click', 'regex == 2018.02.21', 'pycld2', 'msgpack-python', 'ordered-set', 'ftfy'],
     zip_safe=False,
     classifiers=[
         "Programming Language :: Python :: 3",
