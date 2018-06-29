@@ -304,6 +304,18 @@ def language_text_sources(lang):
     ]
 
 
+def parallel_to_english_sources(lang):
+    sources = []
+    if "en_{}".format(lang) in PARACRAWL_LANGUAGE_PAIRS:
+        sources.append("data/parallel/paracrawl/en_{}.txt".format(lang))
+    lang1, lang2 = sorted([lang, 'en'])
+    pair = "{}_{}".format(lang1, lang2)
+    if pair in OPENSUB_LANGUAGE_PAIRS:
+        sources.append("data/parallel/opensubtitles/{}.txt".format(pair))
+    assert sources
+    return sources
+
+
 def multisource_counts_to_merge(multisource, lang):
     """
     Given a multi-source name like 'news' and a language code, find which sources
@@ -366,6 +378,10 @@ rule wordfreq:
         "data/wordfreq/jieba_zh.txt"
 
 rule parallel:
+    input:
+        expand("data/parallel/shuffled/{pair}.txt", pair=PARACRAWL_LANGUAGE_PAIRS)
+
+rule parallel_interspersed:
     input:
         "data/interspersed/shuffled.txt"
 
@@ -780,9 +796,9 @@ rule tokenize_parallel_opensubtitles:
     input:
         "data/extracted/opensubtitles/OpenSubtitles2018.{langpair}.{lang}"
     output:
-        "data/tokenized/opensubtitles/parallel/{langpair}.{lang}.txt"
+        "data/tokenized/opensubtitles-paired/{langpair}.{lang}.txt"
     shell:
-        "xc tokenize -f -l {wildcards.lang} {input} {output}"
+        "xc tokenize -f -l -p {wildcards.lang} {input} {output}"
 
 rule tokenize_paracrawl:
     # Tokenize the text from Paracrawl, in one language at a time, but keeping
@@ -792,7 +808,7 @@ rule tokenize_paracrawl:
     output:
         "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt"
     shell:
-        "xc tokenize -f -l {wildcards.lang} {input} {output}"
+        "xc tokenize -f -l -p {wildcards.lang} {input} {output}"
 
 rule tokenize_paracrawl_monolingual:
     # We've already tokenized the text of Paracrawl in the rule above.
@@ -814,8 +830,8 @@ rule parallel_opensubtitles:
     # Join parallel text from OpenSubtitles that has been tokenized in
     # separate, monolingual files.
     input:
-        "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/opensubtitles/parallel/{lang1}_{lang2}.{lang2}.txt"
+        "data/tokenized/opensubtitles-paired/{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/opensubtitles-paired/{lang1}_{lang2}.{lang2}.txt"
     output:
         "data/parallel/opensubtitles/{lang1}_{lang2}.txt"
     shell:
@@ -1063,6 +1079,14 @@ rule fasttext_skipgrams:
 
 # Making training data from parallel text
 # =======================================
+
+rule shuffle_parallel:
+    input:
+        lambda wildcards: parallel_to_english_sources(wildcards.lang)
+    output:
+        "data/parallel/shuffled/en_{lang}.txt"
+    shell:
+        "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_en_{wildcards.lang}"
 
 rule intersperse_parallel:
     input:
