@@ -412,7 +412,7 @@ rule wordfreq:
 
 rule parallel:
     input:
-        expand("data/parallel/shuffled/{pair}.txt", pair=PARALLEL_LANGUAGE_PAIRS)
+        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid'])
 
 rule frequencies:
     input:
@@ -814,28 +814,6 @@ rule tokenize_paracrawl_monolingual:
     shell:
         "cp {input} {output}"
 
-rule parallel_opus:
-    # Join parallel text from OpenSubtitles that has been tokenized in
-    # separate, monolingual files.
-    input:
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang2}.txt"
-    output:
-        "data/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
-    shell:
-        "paste {input} > {output}"
-
-rule parallel_paracrawl:
-    # Join parallel text from ParaCrawl that has been tokenized in
-    # separate, monolingual files.
-    input:
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
-    output:
-        "data/parallel/paracrawl/{lang1}_{lang2}.txt"
-    shell:
-        "paste {input} > {output}"
-
 rule tokenize_gzipped_text:
     input:
         "data/downloaded/{dir}/{lang}.txt.gz"
@@ -868,6 +846,107 @@ rule tokenize_voa:
         "data/tokenized/voa/{lang}.txt"
     shell:
         "xc tokenize -l {wildcards.lang} - {output}"
+
+
+# Handling parallel text
+# ======================
+
+rule parallel_opus:
+    # Join parallel text from OpenSubtitles that has been tokenized in
+    # separate, monolingual files.
+    input:
+        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang2}.txt"
+    output:
+        "data/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
+    shell:
+        "paste {input} > {output}"
+
+rule parallel_paracrawl:
+    # Join parallel text from ParaCrawl that has been tokenized in
+    # separate, monolingual files.
+    input:
+        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
+    output:
+        "data/parallel/paracrawl/{lang1}_{lang2}.txt"
+    shell:
+        "paste {input} > {output}"
+
+
+rule shuffle_parallel:
+    input:
+        lambda wildcards: parallel_to_english_sources(wildcards.lang)
+    output:
+        "data/parallel/shuffled/en_{lang}.txt"
+    shell:
+        "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_en_{wildcards.lang}"
+
+
+rule separate_parallel:
+    input:
+        "data/parallel/shuffled/{lang1}_{lang2}.txt"
+    output:
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
+    run:
+        out1, out2 = output
+        shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
+
+
+rule learn_bpe:
+    input:
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
+    output:
+        "data/parallel/bpe/{lang1}_{lang2}.codes",
+        "data/parallel/bpe/{lang1}_{lang2}.{lang1}.vocab",
+        "data/parallel/bpe/{lang1}_{lang2}.{lang2}.vocab"
+    run:
+        bpe_file, vocab1, vocab2 = output
+        shell(
+            "subword-nmt learn-joint-bpe-and-vocab --input {input} "
+            "--output {bpe_file} --write-vocabulary {vocab1} {vocab2}"
+        )
+
+
+rule apply_bpe:
+    input:
+        "data/parallel/shuffled-split/{pair}.{lang}.all.txt",
+        "data/parallel/bpe/{pair}.codes",
+        "data/parallel/bpe/{pair}.{lang}.vocab"
+    output:
+        "data/parallel/bpe/{pair}.{lang}.all.txt"
+    run:
+        text_in, bpe_file, vocab_file = input
+        shell(
+            "subword-nmt apply-bpe --input {text_in} --output {output} "
+            "--codes {bpe_file} --vocabulary {vocab_file}"
+        )
+
+
+rule split_train_valid:
+    input:
+        "data/parallel/bpe/{pair}.{lang}.all.txt"
+    output:
+        "data/parallel/bpe/{pair}.{lang}.train.txt",
+        "data/parallel/bpe/{pair}.{lang}.valid.txt"
+    run:
+        train_file, valid_file = output
+        shell(
+            "head -n 100000 {input} > {valid_file} && "
+            "tail -n +100001 {output} > {train_file}"
+        )
+
+
+rule rejoin_training_data:
+    input:
+        "data/parallel/bpe/{lang1}_{lang2}.{lang1}.{mode}.txt",
+        "data/parallel/bpe/{lang1}_{lang2}.{lang2}.{mode}.txt"
+    output:
+        "data/parallel/training/{lang1}_{lang2}.{mode}.txt"
+    run:
+        "paste {input} > {output}"
 
 
 # Counting tokens
@@ -1063,18 +1142,6 @@ rule fasttext_skipgrams:
             shell("fasttext skipgram -dim 300 -input {input} -output data/skipgrams/{wildcards.lang}")
         else:
            shell("fasttext skipgram -dim 200 -epoch 20 -input {input} -output data/skipgrams/{wildcards.lang}")
-
-
-# Making training data from parallel text
-# =======================================
-
-rule shuffle_parallel:
-    input:
-        lambda wildcards: parallel_to_english_sources(wildcards.lang)
-    output:
-        "data/parallel/shuffled/en_{lang}.txt"
-    shell:
-        "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_en_{wildcards.lang}"
 
 
 # Building wordfreq data files
