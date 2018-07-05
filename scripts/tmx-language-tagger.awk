@@ -6,7 +6,22 @@
 # onto the same line by piping the result to the shell command 'paste - -'.
 
 # Output from this script will be tab-separated
-BEGIN { OFS="\t" }
+BEGIN {
+    OFS="\t"
+    valid = 1
+}
+
+# If we see "prop=0.0", that's a value from either Zipporah or Bicleaner
+# telling us that this entry is garbage.
+/prop=0\.0$/ {
+    valid = 0
+}
+
+# At the end of each text unit, reset our assumption that the next example
+# will be valid, until we're told otherwise.
+/\/tu$/ {
+    valid = 1
+}
 
 # The idiom that follows allows matching something on one line, and processing
 # both that line and the following line.
@@ -16,17 +31,19 @@ BEGIN { OFS="\t" }
 
 # Match a <tuv> node with an "@xml:lang" attribute, as output by the xml2 tool
 /tuv\/@xml:lang=/ {
-    # Extract the language tag, by splitting on "@xml:lang=" and storing the part afterward
-    split($0, langParts, "@xml:lang=")
-    lang = langParts[2]
-    
-    # Go to the next line
-    getline
+    if (valid == 1) {
+        # Extract the language tag, by splitting on "@xml:lang=" and storing the part afterward
+        split($0, langParts, "@xml:lang=")
+        lang = langParts[2]
 
-    # Extract the value of the "seg" attribute, which is the text
-    split($0, textParts, "tu/tuv/seg=")
-    text = textParts[2]
+        # Go to the next line
+        getline
 
-    print lang, text
+        # Extract the value of the "seg" attribute, which is the text
+        split($0, textParts, "tu/tuv/seg=")
+        text = textParts[2]
+
+        print lang, text
+    }
 }
 
