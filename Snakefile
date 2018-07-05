@@ -11,7 +11,7 @@ SOURCE_LANGUAGES = {
     # - 'ze' because that's not a real language code
     #   (it seems to represent code-switching Chinese and English)
     # - 'th' because we don't know how to tokenize it
-    'opensubtitles': [
+    'opus/OpenSubtitles2018': [
         'ar', 'bg', 'bn', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'eu',
         'fa', 'fi', 'fr', 'gl', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt',
         'lv', 'mk', 'ml', 'ms',
@@ -20,7 +20,7 @@ SOURCE_LANGUAGES = {
     ],
 
     # Europarl v7, which also comes from OPUS
-    'europarl': [
+    'opus/Europarl': [
         'bg', 'cs', 'da', 'de', 'el', 'en', 'es', 'et', 'fi', 'fr', 'hu', 'it',
         'lt', 'lv', 'nl', 'pl', 'pt-PT', 'pt', 'ro', 'sk', 'sl', 'sv'
     ],
@@ -29,7 +29,7 @@ SOURCE_LANGUAGES = {
     # Skip 'ber' (we don't have the ability to sort out the dialects and
     # scripts of Berber and Tamazight) and 'tlh' (Klingon is not useful enough
     # for the tokenization code it would require).
-    'tatoeba': [
+    'opus/Tatoeba': [
         'en', 'eo', 'de', 'fr', 'es', 'ja', 'ru', 'tr', 'it', 'pt', 'he',
         'pl', 'zh-Hans', 'zh', 'hu', 'nl', 'uk', 'fi', 'mn', 'fa', 'ar',
         'da', 'sv', 'bg', 'ia', 'is', 'nb', 'la', 'el', 'fil', 'lt', 'jbo',
@@ -74,7 +74,7 @@ SOURCE_LANGUAGES = {
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
-    'globalvoices': [
+    'opus/GlobalVoices': [
         'ar', 'bn', 'ca', 'de', 'en', 'es', 'fr', 'it', 'mg', 'mk', 'nl',
         'pl', 'pt', 'ru', 'sw', 'zh-Hans', 'zh-Hant', 'zh'
     ],
@@ -142,31 +142,10 @@ FULL_TEXT_SOURCES = [
     'newscrawl', 'europarl', 'globalvoices'
 ]
 MERGED_SOURCES = {
-    'news': ['newscrawl', 'globalvoices', 'voa'],
+    'news': ['newscrawl', 'opus/GlobalVoices', 'voa'],
     'web': ['mokk', 'leeds', 'paracrawl'],
-    'subtitles': ['opensubtitles', 'subtlex'],
+    'subtitles': ['opus/OpenSubtitles2018', 'subtlex'],
     'amazon': ['amazon-snap', 'amazon-acl10']
-}
-OPUS_LANGUAGE_MAP = {
-    'pt-PT': 'pt',
-    'pt-BR': 'pt_br',
-    'zh-Hans': 'zh_cn',
-    'zh-Hant': 'zh_tw',
-    'nb': 'no',
-}
-# GlobalVoices has three made-up language codes, plus 'sr' which we want to
-# handle as part of 'sh'.
-GLOBALVOICES_LANGUAGE_MAP = {
-    'ja': 'jp',
-    'zh-Hant': 'zht',
-    'zh-Hans': 'zhs',
-    'sh': 'sr'
-}
-TATOEBA_LANGUAGE_MAP = {
-    'zh-Hans': 'cmn',
-    'fa': 'pes',
-    'fil': 'tl',
-    'sh': 'sr'
 }
 WP_LANGUAGE_MAP = {
     'fil': 'tl',
@@ -276,11 +255,53 @@ OPENSUB_LANGUAGE_PAIRS = [
     for _lang1 in OPENSUB_PARALLEL_LANGUAGES for _lang2 in OPENSUB_PARALLEL_LANGUAGES
     if _lang1 < _lang2
 ]
-PARACRAWL_LANGUAGE_PAIRS = [
+
+# We'll build parallel text between English and any other language that has
+# translations in OpenSubtitles or ParaCrawl. (Europarl and Tatoeba are not
+# enough.)
+PARALLEL_LANGUAGE_PAIRS = [
     "en_{}".format(_lang)
-    for _lang in SOURCE_LANGUAGES['paracrawl']
+    for _lang in sorted(set(OPENSUB_PARALLEL_LANGUAGES + SOURCE_LANGUAGES['paracrawl']))
     if _lang != 'en'
 ]
+
+def map_opus_language(dataset, lang):
+    if dataset.startswith('opus/'):
+        print("Wildcard matched incorrectly; the 'opus/' directory should not be included in the match.")
+        raise ValueError(dataset)
+    if dataset == 'Tatoeba':
+        # Tatoeba language codes are sometimes more specific than we want.
+        mapping = {
+            'zh-Hans': 'cmn',
+            'fa': 'pes',
+            'fil': 'tl',
+            'sh': 'sr'
+        }
+    elif dataset == 'GlobalVoices':
+        # GlobalVoices has three made-up language codes, plus 'sr' which we want to
+        # handle as part of 'sh'.
+        mapping = {
+            'ja': 'jp',
+            'zh-Hant': 'zht',
+            'zh-Hans': 'zhs',
+            'sh': 'sr'
+        }
+    elif dataset == 'OpenSubtitles2018':
+        mapping = {
+            'pt-PT': 'pt',
+            'pt-BR': 'pt_br',
+            'zh-Hans': 'zh_cn',
+            'zh-Hant': 'zh_tw',
+            'nb': 'no',
+        }
+    elif dataset == 'Europarl':
+        mapping = {
+            'pt-PT': 'pt'
+        }
+    else:
+        print("Unknown OPUS dataset: %r" % dataset)
+        raise ValueError("Unknown OPUS dataset: %r" % dataset)
+    return mapping.get(lang, lang)
 
 
 def language_count_sources(lang):
@@ -306,14 +327,24 @@ def language_text_sources(lang):
 
 def parallel_to_english_sources(lang):
     sources = []
-    if "en_{}".format(lang) in PARACRAWL_LANGUAGE_PAIRS:
+    if lang in SOURCE_LANGUAGES['paracrawl']:
         sources.append("data/parallel/paracrawl/en_{}.txt".format(lang))
     lang1, lang2 = sorted([lang, 'en'])
     pair = "{}_{}".format(lang1, lang2)
     if pair in OPENSUB_LANGUAGE_PAIRS:
-        sources.append("data/parallel/opensubtitles/{}.txt".format(pair))
-    assert sources
+        sources.append("data/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
+    if lang in SOURCE_LANGUAGES['opus/Tatoeba']:
+        sources.append("data/parallel/opus/Tatoeba.{}.txt".format(pair))
+    if lang in SOURCE_LANGUAGES['opus/Europarl']:
+        sources.append("data/parallel/opus/Europarl.{}.txt".format(pair))
     return sources
+
+
+def _count_filename(source, lang):
+    if '/' in source:
+        return "data/counts/{source}.{lang}.txt".format(source=source, lang=lang)
+    else:
+        return "data/counts/{source}/{lang}.txt".format(source=source, lang=lang)
 
 
 def multisource_counts_to_merge(multisource, lang):
@@ -321,11 +352,13 @@ def multisource_counts_to_merge(multisource, lang):
     Given a multi-source name like 'news' and a language code, find which sources
     of counts should be merged to produce it.
     """
-    return [
-        "data/counts/{source}/{lang}.txt".format(source=source, lang=lang)
+    result = [
+        _count_filename(source, lang)
         for source in MERGED_SOURCES[multisource]
         if lang in SOURCE_LANGUAGES[source]
     ]
+    print("merging {} to make {}/{}".format(result, multisource, lang))
+    return result
 
 
 def balkanize_cld2_languages(languages):
@@ -379,11 +412,7 @@ rule wordfreq:
 
 rule parallel:
     input:
-        expand("data/parallel/shuffled/{pair}.txt", pair=PARACRAWL_LANGUAGE_PAIRS)
-
-rule parallel_interspersed:
-    input:
-        "data/interspersed/shuffled.txt"
+        expand("data/parallel/shuffled/{pair}.txt", pair=PARALLEL_LANGUAGE_PAIRS)
 
 rule frequencies:
     input:
@@ -405,53 +434,26 @@ rule google_3grams:
 # Downloaders
 # ===========
 
-rule download_opensubtitles_monolingual:
+rule download_opus_monolingual:
     output:
-        "data/downloaded/opensubtitles/{lang}.txt.gz"
+        "data/downloaded/opus/{dataset}.{lang}.txt.gz"
     resources:
         download=1, opusdownload=1
     priority: 0
     run:
-        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/mono/OpenSubtitles2018.raw.{source_lang}.gz' -o {output}")
+        dataset = wildcards.dataset
+        source_lang = map_opus_language(dataset, wildcards.lang)
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -o {output}")
 
-rule download_opensubtitles_parallel:
+rule download_opus_parallel:
     output:
-        "data/downloaded/opensubtitles/{lang1}_{lang2}.zip"
+        "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
     run:
-        lang1 = OPUS_LANGUAGE_MAP.get(wildcards.lang1, wildcards.lang1)
-        lang2 = OPUS_LANGUAGE_MAP.get(wildcards.lang2, wildcards.lang2)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=OpenSubtitles2018/{lang1}-{lang2}.txt.zip' -o {output}")
-
-rule download_europarl_monolingual:
-    output:
-        "data/downloaded/europarl/{lang}.txt"
-    resources:
-        download=1, opusdownload=1
-    priority: 0
-    run:
-        source_lang = OPUS_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=Europarl/mono/Europarl.raw.{source_lang}.gz' | zcat > {output}")
-
-rule download_globalvoices_monolingual:
-    output:
-        "data/downloaded/globalvoices/{lang}.txt"
-    resources:
-        download=1, opusdownload=1
-    priority: 0
-    run:
-        source_lang = GLOBALVOICES_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=GlobalVoices/mono/GlobalVoices.raw.{source_lang}.gz' | zcat > {output}")
-
-rule download_tatoeba_monolingual:
-    output:
-        "data/downloaded/tatoeba/{lang}.txt"
-    resources:
-        download=1, opusdownload=1
-    priority: 0
-    run:
-        source_lang = TATOEBA_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f=Tatoeba/mono/Tatoeba.raw.{source_lang}.gz' | zcat > {output}")
+        dataset = wildcards.dataset
+        lang1 = map_opus_language(dataset, wildcards.lang1)
+        lang2 = map_opus_language(dataset, wildcards.lang2)
+        lang1, lang2 = sorted([lang1, lang2])
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/{lang1}-{lang2}.txt.zip' -o {output}")
 
 rule download_wikipedia:
     output:
@@ -514,25 +516,27 @@ rule download_paracrawl:
 
 # Handling downloaded data
 # ========================
-rule extract_opensubtitles_parallel:
+rule extract_opus_parallel:
     input:
-        "data/downloaded/opensubtitles/{lang1}_{lang2}.zip"
+        "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
     output:
-        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang1}",
-        "data/extracted/opensubtitles/OpenSubtitles2018.{lang1}_{lang2}.{lang2}"
+        "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang1}",
+        "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}"
     run:
         # The contents of the zip file have OPUS language codes joined by hyphens.
         # We need to rename them to our BCP 47 language codes joined by underscores.
-        code1 = OPUS_LANGUAGE_MAP.get(wildcards.lang1, wildcards.lang1)
-        code2 = OPUS_LANGUAGE_MAP.get(wildcards.lang2, wildcards.lang2)
-        zip_output1 = "data/extracted/opensubtitles/OpenSubtitles2018.{code1}-{code2}.{code1}".format(
-            code1=code1, code2=code2
+        dataset = wildcards.dataset
+        code1 = map_opus_language(dataset, wildcards.lang1)
+        code2 = map_opus_language(dataset, wildcards.lang2)
+        code1, code2 = sorted([code1, code2])
+        zip_output1 = "data/extracted/opus/{dataset}.{code1}-{code2}.{code1}".format(
+            code1=code1, code2=code2, dataset=dataset
         )
-        zip_output2 = "data/extracted/opensubtitles/OpenSubtitles2018.{code1}-{code2}.{code2}".format(
-            code1=code1, code2=code2
+        zip_output2 = "data/extracted/opus/{dataset}.{code1}-{code2}.{code2}".format(
+            code1=code1, code2=code2, dataset=dataset
         )
         output1, output2 = output
-        shell("unzip -o -d 'data/extracted/opensubtitles/' {input} && mv {zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
+        shell("unzip -o -d 'data/extracted/opus/' {input} && mv {zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
 
 rule extract_newscrawl:
     input:
@@ -759,30 +763,14 @@ rule tokenize_amazon:
     shell:
         "sed -e 's/\t/ ¶ /g' {input} | xc tokenize -l en | sed -e 's/label__/__label__/' > {output}"
 
-rule tokenize_europarl:
+rule tokenize_opus:
     input:
-        "data/downloaded/europarl/{lang}.txt"
+        "data/downloaded/opus/{dataset}.{lang}.txt"
     output:
-        "data/tokenized/europarl/{lang}.txt"
+        "data/tokenized/opus/{dataset}.{lang}.txt"
     shell:
         # Remove country codes and fix mojibake
         "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -l {wildcards.lang} - {output}"
-
-rule tokenize_tatoeba:
-    input:
-        "data/downloaded/tatoeba/{lang}.txt"
-    output:
-        "data/tokenized/tatoeba/{lang}.txt"
-    shell:
-        "xc tokenize -l {wildcards.lang} {input} {output}"
-
-rule tokenize_globalvoices:
-    input:
-        "data/downloaded/globalvoices/{lang}.txt"
-    output:
-        "data/tokenized/globalvoices/{lang}.txt"
-    shell:
-        "sed -e 's/· Global Voices//' {input} | xc tokenize -c -l {wildcards.lang} - {output}"
 
 rule tokenize_newscrawl:
     input:
@@ -792,13 +780,13 @@ rule tokenize_newscrawl:
     shell:
         "xc tokenize -c -l {wildcards.lang} {input} {output}"
 
-rule tokenize_parallel_opensubtitles:
+rule tokenize_parallel_opus:
     input:
-        "data/extracted/opensubtitles/OpenSubtitles2018.{langpair}.{lang}"
+        "data/extracted/opus/{dataset}.{langpair}.{lang}"
     output:
-        "data/tokenized/opensubtitles-paired/{langpair}.{lang}.txt"
+        "data/tokenized/opus/{dataset}.{langpair}.{lang}.txt"
     shell:
-        "xc tokenize -f -l -p {wildcards.lang} {input} {output}"
+        "xc tokenize -f -p -l {wildcards.lang} {input} {output}"
 
 rule tokenize_paracrawl:
     # Tokenize the text from Paracrawl, in one language at a time, but keeping
@@ -808,7 +796,7 @@ rule tokenize_paracrawl:
     output:
         "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt"
     shell:
-        "xc tokenize -f -l -p {wildcards.lang} {input} {output}"
+        "xc tokenize -f -p -l {wildcards.lang} {input} {output}"
 
 rule tokenize_paracrawl_monolingual:
     # We've already tokenized the text of Paracrawl in the rule above.
@@ -826,14 +814,14 @@ rule tokenize_paracrawl_monolingual:
     shell:
         "cp {input} {output}"
 
-rule parallel_opensubtitles:
+rule parallel_opus:
     # Join parallel text from OpenSubtitles that has been tokenized in
     # separate, monolingual files.
     input:
-        "data/tokenized/opensubtitles-paired/{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/opensubtitles-paired/{lang1}_{lang2}.{lang2}.txt"
+        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang1}.txt",
+        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang2}.txt"
     output:
-        "data/parallel/opensubtitles/{lang1}_{lang2}.txt"
+        "data/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
@@ -924,9 +912,9 @@ rule count_to_freqs:
 # it with the 'sh' data we have from other sources.
 rule debalkanize_opensubtitles_sh:
     input:
-        expand("data/tokenized/opensubtitles/{lang}.txt", lang=['bs', 'hr', 'sr'])
+        expand("data/tokenized/opus/OpenSubtitles2018.{lang}.txt", lang=['bs', 'hr', 'sr'])
     output:
-        "data/tokenized/opensubtitles/sh.txt"
+        "data/tokenized/opus/OpenSubtitles2018.sh.txt"
     shell:
         "grep -vh '[А-Яа-я]' {input} > {output}"
 
@@ -957,28 +945,28 @@ rule merge_subtlex_en:
 
 rule merge_opensubtitles_pt:
     input:
-        "data/tokenized/opensubtitles/pt-BR.txt",
-        "data/tokenized/opensubtitles/pt-PT.txt",
+        "data/tokenized/opus/OpenSubtitles2018.pt-BR.txt",
+        "data/tokenized/opus/OpenSubtitles2018.pt-PT.txt",
     output:
-        "data/tokenized/opensubtitles/pt.txt"
+        "data/tokenized/opus/OpenSubtitles2018.pt.txt"
     shell:
         "cat {input} > {output}"
 
 rule merge_opensubtitles_zh:
     input:
-        "data/tokenized/opensubtitles/zh-Hans.txt",
-        "data/tokenized/opensubtitles/zh-Hant.txt",
+        "data/tokenized/opus/OpenSubtitles2018.zh-Hans.txt",
+        "data/tokenized/opus/OpenSubtitles2018.zh-Hant.txt",
     output:
-        "data/tokenized/opensubtitles/zh.txt"
+        "data/tokenized/opus/OpenSubtitles2018.zh.txt"
     shell:
         "cat {input} | xc simplify-chinese - {output}"
 
 rule merge_globalvoices_zh:
     input:
-        "data/tokenized/globalvoices/zh-Hans.txt",
-        "data/tokenized/globalvoices/zh-Hant.txt",
+        "data/tokenized/opus/GlobalVoices.zh-Hans.txt",
+        "data/tokenized/opus/GlobalVoices.zh-Hant.txt",
     output:
-        "data/tokenized/globalvoices/zh.txt"
+        "data/tokenized/opus/GlobalVoices.zh.txt"
     shell:
         "cat {input} | xc simplify-chinese > {output}"
 
@@ -1008,9 +996,9 @@ rule copy_subtlex_zh:
 
 rule copy_europarl_pt:
     input:
-        "data/tokenized/europarl/pt-PT.txt"
+        "data/tokenized/opus/Europarl.pt-PT.txt"
     output:
-        "data/tokenized/europarl/pt.txt"
+        "data/tokenized/opus/Europarl.pt.txt"
     shell:
         "cp {input} {output}"
 
@@ -1088,25 +1076,6 @@ rule shuffle_parallel:
     shell:
         "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_en_{wildcards.lang}"
 
-rule intersperse_parallel:
-    input:
-        "data/parallel/{dir}/{lang1}_{lang2}.txt"
-    output:
-        "data/interspersed/{dir}/{lang1}_{lang2}.txt"
-    shell:
-        "xc intersperse {input} {output} {wildcards.lang1} {wildcards.lang2}"
-
-rule shuffle_interspersed_parallel:
-    input:
-        expand("data/interspersed/opensubtitles/{pair}.txt", pair=OPENSUB_LANGUAGE_PAIRS),
-        expand("data/interspersed/paracrawl/{pair}.txt", pair=PARACRAWL_LANGUAGE_PAIRS)
-    output:
-        "data/interspersed/shuffled.txt"
-    shell:
-        "cat {input} | scripts/imperfect-shuffle.sh {output} interspersed"
-
-
-
 
 # Building wordfreq data files
 # ============================
@@ -1150,5 +1119,5 @@ ruleorder:
     merge_news > merge_subtitles > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     count_tokens > recount_messy_tokens > \
-    tokenize_parallel_opensubtitles > tokenize_gzipped_text
+    tokenize_parallel_opus > tokenize_opus > tokenize_gzipped_text
 

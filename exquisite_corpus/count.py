@@ -31,7 +31,7 @@ def count_tokenized(infile, outfile):
     # Write the counted tokens to outfile
     print('__total__\t{}'.format(total), file=outfile)
     for token, adjcount in adjusted_counts.most_common():
-        if not PUNCT_RE.match(token):
+        if TOKEN_RE.match(token):
             print('{}\t{}'.format(token, adjcount + 1), file=outfile)
 
 
