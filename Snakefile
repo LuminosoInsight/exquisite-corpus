@@ -935,7 +935,7 @@ rule split_train_valid:
         train_file, valid_file = output
         shell(
             "head -n 100000 {input} > {valid_file} && "
-            "tail -n +100001 {output} > {train_file}"
+            "tail -n +100001 {input} > {train_file}"
         )
 
 
@@ -945,7 +945,7 @@ rule rejoin_training_data:
         "data/parallel/bpe/{lang1}_{lang2}.{lang2}.{mode}.txt"
     output:
         "data/parallel/training/{lang1}_{lang2}.{mode}.txt"
-    run:
+    shell:
         "paste {input} > {output}"
 
 
