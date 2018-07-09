@@ -493,7 +493,7 @@ rule download_paracrawl:
     output:
         "data/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
     shell:
-        "curl -lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.{wildcards.lang1}-{wildcards.lang2}.withstats.filtered-bicleaner.tmx.gz' -o {output}"
+        "curl -lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.{wildcards.lang1}-{wildcards.lang2}.withstats.filtered-zipporah.tmx.gz' -o {output}"
 
 
 # Handling downloaded data
