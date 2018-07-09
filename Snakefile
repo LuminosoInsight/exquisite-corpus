@@ -259,10 +259,13 @@ OPENSUB_LANGUAGE_PAIRS = [
 # We'll build parallel text between English and any other language that has
 # translations in OpenSubtitles or ParaCrawl. (Europarl and Tatoeba are not
 # enough.)
+#
+# Construct this list manually for now to be sure we get the codes in the
+# right order.
 PARALLEL_LANGUAGE_PAIRS = [
-    "en_{}".format(_lang)
-    for _lang in sorted(set(OPENSUB_PARALLEL_LANGUAGES + SOURCE_LANGUAGES['paracrawl']))
-    if _lang != 'en'
+    'ar_en', 'cs_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr',
+    'en_it', 'en_ja', 'en_lv', 'en_nl', 'en_pl', 'en_pt', 'en_ro',
+    'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
 ]
 
 def map_opus_language(dataset, lang):
@@ -325,17 +328,23 @@ def language_text_sources(lang):
     ]
 
 
-def parallel_to_english_sources(lang):
+def parallel_sources(wildcards):
     sources = []
-    if lang in SOURCE_LANGUAGES['paracrawl']:
-        sources.append("data/parallel/paracrawl/en_{}.txt".format(lang))
-    lang1, lang2 = sorted([lang, 'en'])
-    pair = "{}_{}".format(lang1, lang2)
+    lang1, lang2 = sorted([wildcards.lang1, wildcards.lang2])
+    if lang1 == 'en':
+        other_lang = lang2
+    elif lang2 == 'en':
+        other_lang = lang1
+    else:
+        other_lang = None
+    pair = '{}_{}'.format(lang1, lang2)
+    if other_lang in SOURCE_LANGUAGES['paracrawl']:
+        sources.append("data/parallel/paracrawl/{}.txt".format(pair))
     if pair in OPENSUB_LANGUAGE_PAIRS:
         sources.append("data/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
-    if lang in SOURCE_LANGUAGES['opus/Tatoeba']:
+    if other_lang in SOURCE_LANGUAGES['opus/Tatoeba']:
         sources.append("data/parallel/opus/Tatoeba.{}.txt".format(pair))
-    if lang in SOURCE_LANGUAGES['opus/Europarl']:
+    if other_lang in SOURCE_LANGUAGES['opus/Europarl']:
         sources.append("data/parallel/opus/Europarl.{}.txt".format(pair))
     return sources
 
@@ -392,11 +401,16 @@ def paracrawl_language_pair_source(lang):
     from that language pair has corresponding lines in the same order, so you
     could 'paste' them together to get tabular parallel text, with text in one
     language and its translation in another.
+
+    We sort the language codes to make them consistent with OPUS sources.
     """
     if lang == 'en':
-        langpair = 'en_fr'
+        other = 'fr'
     else:
-        langpair = 'en_{}'.format(lang)
+        other = 'en'
+
+    lang1, lang2 = sorted([lang, other])
+    langpair = '{}_{}'.format(lang1, lang2)
 
     return "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt".format(langpair=langpair, lang=lang)
 
@@ -510,8 +524,16 @@ rule download_amazon_acl10:
 rule download_paracrawl:
     output:
         "data/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
-    shell:
-        "curl -lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.{wildcards.lang1}-{wildcards.lang2}.withstats.filtered-bicleaner.tmx.gz' -o {output}"
+    run:
+        # Put the language codes in ParaCrawl order, with English first
+        if wildcards.lang1 == 'en':
+            otherlang = wildcards.lang2
+        elif wildcards.lang2 == 'en':
+            otherlang = wildcards.lang1
+        else:
+            raise ValueError("One language in a ParaCrawl pair must be English")
+
+        shell("curl -lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -o {output}")
 
 
 # Handling downloaded data
@@ -525,15 +547,21 @@ rule extract_opus_parallel:
     run:
         # The contents of the zip file have OPUS language codes joined by hyphens.
         # We need to rename them to our BCP 47 language codes joined by underscores.
+        #
+        # Handling an edge case:
+        # 'code1' and 'code2' are our language codes, in alphabetical order by
+        # _what the OPUS language codes were_. 'codeA' and 'codeB' are re-ordered
+        # according to what our language codes are. We need this because we convert
+        # 'cmn' to 'zh-Hans', which changes whether it sorts before or after English.
         dataset = wildcards.dataset
         code1 = map_opus_language(dataset, wildcards.lang1)
         code2 = map_opus_language(dataset, wildcards.lang2)
-        code1, code2 = sorted([code1, code2])
-        zip_output1 = "data/extracted/opus/{dataset}.{code1}-{code2}.{code1}".format(
-            code1=code1, code2=code2, dataset=dataset
+        codeA, codeB = sorted([code1, code2])
+        zip_output1 = "data/extracted/opus/{dataset}.{codeA}-{codeB}.{code1}".format(
+            code1=code1, code2=code2, codeA=codeA, codeB=codeB, dataset=dataset
         )
-        zip_output2 = "data/extracted/opus/{dataset}.{code1}-{code2}.{code2}".format(
-            code1=code1, code2=code2, dataset=dataset
+        zip_output2 = "data/extracted/opus/{dataset}.{codeA}-{codeB}.{code2}".format(
+            code1=code1, code2=code2, codeA=codeA, codeB=codeB, dataset=dataset
         )
         output1, output2 = output
         shell("unzip -o -d 'data/extracted/opus/' {input} && mv {zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
@@ -860,7 +888,20 @@ rule parallel_opus:
     output:
         "data/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
     shell:
-        "paste {input} > {output}"
+        # OpenSubtitles text may have come out in a form of Chinese mojibake
+        # where many characters are mapped to the private use area.
+        #
+        # Unfortunately, we can't grep those out using a Unicode-aware range.
+        # Ranges depend on Unicode collation, and the collation of private-use
+        # characters is undefined.
+        #
+        # Instead, we read the file as UTF-8 bytes with LANG=C, and grep to
+        # exclude byte 0xEE (which we express using the Bash-ism $'' to
+        # evaluate an escape sequence), the UTF-8 byte that begins all
+        # private-use codepoints from U+E000 to U+EFFF. That's not all the
+        # private-use codepoints, but it covers most of the OpenSubtitles
+        # mojibake.
+        "paste {input} | LANG=C grep -v $'\xee' > {output}"
 
 rule parallel_paracrawl:
     # Join parallel text from ParaCrawl that has been tokenized in
@@ -875,12 +916,11 @@ rule parallel_paracrawl:
 
 
 rule shuffle_parallel:
-    input:
-        lambda wildcards: parallel_to_english_sources(wildcards.lang)
+    input: parallel_sources
     output:
-        "data/parallel/shuffled/en_{lang}.txt"
+        "data/parallel/shuffled/{lang1}_{lang2}.txt"
     shell:
-        "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_en_{wildcards.lang}"
+        "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_{wildcards.lang1}_{wildcards.lang2}"
 
 
 rule separate_parallel:
