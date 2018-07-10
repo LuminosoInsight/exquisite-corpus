@@ -270,8 +270,7 @@ PARALLEL_LANGUAGE_PAIRS = [
 
 def map_opus_language(dataset, lang):
     if dataset.startswith('opus/'):
-        print("Wildcard matched incorrectly; the 'opus/' directory should not be included in the match.")
-        raise ValueError(dataset)
+        raise ValueError("Wildcard matched incorrectly; the 'opus/' directory should not be included in the match.")
     if dataset == 'Tatoeba':
         # Tatoeba language codes are sometimes more specific than we want.
         mapping = {
@@ -302,7 +301,6 @@ def map_opus_language(dataset, lang):
             'pt-PT': 'pt'
         }
     else:
-        print("Unknown OPUS dataset: %r" % dataset)
         raise ValueError("Unknown OPUS dataset: %r" % dataset)
     return mapping.get(lang, lang)
 
@@ -366,7 +364,6 @@ def multisource_counts_to_merge(multisource, lang):
         for source in MERGED_SOURCES[multisource]
         if lang in SOURCE_LANGUAGES[source]
     ]
-    print("merging {} to make {}/{}".format(result, multisource, lang))
     return result
 
 
