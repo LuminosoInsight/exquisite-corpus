@@ -460,6 +460,9 @@ rule download_opus_parallel:
     output:
         "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
     run:
+        # The filename we output will follow our language code conventions,
+        # but we have to remap and reorder the language codes to get the right
+        # remote filename. See the comments in `extract_opus_parallel`.
         dataset = wildcards.dataset
         lang1 = map_opus_language(dataset, wildcards.lang1)
         lang2 = map_opus_language(dataset, wildcards.lang2)
@@ -542,14 +545,35 @@ rule extract_opus_parallel:
         "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang1}",
         "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}"
     run:
-        # The contents of the zip file have OPUS language codes joined by hyphens.
-        # We need to rename them to our BCP 47 language codes joined by underscores.
+        # The contents of the zip file have OPUS language codes joined by
+        # hyphens.  We need to rename them to our BCP 47 language codes joined
+        # by underscores.
         #
-        # Handling an edge case:
-        # 'code1' and 'code2' are our language codes, in alphabetical order by
-        # _what the OPUS language codes were_. 'codeA' and 'codeB' are re-ordered
-        # according to what our language codes are. We need this because we convert
-        # 'cmn' to 'zh-Hans', which changes whether it sorts before or after English.
+        # Handling an edge case with inconsistent language codes here requires
+        # some careful explanation.
+        #
+        # 'lang1' and 'lang2' are our language codes, as requested by the
+        # output rule. We use the same language codes to name the input file,
+        # because when we download the OPUS file (in `download_opus_parallel`),
+        # we can give it any name we want. The trickier part, however, is that
+        # the file we download is a zip file containing specified filenames,
+        # using the language codes that are idiosyncratic to each OPUS dataset,
+        # so we need to rename those files to produce the right output.
+        #
+        # 'code1' and 'code2' are 'lang1' and 'lang2' mapped into OPUS codes.
+        # We then sort them, so that 'codeA' is the first one alphabetically,
+        # and 'codeB' is the second one, because they will be given in that
+        # order in the filename. We need all these variables to determine which
+        # files to move where.
+        #
+        # Oh, and OPUS uses hyphens and underscores backwards from how we use
+        # them.
+        #
+        # For example, when we convert our language pair "en_zh-Hans" to the
+        # codes OPUS uses for Tatoeba, "zh-Hans" is replaced by "cmn". But
+        # the OPUS code isn't "en_cmn", it's "cmn_en", because of alphabetical
+        # order.
+
         dataset = wildcards.dataset
         code1 = map_opus_language(dataset, wildcards.lang1)
         code2 = map_opus_language(dataset, wildcards.lang2)
