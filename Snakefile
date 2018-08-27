@@ -456,6 +456,17 @@ rule download_opus_monolingual:
         source_lang = map_opus_language(dataset, wildcards.lang)
         shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -o {output}")
 
+
+rule download_reddit:
+    output:
+        "data/downloaded/reddit/{year}-{month}.bz2"
+    resources:
+        download=1, opusdownload=1
+    priority: 0
+    shell:
+        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.bz2' -o {output}"
+
+
 rule download_opus_parallel:
     output:
         "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
@@ -594,7 +605,7 @@ rule extract_google_1grams:
 
 rule extract_reddit:
     input:
-        "data/raw/reddit/{year}/RC_{year}-{month}.bz2"
+        "data/downloaded/reddit/{year}-{month}.bz2"
     output:
         "data/extracted/reddit/{year}-{month}.txt.gz"
     shell:

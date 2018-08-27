@@ -54,17 +54,12 @@ python setup.py develop
 ## Getting data
 
 Most of the data in Exquisite Corpus will be downloaded from places where it
-can be found on the Web. However, some inputs must be obtained separately.
+can be found on the Web. However, one input must be downloaded separately:
+Twitter data cannot be distributed due to the Twitter API's terms of use.
 
-A corpus of Reddit comments from 2007-2015 can be obtained over BitTorrent [1]:
-
-[1]: https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/
-
-Extract it into `data/raw/reddit`, so that there are directories named `data/raw/reddit/2007` and so on.
-
-Twitter data cannot be distributed due to the Twitter API's terms of use. If
-you have a collection of tweets, put their text in `data/raw/twitter-2015.txt`,
-one tweet per line. Or just put an empty file there.
+If you have a collection of tweets, put their text in
+`data/raw/twitter-2015.txt`, one tweet per line. Or just put an empty file
+there.
 
 
 ## Building
