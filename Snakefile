@@ -195,12 +195,12 @@ GOOGLE_3GRAM_SHARDS = [
     if _c1 + _c2 not in {'qg', 'qz', 'xg', 'xq', 'zq'}
 ]
 
-# We have Reddit data that's sharded by month, from 2007-10 to 2015-05.
+# We have Reddit data that's sharded by month, from 2007-10 to 2017-11.
 
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
-    [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
-    [(2015, month) for month in range(1, 5 + 1)]
+    [(year, month) for year in range(2008, 2017) for month in range(1, 12 + 1)] +
+    [(2017, month) for month in range(1, 11 + 1)]
 )]
 
 # SNAP's Amazon data is sharded by product department.
