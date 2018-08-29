@@ -195,12 +195,12 @@ GOOGLE_3GRAM_SHARDS = [
     if _c1 + _c2 not in {'qg', 'qz', 'xg', 'xq', 'zq'}
 ]
 
-# We have Reddit data that's sharded by month, from 2007-10 to 2015-05.
+# We have Reddit data that's sharded by month, from 2007-10 to 2017-11.
 
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
-    [(year, month) for year in range(2008, 2015) for month in range(1, 12 + 1)] +
-    [(2015, month) for month in range(1, 5 + 1)]
+    [(year, month) for year in range(2008, 2017) for month in range(1, 12 + 1)] +
+    [(2017, month) for month in range(1, 11 + 1)]
 )]
 
 # SNAP's Amazon data is sharded by product department.
@@ -456,6 +456,17 @@ rule download_opus_monolingual:
         source_lang = map_opus_language(dataset, wildcards.lang)
         shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -o {output}")
 
+
+rule download_reddit:
+    output:
+        "data/downloaded/reddit/{year}-{month}.bz2"
+    resources:
+        download=1, opusdownload=1
+    priority: 0
+    shell:
+        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.bz2' -o {output}"
+
+
 rule download_opus_parallel:
     output:
         "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
@@ -618,7 +629,7 @@ rule extract_google_1grams:
 
 rule extract_reddit:
     input:
-        "data/raw/reddit/{year}/RC_{year}-{month}.bz2"
+        "data/downloaded/reddit/{year}-{month}.bz2"
     output:
         "data/extracted/reddit/{year}-{month}.txt.gz"
     shell:

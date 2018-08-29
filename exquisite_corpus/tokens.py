@@ -132,7 +132,7 @@ def tokenize_by_language(in_file, out_dir, mode='twitter'):
     }
     try:
         for line in in_file:
-            text = unescape_html(line.rstrip())
+            text = fix_surrogates(unescape_html(line.rstrip()))
             if mode == 'twitter':
                 text = TWITTER_HANDLE_RE.sub('', text)
                 text = TCO_RE.sub('', text)
