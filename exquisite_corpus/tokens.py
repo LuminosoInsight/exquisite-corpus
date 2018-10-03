@@ -4,6 +4,7 @@ from ftfy.fixes import unescape_html, fix_surrogates
 import regex
 import pycld2
 import langcodes
+import gzip
 
 CLD2_BAD_CHAR_RANGE = "[%s]" % "".join(
     [
@@ -119,17 +120,23 @@ def cld2_detect_language(text):
     return code, confident
 
 
-def tokenize_by_language(in_file, out_dir, mode='twitter'):
+def tokenize_by_language(in_file, out_dir, mode='twitter', zipped=False):
     """
     Uses CLD2 to detect the language and wordfreq tokenizer to create tokens.
 
     The `mode` can be 'twitter', 'reddit', or something else, which slightly
     changes the pre-processing of the text.
     """
-    out_files = {
-        language: open('%s/%s.txt' % (out_dir, language), 'w', encoding='utf-8')
-        for language in CLD2_LANGUAGES
-    }
+    if zipped:
+        out_files = {
+            language: gzip.open('%s/%s.txt.gz' % (out_dir, language), 'wt', encoding='utf-8')
+            for language in CLD2_LANGUAGES
+        }
+    else:
+        out_files = {
+            language: open('%s/%s.txt' % (out_dir, language), 'w', encoding='utf-8')
+            for language in CLD2_LANGUAGES
+        }
     try:
         for line in in_file:
             text = fix_surrogates(unescape_html(line.rstrip()))

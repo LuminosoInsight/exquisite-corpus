@@ -31,9 +31,10 @@ def run_tokenize(input_file, output_file, language, check_language, punctuation,
 @click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
 @click.argument('output_dir', type=click.Path(exists=False, file_okay=False, dir_okay=True, writable=True))
 @click.option('--mode', '-m', type=click.Choice(['twitter', 'reddit', 'amazon']), default='twitter')
-def run_tokenize_by_language(input_file, output_dir, mode):
+@click.option('--zip/--no-zip', '-z', is_flag=True, default=False)
+def run_tokenize_by_language(input_file, output_dir, mode, zip):
     os.makedirs(output_dir, exist_ok=True)
-    tokenize_by_language(input_file, output_dir, mode)
+    tokenize_by_language(input_file, output_dir, mode, zipped=zip)
 
 
 @cli.command(name='count')
