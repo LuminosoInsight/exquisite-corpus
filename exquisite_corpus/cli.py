@@ -1,5 +1,6 @@
 import click
 from .tokens import tokenize_file, tokenize_by_language
+from .preprocess import preprocess_reddit, preprocess_twitter
 from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
 from .freq import (
@@ -35,6 +36,20 @@ def run_tokenize(input_file, output_file, language, check_language, punctuation,
 def run_tokenize_by_language(input_file, output_dir, mode, zip):
     os.makedirs(output_dir, exist_ok=True)
     tokenize_by_language(input_file, output_dir, mode, zipped=zip)
+
+
+@cli.command(name='preprocess-reddit')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+def run_preprocess_reddit(input_file, output_file):
+    preprocess_reddit(input_file, output_file)
+
+
+@cli.command(name='preprocess-twitter')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+def run_preprocess_twitter(input_file, output_file):
+    preprocess_twitter(input_file, output_file)
 
 
 @cli.command(name='count')
@@ -115,5 +130,3 @@ def run_sparse_assoc(parallel_text_dir, vocab_dir, output_dir, languages, vocab_
 @click.argument('lang2')
 def run_intersperse(input_file, output_file, lang1, lang2):
     intersperse_parallel_text(input_file, output_file, lang1, lang2)
-
-
