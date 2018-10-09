@@ -651,9 +651,9 @@ rule extract_reddit:
     input:
         "data/downloaded/reddit/{year}-{month}.bz2"
     output:
-        temp("data/extracted/reddit/{year}-{month}.txt.gz")
+        "data/extracted/reddit/{year}-{month}.txt.gz"
     shell:
-        "bunzip2 -c {input} | jq -r 'select(.score > 0) | .body' | fgrep -v '[deleted]' | sed -e 's/&gt;/>/g' -e 's/&lt;/</g' -e 's/&amp;/\&/g' | gzip -c > {output}"
+        "bunzip2 -c {input} | xc preprocess-reddit | gzip -c > {output}"
 
 rule extract_amazon:
     input:
@@ -833,7 +833,7 @@ rule tokenize_wikipedia:
     output:
         "data/tokenized/wikipedia/{lang}.txt"
     shell:
-        "bunzip2 -c {input} | wiki2text | xc tokenize -l {wildcards.lang} - {output}"
+        "bunzip2 -c {input} | wiki2text | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_amazon:
     input:
@@ -841,7 +841,7 @@ rule tokenize_amazon:
     output:
         expand("data/tokenized/amazon-snap/en.txt")
     shell:
-        "sed -e 's/\t/ ¶ /g' {input} | xc tokenize -l en | sed -e 's/label__/__label__/' > {output}"
+        "sed -e 's/\t/ ¶ /g' {input} | xc tokenize -p -l en | sed -e 's/label__/__label__/' > {output}"
 
 rule tokenize_opus:
     input:
@@ -850,7 +850,7 @@ rule tokenize_opus:
         "data/tokenized/opus/{dataset}.{lang}.txt"
     shell:
         # Remove country codes and fix mojibake
-        "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -l {wildcards.lang} - {output}"
+        "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_newscrawl:
     input:
@@ -858,7 +858,7 @@ rule tokenize_newscrawl:
     output:
         "data/tokenized/newscrawl/{lang}.txt"
     shell:
-        "xc tokenize -c -l {wildcards.lang} {input} {output}"
+        "xc tokenize -c -p -l {wildcards.lang} {input} {output}"
 
 rule tokenize_parallel_opus:
     input:
@@ -900,7 +900,7 @@ rule tokenize_gzipped_text:
     output:
         "data/tokenized/{dir}/{lang}.txt"
     shell:
-        "zcat {input} | xc tokenize -l {wildcards.lang} - {output}"
+        "zcat {input} | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_reddit:
     input:
@@ -908,16 +908,29 @@ rule tokenize_reddit:
     output:
         expand("data/tokenized/reddit/{{date}}/{lang}.txt.gz", lang=SOURCE_LANGUAGES['reddit/merged'])
     shell:
-        "zcat {input} | xc tokenize-by-language -z -m reddit - data/tokenized/reddit/{wildcards.date}"
+        "zcat {input} | xc tokenize-by-language -z - data/tokenized/reddit/{wildcards.date}"
+
+
+rule extract_twitter:
+    input:
+        "data/raw/twitter/twitter-{year}.txt.gz"
+    output:
+        "data/extracted/twitter/twitter-{year}.txt.gz"
+    shell:
+        "zcat {input} | xc preprocess-twitter | gzip -c > {output}"
+
 
 rule tokenize_twitter:
     input:
-        "data/raw/twitter/twitter-2014.txt.gz",
-        "data/raw/twitter/twitter-2015.txt.gz"
+        "data/extracted/twitter/twitter-2014.txt.gz",
+        "data/extracted/twitter/twitter-2015.txt.gz",
+        "data/extracted/twitter/twitter-2016.txt.gz",
+        "data/extracted/twitter/twitter-2017.txt.gz",
+        "data/extracted/twitter/twitter-2018.txt.gz"
     output:
         expand("data/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
     shell:
-        "zcat {input} | xc tokenize-by-language -m twitter - data/tokenized/twitter"
+        "zcat {input} | xc tokenize-by-language - data/tokenized/twitter"
 
 rule tokenize_voa:
     input:
@@ -925,7 +938,7 @@ rule tokenize_voa:
     output:
         "data/tokenized/voa/{lang}.txt"
     shell:
-        "xc tokenize -l {wildcards.lang} - {output}"
+        "xc tokenize -p -l {wildcards.lang} - {output}"
 
 
 # Handling parallel text
@@ -1290,4 +1303,3 @@ ruleorder:
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     count_tokens > recount_messy_tokens > \
     tokenize_parallel_opus > tokenize_opus > tokenize_gzipped_text
-
