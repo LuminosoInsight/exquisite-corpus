@@ -107,7 +107,11 @@ def preprocess_reddit(infile, outfile):
     mdparser = mistune.Markdown(renderer=TextRenderer())
     for line in infile:
         data = json.loads(line)
-        if 'score' in data and 'body' in data and data["score"] >= 1 and data["body"] != "[deleted]":
+        if (
+            'score' in data and 'body' in data and
+            data["score"] is not None and data["score"] >= 1 and
+            data["body"] != "[deleted]"
+        ):
             subreddit = data["subreddit"]
             subreddit_hash = mmh3.hash(subreddit)
             if subreddit_hash not in BANNED_SUBREDDITS:
