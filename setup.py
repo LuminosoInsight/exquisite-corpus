@@ -12,7 +12,7 @@ setup(
     install_requires=[
         'snakemake', 'wordfreq[jieba,mecab] >= 2', 'click',
         'regex == 2018.02.21', 'pycld2', 'msgpack-python', 'ordered-set',
-        'ftfy', 'subword-nmt'
+        'ftfy', 'subword-nmt', 'misaka'
     ],
     zip_safe=False,
     classifiers=[
