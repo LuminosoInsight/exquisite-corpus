@@ -1,119 +1,54 @@
 import json
 import regex
-import misaka
 import mmh3
 
-from ftfy.fixes import fix_surrogates, unescape_html
+from ftfy.fixes import fix_surrogates, unescape_html, fix_line_breaks
 from .language_detection import detect_language
 from .reddit_ban_data import BANNED_SUBREDDITS
 
 TWITTER_HANDLE_RE = regex.compile(r"@[\S--\p{punct}]+")
 TCO_RE = regex.compile("http(?:s)?://t.co/[a-zA-Z0-9]+")
-URL_RE = regex.compile(r"http(?:s)?://[^) ]*")
+URL_RE = regex.compile(r"http(?:s)?://[^ ]*")
 
 
-class TextRenderer(misaka.BaseRenderer):
-    """
-    Render Markdown as plain text, skipping complex things such as tables and code.
-    """
-    def blockcode(self, text, language):
-        return ''
+MARKDOWN_URL_RE = regex.compile(r'''
+    \[              # a literal left bracket, starting the link title
+      (             # Capture the link title in group 1
+        [^\]]+      # The title is made of anything but close brackets
+      )
+    \]              # A literal right bracket, ending the link title
+    (               # Group 2 cleans up an edge case:
+        \]*         # any extra right brackets that fell out due to people putting brackets in brackets
+    )
+    \(              # a literal left parenthesis, starting the link target
+      (             # Capture the link target in group 3
+        [^)]+       # Link targets are everything until the next close parenthesis
+      )
+    \)
+''', regex.VERBOSE)
 
-    def blockquote(self, content):
-        return content
 
-    def header(self, content, level):
-        return content
+MARKDOWN_FORMAT_RES = [
+    regex.compile(rf"""
+        (?<!\w)         # Look behind to make sure we don't start in the middle of a word
+        ([{char}]+)     # The emphasis character we're handling
+        (
+          [^{char}]+    # The content of the formatting, which doesn't contain that character
+        )
+        \1              # The same characters we started with, to end the formatting
+        (?!\w)          # Look forward to make sure we don't end in the middle of a word
+    """, regex.VERBOSE)
+    for char in '*_~'
+]
 
-    def hrule(self):
-        return ''
 
-    def list(self, content, is_ordered, is_block):
-        return content
-
-    def listitem(self, content, is_ordered, is_block):
-        return content
-
-    def paragraph(self, text):
-        return text
-
-    def table(self, content):
-        return ''
-
-    def table_header(self, content):
-        return ''
-
-    def table_body(self, content):
-        return ''
-
-    def table_row(self, content):
-        return ''
-
-    def table_cell(self, text, align, is_header):
-        return ''
-
-    def footnotes(self, text):
-        return text
-
-    def footnote_def(self, text, number):
-        return text
-
-    def footnote_ref(self, number):
-        return ''
-
-    def blockhtml(self, text):
-        return text
-
-    def autolink(self, link, is_email):
-        return ''
-
-    def codespan(self, text):
-        return text
-
-    def double_emphasis(self, text):
-        return text
-
-    def emphasis(self, text):
-        return text
-
-    def underline(self, text):
-        return text
-
-    def highlight(self, text):
-        return text
-
-    def quote(self, text):
-        return text
-
-    def image(self, link, title, alt):
-        return title
-
-    def linebreak(self):
-        return '\n'
-
-    def link(self, content, link, title):
-        return title
-
-    def strikethrough(self, text):
-        return text
-
-    def superscript(self, text):
-        return text
-
-    def raw_html(self, text):
-        return text
-
-    def triple_emphasis(self, text):
-        return text
-
-    def math(self, text, displaymode):
-        return text
-
-    def superscript(self, text):
-        return text
-
-    def normal_text(self, text):
-        return text
+def strip_markdown(text):
+    text = MARKDOWN_URL_RE.sub(r'\1\2', text)
+    text = URL_RE.sub('', text)
+    for format_re in MARKDOWN_FORMAT_RES:
+        text = format_re.sub(r'\2', text)
+    lines = [line.lstrip(">#*- ") for line in text.split('\n')]
+    return ' '.join(lines)
 
 
 def preprocess_reddit(infile, outfile):
@@ -121,8 +56,6 @@ def preprocess_reddit(infile, outfile):
     Read Reddit text from a JSON-lines file, parse the Markdown, and tag
     what language each post is in.
     """
-    renderer = TextRenderer()
-    mdparser = misaka.Markdown(renderer, extensions=['superscript'])
     for line in infile:
         data = json.loads(line)
         if (
@@ -133,11 +66,8 @@ def preprocess_reddit(infile, outfile):
             subreddit = data["subreddit"]
             subreddit_hash = mmh3.hash(subreddit)
             if subreddit_hash not in BANNED_SUBREDDITS:
-                md = fix_surrogates(unescape_html(data["body"]))
-                try:
-                    text = mdparser(md)
-                except RecursionError:
-                    continue
+                md = fix_surrogates(unescape_html(fix_line_breaks(data["body"])))
+                text = strip_markdown(md)
                 text = text.replace("\n", " ").replace("\u200b", "")
                 text = URL_RE.sub("", text)
                 if text:
