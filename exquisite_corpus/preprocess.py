@@ -1,6 +1,6 @@
 import json
 import regex
-import mistune
+import misaka
 import mmh3
 
 from ftfy.fixes import fix_surrogates, unescape_html
@@ -12,45 +12,63 @@ TCO_RE = regex.compile("http(?:s)?://t.co/[a-zA-Z0-9]+")
 URL_RE = regex.compile(r"http(?:s)?://[^) ]*")
 
 
-class TextRenderer(mistune.Renderer):
+class TextRenderer(misaka.BaseRenderer):
     """
-    A custom Mistune renderer that renders Markdown to plain text (instead
-    of HTML).
+    Render Markdown as plain text, skipping complex things such as tables and code.
     """
+    def blockcode(self, text, language):
+        return ''
 
-    def block_code(self, code, lang=None):
-        return ""
-
-    def block_quote(self, text):
-        return text + " "
-
-    def block_html(self, html):
-        # fixme
-        return html
-
-    def header(self, text, level, raw=None):
-        return text + " "
-
-    def hrule(self):
-        return ""
-
-    def list(self, body, ordered=True):
-        return body
-
-    def list_item(self, text):
-        return text + " "
-
-    def paragraph(self, text):
-        return text + " "
-
-    def table(self, header, body):
-        return body
-
-    def table_row(self, content):
+    def blockquote(self, content):
         return content
 
-    def table_cell(self, content, **flags):
-        return content + " "
+    def header(self, content, level):
+        return content
+
+    def hrule(self):
+        return ''
+
+    def list(self, content, is_ordered, is_block):
+        return content
+
+    def listitem(self, content, is_ordered, is_block):
+        return content
+
+    def paragraph(self, text):
+        return text
+
+    def table(self, content):
+        return ''
+
+    def table_header(self, content):
+        return ''
+
+    def table_body(self, content):
+        return ''
+
+    def table_row(self, content):
+        return ''
+
+    def table_cell(self, text, align, is_header):
+        return ''
+
+    def footnotes(self, text):
+        return text
+
+    def footnote_def(self, text, number):
+        return text
+
+    def footnote_ref(self, number):
+        return ''
+
+    def blockhtml(self, text):
+        return text
+
+    def autolink(self, link, is_email):
+        return ''
+
+    def codespan(self, text):
+        return text
 
     def double_emphasis(self, text):
         return text
@@ -58,45 +76,44 @@ class TextRenderer(mistune.Renderer):
     def emphasis(self, text):
         return text
 
-    def codespan(self, text):
+    def underline(self, text):
         return text
+
+    def highlight(self, text):
+        return text
+
+    def quote(self, text):
+        return text
+
+    def image(self, link, title, alt):
+        return title
 
     def linebreak(self):
-        return " "
+        return '\n'
+
+    def link(self, content, link, title):
+        return title
 
     def strikethrough(self, text):
-        return ""
-
-    def text(self, text):
         return text
 
-    def escape(self, text):
+    def superscript(self, text):
         return text
 
-    def autolink(self, link, is_email=False):
-        return ""
-
-    def link(self, link, title, text):
+    def raw_html(self, text):
         return text
 
-    def image(self, src, title, text):
+    def triple_emphasis(self, text):
         return text
 
-    def inline_html(self, html):
-        return html
+    def math(self, text, displaymode):
+        return text
 
-    def newline(self):
-        """Rendering newline element."""
-        return ""
+    def superscript(self, text):
+        return text
 
-    def footnote_ref(self, key, index):
-        return ""
-
-    def footnote_item(self, key, text):
-        return ""
-
-    def footnotes(self, text):
-        return ""
+    def normal_text(self, text):
+        return text
 
 
 def preprocess_reddit(infile, outfile):
@@ -104,7 +121,8 @@ def preprocess_reddit(infile, outfile):
     Read Reddit text from a JSON-lines file, parse the Markdown, and tag
     what language each post is in.
     """
-    mdparser = mistune.Markdown(renderer=TextRenderer())
+    renderer = TextRenderer()
+    mdparser = misaka.Markdown(renderer, extensions=['superscript'])
     for line in infile:
         data = json.loads(line)
         if (
@@ -116,7 +134,11 @@ def preprocess_reddit(infile, outfile):
             subreddit_hash = mmh3.hash(subreddit)
             if subreddit_hash not in BANNED_SUBREDDITS:
                 md = fix_surrogates(unescape_html(data["body"]))
-                text = mdparser(md).replace("\n", " ").replace("\u200b", "")
+                try:
+                    text = mdparser(md)
+                except RecursionError:
+                    continue
+                text = text.replace("\n", " ").replace("\u200b", "")
                 text = URL_RE.sub("", text)
                 if text:
                     lang, confident = detect_language(text)
