@@ -31,7 +31,7 @@ MARKDOWN_URL_RE = regex.compile(r'''
 MARKDOWN_FORMAT_RES = [
     regex.compile(rf"""
         (?<!\w)         # Look behind to make sure we don't start in the middle of a word
-        ([{char}]+)     # The emphasis character we're handling
+        ([{char}]+)     # The emphasis character we're handling, possibly repeated
         (
           [^{char}]+    # The content of the formatting, which doesn't contain that character
         )
@@ -55,6 +55,12 @@ def preprocess_reddit(infile, outfile):
     """
     Read Reddit text from a JSON-lines file, parse the Markdown, and tag
     what language each post is in.
+
+    Filter the posts to enforce _some_ standard of quality:
+
+    - Posts in English should have score >= 2 (they should have net upvotes)
+    - Other posts should have score >= 1 (no net downvotes)
+    - Posts from subreddits that are banned in 2018 are skipped
     """
     for line in infile:
         data = json.loads(line)
