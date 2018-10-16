@@ -827,13 +827,21 @@ rule select_paracrawl_language:
 # Tokenizing
 # ==========
 
-rule tokenize_wikipedia:
+rule extract_wikipedia:
     input:
         "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
     output:
+        "data/extracted/wikipedia/{lang}.txt.gz"
+    shell:
+        "bunzip2 -c {input} | wiki2text | gzip -c > {output}"
+
+rule tokenize_wikipedia:
+    input:
+        "data/extracted/wikipedia/{lang}.txt.gz"
+    output:
         "data/tokenized/wikipedia/{lang}.txt"
     shell:
-        "bunzip2 -c {input} | wiki2text | xc tokenize -p -l {wildcards.lang} - {output}"
+        "zcat {input} | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_amazon:
     input:
