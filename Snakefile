@@ -466,7 +466,7 @@ rule download_reddit:
     output:
         "data/downloaded/reddit/{year}-{month}.bz2"
     resources:
-        download=1, opusdownload=1
+        download=1
     priority: 0
     shell:
         "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.bz2' -o {output}"
@@ -475,6 +475,8 @@ rule download_reddit:
 rule download_opus_parallel:
     output:
         "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
+    resources:
+        download=1, opusdownload=1
     run:
         # The filename we output will follow our language code conventions,
         # but we have to remap and reorder the language codes to get the right
@@ -484,6 +486,7 @@ rule download_opus_parallel:
         lang2 = map_opus_language(dataset, wildcards.lang2)
         lang1, lang2 = sorted([lang1, lang2])
         shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/{lang1}-{lang2}.txt.zip' -o {output}")
+
 
 rule download_wikipedia:
     output:
