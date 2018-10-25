@@ -620,6 +620,14 @@ rule extract_newscrawl:
     shell:
         "tar xf {input} -C data/extracted/newscrawl && touch data/extracted/newscrawl/training-monolingual-news-2014/*"
 
+rule gzip_newscrawl:
+    input:
+        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
+    output:
+        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled.gz"
+    shell:
+        "gzip -c {input} > {output}"
+
 rule extract_jesc:
     input:
         "data/downloaded/jesc/detokenized.tar.gz"
@@ -674,6 +682,23 @@ rule extract_voa_fa:
     shell:
         "sed -e 's/^# Headline: //' -e 's/^#.*//' {input} > {output}"
 
+
+# Monolingual corpus
+# ==================
+
+rule monolingual_corpus:
+    input:
+        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled.gz",
+        "data/extracted/wikipedia/{lang}.txt.gz",
+        "data/downloaded/opus/OpenSubtitles2018.{lang}.txt.gz",
+        "data/downloaded/opus/Europarl.{lang}.txt.gz",
+        "data/downloaded/opus/GlobalVoices.{lang}.txt.gz",
+        expand("data/extracted/twitter/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
+        expand("data/extracted/reddit/{shard}.txt.gz", shard=REDDIT_SHARDS)
+    output:
+        "data/monolingual/{lang}.txt.gz"
+    shell:
+        "zcat {input} | awk -f scripts/language-tag-filter.awk -v lang={wildcards.lang} | gzip -c > {output}"
 
 
 # Transforming existing word lists
@@ -865,11 +890,11 @@ rule tokenize_opus:
 
 rule tokenize_newscrawl:
     input:
-        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
+        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled.gz"
     output:
         "data/tokenized/newscrawl/{lang}.txt"
     shell:
-        "xc tokenize -c -p -l {wildcards.lang} {input} {output}"
+        "zcat {input} | xc tokenize -c -p -l {wildcards.lang} - {output}"
 
 rule tokenize_parallel_opus:
     input:
