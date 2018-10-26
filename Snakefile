@@ -205,6 +205,10 @@ REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(year, month) for year in range(2008, 2017) for month in range(1, 12 + 1)] +
     [(2017, month) for month in range(1, 11 + 1)]
 )]
+SAMPLED_REDDIT_SHARDS = [
+    '2007-10', '2008-07', '2009-09', '2010-06', '2011-01', '2012-04',
+    '2013-12', '2014-09', '2015-08', '2016-03', '2017-02', '2017-11'
+]
 
 # SNAP's Amazon data is sharded by product department.
 
@@ -685,20 +689,34 @@ rule extract_voa_fa:
 
 # Monolingual corpus
 # ==================
+# You would think we can parametrize these by language and write the rule just
+# once. But we have different sets of sources available for each language, I'd
+# rather not write the logic for that, and some languages need special handling
+# (for example, English Reddit requires 10% sub-sampling).
 
-rule monolingual_corpus:
+rule monolingual_corpus_en:
     input:
-        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled.gz",
-        "data/extracted/wikipedia/{lang}.txt.gz",
-        "data/downloaded/opus/OpenSubtitles2018.{lang}.txt.gz",
-        "data/downloaded/opus/Europarl.{lang}.txt.gz",
-        "data/downloaded/opus/GlobalVoices.{lang}.txt.gz",
+        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.en.shuffled.gz",
+        "data/extracted/wikipedia/en.txt.gz",
+        "data/downloaded/opus/OpenSubtitles2018.en.txt.gz",
+        "data/downloaded/opus/Europarl.en.txt.gz",
+        "data/downloaded/opus/GlobalVoices.en.txt.gz",
         expand("data/extracted/twitter/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
-        expand("data/extracted/reddit/{shard}.txt.gz", shard=REDDIT_SHARDS)
+        expand("data/extracted/reddit/{shard}.txt.gz", shard=SAMPLED_REDDIT_SHARDS)
     output:
-        "data/monolingual/{lang}.txt.gz"
+        "data/monolingual/en.txt.gz"
     shell:
-        "zcat {input} | awk -f scripts/language-tag-filter.awk -v lang={wildcards.lang} | gzip -c > {output}"
+        "zcat {input} | awk -f scripts/language-tag-filter.awk -v lang=en | gzip -c > {output}"
+
+
+rule monolingual_subsample_en:
+    input:
+        "data/monolingual/en.txt"
+    output:
+        "data/monolingual/en.sample.txt"
+    shell:
+        # "zcat {input} | fold -w 1000 -s | awk '{{NR % 10 == 0}}' > {output}
+        "fold -w 1000 -s {input} | awk 'NR % 10 == 0' | shuf > {output}"
 
 
 # Transforming existing word lists
