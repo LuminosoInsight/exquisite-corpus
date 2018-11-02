@@ -706,17 +706,16 @@ rule monolingual_corpus_en:
     output:
         "data/monolingual/en.txt.gz"
     shell:
-        "zcat {input} | awk -f scripts/language-tag-filter.awk -v lang=en | gzip -c > {output}"
+        "zcat {input} | awk -f scripts/language-tag-filter.awk -v lang=en | scripts/imperfect-shuffle-gz.sh {output} monolingual_en"
 
 
 rule monolingual_subsample_en:
     input:
-        "data/monolingual/en.txt"
+        "data/monolingual/en.txt.gz"
     output:
         "data/monolingual/en.sample.txt"
     shell:
-        # "zcat {input} | fold -w 1000 -s | awk '{{NR % 10 == 0}}' > {output}
-        "fold -w 1000 -s {input} | awk 'NR % 10 == 0' | shuf > {output}"
+        "zcat {input} | fold -w 1000 -s | awk 'NR % 10 == 0' > {output}"
 
 
 # Transforming existing word lists
