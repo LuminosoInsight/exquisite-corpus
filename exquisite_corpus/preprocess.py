@@ -6,10 +6,10 @@ from ftfy.fixes import fix_surrogates, unescape_html, fix_line_breaks
 from .language_detection import detect_language
 from .reddit_ban_data import BANNED_SUBREDDITS
 
+
 TWITTER_HANDLE_RE = regex.compile(r"@[\S--\p{punct}]+")
 TCO_RE = regex.compile("http(?:s)?://t.co/[a-zA-Z0-9]+")
 URL_RE = regex.compile(r"http(?:s)?://[^ ]*")
-
 
 MARKDOWN_URL_RE = regex.compile(r'''
     \[              # a literal left bracket, starting the link title
@@ -26,7 +26,6 @@ MARKDOWN_URL_RE = regex.compile(r'''
       )
     \)
 ''', regex.VERBOSE)
-
 
 MARKDOWN_FORMAT_RES = [
     regex.compile(rf"""

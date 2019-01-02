@@ -17,8 +17,8 @@ CLD2_BAD_CHAR_RANGE = "[%s]" % "".join(
     ] +
     [chr(65534 + 65536 * x + y) for x in range(17) for y in range(2)]
 )
-CLD2_BAD_CHARS_RE = regex.compile(CLD2_BAD_CHAR_RANGE)
 
+CLD2_BAD_CHARS_RE = regex.compile(CLD2_BAD_CHAR_RANGE)
 CYRILLIC_RE = regex.compile(r'[А-Яа-я]')
 
 
