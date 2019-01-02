@@ -11,8 +11,8 @@ setup(
     include_package_data=True,
     install_requires=[
         'snakemake', 'wordfreq[jieba,mecab] >= 2', 'click',
-        'regex == 2018.02.21', 'pycld2', 'msgpack-python', 'ordered-set',
-        'ftfy', 'subword-nmt'
+        'regex >= 2018.01.08', 'pycld2', 'msgpack-python', 'ordered-set',
+        'ftfy', 'subword-nmt', 'sentencepiece'
     ],
     zip_safe=False,
     classifiers=[
