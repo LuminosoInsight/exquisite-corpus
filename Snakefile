@@ -720,7 +720,7 @@ rule monolingual_subsample_en:
     output:
         "data/monolingual/en.sample.txt"
     shell:
-        "zcat {input} | fold -w 1000 -s | awk 'NR % 10 == 0' > {output}"
+        "zcat {input} | fold -w 1000 -s | awk 'NR % 100 == 0' > {output}"
 
 
 # Transforming existing word lists
@@ -1080,6 +1080,28 @@ rule learn_bpe:
             "subword-nmt learn-joint-bpe-and-vocab --input {input} "
             "--output {bpe_file} --write-vocabulary {vocab1} {vocab2}"
         )
+
+
+rule learn_sentencepiece:
+    input:
+        "data/monolingual/{lang}.sample.txt"
+    output:
+        "data/sentencepiece/{lang}.model",
+        "data/sentencepiece/{lang}.vocab"
+    shell:
+        # spm_train is the command to train a SentencePiece model.
+        # Its command-line options are poorly and inaccurately documented,
+        # so I will explain them here.
+        "spm_train "
+        # The filename of input text that the model will be trained on:
+        "--input data/monolingual/{wildcards.lang}.sample.txt "
+        # Contrary to the documentation, the format can just be plain text separated by newlines:
+        "--input_format text "
+        # Add '.model' and '.vocab' to this to get the output filenames:
+        "--model_prefix data/sentencepiece/{wildcards.lang} "
+        # Case-fold, apply NFKC, and apply a couple other substitutions that
+        # machine translation people have found useful:
+        "--normalization_rule_name nmt_nfkc_cf"
 
 
 rule apply_bpe:
