@@ -55,6 +55,10 @@ def tokenize_by_language(in_file, out_dir, zipped=False):
 
 
 def tokenize_with_sentencepiece(in_file, out_file, sp_model_filename):
+    """
+    Take in monolingual plain text, and break it into SentencePiece tokens
+    with the given model.
+    """
     sp = sentencepiece.SentencePieceProcessor()
     sp.load(sp_model_filename)
     packer = msgpack.Packer()
