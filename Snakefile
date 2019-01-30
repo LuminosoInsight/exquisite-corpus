@@ -709,7 +709,7 @@ rule monolingual_corpus_en:
         "zcat {input} | awk -f scripts/language-tag-filter.awk -v lang=en | scripts/imperfect-shuffle-gz.sh {output} monolingual_en"
 
 
-# Get a 10% sample of the corpus, for training a process such as SentencePiece
+# Get a 1% sample of the corpus, for training a process such as SentencePiece
 # that requires diverse, representative data, but not _all_ the data.
 #
 # For the benefit of SentencePiece, also wrap the lines to a maximum length
