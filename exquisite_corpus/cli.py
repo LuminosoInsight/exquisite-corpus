@@ -1,5 +1,5 @@
 import click
-from .tokens import tokenize_file, tokenize_by_language
+from .tokens import tokenize_file, tokenize_by_language, tokenize_with_sentencepiece
 from .preprocess import preprocess_reddit, preprocess_twitter
 from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
@@ -18,7 +18,7 @@ def cli():
 
 
 @cli.command(name='tokenize')
-@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('input_file', type=click.File('r', encoding='utf-8', errors='ignore'), default='-')
 @click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
 @click.option('--language', '-l')
 @click.option('--check-language', '-c', is_flag=True, default=False)
@@ -26,6 +26,14 @@ def cli():
 @click.option('--ftfy', '-f', is_flag=True, default=False)
 def run_tokenize(input_file, output_file, language, check_language, punctuation, ftfy):
     tokenize_file(input_file, output_file, language, check_language, punctuation, ftfy=ftfy)
+
+
+@cli.command(name='tokenize-sp')
+@click.argument('input_file', type=click.File('r', encoding='utf-8', errors='ignore'), default='-')
+@click.argument('output_file', type=click.File('wb'), default='-')
+@click.argument('model_filename')
+def run_tokenize_sp(input_file, output_file, model_filename):
+    tokenize_with_sentencepiece(input_file, output_file, model_filename)
 
 
 @cli.command(name='tokenize-by-language')

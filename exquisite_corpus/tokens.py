@@ -3,6 +3,8 @@ from ftfy import fix_text
 from ftfy.fixes import unescape_html, fix_surrogates
 import langcodes
 import gzip
+import sentencepiece
+import msgpack
 
 from .language_detection import detect_language, CLD2_LANGUAGES
 
@@ -50,3 +52,16 @@ def tokenize_by_language(in_file, out_dir, zipped=False):
     finally:
         for out_file in out_files.values():
             out_file.close()
+
+
+def tokenize_with_sentencepiece(in_file, out_file, sp_model_filename):
+    """
+    Take in monolingual plain text, and break it into SentencePiece tokens
+    with the given model.
+    """
+    sp = sentencepiece.SentencePieceProcessor()
+    sp.load(sp_model_filename)
+    packer = msgpack.Packer()
+    for line in in_file:
+        ids = sp.encode_as_ids(line.rstrip())
+        out_file.write(packer.pack(ids))
