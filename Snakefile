@@ -154,7 +154,7 @@ WP_LANGUAGE_MAP = {
     'fil': 'tl',
     'nb': 'no'
 }
-WP_VERSION = '20180520'
+WP_VERSION = '20190120'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
     'zh-Hans': 'chi-sim',
@@ -274,6 +274,18 @@ PARALLEL_LANGUAGE_PAIRS = [
     'en_it', 'en_ja', 'en_lv', 'en_nl', 'en_pl', 'en_pt', 'en_ro',
     'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
 ]
+
+# We want some flexibility in the amount of data we encode via SentencePiece
+# to use in training a language model.  That data will be a subset of the
+# monolingual data sampled to train SentencePiece itself; we define the size
+# of that subset here as the reciprocal of the fraction of the whole monolingual
+# dataset to use.  (So setting this to, say, 5 uses one part in 5 of the data.)
+RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE = 20
+
+# To have a (statically) predictable set of SentencePiece id files when
+# segregated by length (number of id's per input, not the number of inputs),
+# we set an upper bound on the length.
+MAX_SPM_ENCODE_IDS = 300
 
 def map_opus_language(dataset, lang):
     if dataset.startswith('opus/'):
@@ -1102,6 +1114,57 @@ rule learn_sentencepiece:
         # Case-fold, apply NFKC, and apply a couple other substitutions that
         # machine translation people have found useful:
         "--normalization_rule_name nmt_nfkc_cf"
+
+
+# Take another (larger) sample of the full data set previously sampled to train
+# SentencePiece, and encode it as ids using the trained SentencePiece model.
+# Split the encoded output into files containing uniform numbers of ids.
+rule encode_sentencepiece_ids:
+    input:
+        "data/monolingual/{lang}.txt.gz",
+        "data/sentencepiece/{lang}.model"
+    output:
+        temp(expand("data/sentencepiece/{{lang}}.spm_txt_ids/length_{n}.txt",
+                    n=range(MAX_SPM_ENCODE_IDS + 1)))
+    run:
+        # We invoke awk twice.  The first time it samples the input data file.
+        # The second time it distributes the output of spm_encode to output
+        # files whose names include the length of each encoded input line
+        # (using the awk built in variable NF denoting the number of fields
+        # in a line).
+        data_file, model_file = input
+        output_dir = os.path.dirname(output[0])
+        output_prefix = '"{}"'.format(os.path.join(output_dir, "length_"))
+        output_suffix = '".txt"'
+        length_bound = MAX_SPM_ENCODE_IDS + 1
+        for output_file in output:  # make empty files
+             shell("touch {output_file}")
+        shell(
+            "zcat {data_file} | "
+            "awk 'NR % {RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE} == 0' | "
+            "spm_encode --model={model_file} --output_format=id | "
+            "awk 'NF < {length_bound} {{print $0 > ({output_prefix} NF {output_suffix})}}'"
+        )
+
+
+# Convert the outputs of encode_sentencepiece_ids into .npy files.
+rule numberize_one_sentencepiece_id_file:
+    input:
+        "data/sentencepiece/{lang}.spm_txt_ids/length_{n}.txt"
+    output:
+        "data/sentencepiece/{lang}.spm_ids/length_{n}.npy"
+    shell:
+        "scripts/sentencepiece_id_converter.py {input} {output}"
+
+
+rule numberize_sentencepiece_ids:
+    input:
+        expand("data/sentencepiece/{{lang}}.spm_ids/length_{n}.npy",
+               n=range(MAX_SPM_ENCODE_IDS + 1))
+    output:
+        "data/sentencepiece/{lang}.spm_ids/empty_build_target"
+    shell:
+        "rmdir data/sentencepiece/{wildcards.lang}.spm_txt_ids; touch {output}"
 
 
 rule apply_bpe:
