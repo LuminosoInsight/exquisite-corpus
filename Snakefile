@@ -280,12 +280,17 @@ PARALLEL_LANGUAGE_PAIRS = [
 # monolingual data sampled to train SentencePiece itself; we define the size
 # of that subset here as the reciprocal of the fraction of the whole monolingual
 # dataset to use.  (So setting this to, say, 5 uses one part in 5 of the data.)
-RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE = 5
+RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE = 10
 
 # To have a (statically) predictable set of SentencePiece id files when
 # segregated by length (number of id's per input, not the number of inputs),
-# we set an upper bound on the length.
-MAX_SPM_ENCODE_IDS = 300
+# we set an upper bound on the length.  Sentences with longer encodings will
+# be split into chunks with sizes ranging between two specified lengths.
+# The maximum possible length is set based on Salesforce's awd-lstm-lm code.
+MAX_SPM_ENCODE_IDS = 70
+MIN_SPM_CHUNK_LEN = 15
+MAX_SPM_CHUNK_LEN = 30
+
 
 def map_opus_language(dataset, lang):
     if dataset.startswith('opus/'):
@@ -1129,21 +1134,17 @@ rule encode_sentencepiece_ids:
     run:
         # We invoke awk twice.  The first time it samples the input data file.
         # The second time it distributes the output of spm_encode to output
-        # files whose names include the length of each encoded input line
-        # (using the awk built in variable NF denoting the number of fields
-        # in a line).
+        # files whose names include the length of each encoded input line.
         data_file, model_file = input
         output_dir = os.path.dirname(output[0])
         output_prefix = '"{}"'.format(os.path.join(output_dir, "length_"))
-        output_suffix = '".txt"'
-        length_bound = MAX_SPM_ENCODE_IDS + 1
         for output_file in output:  # make empty files
              shell("touch {output_file}")
         shell(
             "zcat {data_file} | "
             "awk 'NR % {RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE} == 0' | "
             "spm_encode --model={model_file} --output_format=id | "
-            "awk 'NF < {length_bound} {{print $0 > ({output_prefix} NF {output_suffix})}}'"
+            "awk -f scripts/split_sentencepiece_ids.awk -v MIN_CHUNK={MIN_SPM_CHUNK_LEN} -v MAX_CHUNK={MAX_SPM_CHUNK_LEN} -v MAX_LENGTH={MAX_SPM_ENCODE_IDS} -v FILE_PREFIX={output_prefix}"
         )
 
 
