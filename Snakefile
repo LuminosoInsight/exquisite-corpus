@@ -288,8 +288,8 @@ RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE = 10
 # be split into chunks with sizes ranging between two specified lengths.
 # The maximum possible length is set based on Salesforce's awd-lstm-lm code.
 MAX_SPM_ENCODE_IDS = 70
-MIN_SPM_CHUNK_LEN = 15
-MAX_SPM_CHUNK_LEN = 30
+MIN_SPM_CHUNK_LEN = 35
+MAX_SPM_CHUNK_LEN = 70
 
 
 def map_opus_language(dataset, lang):
