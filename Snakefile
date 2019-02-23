@@ -278,9 +278,8 @@ PARALLEL_LANGUAGE_PAIRS = [
 # We want some flexibility in the amount of data we encode via SentencePiece
 # to use in training a language model.  That data will be a subset of the
 # monolingual data sampled to train SentencePiece itself; we define the size
-# of that subset here as the reciprocal of the fraction of the whole monolingual
-# dataset to use.  (So setting this to, say, 5 uses one part in 5 of the data.)
-RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE = 10
+# of that subset here as the fraction of the whole monolingual dataset to use.
+FRACTION_OF_DATA_TO_SPM_ENCODE = 0.1
 
 # To have a (statically) predictable set of SentencePiece id files when
 # segregated by length (number of id's per input, not the number of inputs),
@@ -1142,9 +1141,13 @@ rule encode_sentencepiece_ids:
              shell("touch {output_file}")
         shell(
             "zcat {data_file} | "
-            "awk 'NR % {RECIPROCAL_OF_FRACTION_OF_DATA_TO_SPM_ENCODE} == 0' | "
+            "awk 'BEGIN {{srand(3)}} rand() < {FRACTION_OF_DATA_TO_SPM_ENCODE}' | "
             "spm_encode --model={model_file} --output_format=id | "
-            "awk -f scripts/split_sentencepiece_ids.awk -v MIN_CHUNK={MIN_SPM_CHUNK_LEN} -v MAX_CHUNK={MAX_SPM_CHUNK_LEN} -v MAX_LENGTH={MAX_SPM_ENCODE_IDS} -v FILE_PREFIX={output_prefix}"
+            "python scripts/split_sentencepiece_ids.py"
+            " --min-chunk-length {MIN_SPM_CHUNK_LEN}"
+            " --max-chunk-length {MAX_SPM_CHUNK_LEN}"
+            " --max-length {MAX_SPM_ENCODE_IDS}"
+            " --file-prefix {output_prefix}"
         )
 
 
