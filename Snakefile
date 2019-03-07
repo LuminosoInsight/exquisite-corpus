@@ -1131,8 +1131,8 @@ rule encode_sentencepiece_ids:
         temp(expand("data/sentencepiece/{{lang}}.spm_txt_ids/length_{n}.txt",
                     n=range(MAX_SPM_ENCODE_IDS + 1)))
     run:
-        # We invoke awk twice.  The first time it samples the input data file.
-        # The second time it distributes the output of spm_encode to output
+        # We invoke awk to sample the input data file.  Then we invoke a
+        # python script to distribute the output of spm_encode to output
         # files whose names include the length of each encoded input line.
         data_file, model_file = input
         output_dir = os.path.dirname(output[0])

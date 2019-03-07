@@ -40,7 +40,7 @@ def main(input, output):
                 )
 
     # Allocate a result array.
-    result = np.empty((n_lines, n_fields), dtype=np.int64)
+    result = np.empty((n_lines, n_fields), dtype=np.int16)
 
     # Re-read the input, and populate the result.
     with open(input, "rt", encoding="utf-8") as fp:
