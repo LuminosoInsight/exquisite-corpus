@@ -279,7 +279,7 @@ PARALLEL_LANGUAGE_PAIRS = [
 # to use in training a language model.  That data will be a subset of the
 # monolingual data sampled to train SentencePiece itself; we define the size
 # of that subset here as the fraction of the whole monolingual dataset to use.
-FRACTION_OF_DATA_TO_SPM_ENCODE = 0.1
+FRACTION_OF_DATA_TO_SPM_ENCODE = 0.5
 
 # To have a (statically) predictable set of SentencePiece id files when
 # segregated by length (number of id's per input, not the number of inputs),
