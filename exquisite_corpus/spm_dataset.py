@@ -24,8 +24,15 @@ class SpmIdsDataset(Dataset):
     """
 
     def __init__(
-        self, npy_directory, min_length=1, max_length=np.inf, datatype=np.int16
+        self,
+        npy_directory,
+        min_length=1,
+        max_length=np.inf,
+        datatype=np.int16,
+        mmap=False,
     ):
+        self.datatype = datatype
+        self.mmap_mode = "r" if mmap else None
         npy_root_path = Path(npy_directory)
         self.npy_paths = {}  # map item lengths to corresponding npy files
         self.item_counts = {}  # map item lengths to number of corresponding items
@@ -33,7 +40,9 @@ class SpmIdsDataset(Dataset):
         self.total_item_count = 0
         for npy_path in npy_root_path.glob("*.npy"):
             print("Processing file {}.".format(npy_path))
-            item_count, item_length = np.load(npy_path).shape
+            # Load the file to get the shape; probably best to just mmap as
+            # we don't need any of the entries.
+            item_count, item_length = np.load(npy_path, mmap_mode="r").shape
             if item_length < min_length or item_length > max_length:
                 continue
             self.npy_paths[item_length] = npy_path
@@ -65,13 +74,14 @@ class SpmIdsDataset(Dataset):
         # Set _items by hand rather than letting the current_item_length
         # setter do it, since the setter would try to access _items (via
         # the getter).
-        self.datatype = datatype
         if self.total_item_count < 1:
             item_length = min_length  # OK, this is arbitrary.
             self._items = np.empty((0, item_length), dtype=self.datatype)
         else:
             item_length = self.available_item_lengths[0]
-            self._items = np.load(self.npy_paths[item_length])
+            self._items = np.load(
+                self.npy_paths[item_length], mmap_mode=self.mmap_mode
+            ).astype(self.datatype)
         self.current_item_length = item_length
 
     def __len__(self):
@@ -96,7 +106,9 @@ class SpmIdsDataset(Dataset):
             raise ValueError("Invalid requested length {}.".format(new_len))
         if new_len == self.current_item_length:
             return
-        self._items = np.load(self.npy_paths[new_len]).astype(self.datatype, copy=False)
+        self._items = np.load(self.npy_paths[new_len], mmap_mode=self.mmap_mode).astype(
+            self.datatype, copy=False
+        )
 
 
 class SpmIdsBatchSampler(BatchSampler):
