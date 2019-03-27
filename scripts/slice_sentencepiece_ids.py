@@ -102,7 +102,7 @@ class ChunkMaker:
     default=101,
     help="Seed for random generator (used to pick piece sizes).",
 )
-def split_sentencepiece_ids(
+def slice_sentencepiece_ids(
     file_prefix, max_length, min_chunk_length, max_chunk_length, random_seed=101
 ):
     """
@@ -124,4 +124,4 @@ def split_sentencepiece_ids(
 
 
 if __name__ == "__main__":
-    split_sentencepiece_ids()
+    slice_sentencepiece_ids()

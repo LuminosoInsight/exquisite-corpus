@@ -39,7 +39,6 @@ class SpmIdsDataset(Dataset):
         self.max_item_length = -1  # max length for which there really are any items
         self.total_item_count = 0
         for npy_path in npy_root_path.glob("*.npy"):
-            print("Processing file {}.".format(npy_path))
             # Load the file to get the shape; probably best to just mmap as
             # we don't need any of the entries.
             item_count, item_length = np.load(npy_path, mmap_mode="r").shape
@@ -75,14 +74,13 @@ class SpmIdsDataset(Dataset):
         # setter do it, since the setter would try to access _items (via
         # the getter).
         if self.total_item_count < 1:
-            item_length = min_length  # OK, this is arbitrary.
-            self._items = np.empty((0, item_length), dtype=self.datatype)
+            self._items = np.empty((0, 0), dtype=self.datatype)
         else:
             item_length = self.available_item_lengths[0]
             self._items = np.load(
                 self.npy_paths[item_length], mmap_mode=self.mmap_mode
             ).astype(self.datatype)
-        self.current_item_length = item_length
+            self.current_item_length = item_length
 
     def __len__(self):
         return self.total_item_count
