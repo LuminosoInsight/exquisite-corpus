@@ -260,29 +260,23 @@ class ModelManager:
             num_workers=n_data_loader_threads,
             collate_fn=self.collate_batch_with_labels,
         )
-        n_labels = 0
-        log_prob_sum = 0.0
+        n_labels = torch.tensor(0, dtype=torch.int64, device=self.device)
+        minus_log_prob_sum = torch.tensor(0.0, dtype=torch.float32, device=self.device)
+        nll_loss = torch.nn.NLLLoss(reduction="sum")
         with torch.autograd.no_grad():
             for batch, labels in data_loader:
                 batch = batch.to(self.device, non_blocking=True)
                 labels = labels.to(self.device, non_blocking=True)
                 log_probs = self.model(batch)
-                # Find the 1D (row-major) indices (as required by torch.take)
-                # in the 2D log probability tensor corresponding to the labels.
-                indices = (
-                    log_probs.size(1)
-                    * torch.arange(log_probs.size(0), device=self.device)
-                    + labels
-                )
-                log_prob_sum += log_probs.take(indices).sum().item()
+                minus_log_prob_sum += nll_loss(log_probs, labels)
                 n_labels += labels.size(0)
-                perplexity = pow(0.5, log_prob_sum / n_labels)
+                perplexity = (minus_log_prob_sum / n_labels).exp().item()
                 print(
                     "Processed {} labels; running perplexity is {}.".format(
                         n_labels, perplexity
                     )
                 )
-        perplexity = pow(0.5, log_prob_sum / n_labels)
+        perplexity = (minus_log_prob_sum / n_labels).exp().item()
         print("Perplexity on {} is {}.".format(test_dataset_path, perplexity))
         return perplexity
 
