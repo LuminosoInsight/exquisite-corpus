@@ -2,10 +2,12 @@ import click
 import json
 import numpy as np
 import sys
+import time
 import torch
 import torch.nn as nn
 
 from exquisite_corpus.spm_dataset import SpmIdsBatchSampler, SpmIdsDataset
+from exquisite_corpus.data_parallelized_module import DataParallelizedModule
 from pathlib import Path
 from torch.utils.data import DataLoader
 
@@ -130,9 +132,14 @@ class ModelManager:
         n_data_loader_threads=0,
         lr=0.05,
         device=torch.device("cuda:0"),
+        use_multiple_gpus=False,
     ):
         self.device = device
-        self.model.train()
+        if use_multiple_gpus:
+            model = DataParallelizedModule(self.model, device=self.device)
+        else:
+            model = self.model
+        model.train()
         if min_length < 2:
             raise ValueError("Cannot train with sentences shorter than 2 tokens.")
         train_data = SpmIdsDataset(train_dataset_path, min_length=min_length)
@@ -162,8 +169,9 @@ class ModelManager:
                 collate_fn=self.collate_batch_with_labels,
             )
 
-        optimizer = torch.optim.SGD(self.model.parameters(), lr=lr)
+        optimizer = torch.optim.SGD(model.parameters(), lr=lr)
         loss_function = make_loss_function()
+        start_time = time.time()
         n_data_points = 0
         i_epoch = 0
         while i_epoch < n_epochs:  # 'for i_epoch in range(np.inf)' would fail
@@ -173,11 +181,13 @@ class ModelManager:
             for i_batch, (batch, labels) in enumerate(data_loader, start=1):
                 batch = batch.to(self.device, non_blocking=True)
                 labels = labels.to(self.device, non_blocking=True)
-                self.model.zero_grad()
-                prediction = self.model(batch)
+                model.zero_grad()
+                prediction = model(batch)
                 loss = loss_function(prediction, labels)
                 loss.backward()
-                nn.utils.clip_grad_norm_(self.model.parameters(), 1)
+                if use_multiple_gpus:
+                    model.broadcast_gradients()
+                nn.utils.clip_grad_norm_(model.parameters(), 1)
                 optimizer.step()
 
                 # If a reduction other than 'mean' is used in the loss fucntion,
@@ -188,8 +198,11 @@ class ModelManager:
 
                 if i_batch % n_batches_between_messages == 0:
                     print(
-                        "Mean training loss at batch {} is {}.".format(
-                            i_batch, total_training_loss / n_data_points
+                        "Mean training loss at batch {} is {}; "
+                        "training time {} sec.".format(
+                            i_batch,
+                            total_training_loss / n_data_points,
+                            time.time() - start_time,
                         )
                     )
 
@@ -204,13 +217,13 @@ class ModelManager:
                     with torch.autograd.no_grad():
                         n_validation_points = 0
                         validation_loss = 0.0
-                        self.model.eval()
+                        model.eval()
                         for i_vdtn_batch, (batch, labels) in enumerate(
                             validation_data_loader, start=1
                         ):
                             batch = batch.to(self.device, non_blocking=True)
                             labels = labels.to(self.device, non_blocking=True)
-                            prediction = self.model(batch)
+                            prediction = model(batch)
                             loss = loss_function(prediction, labels)
                             # Again we assume the loss has a 'mean' reduction.
                             n_points_in_batch = labels.size(0)
@@ -224,7 +237,7 @@ class ModelManager:
                                     )
                                 )
                         validation_loss /= n_validation_points  # overall mean
-                        self.model.train()
+                        model.train()
                         print("Mean validation loss is {}.".format(validation_loss))
 
             if save_path is not None:
@@ -243,13 +256,18 @@ class ModelManager:
         n_data_loader_threads=0,
         device=torch.device("cuda:0"),
         min_length=2,
+        use_multiple_gpus=False,
     ):
         """
         Simple test method that just computes the perplexity on
         a test dataset.  Assumes that the model outputs are log prababilities.
         """
         self.device = device
-        self.model.eval()
+        if use_multiple_gpus:
+            model = DataParallelizedModule(self.model, device=self.device)
+        else:
+            model = self.model
+        model.eval()
         test_data = SpmIdsDataset(test_dataset_path, min_length=min_length)
         sampler = SpmIdsBatchSampler(test_data, batch_size=batch_size)
         pin_memory = self.device != torch.device("cpu")
@@ -267,7 +285,7 @@ class ModelManager:
             for batch, labels in data_loader:
                 batch = batch.to(self.device, non_blocking=True)
                 labels = labels.to(self.device, non_blocking=True)
-                log_probs = self.model(batch)
+                log_probs = model(batch)
                 minus_log_prob_sum += nll_loss(log_probs, labels)
                 n_labels += labels.size(0)
                 perplexity = (minus_log_prob_sum / n_labels).exp().item()
