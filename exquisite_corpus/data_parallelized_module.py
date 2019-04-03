@@ -18,8 +18,8 @@ class DataParallelizedModule(nn.Module):
     to be copied between gpus during forward application).  However, training
     should only use loss functions that can be expressed as averages over all
     data points of a batch of some per-data-point loss.  Each training batch
-    must be presented as a tuple of tensors all of which have equal sizes (or
-    at least sizes in fixed proportions) in dimension 0 (corresponding to the
+    must be presented as a tuple of tensors all of which have equal sizes in
+    a given dimension (defualt 0 which usually will correspond to the
     points in the batch).  Also, the set of parameters of the wrapped module
     is assumed not to change (of course their values can change) over the
     lifetime of the wrapper object.
@@ -142,7 +142,7 @@ class DataParallelizedModule(nn.Module):
         tensors) back to the first gpu.  Also, accumulate the sizes of the
         scattered chunks (for later use in updating parameter gradients).
         """
-        # We assume the input argument tensors have proportional sizes in
+        # We assume the input argument tensors have the same sizes in
         # the splitting dimension, so any of them can be used as representative
         # of the size of the input batch, and it chunks as representative of
         # the sizes of the chunks
@@ -160,7 +160,7 @@ class DataParallelizedModule(nn.Module):
         # of args) of the chunks on each device.
         chunk_lists = list(list() for i_device in device_ids)
         for arg in args:
-            chunks = comm.scatter(arg, device_ids)
+            chunks = comm.scatter(arg, device_ids, dim=self.dim)
             for i_child, chunk in enumerate(chunks):
                 chunk_lists[i_child].append(chunk)
 
@@ -173,15 +173,16 @@ class DataParallelizedModule(nn.Module):
         # of the sizes of the chunks processed by each child.
         outputs = []
         for i_child, (module, chunk) in enumerate(zip(self.module_copies, chunks)):
-            chunk_size = chunk[representative].size()[self.dim]
-            self.chunk_sizes[i_child] += chunk_size
-            output = module(*chunk)
-            outputs.append(output)
-        assert len(self.module_copies) == len(outputs)
+            if len(chunk) > 0:
+                chunk_size = chunk[representative].size()[self.dim]
+                self.chunk_sizes[i_child] += chunk_size
+                output = module(*chunk)
+                outputs.append(output)
+        assert len(self.module_copies) >= len(outputs)
 
         # Finally, we put the separate outputs of the children together into
         # a unified (concatenated) output, and place it on the first device.
-        output = comm.gather(outputs, destination=self.devices[0].index)
+        output = comm.gather(outputs, dim=self.dim, destination=self.devices[0].index)
         return output
 
     def zero_grad(self):

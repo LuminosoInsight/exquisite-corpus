@@ -42,7 +42,7 @@ class LanguageModel(nn.Module):
         )
         n_rnn_out_features = hidden_size * (2 if bidirectional else 1)
         self.decoder = nn.Linear(in_features=n_rnn_out_features, out_features=n_tokens)
-        self.log_softmax = nn.LogSoftmax(dim=1)
+        self.log_softmax = nn.LogSoftmax(dim=2)
 
     def forward(self, input, hidden_states=None, return_hidden=False):
         batch_size = input.size(0 if self.rnn.batch_first else 1)
@@ -58,11 +58,6 @@ class LanguageModel(nn.Module):
             output,
             hidden_states.view(full_num_layers, batch_size, self.rnn.hidden_size),
         )
-        # Take the last feature of the feature sequence computed by the RNN.
-        if self.rnn.batch_first:
-            output = output[:, -1, :].squeeze(dim=1)
-        else:
-            output = output[-1, :, :].squeeze(dim=0)
         output = self.decoder(output)
         output = self.log_softmax(output)
         if return_hidden:
@@ -72,13 +67,18 @@ class LanguageModel(nn.Module):
             return output
 
 
-def make_loss_function():
+class LossFunction(nn.Module):
     """
-    Returns a callable that computes losses from predictions and labels.
-    This simple implementation just provides negative log likelihood loss,
-    but could be seasoned to taste.
+    Module to compute the aggregate (over all elements of a batch, and all
+    sequence positions within each element) loss.
     """
-    return nn.NLLLoss()
+
+    def __init__(self, reduction="mean"):
+        super().__init__()
+        self.loss_fn = nn.NLLLoss(reduction=reduction)
+
+    def forward(self, input, target):
+        return self.loss_fn(input.view(target.numel(), -1), target.view(-1))
 
 
 class ModelManager:
@@ -115,7 +115,7 @@ class ModelManager:
         collate it, and split off labels.
         """
         data = torch.LongTensor(np.vstack([x[:-1] for x in raw_batch]))
-        labels = torch.LongTensor(np.vstack([x[-1] for x in raw_batch])).squeeze(dim=1)
+        labels = torch.LongTensor(np.vstack([x[1:] for x in raw_batch]))
         return data, labels
 
     def train(
@@ -170,7 +170,7 @@ class ModelManager:
             )
 
         optimizer = torch.optim.SGD(model.parameters(), lr=lr)
-        loss_function = make_loss_function()
+        loss_function = LossFunction()
         start_time = time.time()
         n_data_points = 0
         i_epoch = 0
@@ -192,9 +192,9 @@ class ModelManager:
 
                 # If a reduction other than 'mean' is used in the loss fucntion,
                 # it would be necessary to thange the following accounting.
-                n_points_in_batch = labels.size(0)
-                total_training_loss += loss.item() * n_points_in_batch
-                n_data_points += n_points_in_batch
+                n_labels = labels.numel()
+                total_training_loss += loss.item() * n_labels
+                n_data_points += n_labels
 
                 if i_batch % n_batches_between_messages == 0:
                     print(
@@ -226,9 +226,9 @@ class ModelManager:
                             prediction = model(batch)
                             loss = loss_function(prediction, labels)
                             # Again we assume the loss has a 'mean' reduction.
-                            n_points_in_batch = labels.size(0)
-                            validation_loss += loss.item() * n_points_in_batch
-                            n_validation_points += n_points_in_batch
+                            n_labels = labels.numel()
+                            validation_loss += loss.item() * n_labels
+                            n_validation_points += n_labels
                             if i_vdtn_batch % n_batches_between_messages == 0:
                                 print(
                                     "At {} labels running loss is {}.".format(
@@ -280,14 +280,14 @@ class ModelManager:
         )
         n_labels = torch.tensor(0, dtype=torch.int64, device=self.device)
         minus_log_prob_sum = torch.tensor(0.0, dtype=torch.float32, device=self.device)
-        nll_loss = torch.nn.NLLLoss(reduction="sum")
+        nll_loss = LossFunction(reduction="sum")
         with torch.autograd.no_grad():
             for batch, labels in data_loader:
                 batch = batch.to(self.device, non_blocking=True)
                 labels = labels.to(self.device, non_blocking=True)
                 log_probs = model(batch)
                 minus_log_prob_sum += nll_loss(log_probs, labels)
-                n_labels += labels.size(0)
+                n_labels += labels.numel()
                 perplexity = (minus_log_prob_sum / n_labels).exp().item()
                 print(
                     "Processed {} labels; running perplexity is {}.".format(
