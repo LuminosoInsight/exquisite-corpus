@@ -34,7 +34,7 @@ Some steps here probably need to be filled in better.
 - Install system-level dependencies:
 
 ```sh
-apt install python3-dev haskell-stack mecab-dev libicu-dev jq xml2 curl
+apt install python3-dev haskell-stack libmecab-dev libicu-dev jq xml2 curl
 ```
 
 - Clone, build, and install `wikiparsec`:
