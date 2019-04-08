@@ -39,7 +39,7 @@ class SpmIdsDataset(Dataset):
         self.max_item_length = -1  # max length for which there really are any items
         self.total_item_count = 0
         for npy_path in npy_root_path.glob("*.npy"):
-            # Load the file to get the shape; probably best to just mmap as
+            # Load the file to get the shape; best to just mmap as
             # we don't need any of the entries.
             item_count, item_length = np.load(npy_path, mmap_mode="r").shape
             if item_length < min_length or item_length > max_length:
@@ -147,15 +147,19 @@ class SpmIdsBatchSampler(BatchSampler):
         for item_length in available_lengths:
             item_count = self.dataset.item_counts[item_length]
             first_index = self.item_length_to_first_index[item_length]
-            full_batch_end = (
-                first_index + (item_count // self.batch_size) * self.batch_size
-            )
-            this_length_end = first_index + item_count
-            for start_index in range(first_index, full_batch_end, self.batch_size):
-                batch = list(range(start_index, start_index + self.batch_size))
+            if self.randomize:
+                indices = first_index + self.random_state.permutation(item_count)
+            else:
+                indices = first_index + np.arange(item_count)
+            batch_start = 0
+            batch_end = self.batch_size
+            while batch_end <= item_count:
+                batch = indices[batch_start:batch_end].tolist()
                 yield batch
-            if full_batch_end < this_length_end and not self.drop_last:
-                batch = list(range(full_batch_end, this_length_end))
+                batch_start = batch_end
+                batch_end = batch_start + self.batch_size
+            if batch_start < item_count and not self.drop_last:
+                batch = indices[batch_start:item_count].tolist()
                 yield batch
 
     def __len__(self):

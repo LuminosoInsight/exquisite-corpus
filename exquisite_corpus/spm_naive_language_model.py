@@ -7,7 +7,6 @@ import torch
 import torch.nn as nn
 
 from exquisite_corpus.spm_dataset import SpmIdsBatchSampler, SpmIdsDataset
-from exquisite_corpus.data_parallelized_module import DataParallelizedModule
 from pathlib import Path
 from torch.utils.data import DataLoader
 
@@ -87,7 +86,12 @@ class ModelManager:
     for their training and use.
     """
 
-    def __init__(self, model=None, device=torch.device("cuda:0"), **kwargs):
+    def __init__(
+        self,
+        model=None,
+        device=torch.device("cuda:0"),
+        **kwargs
+    ):
         if model is None:
             self.model = LanguageModel(**kwargs)
         else:
@@ -129,17 +133,14 @@ class ModelManager:
         n_batches_between_messages=50,
         n_batches_between_validations=25000,
         batch_size=256,
-        n_data_loader_threads=0,
+        n_data_loader_workers=0,
         lr=0.05,
-        device=torch.device("cuda:0"),
-        use_multiple_gpus=False,
+        device=None,
     ):
-        self.device = device
-        if use_multiple_gpus:
-            model = DataParallelizedModule(self.model, device=self.device)
-        else:
-            model = self.model
-        model.train()
+        if device is not None:
+            self.device = device
+
+        self.model.train()
         if min_length < 2:
             raise ValueError("Cannot train with sentences shorter than 2 tokens.")
         train_data = SpmIdsDataset(train_dataset_path, min_length=min_length)
@@ -149,7 +150,7 @@ class ModelManager:
             train_data,
             batch_sampler=sampler,
             pin_memory=pin_memory,
-            num_workers=n_data_loader_threads,
+            num_workers=n_data_loader_workers,
             collate_fn=self.collate_batch_with_labels,
         )
         if validation_dataset_path is None:
@@ -165,11 +166,11 @@ class ModelManager:
                 validation_data,
                 batch_sampler=validation_sampler,
                 pin_memory=pin_memory,
-                num_workers=n_data_loader_threads,
+                num_workers=n_data_loader_workers,
                 collate_fn=self.collate_batch_with_labels,
             )
 
-        optimizer = torch.optim.SGD(model.parameters(), lr=lr)
+        optimizer = torch.optim.SGD(self.model.parameters(), lr=lr)
         loss_function = LossFunction()
         start_time = time.time()
         n_data_points = 0
@@ -181,13 +182,11 @@ class ModelManager:
             for i_batch, (batch, labels) in enumerate(data_loader, start=1):
                 batch = batch.to(self.device, non_blocking=True)
                 labels = labels.to(self.device, non_blocking=True)
-                model.zero_grad()
-                prediction = model(batch)
+                self.model.zero_grad()
+                prediction = self.model(batch)
                 loss = loss_function(prediction, labels)
                 loss.backward()
-                if use_multiple_gpus:
-                    model.broadcast_gradients()
-                nn.utils.clip_grad_norm_(model.parameters(), 1)
+                nn.utils.clip_grad_norm_(self.model.parameters(), 1)
                 optimizer.step()
 
                 # If a reduction other than 'mean' is used in the loss fucntion,
@@ -198,8 +197,9 @@ class ModelManager:
 
                 if i_batch % n_batches_between_messages == 0:
                     print(
-                        "Mean training loss at batch {} is {}; "
+                        "Mean training loss at epoch {}, batch {} is {}; "
                         "training time {} sec.".format(
+                            i_epoch,
                             i_batch,
                             total_training_loss / n_data_points,
                             time.time() - start_time,
@@ -217,13 +217,13 @@ class ModelManager:
                     with torch.autograd.no_grad():
                         n_validation_points = 0
                         validation_loss = 0.0
-                        model.eval()
+                        self.model.eval()
                         for i_vdtn_batch, (batch, labels) in enumerate(
                             validation_data_loader, start=1
                         ):
                             batch = batch.to(self.device, non_blocking=True)
                             labels = labels.to(self.device, non_blocking=True)
-                            prediction = model(batch)
+                            prediction = self.model(batch)
                             loss = loss_function(prediction, labels)
                             # Again we assume the loss has a 'mean' reduction.
                             n_labels = labels.numel()
@@ -231,13 +231,16 @@ class ModelManager:
                             n_validation_points += n_labels
                             if i_vdtn_batch % n_batches_between_messages == 0:
                                 print(
-                                    "At {} labels running loss is {}.".format(
+                                    "Epoch {}, {} labels, running loss is {}; "
+                                    "training time {} sec.".format(
+                                        i_epoch,
                                         n_validation_points,
                                         validation_loss / n_validation_points,
+                                        time.time() - start_time,
                                     )
                                 )
                         validation_loss /= n_validation_points  # overall mean
-                        model.train()
+                        self.model.train()
                         print("Mean validation loss is {}.".format(validation_loss))
 
             if save_path is not None:
@@ -253,29 +256,26 @@ class ModelManager:
         self,
         test_dataset_path,
         batch_size=256,
-        n_data_loader_threads=0,
-        device=torch.device("cuda:0"),
+        n_data_loader_workers=0,
         min_length=2,
-        use_multiple_gpus=False,
+        device=None,
     ):
         """
         Simple test method that just computes the perplexity on
         a test dataset.  Assumes that the model outputs are log prababilities.
         """
-        self.device = device
-        if use_multiple_gpus:
-            model = DataParallelizedModule(self.model, device=self.device)
-        else:
-            model = self.model
-        model.eval()
+        if device is not None:
+            self.device = device
+
+        self.model.eval()
         test_data = SpmIdsDataset(test_dataset_path, min_length=min_length)
-        sampler = SpmIdsBatchSampler(test_data, batch_size=batch_size)
+        sampler = SpmIdsBatchSampler(test_data, batch_size=batch_size, randomize=False)
         pin_memory = self.device != torch.device("cpu")
         data_loader = DataLoader(
             test_data,
             batch_sampler=sampler,
             pin_memory=pin_memory,
-            num_workers=n_data_loader_threads,
+            num_workers=n_data_loader_workers,
             collate_fn=self.collate_batch_with_labels,
         )
         n_labels = torch.tensor(0, dtype=torch.int64, device=self.device)
@@ -285,7 +285,7 @@ class ModelManager:
             for batch, labels in data_loader:
                 batch = batch.to(self.device, non_blocking=True)
                 labels = labels.to(self.device, non_blocking=True)
-                log_probs = model(batch)
+                log_probs = self.model(batch)
                 minus_log_prob_sum += nll_loss(log_probs, labels)
                 n_labels += labels.numel()
                 perplexity = (minus_log_prob_sum / n_labels).exp().item()
@@ -299,11 +299,8 @@ class ModelManager:
         return perplexity
 
     def save(self, path):
-        # Move to CPU then save (to match loading).
-        device = self.device
-        self.device = torch.device("cpu")
+        # We deliberately don't save the device.
         mgr_kwargs = dict(
-            device=device,
             n_tokens=self.model.encoder.num_embeddings,
             n_dims=self.model.encoder.embedding_dim,
             sparse=self.model.encoder.sparse,
@@ -313,20 +310,18 @@ class ModelManager:
             dropout=self.model.rnn.dropout,
             bidirectional=self.model.rnn.bidirectional,
         )
-        model_state = self.model.state_dict()
-        torch.save([mgr_kwargs, model_state], str(path))
-        self.device = device  # put the model back on the right device
+        model_state_dict = self.model.state_dict()
+        torch.save([mgr_kwargs, model_state_dict], str(path))
 
     @classmethod
-    def load(cls, path):
+    def load(cls, path, device=torch.device("cuda:0")):
         # In the past we've seen issues with excessive GPU memory consumption
         # when loading models direct to GPU, so we load to CPU first then move.
-        mgr_kwargs, model_state = torch.load(str(path))
-        device = mgr_kwargs.get("device", torch.device("cpu"))
+        mgr_kwargs, model_state_dict = torch.load(str(path), map_location="cpu")
         mgr_kwargs.update(device=torch.device("cpu"))  # load to cpu
         result = cls(**mgr_kwargs)
-        result.model.load_state_dict(model_state)
-        result.device = device  # move to saved device if any
+        result.model.load_state_dict(model_state_dict)
+        result.device = device  # move to requested or saved device if any
         return result
 
 
@@ -343,6 +338,7 @@ def main(model_path=None, model_kwargs=None, task="train", task_kwargs=None):
         model_mgr = ModelManager(**model_kwargs)
     else:
         print("Error; must specify an existing model or give kwargs to make a new one.")
+        return
     if task == "train":
         print("Training model with kwargs {}.".format(task_kwargs))
         model_mgr.train(**task_kwargs)
@@ -366,9 +362,9 @@ to the corresponding method of a ModelManager object.
 
 For example the following configuration file will train a model saved
 at the givnen model_path, if that file exists, or else create and
-train a new model with a vocabulary of 8000 SentencePiece tokens
-training sentences shorter than 5 tokens will be discarded.
-Every 5 epochs a checkpoint of the model will be saved at the given
+train a new model with a vocabulary of 8000 SentencePiece tokens.
+Training sentences shorter than 5 tokens will be discarded.
+Every 500 batches a checkpoint of the model will be saved at the given
 save_path (which may but need not be the same as the model_path):
 
 \b
@@ -387,10 +383,10 @@ save_path (which may but need not be the same as the model_path):
         "validation_dataset_path":
             "data/sentencepiece/en.spm_ids_validation",
         "save_path": "data/sentencepiece/en.spm_lang_model.pt",
-        "n_epochs_between_saves": 5,
+        "n_batches_between_saves": 500,
         "min_length": 5,
         "batch_size": 256,
-        "n_data_loader_threads": 10
+        "n_data_loader_workers": 10
     }
 }
 
@@ -406,7 +402,7 @@ a test of the model saved at the given model_path:
             "data/sentencepiece/en.spm_ids_testing",
         "min_length": 5,
         "batch_size": 256,
-        "n_data_loader_threads": 10,
+        "n_data_loader_workers": 10,
         "device": "cuda:0"
     }
 }
