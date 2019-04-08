@@ -12,7 +12,7 @@ process data correctly and efficiently. As something that is run on a
 development machine, it uses the best, fastest libraries it can, though this
 leads to somewhat complex system requirements.
 
-You will need three programming environments installed:
+You will need these programming environments installed:
 
 - Python 3.4 or later
 - Haskell, installed with `haskell-stack`, used to compile and run `wikiparsec`
@@ -23,6 +23,7 @@ You also need certain tools to be available:
 - The ICU Unicode libraries (apt install libicu-dev)
 - The JSON processor `jq` (apt install jq)
 - The XML processor `xml2` (apt install xml2)
+- The HTTP downloader `curl` (apt install curl)
 - wikiparsec (https://github.com/LuminosoInsight/wikiparsec)
 
 
@@ -33,7 +34,7 @@ Some steps here probably need to be filled in better.
 - Install system-level dependencies:
 
 ```sh
-apt install python3-dev haskell-stack mecab-dev libicu-dev jq xml2
+apt install python3-dev haskell-stack libmecab-dev libicu-dev jq xml2 curl
 ```
 
 - Clone, build, and install `wikiparsec`:
@@ -48,7 +49,7 @@ stack install
   along with the Python dependencies it manages:
 
 ```sh
-python setup.py develop
+pip install -e .
 ```
 
 ## Getting data
