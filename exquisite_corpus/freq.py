@@ -11,7 +11,6 @@ def merge_freqs(freq_dicts):
     Merge multiple dictionaries of frequencies, representing each word with
     the 'figure skating average' of the word's frequency over all sources,
     meaning that we drop the highest and lowest values and average the rest.
-
     """
     vocab = set()
     for freq_dict in freq_dicts:

@@ -2,7 +2,7 @@
 # https://www.reddit.com/r/ListOfSubreddits/wiki/banned
 #
 # I do not even want the _names_ of some of these places in the code, so here
-# are their mmh3 hashes.
+# are their mmh3 hashes. See scripts/hasher.py for how this list was produced.
 BANNED_SUBREDDITS = [
     -2137206377,
     -2130019934,

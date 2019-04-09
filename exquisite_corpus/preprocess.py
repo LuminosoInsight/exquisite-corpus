@@ -7,10 +7,19 @@ from .language_detection import detect_language
 from .reddit_ban_data import BANNED_SUBREDDITS
 
 
+# This regex matches Twitter handles starting with @
 TWITTER_HANDLE_RE = regex.compile(r"@[\S--\p{punct}]+")
+
+# This regex matches Twitter URLs, which are always shortened with t.co
 TCO_RE = regex.compile("http(?:s)?://t.co/[a-zA-Z0-9]+")
+
+# This regex matches all HTTP URLs, as strings without spaces that follow "http://" or
+# "https://"
 URL_RE = regex.compile(r"http(?:s)?://[^ ]*")
 
+# This regex matches URLs in the Markdown [link title](url) syntax, which is how links
+# usually appear on Reddit. It extracts the link title as \1\2 (where \2 contains
+# any ambiguous right bracket characters).
 MARKDOWN_URL_RE = regex.compile(r'''
     \[              # a literal left bracket, starting the link title
       (             # Capture the link title in group 1
@@ -27,6 +36,8 @@ MARKDOWN_URL_RE = regex.compile(r'''
     \)
 ''', regex.VERBOSE)
 
+# This regex matches Markdown formatting such as _italic_, **bold**, or
+# ~strikethrough~, and extracts the text inside it as \2.
 MARKDOWN_FORMAT_RES = [
     regex.compile(rf"""
         (?<!\w)         # Look behind to make sure we don't start in the middle of a word
@@ -42,6 +53,14 @@ MARKDOWN_FORMAT_RES = [
 
 
 def strip_markdown(text):
+    """
+    Remove most Markdown formatting from text.
+
+    Using a Markdown parser would spend a lot of cycles and end up producing HTML,
+    not plain text, leaving us with a new problem. Instead, we approximate Markdown
+    parsing with a combination of regular expressions and special rules for the
+    starts of lines.
+    """
     text = MARKDOWN_URL_RE.sub(r'\1\2', text)
     text = URL_RE.sub('', text)
     for format_re in MARKDOWN_FORMAT_RES:
@@ -85,6 +104,22 @@ def preprocess_reddit(infile, outfile):
 
 
 def preprocess_twitter(infile, outfile):
+    """
+    Read Twitter text from the format we collected it in, and produce language-tagged
+    lines.
+
+    In this format, each line might come with some metadata, such as the tweet ID,
+    which appears before the text, separated from the text by a tab character. Or it
+    might not contain any such data. We weren't very consistent about it over the years.
+
+    This function reads just the text (the part after the tab, if there is a tab). It
+    removes URLs and Twitter handles from the text. It then language-detects the
+    text, and if it is confident about the language, it outputs a new tab-separated
+    file containing the language code and the processed text.
+
+    This format could be read again by the same function, because the language code
+    is now the metadata, but we have no reason to actually do this.
+    """
     for line in infile:
         if "\t" in line:
             line = line.split("\t", 1)[1]

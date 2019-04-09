@@ -7,6 +7,7 @@ BAD_TOKENS = {
     '', '\N{PILCROW SIGN}', '\ufffc', '\ufffd',
 }
 
+
 def count_tokenized(infile, outfile):
     """
     Take in a file that's been tokenized (such as with 'xc tokenize'), count
@@ -59,6 +60,10 @@ def recount_messy(infile, outfile, language):
 
 
 def counts_to_freqs(infile, outfile):
+    """
+    Convert a file containing word counts and a __total__ line to a list of decimal
+    frequencies, by dividing each count by the __total__.
+    """
     total = None
     for line in infile:
         word, strcount = line.rstrip().split('\t', 1)
