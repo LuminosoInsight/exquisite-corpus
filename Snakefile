@@ -263,6 +263,10 @@ OPENSUB_LANGUAGE_PAIRS = [
     if _lang1 < _lang2
 ]
 
+# Define the languages for which we'll build SentencePiece models.
+
+SPM_LANGUAGES = ['en']
+
 # We'll build parallel text between English and any other language that has
 # translations in OpenSubtitles or ParaCrawl. (Europarl and Tatoeba are not
 # enough.)
@@ -472,6 +476,14 @@ rule google_2grams:
 rule google_3grams:
     input:
         expand("data/downloaded/google-ngrams/3grams-en-{shard}.txt.gz", shard=GOOGLE_3GRAM_SHARDS)
+
+rule sentencepiece_ids:
+    input:
+        expand("data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy",
+               lang=SPM_LANGUAGES,
+               task=["training", "testing", "validation"],
+               n=range(MAX_SPM_ENCODE_IDS + 1)
+        )
 
 
 # Downloaders
@@ -1196,22 +1208,6 @@ rule numberize_one_sentencepiece_id_file:
         "data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy"
     shell:
         "scripts/sentencepiece_id_converter.py {input} {output}"
-
-
-rule numberize_sentencepiece_ids:
-    input:
-        expand("data/sentencepiece/{{lang}}.spm_ids_{task}/length_{n}.npy",
-               n=range(MAX_SPM_ENCODE_IDS + 1),
-               task=["training", "validation", "testing"])
-    output:
-        touch("data/sentencepiece/{lang}.spm_ids_training/empty_build_target"),
-        touch("data/sentencepiece/{lang}.spm_ids_validation/empty_build_target"),
-        touch("data/sentencepiece/{lang}.spm_ids_testing/empty_build_target")
-    shell:
-        "rmdir data/sentencepiece/{wildcards.lang}.spm_txt_ids_training ; "
-        "rmdir data/sentencepiece/{wildcards.lang}.spm_txt_ids_validation ; "
-        "rmdir data/sentencepiece/{wildcards.lang}.spm_txt_ids_testing ; "
-        "rmdir data/sentencepiece/{wildcards.lang}.spm_txt_ids"
 
 
 rule apply_bpe:
