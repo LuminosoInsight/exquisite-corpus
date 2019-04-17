@@ -11,7 +11,7 @@ from .reddit_ban_data import BANNED_SUBREDDITS
 TWITTER_HANDLE_RE = regex.compile(r"@[\S--\p{punct}]+")
 
 # This regex matches Twitter URLs, which are always shortened with t.co
-TCO_RE = regex.compile("http(?:s)?://t.co/[a-zA-Z0-9]+")
+TCO_RE = regex.compile(r"http(?:s)?://t\.co/[a-zA-Z0-9]+")
 
 # This regex matches all HTTP URLs, as strings without spaces that follow "http://" or
 # "https://"
