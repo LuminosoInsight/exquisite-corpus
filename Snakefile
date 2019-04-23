@@ -620,14 +620,20 @@ rule extract_opus_parallel:
         # order.
 
         dataset = wildcards.dataset
+        if dataset == 'OpenSubtitles2018':
+            # OPUS renamed the contents of their zip files from
+            # 'OpenSubtitles2018' to 'OpenSubtitles'.
+            zip_dataset = 'OpenSubtitles'
+        else:
+            zip_dataset = dataset
         code1 = map_opus_language(dataset, wildcards.lang1)
         code2 = map_opus_language(dataset, wildcards.lang2)
         codeA, codeB = sorted([code1, code2])
-        zip_output1 = "data/extracted/opus/{dataset}.{codeA}-{codeB}.{code1}".format(
-            code1=code1, code2=code2, codeA=codeA, codeB=codeB, dataset=dataset
+        zip_output1 = "data/extracted/opus/{zip_dataset}.{codeA}-{codeB}.{code1}".format(
+            code1=code1, code2=code2, codeA=codeA, codeB=codeB, zip_dataset=zip_dataset
         )
-        zip_output2 = "data/extracted/opus/{dataset}.{codeA}-{codeB}.{code2}".format(
-            code1=code1, code2=code2, codeA=codeA, codeB=codeB, dataset=dataset
+        zip_output2 = "data/extracted/opus/{zip_dataset}.{codeA}-{codeB}.{code2}".format(
+            code1=code1, code2=code2, codeA=codeA, codeB=codeB, zip_dataset=zip_dataset
         )
         output1, output2 = output
         shell("unzip -o -d 'data/extracted/opus/' {input} && mv {zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
