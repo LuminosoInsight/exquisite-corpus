@@ -572,13 +572,13 @@ rule download_paracrawl:
         else:
             raise ValueError("One language in a ParaCrawl pair must be English")
 
-        shell("curl -lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -o {output}")
+        shell("curl -Lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -o {output}")
 
 rule download_jesc:
     output:
         "data/downloaded/jesc/detokenized.tar.gz"
     run:
-        "curl -lf 'http://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
+        "curl -Lf 'http://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
 
 
 # Handling downloaded data
