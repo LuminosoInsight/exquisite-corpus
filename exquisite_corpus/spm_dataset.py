@@ -1,7 +1,191 @@
 import numpy as np
+import torch
 
 from pathlib import Path
-from torch.utils.data import Dataset, BatchSampler, Sampler
+from torch.utils.data import BatchSampler, DataLoader, Dataset, Sampler
+
+
+class SpmIdsBatchMaker:
+    """
+    Wraps an SpmIdsDataset, SpmIdsBatchSampler, and a DataLoader, and uses
+    them to produce batches of data on a specified device.  This base class
+    returns batches (of the requested size, and of uniform sequence length)
+    of items from the underlying dataset as 2D tensors (where each row is
+    a single item from the dataset, that is, a sequence of SentencePiece ids).
+    The exact format of the returned batches may be tweaked by deriving
+    subclasses of this class which override the collate_batch and place_batch
+    methods.  (For example in spm_language_model_utils we define a subclass
+    for use in training language models which overrides these methods to
+    produces batches along with labels/targets for training a language
+    model.)
+
+    Typical usage for this class:
+
+        batch_maker = SpmIdsBatchMaker(
+                        <path-to-dataset>,
+                        min_length=2,
+                        batch_size=256,
+                        n_data_loader_workers=10
+                      )
+        for batch in batch_maker.run():
+            <do-something-with-the-batch-here>
+    """
+
+    def __init__(
+        self,
+        npy_directory,
+        min_length=1,
+        max_length=np.inf,
+        datatype=np.int16,
+        mmap=False,
+        batch_size=1,
+        drop_last=False,
+        randomize=True,
+        random_state=101,
+        n_data_loader_workers=0,
+        target_device=torch.device("cuda:0"),
+    ):
+        """
+        Constructs a batch maker containing an SpmIdsDataset,
+        SpmIdsBatchSampler, and a DataLoader, which will generate batches of
+        data from a directory of .npy files of SentencePiece ids.
+
+        Arguments:
+            npy_directory:
+                A path (pathlib.Path or string) at which the directory of .npy
+                files is located.  Required.
+            min_length:
+                Any .npy file in the directory whose array contains fewer than
+                min_length columns (and so represents sequences of fewer than
+                min_length tokens) will be excluded from the data exposed by
+                this dataset.  Defaults to 1.
+            max_length:
+                Any .npy file whose array contains more than max_length columns
+                will also be excluded.  Defaults to np.inf, meaning no data
+                will be excluded.
+            datatype:
+                A numpy datatype to which the tokens (SentencePiece ids) will
+                be converted when they are returned.  That is, items of this
+                dataset will be 1D numpy arrays of this datatype.  So this type
+                should be chosen large enough to represent all the tokens
+                present in the .npy files.  Defaults to np.int16, which will
+                reasonable sized SentencePiece vocabularies.
+            mmap:
+                A Boolean flag.  If True, the .npy files will be loaded (by
+                numpy.load) memory-mapped, which can save time and space if
+                not all of the data will be accessed.  Defaults to False (since
+                for the common use-case of training a model all of the data is
+                likely to be accessed).
+            batch_size:
+                The number of items to return in each batch.  Defaults to 1.
+            drop_last:
+                A Boolean flag.  Depending on the batch size and the number of
+                items of each sequence length in the dataset, for some sequence
+                lengths after generating as many batches of the requested size
+                as possible some data may be left over.  If drop_last is True,
+                this data will not be returned by the sampler (so all batches
+                will have exactly the requested size).  If it is False, then
+                the left-over data will be returned by the sampler in batches
+                smaller than the requested size.  Default is False.
+            randomize:
+                A Boolean flag.  If True, iterating over this object will
+                yield batches in a (pseudo-)random order of sequence lengths,
+                and with the sequences of each length in (pseudo-)random order.
+                Iterating multiple times over the entire dataset (by repeatedly
+                exhausting this iteration) will yield different orderings of the
+                data.  If False, the batches will be produced in the order of
+                the underlying dataset.  Defaults to True.
+            random_state:
+                Either a numpy.random.RandomState or an integer (which will be
+                used to seed a RandomState).  Used to initialize the pseudo-
+                random generator used if randomize is True.  Optional (defaults
+                to a reasonable fixed value for seeding, so even with
+                randomize=True the order in which batches are returned is
+                deterministic).
+            n_data_loader_workers:
+                The number of child processes launched to generate the batches.
+                The default is zero, which means all batches are generated in
+                the same (parent) process.  This is good for debugging, but
+                to effectively utilize a GPU when multiple CPU cores are
+                available, it is advisable to use a number close to the number
+                of CPU cores (say, 10 on Luminoso research PC's).
+            target_device:
+                The torch.device on which to put the data batches.  For use in
+                training or evaluating a model on a single device (or which
+                otherwise expects data on a specific device), set this parameter
+                to that device.  Defaults to torch.device("cuda:0"), which is
+                normally the fastest available GPU.
+       """
+        self.dataset = SpmIdsDataset(
+            npy_directory, min_length, max_length, datatype, mmap
+        )
+        self.batch_sampler = SpmIdsBatchSampler(
+            self.dataset, batch_size, drop_last, randomize, random_state
+        )
+        self.target_device = target_device
+        pin_memory = self.target_device != torch.device("cpu")
+        self.dataloader = DataLoader(
+            self.dataset,
+            batch_sampler=self.batch_sampler,
+            num_workers=n_data_loader_workers,
+            pin_memory=pin_memory,
+            collate_fn=self.collate_batch,
+        )
+
+    def run(self):
+        """
+        A generator that yields the collated batches of data from the dataset.
+        Batches will be placed on the target device (by calling the place_batch
+        method; the type of the returned batches is determined by that method
+        which in turn gets the batches from the collate_batch method).
+
+        Note that this generator will be exhausted after a single complete pass
+        through the entire underlying dataset (i.e. one epoch); run may be
+        called repeatedly to iterate through the dataset multiple times, and
+        if randomize=True was set in the constructor then each run will yield
+        the data items in a different order, even without reseeding the
+        underlying batch sampler.
+        """
+        for batch in self.dataloader:
+            yield self.place_batch(batch)
+
+    def place_batch(self, batch):
+        """
+        Move a collated batch as returned by the collate_batch method on the
+        CPU to the target device.  The base class implementation handles
+        batches which are tensors.  You may override the collate_batch method
+        to return batches of another type, but if you do you must
+        correspondingly override this method to accept that type.
+
+        Arguments:
+            batch:
+                A collated batch as returned by collate_batch.
+
+        Returns the batch moved to the target device.
+        """
+        # It would be nice to be able to do this in collate_batch, and avoid
+        # having a separate place_batch method.  But collate_batch runs in
+        # the dataloader child processes, which don't have the cuda context,
+        # so they can't move data onto a GPU.
+        return batch.to(self.target_device)
+
+    def collate_batch(self, raw_batch):
+        """
+        The collation function used by the dataloader.  It must accept a raw
+        batch in the form of a list of 1D numpy arrays (all of the same length),
+        and (unless place_batch is overriden) produce a tensor.  (Each array in
+        the input list is one item from the underlying dataset, that is to say
+        one sequence of SentencePiece ids.)  The base class implementation
+        returns the tensor obtained by vertically stacking the raw input arrays.
+
+        Arguments:
+            raw_batch:
+                A list of 1D numpy arrays, all of the same length (that is,
+                a list of sequences from the underlying dataset).
+
+        Returns a single tensor containing all the items of the batch.
+        """
+        return torch.tensor(np.vstack(raw_batch))
 
 
 class SpmIdsDataset(Dataset):
@@ -13,6 +197,10 @@ class SpmIdsDataset(Dataset):
     sentences; we assume each such .npy file corresponds to a distinct length
     of input sentences.)  Only sentences with sequence length greater than
     zero are taken to be data items.
+
+    SpmIdsDatasets load data from disk lazily, only bringing one of their
+    .npy files into memory on demand (and evicting any previously-loaded
+    file).
 
     Note:  It is possible to use standard BatchSamplers and RandomSamplers
     with an SpmIdsDataset, however, the resulting batches may not have the
@@ -31,6 +219,38 @@ class SpmIdsDataset(Dataset):
         datatype=np.int16,
         mmap=False,
     ):
+        """
+        Construct a dataset from a directory of .npy files representing
+        sequences of SentencePiece tokens (ids).  Each .npy file should contain
+        a 2D array whose entries are SentencePiece ids.
+
+        Arguments:
+            npy_directory:
+                A path (pathlib.Path or string) at which the directory of .npy
+                files is located.  Required.
+            min_length:
+                Any .npy file in the directory whose array contains fewer than
+                min_length columns (and so represents sequences of fewer than
+                min_length tokens) will be excluded from the data exposed by
+                this dataset.  Defaults to 1.
+            max_length:
+                Any .npy file whose array contains more than max_length columns
+                will also be excluded.  Defaults to np.inf, meaning no data
+                will be excluded.
+            datatype:
+                A numpy datatype to which the tokens (SentencePiece ids) will
+                be converted when they are returned.  That is, items of this
+                dataset will be 1D numpy arrays of this datatype.  So this type
+                should be chosen large enough to represent all the tokens
+                present in the .npy files.  Defaults to np.int16, which will
+                reasonable sized SentencePiece vocabularies.
+            mmap:
+                A Boolean flag.  If True, the .npy files will be loaded (by
+                numpy.load) memory-mapped, which can save time and space if
+                not all of the data will be accessed.  Defaults to False (since
+                for the common use-case of training a model all of the data is
+                likely to be accessed).
+        """
         self.datatype = datatype
         self.mmap_mode = "r" if mmap else None
         npy_root_path = Path(npy_directory)
@@ -83,9 +303,19 @@ class SpmIdsDataset(Dataset):
             self.current_item_length = item_length
 
     def __len__(self):
+        """
+        The length of an SpmIdsDataset is the total number of encoded sequences
+        in its .npy files (subject to its minimum and maximum length
+        restrictions.
+        """
         return self.total_item_count
 
     def __getitem__(self, i_item):
+        """
+        Returns the item (a 1D numpy array of SentencePiece ids) at the
+        requested position.  The items are ordered by increasing sequence
+        length.
+        """
         item_length = self.item_index_to_length[i_item]
         position = self.item_index_to_position[i_item]
         self.current_item_length = item_length
@@ -117,12 +347,49 @@ class SpmIdsBatchSampler(BatchSampler):
     length boundaries; in other words every batch will consist of sequences of
     the same length.  Because RandomSamplers would not respect this length
     uniformity requirement, SpmIdsBatchSamplers also include facilities for
-    randomizing the batches they return.
+    randomizing the batches they return.  The order of the sequence lengths of
+    the batches may be randomized, as well as the order of the sequences of
+    each length.  However, sequence lengths will not be interleaved; all
+    batches consisting of sequences of one length will be returned before any
+    batches consisting of sequences of any other length.
     """
 
     def __init__(
-        self, dataset, batch_size, drop_last=False, randomize=True, random_state=101
+        self, dataset, batch_size=1, drop_last=False, randomize=True, random_state=101
     ):
+        """
+        Construct an SpmIdsBatchSampler from an SpmIdsDataset.
+
+        Arguments:
+            dataset:
+                The underlying SpmIdsDataset.  Required.
+            batch_size:
+                The number of items to return in each batch.  Defaults to 1.
+            drop_last:
+                A Boolean flag.  Depending on the batch size and the number of
+                items of each sequence length in the dataset, for some sequence
+                lengths after generating as many batches of the requested size
+                as possible some data may be left over.  If drop_last is True,
+                this data will not be returned by the sampler (so all batches
+                will have exactly the requested size).  If it is False, then
+                the left-over data will be returned by the sampler in batches
+                smaller than the requested size.  Default is False.
+            randomize:
+                A Boolean flag.  If True, iterating over this object will
+                yield batches in a (pseudo-)random order of sequence lengths,
+                and with the sequences of each length in (pseudo-)random order.
+                Iterating multiple times over the entire dataset (by repeatedly
+                exhausting this iteration) will yield different orderings of the
+                data.  If False, the batches will be produced in the order of
+                the underlying dataset.  Defaults to True.
+            random_state:
+                Either a numpy.random.RandomState or an integer (which will be
+                used to seed a RandomState).  Used to initialize the pseudo-
+                random generator used if randomize is True.  Optional (defaults
+                to a reasonable fixed value for seeding, so even with
+                randomize=True the order in which batches are returned is
+                deterministic).
+        """
         # The BatchSampler constructor demands a valid Sampler, so make one.
         sampler = Sampler(None)
         super().__init__(sampler, batch_size, drop_last)
@@ -139,6 +406,11 @@ class SpmIdsBatchSampler(BatchSampler):
             cumulative_count += self.dataset.item_counts[item_length]
 
     def __iter__(self):
+        """
+        Iterate through the dataset's items, making batches of uniform sequence
+        length.  Yields lists of indices into the dataset (as required by use
+        with DataLoaders).
+        """
         available_lengths = self.dataset.available_item_lengths
         if len(available_lengths) < 1:
             return
@@ -163,6 +435,9 @@ class SpmIdsBatchSampler(BatchSampler):
                 yield batch
 
     def __len__(self):
+        """
+        Return the number of batches (as do other BatchSamplers).
+        """
         if self.drop_last:
             result = sum(
                 self.dataset.item_counts[item_length] // self.batch_size
