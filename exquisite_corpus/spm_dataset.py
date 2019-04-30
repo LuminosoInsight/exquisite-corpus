@@ -256,7 +256,12 @@ class SpmIdsDataset(Dataset):
         npy_root_path = Path(npy_directory)
         self.npy_paths = {}  # map item lengths to corresponding npy files
         self.item_counts = {}  # map item lengths to number of corresponding items
-        self.max_item_length = -1  # max length for which there really are any items
+
+        # We need to compute the maximum length for which there really are any
+        # items.  We initialize it to a value less than any valid length, so
+        # that the first (if any) item encountered will have greater length.
+        self.max_item_length = -1
+
         self.total_item_count = 0
         for npy_path in npy_root_path.glob("*.npy"):
             # Load the file to get the shape; best to just mmap as
