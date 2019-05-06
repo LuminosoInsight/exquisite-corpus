@@ -1,109 +1,139 @@
 import click
-import json
 import numpy as np
 import sys
 import time
 import torch
 import torch.nn as nn
 
-from exquisite_corpus.spm_dataset import SpmIdsBatchSampler, SpmIdsDataset
+from exquisite_corpus.spm_language_model_utils import (
+    SpmIdsBatchMakerForLanguageModels as BatchMaker,
+    SpmIdsLossFunctionForLanguageModels,
+)
 from pathlib import Path
-from torch.utils.data import DataLoader
 
 
-class LanguageModel(nn.Module):
+class SpmIdsLanguageModel(nn.Module):
     """
     Since this is just to illustrate how one might set up a language model
     using SentencePiece ids, we use a very simple model rather than a good one.
+
+    Namely, this model consists of an embedding to encode SentencePiece ids as
+    vectors which are fed to an RNN whose outputs are decoded by a linear
+    layer back to SentencePiece ids, followed by a log softmax to produce
+    log probabilities of each id as output.
     """
 
     def __init__(
-        self,
-        n_tokens,
-        n_dims=300,
-        hidden_size=500,
-        num_layers=1,
-        bias=True,
-        dropout=0.0,
-        bidirectional=False,
-        sparse=False,
+        self, n_tokens=8000, n_dims=300, hidden_size=300, num_layers=5, dropout=0.5
     ):
+        """
+        Construct a model containing a vector embedding of SentencePiece
+        tokens, a recursive neural network, a linear decoding layer, and a
+        log softmax layer.
+
+        Arguments:
+            n_tokens:
+                The number of SentencePiece tokens in the vocabulary of the
+                model.  Default is 8000.
+            n_dims:
+                The number of features (dimensions) to use in the vector
+                embedding used to encode the SentencePiece tokens.  Defaults
+                to 300.
+            hidden_size:
+                The size of the hidden state of the RNN.  Defaults to 300.
+            num_layers:
+                The number of layers in the RNN.  Defaults to 5.
+            dropout:
+                The dropout factor applied between the layers of the RNN.
+                Defaults to 0.5.
+       """
         super().__init__()
-        self.encoder = nn.Embedding(n_tokens, n_dims, sparse=bool(sparse))
+        self.encoder = nn.Embedding(n_tokens, n_dims)
         self.rnn = nn.GRU(
             input_size=n_dims,
             hidden_size=hidden_size,
             num_layers=num_layers,
-            bias=bool(bias),
             batch_first=True,
-            dropout=dropout,
-            bidirectional=bool(bidirectional),
-        )
-        n_rnn_out_features = hidden_size * (2 if bidirectional else 1)
-        self.decoder = nn.Linear(in_features=n_rnn_out_features, out_features=n_tokens)
+            dropout=dropout if num_layers > 1 else 0,
+        )  # torch requires dropout = 0 if num_layers < 2
+        self.decoder = nn.Linear(in_features=hidden_size, out_features=n_tokens)
         self.log_softmax = nn.LogSoftmax(dim=2)
 
-    def forward(self, input, hidden_states=None, return_hidden=False):
-        batch_size = input.size(0 if self.rnn.batch_first else 1)
-        n_directions = 2 if self.rnn.bidirectional else 1
-        full_num_layers = self.rnn.num_layers * n_directions
-        if hidden_states is None:
-            hidden_states = torch.zeros(
-                full_num_layers, batch_size, self.rnn.hidden_size
-            ).to(input.device, non_blocking=True)
-        output = input
+    def forward(self, input):
+        """
+        Application of the model delegates to this method, which defines how
+        predictions are computed from the inputs.  Runs the inputs through
+        the encoder, RNN, decoder, and softmax layers in sequence.  An output
+        prediction is produced for every sequence position following the first
+        for each item in the input batch.
+
+        The hidden states are initialized to zeros (at the start of each
+        batch of input; they are carried over within the computation of the
+        output for the batch, of course).
+
+        Arguments:
+            input:
+                A batch of input sequences, i.e. a 2D tensor of SentencePiece
+                ids, each row of which is a sequence of ids.
+
+        Returns a 3D FloatTensor (of log probabilities) whose first index refers
+        to positions within a batch, whose second refers to positions within the
+        sequences comprising the batch, and whose third refers to predicted
+        SentencePiece ids.
+        """
+        batch_size = input.size(0)  # because we use batch_first=True
+        hidden_states = torch.zeros(
+            self.rnn.num_layers, batch_size, self.rnn.hidden_size
+        ).to(input.device, non_blocking=True)
+        output = input.to(torch.int64)  # encoder needs LongTensor input
         output = self.encoder(output)
-        output, new_hidden_states = self.rnn(
-            output,
-            hidden_states.view(full_num_layers, batch_size, self.rnn.hidden_size),
-        )
+        output, hidden_states = self.rnn(output, hidden_states)
         output = self.decoder(output)
         output = self.log_softmax(output)
-        if return_hidden:
-            new_hidden_states = new_hidden_states.view(hidden_states.size())
-            return output, new_hidden_states
-        else:
-            return output
-
-
-class LossFunction(nn.Module):
-    """
-    Module to compute the aggregate (over all elements of a batch, and all
-    sequence positions within each element) loss.
-    """
-
-    def __init__(self, reduction="mean"):
-        super().__init__()
-        self.loss_fn = nn.NLLLoss(reduction=reduction)
-
-    def forward(self, input, target):
-        return self.loss_fn(input.view(target.numel(), -1), target.view(-1))
+        return output
 
 
 class ModelManager:
     """
-    Objects that own torch models (modules) and provide convenience methods
+    Objects that own SpmIdsLanguageModels and provide convenience methods
     for their training and use.
     """
 
-    def __init__(
-        self,
-        model=None,
-        device=torch.device("cuda:0"),
-        **kwargs
-    ):
-        if model is None:
-            self.model = LanguageModel(**kwargs)
-        else:
-            self.model = model
+    def __init__(self, model=None, device=torch.device("cuda:0"), **kwargs):
+        """
+        Model managers are constructed from an SpmIdsLanguageModel and a
+        torch.device.
+
+        Arguments:
+            model:
+                An SpmIdsLanguageModel.  If none is given, one will be
+                constructed with default parameters.
+            device:
+                A torch.device (defaults to torch.device("cuda:0"), which
+                is normally the fastest available GPU).  The model will be
+                moved to this device.  (The device attribute of the model
+                manager may be changed later to move the model to a different
+                device.)  May also be given as a string, which will be
+                converted to a torch.device (e.g. "cpu" may be given instead
+                of torch.device("cpu")).
+        """
+        self.model = model
         self.device = device
 
     @property
     def device(self):
+        """
+        Return the currently selected device, on which the model and its
+        parameters are placed.
+        """
         return self._device
 
     @device.setter
     def device(self, new_device):
+        """
+        Set the currently selected device.  If the device chages, move the
+        model and its parameters to the new device.
+        """
         if isinstance(new_device, str):
             new_device = torch.device(new_device)
         if new_device != torch.device("cpu") and not torch.cuda.is_available():
@@ -112,15 +142,6 @@ class ModelManager:
         else:
             self._device = new_device
         self.model.to(self._device)
-
-    def collate_batch_with_labels(self, raw_batch):
-        """
-        Take a raw batch (as returned by a DataLoader and SpmIdsBatchSampler),
-        collate it, and split off labels.
-        """
-        data = torch.LongTensor(np.vstack([x[:-1] for x in raw_batch]))
-        labels = torch.LongTensor(np.vstack([x[1:] for x in raw_batch]))
-        return data, labels
 
     def train(
         self,
@@ -133,45 +154,88 @@ class ModelManager:
         n_batches_between_messages=50,
         n_batches_between_validations=25000,
         batch_size=256,
-        n_data_loader_workers=0,
+        n_data_loader_workers=10,
         lr=0.05,
-        device=None,
     ):
-        if device is not None:
-            self.device = device
+        """
+        Train the model.  No value is returned, but the model's parameters
+        will be updated by the training.  Checkpoints of the model's state
+        can be saved periodically during the training process.
 
+        Arguments:
+            train_dataset_path:
+                The location of the training data (a directory of .npy files
+                containing SentencePiece ids).  This parameter is required.
+            validation_dataset_path:
+                The location of data used to periodically compute and report
+                validation loss (another directory of .npy files).  If not
+                supplied validation loss computation will be skipped.
+            save_path:
+                A location on disk at which checkpoints will be saved
+                periodically during training.  These checkpoints can be used
+                later to reconstruct a ModelManager containing the model with
+                its state (i.e. parameter values) as of the point during
+                training at which the checkpoint was created.  If not supplied
+                no checkpoints will be saved.
+            min_length:
+                Sequences (sentences) of SentencePiece id tokens in the training
+                (and validation) datasets shorter than this number of tokens
+                will be ignored.  Must be at least 2 (the default value), as
+                a sequence of length 2 produces one prediction and one ground-
+                truth label.
+            n_epochs:
+                The number of training epochs.  The model will be trained on the
+                entire training dataset (in randomized order) once per epoch.
+                If not specified, training will continue until interrupted
+                (e.g. by SIGKILL).
+            n_batches_between_saves:
+                Interval (number of training data batches) between successive
+                checkpoint saves.  (Ignored if save_path is not supplied.)
+                Defaults to 1000.
+            n_batches_between_messages:
+                Interval (number of training or validation data batches) between
+                successive progress messages.  Defaults to 50.
+            n_batches_between_validations:
+                Interval (number of training data batches) between successive
+                calculations of validation data loss.  Defaults to 25000.
+            batch_size:
+                The number of sequences (sentences/items from the training and
+                validation datasets) in each batch sent to the model.  Defaults
+                to 256.
+            n_data_loader_workers:
+                The number of child worker processes created for batch
+                generation.  A value of zero means batches will be created
+                in the main training process.  Higher values are likely to
+                provide better CPU and GPU utilization during training; the
+                default is 10.
+            lr:
+                The learning rate, which will be passed to a torch optimizer
+                used to update the model parameters during training.  Defaults
+                to 0.05.
+        """
         self.model.train()
-        if min_length < 2:
-            raise ValueError("Cannot train with sentences shorter than 2 tokens.")
-        train_data = SpmIdsDataset(train_dataset_path, min_length=min_length)
-        sampler = SpmIdsBatchSampler(train_data, batch_size=batch_size)
-        pin_memory = self.device != torch.device("cpu")
-        data_loader = DataLoader(
-            train_data,
-            batch_sampler=sampler,
-            pin_memory=pin_memory,
-            num_workers=n_data_loader_workers,
-            collate_fn=self.collate_batch_with_labels,
+
+        train_batch_maker = BatchMaker(
+            train_dataset_path,
+            min_length=min_length,
+            batch_size=batch_size,
+            target_device=self.device,
+            n_data_loader_workers=n_data_loader_workers,
         )
         if validation_dataset_path is None:
-            validation_data = None
+            validation_batch_maker = None
         else:
-            validation_data = SpmIdsDataset(
-                validation_dataset_path, min_length=min_length
-            )
-            validation_sampler = SpmIdsBatchSampler(
-                validation_data, batch_size=batch_size, randomize=False
-            )
-            validation_data_loader = DataLoader(
-                validation_data,
-                batch_sampler=validation_sampler,
-                pin_memory=pin_memory,
-                num_workers=n_data_loader_workers,
-                collate_fn=self.collate_batch_with_labels,
+            validation_batch_maker = BatchMaker(
+                validation_dataset_path,
+                min_length=min_length,
+                batch_size=batch_size,
+                randomize=False,
+                target_device=self.device,
+                n_data_loader_workers=n_data_loader_workers,
             )
 
         optimizer = torch.optim.SGD(self.model.parameters(), lr=lr)
-        loss_function = LossFunction()
+        loss_function = SpmIdsLossFunctionForLanguageModels()
         start_time = time.time()
         n_data_points = 0
         i_epoch = 0
@@ -179,9 +243,7 @@ class ModelManager:
             i_epoch += 1
             print("Starting training epoch {}.".format(i_epoch))
             total_training_loss = 0.0
-            for i_batch, (batch, labels) in enumerate(data_loader, start=1):
-                batch = batch.to(self.device, non_blocking=True)
-                labels = labels.to(self.device, non_blocking=True)
+            for i_batch, (batch, labels) in enumerate(train_batch_maker.run(), start=1):
                 self.model.zero_grad()
                 prediction = self.model(batch)
                 loss = loss_function(prediction, labels)
@@ -212,17 +274,15 @@ class ModelManager:
 
                 if (
                     i_batch % n_batches_between_validations == 0
-                ) and validation_data is not None:
+                ) and validation_batch_maker is not None:
                     print("Computing validation loss.")
                     with torch.autograd.no_grad():
                         n_validation_points = 0
                         validation_loss = 0.0
                         self.model.eval()
                         for i_vdtn_batch, (batch, labels) in enumerate(
-                            validation_data_loader, start=1
+                            validation_batch_maker.run(), start=1
                         ):
-                            batch = batch.to(self.device, non_blocking=True)
-                            labels = labels.to(self.device, non_blocking=True)
                             prediction = self.model(batch)
                             loss = loss_function(prediction, labels)
                             # Again we assume the loss has a 'mean' reduction.
@@ -253,38 +313,50 @@ class ModelManager:
             self.save(save_path)
 
     def test(
-        self,
-        test_dataset_path,
-        batch_size=256,
-        n_data_loader_workers=0,
-        min_length=2,
-        device=None,
+        self, test_dataset_path, batch_size=256, n_data_loader_workers=10, min_length=2
     ):
         """
-        Simple test method that just computes the perplexity on
+        Simple test method that just computes the model's perplexity on
         a test dataset.  Assumes that the model outputs are log prababilities.
-        """
-        if device is not None:
-            self.device = device
+        Prints running values for the perplexity during the computation, and
+        the final perplexity over the entire dataset, which is also returned.
 
+        Arguments:
+            test_dataset_path:
+                The location of the data used to compute test statistics
+                (required; a directory of .npy files containing SentencePiece
+                ids).
+            batch_size:
+                The number of sequences (sentences/items from the training and
+                validation datasets) in each batch sent to the model.  Defaults
+                to 256.
+            n_data_loader_workers:
+                The number of child worker processes created for batch
+                generation.  A value of zero means batches will be created
+                in the main training process.  Higher values are likely to
+                provide better CPU and GPU utilization during training; the
+                default is 10.
+            min_length:
+                Sequences (sentences) of SentencePiece id tokens in the test
+                dataset shorter than this number of tokens
+                will be ignored.  Must be at least 2 (the default value), as
+                a sequence of length 2 produces one prediction and one ground-
+                truth label.
+       """
         self.model.eval()
-        test_data = SpmIdsDataset(test_dataset_path, min_length=min_length)
-        sampler = SpmIdsBatchSampler(test_data, batch_size=batch_size, randomize=False)
-        pin_memory = self.device != torch.device("cpu")
-        data_loader = DataLoader(
-            test_data,
-            batch_sampler=sampler,
-            pin_memory=pin_memory,
-            num_workers=n_data_loader_workers,
-            collate_fn=self.collate_batch_with_labels,
+        batch_maker = BatchMaker(
+            test_dataset_path,
+            min_length=min_length,
+            batch_size=batch_size,
+            randomize=False,
+            target_device=self.device,
+            n_data_loader_workers=n_data_loader_workers,
         )
         n_labels = torch.tensor(0, dtype=torch.int64, device=self.device)
         minus_log_prob_sum = torch.tensor(0.0, dtype=torch.float32, device=self.device)
-        nll_loss = LossFunction(reduction="sum")
+        nll_loss = SpmIdsLossFunctionForLanguageModels(reduction="sum")
         with torch.autograd.no_grad():
-            for batch, labels in data_loader:
-                batch = batch.to(self.device, non_blocking=True)
-                labels = labels.to(self.device, non_blocking=True)
+            for batch, labels in batch_maker.run():
                 log_probs = self.model(batch)
                 minus_log_prob_sum += nll_loss(log_probs, labels)
                 n_labels += labels.numel()
@@ -299,129 +371,171 @@ class ModelManager:
         return perplexity
 
     def save(self, path):
-        # We deliberately don't save the device.
-        mgr_kwargs = dict(
+        """
+        Save the state of the model (but not the device) to a pickle file
+        at the given location.
+
+        Arguments:
+            path:
+                The location at which to save the model (required).
+        """
+        model_kwargs = dict(
             n_tokens=self.model.encoder.num_embeddings,
             n_dims=self.model.encoder.embedding_dim,
-            sparse=self.model.encoder.sparse,
             hidden_size=self.model.rnn.hidden_size,
             num_layers=self.model.rnn.num_layers,
-            bias=self.model.rnn.bias,
             dropout=self.model.rnn.dropout,
-            bidirectional=self.model.rnn.bidirectional,
         )
         model_state_dict = self.model.state_dict()
-        torch.save([mgr_kwargs, model_state_dict], str(path))
+
+        # Save the kwargs and state_dict to the given location.
+        # Because the save can fail (e.g. if the user kills us during
+        # the save), first back up any existing saved checkpoint, and
+        # if the save fails for any reason restore from the backup.
+
+        path = Path(path)
+        bak = path.with_name(path.name + ".bak")
+        if path.exists():
+            path.rename(bak)
+        try:
+            torch.save([model_kwargs, model_state_dict], str(path))
+        except:  # noqa: E722
+            path.unlink()
+            if bak.exists():
+                bak.rename(path)
+            raise  # atone for the sin of a nekkid except by re-raising
+        else:
+            if bak.exists():
+                bak.unlink()
 
     @classmethod
     def load(cls, path, device=torch.device("cuda:0")):
+        """
+        Create a model manager from model state previously saved to a file
+        at the given location.  The model will be placed on the specified
+        device.
+
+        Arguments:
+            path:
+                The location from which to restore the model (required).
+            device:
+                The torch.device on which to place the restored model.
+                (Defaults to cuda:0).
+
+        Returns a model manager owning the restored model.
+        """
         # In the past we've seen issues with excessive GPU memory consumption
         # when loading models direct to GPU, so we load to CPU first then move.
-        mgr_kwargs, model_state_dict = torch.load(str(path), map_location="cpu")
-        mgr_kwargs.update(device=torch.device("cpu"))  # load to cpu
-        result = cls(**mgr_kwargs)
-        result.model.load_state_dict(model_state_dict)
-        result.device = device  # move to requested or saved device if any
+        model_kwargs, model_state_dict = torch.load(str(path), map_location="cpu")
+        model = SpmIdsLanguageModel(**model_kwargs)
+        model.load_state_dict(model_state_dict)
+        result = cls(model=model, device=device)
         return result
 
 
-def main(model_path=None, model_kwargs=None, task="train", task_kwargs=None):
-    if model_path is not None:
-        model_path = Path(model_path)
-    model_kwargs = model_kwargs or {}
-    task_kwargs = task_kwargs or {}
-    if model_path is not None and model_path.exists():
-        print("Loading model from {}.".format(model_path))
-        model_mgr = ModelManager.load(model_path)
-    elif model_kwargs is not None:
-        print("Making a new model from kwargs {}.".format(model_kwargs))
-        model_mgr = ModelManager(**model_kwargs)
-    else:
-        print("Error; must specify an existing model or give kwargs to make a new one.")
-        return
-    if task == "train":
-        print("Training model with kwargs {}.".format(task_kwargs))
-        model_mgr.train(**task_kwargs)
-    elif task == "test":
-        print("Testing model with kwargs {}.".format(task_kwargs))
-        model_mgr.test(**task_kwargs)
-    else:
-        print("Unknown task {}.".format(task))
-
-
-_HELP_STRING = """
-Script to run a language model for spm ids.  Accepts a single
-command-line argument specifying the path to a configuration file;
-specify '-' to use stdin.  This file must contain the JSON
-representation of a dictionary with some subset of the keys
-'model_path', 'model_kwargs', 'task', and 'task_kwargs'.  Either
-"model_path (to use an existing model) or model_kwargs (used to
-construct a new model manager) must be given.  Valid values for
-'task' are 'train' and 'test'.  Any task_kwargs given will be passed
-to the corresponding method of a ModelManager object.
-
-For example the following configuration file will train a model saved
-at the givnen model_path, if that file exists, or else create and
-train a new model with a vocabulary of 8000 SentencePiece tokens.
-Training sentences shorter than 5 tokens will be discarded.
-Every 500 batches a checkpoint of the model will be saved at the given
-save_path (which may but need not be the same as the model_path):
-
-\b
-{
-    "model_path": "data/sentencepiece/en.spm_lang_model.pt",
-    "model_kwargs": {
-        "n_tokens": 8000,
-        "num_layers": 5,
-        "dropout": 0.5,
-        "sparse": false
-    },
-    "task": "train",
-    "task_kwargs": {
-        "train_dataset_path":
-            "data/sentencepiece/en.spm_ids_training",
-        "validation_dataset_path":
-            "data/sentencepiece/en.spm_ids_validation",
-        "save_path": "data/sentencepiece/en.spm_lang_model.pt",
-        "n_batches_between_saves": 500,
-        "min_length": 5,
-        "batch_size": 256,
-        "n_data_loader_workers": 10
-    }
-}
-
-As another example, the following configuration file will perform
-a test of the model saved at the given model_path:
-
-\b
-{
-    "model_path": "data/sentencepiece/en.spm_lang_model.pt",
-    "task": "test",
-    "task_kwargs": {
-        "test_dataset_path":
-            "data/sentencepiece/en.spm_ids_testing",
-        "min_length": 5,
-        "batch_size": 256,
-        "n_data_loader_workers": 10,
-        "device": "cuda:0"
-    }
-}
-
-"""
-
-
-@click.command(help=_HELP_STRING)
-@click.argument(
-    "config-file",
-    type=click.Path(exists=True, dir_okay=False, allow_dash=True, path_type=str),
+@click.command(help="Command-line tool to train or test SentencePiece language Models.")
+@click.option(
+    "--train",
+    "task",
+    flag_value="train",
+    default=True,
+    help="Train a new or existing model.  This is the default behavior.",
 )
-def spm_naive_language_model(config_file):
-    if config_file == "-":
-        config = json.load(sys.stdin)
+@click.option(
+    "--test",
+    "task",
+    flag_value="test",
+    help="Evaluate an existing model on test data.  (Mutually exclusive with --train.)",
+)
+@click.option(
+    "--data-root",
+    "-d",
+    type=click.Path(exists=True, file_okay=False, path_type=str),
+    help=(
+        "Directory in which inputs will be looked for and outputs stored. "
+        "If not specified, the current working directory and its parent will "
+        "be searched for a directory named 'data' containing a subdirectory "
+        "named 'sentencepiece'."
+    ),
+)
+@click.option(
+    "--device",
+    default="cuda:0",
+    help=(
+        "The device (specified as a string, e.g. 'cpu', 'cuda:0', "
+        "'cuda:1') on which to place the model for training or testing.  "
+        "Defaults to 'cuda:0'."
+    ),
+)
+def spm_naive_language_model(task="train", data_root=None, device="cuda:0"):
+    # If no data root directory was specified, look for data/sentencpiece in
+    # the current working directory and its parent.  That covers the obvious
+    # places from which this tool is likely to be run.
+
+    if data_root is None:
+        cwd = Path.cwd()
+        data_root = cwd / "data/sentencepiece"
+        if not data_root.exists():
+            data_root = (cwd / "..").resolve() / "data/sentencepiece"
+            if not data_root.exists():
+                print(
+                    "Could not find data/sentencepiece in the current "
+                    "working directory or its parent.  Either run this "
+                    "tool from the directory containing data/sentencepiece "
+                    "or use the --data-root option to specify the path to "
+                    "data/sentencepiece."
+                )
+                sys.exit(-1)
     else:
-        with open(config_file, "rt", encoding="utf-8") as fp:
-            config = json.load(fp)
-    main(**config)
+        data_root = Path(data_root)
+
+    # Look for the input data sets.
+
+    if task == "train":
+        train_dataset_path = data_root / "en.spm_ids_training"
+        if not train_dataset_path.exists():
+            print(
+                "Could not find training data at {}. Please put a training "
+                "dataset there.".format(train_dataset_path)
+            )
+            sys.exit(-1)
+
+        validation_dataset_path = data_root / "en.spm_ids_validation"
+        if not validation_dataset_path.exists():
+            validation_dataset_path = None  # skip validation
+            print("Could not find validation data; skipping validation.")
+    else:
+        test_dataset_path = data_root / "en.spm_ids_testing"
+        if not test_dataset_path.exists():
+            print(
+                "Could not find test data at {}.  Please put a test dataset "
+                "there.".format(test_dataset_path)
+            )
+            sys.exit(-1)
+
+    # If we can find a model at the conventional path, use it; otherwise create
+    # a new one.
+
+    save_path = data_root / "en.spm_lang_model.pt"
+    if save_path.exists():
+        print("Loading model from {}.".format(save_path))
+        model_mgr = ModelManager.load(save_path, device=device)
+    else:
+        print("Making a new model.")
+        model_mgr = ModelManager(model=SpmIdsLanguageModel(), device=device)
+
+    # Do training or testing as requested.
+
+    if task == "train":
+        print("Training model.")
+        model_mgr.train(
+            train_dataset_path=train_dataset_path,
+            validation_dataset_path=validation_dataset_path,
+            save_path=save_path,
+        )
+    else:  # task == "test"
+        print("Testing model.")
+        model_mgr.test(test_dataset_path=test_dataset_path)
 
 
 if __name__ == "__main__":
