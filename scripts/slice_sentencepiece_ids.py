@@ -6,6 +6,7 @@ splitting up any input lines longer than the fixed maximum length.
 
 import click
 import numpy as np
+import sentencepiece as spm
 import sys
 
 
@@ -75,6 +76,11 @@ class ChunkMaker:
 
 @click.command()
 @click.option(
+    "--spm-model",
+    type=click.Path(exists=True, dir_okay=False, path_type=str),
+    help="Location of trained SentencePiece model that produced the ids.",
+)
+@click.option(
     "--file-prefix",
     help=(
         "Prefix for output file paths.  E.g. if this argument is 'foo' "
@@ -103,7 +109,12 @@ class ChunkMaker:
     help="Seed for random generator (used to pick piece sizes).",
 )
 def slice_sentencepiece_ids(
-    file_prefix, max_length, min_chunk_length, max_chunk_length, random_seed=101
+    spm_model,
+    file_prefix,
+    max_length,
+    min_chunk_length,
+    max_chunk_length,
+    random_seed=101,
 ):
     """
     Read space-delimited text lines from stdin and write the lines
@@ -113,9 +124,16 @@ def slice_sentencepiece_ids(
     """
     assert 1 <= min_chunk_length <= max_chunk_length <= max_length
     chunker = ChunkMaker(min_chunk_length, max_chunk_length, seed=random_seed)
+    sp = spm.SentencePieceProcessor()
+    sp.Load(spm_model)
+    start_ids = [str(sp["<s>"])]
+    end_ids = [str(sp["</s>"])]
     with Writer(file_prefix, max_length) as writer:
         for line in map(str.rstrip, sys.stdin):
             tokens = line.split()
+            if len(tokens) < 1:
+                continue
+            tokens = start_ids + tokens + end_ids
             if len(tokens) <= max_length:
                 writer.write(tokens)
             else:

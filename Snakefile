@@ -290,6 +290,9 @@ FRACTION_OF_DATA_TO_SPM_ENCODE = 0.5
 # we set an upper bound on the length.  Sentences with longer encodings will
 # be split into chunks with sizes ranging between two specified lengths.
 # The maximum possible length is set based on Salesforce's awd-lstm-lm code.
+# (Note that we add the SentencePiece start and end ids to the sequences
+# before splitting, and that these symbols are counted against the maximum
+# length.)
 MAX_SPM_ENCODE_IDS = 70
 MIN_SPM_CHUNK_LEN = 35
 MAX_SPM_CHUNK_LEN = 70
@@ -298,8 +301,8 @@ MAX_SPM_CHUNK_LEN = 70
 # training, validation, and testing purposes.  Here we set the relative sizes
 # of these subsets of the data for the language model, as fractions of the
 # size of the output of the encoding process.
-FRACTION_OF_ENCODED_SPM_DATA_FOR_TRAINING = 0.8
-FRACTION_OF_REMAINING_SPM_DATA_FOR_VALIDATION = 0.5
+FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION = 0.1
+FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING = 0.1
 
 
 def map_opus_language(dataset, lang):
@@ -1163,6 +1166,7 @@ rule encode_sentencepiece_ids:
             "awk 'BEGIN {{srand(3)}} rand() < {FRACTION_OF_DATA_TO_SPM_ENCODE}' | "
             "spm_encode --model={model_file} --output_format=id | "
             "python scripts/slice_sentencepiece_ids.py"
+            " --spm-model {model_file}"
             " --min-chunk-length {MIN_SPM_CHUNK_LEN}"
             " --max-chunk-length {MAX_SPM_CHUNK_LEN}"
             " --max-length {MAX_SPM_ENCODE_IDS}"
@@ -1180,20 +1184,17 @@ rule split_one_sentencepiece_id_file:
         temp("data/sentencepiece/{lang}.spm_txt_ids_testing/length_{n}.txt")
     run:
         training_file, validation_file, testing_file = output
-        frac_train = FRACTION_OF_ENCODED_SPM_DATA_FOR_TRAINING
-        frac_valid = FRACTION_OF_REMAINING_SPM_DATA_FOR_VALIDATION
+        frac_valid = FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION
+        frac_test = FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING
         # touch the outputs so that they are created even if empty
         shell(
             "cat {input} | "
             "python scripts/split_sentencepiece_id_file.py"
-            "  --fraction {frac_train}"
-            "  --seed 1"
-            "  --output-file {training_file} | "
-            "python scripts/split_sentencepiece_id_file.py"
-            "  --fraction {frac_valid}"
-            "  --seed 2"
-            "  --output-file {validation_file} > "
-            "{testing_file} ; "
+            "  --output-file1 {validation_file}"
+            "  --fraction1 {frac_valid}"
+            "  --output-file2 {testing_file}"
+            "  --fraction2 {frac_test}"
+            "  --output-file3 {training_file} ; "
             "touch {training_file} ; "
             "touch {validation_file} ; "
             "touch {testing_file}"

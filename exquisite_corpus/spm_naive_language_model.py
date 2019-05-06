@@ -5,6 +5,7 @@ import time
 import torch
 import torch.nn as nn
 
+from exquisite_corpus.spm_ids_translator import SpmIdsTranslator
 from exquisite_corpus.spm_language_model_utils import (
     SpmIdsBatchMakerForLanguageModels as BatchMaker,
     SpmIdsLossFunctionForLanguageModels,
@@ -491,6 +492,14 @@ def spm_naive_language_model(task="train", data_root=None, device="cuda:0"):
 
     # Look for the input data sets.
 
+    spm_model_path = data_root / "en.model"
+    if not spm_model_path.exists():
+        print(
+            "Could not find a SentencePiece model at {}.  Please put a trained "
+            "model there.".format(spm_model_path)
+        )
+        sys.exit(-1)
+
     if task == "train":
         train_dataset_path = data_root / "en.spm_ids_training"
         if not train_dataset_path.exists():
@@ -522,7 +531,9 @@ def spm_naive_language_model(task="train", data_root=None, device="cuda:0"):
         model_mgr = ModelManager.load(save_path, device=device)
     else:
         print("Making a new model.")
-        model_mgr = ModelManager(model=SpmIdsLanguageModel(), device=device)
+        translator = SpmIdsTranslator(spm_model_path)
+        model = SpmIdsLanguageModel(n_tokens=translator.number_of_ids())
+        model_mgr = ModelManager(model=model, device=device)
 
     # Do training or testing as requested.
 
