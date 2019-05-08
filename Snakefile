@@ -577,7 +577,7 @@ rule download_paracrawl:
 rule download_jesc:
     output:
         "data/downloaded/jesc/detokenized.tar.gz"
-    run:
+    shell:
         "curl -Lf 'http://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
 
 
