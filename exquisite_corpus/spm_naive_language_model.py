@@ -1,9 +1,9 @@
 import click
 import numpy as np
 import sys
-import time
 import torch
 import torch.nn as nn
+import tqdm
 
 from exquisite_corpus.spm_ids_translator import SpmIdsTranslator
 from exquisite_corpus.spm_language_model_utils import (
@@ -152,7 +152,6 @@ class ModelManager:
         min_length=2,
         n_epochs=np.inf,
         n_batches_between_saves=1000,
-        n_batches_between_messages=50,
         n_batches_between_validations=25000,
         batch_size=256,
         n_data_loader_workers=10,
@@ -193,9 +192,6 @@ class ModelManager:
                 Interval (number of training data batches) between successive
                 checkpoint saves.  (Ignored if save_path is not supplied.)
                 Defaults to 1000.
-            n_batches_between_messages:
-                Interval (number of training or validation data batches) between
-                successive progress messages.  Defaults to 50.
             n_batches_between_validations:
                 Interval (number of training data batches) between successive
                 calculations of validation data loss.  Defaults to 25000.
@@ -237,81 +233,109 @@ class ModelManager:
 
         optimizer = torch.optim.SGD(self.model.parameters(), lr=lr)
         loss_function = SpmIdsLossFunctionForLanguageModels()
-        start_time = time.time()
-        n_data_points = 0
-        i_epoch = 0
-        while i_epoch < n_epochs:  # 'for i_epoch in range(np.inf)' would fail
-            i_epoch += 1
-            print("Starting training epoch {}.".format(i_epoch))
-            total_training_loss = 0.0
-            for i_batch, (batch, labels) in enumerate(train_batch_maker.run(), start=1):
-                self.model.zero_grad()
-                prediction = self.model(batch)
-                loss = loss_function(prediction, labels)
-                loss.backward()
-                nn.utils.clip_grad_norm_(self.model.parameters(), 1)
-                optimizer.step()
 
-                # If a reduction other than 'mean' is used in the loss fucntion,
-                # it would be necessary to thange the following accounting.
-                n_labels = labels.numel()
-                total_training_loss += loss.item() * n_labels
-                n_data_points += n_labels
+        # tqdm progress bars can handle total lengths up to about 1e18.
+        with tqdm.tqdm(
+            desc="Epochs", total=(n_epochs if n_epochs < 1e18 else None)
+        ) as epoch_progress_bar:
+            i_epoch = 0
+            validation_loss = np.inf
+            epoch_progress_bar.set_postfix(
+                dict(
+                    epochs=i_epoch,
+                    last_epoch_lossloss=np.inf,
+                    last_epoch_validation_loss=validation_loss,
+                )
+            )
+            epoch_progress_bar.update()
+            while i_epoch < n_epochs:  # range(n_epochs) fails if n_epochs = np.inf
+                i_epoch += 1
+                n_data_points = 0
+                total_training_loss = 0.0
 
-                if i_batch % n_batches_between_messages == 0:
-                    print(
-                        "Mean training loss at epoch {}, batch {} is {}; "
-                        "training time {} sec.".format(
-                            i_epoch,
-                            i_batch,
-                            total_training_loss / n_data_points,
-                            time.time() - start_time,
-                        )
-                    )
+                with tqdm.tqdm(
+                    desc="Training batches in this epoch",
+                    total=len(train_batch_maker),
+                    leave=False,
+                ) as batch_progress_bar:
+                    for i_batch, (batch, labels) in enumerate(
+                        train_batch_maker.run(), start=1
+                    ):
+                        # Train on one batch.
+                        self.model.zero_grad()
+                        prediction = self.model(batch)
+                        loss = loss_function(prediction, labels)
+                        loss.backward()
+                        nn.utils.clip_grad_norm_(self.model.parameters(), 1)
+                        optimizer.step()
 
-                if i_batch % n_batches_between_saves == 0:
-                    print("Saving model to {}.".format(save_path))
-                    self.save(save_path)
+                        # Update the running training loss.  If a reduction
+                        # other than "mean" is used in the loss function, it
+                        # will be necessary to adjust the following accounting.
+                        n_labels = labels.numel()
+                        total_training_loss += loss.item() * n_labels
+                        n_data_points += n_labels
 
-                if (
-                    i_batch % n_batches_between_validations == 0
-                ) and validation_batch_maker is not None:
-                    print("Computing validation loss.")
-                    with torch.autograd.no_grad():
-                        n_validation_points = 0
-                        validation_loss = 0.0
-                        self.model.eval()
-                        for i_vdtn_batch, (batch, labels) in enumerate(
-                            validation_batch_maker.run(), start=1
-                        ):
-                            prediction = self.model(batch)
-                            loss = loss_function(prediction, labels)
-                            # Again we assume the loss has a 'mean' reduction.
-                            n_labels = labels.numel()
-                            validation_loss += loss.item() * n_labels
-                            n_validation_points += n_labels
-                            if i_vdtn_batch % n_batches_between_messages == 0:
-                                print(
-                                    "Epoch {}, {} labels, running loss is {}; "
-                                    "training time {} sec.".format(
-                                        i_epoch,
-                                        n_validation_points,
-                                        validation_loss / n_validation_points,
-                                        time.time() - start_time,
+                        # Periodically make a checkpoint of the trained model.
+                        if i_batch % n_batches_between_saves == 0:
+                            self.save(save_path)
+
+                        # Periodically update validation loss.
+                        if (
+                            i_batch % n_batches_between_validations == 0
+                        ) and validation_batch_maker is not None:
+                            with torch.autograd.no_grad(), tqdm.tqdm(
+                                total=len(validation_batch_maker),
+                                desc="Validation batches",
+                                leave=False,
+                            ) as vdtn_progress_bar:
+                                n_validation_points = 0
+                                validation_loss = 0.0
+                                self.model.eval()
+                                for i_vdtn_batch, (batch, labels) in enumerate(
+                                    validation_batch_maker.run(), start=1
+                                ):
+                                    prediction = self.model(batch)
+                                    loss = loss_function(prediction, labels)
+                                    # Again we assume the loss has a 'mean' reduction.
+                                    n_labels = labels.numel()
+                                    validation_loss += loss.item() * n_labels
+                                    n_validation_points += n_labels
+                                    vdtn_progress_bar.set_postfix(
+                                        dict(
+                                            running_validation_loss=(
+                                                validation_loss / n_validation_points
+                                            )
+                                        )
                                     )
-                                )
-                        validation_loss /= n_validation_points  # overall mean
-                        self.model.train()
-                        print("Mean validation loss is {}.".format(validation_loss))
+                                    vdtn_progress_bar.update()
+                                validation_loss /= n_validation_points  # overall mean
+                                self.model.train()
 
-            if save_path is not None:
-                print("Saving model to {}.".format(save_path))
-                self.save(save_path)
+                        # Finalize the batch.
+                        running_mean_training_loss = total_training_loss / n_data_points
+                        batch_progress_bar.set_postfix(
+                            dict(
+                                loss=running_mean_training_loss,
+                                validation_loss=validation_loss,
+                            )
+                        )
+                        batch_progress_bar.update()
+
+                # Finalize the epoch.
+                if save_path is not None:
+                    self.save(save_path)
+                epoch_mean_training_loss = total_training_loss / n_data_points
+                epoch_progress_bar.set_postfix(
+                    dict(
+                        epochs=i_epoch,
+                        last_epoch_loss=epoch_mean_training_loss,
+                        last_epoch_validation_loss=validation_loss,
+                    )
+                )
+                epoch_progress_bar.update()
 
         print("Finished {} training epochs.".format(n_epochs))
-        if save_path is not None:
-            print("Saving model to {}.".format(save_path))
-            self.save(save_path)
 
     def test(
         self, test_dataset_path, batch_size=256, n_data_loader_workers=10, min_length=2
@@ -356,19 +380,18 @@ class ModelManager:
         n_labels = torch.tensor(0, dtype=torch.int64, device=self.device)
         minus_log_prob_sum = torch.tensor(0.0, dtype=torch.float32, device=self.device)
         nll_loss = SpmIdsLossFunctionForLanguageModels(reduction="sum")
-        with torch.autograd.no_grad():
+        with torch.autograd.no_grad(), tqdm.tqdm(
+            total=len(batch_maker)
+        ) as progress_bar:
             for batch, labels in batch_maker.run():
                 log_probs = self.model(batch)
                 minus_log_prob_sum += nll_loss(log_probs, labels)
                 n_labels += labels.numel()
                 perplexity = (minus_log_prob_sum / n_labels).exp().item()
-                print(
-                    "Processed {} labels; running perplexity is {}.".format(
-                        n_labels, perplexity
-                    )
-                )
+                progress_bar.set_postfix(dict(perplexity=perplexity))
+                progress_bar.update()
         perplexity = (minus_log_prob_sum / n_labels).exp().item()
-        print("Perplexity on {} is {}.".format(test_dataset_path, perplexity))
+        print("Perplexity on {} is {:.5g}.".format(test_dataset_path, perplexity))
         return perplexity
 
     def save(self, path):

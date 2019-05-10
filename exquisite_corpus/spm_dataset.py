@@ -132,6 +132,14 @@ class SpmIdsBatchMaker:
             collate_fn=self.collate_batch,
         )
 
+    def __len__(self):
+        """
+        Returns the number of batches that will be generated.
+
+        Arguments:  none.
+        """
+        return len(self.batch_sampler)
+
     def run(self):
         """
         A generator that yields the collated batches of data from the dataset.

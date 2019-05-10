@@ -21,6 +21,8 @@ class SpmIdsTranslator:
         self.spm_processor = spm.SentencePieceProcessor()
         self.spm_processor.Load(str(model_path))
         self.id_dtype = id_dtype
+        self.start_symbol = self.spm_processor["<s>"]
+        self.end_symbol = self.spm_processor["</s>"]
         # Number of ids should not exceed 2 raised to the number of bits in
         # the requested data type, which in turn is 8 bits per byte times
         # the size of the data type in bytes.
@@ -39,30 +41,50 @@ class SpmIdsTranslator:
         """
         return len(self.spm_processor)
 
-    def one_to_ids(self, text):
+    def one_to_ids(self, text, add_start_symbol=True, add_end_symbol=True):
         """
         Translate a string to a numpy array of spm ids.
 
         Arguments:
             text:
-                The string to translate.
+                The string to translate (required).
+            add_start_symbol:
+                Optional (default True).  If True, the start-of-sequence
+                symbol is prepended to the output.
+            add_end_symbol:
+                Optional (default True).  If True, the end-of-sequence symbol
+                is appended to the output.
 
         Returns the translation of the string.
         """
-        return np.array(self.spm_processor.EncodeAsIds(text), dtype=self.id_dtype)
+        ids = self.spm_processor.EncodeAsIds(text)
+        if add_start_symbol:
+            ids = [self.start_symbol] + ids
+        if add_end_symbol:
+            ids += [self.end_symbol]
+        return np.array(ids, dtype=self.id_dtype)
 
-    def many_to_ids(self, texts):
+    def many_to_ids(self, texts, add_start_symbol=True, add_end_symbol=True):
         """
         Generate numpy arrays of spm ids from an iterable of strings.
 
         Arguments:
             texts:
                 The iterable of strings to be translated.
+            add_start_symbol:
+                Optional (default True).  If True, the start-of-sequence
+                symbol is prepended to each output.
+            add_end_symbol:
+                Optional (default True).  If True, the end-of-sequence symbol
+                is appended to each output.
 
         Yields the translations of the strings.
         """
+        prefix = [self.start_symbol] if add_start_symbol else []
+        suffix = [self.end_symbol] if add_end_symbol else []
         for text in texts:
-            yield np.array(self.spm_processor.EncodeAsIds(text), dtype=self.id_dtype)
+            ids = prefix + self.spm_processor.EncodeAsIds(text) + suffix
+            yield np.array(ids, dtype=self.id_dtype)
 
     def one_to_text(self, id_seq):
         """
