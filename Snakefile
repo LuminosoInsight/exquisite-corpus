@@ -448,7 +448,7 @@ rule wordfreq:
 
 rule parallel:
     input:
-        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid'])
+        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test'])
 
 rule frequencies:
     input:
@@ -1192,17 +1192,19 @@ rule apply_bpe:
         )
 
 
-rule split_train_valid:
+rule split_train_valid_test:
     input:
         "data/parallel/bpe/{pair}.{lang}.all.txt"
     output:
         "data/parallel/bpe/{pair}.{lang}.train.txt",
-        "data/parallel/bpe/{pair}.{lang}.valid.txt"
+        "data/parallel/bpe/{pair}.{lang}.valid.txt",
+        "data/parallel/bpe/{pair}.{lang}.test.txt"
     run:
-        train_file, valid_file = output
+        train_file, valid_file, test_file = output
         shell(
-            "head -n 100000 {input} > {valid_file} && "
-            "tail -n +100001 {input} > {train_file}"
+            "sed -n '1,10000p' ${input} > ${test_file} && "
+            "sed -n '10001,20000p' ${input} > ${valid_file} &&"
+            "tail -n +20001 {input} > {train_file}"
         )
 
 
