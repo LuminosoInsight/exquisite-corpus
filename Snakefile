@@ -365,8 +365,6 @@ def parallel_sources(wildcards):
         sources.append("data/parallel/jesc/{}.txt".format(pair))
     if pair in OPENSUB_LANGUAGE_PAIRS:
         sources.append("data/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
-    if other_lang in SOURCE_LANGUAGES['opus/Tatoeba']:
-        sources.append("data/parallel/opus/Tatoeba.{}.txt".format(pair))
     if other_lang in SOURCE_LANGUAGES['opus/Europarl']:
         sources.append("data/parallel/opus/Europarl.{}.txt".format(pair))
     return sources
@@ -448,7 +446,8 @@ rule wordfreq:
 
 rule parallel:
     input:
-        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test'])
+        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
+        expand("data/parallel/training/tatoeba_test.{pair}.txt", pair=PARALLEL_LANGUAGE_PAIRS)
 
 rule frequencies:
     input:
@@ -1090,8 +1089,8 @@ rule separate_parallel:
 
 rule learn_bpe:
     input:
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.train.txt",
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.train.txt"
     output:
         "data/parallel/bpe/{lang1}_{lang2}.codes",
         "data/parallel/bpe/{lang1}_{lang2}.{lang1}.vocab",
@@ -1179,11 +1178,26 @@ rule numberize_sentencepiece_ids:
 
 rule apply_bpe:
     input:
-        "data/parallel/shuffled-split/{pair}.{lang}.all.txt",
+        "data/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
         "data/parallel/bpe/{pair}.codes",
         "data/parallel/bpe/{pair}.{lang}.vocab"
     output:
-        "data/parallel/bpe/{pair}.{lang}.all.txt"
+        "data/parallel/bpe/{pair}.{lang}.{mode}.txt"
+    run:
+        text_in, bpe_file, vocab_file = input
+        shell(
+            "subword-nmt apply-bpe --input {text_in} --output {output} "
+            "--codes {bpe_file} --vocabulary {vocab_file}"
+        )
+
+
+rule apply_bpe_tatoeba:
+    input:
+        "data/tokenized/opus/Tatoeba.{pair}.{lang}.txt",
+        "data/parallel/bpe/{pair}.codes",
+        "data/parallel/bpe/{pair}.{lang}.vocab"
+    output:
+        "data/parallel/bpe/tatoeba_test.{pair}.{lang}.txt"
     run:
         text_in, bpe_file, vocab_file = input
         shell(
@@ -1194,11 +1208,11 @@ rule apply_bpe:
 
 rule split_train_valid_test:
     input:
-        "data/parallel/bpe/{pair}.{lang}.all.txt"
+        "data/parallel/shuffled-split/{pair}.{lang}.all.txt"
     output:
-        "data/parallel/bpe/{pair}.{lang}.train.txt",
-        "data/parallel/bpe/{pair}.{lang}.valid.txt",
-        "data/parallel/bpe/{pair}.{lang}.test.txt"
+        "data/parallel/shuffled-split/{pair}.{lang}.train.txt",
+        "data/parallel/shuffled-split/{pair}.{lang}.valid.txt",
+        "data/parallel/shuffled-split/{pair}.{lang}.test.txt"
     run:
         train_file, valid_file, test_file = output
         shell(
@@ -1214,6 +1228,16 @@ rule rejoin_training_data:
         "data/parallel/bpe/{lang1}_{lang2}.{lang2}.{mode}.txt"
     output:
         "data/parallel/training/{lang1}_{lang2}.{mode}.txt"
+    shell:
+        "paste {input} > {output}"
+
+
+rule join_tatoeba_data:
+    input:
+        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
+        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
+    output:
+        "data/parallel/training/tatoeba_test.{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
