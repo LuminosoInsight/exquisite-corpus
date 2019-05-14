@@ -275,6 +275,13 @@ PARALLEL_LANGUAGE_PAIRS = [
     'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
 ]
 
+# Tatoeba language pairs; constructed manually
+# cs_en, en_lv, en_ro, and en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
+TATOEBA_LANGUAGE_PAIRS = [
+    'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_it',
+    'en_ja', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
+]
+
 # We want some flexibility in the amount of data we encode via SentencePiece
 # to use in training a language model.  That data will be a subset of the
 # monolingual data sampled to train SentencePiece itself; we define the size
@@ -447,7 +454,7 @@ rule wordfreq:
 rule parallel:
     input:
         expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
-        expand("data/parallel/training/tatoeba_test.{pair}.txt", pair=PARALLEL_LANGUAGE_PAIRS)
+        expand("data/parallel/training/tatoeba_test.{pair}.txt", pair=TATOEBA_LANGUAGE_PAIRS)
 
 rule frequencies:
     input:
@@ -1216,8 +1223,8 @@ rule split_train_valid_test:
     run:
         train_file, valid_file, test_file = output
         shell(
-            "sed -n '1,10000p' ${input} > ${test_file} && "
-            "sed -n '10001,20000p' ${input} > ${valid_file} &&"
+            "sed -n '1,10000p' {input} > {test_file} && "
+            "sed -n '10001,20000p' {input} > {valid_file} && "
             "tail -n +20001 {input} > {train_file}"
         )
 
