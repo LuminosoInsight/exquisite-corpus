@@ -1,4 +1,5 @@
 import click
+import itertools
 import numpy as np
 import sys
 import torch
@@ -238,28 +239,25 @@ class ModelManager:
         with tqdm.tqdm(
             desc="Epochs", total=(n_epochs if n_epochs < 1e18 else None)
         ) as epoch_progress_bar:
-            i_epoch = 0
-            validation_loss = np.inf
+            validation_loss = "N/A"
             epoch_progress_bar.set_postfix(
-                dict(
-                    epochs=i_epoch,
-                    last_epoch_lossloss=np.inf,
-                    last_epoch_validation_loss=validation_loss,
-                )
+                dict(epoch=1, last_epoch_loss="N/A", last_epoch_validation_loss="N/A")
             )
             epoch_progress_bar.update()
-            while i_epoch < n_epochs:  # range(n_epochs) fails if n_epochs = np.inf
-                i_epoch += 1
+            epoch_iterator = (
+                range(1, n_epochs + 1)
+                if n_epochs < np.inf
+                else itertools.count(start=1)
+            )
+            for i_epoch in epoch_iterator:
                 n_data_points = 0
                 total_training_loss = 0.0
 
                 with tqdm.tqdm(
-                    desc="Training batches in this epoch",
-                    total=len(train_batch_maker),
-                    leave=False,
+                    desc="Training batches", total=len(train_batch_maker), leave=False
                 ) as batch_progress_bar:
                     for i_batch, (batch, labels) in enumerate(
-                        train_batch_maker.run(), start=1
+                        train_batch_maker, start=1
                     ):
                         # Train on one batch.
                         self.model.zero_grad()
@@ -293,7 +291,7 @@ class ModelManager:
                                 validation_loss = 0.0
                                 self.model.eval()
                                 for i_vdtn_batch, (batch, labels) in enumerate(
-                                    validation_batch_maker.run(), start=1
+                                    validation_batch_maker, start=1
                                 ):
                                     prediction = self.model(batch)
                                     loss = loss_function(prediction, labels)
@@ -383,7 +381,7 @@ class ModelManager:
         with torch.autograd.no_grad(), tqdm.tqdm(
             total=len(batch_maker)
         ) as progress_bar:
-            for batch, labels in batch_maker.run():
+            for batch, labels in batch_maker:
                 log_probs = self.model(batch)
                 minus_log_prob_sum += nll_loss(log_probs, labels)
                 n_labels += labels.numel()

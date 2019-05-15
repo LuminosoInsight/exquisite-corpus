@@ -30,7 +30,7 @@ class SpmIdsBatchMakerForLanguageModels(SpmIdsBatchMaker):
                         n_data_loader_workers=10
                       )
         for _ in range(n_epocs):
-            for batch, labels in batch_maker.run():
+            for batch, labels in batch_maker:
                 model.zero_grad()
                 predictions = model(batch)
                 loss = loss_function(predictions, labels)

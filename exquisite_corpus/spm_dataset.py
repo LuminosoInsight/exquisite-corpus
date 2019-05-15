@@ -140,17 +140,17 @@ class SpmIdsBatchMaker:
         """
         return len(self.batch_sampler)
 
-    def run(self):
+    def __iter__(self):
         """
-        A generator that yields the collated batches of data from the dataset.
+        An iterator that yields the collated batches of data from the dataset.
         Batches will be placed on the target device (by calling the place_batch
         method; the type of the returned batches is determined by that method
         which in turn gets the batches from the collate_batch method).
 
-        Note that this generator will be exhausted after a single complete pass
-        through the entire underlying dataset (i.e. one epoch); run may be
-        called repeatedly to iterate through the dataset multiple times, and
-        if randomize=True was set in the constructor then each run will yield
+        Note that this iterator will be exhausted after a single complete pass
+        through the entire underlying dataset (i.e. one epoch); however it is
+        possible to iterate through the dataset multiple times, and if
+        randomize=True was set in the constructor then each run will yield
         the data items in a different order, even without reseeding the
         underlying batch sampler.
         """
