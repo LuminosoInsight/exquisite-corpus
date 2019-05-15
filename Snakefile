@@ -275,8 +275,8 @@ PARALLEL_LANGUAGE_PAIRS = [
     'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
 ]
 
-# Tatoeba language pairs; constructed manually
-# cs_en, en_lv, en_ro, and en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
+# Tatoeba language pairs; constructed manually such that cs_en, en_lv, en_ro, and
+# en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
 TATOEBA_LANGUAGE_PAIRS = [
     'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_it',
     'en_ja', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
@@ -1094,6 +1094,7 @@ rule separate_parallel:
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
 
 
+# BPE is learned only from the train set and is later applied to train, valid, and test sets
 rule learn_bpe:
     input:
         "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.train.txt",
@@ -1213,6 +1214,8 @@ rule apply_bpe_tatoeba:
         )
 
 
+# Split files into train, valid, and test sets; 10000 lines for valid and test set each
+# and rest is kept for the train set.
 rule split_train_valid_test:
     input:
         "data/parallel/shuffled-split/{pair}.{lang}.all.txt"
