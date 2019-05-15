@@ -584,7 +584,7 @@ rule download_jesc:
     output:
         "data/downloaded/jesc/detokenized.tar.gz"
     shell:
-        "curl -Lf 'http://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
+        "curl -Lf 'https://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
 
 
 # Handling downloaded data
