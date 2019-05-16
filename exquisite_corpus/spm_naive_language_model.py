@@ -240,6 +240,8 @@ class ModelManager:
             desc="Epochs", total=(n_epochs if n_epochs < 1e18 else None)
         ) as epoch_progress_bar:
             validation_loss = "N/A"
+            running_mean_training_loss = "N/A"
+            epoch_mean_training_loss = "N/A"
             epoch_progress_bar.set_postfix(
                 dict(epoch=1, last_epoch_loss="N/A", last_epoch_validation_loss="N/A")
             )
@@ -334,6 +336,8 @@ class ModelManager:
                 epoch_progress_bar.update()
 
         print("Finished {} training epochs.".format(n_epochs))
+        print("Final full epoch training loss {:.5g}.".format(epoch_mean_training_loss))
+        print("Final validation loss {:.5g}.".format(validation_loss))
 
     def test(
         self, test_dataset_path, batch_size=256, n_data_loader_workers=10, min_length=2
