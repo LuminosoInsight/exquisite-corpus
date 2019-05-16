@@ -279,6 +279,13 @@ PARALLEL_LANGUAGE_PAIRS = [
     'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
 ]
 
+# Tatoeba language pairs; constructed manually such that cs_en, en_lv, en_ro, and
+# en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
+TATOEBA_LANGUAGE_PAIRS = [
+    'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_it',
+    'en_ja', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
+]
+
 # We want some flexibility in the amount of data we encode via SentencePiece
 # to use in training a language model.  That data will be a subset of the
 # monolingual data sampled to train SentencePiece itself; we define the size
@@ -379,8 +386,6 @@ def parallel_sources(wildcards):
         sources.append("data/parallel/jesc/{}.txt".format(pair))
     if pair in OPENSUB_LANGUAGE_PAIRS:
         sources.append("data/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
-    if other_lang in SOURCE_LANGUAGES['opus/Tatoeba']:
-        sources.append("data/parallel/opus/Tatoeba.{}.txt".format(pair))
     if other_lang in SOURCE_LANGUAGES['opus/Europarl']:
         sources.append("data/parallel/opus/Europarl.{}.txt".format(pair))
     return sources
@@ -462,7 +467,8 @@ rule wordfreq:
 
 rule parallel:
     input:
-        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid'])
+        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
+        expand("data/parallel/training/tatoeba_test.{pair}.txt", pair=TATOEBA_LANGUAGE_PAIRS)
 
 rule frequencies:
     input:
@@ -599,8 +605,8 @@ rule download_paracrawl:
 rule download_jesc:
     output:
         "data/downloaded/jesc/detokenized.tar.gz"
-    run:
-        "curl -Lf 'http://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
+    shell:
+        "curl -Lf 'https://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
 
 
 # Handling downloaded data
@@ -1110,10 +1116,11 @@ rule separate_parallel:
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
 
 
+# BPE is learned only from the train set and is later applied to train, valid, and test sets
 rule learn_bpe:
     input:
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.train.txt",
+        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.train.txt"
     output:
         "data/parallel/bpe/{lang1}_{lang2}.codes",
         "data/parallel/bpe/{lang1}_{lang2}.{lang1}.vocab",
@@ -1219,11 +1226,11 @@ rule numberize_one_sentencepiece_id_file:
 
 rule apply_bpe:
     input:
-        "data/parallel/shuffled-split/{pair}.{lang}.all.txt",
+        "data/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
         "data/parallel/bpe/{pair}.codes",
         "data/parallel/bpe/{pair}.{lang}.vocab"
     output:
-        "data/parallel/bpe/{pair}.{lang}.all.txt"
+        "data/parallel/bpe/{pair}.{lang}.{mode}.txt"
     run:
         text_in, bpe_file, vocab_file = input
         shell(
@@ -1232,17 +1239,36 @@ rule apply_bpe:
         )
 
 
-rule split_train_valid:
+rule apply_bpe_tatoeba:
     input:
-        "data/parallel/bpe/{pair}.{lang}.all.txt"
+        "data/tokenized/opus/Tatoeba.{pair}.{lang}.txt",
+        "data/parallel/bpe/{pair}.codes",
+        "data/parallel/bpe/{pair}.{lang}.vocab"
     output:
-        "data/parallel/bpe/{pair}.{lang}.train.txt",
-        "data/parallel/bpe/{pair}.{lang}.valid.txt"
+        "data/parallel/bpe/tatoeba_test.{pair}.{lang}.txt"
     run:
-        train_file, valid_file = output
+        text_in, bpe_file, vocab_file = input
         shell(
-            "head -n 100000 {input} > {valid_file} && "
-            "tail -n +100001 {input} > {train_file}"
+            "subword-nmt apply-bpe --input {text_in} --output {output} "
+            "--codes {bpe_file} --vocabulary {vocab_file}"
+        )
+
+
+# Split files into train, valid, and test sets; 10000 lines for valid and test set each
+# and rest is kept for the train set.
+rule split_train_valid_test:
+    input:
+        "data/parallel/shuffled-split/{pair}.{lang}.all.txt"
+    output:
+        "data/parallel/shuffled-split/{pair}.{lang}.train.txt",
+        "data/parallel/shuffled-split/{pair}.{lang}.valid.txt",
+        "data/parallel/shuffled-split/{pair}.{lang}.test.txt"
+    run:
+        train_file, valid_file, test_file = output
+        shell(
+            "sed -n '1,10000p' {input} > {test_file} && "
+            "sed -n '10001,20000p' {input} > {valid_file} && "
+            "tail -n +20001 {input} > {train_file}"
         )
 
 
@@ -1252,6 +1278,16 @@ rule rejoin_training_data:
         "data/parallel/bpe/{lang1}_{lang2}.{lang2}.{mode}.txt"
     output:
         "data/parallel/training/{lang1}_{lang2}.{mode}.txt"
+    shell:
+        "paste {input} > {output}"
+
+
+rule join_tatoeba_data:
+    input:
+        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
+        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
+    output:
+        "data/parallel/training/tatoeba_test.{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
