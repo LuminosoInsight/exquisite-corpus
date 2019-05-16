@@ -263,6 +263,10 @@ OPENSUB_LANGUAGE_PAIRS = [
     if _lang1 < _lang2
 ]
 
+# Define the languages for which we'll build SentencePiece models.
+
+SPM_LANGUAGES = ['en']
+
 # We'll build parallel text between English and any other language that has
 # translations in OpenSubtitles or ParaCrawl. (Europarl and Tatoeba are not
 # enough.)
@@ -293,9 +297,19 @@ FRACTION_OF_DATA_TO_SPM_ENCODE = 0.5
 # we set an upper bound on the length.  Sentences with longer encodings will
 # be split into chunks with sizes ranging between two specified lengths.
 # The maximum possible length is set based on Salesforce's awd-lstm-lm code.
+# (Note that we add the SentencePiece start and end ids to the sequences
+# before splitting, and that these symbols are counted against the maximum
+# length.)
 MAX_SPM_ENCODE_IDS = 70
 MIN_SPM_CHUNK_LEN = 35
 MAX_SPM_CHUNK_LEN = 70
+
+# We split the encoded SentencePiece data into three disjoint datasets, for
+# training, validation, and testing purposes.  Here we set the relative sizes
+# of these subsets of the data for the language model, as fractions of the
+# size of the output of the encoding process.
+FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION = 0.1
+FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING = 0.1
 
 
 def map_opus_language(dataset, lang):
@@ -471,6 +485,14 @@ rule google_2grams:
 rule google_3grams:
     input:
         expand("data/downloaded/google-ngrams/3grams-en-{shard}.txt.gz", shard=GOOGLE_3GRAM_SHARDS)
+
+rule sentencepiece_ids:
+    input:
+        expand("data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy",
+               lang=SPM_LANGUAGES,
+               task=["training", "testing", "validation"],
+               n=range(MAX_SPM_ENCODE_IDS + 1)
+        )
 
 
 # Downloaders
@@ -1144,8 +1166,8 @@ rule encode_sentencepiece_ids:
         temp(expand("data/sentencepiece/{{lang}}.spm_txt_ids/length_{n}.txt",
                     n=range(MAX_SPM_ENCODE_IDS + 1)))
     run:
-        # We invoke awk twice.  The first time it samples the input data file.
-        # The second time it distributes the output of spm_encode to output
+        # We invoke awk to sample the input data file.  Then we invoke a
+        # python script to distribute the output of spm_encode to output
         # files whose names include the length of each encoded input line.
         data_file, model_file = input
         output_dir = os.path.dirname(output[0])
@@ -1156,7 +1178,8 @@ rule encode_sentencepiece_ids:
             "zcat {data_file} | "
             "awk 'BEGIN {{srand(3)}} rand() < {FRACTION_OF_DATA_TO_SPM_ENCODE}' | "
             "spm_encode --model={model_file} --output_format=id | "
-            "python scripts/split_sentencepiece_ids.py"
+            "python scripts/slice_sentencepiece_ids.py"
+            " --spm-model {model_file}"
             " --min-chunk-length {MIN_SPM_CHUNK_LEN}"
             " --max-chunk-length {MAX_SPM_CHUNK_LEN}"
             " --max-length {MAX_SPM_ENCODE_IDS}"
@@ -1164,24 +1187,41 @@ rule encode_sentencepiece_ids:
         )
 
 
-# Convert the outputs of encode_sentencepiece_ids into .npy files.
-rule numberize_one_sentencepiece_id_file:
+# Split the encoded SentencePiece id's into training, validation, and testing sets.
+rule split_one_sentencepiece_id_file:
     input:
         "data/sentencepiece/{lang}.spm_txt_ids/length_{n}.txt"
     output:
-        "data/sentencepiece/{lang}.spm_ids/length_{n}.npy"
+        temp("data/sentencepiece/{lang}.spm_txt_ids_training/length_{n}.txt"),
+        temp("data/sentencepiece/{lang}.spm_txt_ids_validation/length_{n}.txt"),
+        temp("data/sentencepiece/{lang}.spm_txt_ids_testing/length_{n}.txt")
+    run:
+        training_file, validation_file, testing_file = output
+        frac_valid = FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION
+        frac_test = FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING
+        # touch the outputs so that they are created even if empty
+        shell(
+            "cat {input} | "
+            "python scripts/split_sentencepiece_id_file.py"
+            "  --output-file1 {validation_file}"
+            "  --fraction1 {frac_valid}"
+            "  --output-file2 {testing_file}"
+            "  --fraction2 {frac_test}"
+            "  --output-file3 {training_file} ; "
+            "touch {training_file} ; "
+            "touch {validation_file} ; "
+            "touch {testing_file}"
+        )
+
+
+# Convert the outputs of encode_sentencepiece_ids into .npy files.
+rule numberize_one_sentencepiece_id_file:
+    input:
+        "data/sentencepiece/{lang}.spm_txt_ids_{task}/length_{n}.txt"
+    output:
+        "data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy"
     shell:
         "scripts/sentencepiece_id_converter.py {input} {output}"
-
-
-rule numberize_sentencepiece_ids:
-    input:
-        expand("data/sentencepiece/{{lang}}.spm_ids/length_{n}.npy",
-               n=range(MAX_SPM_ENCODE_IDS + 1))
-    output:
-        "data/sentencepiece/{lang}.spm_ids/empty_build_target"
-    shell:
-        "rmdir data/sentencepiece/{wildcards.lang}.spm_txt_ids; touch {output}"
 
 
 rule apply_bpe:
