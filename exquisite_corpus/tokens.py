@@ -75,3 +75,34 @@ def tokenize_with_sentencepiece(in_file, out_file, sp_model_filename):
     for line in in_file:
         ids = sp.encode_as_ids(line.rstrip())
         out_file.write(packer.pack(ids))
+
+
+def train_sentencepiece(in_file, model_prefix):
+    parms = "--input={} --model_prefix={} --vocab_size=8000 --hard_vocab_limit=false".format(in_file, model_prefix)
+    sentencepiece.SentencePieceTrainer.Train(parms)
+
+
+def encode_with_sp_as_pieces(in_file, out_file, model_file):
+    spp = sentencepiece.SentencePieceProcessor()
+    spp.load(model_file)
+    for line in in_file:
+        pieces = spp.encode_as_pieces(line.rstrip())
+        line_pieces = ' '.join(pieces) + '\n'
+        out_file.write(line_pieces)
+
+
+def decode_pieces_with_sp(in_file, out_file, model_file):
+    spp = sentencepiece.SentencePieceProcessor()
+    spp.load(model_file)
+    for line in in_file:
+        line_pieces = spp.decode_pieces(line.split()) + '\n'
+        out_file.write(line_pieces)
+
+
+def get_vocabulary_from_sp(out_file, model_file):
+    spp = sentencepiece.SentencePieceProcessor()
+    spp.load(model_file)
+    # <unk>, <s>, </s> are defined by default. Their ids are (0, 1, 2)
+    for id in range(3, spp.get_piece_size()):
+        pieces = spp.id_to_piece(id) + '\n'
+        out_file.write(pieces)

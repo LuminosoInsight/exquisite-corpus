@@ -1,8 +1,12 @@
 import click
-from .tokens import tokenize_file, tokenize_by_language, tokenize_with_sentencepiece
 from .preprocess import preprocess_reddit, preprocess_twitter
 from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
+from .tokens import (
+    tokenize_file, tokenize_by_language, tokenize_with_sentencepiece,
+    train_sentencepiece, encode_with_sp_as_pieces, decode_pieces_with_sp,
+    get_vocabulary_from_sp
+)
 from .freq import (
     count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack,
     freqs_to_jieba
@@ -137,3 +141,33 @@ def run_sparse_assoc(parallel_text_dir, vocab_dir, output_dir, languages, vocab_
 @click.argument('lang2')
 def run_intersperse(input_file, output_file, lang1, lang2):
     intersperse_parallel_text(input_file, output_file, lang1, lang2)
+
+
+@cli.command(name='train-sp')
+@click.argument('input_file')
+@click.argument('model_prefix')
+def run_train_sentencepiece(input_file, model_prefix):
+    train_sentencepiece(input_file, model_prefix)
+
+
+@cli.command(name='encode-with-sp')
+@click.argument('input_file', type=click.File('r', encoding='utf-8', errors='ignore'), default='-')
+@click.argument('output_file', type=click.File('w'), default='-')
+@click.argument('model_file')
+def run_encode_with_sp_as_pieces(input_file, output_file, model_file):
+    encode_with_sp_as_pieces(input_file, output_file, model_file)
+
+
+@cli.command(name='decode-with-sp')
+@click.argument('input_file', type=click.File('r', encoding='utf-8', errors='ignore'), default='-')
+@click.argument('output_file', type=click.File('w'), default='-')
+@click.argument('model_file')
+def run_decode_pieces_with_sp(input_file, output_file, model_file):
+    decode_pieces_with_sp(input_file, output_file, model_file)
+
+
+@cli.command(name='get-vocab-sp')
+@click.argument('output_file', type=click.File('w'), default='-')
+@click.argument('model_file')
+def run_get_vocabulary_from_sp(output_file, model_file):
+    get_vocabulary_from_sp(output_file, model_file)
