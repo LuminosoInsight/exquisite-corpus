@@ -78,7 +78,8 @@ def tokenize_with_sentencepiece(in_file, out_file, sp_model_filename):
 
 
 def train_sentencepiece(in_file, model_prefix):
-    parms = "--input={} --model_prefix={} --vocab_size=8000 --hard_vocab_limit=false".format(in_file, model_prefix)
+    parms = "--input={} --model_prefix={} --vocab_size=16000 --hard_vocab_limit=false " \
+            "--input_sentence_size=1000000 --shuffle_input_sentence".format(in_file, model_prefix)
     sentencepiece.SentencePieceTrainer.Train(parms)
 
 

@@ -1122,10 +1122,12 @@ rule train_sentencepiece:
     output:
         "data/parallel/training/sp/{pair}.{lang}.model",
         "data/parallel/training/sp/{pair}.{lang}.nmt.vocab"
+    resources:
+        sp_trainer=1
     run:
         model_file, nmt_vocab_file = output
         shell(
-            "xc train-sp {input} {wildcards.pair}.{wildcards.lang} && "
+            "xc train-sp {input} data/parallel/training/sp/{wildcards.pair}.{wildcards.lang} && "
             "xc get-vocab-sp {nmt_vocab_file} {model_file}"
         )
 
