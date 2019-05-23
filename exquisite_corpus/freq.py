@@ -100,7 +100,7 @@ def single_count_file_to_freqs(input_file, output_file):
 
 
 def _write_frequency_file(freq_dict, outfile):
-    freq_items = sorted(freq_dict.items(), key=itemgetter(1), reverse=True)
+    freq_items = sorted(freq_dict.items(), key=itemgetter(1, 0), reverse=True)
     for word, freq in freq_items:
         if freq < 1e-9:
             break
