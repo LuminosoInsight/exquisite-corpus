@@ -1053,11 +1053,10 @@ rule tokenize_voa:
 # ======================
 
 rule parallel_opus:
-    # Join parallel text from OpenSubtitles that has been tokenized in
-    # separate, monolingual files.
+    # Join monolingual files from OPUS into a parallel text file.
     input:
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang2}.txt"
+        "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang1}",
+        "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}"
     output:
         "data/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
     shell:
@@ -1077,17 +1076,17 @@ rule parallel_opus:
         "paste {input} | LANG=C grep -v $'\xee' > {output}"
 
 rule parallel_paracrawl:
-    # Join parallel text from ParaCrawl that has been tokenized in
-    # separate, monolingual files.
+    # Join monolingual files from ParaCrawl into a parallel text file.
     input:
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
+        "data/extracted/paracrawl/{lang1}_{lang2}.{lang1}.txt",
+        "data/extracted/paracrawl/{lang1}_{lang2}.{lang2}.txt"
     output:
         "data/parallel/paracrawl/{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
 rule parallel_jesc:
+    # Join monolingual files from JESC into a parallel text file.
     input:
         "data/extracted/jesc/detokenized/train.en",
         "data/extracted/jesc/detokenized/train.ja"
@@ -1116,6 +1115,8 @@ rule separate_parallel:
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
 
 
+# Train SentencePiece model on the train set and get the vocabulary (one piece per line).
+# Maximum size of sentences the trainer loads, by randomly sampling, is 1M.
 rule train_sentencepiece:
     input:
         "data/parallel/shuffled-split/{pair}.{lang}.train.txt",
@@ -1132,6 +1133,7 @@ rule train_sentencepiece:
         )
 
 
+# Encode raw train, valid, and test set into sentence pieces.
 rule apply_sentencepiece:
     input:
         "data/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
@@ -1147,7 +1149,7 @@ rule apply_sentencepiece:
 
 rule apply_sentencepiece_tatoeba:
     input:
-        "data/tokenized/opus/Tatoeba.{pair}.{lang}.txt",
+        "data/extracted/opus/Tatoeba.{pair}.{lang}",
         "data/parallel/training/sp/{pair}.{lang}.model"
     output:
         "data/parallel/training/paired/tatoeba_test.{pair}.{lang}.txt"
@@ -1267,7 +1269,7 @@ rule split_train_valid_test:
         )
 
 
-rule rejoin_training_data:
+rule join_training_data:
     input:
         "data/parallel/training/paired/{lang1}_{lang2}.{lang1}.{mode}.txt",
         "data/parallel/training/paired/{lang1}_{lang2}.{lang2}.{mode}.txt"

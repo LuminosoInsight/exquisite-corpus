@@ -78,12 +78,29 @@ def tokenize_with_sentencepiece(in_file, out_file, sp_model_filename):
 
 
 def train_sentencepiece(in_file, model_prefix):
-    parms = "--input={} --model_prefix={} --vocab_size=16000 --hard_vocab_limit=false " \
-            "--input_sentence_size=1000000 --shuffle_input_sentence".format(in_file, model_prefix)
+    """
+    Train SentencePiece unigram model. Input is raw corpus file, one sentence per line.
+    Outputs are model and vocabulary files (<prefix>.model and <prefix>.vocab).
+    Maximum size of sentences the trainer loads, by randomly sampling input sentences,
+    is 1M. Vocabulary size is 16K and is a soft limit.
+    It uses NFKC normalization with some additional normalization around spaces.
+    """
+    parms = "--model_type=unigram " \
+            "--input={file} " \
+            "--model_prefix={prefix} " \
+            "--input_format=text " \
+            "--input_sentence_size=1000000 " \
+            "--shuffle_input_sentence " \
+            "--vocab_size=16000 " \
+            "--hard_vocab_limit=false " \
+            "--normalization_rule_name=nmt_nfkc".format(file=in_file, prefix=model_prefix)
     sentencepiece.SentencePieceTrainer.Train(parms)
 
 
 def encode_with_sp_as_pieces(in_file, out_file, model_file):
+    """
+    Encode raw text into sentence pieces.
+    """
     spp = sentencepiece.SentencePieceProcessor()
     spp.load(model_file)
     for line in in_file:
@@ -93,6 +110,9 @@ def encode_with_sp_as_pieces(in_file, out_file, model_file):
 
 
 def decode_pieces_with_sp(in_file, out_file, model_file):
+    """
+    Decode sentence pieces into raw text.
+    """
     spp = sentencepiece.SentencePieceProcessor()
     spp.load(model_file)
     for line in in_file:
@@ -101,9 +121,13 @@ def decode_pieces_with_sp(in_file, out_file, model_file):
 
 
 def get_vocabulary_from_sp(out_file, model_file):
+    """
+    Get the vocabulary (one piece per line) to be used by the neural network.
+    """
     spp = sentencepiece.SentencePieceProcessor()
     spp.load(model_file)
-    # <unk>, <s>, </s> are defined by default. Their ids are (0, 1, 2)
+    # <unk>, <s>, </s> are defined by default and their ids are (0, 1, 2). Don't include
+    # them in the vocabulary.
     for id in range(3, spp.get_piece_size()):
         pieces = spp.id_to_piece(id) + '\n'
         out_file.write(pieces)

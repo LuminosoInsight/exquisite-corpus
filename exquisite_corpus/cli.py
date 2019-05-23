@@ -151,23 +151,23 @@ def run_train_sentencepiece(input_file, model_prefix):
 
 
 @cli.command(name='encode-with-sp')
-@click.argument('input_file', type=click.File('r', encoding='utf-8', errors='ignore'), default='-')
-@click.argument('output_file', type=click.File('w'), default='-')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
 @click.argument('model_file')
 def run_encode_with_sp_as_pieces(input_file, output_file, model_file):
     encode_with_sp_as_pieces(input_file, output_file, model_file)
 
 
 @cli.command(name='decode-with-sp')
-@click.argument('input_file', type=click.File('r', encoding='utf-8', errors='ignore'), default='-')
-@click.argument('output_file', type=click.File('w'), default='-')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
 @click.argument('model_file')
 def run_decode_pieces_with_sp(input_file, output_file, model_file):
     decode_pieces_with_sp(input_file, output_file, model_file)
 
 
 @cli.command(name='get-vocab-sp')
-@click.argument('output_file', type=click.File('w'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
 @click.argument('model_file')
 def run_get_vocabulary_from_sp(output_file, model_file):
     get_vocabulary_from_sp(output_file, model_file)
