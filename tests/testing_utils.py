@@ -1,6 +1,7 @@
-import subprocess
-import os
 import glob
+
+import subprocess
+
 
 def run_snakemake(snakefile='../Snakefile', target="all", **kwargs):
     """
@@ -10,33 +11,6 @@ def run_snakemake(snakefile='../Snakefile', target="all", **kwargs):
     cmd_args = ["snakemake", "-s", str(snakefile), target] + options
     return subprocess.call(cmd_args)
 
-
-# def binary_files_the_same(result, reference):
-#     """"
-#     :param result:
-#     :param reference:
-#     :return:
-#     """
-#     res_file = open(result, 'r')
-#     ref_file = open(reference, 'r')
-#
-#     compare the length of both files
-    # len_res = os.stat(res_file.fileno()).st_size
-    # len_ref = os.stat(ref_file.fileno()).st_size
-    #
-    # if len_res != len_ref:
-    #     res_file.close()
-    #     ref_file.close()
-    #     return False
-    #
-    # read the contents of the files
-    # content_res = res_file.read()
-    # content_ref = ref_file.read()
-    #
-    # if content_res == content_ref:
-    #     return True
-    # else:
-    #     return False
 
 def directories_with_gzipped_files_the_same(result, reference):
     result_gzipped_files = sorted(glob.glob(result + '/**/*.gz',
