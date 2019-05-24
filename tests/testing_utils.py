@@ -3,55 +3,39 @@ import glob
 import subprocess
 
 
-def run_snakemake(snakefile='../Snakefile', target="all", **kwargs):
+def run_snakemake(env_variables,  options=['-j', '4'], target=''):
+    cmd_args = ["snakemake"] + options
+    if target:
+        cmd_args.append(target)
+    subprocess.call(cmd_args, env=env_variables)
+
+
+def gzipped_result_dir_same_as_reference(result, reference):
     """
-
+    Return True if all gzipped files in result directory matched the gzipped
+    files in the reference directory and False otherwise.
     """
-    options = kwargs.pop("options", [])
-    cmd_args = ["snakemake", "-s", str(snakefile), target] + options
-    return subprocess.call(cmd_args)
+    result_files = sorted(glob.glob(result + '/**/*.gz', recursive=True))
+    reference_files = sorted(glob.glob(reference + '/**/*.gz', recursive=True))
+    return all(gzipped_result_file_same_as_reference(res, ref) for res, ref
+               in zip(result_files, reference_files))
 
 
-def directories_with_gzipped_files_the_same(result, reference):
-    result_gzipped_files = sorted(glob.glob(result + '/**/*.gz',
-                                            recursive=True))
-    reference_gzipped_files = sorted(glob.glob(reference + '/**/*.gz',
-                                               recursive=True))
-    if not result_gzipped_files and not reference_gzipped_files:
-        return False
-    return all(gzipped_files_the_same(res, ref) for res, ref in zip(result_gzipped_files, reference_gzipped_files))
-
-
-def gzipped_files_the_same(result, reference):
+def gzipped_result_file_same_as_reference(result, reference):
     """
-    :param result:
-    :param reference:
-    :return:
+    Return True if a gzipped file result matches the gzipped reference file
+    and False otherwise. Do not compare a header of a gzipped file,
+    which contains information on when the file was compressed.
     """
-    # skip a header of a gzipped file which contains information on when the
-    # file was compressed
-    cmd_args = ['cmp', '-i', '8']
+    cmd_args = ['cmp', '-i', '8'] # skip a header
     code = subprocess.call(cmd_args + [result, reference])
     return not(bool(code))
 
-def text_files_the_same(result, reference):
+
+def result_dir_same_as_reference(result, reference):
     """
-
-    :param result:
-    :param reference:
-    :return:
-    """
-    cmd_args = ['diff', result, reference]
-    code = subprocess.call(cmd_args)
-    return not(bool(code))
-
-
-def directories_the_same(result, reference):
-    """
-
-    :param result:
-    :param reference:
-    :return:
+    Return True if all text files in result directory matched the text files
+    in the reference directory and False otherwise. Skip the gzipped files.
     """
     cmd_args = ['diff', '-r', '-x', '*.gz', '-q']
     code = subprocess.call(cmd_args + [result, reference])
