@@ -2,8 +2,8 @@ import pytest
 import shutil
 
 from tests.testing_utils import (
-    result_dir_same_as_reference,
     gzipped_result_dir_same_as_reference,
+    result_dir_same_as_reference,
     run_snakemake,
 )
 
