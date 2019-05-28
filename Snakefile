@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
+import os
 from collections import defaultdict
 
+DATA = os.environ.get("TEST_BUILD_DATA", "data")
 
 SOURCE_LANGUAGES = {
     # OPUS's data files of OpenSubtitles 2018
@@ -354,7 +356,7 @@ def language_count_sources(lang):
     Get all the sources of word counts we have in a language.
     """
     return [
-        "data/counts/{source}/{lang}.txt".format(source=source, lang=lang)
+        DATA + "/counts/{source}/{lang}.txt".format(source=source, lang=lang)
         for source in LANGUAGE_SOURCES[lang]
     ]
 
@@ -364,7 +366,7 @@ def language_text_sources(lang):
     Get all the sources of tokenized text we have in a language.
     """
     return [
-        "data/tokenized/{source}/{lang}.txt".format(source=source, lang=lang)
+        DATA + "/tokenized/{source}/{lang}.txt".format(source=source, lang=lang)
         for source in LANGUAGE_SOURCES[lang]
         if source in FULL_TEXT_SOURCES
     ]
@@ -381,21 +383,23 @@ def parallel_sources(wildcards):
         other_lang = None
     pair = '{}_{}'.format(lang1, lang2)
     if other_lang in SOURCE_LANGUAGES['paracrawl']:
-        sources.append("data/parallel/paracrawl/{}.txt".format(pair))
+        sources.append(DATA + "/parallel/paracrawl/{}.txt".format(pair))
     if other_lang in SOURCE_LANGUAGES['jesc']:
-        sources.append("data/parallel/jesc/{}.txt".format(pair))
+        sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
     if pair in OPENSUB_LANGUAGE_PAIRS:
-        sources.append("data/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
     if other_lang in SOURCE_LANGUAGES['opus/Europarl']:
-        sources.append("data/parallel/opus/Europarl.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
     return sources
 
 
 def _count_filename(source, lang):
     if '/' in source:
-        return "data/counts/{source}.{lang}.txt".format(source=source, lang=lang)
+        return DATA + "/counts/{source}.{lang}.txt".format(source=source,
+                                                         lang=lang)
     else:
-        return "data/counts/{source}/{lang}.txt".format(source=source, lang=lang)
+        return DATA + "/counts/{source}/{lang}.txt".format(source=source,
+                                                       lang=lang)
 
 
 def multisource_counts_to_merge(multisource, lang):
@@ -453,7 +457,7 @@ def paracrawl_language_pair_source(lang):
     lang1, lang2 = sorted([lang, other])
     langpair = '{}_{}'.format(lang1, lang2)
 
-    return "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt".format(langpair=langpair, lang=lang)
+    return DATA + "/tokenized/paracrawl-paired/{langpair}.{lang}.txt".format(langpair=langpair, lang=lang)
 
 
 # Top-level rules
@@ -461,34 +465,40 @@ def paracrawl_language_pair_source(lang):
 
 rule wordfreq:
     input:
-        expand("data/wordfreq/small_{lang}.msgpack.gz", lang=SUPPORTED_LANGUAGES),
-        expand("data/wordfreq/large_{lang}.msgpack.gz", lang=LARGE_LANGUAGES),
-        "data/wordfreq/jieba_zh.txt"
+        expand(DATA + "/wordfreq/small_{lang}.msgpack.gz",
+               lang=SUPPORTED_LANGUAGES),
+        expand(DATA + "/wordfreq/large_{lang}.msgpack.gz",
+               lang=LARGE_LANGUAGES),
+        DATA + "/wordfreq/jieba_zh.txt"
 
 rule parallel:
     input:
-        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
-        expand("data/parallel/training/tatoeba_test.{pair}.txt", pair=TATOEBA_LANGUAGE_PAIRS)
+        expand(DATA + "/parallel/training/{pair}.{mode}.txt",
+                    pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
+        expand(DATA + "/parallel/training/tatoeba_test.{pair}.txt",
+                pair=TATOEBA_LANGUAGE_PAIRS)
 
 rule frequencies:
     input:
-        expand("data/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES)
+        expand(DATA + "/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES)
 
 rule embeddings:
     input:
-        expand("data/skipgrams/{lang}.vec", lang=LARGE_LANGUAGES)
+        expand(DATA + "/skipgrams/{lang}.vec", lang=LARGE_LANGUAGES)
 
 rule google_2grams:
     input:
-        expand("data/downloaded/google-ngrams/2grams-en-{shard}.txt.gz", shard=GOOGLE_2GRAM_SHARDS)
+        expand(DATA + "/downloaded/google-ngrams/2grams-en-{shard}.txt.gz",
+                shard=GOOGLE_2GRAM_SHARDS)
 
 rule google_3grams:
     input:
-        expand("data/downloaded/google-ngrams/3grams-en-{shard}.txt.gz", shard=GOOGLE_3GRAM_SHARDS)
+        expand(DATA + "/downloaded/google-ngrams/3grams-en-{shard}.txt.gz",
+                shard=GOOGLE_3GRAM_SHARDS)
 
 rule sentencepiece_ids:
     input:
-        expand("data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy",
+        expand(DATA + "/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy",
                lang=SPM_LANGUAGES,
                task=["training", "testing", "validation"],
                n=range(MAX_SPM_ENCODE_IDS + 1)
@@ -500,7 +510,7 @@ rule sentencepiece_ids:
 
 rule download_opus_monolingual:
     output:
-        "data/downloaded/opus/{dataset}.{lang}.txt.gz"
+        DATA + "/downloaded/opus/{dataset}.{lang}.txt.gz"
     resources:
         download=1, opusdownload=1
     priority: 0
@@ -512,7 +522,7 @@ rule download_opus_monolingual:
 
 rule download_reddit:
     output:
-        "data/downloaded/reddit/{year}-{month}.bz2"
+        DATA + "/downloaded/reddit/{year}-{month}.bz2"
     resources:
         download=1
     priority: 0
@@ -522,7 +532,7 @@ rule download_reddit:
 
 rule download_opus_parallel:
     output:
-        "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
+        DATA + "/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
     resources:
         download=1, opusdownload=1
     run:
@@ -538,7 +548,7 @@ rule download_opus_parallel:
 
 rule download_wikipedia:
     output:
-        "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
+        DATA + "/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
     resources:
         download=1, wpdownload=1
     priority: 0
@@ -549,13 +559,13 @@ rule download_wikipedia:
 
 rule download_newscrawl:
     output:
-        "data/downloaded/newscrawl-2014-monolingual.tar.gz"
+        DATA + "/downloaded/newscrawl-2014-monolingual.tar.gz"
     shell:
         "curl -Lf 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
 
 rule download_google_1grams:
     output:
-        "data/downloaded/google/1grams-{lang}-{shard}.txt.gz"
+        DATA + "/downloaded/google/1grams-{lang}-{shard}.txt.gz"
     run:
         source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         shard = wildcards.shard
@@ -568,7 +578,7 @@ rule download_google_1grams:
 
 rule download_google_ngrams:
     output:
-        "data/downloaded/google-ngrams/{n}grams-{lang}-{shard}.txt.gz"
+        DATA + "/downloaded/google-ngrams/{n}grams-{lang}-{shard}.txt.gz"
     run:
         source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         shard = wildcards.shard
@@ -578,19 +588,19 @@ rule download_google_ngrams:
 
 rule download_amazon_snap:
     output:
-        "data/downloaded/amazon/{category}.json.gz"
+        DATA + "/downloaded/amazon/{category}.json.gz"
     shell:
         "curl -Lf 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
 
 rule download_amazon_acl10:
     output:
-        "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
+        DATA + "/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     shell:
         "curl -Lf 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
 
 rule download_paracrawl:
     output:
-        "data/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
+        DATA + "/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
     run:
         # Put the language codes in ParaCrawl order, with English first
         if wildcards.lang1 == 'en':
@@ -604,7 +614,7 @@ rule download_paracrawl:
 
 rule download_jesc:
     output:
-        "data/downloaded/jesc/detokenized.tar.gz"
+        DATA + "/downloaded/jesc/detokenized.tar.gz"
     shell:
         "curl -Lf 'https://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
 
@@ -613,10 +623,10 @@ rule download_jesc:
 # ========================
 rule extract_opus_parallel:
     input:
-        "data/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
+        DATA + "/downloaded/opus/{dataset}.{lang1}_{lang2}.zip"
     output:
-        temp("data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang1}"),
-        temp("data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}")
+        temp(DATA + "/extracted/opus/{dataset}.{lang1}_{lang2}.{lang1}"),
+        temp(DATA + "/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}")
     run:
         # The contents of the zip file have OPUS language codes joined by
         # hyphens.  We need to rename them to our BCP 47 language codes joined
@@ -657,56 +667,62 @@ rule extract_opus_parallel:
         code1 = map_opus_language(dataset, wildcards.lang1)
         code2 = map_opus_language(dataset, wildcards.lang2)
         codeA, codeB = sorted([code1, code2])
-        zip_output1 = "data/extracted/opus/{zip_dataset}.{codeA}-{codeB}.{code1}".format(
+        zip_output1 = DATA + "/extracted/opus/{zip_dataset}.{codeA}-{codeB}.{code1}".format(
             code1=code1, code2=code2, codeA=codeA, codeB=codeB, zip_dataset=zip_dataset
         )
-        zip_output2 = "data/extracted/opus/{zip_dataset}.{codeA}-{codeB}.{code2}".format(
+        zip_output2 = DATA + "/extracted/opus/{zip_dataset}.{codeA}-{codeB}.{code2}".format(
             code1=code1, code2=code2, codeA=codeA, codeB=codeB, zip_dataset=zip_dataset
         )
         output1, output2 = output
-        shell("unzip -o -d 'data/extracted/opus/' {input} && mv {zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
+        shell("unzip -o -d '{DATA}/extracted/opus/' {input} && mv {"
+              "zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
 
 rule extract_newscrawl:
     input:
-        "data/downloaded/newscrawl-2014-monolingual.tar.gz"
+        DATA + "/downloaded/newscrawl-2014-monolingual.tar.gz"
     output:
-        expand(temp("data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"), lang=SOURCE_LANGUAGES['newscrawl'])
+        expand(temp(DATA + "/extracted/newscrawl/training-monolingual-news" \
+                         "-2014/news.2014.{lang}.shuffled"), lang=SOURCE_LANGUAGES['newscrawl'])
     shell:
-        "tar xf {input} -C data/extracted/newscrawl && touch data/extracted/newscrawl/training-monolingual-news-2014/*"
+        "tar xf {input} -C {DATA}/extracted/newscrawl && touch " \
+        "{DATA}/extracted/newscrawl/training-monolingual-news-2014/*"
 
 rule gzip_newscrawl:
     input:
-        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled"
+        DATA + "/extracted/newscrawl/training-monolingual-news-2014/news" \
+               ".2014.{lang}.shuffled"
     output:
-        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled.gz"
+        DATA + "/extracted/newscrawl/training-monolingual-news-2014/news" \
+               ".2014.{lang}.shuffled.gz"
     shell:
         "gzip -c {input} > {output}"
 
 rule extract_jesc:
     input:
-        "data/downloaded/jesc/detokenized.tar.gz"
+        DATA + "/downloaded/jesc/detokenized.tar.gz"
     output:
-        temp("data/extracted/jesc/detokenized/train.en"),
-        temp("data/extracted/jesc/detokenized/train.ja")
+        temp(DATA + "/extracted/jesc/detokenized/train.en"),
+        temp(DATA + "/extracted/jesc/detokenized/train.ja")
     shell:
-        "tar xf {input} -C data/extracted/jesc && touch data/extracted/jesc/detokenized/*"
+        "tar xf {input} -C {DATA}/extracted/jesc && touch {DATA}/extracted/jesc/detokenized/*"
 
 rule extract_amazon_acl10:
     input:
-        "data/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
+        DATA + "/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     output:
-        expand(temp("data/extracted/amazon-acl10/cls-acl10-unprocessed/{lang}/{dataset}.review"),
+        expand(temp(DATA + "/extracted/amazon-acl10/cls-acl10-unprocessed/{" \
+                      "lang}/{dataset}.review"),
                lang=AMAZON_ACL_CODES,
                dataset=AMAZON_ACL_DATASETS)
     shell:
-        "tar xf {input} -C data/extracted/amazon-acl10 && touch {output}"
+        "tar xf {input} -C {DATA}/extracted/amazon-acl10 && touch {output}"
 
 rule extract_google_1grams:
     input:
-        expand("data/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
+        expand(DATA + "/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
                shard=GOOGLE_1GRAM_SHARDS)
     output:
-        "data/messy-counts/google/{lang}.txt"
+        DATA + "/messy-counts/google/{lang}.txt"
     shell:
         # Lowercase the terms, remove part-of-speech tags such as _NOUN, and
         # run the result through the 'countmerge' utility
@@ -714,25 +730,25 @@ rule extract_google_1grams:
 
 rule extract_reddit:
     input:
-        "data/downloaded/reddit/{year}-{month}.bz2"
+        DATA + "/downloaded/reddit/{year}-{month}.bz2"
     output:
-        "data/extracted/reddit/{year}-{month}.txt.gz"
+        DATA + "/extracted/reddit/{year}-{month}.txt.gz"
     shell:
         "bunzip2 -c {input} | xc preprocess-reddit | gzip -c > {output}"
 
 rule extract_amazon:
     input:
-        "data/downloaded/amazon/{category}.json.gz"
+        DATA + "/downloaded/amazon/{category}.json.gz"
     output:
-        temp("data/extracted/amazon-snap/{category}.csv")
+        temp(DATA + "/extracted/amazon-snap/{category}.csv")
     shell:
         r"""zcat {input} | jq -r -c '"label__\(.["overall"] | tostring)\t\(.["summary"])\t\(.["reviewText"])"' > {output}"""
 
 rule extract_voa_fa:
     input:
-        "data/extra/voa_fa_2003-2008_orig.txt"
+        DATA + "/extra/voa_fa_2003-2008_orig.txt"
     output:
-        temp("data/extracted/voa/fa.txt")
+        temp(DATA + "/extracted/voa/fa.txt")
     shell:
         "sed -e 's/^# Headline: //' -e 's/^#.*//' {input} > {output}"
 
@@ -746,15 +762,15 @@ rule extract_voa_fa:
 
 rule monolingual_corpus_en:
     input:
-        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.en.shuffled.gz",
-        "data/extracted/wikipedia/en.txt.gz",
-        "data/downloaded/opus/OpenSubtitles2018.en.txt.gz",
-        "data/downloaded/opus/Europarl.en.txt.gz",
-        "data/downloaded/opus/GlobalVoices.en.txt.gz",
-        expand("data/extracted/twitter/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
-        expand("data/extracted/reddit/{shard}.txt.gz", shard=SAMPLED_REDDIT_SHARDS)
+        DATA + "/extracted/newscrawl/training-monolingual-news-2014/news.2014.en.shuffled.gz",
+        DATA + "/extracted/wikipedia/en.txt.gz",
+        DATA + "/downloaded/opus/OpenSubtitles2018.en.txt.gz",
+        DATA + "/downloaded/opus/Europarl.en.txt.gz",
+        DATA + "/downloaded/opus/GlobalVoices.en.txt.gz",
+        expand(DATA + "/extracted/twitter/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
+        expand(DATA + "/extracted/reddit/{shard}.txt.gz", shard=SAMPLED_REDDIT_SHARDS)
     output:
-        "data/monolingual/en.txt.gz"
+        DATA + "/monolingual/en.txt.gz"
     shell:
         "zcat {input} | awk -f scripts/language-tag-filter.awk -v lang=en | scripts/imperfect-shuffle-gz.sh {output} monolingual_en"
 
@@ -766,9 +782,9 @@ rule monolingual_corpus_en:
 # of 1000 characters.
 rule monolingual_subsample_en:
     input:
-        "data/monolingual/en.txt.gz"
+        DATA + "/monolingual/en.txt.gz"
     output:
-        "data/monolingual/en.sample.txt"
+        DATA + "/monolingual/en.sample.txt"
     shell:
         "zcat {input} | fold -w 1000 -s | awk 'NR % 100 == 0' > {output}"
 
@@ -788,9 +804,9 @@ rule monolingual_subsample_en:
 
 rule transform_leeds:
     input:
-        "data/source-lists/leeds/internet-{lang}-forms.num"
+        DATA + "/source-lists/leeds/internet-{lang}-forms.num"
     output:
-        "data/messy-counts/leeds/{lang}.txt"
+        DATA + "/messy-counts/leeds/{lang}.txt"
     shell:
         "sed -rn -e 's/([0-9]+) ([0-9]+).([0-9][0-9]) (.*)/\\4\t\\2\\3/p' {input} | grep -v 'EOS\t' > {output}"
 
@@ -801,9 +817,9 @@ rule transform_leeds:
 
 rule transform_mokk:
     input:
-        "data/source-lists/mokk/web2.2-freq-sorted.txt"
+        DATA + "/source-lists/mokk/web2.2-freq-sorted.txt"
     output:
-        "data/messy-counts/mokk/hu.txt"
+        DATA + "/messy-counts/mokk/hu.txt"
     shell:
         "iconv -f iso-8859-2 -t utf-8 {input} | cut -f 1,3 > {output}"
 
@@ -812,81 +828,83 @@ rule transform_mokk:
 # double-UTF-8.
 rule transform_subtlex_de:
     input:
-        "data/source-lists/subtlex/subtlex.de.txt"
+        DATA + "/source-lists/subtlex/subtlex.de.txt"
     output:
-        "data/messy-counts/subtlex/de.txt"
+        DATA + "/messy-counts/subtlex/de.txt"
     shell:
         "tail -n +2 {input} | cut -f 1,3 | ftfy > {output}"
 
 rule transform_subtlex_en:
     input:
-        "data/source-lists/subtlex/subtlex.en-{region}.txt"
+        DATA + "/source-lists/subtlex/subtlex.en-{region}.txt"
     output:
-        "data/messy-counts/subtlex/en-{region}.txt"
+        DATA + "/messy-counts/subtlex/en-{region}.txt"
     shell:
         "tail -n +2 {input} | cut -f 1,2 > {output}"
 
 rule transform_subtlex_nl:
     input:
-        "data/source-lists/subtlex/subtlex.nl.txt"
+        DATA + "/source-lists/subtlex/subtlex.nl.txt"
     output:
-        "data/messy-counts/subtlex/nl.txt"
+        DATA + "/messy-counts/subtlex/nl.txt"
     shell:
         "tail -n +2 {input} | cut -f 1,2 > {output}"
 
 rule transform_subtlex_pl:
     input:
-        "data/source-lists/subtlex/subtlex.pl.txt"
+        DATA + "/source-lists/subtlex/subtlex.pl.txt"
     output:
-        "data/messy-counts/subtlex/pl.txt"
+        DATA + "/messy-counts/subtlex/pl.txt"
     shell:
         "tail -n +2 {input} | cut -f 1,5 > {output}"
 
 rule transform_subtlex_zh:
     input:
-        "data/source-lists/subtlex/subtlex.zh.txt"
+        DATA + "/source-lists/subtlex/subtlex.zh.txt"
     output:
-        "data/messy-counts/subtlex/zh-Hans.txt"
+        DATA + "/messy-counts/subtlex/zh-Hans.txt"
     shell:
         "tail -n +2 {input} | cut -f 1,5 > {output}"
 
 rule transform_jieba:
     input:
-        "data/source-lists/jieba/dict.txt.big"
+        DATA + "/source-lists/jieba/dict.txt.big"
     output:
-        "data/messy-counts/jieba/zh.txt"
+        DATA + "/messy-counts/jieba/zh.txt"
     shell:
         "cut -d ' ' -f 1,2 {input} | tr ' ' '\t' | xc simplify-chinese - {output}"
 
 rule transform_2grams:
     input:
-        "data/downloaded/google-ngrams/2grams-{lang}-{prefix}.txt.gz"
+        DATA + "/downloaded/google-ngrams/2grams-{lang}-{prefix}.txt.gz"
     output:
-        "data/messy-counts/google-ngrams/2grams-{lang}-{prefix}.txt"
+        DATA + "/messy-counts/google-ngrams/2grams-{lang}-{prefix}.txt"
     shell:
         r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | awk -f scripts/countmerge.awk > {output}"
 
 rule transform_3grams:
     input:
-        "data/downloaded/google-ngrams/3grams-{lang}-{prefix}.txt.gz"
+        DATA + "/downloaded/google-ngrams/3grams-{lang}-{prefix}.txt.gz"
     output:
-        "data/messy-counts/google-ngrams/3grams-{lang}-{prefix}.txt"
+        DATA + "/messy-counts/google-ngrams/3grams-{lang}-{prefix}.txt"
     shell:
         r"zcat {input} | sed -re 's/_[A-Z.]*//g' | tr A-Z a-z | awk -f scripts/countmerge.awk > {output}"
 
 rule concat_2grams:
     input:
-        expand("data/messy-counts/google-ngrams/2grams-en-{prefix}.txt", prefix=GOOGLE_2GRAM_SHARDS)
+        expand(DATA + "/messy-counts/google-ngrams/2grams-en-{prefix}.txt",
+                prefix=GOOGLE_2GRAM_SHARDS)
     output:
-        "data/messy-counts/google-ngrams/2grams-combined-en.txt.gz"
+        DATA + "/messy-counts/google-ngrams/2grams-combined-en.txt.gz"
     shell:
         "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | awk -f scripts/countmerge.awk | gzip -c > {output}"
 
 rule concat_3grams:
     input:
-        expand("data/messy-counts/google-ngrams/3grams-en-{prefix}.txt", prefix=GOOGLE_3GRAM_SHARDS)
+        expand(DATA + "/messy-counts/google-ngrams/3grams-en-{prefix}.txt",
+                prefix=GOOGLE_3GRAM_SHARDS)
     output:
-        "data/messy-counts/google-ngrams/3grams-combined-en.txt.gz"
+        DATA + "/messy-counts/google-ngrams/3grams-combined-en.txt.gz"
     shell:
         "grep -Eh '[0-9]{{3,}}$' {input} | LANG=C sort | awk -f scripts/countmerge.awk | gzip -c > {output}"
 
@@ -902,9 +920,9 @@ rule transform_paracrawl:
     # it seems that 'awk' is the best one for the job. This awk script
     # assembles the stream of XML elements into language-tagged lines.
     input:
-        "data/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
+        DATA + "/downloaded/paracrawl/{lang1}_{lang2}.tmx.gz"
     output:
-        temp("data/extracted/paracrawl/pairs/{lang1}_{lang2}.txt")
+        temp(DATA + "/extracted/paracrawl/pairs/{lang1}_{lang2}.txt")
     shell:
         "zcat {input} | xml2 | awk -f ./scripts/tmx-language-tagger.awk > {output}"
 
@@ -917,9 +935,9 @@ rule select_paracrawl_language:
     # This rule selects just the text from the lines in one language. (We'll
     # track the language in the filename.)
     input:
-        "data/extracted/paracrawl/pairs/{langpair}.txt"
+        DATA + "/extracted/paracrawl/pairs/{langpair}.txt"
     output:
-        temp("data/extracted/paracrawl/{langpair}.{lang}.txt")
+        temp(DATA + "/extracted/paracrawl/{langpair}.{lang}.txt")
     shell:
         "grep '^{wildcards.lang}\\s' {input} | cut -f 2 > {output}"
 
@@ -929,50 +947,52 @@ rule select_paracrawl_language:
 
 rule extract_wikipedia:
     input:
-        "data/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
+        DATA + "/downloaded/wikipedia/wikipedia_{lang}.xml.bz2"
     output:
-        "data/extracted/wikipedia/{lang}.txt.gz"
+        DATA + "/extracted/wikipedia/{lang}.txt.gz"
     shell:
         "bunzip2 -c {input} | wiki2text | gzip -c > {output}"
 
 rule tokenize_wikipedia:
     input:
-        "data/extracted/wikipedia/{lang}.txt.gz"
+        DATA + "/extracted/wikipedia/{lang}.txt.gz"
     output:
-        "data/tokenized/wikipedia/{lang}.txt"
+        DATA + "/tokenized/wikipedia/{lang}.txt"
     shell:
         "zcat {input} | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_amazon:
     input:
-        expand("data/extracted/amazon-snap/{category}.csv", category=AMAZON_CATEGORIES)
+        expand(DATA + "/extracted/amazon-snap/{category}.csv",
+                category=AMAZON_CATEGORIES)
     output:
-        expand("data/tokenized/amazon-snap/en.txt")
+        expand(DATA + "/tokenized/amazon-snap/en.txt")
     shell:
         "sed -e 's/\t/ ¶ /g' {input} | xc tokenize -p -l en | sed -e 's/label__/__label__/' > {output}"
 
 rule tokenize_opus:
     input:
-        "data/downloaded/opus/{dataset}.{lang}.txt"
+        DATA + "/downloaded/opus/{dataset}.{lang}.txt"
     output:
-        "data/tokenized/opus/{dataset}.{lang}.txt"
+        DATA + "/tokenized/opus/{dataset}.{lang}.txt"
     shell:
         # Remove country codes and fix mojibake
         "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_newscrawl:
     input:
-        "data/extracted/newscrawl/training-monolingual-news-2014/news.2014.{lang}.shuffled.gz"
+        DATA + "/extracted/newscrawl/training-monolingual-news-2014/news" \
+               ".2014.{lang}.shuffled.gz"
     output:
-        "data/tokenized/newscrawl/{lang}.txt"
+        DATA + "/tokenized/newscrawl/{lang}.txt"
     shell:
         "zcat {input} | xc tokenize -c -p -l {wildcards.lang} - {output}"
 
 rule tokenize_parallel_opus:
     input:
-        "data/extracted/opus/{dataset}.{langpair}.{lang}"
+        DATA + "/extracted/opus/{dataset}.{langpair}.{lang}"
     output:
-        "data/tokenized/opus/{dataset}.{langpair}.{lang}.txt"
+        DATA + "/tokenized/opus/{dataset}.{langpair}.{lang}.txt"
     shell:
         "xc tokenize -f -p -l {wildcards.lang} {input} {output}"
 
@@ -980,9 +1000,9 @@ rule tokenize_paracrawl:
     # Tokenize the text from Paracrawl, in one language at a time, but keeping
     # track of the language pair they originated from.
     input:
-        "data/extracted/paracrawl/{langpair}.{lang}.txt"
+        DATA + "/extracted/paracrawl/{langpair}.{lang}.txt"
     output:
-        "data/tokenized/paracrawl-paired/{langpair}.{lang}.txt"
+        DATA + "/tokenized/paracrawl-paired/{langpair}.{lang}.txt"
     shell:
         "xc tokenize -f -p -l {wildcards.lang} {input} {output}"
 
@@ -998,53 +1018,54 @@ rule tokenize_paracrawl_monolingual:
     input:
         lambda wildcards: paracrawl_language_pair_source(wildcards.lang)
     output:
-        temp("data/tokenized/paracrawl/{lang}.txt")
+        temp(DATA + "/tokenized/paracrawl/{lang}.txt")
     shell:
         "cp {input} {output}"
 
 rule tokenize_gzipped_text:
     input:
-        "data/downloaded/{dir}/{lang}.txt.gz"
+        DATA + "/downloaded/{dir}/{lang}.txt.gz"
     output:
-        "data/tokenized/{dir}/{lang}.txt"
+        DATA + "/tokenized/{dir}/{lang}.txt"
     shell:
         "zcat {input} | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_reddit:
     input:
-        "data/extracted/reddit/{date}.txt.gz"
+        DATA + "/extracted/reddit/{date}.txt.gz"
     output:
-        expand("data/tokenized/reddit/{{date}}/{lang}.txt.gz", lang=SOURCE_LANGUAGES['reddit/merged'])
+        expand(DATA + "/tokenized/reddit/{{date}}/{lang}.txt.gz",
+                lang=SOURCE_LANGUAGES['reddit/merged'])
     shell:
-        "zcat {input} | xc tokenize-by-language -z - data/tokenized/reddit/{wildcards.date}"
+        "zcat {input} | xc tokenize-by-language -z - {DATA}/tokenized/reddit/{wildcards.date}"
 
 
 rule extract_twitter:
     input:
-        "data/raw/twitter/twitter-{year}.txt.gz"
+        DATA + "/raw/twitter/twitter-{year}.txt.gz"
     output:
-        "data/extracted/twitter/twitter-{year}.txt.gz"
+        DATA + "/extracted/twitter/twitter-{year}.txt.gz"
     shell:
         "zcat {input} | xc preprocess-twitter | gzip -c > {output}"
 
 
 rule tokenize_twitter:
     input:
-        "data/extracted/twitter/twitter-2014.txt.gz",
-        "data/extracted/twitter/twitter-2015.txt.gz",
-        "data/extracted/twitter/twitter-2016.txt.gz",
-        "data/extracted/twitter/twitter-2017.txt.gz",
-        "data/extracted/twitter/twitter-2018.txt.gz"
+        DATA + "/extracted/twitter/twitter-2014.txt.gz",
+        DATA + "/extracted/twitter/twitter-2015.txt.gz",
+        DATA + "/extracted/twitter/twitter-2016.txt.gz",
+        DATA + "/extracted/twitter/twitter-2017.txt.gz",
+        DATA + "/extracted/twitter/twitter-2018.txt.gz"
     output:
-        expand("data/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
+        expand(DATA + "/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
     shell:
-        "zcat {input} | xc tokenize-by-language - data/tokenized/twitter"
+        "zcat {input} | xc tokenize-by-language - {DATA}/tokenized/twitter"
 
 rule tokenize_voa:
     input:
-        "data/extracted/voa/{lang}.txt"
+        DATA + "/extracted/voa/{lang}.txt"
     output:
-        "data/tokenized/voa/{lang}.txt"
+        DATA + "/tokenized/voa/{lang}.txt"
     shell:
         "xc tokenize -p -l {wildcards.lang} - {output}"
 
@@ -1056,10 +1077,10 @@ rule parallel_opus:
     # Join parallel text from OpenSubtitles that has been tokenized in
     # separate, monolingual files.
     input:
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang2}.txt"
+        DATA + "/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang1}.txt",
+        DATA + "/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang2}.txt"
     output:
-        "data/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
+        DATA + "/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
     shell:
         # OpenSubtitles text may have come out in a form of Chinese mojibake
         # where many characters are mapped to the private use area.
@@ -1080,19 +1101,19 @@ rule parallel_paracrawl:
     # Join parallel text from ParaCrawl that has been tokenized in
     # separate, monolingual files.
     input:
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
+        DATA + "/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
+        DATA + "/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
     output:
-        "data/parallel/paracrawl/{lang1}_{lang2}.txt"
+        DATA + "/parallel/paracrawl/{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
 rule parallel_jesc:
     input:
-        "data/extracted/jesc/detokenized/train.en",
-        "data/extracted/jesc/detokenized/train.ja"
+        DATA + "/extracted/jesc/detokenized/train.en",
+        DATA + "/extracted/jesc/detokenized/train.ja"
     output:
-        "data/parallel/jesc/en_ja.txt"
+        DATA + "/parallel/jesc/en_ja.txt"
     shell:
         "paste {input} > {output}"
 
@@ -1100,17 +1121,17 @@ rule parallel_jesc:
 rule shuffle_parallel:
     input: parallel_sources
     output:
-        "data/parallel/shuffled/{lang1}_{lang2}.txt"
+        DATA + "/parallel/shuffled/{lang1}_{lang2}.txt"
     shell:
         "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_{wildcards.lang1}_{wildcards.lang2}"
 
 
 rule separate_parallel:
     input:
-        "data/parallel/shuffled/{lang1}_{lang2}.txt"
+        DATA + "/parallel/shuffled/{lang1}_{lang2}.txt"
     output:
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
+        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
+        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
     run:
         out1, out2 = output
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
@@ -1119,12 +1140,12 @@ rule separate_parallel:
 # BPE is learned only from the train set and is later applied to train, valid, and test sets
 rule learn_bpe:
     input:
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.train.txt",
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.train.txt"
+        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.train.txt",
+        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.train.txt"
     output:
-        "data/parallel/bpe/{lang1}_{lang2}.codes",
-        "data/parallel/bpe/{lang1}_{lang2}.{lang1}.vocab",
-        "data/parallel/bpe/{lang1}_{lang2}.{lang2}.vocab"
+        DATA + "/parallel/bpe/{lang1}_{lang2}.codes",
+        DATA + "/parallel/bpe/{lang1}_{lang2}.{lang1}.vocab",
+        DATA + "/parallel/bpe/{lang1}_{lang2}.{lang2}.vocab"
     run:
         bpe_file, vocab1, vocab2 = output
         shell(
@@ -1135,21 +1156,21 @@ rule learn_bpe:
 
 rule learn_sentencepiece:
     input:
-        "data/monolingual/{lang}.sample.txt"
+        DATA + "/monolingual/{lang}.sample.txt"
     output:
-        "data/sentencepiece/{lang}.model",
-        "data/sentencepiece/{lang}.vocab"
+        DATA + "/sentencepiece/{lang}.model",
+        DATA + "/sentencepiece/{lang}.vocab"
     shell:
         # spm_train is the command to train a SentencePiece model.
         # Its command-line options are poorly and inaccurately documented,
         # so I will explain them here.
         "spm_train "
         # The filename of input text that the model will be trained on:
-        "--input data/monolingual/{wildcards.lang}.sample.txt "
+        "--input {DATA}/monolingual/{wildcards.lang}.sample.txt "
         # Contrary to the documentation, the format can just be plain text separated by newlines:
         "--input_format text "
         # Add '.model' and '.vocab' to this to get the output filenames:
-        "--model_prefix data/sentencepiece/{wildcards.lang} "
+        "--model_prefix {DATA}/sentencepiece/{wildcards.lang} "
         # Case-fold, apply NFKC, and apply a couple other substitutions that
         # machine translation people have found useful:
         "--normalization_rule_name nmt_nfkc_cf"
@@ -1160,11 +1181,10 @@ rule learn_sentencepiece:
 # Split the encoded output into files containing uniform numbers of ids.
 rule encode_sentencepiece_ids:
     input:
-        "data/monolingual/{lang}.txt.gz",
-        "data/sentencepiece/{lang}.model"
+        DATA + "/monolingual/{lang}.txt.gz",
+        DATA + "/sentencepiece/{lang}.model"
     output:
-        temp(expand("data/sentencepiece/{{lang}}.spm_txt_ids/length_{n}.txt",
-                    n=range(MAX_SPM_ENCODE_IDS + 1)))
+        temp(expand(DATA + "/sentencepiece/{{lang}}.spm_txt_ids/length_{n}.txt", n=range(MAX_SPM_ENCODE_IDS + 1)))
     run:
         # We invoke awk to sample the input data file.  Then we invoke a
         # python script to distribute the output of spm_encode to output
@@ -1190,11 +1210,11 @@ rule encode_sentencepiece_ids:
 # Split the encoded SentencePiece id's into training, validation, and testing sets.
 rule split_one_sentencepiece_id_file:
     input:
-        "data/sentencepiece/{lang}.spm_txt_ids/length_{n}.txt"
+        DATA + "/sentencepiece/{lang}.spm_txt_ids/length_{n}.txt"
     output:
-        temp("data/sentencepiece/{lang}.spm_txt_ids_training/length_{n}.txt"),
-        temp("data/sentencepiece/{lang}.spm_txt_ids_validation/length_{n}.txt"),
-        temp("data/sentencepiece/{lang}.spm_txt_ids_testing/length_{n}.txt")
+        temp(DATA + "/sentencepiece/{lang}.spm_txt_ids_training/length_{n}.txt"),
+        temp(DATA + "/sentencepiece/{lang}.spm_txt_ids_validation/length_{n}.txt"),
+        temp(DATA + "/sentencepiece/{lang}.spm_txt_ids_testing/length_{n}.txt")
     run:
         training_file, validation_file, testing_file = output
         frac_valid = FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION
@@ -1217,20 +1237,20 @@ rule split_one_sentencepiece_id_file:
 # Convert the outputs of encode_sentencepiece_ids into .npy files.
 rule numberize_one_sentencepiece_id_file:
     input:
-        "data/sentencepiece/{lang}.spm_txt_ids_{task}/length_{n}.txt"
+        DATA + "/sentencepiece/{lang}.spm_txt_ids_{task}/length_{n}.txt"
     output:
-        "data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy"
+        DATA + "/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy"
     shell:
         "scripts/sentencepiece_id_converter.py {input} {output}"
 
 
 rule apply_bpe:
     input:
-        "data/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
-        "data/parallel/bpe/{pair}.codes",
-        "data/parallel/bpe/{pair}.{lang}.vocab"
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
+        DATA + "/parallel/bpe/{pair}.codes",
+        DATA + "/parallel/bpe/{pair}.{lang}.vocab"
     output:
-        "data/parallel/bpe/{pair}.{lang}.{mode}.txt"
+        DATA + "/parallel/bpe/{pair}.{lang}.{mode}.txt"
     run:
         text_in, bpe_file, vocab_file = input
         shell(
@@ -1241,11 +1261,12 @@ rule apply_bpe:
 
 rule apply_bpe_tatoeba:
     input:
-        "data/tokenized/opus/Tatoeba.{pair}.{lang}.txt",
-        "data/parallel/bpe/{pair}.codes",
-        "data/parallel/bpe/{pair}.{lang}.vocab"
+        DATA + "/tokenized/opus/Tatoeba.{pair}.{lang}.txt",
+        DATA + "/parallel/bpe/{pair}.codes",
+        DATA + "/parallel/bpe/{pair}.{lang}.vocab"
     output:
-        "data/parallel/bpe/tatoeba_test.{pair}.{lang}.txt"
+        DATA + "/parallel/bpe/tatoeba_test.{pair}.{lang}.txt"
+
     run:
         text_in, bpe_file, vocab_file = input
         shell(
@@ -1258,11 +1279,11 @@ rule apply_bpe_tatoeba:
 # and rest is kept for the train set.
 rule split_train_valid_test:
     input:
-        "data/parallel/shuffled-split/{pair}.{lang}.all.txt"
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.all.txt"
     output:
-        "data/parallel/shuffled-split/{pair}.{lang}.train.txt",
-        "data/parallel/shuffled-split/{pair}.{lang}.valid.txt",
-        "data/parallel/shuffled-split/{pair}.{lang}.test.txt"
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.train.txt",
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.valid.txt",
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.test.txt"
     run:
         train_file, valid_file, test_file = output
         shell(
@@ -1274,20 +1295,20 @@ rule split_train_valid_test:
 
 rule rejoin_training_data:
     input:
-        "data/parallel/bpe/{lang1}_{lang2}.{lang1}.{mode}.txt",
-        "data/parallel/bpe/{lang1}_{lang2}.{lang2}.{mode}.txt"
+        DATA + "/parallel/bpe/{lang1}_{lang2}.{lang1}.{mode}.txt",
+        DATA + "/parallel/bpe/{lang1}_{lang2}.{lang2}.{mode}.txt"
     output:
-        "data/parallel/training/{lang1}_{lang2}.{mode}.txt"
+        DATA + "/parallel/training/{lang1}_{lang2}.{mode}.txt"
     shell:
         "paste {input} > {output}"
 
 
 rule join_tatoeba_data:
     input:
-        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
-        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
+        DATA + "/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
+        DATA + "/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
     output:
-        "data/parallel/training/tatoeba_test.{lang1}_{lang2}.txt"
+        DATA + "/parallel/training/tatoeba_test.{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
@@ -1296,9 +1317,9 @@ rule join_tatoeba_data:
 # ===============
 rule count_tokens:
     input:
-        "data/tokenized/{source}/{lang}.txt"
+        DATA + "/tokenized/{source}/{lang}.txt"
     output:
-        "data/messy-counts/{source}/{lang}.txt"
+        DATA + "/messy-counts/{source}/{lang}.txt"
     shell:
         "xc count {input} {output}"
 
@@ -1307,16 +1328,16 @@ rule merge_freqs:
     input:
         lambda wildcards: language_count_sources(wildcards.lang)
     output:
-        "data/freqs/{lang}.txt"
+        DATA + "/freqs/{lang}.txt"
     shell:
         "xc merge-freqs {input} {output}"
 
 # Counts to frequencies without merging
 rule count_to_freqs:
     input:
-        "data/counts/{source}/{lang}.txt"
+        DATA + "/counts/{source}/{lang}.txt"
     output:
-        "data/freqs/{source}/{lang}.txt"
+        DATA + "/freqs/{source}/{lang}.txt"
     shell:
         "xc count-to-freqs {input} {output}"
 
@@ -1334,93 +1355,94 @@ rule count_to_freqs:
 # it with the 'sh' data we have from other sources.
 rule debalkanize_opensubtitles_sh:
     input:
-        expand("data/tokenized/opus/OpenSubtitles2018.{lang}.txt", lang=['bs', 'hr', 'sr'])
+        expand(DATA + "/tokenized/opus/OpenSubtitles2018.{lang}.txt",
+                    lang=['bs', 'hr', 'sr'])
     output:
-        "data/tokenized/opus/OpenSubtitles2018.sh.txt"
+        DATA + "/tokenized/opus/OpenSubtitles2018.sh.txt"
     shell:
         "grep -vh '[А-Яа-я]' {input} > {output}"
 
 rule recount_messy_tokens:
     input:
-        "data/messy-counts/{source}/{lang}.txt"
+        DATA + "/messy-counts/{source}/{lang}.txt"
     output:
-        "data/counts/{source}/{lang}.txt"
+        DATA + "/counts/{source}/{lang}.txt"
     shell:
         "xc recount {input} {output} -l {wildcards.lang}"
 
 rule merge_reddit:
     input:
-        expand("data/counts/reddit/{date}/{{lang}}.txt", date=REDDIT_SHARDS)
+        expand(DATA + "/counts/reddit/{date}/{{lang}}.txt", date=REDDIT_SHARDS)
     output:
-        "data/counts/reddit/merged/{lang}.txt"
+        DATA + "/counts/reddit/merged/{lang}.txt"
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
 rule merge_subtlex_en:
     input:
-        "data/counts/subtlex/en-GB.txt",
-        "data/counts/subtlex/en-US.txt",
+        DATA + "/counts/subtlex/en-GB.txt",
+        DATA + "/counts/subtlex/en-US.txt",
     output:
-        "data/counts/subtlex/en.txt"
+        DATA + "/counts/subtlex/en.txt"
     shell:
         "cat {input} | xc recount - {output} -l en"
 
 rule merge_opensubtitles_pt:
     input:
-        "data/tokenized/opus/OpenSubtitles2018.pt-BR.txt",
-        "data/tokenized/opus/OpenSubtitles2018.pt-PT.txt",
+        DATA + "/tokenized/opus/OpenSubtitles2018.pt-BR.txt",
+        DATA + "/tokenized/opus/OpenSubtitles2018.pt-PT.txt",
     output:
-        "data/tokenized/opus/OpenSubtitles2018.pt.txt"
+        DATA + "/tokenized/opus/OpenSubtitles2018.pt.txt"
     shell:
         "cat {input} > {output}"
 
 rule merge_opensubtitles_zh:
     input:
-        "data/tokenized/opus/OpenSubtitles2018.zh-Hans.txt",
-        "data/tokenized/opus/OpenSubtitles2018.zh-Hant.txt",
+        DATA + "/tokenized/opus/OpenSubtitles2018.zh-Hans.txt",
+        DATA + "/tokenized/opus/OpenSubtitles2018.zh-Hant.txt",
     output:
-        "data/tokenized/opus/OpenSubtitles2018.zh.txt"
+        DATA + "/tokenized/opus/OpenSubtitles2018.zh.txt"
     shell:
         "cat {input} | xc simplify-chinese - {output}"
 
 rule merge_globalvoices_zh:
     input:
-        "data/tokenized/opus/GlobalVoices.zh-Hans.txt",
-        "data/tokenized/opus/GlobalVoices.zh-Hant.txt",
+        DATA + "/tokenized/opus/GlobalVoices.zh-Hans.txt",
+        DATA + "/tokenized/opus/GlobalVoices.zh-Hant.txt",
     output:
-        "data/tokenized/opus/GlobalVoices.zh.txt"
+        DATA + "/tokenized/opus/GlobalVoices.zh.txt"
     shell:
         "cat {input} | xc simplify-chinese > {output}"
 
 rule copy_google_zh:
     input:
-        "data/counts/google/zh-Hans.txt"
+        DATA + "/counts/google/zh-Hans.txt"
     output:
-        "data/counts/google/zh.txt"
+        DATA + "/counts/google/zh.txt"
     shell:
         "xc simplify-chinese {input} {output}"
 
 rule copy_tatoeba_zh:
     input:
-        "data/tokenized/tatoeba/zh-Hans.txt"
+        DATA + "/tokenized/tatoeba/zh-Hans.txt"
     output:
-        "data/tokenized/tatoeba/zh.txt"
+        DATA + "/tokenized/tatoeba/zh.txt"
     shell:
         "cp {input} {output}"
 
 rule copy_subtlex_zh:
     input:
-        "data/counts/subtlex/zh-Hans.txt"
+        DATA + "/counts/subtlex/zh-Hans.txt"
     output:
-        "data/counts/subtlex/zh.txt"
+        DATA + "/counts/subtlex/zh.txt"
     shell:
         "xc simplify-chinese {input} {output}"
 
 rule copy_europarl_pt:
     input:
-        "data/tokenized/opus/Europarl.pt-PT.txt"
+        DATA + "/tokenized/opus/Europarl.pt-PT.txt"
     output:
-        "data/tokenized/opus/Europarl.pt.txt"
+        DATA + "/tokenized/opus/Europarl.pt.txt"
     shell:
         "cp {input} {output}"
 
@@ -1431,7 +1453,7 @@ rule merge_news:
     input:
         lambda wildcards: multisource_counts_to_merge('news', wildcards.lang)
     output:
-        "data/counts/news/{lang}.txt"
+        DATA + "/counts/news/{lang}.txt"
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
@@ -1439,7 +1461,7 @@ rule merge_subtitles:
     input:
         lambda wildcards: multisource_counts_to_merge('subtitles', wildcards.lang)
     output:
-        "data/counts/subtitles/{lang}.txt"
+        DATA + "/counts/subtitles/{lang}.txt"
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
@@ -1447,7 +1469,7 @@ rule merge_web:
     input:
         lambda wildcards: multisource_counts_to_merge('web', wildcards.lang)
     output:
-        "data/counts/web/{lang}.txt"
+        DATA + "/counts/web/{lang}.txt"
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
@@ -1457,9 +1479,10 @@ rule merge_web:
 
 rule combine_reddit:
     input:
-        expand("data/tokenized/reddit/{date}/{{lang}}.txt.gz", date=REDDIT_SHARDS)
+        expand(DATA + "/tokenized/reddit/{date}/{{lang}}.txt.gz", \
+                 date=REDDIT_SHARDS)
     output:
-        temp("data/tokenized/reddit/merged/{lang}.txt")
+        temp(DATA + "/tokenized/reddit/merged/{lang}.txt")
     priority:
         10
     run:
@@ -1472,21 +1495,21 @@ rule shuffle_full_text:
     input:
         lambda wildcards: language_text_sources(wildcards.lang)
     output:
-        "data/shuffled/{lang}.txt"
+        DATA + "/shuffled/{lang}.txt"
     shell:
         "grep -h '.' {input} | scripts/imperfect-shuffle.sh {output} {wildcards.lang}"
 
 rule fasttext_skipgrams:
     input:
-        "data/shuffled/{lang}.txt"
+        DATA + "/shuffled/{lang}.txt"
     output:
-        "data/skipgrams/{lang}.vec",
-        "data/skipgrams/{lang}.bin"
+        DATA + "/skipgrams/{lang}.vec",
+        DATA + "/skipgrams/{lang}.bin"
     run:
         if wildcards.lang == 'en':
-            shell("fasttext skipgram -dim 300 -input {input} -output data/skipgrams/{wildcards.lang}")
+            shell("fasttext skipgram -dim 300 -input {input} -output {DATA}/skipgrams/{wildcards.lang}")
         else:
-           shell("fasttext skipgram -dim 200 -epoch 20 -input {input} -output data/skipgrams/{wildcards.lang}")
+           shell("fasttext skipgram -dim 200 -epoch 20 -input {input} -output {DATA}/skipgrams/{wildcards.lang}")
 
 
 # Building wordfreq data files
@@ -1494,33 +1517,33 @@ rule fasttext_skipgrams:
 
 rule make_small_wordfreq_list:
     input:
-        "data/freqs/{lang}.txt"
+        DATA + "/freqs/{lang}.txt"
     output:
-        "data/wordfreq/small_{lang}.msgpack.gz"
+        DATA + "/wordfreq/small_{lang}.msgpack.gz"
     shell:
         "xc export-to-wordfreq {input} - -c 600 | gzip -c > {output}"
 
 rule make_large_wordfreq_list:
     input:
-        "data/freqs/{lang}.txt"
+        DATA + "/freqs/{lang}.txt"
     output:
-        "data/wordfreq/large_{lang}.msgpack.gz"
+        DATA + "/wordfreq/large_{lang}.msgpack.gz"
     shell:
         "xc export-to-wordfreq {input} - -c 800 | gzip -c > {output}"
 
 rule make_twitter_wordfreq_list:
     input:
-        "data/freqs/twitter/{lang}.txt"
+        DATA + "/freqs/twitter/{lang}.txt"
     output:
-        "data/wordfreq/twitter_{lang}.msgpack.gz"
+        DATA + "/wordfreq/twitter_{lang}.msgpack.gz"
     shell:
         "xc export-to-wordfreq {input} - -c 600 | gzip -c > {output}"
 
 rule make_jieba_list:
     input:
-        "data/freqs/{lang}.txt"
+        DATA + "/freqs/{lang}.txt"
     output:
-        "data/wordfreq/jieba_{lang}.txt"
+        DATA + "/wordfreq/jieba_{lang}.txt"
     shell:
         "xc export-to-jieba {input} {output} -c 600"
 
