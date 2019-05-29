@@ -1,0 +1,572 @@
+organo a pompa
+l' organo a pompa è un tipo di organo a serbatoio d' aria costituito da una ( o più ) tastiera , manuale , e da due pedali per azionare i mantici per l' aria .
+nella classificazione hornbostel - sachs , rientra nella famiglia denominata " serie di aerofoni ad ancia libera " ( codice 412.132 ), poiché il suono che esso produce è dovuto a delle ance .
+ci sono due differenti tipi di organi a pompa :
+l' organo ad aria compressa ( lharmonium francese ), meglio noto come armonium o armonio ;
+l' organo ad aria aspirata ( il ( suction ) reed organ americano ).
+
+armonium occidentale
+
+col termine italiano armonium si comprendono due differenti tipi di strumento : quello ad aria compressa , che è lharmonium di tipo francese , e quello ad aria aspirata , che è il reed organ americano ( ma anche inglese e tedesco ). nel primo caso , i mantici pompano l’ aria , attraverso una “ camera del vento ” o “ serbatoio ” ( réservoir , in francese ), verso le ance facendole vibrare ; nel secondo caso , essi aspirano l’ aria atmosferica , che passando attraverso le ance le mette in vibrazione .
+il reed organ nasce in america nella prima metà dell' ottocento ( come afferma gellerman ), risultato finale di tutta una serie di strumenti sperimentali ( come il " pan harmonicon " di goodrich , di boston , o la " seraphine " di green , di londra ), probabilmente ad opera di un tale aaron merrill peaseley , anche lui di boston . lo stesso gellerman tuttavia riconosce che mancano documenti probanti questa attribuzione , mentre il primo produttore certo di american reed organs fu james amireaux bazin , inventore di canton , massachusetts , che ne costruì un primo esemplare nel 1824 . tali strumenti non ebbero immediata diffusione tanto che nel 1846 in tutti gli stati uniti se ne contavano meno di trecento ; venivano prodotti a mano in piccoli negozi , da artigiani che ne costruivano perciò tipi assai differenti per foggia e materiali , spesso a seconda della richiesta . per una produzione di tipo industriale su più larga scala bisogna attendere la metà del secolo , con l' affermarsi delle prime compagnie e dei primi marchi di fabbrica : la george a . prince company ( che divenne un' azienda leader in america tra gli anni ' 50 e ' 60 dell' ottocento ) di buffalo , new york ; la jones , woodbury & burditt di brattleboro , vermont ; la carhart & needham di new york . l' epoca d' oro del reed organ americano , tuttavia , ha inizio con la seconda metà dell' ottocento , ad opera di grandi produttori come jacob estey di brattleboro ( fondatore della estey organ company , attiva per più di un secolo , dal 1852 fino al 1959 ) o william wallace kimball di chicago ( w.w.kimball & co .). ad essi si affiancano altri nomi di aziende produttrici di reed organ , come mason & hamlin , farrand , la aeolian company : gli strumenti prodotti andavano da quelli più sofisticati ( come il " vocalion " o l '" orchestrelle "), spesso caratterizzati da forme assai elaborate , a strumenti portatili pieghevoli ( folding organ ), che vennero assai impiegati dai missionari o dai cappellani dell' esercito americano durante le missioni belliche della seconda guerra mondiale .
+l’harmonium francese nasce invece nel 1840 per opera di alexandre - françois debain e diviene ben presto uno strumento molto richiesto ed artisticamente assai pregiato : per alcuni esemplari particolarmente elaborati , dal punto di vista tecnico ma anche estetico , si parla appunto di harmonium d’ art . tra questi , i più notevoli si devono a victor mustel , che ne affinò notevolmente la tecnica costruttiva e ampliò la ricchezza timbrica : i suoi strumenti presentano una bellezza estetica indiscutibile ( data anche dall’ utilizzo di legni pregiati , come il rovere francese o il palissandro ), l' eleganza delle forme e dei particolari costruttivi ne fecero modelli imprescindibili ; ma è soprattutto la perfezione tecnica , il fascino timbrico e la novità delle invenzioni che egli introdusse ( come il prolongement , col quale si possono prolungare alcune note del basso , il métaphone , che modifica il timbro di alcuni registri , o la double expression , capace di dare differenti sfumature dinamiche alla parte bassa e alta della tastiera ) che rendono unici tali strumenti .
+altri celebri produttori francesi di harmonium furono alexandre , dumont - lelièvre , christophe et étienne , kasriel , rodolphe , richard .
+lungi dall’ essere etichettato come un “ parente povero ” dell’ organo , l' armonium di tipo francese si ricavò così un posto stabile , oltre che nelle chiese , anche nei salotti , accanto al pianoforte . proprio per questa ragione , per questo strumento vennero scritti anche brani non esclusivamente pertinenti all’ ambito sacro , che costituiscono un repertorio importante per qualità e ricchezza musicale . compositori che scrissero specificamente per harmonium furono saint - saëns , guilmant , louis james alfred lefébure - wély e , in germania , sigfrid karg - elert .
+l’harmonium francese venne ripreso in italia da graziano tubi che nel 1860 fondò una casa di produzione di strumenti molto curati per fattura e qualità timbrica : tubi , multiforme personalità di imprenditore , si servì di ance provenienti da parigi ( le celebri ance estève ) e si basò sui modelli francesi per la produzione dei propri strumenti . l’ azienda , con sede a lecco , ebbe vita fino agli anni settanta del ‘ 900 , prima di chiudere definitivamente la propria attività .
+altri produttori italiani di armonium ( che presero a modello sia strumenti di tipo francese sia di tipo americano ) sono giuseppe mola ( 1837 - 1928 , di torino : menzione di merito all’ esposizione universale di parigi , 1867 ), egidio galvan ( 1873 - 1944 , di trento : medaglia di bronzo all’ esposizione universale di liegi , 1905 ), iginio delmarco e arcangelo bozzetta ( attivi a tesero dal 1920 ), giovanni lanzani ( attivo a seveso dal 1926 ), achille radice ( attivo pure a seveso dal 1929 : noto anche col marchio aref ), enrico ciresa ( 1922 - 1991 , di tesero , in attività dal 1952 ), arienti .
+i registri dell' armonium sono tutti ad ancia ( ance libere ) e il timbro è determinato dalla curvatura e dalla forma delle ance ; rispetto all’ organo esso ha minore estensione , ma attraverso il registro denominato “ espressione ” permette un enorme controllo di sfumature dinamiche ; i suoi effetti meccanici sono il tremolo , la voce umana e la sordina . per regolare la dinamica si utilizzano anche le ginocchiere poste ai due lati delle ginocchia , che aprono e chiudono delle gelosie e che permettono così di graduare la quantità di suono prodotta dalle ance . in alcuni modelli , infine , una ginocchiera centrale permette di inserire contemporaneamente tutti i registri (“ grande gioco ” o “ grand jeu ”).
+su molti strumenti è disponibile almeno ununione , che funziona meccanicamente e serve a far suonare anche le note all' ottava rispetto a quelle che si stanno suonando . quando le unioni sono due , la prima serve per la metà inferiore della tastiera , la seconda per quella superiore , e permettono di far suonare le note raddoppiandole rispettivamente con l' ottava bassa e con l' ottava alta .
+a causa dell' alto costo della manutenzione specializzata necessaria e della relativa difficile reperibilità , nonché dell' avvento dell' organo liturgico elettronico , gli armonium sono progressivamente scomparsi dalle chiese o vi rimangono inutilizzati .
+
+armonium indiano
+
+l' armonium indiano è simile a quello occidentale , ma di minori dimensioni . è stato portato in india dall' occidente dai missionari cristiani , da circa metà ottocento in poi . essi avevano bisogno di uno strumento facilmente trasportabile da usare nelle funzioni religiose , e lo trovarono in questo tipo di armonium , grande all' incirca come una fisarmonica e di funzionamento simile . la forma è quella di un mobiletto rettangolare , vicino al suonatore ha una tastiera ( tipo pianoforte ) che si estende da due a quattro ottave , e si suona con una sola mano , l' altra mano aziona un mantice a soffietto posto sul lato distante dal suonatore . la versione indiana ha poi la possibilità di mettere in funzione un certo numero di bordoni diversi ( note costanti di sottofondo ), onnipresenti nella musica classica indiana ( viene azionato quello corrispondente alla tonica del pezzo suonato ).
+la storia dell' armonium in india è strettamente correlata a quella del sarangi .
+la caratteristica più importante dell' armonium , rispetto al contesto indiano , è l' intonazione . essendo uno strumento occidentale , è accordato secondo il temperamento equabile , sviluppato in occidente per le esigenze della musica armonico - tonale ( quindi dell' armonia basata sugli accordi e la modulazione da una tonalità all' altra ). questo tipo di accordatura è del tutto estraneo alla musica indiana , che è modale e non contempla accordi né cambiamenti nella tonica in una esecuzione musicale , ed è fondata su numerose e precise sfumature di intonazione dei suoni delle varie scale , che vengono usate ( incompatibili con il nostro temperamento equabile ).
+ma altre caratteristiche hanno fatto in modo che si inserisse ugualmente nel contesto della musica indiana ( anche di quella " classica "). la principale è che è appunto capace di passare immediatamente da una " tonalità " all' altra . la musica indiana è fondata su una tonica immutabile , ma è anche vero che ogni cantante ha la sua tonica personale , e questo rende l' armonium estremamente flessibile se usato per accompagnare cantanti diversi che usano toniche diverse . inoltre la tecnica di questo strumento , applicata alla musica indiana , è relativamente semplice .
+tradizionalmente l' accompagnamento dei / delle cantanti classici era affidato al sarangi , strumento ad arco molto importante in india , dalla voce estremamente caratteristica ( grazie anche alle numerose corde di risonanza ), ma che per una serie di motivi si trovò a perdere in preminenza . tra questi , la difficoltà tecnica che richiede grande dedizione da parte del musicista , ed il fatto di avere così tante corde di risonanza ( che non hanno un ruolo marginale , ma sono molto importanti per la sua sonorità e per la creazione del giusto " sentimento " musicale ). ogni pezzo musicale ( raga ), basato su una diversa scala , richiede che queste corde vengano riaccordate ( cosa che richiede tempo e perizia ); inoltre se un medesimo sarangista si trova a dover accompagnare diversi cantanti che usano toniche diverse , deve riaccordare completamente l' intero strumento ( quando non sostituire addirittura le corde ).
+in più , i mutamenti sociali favoriti dalla dominazione coloniale britannica hanno contribuito a spingere nell' ombra i suonatori di sarangi , che si sono visti soppiantare dai nuovi suonatori di armonium : capaci di passare rapidamente da una tonica all' altra , in grado di accompagnare diversi cantanti in rapida sequenza , più adatti al nuovo contesto rapido e " tecnologico " che si stava formando ( ad esempio i concerti radiofonici di all india radio ). la gran parte dei cantanti si è adattata a farsi accompagnare nelle loro esecuzioni dall' armonium , nonostante l' irrimediabile fatto di essere fuori intonazione . fatto musicalmente accettabile se mantenuto in un ruolo marginale , che non si scontrasse con la voce ( intonata correttamente ) del / della cantante .
+si venne così a creare un circolo vizioso in cui i sarangisti veramente esperti divennero pochi , ed i cantanti cominciarono a preferire i suonatori di armonium ( stonati , ma sempre più intonati di un cattivo sarangista ).
+
+note
+
+
+bibliografia
+
+alphonse mustel , l' orgue - expressif ou harmonium , mustel père & fils , paris 1903
+robert f . gellerman , the american reed organ and the harmonium , the vestal press , ldt . vestal , new york 1996
+roberto perinu , la musica indiana , ed . zanibon , padova , 1981
+ali akbar khan , george ruckert , the classical music of north india , munshiram manoharlal publishers , new delhi , india , 1998
+david courtney , chandrakantha courtney , elementary north indian vocal , sur sangeet services , houston , usa , 1995
+sandeep bagchee , nad – understanding raga music , eshwar , mumbai , india , 1998
+stuart isacoff , temperamento – storia di un enigma musicale , ed . edt , torino , 2005
+
+voci correlate
+
+musica
+genere musicale
+giovanni tamburini
+
+altri progetti
+
+
+collegamenti esterni
+
+pompa
+
+antropologia
+l' antropologia ( termine composto col prefisso antropo -, dal greco ἄνθρωποσ ànthropos " uomo " più il suffisso - logia , dal greco λόγοσ , lògos " parola "), nata come disciplina interna alla biologia , ha acquisito in seguito anche un importante valore umanistico . essa studia l' essere umano sotto diversi punti di vista : sociale , culturale , morfologico , psicoevolutivo , sociologico , artistico - espressivo , filosofico - religioso e in genere dal punto di vista dei suoi vari comportamenti all' interno di una società .
+
+cenni storici
+
+se già gli antichi egizi solevano distinguere le differenze tra i popoli , raffigurando i nemici catturati con un colore della pelle diverso , come ad esempio i libici dalla pelle chiara , ed evidenziando inoltre usanze e tratti fisici differenti , come la barba lunga degli stessi uomini libici , bisognerà attendere gli studi dello storico e geografo greco erodoto di alicarnasso , per poter leggere una descrizione dei caratteri di varie popolazioni antiche ( etiopi , greci , egizi , sciti ), nella quale l' autore distinse tra i caratteri fisici e quelli etnografici .
+uno dei primi precursori dell' antropologia , nell' antichità fu aristotele , che si preoccupò di classificare il mondo zoologico , comprendente luomo animale ragionevole . le conoscenze dei tipi umani si approfondirono grazie agli studi dei medici ippocrate e galeno e ai racconti dei viaggiatori , da marco polo a magellano .
+nel xvii secolo , in uno studio sulle antille , il padre domenicano jean - baptiste du tertre descrisse in chiave antropologico - razziale gli abitanti di quelle isole . nel settecento linneo istituì una catalogazione delle varietà umane imperniata sia sui caratteri fisici sia su quelli morali o etnologici e l' antropologia ottocentesca ricevette un grande sviluppo grazie alle ricerche fornite , qualche anno prima , da buffon ( 1707 - 1788 ), basate sul concetto di razza umana e dalla teoria dell' adattamento ai vari ambienti naturali . seguirono lamarck ( 1744 - 1829 ), blumenbach ( 1752 - 1840 ), con le sue norme descrittive del cranio , paul broca ( 1824 - 1880 ) e la craniometria , manouvrier ( 1850 - 1927 ) con la focalizzazione dei rapporti tra morfologia e funzionalità .
+in italia si misero in evidenza , oltre al caposcuola giustiniano nicolucci ( 1819 - 1904 ), che nel 1857 scrisse il primo trattato italiano di antropologia ed etnologia ; giuseppe pitrè ( 1841 - 1916 ) considerato il più importante antropologo italiano , anche paolo mantegazza ( 1831 - 1910 ) ed enrico morselli ( 1852 - 1929 ).
+
+fondazione dell' antropologia : morgan e tylor
+
+
+la nuova scienza antropologica ( basata sull' analisi delle strutture sociali dei popoli arcaici ) ebbe un inizio promettente con lewis henry morgan ( 1818 - 1881 ) ed edward burnett tylor ( 1832 - 1917 ), i quali , nei loro studi sugli amerindi e su altre popolazioni primitive , rivelarono la comune struttura sociale di tribù di diversi paesi : una struttura caratterizzata da un sistema complesso di rapporti , spesso matrilineari e dalla mancanza di proprietà privata e di un apparato repressivo ( prigioni , polizia , ecc . l.h . morgan , ancient society , londra , 1877 ; e.b . tylor , anahuac , londra , 1861 ). questo fu per loro lo stato primitivo della nostra civiltà , corrispondente all' antica organizzazione sociale della grecia antica e di roma antica .
+ma questa traccia , che minacciava di minare alla sua stessa base la morale , la proprietà privata e lo stato borghesi , era troppo pericolosa per gli antropologi accademici , i missionari , gli esploratori che avevano raccolto le prime informazioni dirette sulle civiltà selvagge . anche questo compito fu lasciato a marx e a engels . da parte sua , la scienza borghese preferì porsi sul terreno del comparativismo di james frazer ( 1854 - 1941 ) e di westermarck ( 1862 - 1939 ) e limitarsi alla raccolta di oggetti d' arte e folclore , alla ricerca delle origini razziali attraverso la misurazione dei crani . col miglioramento delle comunicazioni e con l' intensificarsi dello sfruttamento coloniale che caratterizzarono gli ultimi decenni dell' ottocento , i contatti con i popoli primitivi si moltiplicarono .
+e sebbene nella maggior parte dei casi questi contatti avvenissero unicamente in funzione dello sfruttamento e dello sterminio delle popolazioni indigene , resero anche possibile una maggiore conoscenza dei loro costumi e delle loro credenze . i primi studi antropologici sul posto furono quelli effettuati nel 1871 da miklukho maklai ( 1846 - 1888 ) nella nuova guinea e da una spedizione zoologica nello stretto di torres e nella nuova guinea ( 1898 - 1899 ). di questa fecero parte a . c . haddon ( 1855 - 1940 ) e w . h . r . rivers ( 1864 - 1922 ). ma neanche di queste osservazioni dirette , che valsero a confermare lo schema di organizzazione tribale fornito da morgan e tylor , si seppe dare altro che un' interpretazione psicologica , mentre gli aspetti economici seguitarono a essere trascurati .
+con il grande contributo di studiosi come bronisław malinowski ci si avvierà verso una nuova stagione antropologica e si potrà parlare di nuovi modelli di studio . l' antropologia si muove dalla vecchia prassi , essere antropologo ad inizio novecento significa andare verso le realtà di cui si parla , verificare , riportare , immedesimarsi : nasce la cosiddetta osservazione partecipante , ovvero la capacità di calarsi a fondo in un ambiente sociale diverso dal proprio con il fine di riportare in maniera oggettiva e scientifica ciò che si osserva . malinowski fu anche tra i primi ad usare nuovi mezzi per ottenere informazioni , per esempio apparecchi di registrazione , strumenti per filmare e soprattutto la macchina fotografica . oltre a ciò , il grande studioso tenne numerosi diari di appunti sulla popolazione delle trobriand ( il locus antropologico di malinowski ) che saranno pubblicati dopo la sua morte e che rivelarono la grande difficoltà di immedesimarsi delľ antropologo in contesti lontani e molto diversi dal proprio , oltre al fatto delľimpossibilità di riportare oggettivamente certe realtà .
+negli anni sessanta e anche precedentemente , le discipline antropologiche subirono ulteriori cambiamenti , uno dei più clamorosi fu ľunione con la linguistica ( la linguistica strutturale di saussure ) operata da claude levi strauss con la finalità di superare il pregiudizio etnocentrico occidentale e arrivare a riconoscere la presenza di strutture comuni a tutti gli uomini , idea criticata in modo diverso da tutti i post strutturalisti .
+
+impostazione dello studio
+
+nella contemporaneità , dal punto di vista accademico , l' antropologia è suddivisa , nella tradizione di studi italiana , in due aree principali :
+l' antropologia fisica ( o " antropologia biologica "), che studia l' evoluzione e le caratteristiche fisiche degli esseri umani , la genetica delle popolazioni e le basi biologiche dei comportamenti della specie umana e dei suoi parenti più stretti , le grandi scimmie ( primatologia );
+le discipline demo - etno - antropologiche , che si occupano degli aspetti socio - culturali ecc . ( ad esempio le reti di relazioni sociali , i comportamenti , usi e costumi , gli schemi di parentela , le leggi e istituzioni politiche , le ideologie , religioni e credenze , gli schemi di comportamento , i modi di produzione e consumo o scambio dei beni , i meccanismi percettivi , le relazioni di potere ). grande importanza ha per tale area di studi la ricerca etnografica , spesso considerata come base imprescindibile per riflessioni teoriche ed eventuali comparazioni .
+generalmente , quando viene utilizzato il termine antropologia senza specificazioni , oggi ci si riferisce a questo secondo gruppo .
+le definizioni " antropologia culturale ", di derivazione statunitense , " antropologia sociale ", di provenienza britannica , ed " etnologia ", di scuola francese , vengono spesso utilizzate per riferirsi genericamente al campo di studi delle scienze antropologiche o etnoantropologiche . l' utilizzo di queste etichette comporta diverse letture teoriche dell' antropologia , che possono essere in linea di massima messe in relazione con le diverse tradizioni di studi . tuttavia vi è ampio consenso nella contemporaneità nell' individuare un' unità epistemologica di fondo del campo disciplinare .
+in italia si tende quindi a preferire la dizione " scienze ( o discipline ) etnoantropologiche " per evitare le implicazioni teoriche della scelta tra etnologia e antropologia sociale e culturale . in accordo con questa tendenza la voce enciclopedica di riferimento per tale campo di studi è scienze etnoantropologiche , e in essa viene trattata la storia della disciplina .
+
+tematiche dell' antropologia
+
+essere umano e natura ( la specie umana , le teorie dell' evoluzione , la primatologia comparata , l' ecologia umana , la paleoantropologia , l' antropologia molecolare )
+società e politica
+politica , la guerra , ( la ricerca del potere e dell' autorità )
+antropologia economica ( economia delle società tradizionali , antropologia dell' impresa )
+antropologia culturale e antropologia dei simboli
+aspetti simbolici ( arte e creatività , simboli gestuali , aspetti visuali , magia e credenze , filosofia e religione )
+usanze e rituali ( giochi della crescita e sociali , parole e comunicazione , riti , costumi )
+corpo ( antropologia medica , tecniche corporali )
+cognizione e mente ( educazione , percezione , categorizzazione , teorie della mente )
+disagi e problematiche esistenziali nell' ambito delle professioni di aiuto ( antropologia filosofica , antropologia clinica esistenziale , counseling , consulenza filosofica ).
+modelli e classificazioni sociali ( cultura , etnia , identità , ruoli , scambi culturali , reti sociali , gerarchia , generi sessuali )
+antropologia delle religioni ( in prospettive storica e comparata , nella definizione di religione e negli aspetti magici e soprannaturali )
+sono inoltre strettamente collegate le discipline dell' etno - linguistica , che si occupa delle variazioni linguistiche delle diverse società umane , e l' archeologia e la paletnologia , che indagano le società del passato attraverso i resti materiali che esse hanno lasciato (" cultura materiale ").
+
+considerazioni generali sull' antropologia
+
+data l' enorme varietà di fenomeni che ricadono nel campo di interesse di questa disciplina e in seguito a evoluzioni storiche delle configurazioni e delle politiche accademiche , e non , relative ad essa , proliferano le direzioni di ricerca ed esiste , di conseguenza , una grande varietà di sottodiscipline istituzionalizzate in corsi e specializzazioni nelle università di tutto il mondo ( per citarne solo alcune : antropologia visuale ; antropologia dello stato ; antropologia economica ; antropologia amazzonica ; antropologia dello sviluppo ; antropologia delle organizzazioni , ecc .).
+la grande quantità di sottodiscipline e campi di interesse che caratterizza attualmente l' antropologia culturale e sociale deve la sua esistenza principalmente alla crisi di due pilastri delle costruzioni teoriche di entrambe : gli stessi concetti di " cultura " e " società ".
+d' altra parte va pur tenuto presente che una qualsiasi società si esprime all' interno di una cultura e una cultura crea il proprio esoscheletro nella società . l' antropologia è quindi " un sapere di frontiera ", in quanto “ nasce sulla frontiera tra culture diverse ”.
+
+fondamenti filosofici
+
+le tradizioni di pensiero moderno che possono essere definite come costituenti una antropologia filosofica , hanno i principali esponenti in immanuel kant , friedrich hegel , johann gottfried herder , ralph waldo emerson , friedrich nietzsche , max scheler , arnold gehlen e helmuth plessner .
+
+note
+
+
+bibliografia
+
+albera d ., blok a ., bomberger c ., antropologia del mediterraneo , guerini , milano , 2007 .
+angioni , g ., fare , dire , sentire : l' identico e il diverso nelle culture , il maestrale , torino , 2011 .
+fabietti , u ., storia dell' antropologia , zanichelli , bologna , 2011 ( terza ed .).
+fabietti u ., malighetti r ., matera v ., dal tribale al globale . introduzione all' antropologia , bruno mondadori , milano 2012 .
+fabietti u ., matera v ., etnografia , scritture e rappresentazioni dell' antropologia , carocci , roma , 1997 .
+fabietti u ., remotti f . ( a cura di ), dizionario di antropologia . etnologia , antropologia culturale , antropologia sociale , zanichelli , bologna , 1997 .
+geertz , c ., interpretazione di culture , il mulino , bologna , 1998 .
+geertz , c ., mondo globale , mondi locali cultura e politica alla fine del xx secolo , il mulino , bologna , 1999 .
+lombo j . a ., russo f ., antropologia filosofica.ti una introduzione , ed . università pontificia della santa croce , roma , 2007 .
+mead m ., baldwin j ., dibattito sulla razza , rizzoli , milano , 1973 .
+moravia s ., lévi - strauss e l' antropologia strutturale , sansoni , firenze , 1973 .
+in lingua inglese
+
+voci correlate
+
+scienze etnoantropologiche
+antropologia fisica
+antropologia neo - esistenziale
+paleoantropologia
+antropologia culturale
+antropologia delle religioni
+antropologia sociale
+antropologia teatrale
+sociologia
+archeologia
+etnologia
+etnografia
+ricerca etnografica
+etnomusicologia
+cinema etnografico
+etnomatematica
+etnopsichiatria
+natura umana
+musei etnografici
+
+altri progetti
+
+
+collegamenti esterni
+
+antropologica sito in mediawiki interamente dedicato alle discipline etno - antropologiche .
+annuario antropologico - annuario antropologico italiano , progetto dedicato a censire gli antropologi che operano in italia e gli antropologi italiani che lavorano all' estero
+mapping transdisciplinarity in human sciences pdf
+fundamental theory of anthropology ppt
+istituto italiano di antropologia - informazioni su incontri scientifici , attività di ricerca e articoli scientifici scaricabili riguardanti l' antropologia evoluzionistica e gli approcci interdisciplinari
+archivio digitale italiano per l' antropologia - un progetto di digitalizzazione di pubblicazioni , documenti e materiali di interesse storico - scientifico
+antrocom onlus - associazione senza scopo di lucro per la divulgazione e la ricerca nel campo dell' antropologia fisica e dell' antropologia culturale
+
+
+agricoltura
+l' agricoltura è l' attività umana che consiste nella coltivazione di specie vegetali . lo scopo principale dell' agricoltura è quella di ottenere prodotti dalle piante , da utilizzare a scopo alimentare e no , ma sono possibili anche altre finalità che non prevedano l' asportazione dei prodotti .
+tradizionalmente , nella cultura italiana , l' agricoltura è popolarmente riferita allo sfruttamento delle risorse vegetali a fini alimentari , mentre lo sfruttamento delle corrispondenti risorse di origine animale , l' allevamento , ne è quasi ritenuta antitetica . a fini scientifici e giuridici , comunque , entrambe le materie sono comunemente riunite nella più vasta accezione di agricoltura , che abbraccia la coltivazione delle piante ( arboree , erbacee ), l' allevamento degli animali e lo sfruttamento delle foreste .
+nel paleolitico gli uomini si nutrivano con le risorse alimentari che la terra offriva loro spontaneamente e cacciando gli animali . verso il 10.000 a.c ., alla fine dell’ ultima glaciazione , qualche gruppo umano incomincia ad organizzarsi per produrre il cibo che prima della glaciazione trovava o cacciava in abbondanza , nacque così l' agricoltura . le prime ad essere coltivate furono le terre ricche d' acqua dei bacini fluviali come il nilo e la zona tra il fiume tigri ed eufrate , terre in cui germogliavano varie tipologie di cereali .
+
+storia
+
+la storia e l' evoluzione dell' agricoltura vanno di pari passo con lo sviluppo tecnologico umano e lo sviluppo di conoscenze o tecniche di coltivazione . in generale nella storia dell' agricoltura si passa progressivamente , attraverso varie tappe , da un' agricoltura di sussistenza , ad un' agricoltura estensiva basata su latifondo e la rotazione delle colture fino ad un' agricoltura di tipo intensivo e specializzata , sempre più meccanizzata , con uso di fertilizzanti e tecniche di ingegneria genetica e con finalità di commercializzazione sul relativo mercato agricolo , sebbene queste tipologie di coltivazione continuino a coesistere tutt' oggi in diverse parti del mondo , legate al livello di sviluppo economico del rispettivo paese di interesse .
+
+origini
+
+dati dalla ricerca molecolare e archeologica generati nel corso degli ultimi 15 anni indicano che l' agricoltura è iniziata in modo indipendente in un' area del mondo molto più grande di quanto pensato in precedenza , e comprendente una vasta gamma di taxa . almeno 11 regioni del vecchio e del nuovo mondo sono stati coinvolti come centri indipendenti di origine , comprendenti regioni geograficamente isolate sulla maggior parte dei continenti , ma molti di più sono stati suggeriti il primo sviluppo è datato circa 11.500 anni fa , separatamente nella mezzaluna fertile e al chogha golan nel moderno iran , dove orzo selvatico , grano e lenticchie sono stati coltivati e dove le forme domestiche di grano sono apparsi circa 9800 ac .
+l' agricoltura sarebbe quindi evoluta circa 10.000 anni fa attraverso la domesticazione .
+pur esistendo esempi di insediamenti stanziali anche notevoli precedenti all' avvio delle coltivazioni , fu l' introduzione dell' agricoltura a dare il via allo sviluppo di comunità sedentarie di sempre maggiori dimensioni , progressivamente strutturati in villaggi e città . l' economia dell' egitto era basata sull' agricoltura e fu tra le prime popolazioni a utilizzare l' aratro in legno , e zappa ; soprattutto nel bacino del medio oriente e del mediterraneo , l' uomo , abbandonata la vita nomade per insediarsi stabilmente , cominciò ad addomesticare gli animali . l' allevamento garantiva una maggiore disponibilità di carne e latte , oltreché materie prime come lana e pelli e fino alla scoperta dei motori a scoppio , fu la più importante forza di lavoro come aiuto nell' aratura e nella fertilizzazione del terreno .
+il rapporto tra la proprietà della terra e ruolo sociale divenne ben presto fondamentale . nel mondo classico e latino , il sistema agrario si basava sulla divisione della terra in funzione all' esigenza della città e sullager publicus oltreché nella rotazione biennale dove , in autunno , circa metà della terra veniva seminata con cereali e l' altra metà veniva lasciata a riposo ( maggese ). il secondo anno s' invertivano le due porzioni .
+
+nuove piante
+
+durante il medioevo giunsero in europa nuove piante portate dagli arabi : riso , cotone , carrubo , pistacchio , spinacio , agrumi . dopo la scoperta dell' america giunsero il mais , la patata , la zucca , il fagiolo , l' arachide , il pomodoro , il peperone , la papaya , la banana .
+
+la prima rivoluzione agricola
+
+l' agricoltura basata sulla rotazione triennale e sul maggese rimase predominante fino al xvii secolo . il progressivo sviluppo dei commerci , tuttavia , stimolò gradualmente l' adozione di nuove tecniche produttive .
+in particolare , nelle fiandre e nel brabante il terreno era poco fertile , ma il notevole sviluppo del commercio marittimo fece aumentare notevolmente la domanda di prodotti quali il lino per le tele , i coloranti per il panno , l' orzo e il luppolo per la birra , la canapa per le funi , il tabacco , ecc . la densità della popolazione , inoltre ,
+favoriva lo sviluppo dell' orticoltura e della frutticoltura . si adottarono quindi nuove tecniche basate sulla rotazione pluriennale e sulla sostituzione del maggese con pascoli per il bestiame , anche per ottenerne concime naturale .
+tali innovazioni vennero studiate da esperti europei ed americani . l' inglese richard weston visitò le province fiamminghe intorno al 1650 e descrisse in una sua famosa opera , a discourse of husbandrie used in brabant and flanders , il loro metodo basato sulla rotazione delle colture ( lino , rapa , avena , trifoglio ). i nuovi metodi dettero origine al cosiddetto sistema di norfolk , generalmente considerato il prototipo di una nuova agricoltura che , grazie alla rotazione e ad altri aspetti ( recinzioni , grandi aziende , lunghe affittanze , aratro in metallo tirato da cavalli , ecc .), consentì all' inghilterra di esportare grandi quantità di grano e farine nel periodo 1700 - 1770 . secondo paul bairoch , il notevole sviluppo dell' agricoltura stimolò la successiva rivoluzione industriale grazie alla domanda di aratri e altri attrezzi in metallo .
+altri paesi seguirono l' esempio dell' inghilterra . ad esempio , in francia , in cui le tecniche agricole medioevali dominarono fino al 1750 , la scuola fisiocratica di françois quesnay propose espressamente fin dal 1756 ( data dell' articolo fittavoli che quesnay scrisse per l' encyclopédie ) l' adozione del modello inglese .
+
+la seconda rivoluzione agricola
+
+la rivoluzione industriale chiamò a sé dalle campagne numerosi braccianti che si riversarono verso altri continenti e / o nelle grandi città . in italia la migrazione fu dal sud verso il triangolo piemonte / veneto / emilia e per contrastarla furono previsti dei piani governativi ossia piani di bonifica delle terre governative che venivano destinate all' agricoltura .
+nel corso del xix secolo migliori strumenti aratori e sistemi di semina , acquisizione sul mercato di nuove sementi e di nuove piante con elevata produttività ( mais ), la comparsa delle macchine agricole e dei concimi chimici , attuarono una profonda ristrutturazione rurale che stimolò ancora la costruzione di nuove attrezzature e macchine per tutte le esigenze lavorative agrarie .
+l' attività agricola divenne ben presto di tipo industriale nei paesi economicamente avvantaggiati , mentre nell' europa dell' est , sud america , asia e africa rimasero grandi terreni non coltivati , anche se coltivabili .
+
+agricoltura moderna
+
+nei secoli , e sino a tempi recenti anche nel mondo occidentale , l' agricoltura ha avuto sempre primaria importanza per lo sviluppo dei popoli e degli imperi . oggi è spesso degnata di un' attenzione superficiale nelle economie moderne , mentre resta fonte primaria di sussistenza e perno dello sviluppo economico dei paesi più poveri ed arretrati . l' importanza di questa pratica è dimostrata dal fatto di essere a tutti gli effetti una scienza e di essere ormai al confine con numerose altre scienze come la genetica e la biologia sia animale che vegetale .
+i governi dei paesi industrializzati tra il 1960 e fine anni novanta hanno indotto la cosiddetta rivoluzione verde , ossia hanno investito in maniera consistente nella ricerca agricola , direttamente sui campi degli agricoltori , cercando altri sistemi per incrementare la produzione alimentare con lo sviluppo di prodotti pesticidi e fertilizzanti , incoraggiandoli ad utilizzare queste nuove tecnologie e rivoluzionando le tradizionali pratiche agrarie con l' abbandono e l' estinzione di molte varietà locali e tradizionali .
+l' agricoltura moderna si basa sempre più sull' immissione di energia esterna al sistema sotto forma di fitofarmaci , meccanizzazione , fertilizzanti , ingegneria genetica , tecnologia ; si parla quindi di agricoltura intensiva , in contrapposizione all' agricoltura estensiva .
+ferme restando le implicazioni negative di una pratica agricola intensiva troppo spinta , la continua crescita dei fabbisogni alimentari mondiali , la necessità di mantenere bassi i prezzi degli alimenti , la riduzione della superficie coltivabile , l' esigenza di coltivare anche in zone nettamente sfavorevoli ( talvolta anche per inquinamento ) e di poter ottenere prodotti di qualità nutrizionale elevata , pongono gli operatori davanti ad una limitata rosa di scelte .
+le pratiche tradizionali usate prima della rivoluzione verde avevano il difetto di non essere in grado di fornire prodotti in larga quantità ed economici , attraenti per i consumatori , ma soprattutto coerenti con gli standard qualitativi e di sicurezza imposti dalla legge nonché adatti ai processi di trasformazione industriale . una parte di questa agricoltura tradizionale prende oggi il nome di agricoltura biologica , che costituisce comunque una nicchia di mercato di una certa rilevanza e presenta prezzi medio - alti .
+d' altra parte l' agricoltura intensiva presenta evidenti problemi di sostenibilità e per questo di anno in anno cresce l' esigenza di tecnologia di settore sempre più attenta alle problematiche ambientali .
+tra le soluzioni tecnologiche , si è avuto da un lato l' adozione di approcci di lotta integrata , dall' altro il miglioramento dei composti chimici ( meno tossici e persistenti ) e delle varietà impiegate . in questa ottica si collocano anche gli o.g.m ., organismi geneticamente modificati .
+
+sviluppo italiano
+
+anche se la meccanizzazione ha uno stampo anglosassone , le primissime macchine agricole del xvii secolo , sono il frutto dell' ingegno italiano :
+giuseppe locatelli , costruì la prima semplice seminatrice , composta da un cassetto contenente i semi applicato all' aratro . procedendo , l' aratro faceva ruotare un distributore a cucchiaio inserito nel cassetto ed il seme cadeva a terra .
+giovanni cavallina , costruì la prima macchina seminatrice meccanica , che con un sistema di ripiani a fori e dei piccoli tubi , deponeva i semi nei solchi appena tracciati dall' aratro .
+nel xix secolo lambruschini e i fratelli ridolfi , costruirono un rovesciatore di tipo elicoidale per sminuzzare le zolle più grosse .
+la prima forza motrice di tipo meccanico fu la macchina a vapore , utilizzata per far funzionare le prime trebbiatrici per cereali e le presse per paglia e fieno .
+negli stati uniti si costruì il primo trattore , la macchina motrice per eccellenza . erano però macchine pesantissime e difficili da maneggiare . dopo vent' anni di prove , le industrie ford fornirono agli agricoltori americani trattori più leggeri , facili da riparare , semplici nella manutenzione , a prezzi accessibili .
+nel 1930 , le industrie landini costruirono il primo trattore con motore testa calda , ben utilizzato nelle grandi opere di bonifica e dissodamento .
+
+descrizione
+
+
+agricoltura , agronomia e raccolta
+
+i fattori naturali della produzione vegetale sono i seguenti :
+fattori biologici - mutrofici intrinseci : sono tali le basi genetiche che influenzano l' anatomia , la morfologia ( biologia ) e la fisiologia delle singole specie agrarie e le caratteristiche specifiche dei loro prodotti .
+fattori biologici estrinseci : sono tali le relazioni ecologiche che si instaurano fra le specie agrarie e gli altri organismi viventi ( piante , animali , microrganismi ) che popolano l' ecosistema naturale , con interazioni di competizione , predazione , parassitismo , simbiosi , neutralismo , ecc .
+fattori climatici : sono tali i fenomeni dovuti all' interazione dell' atmosfera e del sole con la superficie terrestre nelle sue diverse componenti ( litosfera , idrosfera , biosfera ). i principali fattori climatici che influenzano la produzione vegetale sono la radiazione solare , la temperatura , le precipitazioni o idrometeore , il vento , l' umidità atmosferica , l' evapotraspirazione , la composizione chimica dell' aria . di minore rilevanza diretta è invece la pressione atmosferica .
+fattori pedologici : sono tali i fenomeni dovuti all' interazione del terreno con l' idrosfera , l' atmosfera , il sole , l' idrosfera e la biosfera . il terreno è un ambiente complesso , derivato dalla pedogenesi , generato dall' equilibrio fra la litosfera e gli altri elementi che interagiscono sulla superficie terrestre . sono fattori pedologici le proprietà fisiche del terreno , le proprietà chimiche , le proprietà biologiche , che nel complesso concorrono a determinarne la fertilità .
+a differenza della semplice raccolta dei prodotti naturali della terra , l' agricoltura è una tecnica che interviene modificando i fattori naturali della produzione vegetale allo scopo di incrementare , in qualità e quantità , il prodotto . la raccolta , infatti , sfrutta la produzione naturale del tutto subordinata alle esigenze specifiche delle piante e alle dinamiche dell' ecosistema senza alcun intervento dell' uomo . l' agricoltura prevede invece l' intervento dell' uomo nel correggere , a suo favore , le condizioni intrinseche ed estrinseche che determinano la produzione vegetale .
+gli interventi dell' uomo che concorrono a delineare un' attività agricola , distinguendola da quella della semplice raccolta , sono ad esempio i seguenti :
+interventi sui fattori biologici intrinseci : sono tali ad esempio la selezione , il miglioramento genetico , le biotecnologie , l' ibridazione , la potatura , l' innesto , la densità di piantagione . nel complesso questi interventi concorrono a indirizzare la naturale tendenza produttiva delle singole specie agrarie verso specifiche esigenze dell' uomo .
+interventi sui fattori biologici estrinseci : sono tali ad esempio il diserbo , la fitoiatria e la difesa dei vegetali in senso lato , che mirano a contenere i fenomeni di antagonismo biologico , altri come la consociazione o forme più o meno avanzate di biotecnologia ( micorizzazione , batterizzazione e altre forme di inoculo di organismi simbionti ), mirano a promuovere fenomeni di sinergia biologica . altri ancora , come l' avvicendamento colturale , hanno un ruolo complesso nel determinare l' equilibrio fra antagonismi e sinergie .
+interventi sui fattori climatici : sono tali ad esempio gli apprestamenti protettivi mirati a ridurre l' influenza negativa del clima o potenziarne quella positiva fino a correggere drasticamente uno o più fattori . sono interventi sui fattori climatici l' allestimento di frangiventi , di opere di protezione dal freddo ( serra , tunnel , pacciamatura , ecc .), l' irrigazione . meno palese è il ruolo svolto da altre pratiche agricole in quanto si tratta di forme di adattamento a condizioni climatiche esistenti : sono tali la scelta dell' epoca di semina , il trapianto , la scelta varietale , la densità di piantagione , l' orientamento dei filari , alcune lavorazioni del terreno , ecc .
+interventi sui fattori pedologici : sono i più complessi perché trattasi di azioni che possono modificare contemporaneamente differenti proprietà del terreno . sono tali le lavorazioni del terreno e l' ammendamento , che influenzano principalmente ( ma non solo ) le proprietà fisiche , la fertilizzazione , che influenza principalmente le proprietà chimiche ma ha un ruolo non secondario anche su quelle fisiche e biologiche , l' irrigazione , che influenza le proprietà fisiche , chimiche e biologiche , ecc .
+l' agronomia è una scienza applicata che studia il ruolo dei singoli fattori della produzione vegetale e le interazioni reciproche , elabora le tecniche agricole con il coordinamento dei fattori a differenti livelli , al fine di ottimizzare la produzione ai fini economici . per estensione agronomia e agricoltura sono talvolta usati come sinonimi , tuttavia , a rigore l' agronomia è una scienza applicata collegata alle altre scienze ( biologia , chimica , fisica , geologia , ecc .), il cui ambito principale d' applicazione è l' agricoltura . l' agricoltura è invece un insieme di tecniche che riassumono le conoscenze empiriche tramandate di generazione in generazione in una pratica millenaria e quelle tecniche fornite dalla ricerca scientifica in campo agronomico . le varie forme di agricoltura derivano dal ruolo ponderale che hanno , da un lato , l' agronomia e , dall' altro , la tradizione .
+
+anno internazionale dell' agricoltura familiare
+
+durante la 66ª sessione dell' assemblea generale delle nazioni unite , il 2014 è stato formalmente dichiarato “ anno internazionale dell' agricoltura familiare ” ( iyff ).
+la fao è stata invitata a facilitarne la realizzazione , in collaborazione con i governi , le agenzie di sviluppo internazionale , le organizzazioni di agricoltori e altre organizzazioni attinenti al sistema delle nazioni unite ; così come le organizzazioni non governative .
+l' obiettivo dell' anno internazionale è quello di riposizionare l' agricoltura familiare al centro delle politiche agricole , ambientali e sociali delle agende nazionali per individuare le lacune e le opportunità esistenti e per promuovere uno sviluppo più equo e bilanciato .
+l' anno internazionale dell' agricoltura familiare intende promuovere il dibattito e la cooperazione a livello nazionale , regionale e globale con lo scopo di identificare al meglio le sfide affrontate dagli agricoltori per poter efficacemente sostenere sia loro che le loro famiglie .
+
+agricoltura e arte
+
+molti artisti , soprattutto nel xix secolo in coincidenza con il trionfo dell' impressionismo e della pittura en plein air , hanno scelto la vita dei campi come oggetto delle loro opere .
+colui che sovrasta tutti gli altri per la capacità di raccontare la fatica della povera gente e di dare un senso umile e religioso a quella fatica è vincent van gogh , il pittore pazzo , morto suicida quando aveva appena 37 anni . ad arles , nel sud della francia , s' innamorò dei colori della campagna provenzale . usciva di casa all' alba , raggiungeva i campi , e dipingeva fino a sera , ne uscì il quadro " la mietitura ". aveva adottato gli stessi orari e si sottoponeva alla stessa fatica dei contadini ed alla fine della giornata ne coglieva i frutti : un quadro carico di colori incredibili e gioiosi . nell' ultimo periodo della sua vita , i campi si trasformarono in oscuri presagi di sventura .
+ad auvers - sur - oise , nei dintorni di parigi , dipinse immagini sempre più cupe . il suo ultimo soggetto fu un campo di grano sorvolato da uno stormo di corvi . in quel campo , pochi giorni dopo , si sparò un colpo di rivoltella al fianco .
+
+note
+
+
+bibliografia
+
+babel w . congiunture agrarie e crisi agrarie einaudi , torino , 1976
+bairoch p ., rivoluzione industriale e sottosviluppo , einaudi , torino , 1967
+bloch marc , les caractères originaux de l' histoire rurale française , a . colin , paris , 1952
+daclon c.m ., agricoltura e riforme mondiali , in agricoltura , rivista del ministero politiche agricole e forestali , n . 300 , 2000
+daclon c.m ., biotecnologie e agricoltura , in agricoltura , rivista del ministero politiche agricole e forestali , n . 302 , 2000
+saltini a ., storia delle scienze agrarie , 4 volumi , bologna 1984 - 89 , isbn 88 - 206 - 2412 - 5 , isbn 88 - 206 - 2413 - 3 , isbn 88 - 206 - 2414 - 1 , isbn 88 - 206 - 2415 - x
+saltini a . processo all' agricoltura , prefazione di giovanni marcora , bologna , 1979
+saltini a . agrarian sciences in the west , firenze , 2015
+sereni e.storia del paesaggio agrario italiano laterza , 1989
+slicher van bath bernard h ., storia agraria dell' europa occidentale ( 500 - 1850 ), einaudi , torino , 1972 ( traduzione italiana dall' edizione inglese the agrarian history of western europe , a . d . 500 – 1850 , e . arnold , london , 1963 , curata dallo stesso autore ; edizione originale : de agrarische geschiedenis van west - europa ( 500 - 1850 ), het spectrum , utrecht - antwerpen , 1962 )
+vignoli g ., profili giuridici della produzione agricola , giuffrè , milano , 1991 .
+vignoli g . aspetti giuridici delle attività genetiche in agricoltura , giuffrè , milano , 1986 .
+vignoli g . i territori italofoni non appartenenti alla repubblica italiana " agraristica ", giuffrè , milano , 1995 .
+
+voci correlate
+
+agricoltura a sviluppo pianificato
+accademia dei filergiti
+accademia dei georgofili
+agricoltura biologica
+agricoltura biodinamica
+agricoltura di piantagione
+agricoltura di mercato
+agricoltura di sussistenza
+agricoltura integrata
+agricoltura urbana
+agricoltura sociale
+agronomo
+agrosilvicoltura
+agrosistema
+latifondo
+apprestamento protettivo
+consiglio per la ricerca e la sperimentazione in agricoltura
+domesticazione delle piante
+economia agraria
+edilizia rurale
+istituto agronomico per l' oltremare
+organismo geneticamente modificato
+paesaggio agrario
+pezzatura
+rivoluzione verde
+
+altri progetti
+
+
+collegamenti esterni
+
+agricoltura e sviluppo rurale commissione europea
+www.reformthecap.eu un riassunto degli argomenti concernente la politica agricola con link ai principali studi di valutazione delle politiche agricole e riassunti degli studi più rilevanti in materia .
+mipaaf home page del ministero delle politiche agricole alimentari e forestali
+la sezione " sviluppo rurale del mipaaf " sviluppo rurale e infrastrutture
+agricoltura italiana online rivista telematica del ministero delle politiche agricole alimentari e forestali
+rené dumont , agricoltura , enciclopedia del novecento ( 1975 )
+r . thomas fulton , agricoltura , enciclopedia del novecento , i supplemento ( 1989 )
+david b . grigg , rivoluzioni agricole , enciclopedia delle scienze sociali ( 1997 )
+emrys jones , agricoltura , enciclopedia delle scienze sociali , 1991 .
+mario liverani , agricoltura e irrigazione nel vicino oriente antico , storia della scienza ( 2001 )
+jean - marie martin , agricoltura , enciclopedia federiciana , i vol ., 2005 .
+
+
+architettura
+l' architettura è la disciplina che ha come scopo l' organizzazione dello spazio a qualsiasi scala , ma principalmente quella in cui vive l' essere umano . semplificando si può dire che essa attiene principalmente alla progettazione e costruzione di un immobile o dell' ambiente costruito . in essa concorrono aspetti tecnici ed artistici . insieme alla scultura , fa parte delle cosiddette arti visive plastiche .
+da quando l' uomo ha avuto capacità cognitive tali da potersi organizzare in civiltà , l' architettura è sempre esistita . l' architettura è nata anzitutto per soddisfare le necessità biologiche dell' uomo quali la protezione dagli agenti atmosferici , e proprio per questo è tra le discipline maggiormente presenti in tutte le civiltà . solo in un secondo momento , con lo sviluppo della divisione del lavoro nella società , alla funzione primaria vennero aggiunte funzioni secondarie in numero sempre crescente .
+con la comparsa di caratteri estetici si ebbe la nascita dell' architettura anche come arte visiva , dotata però di proprie caratteristiche peculiari . sarebbe riduttivo anche parlare di valori estetici in quanto una buona architettura è spesso frutto di valori etici e di uno studio antropologico .
+definire l' architettura risulta difficile in quanto il fenomeno architettonico è stato sempre presente nella cultura dell' uomo , acquistando caratteristiche , definizioni , funzioni , aspetti spaziali e costruttivi spesso differenti o addirittura contrastanti da civiltà a civiltà o da epoca ad epoca .
+
+etimologia
+
+" architettura " deriva da architetto , termine derivato nelle lingue occidentali dal latino architectus , ma di origine greca : ( pronuncia architéktōn ), parola composta dai termini ἀρχή ( árche ) e τέκτων ( técton ) che significa " ingegnere ", " capo costruttore ", " primo artefice " o proprio " architetto ".
+il primo termine , ἀρχή – connesso con ἀρχειν ( árchein ), “ principiare ”, “ comandare ” –, esprime in greco antico il significato di " impresa ", " partenza ", " origine ", " fondazione " o " guida ". introdotto da anassimandro , ἀρχή trova nella metafisica di aristotele ( v , 1 , 1012b - 1013a ) la sua prima completa definizione , conservatasi fino alla modernità . aristotele distingue almeno sei accezioni del termine , riconducibili ai due significati principali di ἀρχή , ossia primo per importanza o primo in ordine temporale . quando primato valoriale e primato temporale coincidono , ἀρχή esprime la divinità : dio come massimo valore e causa prima di tutte le cose .
+il secondo termine , τέκτων ( técton ), richiama diversi significati , tra i quali " inventare ", " creare ", " plasmare ", " costruire ": il fare tecnico ma anche l' arte , il fare manuale ma anche l' artigianato .
+l' unione dei due termini in ἀρχιτέκτων la troviamo per la prima volta da erodoto , storie ( iii , 60 , 4 ), e vuole indicare chi provveda a dar norma razionale alla costruzione di alcunché . il riferimento all' edilizia o all' abitazione non è affatto esplicito ; anzi , l'ἀρχιτέκτων originariamente si occupa di quanto è " costruibile " in generale . questa interpretazione è sancita da vitruvio , il quale definisce l' architettura come attività che " nascitur ex fabrica et ratiocinatione ", cioè dalla capacità fabbricativa congiunta alla consapevolezza teorica .
+altro aspetto interessante è costituito dalla permanenza fonetica e dalla somiglianza letterale e dalla somiglianza grafica che il termine ha conservato in molte lingue europee : architecture in francese , architecture in inglese , arquitectura in spagnolo , architektur in tedesco ( che però gli aggiunge il termine baukunst che letteralmente significa " arte del costruire ").
+
+storia
+
+
+antichità
+
+il primo vero trattato di architettura è il de architectura di vitruvio , in cui viene data una prima definizione della disciplina e si delinea la figura dell' architetto e delle sue conoscenze . il de architectura influenzerà in particolar modo l' architettura dal secolo xv al secolo xix .
+
+medioevo
+
+nel medioevo l' architettura è assimilata alle artes mechanicae da filosofi quali scoto eurigenia e ugo di san vittore . durante il periodo romanico e quello gotico la figura più simile a quella dell' architetto , era quella del capomastro , un magister operis che dopo anni di esperienza curava la progettazione dell' edificio e l' andamento del cantiere .
+
+rinascimento ed umanesimo
+
+mentre nel resto dell' europa il gotico resterà lo stile predominante per lungo tempo , in italia il rinascimento pone l' architettura sotto una nuova luce . uno dei trattati fondamentali fu il de re aedificatoria di leon battista alberti che si rifà alla triade vitruviana ( firmitas , utilitas , venustas ). nel secoli xv e xvi si sviluppò il concetto di città ideale , per la prima volta l' architettura si interessa alla città e alla corretta disposizione dei suoi elementi . fu durante l' umanesimo invece il passaggio dell' architetto da artista - artigiano a quello di artista scienziato universale . particolarmente importante fu anche la figura del vignola che contribuì a creare un lessico uniforme dell' architettura mediante la catalogazione degli ordini architettonici classici .
+
+il seicento
+
+l' antropocentrismo rinascimentale viene sostituito da un' indagine volta alla sintesi della contrapposizione tra infinitezza e centralità . grazie anche alle scoperte tecniche e matematiche si generano concezioni architettoniche basate sulla riscoperta della natura come elemento scenografico , sul dinamismo e sul movimento . gli schemi classici vengono modificati dall' inserimento di linee curve e si adottano soluzioni che aprono le porte alla modernità .
+
+il settecento
+
+nel corso del secolo xviii vi è la nascita del concetto di estetica e di una grande riflessione su questo termine da parte dei filosofi e storici del tempo ( giambattista vico , immanuel kant ). carlo lodoli e giovanni battista piranesi teorizzarono per primi un' architettura priva di ornamenti , senza concessioni all' effimero piacere visivo e che tenesse in massima considerazione l' utilità e la finalità funzionale . anche grazie alla rivoluzione industriale , gli architetti vengono chiamati a progettare gli oggetti da realizzare in serie , è il caso della manifattura etruria di josiah wedgwood , primo caso di disegno industriale modernamente inteso .
+
+l' ottocento
+
+è durante l' ottocento che avviene la definitiva scissione della professione di ingegnere da quella dell' architetto ; in più mentre alcune facoltà di ingegneria si andranno formando in europa nelle università , l' architettura verrà confinata nelle accademie di belle arti , rimanendo in alcuni casi un mero esercizio artistico , lontana da questioni di ordine pratico e funzionale . negli stati uniti d' america si sviluppa invece la scuola di chicago , in cui l' architettura si troverà a confrontarsi con edifici molto alti e con un materiale nuovo : il calcestruzzo armato . in francia , grazie al contributo di viollet - le - duc , nasce il restauro e un intenso dibattito attorno a questa disciplina coinvolgerà anche l' inghilterra prima ( john ruskin e william morris ) e l' italia poi ( camillo boito e luca beltrami ).
+
+il novecento e il razionalismo
+
+una serie di fattori , fra cui la teoria delleinfuhlung dell' art nouveau e quella della pura visibilità di konrad fiedler , la questione delle abitazioni popolari nata dalla prima guerra mondiale , i conflitti fra le classi sociali , porteranno alla nascita in architettura di quel movimento progettuale e teorico chiamato razionalismo .
+la città universitaria di piacentini a roma
+l' architettura farà propria tutta una serie di discipline per poter permettere all' architetto di arrivare a progettare dagli oggetti più piccoli a quelli più grandi ; si tenderà ad eliminare qualsiasi velleità artistica dal concetto di architettura in favore di opere maggiormente improntate all' utilità e al servizio della gente . tra i grandi teorici e fautori di questo movimento vi sono stati le corbusier , walter gropius , ludwig mies van der rohe , frank lloyd wright . tra gli altri grandi maestri del novecento si ricordano alvar aalto e oscar niemeyer .
+in italia grande importanza ha avuto l' esperienza futurista di antonio sant' elia e mario chiattone . sempre in italia vale la pena ricordare marcello piacentini , pier luigi nervi , ludovico quaroni , michele valori , bruno zevi .
+
+descrizione
+
+
+definizioni
+
+data la vastità e la complessità della disciplina , è pressoché impossibile dare una definizione univoca che descriva cosa sia l' architettura ; di seguito ne vengono riportate alcune celebri e significative .
+il sapere dell' architetto è ricco degli apporti di numerosi ambiti disciplinari e di conoscenze relative a vari campi , e al suo giudizio vengono sottoposti i risultati prodotti da altre tecniche . vitruvio , de architectura , 25 a.c . circa ;
+architettore chiamerò io colui , il quale saprà con certa , e meravigliosa ragione , e regola , sì con la mente , e con lo animo divisare ; sì con la opera recare a fine tutte quelle cose , le quali mediante movimenti dei pesi , congiungimenti , e ammassamenti di corpi , si possono con gran dignità accomodare benissimo all' uso de gli homini . leon battista alberti , de re aedificatoria , 1450 circa ;
+cos' è l' architettura ? la definirò io , con vitruvio , l' arte del costruire ? certamente no . vi è , in questa definizione , un errore grossolano . vitruvio prende l' effetto per la causa . la concezione dell' opera ne precede l' esecuzione . - étienne - louis boullée , 1780 ;
+l' architettura è l' arte di fabbricare . - francesco milizia , principii di architettura civile , 1781 ;
+l' architettura è l' arte di disporre e di adornare gli edifici , innalzati dall' uomo per qualsivoglia scopo , in modo che la loro semplice vista possa contribuire alla sanità , alla forza , al godimento dello spirito . - john ruskin , lectures on architecture and painting , 1854 ;
+il mio concetto di architettura abbraccia l' intero ambiente della vita umana ; non possiamo sottrarci all' architettura , finché facciamo parte della civiltà , poiché essa rappresenta l' insieme delle modifiche e delle alterazioni operate sulla superficie terrestre , in vista delle necessità umane , eccettuato il puro deserto - william morris , prospects of architecture in civilization , 1881 ;
+la casa deve piacere a tutti . a differenza dell' opera d' arte che non ha bisogno di piacere a nessuno . […] dunque la casa non avrebbe niente a che vedere con l' arte e l' architettura non sarebbe da annoverare tra le arti : proprio così . […] se in un bosco troviamo un tumulo lungo sei piedi e largo tre , disposto con la pala a forma di piramide , ci facciamo seri e qualcosa dice dentro di noi : qui è sepolto un uomo . questa è architettura - adolf loos , parole nel vuoto , 1910 ;
+l' architettura è il gioco sapiente , rigoroso e magnifico dei volumi nella luce - le corbusier , verso una architettura , 1923 ;
+chiarezza costruttiva portata alla sua espressione esatta . questo è ciò che io chiamo architettura - ludwig mies van der rohe , 1925 ;
+l' architettura è in qualche modo un ordinare l' ambiente che ci sta intorno , un offrire migliori possibilità all' insediamento umano . - vittorio gregotti , il territorio dell' architettura , 1966 ;
+l' architettura è la più antica professione sulla terra , l' arte del costruire , ma anche l' arte di rappresentare le cose . - renzo piano , 2007
+l' architettura nasce dalla civiltà di un popolo , da un' industria attrezzata , da scuole serie e selezionatrici , dall' educazione della gente , dall' onestà delle imprese , da buone semplici sensate legislazioni e da un minimo di fede nell' avvenire . - michele valori
+
+i tre fattori dell' architettura
+
+una delle definizioni più antiche risale a marco vitruvio pollione , l' architettura è un insieme di tre fattori o meglio tre categorie :
+firmitas ( solidità );
+utilitas ( funzione , destinazione d' uso );
+venustas ( bellezza ).
+in altre parole nell' architettura si devono ritrovare qualità :
+strutturali
+funzionali
+estetiche
+senza stabilità l' architettura è pericolosa ed effimera ; senza utilità l' architettura fine a sé stessa è semplicemente una scultura in larga scala ; senza bellezza ( come sottolineano ruskin , le corbusier e pevsner ) si parla solo di edilizia .
+in ogni edificio questi tre aspetti sono di vitale importanza , anche se durante le epoche storiche non sempre ebbero il medesimo peso . si pensi per esempio all' architettura del cosiddetto movimento moderno : il fattore estetico inteso come mera decorazione era volutamente trascurato nella progettazione , focalizzata solo sulla funzione degli edifici ; dalla semplicità essenziale scaturì tuttavia una naturale valenza estetica .
+un' evoluzione di questa prima definizione è stata per esempio data nel 1624 da sir henry wotton , che nel suo elements of architecture parlava di tre imperativi dell' opera architettonica : robustezza , funzionalità e piacere , ovvero solidità dei materiali e della costruzione ( stabilità ), adattamento razionale degli spazi alle loro finalità ( utilità ) e produzione di un piacere estetico ( bellezza ).
+questi tre fattori possono essere messi in una ipotetica scala gerarchica : un edificio ha innanzitutto bisogno di stare in piedi , poi può ricoprire una funzione per la società , infine può essere costruito secondo criteri estetici ; ma l' attenzione alla bellezza non può venire prima dell' attribuzione di una destinazione , né qualsiasi uso o decorazione possono essere messi in atto se manca la stabilità strutturale .
+
+architettura e stabilità : la statica
+
+per garantire stabilità a un edificio si deve ricorrere alle nozioni della statica e della scienza delle costruzioni , cioè a quei principi di fisica , chimica e meccanica che assicurano l' equilibrio della costruzione , cioè lo stare in piedi e non crollare .
+le forze che agiscono su una costruzione sono molteplici : innanzitutto il peso proprio della struttura , i carichi accidentali ( persone , arredi , merci depositate ...); poi vi sono le forze esterne , dovute agli agenti atmosferici ( vento , peso della neve ), ad eventi ordinari ( oscillazioni del traffico stradale , spinta del corso dell' acqua su un ponte ) o straordinari ( sismi , bufere ) o ad altro .
+nonostante i carichi possano essere numerosi e la struttura molto complessa , gli edifici vengono sollecitati da soli due tipi di azione : trazione e compressione .
+essendo ogni forza compensata da un' altra di pari grandezza ma di direzione opposta , la condizione di equilibrio viene raggiunta quando la somma di tutte le forze e dei loro momenti è zero .
+
+architettura e utilità : opera architettonica o opera scultorea ?
+
+secondo il critico bruno zevi il criterio distintivo dell' architettura era lo spazio interno : la presenza o meno di un ambiente abitabile e usufruibile per l' uomo era la condicio sine qua non si poteva parlare di architettura ; tutto il resto era in funzione di questo assunto . le conseguenze di questa affermazione sono che edifici fatti senza spazio interno ( o con uno spazio irrilevante ) non sarebbero architettura : zevi indicava come esempio lampante le piramidi di giza , enormi " sculture " all' aperto , ma non architetture ; nemmeno il tempio greco era architettura , poiché la sua limitata cella era destinata all' abitazione simbolica del dio e non all' uso degli individui , che svolgevano le cerimonie religiose all' esterno .
+walter gropius era sostanzialmente d' accordo con questa definizione , anche se la adattò in senso più astratto : per lui l' architettura era l' arte di organizzare lo spazio e si esprime per mezzo della costruzione di edifici .
+la definizione di zevi è logica , ma è molto rigida ed esclude dal campo d' indagine dell' architettura molte opere tradizionalmente considerate " architettoniche ".
+un suo superamento si può avere considerando anche la struttura e la costruzione di un' opera : quando un fabbricato viene murato secondo i criteri dell' edilizia , anche se non ha uno spazio interno , ecco che comunque si può parlare di edificio , non di scultura . è chiaro pertanto nel nostro modo di pensare che una scultura nasca dallo " scolpire " ( ovvero dal togliere ) e un edificio dal " murare " ( ovvero dal mettere ): ecco che quindi il monte rushmore , per quanto colossale , è considerato intuitivamente scultura e le piramidi , anche se fossero prive di qualsiasi ambiente interno , architettura .
+una via di mezzo tra le due concezioni è guardare invece alla funzione delle strutture " costruite " che definiamo edifici : grazie all' utilità ( sia accogliere la salma di un faraone , lo spirito di un dio o una comunità in preghiera ) possiamo parlare di architettura , altrimenti si parla semplicemente di scultura in grande scala . così vengono ricomprese nell' architettura anche strutture " aperte " come i ponti o gli anfiteatri .
+
+architettura e bellezza : opera architettonica o opera edilizia ?
+
+l' edilizia in genere può essere definita come la costruzione di edifici per fini pratici ( difendersi dagli agenti atmosferici ): non è necessariamente contemplata la componente estetica , cioè non è detto che vengano dati all' edificio connotati di " bellezza ".
+fino ad alcuni secoli fa la discriminante era la presenza o meno di un progetto teorico a monte , di un disegno . oggi questa distinzione si è un po ' complicata perché nel mondo moderno sono scomparse quelle forme di edilizia spontanea priva di progetto e l' uso del disegno è necessario anche in opere di semplice edilizia . si può dire che per parlare di " estetica " di un' opera architettonica ci deve essere un' idea , un concetto formale , che si aggiunga alle considerazioni strutturali e funzionali , e si espliciti nella forma dell' opera architettonica ( in questo senso può esistere anche un' architettura spontanea ). in altre parole serve che ci sia un elemento di " gratuità " intesa nel senso greco del termine ( di bellezza , grazia , e di gratuità come la intendiamo noi ), cioè una ricerca del bello senza condizionamenti . si esprime così la volontà di espressione dell' architetto determinata dal suo sentire estetico e artistico .
+esiste anche infatti una separazione tra colui che si occupa prevalentemente ( ma non solo ) di aspetti tecnici strutturali , l' ingegnere , e colui che si dedica più in generale ad aspetti estetici , l' architetto ( anche se oggi i due campi hanno confini ormai molto labili ).
+tra i tre elementi basilari dell' architettura quello visivo , in senso spaziale e monumentale , è quello che ci impressiona maggiormente . le qualità strutturali ( cioè come l' edificio faccia a stare in piedi ) sono infatti spesso nascoste o pienamente comprensibili solo dagli esperti del settore ; le qualità funzionali sono invece spesso date per scontate od ovvie e sebbene ci possano impressionare positivamente non riescono a colpirci profondamente come la monumentalità . ad esempio si può restare colpiti dalla comodità di una stazione ferroviaria o dall' accoglienza di una chiesa , ma è più facile che ci resti scolpita nella memoria la sensazione di bellezza e di imponenza degli edifici stessi .
+lo stesso pevsner individua tre elementi che contribuiscono al raggiungimento di un effetto estetico :
+il trattamento delle superfici , i rapporti tra pieni e vuoti , la disposizione delle aperture e la presenza di un apparato decorativo ;
+la relazione tra i diversi blocchi che costituiscono un edificio e la loro articolazione volumetrica ;
+l' effetto sensoriale che scaturisce dal trattamento degli interni e dalla disposizione dei vari ambienti .
+l' architettura si configura quindi come un' arte spaziale , capace di modellare le superfici ed i volumi con gli stessi criteri di percezione e comunicazione visiva dei pittori e degli scultori , che non si riduce alla sola componente visiva , ma che è anche legata alle sensazioni che vivere uno spazio ( oltre che vederlo ) riesce a trasmettere .
+
+architettura e volume
+
+tra i fattori costitutivi dell' architettura c' è la valutazione del volume costruito , cioè del modo di disporsi e rapportarsi degli edifici nello spazio . si hanno così due estremi , tra i quali esiste una vasta gamma di possibilità :
+architetture in funzione del solo volume .
+architetture in funzione del solo spazio .
+con spazio si intende uno spazio " artificiale " creato dalla costruzione , che sia finito , ordinato e protetto , a differenza dello spazio naturale aperto .
+un esempio di architettura di solo volume è una forma pura come quella delle piramidi , la cui struttura è dettata dal raggiungimento di una forma esterna e si disinteressa quasi completamente dello spazio interno . un caso opposto di architettura eretta a partire dello spazio può essere quello di una basilica cristiana , nella quale la costruzione esterna può essere vista come un semplice involucro determinato dallo spazio interno . un esempio di compenetrazione intermedia può essere quello del tempio greco , dove spazi vuoti e pieni sono determinati da precisi rapporti , con alcuni elementi di volume indipendente , come le colonne , e altri che invece perderebbero di significato se isolati dal contesto dell' edificio al quale appartengono .
+lo studio della storia dell' architettura non è solo un mero esercizio di individuazione degli stili e delle tecniche e della loro evoluzione nel tempo . è importante capire anche quali sono i fini che una società rispetto a un edificio , le conoscenze tecniche e i materiali disponibili che hanno determinato la costruzione . per esempio si possono elencare le differenze oggettive tra : un tempio greco dell' antichità e una chiesa . nell' antichità le funzioni religiose avvenivano all' esterno dell' edificio : la cella era riservata alla simbolica residenza del dio , qui accedevano solo pochissimi sacerdoti , mentre nella chiesa la comunità dei fedeli si riuniva al suo interno , quindi è chiaro che l' edificio diventava luogo chiuso dove praticare le ritualità religiose .
+nella realizzazione di un' opera architettonica hanno da sempre concorso sia le richieste di una committenza sia l' estro e la fantasia degli artisti . la mancanza di fatto di edifici fini a sé stessi ( quando si costruisce c' è sempre almeno uno scopo pratico per il quale la costruzione è destinata ) fa sì che l' aspetto della convergenza degli interessi di artisti e committenti sia rimasto un concetto chiave , rispetto ad altre forme di attività artistica dove l' artefice si è ormai affrancato dalla domanda .
+i primi esempi di " architettura " come unione di stabilità , funzionalità e bellezza non sono quindi da ricercare nell' edilizia di tipo abitativo ( in antico dettata solo da basilari esigenze di sussistenza ), ma negli edifici collettivi ( religiosi o civili ) di quelle prime civiltà come quella mesopotamica o egizia : in tali opere confluivano infatti tutti gli sforzi di una comunità , compresa l' esigenza di abbellimento quale specchio del suo prestigio e della sua ricchezza .
+un' architettura istintivamente votata alla bellezza si rintraccia già all' origine della civiltà , ma è comunque con il tempio greco che la maggior parte degli studiosi concordano nello stabilire almeno un punto fermo nell' evoluzione dell' arte del costruire : un primo traguardo inequivocabile di struttura architettonica completa di valenze progettuali , estetiche e funzionali , corroborata dalla teorizzazione degli ordini architettonici . i tre tipi di ordine ( dorico , ionico e corinzio ) infatti sono relativi a questioni puramente estetiche e la loro nascita indica come ormai non si guardasse più all' edificio solo secondo un punto di vista funzionale .
+negli edifici infine sono confluiti nel tempo tutta una serie di valori , con diversi gradi di intensità , che ne hanno influenzato la storia e la forma :
+valori funzionali , legati cioè a determinati bisogni dell' individuo e della società ;
+valori simbolici , rapportati a realtà di altro ordine ;
+valori sacri , della sfera religiosa ;
+valori sociali , in relazione ai caratteri e alla configurazione della società ;
+altri valori ( personali del committente o dell' architetto , valori universali , ecc .)
+l' effetto estetico non scaturisce quindi da un mero impatto visivo : ad esempio , nelle architetture riconducibili al movimento moderno , lo spazio viene modellato sulla base di precise esigenze funzionali e quindi il raggiungimento di un risultato estetico deriva dal perfetto adempimento di una funzione .
+in definitiva l' architettura , più che espressione del singolo individuo ( l' architetto ) è quella di un ambiente , di un' epoca , di una società : tutt' al più , proprio valutando il maggiore o minore apporto personale dell' architetto rispetto al contesto generale , emergerà con più o meno forza il suo " genio ".
+nell' architettura high - tech , che vede nel centre pompidou di renzo piano una delle opere paradigmatiche , sono gli aspetti tecnici e strutturali che delineano i canoni di una nuova estetica , più aperta alle innovazioni tecnologiche e che porta di fatto ad un superamento della costante e dannosa dicotomia tra architetti ed ingegneri .
+
+lo " sguardo architettonico "
+
+l' architettura , a differenza di altre forme artistiche quali per esempio la pittura e la scultura , non si presenta in maniera " completa " allo spettatore : per esempio un dipinto è fatto per essere visto standogli di fronte , una scultura può richiedere di girarci intorno , ma di un' architettura si possono avere solo delle impressioni parziali dell' insieme : ad esempio solo la facciata dell' edificio , solo una stanza per volta , solo una veduta in pianta . soltanto con uno sforzo intellettivo possiamo quindi valutare l' insieme reale di un complesso architettonico .
+su questo aspetto di esperienza " parziale " dell' osservatore a volte alcuni architetti ed artisti hanno anche giocato : si pensi solo all' esempio della galleria prospettica di palazzo spada a roma , dove francesco borromini deformò gli elementi architettonici per dare l' idea di una grande profondità che in realtà non esiste .
+witelo , un matematico e fisico del xiii secolo originario della slesia , scriveva che « l' occhio non può comprendere la forma vera delle cose con il semplice sguardo ( aspectus ), ma sì con l' intuizione diligente ( obtudus )». lobtudus è quindi un sguardo penetrante , raziocinate , mentre laspectus è la semplice visione esteriore : va da sé che solo con l' uso del primo si può comprendere un' opera architettonica , mentre laspectus è sufficiente per la pittura e gran parte della scultura .
+la percezione dello spazio è un aspetto complesso dell' esperienza umana e non è riducibile al senso della vista . ammirare la foto di un edificio in una rivista e visitare lo stesso edificio inserito nell' ambiente costituiscono esperienze diverse , incomparabili . ancora , più visite allo stesso edificio possono dare sensazioni molto diverse , ad esempio a seconda dell' ora del giorno e della stagione . per cogliere la ricchezza dell' architettura è necessario farne esperienza diretta .
+un altro elemento di difficoltà è rappresentato dalla costante evoluzione nei secoli delle forme degli edifici , in relazione al mutare delle necessità della società . i grandi edifici antichi non venivano considerati come opere " finite ", al pari di una quadro o di una statua , ma venivano periodicamente modificati e aggiornati , acquisendo una sorta di " vita " evolutiva : alcuni parlano in questo caso di formatività , intesa come il processo dinamico a più riprese di invenzione e produzione . per questo davanti ad un' opera del passato , in maniera più frequente davanti ad un' opera architettonica , dobbiamo immaginare di sfogliare strati a " cipolla " di aggiunte , manomissioni e sottrazioni di epoche diverse .
+questa difficoltà di percezione ha come conseguenza che sia difficile avere un' esperienza " univoca " dell' architettura e il concetto stesso di quest' arte è difficilmente inquadrabile in termini assoluti , come testimoniano anche la grande varietà di definizioni che si sono succedute nei secoli .
+una corretta percezione di una costruzione dà luogo alla comprensione della forma architettonica . la forma architettonica è la summa di tre fattori sostanziali , combinati organicamente e non in gerarchia :
+le strutture ( gli elementi costruttivi )
+lo spazio ( inteso come la disposizione nell' ambiente con volumi pieni e vuoti )
+il disegno
+una perfetta fusione di questi tre fattori dà un' opera architettonica quale " opera d' arte ". un esempio possono essere i pilastri gotici di una basilica come saint denis presso parigi : la struttura è composta dai conci di pietra appositamente scolpiti e sovrapposti ; questa struttura dà vita a uno spazio pieno , cioè al volume stesso del pilastro , che si estende nello spazio vuoto della navata ; questo volume ha un disegno tridimensionale , che però non è dovuto solo a motivi decorativi , ma ciascuna semicolonnina che vi si affaccia si prolunga in precisi elementi architettonici ( degli archi , del cleristorio , fino ai costoloni delle volte ), per cui si può dire che i tre fattori sono inestricabilmente collegati .
+
+discipline
+
+l' architettura , la cui vastità deriva anche dai vari campi cui essa può essere applicata , si suddivide in diverse branche ; al di là della progettazione del singolo edificio , vi sono infatti una serie di interventi propri dell' architettura che definiscono le varie discipline in cui essa si articola .
+
+progettazione architettonica ed urbana
+
+la progettazione architettonica è una delle discipline principali su cui si fonda l' architettura . il progetto è l' elaborazione teorica che precede la realizzazione dell' oggetto architettonico , espresso in un certo numero di grafici ( sezioni , piante , prospetti , render , ecc .) ed elaborati ( computo metrico , analisi strutturale , via , ecc .). esso si basa sulle indicazioni fornite dalla committenza e su una serie di indagini e studi effettuati dallo stesso architetto anche in concertazione con altre figure professionali ; tali studi possono essere estremamente variegati ed abbracciare molteplici discipline .
+il progetto architettonico può essere esemplificato in tre fasi principali :
+una preliminare nella quale si descrive graficamente l' opera da realizzare e si esplicano i vari vincoli desunti dalle indagini effettuate ;
+una definitiva composta dai grafici utili a comprendere l' opera in tutte le sue parti e da una serie di relazioni inerenti alla descrizione completa dell' area d' intervento ;
+una esecutiva costituita da tutti i grafici relativi alla realizzazione del manufatto , compresi i dettagli in opportuna scala , e tutti gli studi di fattibilità nonché i calcoli relativi alle strutture e agli interventi .
+
+architettura d' interni
+
+disciplina che si occupa della progettazione degli interni di edifici residenziali e non .
+
+scienza e tecnica delle costruzioni
+
+si occupa della teoria , pratica e applicazione della meccanica delle strutture ( statica e dinamica ). questa branca è relativa alla progettazione esecutiva - strutturale di qualsiasi manufatto e / o costruzione , particolarmente riguardo al dimensionamento , la verifica , le tipologie costruttive e i materiali costituenti ( che possono essere ad esempio calcestruzzo armato , acciaio , legno e muratura ) degli elementi strutturali portanti .
+
+urbanistica
+
+si tratta di interventi relativi alla costruzione , l' ampliamento o il miglioramento di zone urbane .
+
+pianificazione territoriale
+
+
+restauro
+
+il restauro è quella disciplina che si occupa degli interventi diretti sui beni culturali volti alla conservazione dell' oggetto architettonico al fine di valorizzarlo , proteggendone i suoi valori storici e culturali , e consentirne il riuso .
+
+ristrutturazione
+
+la ristrutturazione è quella disciplina che si occupa degli interventi diretti sugli immobili volti alla conservazione dello stesso al fine di valorizzarlo , proteggerlo , e consentirne il riuso .
+
+architettura del paesaggio
+
+si occupa della progettazione di ampi spazi , siano essi urbani o rurali , basandosi su caratteristiche culturali , ambientali , storiche e sociali del territorio .
+
+tecnologia dell' architettura
+
+si occupa delle problematiche esecutive , dello studio del processo di progettazione e di esecuzione , della qualità della costruzione , del controllo della sostenibilità e della programmazione della manutenzione , riparazione e demolizione .
+
+disegno industriale
+
+è quella branca dell' architettura che si occupa della progettazione di oggetti riproducibili in serie , tenendo conto degli aspetti tecnici , funzionali ed estetici del prodotto finale .
+
+note
+
+
+bibliografia
+
+aa.vv ., enciclopedia dell' architettura , garzanti , milano 1996 . isbn 88 - 11 - 50465 - 1
+sergio bollati e giuseppe lonetti , l' organismo architettonico , alinea , firenze 1990 .
+giorgio cricco e francesco di teodoro , itinerario nell' arte , zanichelli , bologna 2003 . isbn 88 - 08 - 21740 - x
+w . müller e g . vogel , atlante di architettura , hoepli , milano 1992 . isbn 88 - 203 - 1977 - 2
+pevsner , fleming e honour , dizionario di architettura , utet , torino 1978 isbn 88 - 06 - 51961 - 1 ; ristampato come dizionario dei termini artistici , utet tea , 1994 .
+ludovico quaroni , la costruzione del progetto architettonico , laterza , roma - bari 1996 .
+riccardo salvi , dentro l' edificio . brevi considerazioni sull' architettura d' interni , milano , franco angeli , isbn 978 - 88 - 917 - 4431 - 9
+bernard tschumi e m . berman , index . archivio dell' architettura contemporanea , postmedia books , milano 2004 . isbn 88 - 7490 - 017 - 1
+
+voci correlate
+
+architettura sostenibile
+ambiente costruito
+antropizzazione
+architettura bioclimatica
+architettura organica
+attacco a terra
+bio - architettura
+statica delle strutture
+tecnologia delle costruzioni
+elemento architettonico
+fondazioni
+sostegno ( architettura )
+storia dell' architettura
+parete ( architettura )
+copertura
+chiesa
+urbanistica
+
+progettazione
+
+disegno architettonico
+rappresentazione architettonica
+antropometria
+ergonomia
+caratteristiche dei materiali
+green building
+
+altri argomenti correlati
+
+architetto
+progettazione
+restauro architettonico
+storia dell' architettura
+costruzioni
+urbanistica
+teoria dell' architettura
+conseil international du bâtiment
+
+discipline collegate
+
+edilizia
+geometria descrittiva
+tecnologia dell' architettura
+
+altri progetti
+
+
+collegamenti esterni
+
+
+

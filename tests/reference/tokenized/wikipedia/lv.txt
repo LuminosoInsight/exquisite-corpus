@@ -1,0 +1,359 @@
+astronomija
+astronomija ( ( astros ) — ' zvaigzne ' un νόμοσ ( nomos ) — ' likums ') ir zinātne par visumu un tajā sastopamo matērijas formu ( atsevišķu debess ķermeņu , to sistēmu un citu veidojumu ) uzbūvi , izvietojumu , kustību un attīstību . astronomija ir cieši saistīta ar citām zinātnēm , kā , piemēram , ar fiziku , ķīmiju , meteoroloģiju , ģeogrāfiju , bioloģiju un , protams , ar matemātiku . astronomijā uzkrātās zināšanas tiek izmantotas cilvēka praktiskajām vajadzībām . cilvēki , kas pēc profesijas ir saistīti ar astronomiju , tiek saukti par astronomiem .
+kopš cilvēces sākuma ļaudis vienmēr ir skatījušies debesīs , tāpēc astronomiju var uzskatīt par vienu no vecākajām zinātnes nozarēm . var teikt , ka astronomija kļuva par zinātni tajā brīdī , kad cilvēki pamanīja , ka debess ķermeņi kustas pa noteiktām un paredzamām trajektorijām . vēl joprojām arī mūsdienās daži no jaunākajiem zinātnes atklājumiem tiek veikti tieši astronomijā . astronomija ietver gan vienkāršus saules un zvaigžņu kustību novērojumus pār debesjumu , gan arī komplicētas teorijas , piemēram , par zvaigžņu kolapsiem vai visuma izcelšanos .
+gadsimtiem ilgi astronomi koncentrējās tikai uz debess ķermeņu kustību novērošanu . viņi bija novērojuši , ka saule lec austrumos , bet riet rietumos . naktīs viņi pie debesīm redzēja mazus gaismas punktus . lielākā daļa no šiem gaismas punktiem , tas ir , zvaigznes , izskatījās tā , it kā tās visu laiku būtu " piestiprinātas " vienā konkrētā punktā pie debess sfēras , kas savukārt griežas . cilvēki ievēroja arī to , ka atsevišķi gaismas punkti pārvietojas attiecībā pret šiem " piestiprinātajiem " punktiem . tos viņi nosauca par planētām , kas no grieķu valodas nozīmē " klejotāji ".
+antīkie astronomi uzskatīja , ka debess ķermeņu pozīcijas norāda uz to , kas notiek vai notiks uz zemes virsmas . viņi pēc zvaigznēm prognozēja karus , slimības , dzimšanu - nāvi , laimi - nelaimi un tā tālāk . mūsdienās joprojām cilvēki ar to nodarbojas , un šo jomu sauc par astroloģiju . daudzi zinātnieki uzskata , ka astroloģija ir pseidozinātne , kas nav saistīta ar astronomiju .
+
+vēsture
+
+astronomija ir viena no visvecākajām dabaszinātnēm . elementāras zināšanas par astronomiju bija zināmas jau pirms tūkstošiem gadu babilonijā , senajā ēgiptē un senajā ķīnā . cilvēki šīs zināšanas izmantoja , lai spētu orientēties un skaitīt laiku . ļoti daudz celtņu drupas norāda uz to , ka cilvēki jau tālā senatnē novēroja saules , mēness un citu debess ķermeņu kustību . iespējams ka stounhendža , kas atrodas anglijā , ir visslavenākā celtne , kas būvēta astronomijas vajadzībām . tā ir celta laika posmā no 3100 . gada līdz 1550 . gadam p.m.ē . daži no stounhendžas lielajiem akmeņiem ir novietoti tā , lai vasaras saulgriežos parādītu pie horizonta tieši to vietu , kur uzlec saule . arī citur gan eiropā , gan ēģiptē , gan arī amerikā ir atrastas vairāki simti dažādu celtņu , kuras savukārt norāda uz tām vietām , kur noteiktā laika brīdī ir novērojams kāds astronomisks notikums .
+astronomija sāka attīstīties ļoti sen , cilvēkiem novērojot tos debess ķermeņus , kas saskatāmi ar neapbruņotu aci . daudzām seno laiku civilizācijām bija pietiekamas zināšanas , lai varētu izveidot precīzu kalendāru . senajā ēģiptē priesteri , vienlaicīgi arī astronomi , bija atbildīgi par to , lai laikus paziņotu par nīlas plūdu sākšanos . viņi to varēja noteikt tikai pēc zvaigznēm . maiji , kuri dzīvoja mūsdienu meksikas centrālajā daļā , pirms aptuveni 2000 gadiem izveidoja ļoti sarežģītas un komplicētas kalendāru sistēmas . savukārt senās indijas svētajos rakstos rigvēdā pieminēti 27 zvaigznāji , kas saistīti ar saules kustību . viduslaikos eiropas astronomijas sasniegumi nebija lieli , taču daudz tika izdarīts austrumos . 10 . gadsimta beigās persijā tika uzbūvēta milzīga observatorija . persijā omars haijāms daudzu pētījumu rezultātā izveidoja precīzāku kalendāru .
+astronomija eiropā uzplauka renesanses laikā . nikolajs koperniks izveidoja heliocentrisko pasaules modeli . viņa teoriju pilnveidoja johanns keplers un galileo galilejs . galilejs sāka izmantot teleskopus . keplers savukārt pirmais radīja sistēmu , kas pareizi aprakstīja planētu kustību ar sauli centrā ( tā sauktie keplera likumi ). diemžēl viņš savus novērojumus nepamatoja ar kādu teoriju ; planētu kustību beidzot izskaidroja īzaks ņūtons ar savu gravitācijas likumu un debesu mehāniku .
+2009 . gadu apvienoto nāciju organizācija pasludināja par starptautisko astronomijas gadu .
+
+uzdevumi
+
+kopš 19 . gadsimta beigām astronomija ir attīstījusies , ietverot astrofiziku , tas ir , ietverot arī fizikas un ķīmijas zināšanu pielietojumu , kas palīdz izprast debess ķermeņu būtību un fiziskos procesus , kuri nosaka to veidošanos , evolūciju un radioaktīvo starojumu . turklāt par daudzu pētījumu objektiem ir kļuvušas apkārt un starp zvaigznēm esošās gāzu un putekļu daļiņas . kodolreakciju pētīšana , kas nodrošina zvaigžņu izstaroto enerģiju , ir pierādījusi dabā sastopamo atomu daudzveidību , un tās izcelšanos var attiecināt uz visumu , kas pēc dažu minūšu eksistences sastāvēja vienīgi no ūdeņraža , hēlija un litija ķīmiskajiem elementiem . kosmoloģija , kas pēta visuma evolūciju , attiecas uz lielāka mēroga parādībām . kosmoloģija ir izveidojusies kā astrofizikas apakšnozare no tīri spekulatīvām darbībām attiecībā pret mūsdienīgu zinātni , kas spēj sniegt pārbaudāmas prognozes .
+astronomijas galvenais uzdevums ir izskaidrot un aprakstīt visuma uzbūvi , bet tai ir arī citi uzdevumi . piemēram , mūsdienās vēl joprojām astronomijā iegūtās zināšanas izmanto , lai noteiktu precīzu laiku un ģeogrāfiskās koordinātas . arī mūsu planētu zemi , kura ir viena no astoņām planētām , kas riņķo ap sauli , nemitīgi ietekmē citi astronomiski objekti , piemēram , mēness un saule izraisa uz zemes paisumus un bēgumus ; saules starojums ietekmē dažādu procesu norisi zemes atmosfērā , kā arī dzīvības procesu norisi . tātad astronomijā arī tiek pētīts , kā citi ķermeņi ietekmē zemi .
+saules sistēmā ietilpst arī planētu pavadoņi , asteroīdi , komētas , starpplanētu putekļi un gāze . saule ir viena no neskaitāmajām zvaigznēm , kas veido galaktiku jeb piena ceļu . galaktikas var būt sakārtotas galaktiku kopojumos un superkopojumos . mūsu superkopojuma centrā atrodas lielais atraktors — vieta ar ārkārtīgi spēcīgu gravitāciju . lielais atraktors ir apmēram 250 miljonu gaismas gadu attālumā centaura zvaigznāja virzienā .
+
+astronomisko attālumu noteikšana
+
+viens no astronomijas galvenajiem uzdevumiem ir attālumu noteikšana . bez zināšanām par šādiem attālumiem kosmosā novērojamā objekta lielums var pārvērsties par neko citu , kā tikai par leņķisko diametru , un zvaigznes spožumu nevarētu pārveidot faktiski izstarotajā jaudā vai starjaudā . astronomisko attālumu mērījumi sākās ar zināšanām par zemes diametru , kas nodrošināja pamatus triangulācijai . pašreiz saules sistēmas iekšpusē daži attālumi ir nosakāmi precīzāk , izmantojot radaratstarojuma laiku vai mēness gadījumā pielietojot lāzera attālumu . ārējām planētām joprojām izmanto triangulāciju . aiz saules sistēmas tuvāko zvaigžņu attālumi tiek noteikti , izmantojot triangulāciju un ņemot vērā zemes orbītas diametru , kas ir bāzes līnija , un pārvietojas zvaigznes paralaksē , kas ir izmērītais lielums . astronomi ir vispārpieņēmuši , ka zvaigžņu attālumi tiek izteikti parsekos ( pc ), kiloparsekos vai mega parsekos ( 1 pc 3,086 x 1018 cm vai apmēram 3,26 gaismas gadi ). izmantojot triangulācijas paralaksi , attālumus var izmērīt apmēram uz kiloparseku . no zemes veiktā mērījuma precizitāti ierobežo atmosfēras ietekme , bet no hiparko satelīta 1990 . gadā veiktajos mērījumos zvaigžņu mērogs palielinājās par 650 parsekiem ar precizitāti līdz apmēram loka sekundes tūkstošdaļai . attālākām zvaigznēm un galaktikām jāizmanto netiešāki mērījumi .
+galaktikas attālumu noteikšanā turpmāk tiek izklāstītas divas vispārīgas metodes . pirmajā metodē par atskaites standartu izmanto skaidri identificējamu zvaigznes tipu tāpēc , ka ir labi nosakāma tās starjauda . šādā gadījumā nepieciešams novērot tādas zvaigznes , kuras ir pietiekami tuvu zemei un kuru attālumi un starjauda ir droši izmērāmi . šādu zvaigzni sauc par " standarta sveci ". piemērs ir cefeīdas , kuras spožuma patiesais ceļš periodiski mainās , un dažu supernovu tipu sprādzieni , kuriem ir milzīgs spožums un gredzens , ko var saredzēt īpaši lielos attālumos . vienreiz kalibrējot šādu tuvāko standarta sveču starjaudu , var aprēķināt attālumu tālākajām standarta svecēm , izmantojot to kalibrēto starjaudu un faktiski izmērīto intensitāti . formulā i l / 4πd izmērītā intensitāte [ i ] ir saistīta ar starjaudu [ l ] un attālumu [ d ]. standarta sveci var noteikt , izmantojot tās spektru vai spožuma pastāvīgo izmaiņu paraugu . iespējams jāveic korekcijas , jo lielos attālumos gāze un putekļi absorbē zvaigžņu gaismu . šī metode ir attālumu mērījumu pamatā līdz tuvākajām galaktikām .
+otrajā galaktikas attālumu mērīšanas metodē jāizmanto novērojumi , kādos galaktikas attālumi parasti korelē ar ātrumiem , kādos šādas galaktikas attālinās no zemes ( kā noteikts pēc doplera efekta — to izstarotās gaismas viļņu garumos ). minētā korelācija ir izteikta habla likumā : ātrums h x attālums , kur h nozīmē habla konstanti , kas ir nosakāma pēc novērojumiem ātrumos , kādos attālinās galaktikas . ir plaši izplatīta vienošanās , ka h atrodas starp 70 un 76 kilometriem sekundē uz megaparseku ( km / sek ./ mpc ), turklāt vadošās pētījumu grupas piedāvā novērtēt to , kas ir apmēram 71 km / sek ./ mpc vispārējā vērtība . h tiek izmantots , lai noteiktu attālumus tālākajām galaktikām , kurās nav konstatētas standarta sveces .
+
+nozares
+
+pēc pētījumu objektiem un metodēm izšķir vairākas astronomijas nozares — astrometriju , debess mehāniku , astrofiziku ( galvenā astronomijas nozare ), kosmogoniju , kosmoloģiju utt .
+
+galvenās nozares
+
+
+pārējās nozares
+
+
+tehniskie paņēmieni
+
+neatkarīgi no vērā ņemamajām priekšrocībām astronomija joprojām ir lielu ierobežojumu iespaidā , jo kopš tās pirmsākumiem astronomija ir vairāk saistīta ar novērojumiem nekā ar pētniecību . gandrīz visi mērījumi jāveic lielos attālumos no to interesējošiem objektiem , turklāt to lielumus , piemēram , temperatūru , spiedienu vai ķīmisko sastāvu nav iespējams kontrolēt . minētajā ierobežojumā ir daži izņēmumi , proti , meteorīti , no mēness atvestie iežu un augsnes paraugi , paraugi no komētu putekļiem , kuri tiek paņemti no robottehnikas kosmosa kuģiem , kā arī stratosfērā vai virs stratosfēras savāktās starpplanētu putekļu daļiņas . tās var izpētīt , pielietojot laboratorijas metodes , kas vajadzīgs , lai sniegtu informāciju , kuru citā veidā iegūt nav iespējams . nākotnē kosmosa misijās var iegūt virsmas materiālus no mēness , asteroīdiem vai citiem objektiem , bet citā ziņā astronomijā daudzi novērojumi ir saistīti vienīgi ar novērojumiem no zemes , pieaugot novērojumiem no orbītā riņķojošajiem mākslīgajiem pavadoņiem un liela attāluma kosmosa zondēm , kā arī tie tiek papildināti ar teoriju .
+
+teleskopi
+
+loģiski , ka astronomijas pirmsākumos visa informācija par visumu tika iegūta redzamās gaismas spektrā . 1609 . gadā galileo galilejs izgudroja pirmo teleskopu , kura galvenās sastāvdaļas bija lēcas un spoguļi . tā rezultātā tika iegūts palielināts konkrēta debesjuma vietas attēls . galilejs ar teleskopa palīdzību atklāja mēness krāterus , jupitera pavadoņus , saturna gredzenus , venēras fāzes , saules plankumus un tūkstošiem iepriekš neredzētas zvaigznes .
+20 . gadsimtā tika atklāts , ka debess ķermeņi izstaro starojumu arī citā elektromagnētiskajā diapazonā . līdz ar to tika izveidoti radioteleskopi un citas iekārtas , kas uztvēra gan infrasarkano , gan ultravioleto starojumu .
+
+atsauces un piezīmes
+
+
+ārējās saites
+
+liis projekts " astronomija tīklā "
+
+literatūra
+
+b . voroncovs - veļjaminovs " astronomija vidusskolām " — 2 . izd . — r .: zvaigzne , 1981 . — 160 lpp
+j . žagars , i . vilks . " astronomija augstskolām ".— r .: lu akadēmiskais apgāds , 2005 .
+
+astrofizika
+
+arheoloģija
+arheoloģija (, arkhaīos — ‘ sens ’; , - logiā — ‘ mācība ’) ir vēstures zinātnes nozare , kas pēta vēsturi , izmantojot lietiskos vēstures avotus — arheoloģiskos pieminekļus ( senlietas , senās celtnes , apbedījumus ). šīs liecības parasti iegūst arheoloģiskajos izrakumos . kaut gan pirmie arheoloģiskie izrakumi izdarīti tālā senatnē ( 6 . gadsimtā p.m.ē .), par zinātni arheoloģija izveidojās tikai 18 . gadsimta beigās un 19 . gadsimta sākumā .
+par lielāko daļu cilvēces vēstures nav nekādu rakstisku liecību — rakstība parādījās tikai pirms 5000 gadiem , turklāt tikai atsevišķām civilizācijām . šīs civilizācijas , protams , šobrīd ir vispazīstamākās — vēsturnieki tās ir varējuši pētīt jau ilgu laiku . bet arī par vietām , no kurām saglabājušās rakstiskas liecības , zināms maz — bieži tās apraksta tikai valdnieku un augstāko šķiru situāciju un viedokli .
+tā kā arheoloģija ir plaša zinātne , tad to mēdz sīkāk iedalīt vai nu pēc perioda , piemēram , aizvēstures vai jauno laiku arheoloģijā , vai nu pēc ģeogrāfiskās vietas , piemēram , klasiskajā vai mezopotāmijas arheoloģijā . dažreiz arheoloģijas apakšnozares ir praktiski neatkarīgas nozares , piemēram , zemūdens arheoloģija , kas pēta kuģu vrakus vai citas ūdenī atstātas cilvēces darbības pēdas , un arheologiem ir jābūt prasmīgiem ūdenslīdējiem . arheoloģiju dažreiz jauc ar paleontoloģiju , kas pēta aizvēsturiskos augus un dzīvniekus nevis cilvēkus un to priekštečus .
+
+arheoloģiskie izrakumi
+
+arheoloģiskajos izrakumos arheologi vāc liecības par cilvēku pagātni . arheoloģisko izrakumu veikšanas vieta tiek noteikta veicot vecu karšu , attēlu un dokumentu analīzi , kā arī uzņemot aerofotouzņēmumus . pirmie veicamie darbi izrakumu vietā ir rūpīga zemes virskārtas noņemšana , izmantojot nelielus darbarīkus , lai priekšlaicīgi nesabojāt iespējamos atradumus . rakšana izrakumu vietā beidzās tikai tad , kad ir sasniegts zemes slānis , kurā nevar novērot cilvēka darbības pēdas .
+
+arheoloģiskie periodi
+
+veicot arheoloģiskos izrakumus , atrastie priekšmeti tiek klasificēti pēc to piederības noteiktiem arheolģiskajiem periodiem . dažādos reģionos arheoloģiskie periodi var atšķirties . eiropā klasiskais arheoloģisko periodu iedalījums ir šāds : akmens laikmets ( paleolīts , mezolīts un neolīts ), bronzas laikmets , dzelzs laikmets , viduslaiki , jaunie laiki un jaunākie laiki ( dažreiz atsevišķi izdala senās romas periodu ). protams , teritorijās , kas nebija romiešu pakļautībā , senās romas periods nepastāvēja , piemēram , skandināvijā , kur toties tajā laikā bija vikingu laikmets . līdzīgi ir arī ar citiem pasaules reģioniem .
+
+arheoloģijas nozares
+
+līdzīgi kā citas akadēmiskās zinātnes arī arheoloģiju sīkāk var iedalīt apakšnozares . nozares galvenokārt tiek klasificētas pēc tā , kam tiek pievērsta uzmanība . piemēram , ja uzmanība tiek vērsta uz konkrētu ģeogrāfisku vietu , tad izšķir tādas nozares kā āfrikas arheoloģija , eiropas arheoloģija vai austrālijas arheoloģija , savukārt ja pēta konkrētu laika periodu , tas pastāv tādas nozares kā viduslaiku arheoloģija vai tuvie austrumu arheoloģija . arheoloģiju dala arī pēc to specialitātes , piemēram , zemūdens arheoloģijā vai kaujas lauku arheoloģijā .
+
+atsauces
+
+
+ārējās saites
+
+
+
+arhitektūra
+arhitektūra (, no , archi - — ‘ galvenais ’, , tektōn — ‘ celtnieks ’) ir mākslas veids , kas rada telpisku vidi , kurā notiek cilvēka dzīves procesi . tā ir arī celtņu un dabas objektu kopums , kas veido šo vidi .
+arhitektūra ietver gan materiālās kultūras , gan mākslas vērtības . arhitektūrai raksturīgās kvalitātes — funkcionālā , konstruktīvā , mākslinieciskā ( lietderība , izturība , skaistums ) — atrodas dialektiskā mijiedarbībā , noteiktā vēstures periodā veidojot arhitektūras stilu . arhitektūrai attīstoties , notiek tās specializācija šādas nozarēs : civilā arhitektūra ( dzīvojamās un sabiedriskās ēkas , to kompleksi ), pilsētbūvniecība , ainavu arhitektūra , interjera arhitektūra , memoriālā arhitektūra un vēsturiskās apbūves restaurācija .
+arhitektūras objektus iedala pēc to stilistiskajām iezīmēm , sociālā pasūtījuma un funkcijas ( tautas būvmāksla , sakrālā arhitektūra un laicīgā arhitektūra ). arhitektūras galvenie mākslinieciskās izteiksmes līdzekļi ir telpas organizācija un arhitektonika , mākslu sintēze un specifiski kompozīcijas paņēmieni ( proporcijas , mērogs , ritms , apjoms un citi ).
+
+arhitektūras nozares
+
+pilsētbūvniecība
+ainavu arhitektūra
+sakrālā arhitektūra
+civilā arhitektūra
+interjera arhitektūra
+memoriālā arhitektūra
+vēsturiskās apbūves restaurācija
+
+arhitektūras stili
+
+pastāv dažādi arhitektūras stili . katram stilam ir raksturīgas konkrētas iezīmes un īpašību kopums . arhitektūras stiliem izšķir funkcionālo , konstruktīvo un maksliniecisko pusi . arhitektūras stilu attīstībā liela nozīme ir bijusi klimatiskajiem , reliģiskajiem , tehniskajiem un kultūras faktoriem . parasti arhitektūras stili tiek klasificēti vēsturiskā attīstībā hronoloģiskā secībā , lai gan noteiktā laikā un vietā ir līdzās pastāvējuši vairāki arhitektūras stili , piemēram , savulaik tā bija ar baroku un klasicismu vai arī ar jūgenstilu un eklektiku .
+
+arhitektūras vēsture latvijā
+
+liecības ar arhitektūras attīstības sākumiem latvijā meklējamas arheoloģiskos materiālos un literatūras avotos . no vissenākajiem celtniecības pieminekļiem minami pilskalni , kuru silueti , skaitā vairāki simti , vēl tagad saskatāmi latvijas ainavā . arheoloģiskie izrakumi pilskalnu teritorijā ļauj raksturot tā laika ēku tipus un celtniecības paņēmienus . no literatūras avotiem par latvijas seno celtniecību var uzzināt islandes vikinga egila skalagrimesona sāgā ( 10 . gadsimts ). arheoloģiskie materiāli rāda , ka jau no 10 . līdz 12 . gadsimtam senlatviešu tautām bijusi liela pieredze un iemaņas koka celtniecības tehnikā .
+
+apbalvojumi arhitektūrā
+
+arhitektūrā ir dažāda veida apbalvojumi . viena no prestižākajām ir prickera balva , kas bieži tiek salīdzināta kā nobela prēmija arhitektūrā . balvas ieguvējs saņem asv dolārus un bronzas medaljonu . kopš 2008 . gada katru gadu tiek rīkots pasaules arhitektūras festivāls , kurā pasniedz apbalvojumus 17 kategorijās .
+
+atsauces
+
+
+ārējās saites
+
+tolomeus - art around you arhitektūras panorāmas
+famous architects ievērojami arhitekti ( xx gadsimts ) - angliski
+
+
+aprakstošā statistika
+aprakstošā statistika ir statistikas apakšnozare . tas ir datu kvantitatīvs vākšanas un summēšanas process , ko izmanto , lai pārveidotu datus no liela apjoma skaitļu formas uz formu , kas ir ērta cilvēkam uztverei un tālākai analīzei .
+aprakstošās statistikas īpatnība ir tā , ka iegūtie rezultāti tiek aprakstīti no teorijas viedokļa , t.i ., netiek veikti salīdzinoši aprēķini vairākās izlasēs . aprakstošās statistikas ietvaros iespējams noteikt rezultātu atbilstību normālsadalījumam ar ekscesa un asimetrijas koficientu , aprēķināt izlases aritmētisko vidējo un citus centrālās tendences rādītājus , izveidot biežumu sadalījumus , grafiski attēlot rezultātus , kā arī noteikt variācijas rādītājus ( variācijas amplitūdu , dispersiju un standartnovirzi ).
+
+skatīt arī
+
+statistika
+statistika
+
+asimetrijas koeficients
+asimetrijas koeficients () ir statistisks rādītājs , ar kura palīdzību var noteikt to , cik lielā mērā normālsadalījuma zvanveida grafiks ir simetrisks attiecībā pret centrālo asi . ja " zvana " labais zars ir izstiepts , bet kreisais aprauts ( vairāk rezultātu ir ar zemākām vērtībām ), tad saka , ka sadalījumam ir pozitīva asimetrija , bet , ja " zvana " kreisais zars ir izstiepts , bet labais aprauts , tad — sadalījumam ir negatīva asimetrija . ja asimetrijas koeficients tuvojas nullei ( aptuveni robežās 1 — atkarībā no izlases apjoma ), tad var runāt par atbilstību normālsadalījumam .
+
+skatīt arī
+
+ekscesa koeficients
+
+ārējās saites
+
+mathworld
+statistika
+
+arheogrāfija
+arheogrāfija ir vēstures nozare , kas pēta rakstīto vēstures avotu apzināšanas , aprakstīšanas un publicēšanas teorijas un prakses jautājumus . arheogrāfija ir saistīta ar avotzinātni , valodniecību , tekstoloģiju , paleogrāfiju un diplomātiku . rietumeiropā praktiskā arheogrāfija radās 15 . - 16 . gadsimtā , latvijā - 19 . gadsimta 1 . pusē .
+vēstures zinātne
+
+astrofizika
+astrofizika ir fizikas un astronomijas nozare , kas pēta kosmisko objektu ( zvaigžņu , galaktiku , u.c .) fizikālās īpašības , ķīmisko sastāvu un to mijiedarbību . kā pastāvīga zinātnes nozare radās 19 . gadsimta vidū .
+
+futuroloģija
+
+blūza skaņkārta
+blūza skaņkārta , atšķirībā no mažora un minora skaņkārtām , ir diezgan nekonkrēta , t.i ., tajā izmantotās pakāpes nav iespējams viennozīmīgi tajā iekļaut vai izslēgt .
+visbiežāk blūza gammā izmantotā intervālu secība ir : m3 , l2 , m2 , m2 , m3 , l2 .
+jeb , izsakot to pašu toņu attiecībās : 3 / 2 , 1 , 1 / 2 , 1 / 2 , 3 / 2 , 1 .
+blūza skaņkārtai raksturīga pazemināta trešā , piektā un septītā nots un paaugstināta ceturtā nots .
+spēlējot blūza mūziku , šī gamma bieži tiek alterēta .
+mūzikas teorija
+
+hī kvadrāta kritērijs
+hī kvadrāta kritērijs ir biežāk izmantotais no neparametriskās statistikas rādītājiem . ar tā palīdzību ir iespējams noteikt , vai rezultāti kādā mērījumā ir atbilstoši kādam teorētiskam sadalījumam vai nē . hī kvadrātu izmanto gadījumos , ja visiem rezultātiem būtu jāsadalās vienlīdzīgi visā mērījumu skalā , bet ir aizdomas , ka tā varētu nenotikt . piemērs ir spēļu metamā kauliņa pārbaude . teorētiski , metot kauliņu 300 reizes , katram ciparam būtu jāizkrīt līdzīgu skaitu reižu ( šinī gadījumā aptuveni 50 ). ja kauliņš šķiet neprecīzs , piemēram , ir aizdomas , ka sešinieks izkrīt pārāk bieži , tad , izmantojot hī kvadrāta kritēriju , to ir iespējams noskaidrot . protams , tāpat kā visās citās statistikas metodēs , jo mērījumu skaits ir lielāks , jo metode sniegs precīzāku atbildi .
+hī - kvadrāta ( x2 ) kritēriju izmanto , lai pārbaudītu , vai :
+empīriskais sadalījums atbilst teorētiskajam sadalījumam ( piemēram , normālajam , binomiālajam , puasona , vienmērīgajam .);
+divas statistiskās pazīmes ir neatkarīgas viena no otras .
+statistika
+
+dispersiju analīze
+dispersijas analīze jeb anova ( analysis of variance ) ir statistikas metode , kas tiek izmantota , lai noteiktu , vai divu vai vairāku izlašu dispersijas ( t.i . vērtību sadalījumi ) ir statistiski nozīmīgi atšķirīgas . ja tiek vienkārši salīdzināti divi vidējie , tad rezultāti būs tie paši , kas t testā . tomēr dispersiju analīze ir metode ar plašākām pielietošanas iespējām . veicot līdzīgus aprēķinus kā t testa gadījumā , datus apstrādājot var sadalīt apakšgrupās un pētīt attiecības visu šo grupu starpā , neizdarot kompleksus aprēķinus . ir vienfaktora dispersiju analīze , kurā apakšgrupas tiek dalītas pēc viena faktora , un daudzfaktoru dipersiju analīze ( manova ), kurā apakšgrupas tiek dalītas pēc vairākiem faktoriem .
+
+dispersijas analīzes būtība
+
+dispersijas analīze ir viena no statistikas zinātnē izmantojamām metodēm , ar kuras palīdzību iespējams pētīt kādas noteiktas pazīmes datu vērtību sadalījumu . tādējādi iespējams pārbaudīt statistiskās hipotēzes , lai noteiktu vairāku izlašu ( grupu ) līdzību vai atšķirību , kā arī iespējams noskaidrot , vai izvēlētā pazīme ir statistiski būtiska . var tikt izšķirtas vienfaktora un daudzfaktoru dispersijas analīzes , ko nosaka vienlaicīgi pētāmo faktoru skaits . dispersijas analīzi visbiežāk lieto , lai pārbaudītu statistiskās hipotēzes un ar matemātiskiem aprēķiniem argumentētu secinājumus . tā ļauj pārbaudīt hipotēzes par vairāku izlašu ( grupu ) līdzību vai atšķirību . izdarīt dispersijas analīzi nozīmē sadalīt dispersiju sastāvdaļās jeb komponentēs un tās salīdzināt . dispersiju analīze nosaka pētāmā faktora vai vairāku faktoru summārās iedarbības īpatsvaru . dispersiju analīzē pētāmā faktora ietekmes būtiskumu noskaidro , pārbaudot nulles hipotēzi . vienfaktora dispersijas analīze izvērtē vienkāršu analītisku grupējumu , bet daudzfaktoru dispersijas analīze izvērtē kombinētu analītisku grupējumu .
+parasti dispersijas analīze tiek pielietota šādos gadījumos :
+sakarību pētīšanai starp neatkarīgo un atkarīgo mainīgo ( jeb starp faktorālo un rezultatīvo pazīmi );
+vairāk nekā trīs grupu aritmētisko vidējo salīdzināšanai , lai noteiktu , vai tie atšķiras statistiski nozīmīgi .
+
+dispersijas analīzes veikšanas process
+
+lai veiktu dispersijas analīzi , ir nepieciešams ievērot , ka novērojumu rezultāti ir neatkarīgi gadījuma lielumi , kas pakļaujas normālam sadalījumam un tiem ir vienādas dispersijas .
+dispersijas analīzes aprēķinu darbības ir šādas :
+noviržu kvadrātu summas sadalīšana sastāvdaļās ;
+brīvības pakāpju skaita sadalīšana sastāvdaļās ;
+dispersiju aprēķināšana — noviržu kvadrātu summas tiek dalītas ar attiecīgo brīvības pakāpju skaitu ;
+dispersiju attiecības f aprēķināšana ;
+f kritiskās vērtības atrašana matemātiskajās fišera tabulās ;
+empīriskās f attiecības salīdzināšana ar kritisko robežu un lēmuma pieņemšana .
+
+noviržu kvadrātu summas sadalīšana sastāvdaļās
+
+noviržu kvadrātu summas parasti tiek rēķinātas ar noviržu metodi ( definīcijas metode ) vai momentu metodi . noviržu kvadrātu summa ir jāsadala šādās sastāvdaļās jeb komponentēs :
+q qa qb qab qz , kur
+q - kopējā noviržu kvadrātu summa ( datu noviržu no kopējā vidējā kvadrātu summa );
+qa - noviržu kvadrātu summa , ko izskaidro faktors a ( grupu aritmētisko vidējo , grupējot pēc a , noviržu no kopējā vidējā kvadrātu summa );
+qb - noviržu kvadrātu summa , ko izskaidro faktors b ( grupu aritmētisko vidējo , grupējot pēc b , noviržu no kopējā vidējā kvadrātu summa );
+qab - noviržu kvadrātu summa , kas saistīta ar ab mijiedarbību ;
+qz - neizskaidrotā noviržu kvadrātu summa ( sākotnējo datu noviržu no elementārgrupu vidējiem kvadrātu summa );
+qf qa b ab - noviržu kvadrātu summa , ko izskaidro abu faktoru patstāvīgā un kopiedarbība .
+konkrētie novērojumi ( dati ) tiek apzīmēti ar simboliem y ij l , kur i - grupas numurs , grupējot pēc faktora a ; j - grupas numurs , grupējot pēc faktora b ; l - atkārtojuma numurs .
+
+brīvības pakāpju skaita sadalīšana sastāvdaļās
+
+brīvības pakāpju skaitu aprēķina pēc šādam formulām :
+v n - 1 ( v — kopējais brīvības pakāpju skaits ; n — kopējais novērojumu skaits )
+va na - 1 ( v — kopējais brīvības a faktoram ; na — izdalītās a grupas skaits )
+vb nb - 1 ( v — kopējais brīvības b faktoram ; nb - izdalītās b grupas skaits )
+vab va * vb ( vab — brīvības pakāpju skaits faktoru mijiedarbībai ab )
+vf va vb vab ( vf — brīvības pakāpju skaits visiem faktoriem )
+vz v - vf ( vz — brīvības pakāpju skaits neizskaidrotai variācijai z )
+
+
+dispersiju aprēķināšana
+
+pēc tam , kad noviržu kvadrātu summa un brīvības pakāpes ir sadalītas , aprēķina dispersijas uz vienu brīvības pakāpi - noviržu kvadrātu summas tiek dalītas ar attiecīgo brīvības pakāpju skaitu :
+dispersija visiem faktoriem qf / vf
+dispersija faktoram a qa / va
+dispersija faktoram b qb / vb
+dispersija faktoru mijiedarbībai ab qb / vb
+neizskaidrotās variācijas z dispersija qb / vb
+salīdzinot aprēķinātās dispersijas , var spriest , vai noteiktā grupējuma pazīme ir saistīta ar citu statistisko pazīmi , vai nav saistīta ar to , kā arī to , vai tā rezultatīvo pazīmi būtiski ietekmē vai neietekmē .
+
+
+dispersiju attiecības f aprēķināšana
+
+dispersijas analīzē pati svarīgākā nozīme ir izskaidrotās un neizskaidrotās dispersijas attiecībai , ko apzīmē ar burtu f . f attiecības aprēķina , dalot visas atrastās dispersijas ar atlikušo neizskaidrotās variācijas z dispersiju :
+ff dispersija visiem faktoriem / neizskaidrotās variācijas z dispersija
+fa dispersija faktoram a / neizskaidrotās variācijas z dispersija
+fb dispersija faktoram b / neizskaidrotās variācijas z dispersija
+fab dispersija faktoru mijiedarbībai ab / neizskaidrotās variācijas z dispersija
+
+
+f kritiskās vērtības atrašana matemātiskajās fišera tabulās
+
+tabulu robežvērtības jeb f attiecību kritiskās robežas atrod matemātiskajās tabulās atbilstoši izvēlētajai varbūtībai un iepriekš noteiktajam brīvības pakāpju skaitam .
+
+
+empīriskās f attiecības salīdzināšana ar kritisko robežu un lēmuma pieņemšana
+
+pie noteikta nozīmības līmeņa ( α ) f tabulās atrasto kritisko vērtību salīdzina ar f aprēķināto vērtību . tādējādi var spriest , vai nulles hipotēzi ir iespējams noraidīt un kāda ir meklēto faktoru mijiedarbības statistiskais nozīmīgums . nulles hipotēze nosaka , ka gradācijas klases pieder vienai ģenerālkopai . ja f aprēķinātā vērtība ir lielāka par f tabulās atrasto vērtību , nulles hipotēzi var noraidīt ar varbūtību α . ja f aprēķinātā vērtība ir mazāka par f tabulās atrasto vērtību , nulles hipotēzi nevar noraidīt ar varbūtību α . ja kāda faktora iedarbība nav būtiska , tad būtiska nav arī starpība starp šī faktora gradācijas klasēm un nulles hipotēze netiek noraidīta . ja faktora iedarbība ir būtiska , nulles hipotēze tiek noraidīta : gradācijas klases nepieder vienai ģenerālkopai . starp gradācijas klašu iespējamajām starpībām vismaz viena vai vairākas ir būtiskas . tātad f kritērijs parāda , vai atšķirības starp grupu vidējiem lielumiem ir statistiski nozīmīgas pie izvēlētā varbūtības līmeņa .
+
+dispersijas analīzes pielietojums
+
+dispersijas analīzi plaši pielieto kvalitātes vadībā , lai nepārtraukti kontrolētu organizāciju pamatprocesus un atbalsta procesus , kā arī uzlabotu gatavās produkcijas kvalitāti . tāpat šo analīzi var izmantot mārketinga , valsts , privātā sektora un citu nozaru pētījumos , lai matemātiski argumentētu un interpretētu iegūtos datus , salīdzinot valstu finansu rādītājus , kvalitātes nodrošināšanā un vērtēšanā , analizējot valsts nozares būtisko faktoru mijiedarbību u.c ..
+
+progammu paketes dispersijas analīzes veikšanai
+
+dispersijas analīzē , ja tiek analizēti viens vai divi faktori , lietderīgi izmantot excel datorprogrammu , kas sniedz ātru un matemātiski argumentētu rezultātu . ja analīzē iekļauti vairāki faktori , ieteicams pielietot tādas datorprogrammas , kā spss , statplus , u.c .
+
+izmantotā literatūra
+
+statistika
+
+dispersija ( statistika )
+dispersija ir rādītājs , ko izmanto statistikā kā starpposmu standartnovirzes noteikšanā un secinošās statistikas metožu izvēlē . tā ir attāluma mērs , jo raksturo novērojumu vidējo kvadrātisko novirzi no izlases vidējā lieluma . arī aprēķināšanā nozīmīga loma ir izlases vidējam aritmētiskajam .
+eksistē šādi dispersiju veidi :
+grupu dispersija , kuras uzdevums ir raksturot variācijas grupas iezīmes ;
+starpgrupu dispersija , kas parāda grupu vidējo aritmētisko variāciju ap visas kopas vidējo aritmētisko ;
+kopējā dispersija , kas pēta pazīmes variāciju visai kopai , kuru ietekmē visi faktori ;
+grupu vidējā dispersija parāda nejaušo variāciju , tas ir , variācijas daļu , kas radusies vērā neņemtu faktoru ietekmē un nav atkarīga no grupēšanas pamatā ieliktās pazīmes — faktora . to aprēķina kā svērto vidējo aritmētisko no atsevišķu grupu dispersijām .
+
+literatūra
+
+arhipova i ., bāliņa s ., “ statistika ekonomikā ”. rīga : datorzinību centrs ”, 2003 .
+goša z ., “ statistika ”. rīga : latvijas universitāte , 2003 .
+krastiņš o ., “ statistika un ekonometrija ”. rīga : lr centrālā statistikas pārvalde , 1998 .
+
+skatīt arī
+
+dispersiju analīze
+statistika
+
+dators
+dators ( — ‘ datu apstrādātājs ’) ir iekārta , kas uzkrāj un apstrādā datus pēc iepriekš definētas procedūras . datori ir konstruēti no komponentēm , kas veic vienkāršas , iepriekš noteiktas darbības . šo komponenšu savstarpējā saziņa ļauj datoram veikt informācijas apstrādes procesus . pareizi sakonfigurēts ( ieprogrammēts ) dators spēj risināt noteiktas problēmas , kā arī būt lielākas sistēmas sastāvdaļa . pareizi sakonfigurētam datoram padodot ievaddatus , programma tos apstrādā , un dators spēj atrisināt problēmu vai prognozēt kādas sistēmas uzvedību u.tml .
+
+vēsture
+
+500 . gads p.m.ē . ķīnā parādījās mūsdienīgāks abaka variants ar skaitāmajiem kauliņiem uz auklas .
+1492 . gadā leonardo da vinči kādā savā dienasgrāmatā uzzīmēja skici savai skaitāmajai mašīnai ar desmit zobu zobratiem . lai arī ierīce pēc šiem rasējumiem tika izveidota tikai 20 . gadsimtā , tā izrādījās darboties spējīga .
+1623 . gadā vilhelms šikards , tjūbigenas universitātes profesors , izveidoja ierīci uz zobratu pamata , tā tiek saukta par skaitošo pulksteni . vai ši ierīce tika izveidota profesora dzīves laikā , nav zināms , bet 1960 . gadā tā tika izveidota un izrādījās darboties spējīga .
+1630 . gadā ričards delaimens izveidoja apaļu logaritmisko lineālu .
+1642 . gadā blēzs paskāls izveidoja pirmo reālo un zināmo mehānisko skaitļotāju . ierīce saskaitīja un atņēma . paskāls izveidoja vairāk kā desmit šādas ierīces , bet saglabājušas ir tikai 8 .
+1673 . gadā vācu filozofs un matemātiķis gotfrīds vilhelms leibnics izveidoja mehānisku kalkulatoru , kurš varēja izpildīt visas četras darbības .
+1723 . gadā vācu matemātiķis un astronoms kristians ludvigs herstens uz leibica darbu pamata izveidoja aritmētisko mašīnu . mašīna spēja ievērot darbību secību un tai bija paredzēta iespēja pārbaudīt ievadītos datus .
+1786 . gadā vācu inženieris johans millers izvirzīja ideju par specializētu kalkulatoru logaritmu tabulēšanai ar dažādām metodēm .
+1801 . gadā žozefs marija žakkards uzbūvēja ierīci , kura darbojās ar perfokartēm .
+1820 . gadā francūzis toms de kalmārs sāka pirmo aritmometru rūpniecisko ražošanu .
+1822 . gadā angļu matemātiķis čārlzs bebidžs izplānoja , bet neuzbūvēja specializētu aritmometru matemātisko tabulu veidošanai .
+1837 . gadā čārlzs bebidžs izplānoja , bet neuzbūvēja pirmo mehānisko datoru , kuru nosauca par analītisko mašīnu .
+1855 . gadā brāļi edvards un georgs šutci ( george & edvard scheutz ) uzbūvēja pirmo ierīci pēc bebidža idejas .
+no 1884 . līdz 1887 . gadam hermanis holerīts izstrādāja elektrisko skaitļojošo mašīnu , kuru izmantoja asv no 1890 . līdz 1900 . gadam .
+1927 . gadā masačusetsas tehnoloģiskajā institūtā ( mit ) tika izgatavots analogais dators , kas varēja atrisināt vienkāršus vienādojumus .
+1938 . gadā vācu inženieris konrāds cūze uzbūvēja pilnīgi mehānisku programējamu mašīnu z1 . tas bija izmēģinājuma modelis , un nekad tā arī netika izmantots praktiskā darbā . tās atjaunotā versija glabājas berlīnes tehniskajā muzejā . tajā pašā gadā cūze sāka veidot z2 .
+1941 . gadā konrāds cūze izveidoja skaitļotāju z3 , kuram piemita visas mūsdienu datora īpašības .
+
+1942 . gadā aiovas štata universitātē ( iowa state university ) džons atanasofs ( john atanasoff ) un viņa aspirants klifords berijs ( clifford berry ) izveidoja ( precīzāk , izstrādāja un sāka montēt ) pirmo asv elektronisko skaitļojamo mašīnu ( atanasoff - berry computer — abc ). kaut arī šī mašīna tā arī netika pabeigta , tomēr tā atstāja lielu iespaidu uz džonu mokliju , kurš pēc vairākiem gadiem izveidoja eniac .
+1943 . gada beigās tika izstrādāta speciālā skaitļojamā mašīna colloss , kura bija paredzēta nacistiskās vācijas ziņojumu atšifrēšanai .
+1944 . gadā palaista pirmā asv skaitļojamā mašīna mark .
+1945 . gadā pensilvānijas universitātē palaists pirmais elektroniskais vispārējas nozīmes pārprogrammējams dators eniac .
+1949 . gadā m . vilkss lielbritānijā , kembridžas universitātē uzbūvēja elektronisko datoru edsac ( electronic delay storage automatic computer ), kas bija pirmais dators ar atmiņā glabājamu programmu ( šis princips ir ikviena mūsdienu datora uzbūves pamatā ).
+1951 . gadā s . ļebedevs ukrainas psr za elektrotehnikas institūtā uzbūvēja pirmo elektronisko datoru psrs mesm .
+1951 . — asv firmā remington rand uzbūvēts dators univac - 1 . tas bija pirmais sērijveida komerciālais dators pasaulē . pavisam tika izgatavoti 40 eksemplāri .
+1951 . gadā lielbritānijā , mančestrā firma ferranti izlaida pirmo angļu komerciālo datoru mark - 1 . bija pārdoti 8 eksemplāri .
+1952 . gadā psrs za precīzās mehānikas un skaitļošanas tehnikas institūtā s . ļebedeva vadībā tika uzbūvēts sava laika ātrākais dators eiropā besm - 1 .
+
+1959 . gadā e . āriņa vadībā tika dibināts latvijas valsts universitātes skaitļošanas centrs .
+1960 . gadā latvijas za fizikas institūta skaitļošanas tehnikas laboratorijā tika iedarbināta j . daubes vadībā būvētā datora lm - 3 pirmā kārta .
+1960 . gadā asv firma dec izlaida pirmo minidatoru - uz tranzistoriem būvēto pdp - 1 .
+1971 . — asc firmā intel izgatavots pirmais mikroprocesors intel 4004 .
+1975 . — asv sāka izlaist pirmo mikrodatoru altair 8800 . tā kā datoram nebija nekādas programmatūras , bils geitss un p . allens uzrakstīja basic interpretatoru , tādējādi radot pamatus firmai microsoft .
+1976 . — stīvs džobss un stīvs vozņaks asv izgatavoja pirmo personālo datoru apple - 1 . 1981 . gadā asv firmā ibm izlaists pirmais šis firmas personālais dators ibm pc .
+1993 . gadā latvijā sāka izdot pirmo žurnālu par datoriem " datortehnika ".
+
+datoru klasifikācija
+
+
+pēc lietojuma
+
+klēpjdators
+lieldators
+mikrodators
+minidators
+personālais dators ( pc jeb galddators )
+planšetdators
+plaukstdators
+multimediju dators
+valkājamais dators
+darbstacija
+serveris
+terminālis
+
+pēc izmantotās tehnoloģijas
+
+datoru priekšteči bija pilnībā mehāniskas ierīces , kas bija paredzētas , piemēram , dažu aritmētisku operāciju veikšanai . 1930 . gados telekomunikāciju industrijā parādījās releji , bet 1940 . gados jau tika uzbūvēti pirmie tīri elektroniskie datori , izmantojot radiolampas . 1950 . un 1960 . gados tās tika aizstātas ar tranzistoriem , bet 1960 . gadu beigās un 1970 . gadu sākumā parādījās pirmās mikroshēmas .
+šobrīd zinātnieki mēģina radīt optiskos datorus , kas elektrības vietā izmantotu gaismas signālus . tiek pētītas iespējas izmantot datorikā bioloģiskās dns . radikāls solis datoru attīstībā būtu kvantu datoru izveide .
+
+kā datori strādā
+
+kaut arī datoros lietotās tehnoloģijas ir radikāli mainījušās kopš pirmo datoru parādīšanās 1940 . gados , praktiski visi mūsdienās lietotie datori ir balstīti uz fon neimana arhitektūru .
+
+operētājsistēma
+
+lai dators varētu veikt kādu darbību , tā atmiņā visu laiku ir jābūt ielādētai kādai programmai . parasti ( tipiskos datoros ) šāda programma ir operētājsistēma . operētājsistēma nosaka , kuras programmas darbināt , kad un kādus resursus ( piemēram , atmiņu ) tām piešķirt . operētājsistēma arī nodrošina aparatūras abstrakcijas slāni , kas nodrošina iespēju vienā datorā veidotas programmas darbināt uz citiem datoriem .
+
+atsauces
+
+
+skatīt arī
+
+datoru attīstības hronoloģija ( grafiskā veidā )
+
+ārējās saites
+
+lu skaitļošanas tehnikas un informātikas muzejs
+
+
+ekscesa koeficients
+ekscesa koeficients ( kurtosis ) ir statistisks rādītājs , ar kura palīdzību var noteikt rezultātu izkliedi pa x asi . citiem vārdiem sakot , cik lielā mērā rezultāti tuvojas centrālajam punktam . ja ekscess ir negatīvs , tad normālsadalījuma zvanveida grafiks izskatās pieplacināts pie x ass , ja pozitīvs - " zvans " ir augsts un šaurs . ja ekscesa koeficients tuvojas nullei ( aptuveni robežās 1 - atkarībā no izlases apjoma ), tad var runāt par atbilstību normālsadalījumam .
+
+skatīt arī
+
+asimetrijas koeficients
+statistika
+

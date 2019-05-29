@@ -1,0 +1,363 @@
+rocarta
+rocarta este o enciclopedie în format electronic care conține articole legate de românia , republica moldova și români . ediția din 2000 conține aproximativ 3.000 de articole și peste 3.300 de imagini . enciclopedia a fost alcătuită de bogdan pătruț .
+
+istoric
+
+ideea de a realiza o enciclopedie multimedia despre spațiul românesc a venit în 1997 , o dată cu scrierea cărții " aplicații în visual basic " ( editura teora , 1998 - 2003 ), unde a fost prezentată o aplicație simplă care implementa un interpretor simplu pentru un limbaj de marcare , asemănător cu html , dar cu mult mai simplu . după publicarea cărții , programul în visual basic a fost dezvoltat încetul cu încetul , până a apărut nevoia unei structurări a informației mult mai eficient , deoarece cantitatea de informații creștea permanent . la sfârșitul anului 1999 , rocarta 2000 devenea funcțională și era , probabil , prima enciclopedie de acest gen realizată în românia , la vremea aceea prezentată pe postul național de televiziune și în unele ziare .
+deși nu era terminată , rocarta era funcțională și cuprindea suficiente articole , așa încât să concureze lucrări similare tipărite , precum și albume de imagini în care s - au investit mai mulți sau mai puțini bani .
+după emisiunea tv realizată de tvr iași ( irina păcurariu , carmen olaru ) și prezentată de tvr 1 și tvr internațional , și - au manifestat interesul de a achiziționa rocarta , plătind integral drepturile de autor , atât departamentul pentru relații cu românii de peste hotare , cât și alte servicii guvernamentale , dar totul a fost lăsat baltă , din motive de inerție sau diverse alte motive .
+lucrarea a fost prezentată și în cadrul unui târg de sofware educațional organizat de casa corpului didactic din cluj - napoca și universitatea babeș - bolyai din cluj cluj - napoca , iar în revista cd - forum a fost prezentat un serial de articole care au avut ca subiect enciclopedia rocarta .
+majoritatea celor care au achiziționat rocarta sunt români de peste hotare dornici să aibă în casele lor un mic simbol " software " al românismului .
+
+prezentare generală
+
+enciclopedia multimedia rocarta este realizată după formatul enciclopediei multimedia encarta , a firmei microsoft . astfel , articolele sunt grupate pe domenii , un același articol putând face parte din mai multe domenii . de exemplu , articolul mircea eliade face parte din domeniile bucurești , literatura română , cultura română și academia română . domeniile sunt și ele considerate articole . enciclopedia cuprinde mai multe domenii precum cele enumerate deja , iar fiecare județ al țării este considerat domeniu , deoarece enciclopedia prezintă multe informații de natură geografico - turistică . articolele sunt însoțite de explicații , preluate din diferite surse de informare , ca dicționare enciclopedice sau ghiduri turisitice . majoritatea articolelor sunt însoțite de imagini , multe au înregistrări sonore sau video asociate . există și o galerie de sunete , una de imagini și una de videoclipuri , car pot fi accesate separat . de asemenea , programul are și alte funcții , precum cea de determinare a distanțelor dintre două localități , precum și de verificare a cunoștințelor acumulate răsfoind enciclopedia . există posibilitatea de a găsi informații și despre alte articole , care nu au intrare directă în enciclopedie , dar pot fi regăsite cu ajutorul unei căutări extinse , prin legăturile acestora cu alte articole din enciclopedie . datele aplicației ocupă aproximativ 600 mb , având 50 de filme avi și 120 de fișiere wav comprimate . cel care răsfoiește enciclopedia rocarta va descoperi multe secvențe video document , cu regii ai româniei ( ferdinand i , carol i , regina maria ), cu oameni politici ( nicolae titulescu , nicolae ceaușescu ) sau de cultură ( nicolae iorga , constantin brâncuși ), cu mănăstiri ( voroneț , sucevița ), precum și o serie de înregistrări sonore document , cu voci ale unor personalități ale lumii literare ( mihail sadoveanu , tudor arghezi , nichita stănescu , george călinescu ș.a .).
+
+legături externe
+
+situl enciclopediei la edusoft
+rocarta online
+curriculum vitae al autorului , bogdan pătruț
+enciclopedii românești
+enciclopedii online
+
+muzică
+muzica ( din gr . mousikē ) este arta combinării notelor în succesiune și simultan într - o formă plăcută estetic , organizarea ritmică a acestor note și integrarea lor într - o lucrare completă .
+
+instrumente muzicale
+
+instrumentele muzicale sunt utilizate în interpretarea compozițiilor muzicale și sunt de obicei clasificate în patru mari grupe tradiționale : cu coarde , suflători din lemn , suflători din alamă și instrumente de percuție , la care se adaugă suflători cu structură complexă și instrumentele electronice . aceatea se folosesc pentru a crea muzica , ele sunt făcute din plastic , sârma , pânza etc .
+
+genuri muzicale
+
+există numeroase clasificări ale genurilor muzicale : vocal și instrumental , sacru și laic , cult și comercial („ de consum ”), rock , de origine afro - americană , muzică electronică etc .
+
+istoria muzicii
+
+antichitate : s - au păstrat puține exemple de compoziții . acestea sunt bazate pe moduri . instrumentele reprezentative ale greciei antice sunt lira ( cu care este reprezentat apollo ) și aulos ( vedeți figura ). pitagora ( aprox . 570 î.hr . - 495 î.hr .) a considerat că esența muzicii este dată de rapoarte de numere simple proporționale cu lungimea coardelor monocordului pentru diferite note .
+evul mediu ( 500 - 1400 ): cântul bizantin și gregorian domină discursul muzical . leonin , un compozitor asociat cu catedrala notre dame din paris , a organizat aproximativ în anul 1200 primul cor pe mai multe voci . pentru următorii 400 de ani acesta a fost principalul mod de exprimare muzicală . instrumentele muzicale importante au fost orga ( inițial portabilă , de proveniența bizantină ) și lăuta ( utilizată în muzica laică , de exemplu de trubaduri ).
+renaștere ( 1400 - 1600 ): muzica vocală corală domină . vocile sunt combinate în feluri din ce în ce mai complicate . cântul gregorian stă la baza unei voci , nu a întregii compoziții polifonice .
+baroc ( 1600 - 1750 ): muzica rămâne polifonică dar devine tonală ( se trece de la moduri la game ). instrumentele din familia viorii sunt perfecționate și muzica instrumentală se dezvoltă mult . in tradiția vocală apare opera . rameau ( 1683 - 1764 ) a considerat că esența muzicii constă în combinarea vibrației coardelor cu o frecvență invers proporțională cu lungimea acestora .
+perioada clasică și romantică ( 1750 - 1910 ): muzica rămâne tonală dar devine omofonă . pianul capătă o importanță deosebită .
+secolul xx : noi experiențe muzicale atonale , neoclasicism , jazz , blues , rock , etc . la inceputul secolului xx , e . kurth ( 1886 - 1946 ) a propus idea conform căreia muzica este în primul rând o senzație psihologică .
+în românia au fost compuse imnuri la mănăstirea cozia în secolele al xiv - lea și al xv - lea . muzica laică a fost cultivată din secolul al xvii - lea la curțile domnești din bucurești și iași . conservatorul de muzică și declamație , cu filiale la bucurești și iași , a fost înfințat în anul 1864 .
+
+educația muzicală
+
+
+estetică muzicală
+
+
+notație muzicală
+
+
+analiză muzicală
+
+
+note
+
+
+bibliografie
+
+the harvard dictonary of music , harvard university press , ediția a 4 - a , 2003 .
+the new grove dictionary of music and musicians , macmillan publishers ltd ., 2001 .
+
+lectură suplimentară
+
+mică enciclopedie muzicală , iosif sava , luminița vartolomei , editura aius , craiova , 1997
+dicționar universal de muzică , jean lupu , editura litera , 2008 - recenzie
+o istorie a muzicii universale : de la orfeu la bach . 1 , ioana ștefǎnescu , editura fundației culturale române , 1995
+o istorie a muzicii universale : opera romantică de la rossini la wagner , ioana ștefănescu , editura fundației culturale române , 1995
+
+legături externe
+
+creierul muzical , 4 martie 2008 , cecilia stroe , descoperă
+sunete tămăduitoare : terapia prin muzică , 1 iunie 2011 , descoperă
+oamenii primitivi erau interesati de muzica , 4 iulie 2008 , descoperă
+efectele muzicii , 5 decembrie 2008 , andreea - raluca neagu , ziarul lumina
+compozitor orchestrator muzica usoara negative muzica
+
+
+iris ( formație românească )
+iris este o formație rock românească , fondată în 1976 la bucurești .
+din prima componență au făcut parte nuțu olteanu ( chitară , vocal ), emil lechințeanu ( chitară bas ) și nelu dumitrescu ( baterie ). formația a trecut prin numeroase schimbări de formulă , cea mai reprezentativă fiind cea care a avut în componență cuplul de chitariști nuțu olteanu - adrian ilie , avându - l ca solist vocal pe cristian minculescu . la mijlocul anilor optzeci , după desprinderea mai multor dizidențe ( voltaj - 1982 , incognito - 1984 ), are loc cel mai spectaculos „ transfer ” din istoria rockului autohton , prin trecerea lui nuțu olteanu , marti popescu și dan bittman la holograf .
+formula actuală a formației îi include pe valter popa ( chitară ), ion „ nelu ” dumitrescu ( baterie ), doru „ boro ” borobeică ( bas ), cristian minculescu ( voce ). ca invitat permanent apare relu marin ( clape ).
+incepând cu 3 septembrie 2012 , cristian minculescu a părăsit formația după 32 de ani , în locul său fiind adus tony șeicărescu ( ex - direcția 5 ).
+din luna iunie 2013 , noul solist al trupei este rafael , câștigătorul festivalului european de muzică - malta - valletta ( 2000 ), al festivalului callatis ( mangalia 2000 ) și al festivalului de interpretare și creație de la mamaia ( 2000 ).
+în 2015 rafael își anunță plecarea , iar cristi minculescu revine în trupă .
+
+istorie
+
+istoria formației iris se întinde pe o perioadă de peste trei decenii , timp în care formația a trecut prin diverse transformări ( plecarea și venirea altor membri ), diverse perioade istorice , fără însă a renunța la principiile sale , la visele și speranțele de libertate , nedezamăgindu - și niciodată fanii .
+
+începuturile
+
+în 1976 emil lechințeanu ( chitară bas ) , nelu dumitrescu ( baterie ) si nuțu olteanu ( chitară solo ), fondează iris , activând în underground la clubul de la ora 7 .
+urmează marele concert din vara lui 1977 de la sala polivalentă , unde au cântat : sfinx , roșu și negru , catena , progresiv tm , f.f.n . ( formația fără nume ). la acest concert au cântat și cei de la iris , chiar dacă nu apăreau în afiș . totuși cei 10.000 de spectatori sunt încântați de evoluția lor , deși nu se bucurau de succesul concurenților de la holograf .
+
+membri
+
+
+date importante
+
+1976 - emil lechințeanu ( chitară bas ) și nelu dumitrescu ( baterie ) si nuțu olteanu ( chitară solo ), fondează iris .
+1978 - prima apariție discografică , pe compilația formații de muzică pop 3 , cu piesa lui emil brando - „ corabia cu pânze ”, avându - l ca vocalist pe ioan jecan . în această perioadă colaborează cu sorin chifiriuc ( domino , sfinx ).
+1980 - relansarea trupei în formula adrian ilie , anton hașiaș , niki dinescu , cristian minculescu
+1984 - iris , primul album de heavy metal din românia , considerat de mulți fani drept cel mai bun produs al formației
+1986 - stabilirea componenței actuale , prin venirea lui valter popa și a lui doruleț borobeică
+1987 - apare iris ii
+1988 - apare iris iii – nu te opri !. anul 1988 a fost unul foarte agitat pentru formație . grupul este suspendat , iris fiind considerat la momentul respectiv un „ adversar ” periculos al regimului și totodată un exemplu negativ pentru tineretul româniei comuniste .
+1990 - instrumentele formației sunt distruse într - un incendiu .
+1991 - apare iris iv .
+1993 - apare iris v , albumul considerat cel mai puternic influențat de genul heavy metal .
+1996 - formația semnează un contract valabil pe șase ani cu zone records , una dintre clauze fiind producerea a cel puțin un album nou în fiecare an ; primul rezultat al noii colaborări este discul lună plină .
+1997 - în 17 octombrie are loc la sala polivalentă un concert aniversar , cu ocazia căruia sunt invitați cei mai mulți dintre foștii componenți .
+2000 - este desfășurat proiectul iris - athenaeum , unde un număr de piese sunt reorchestrate prin colaborarea cu o orchestră filarmonică .
+2002 - apariția albumului mătase albă coincide cu jubileul iris 25 de ani . discul include colaborarea cu mick box și bernie shaw , membrii ai formației britanice uriah heep . ( este lansat cu această ocazie lady in black , cu versurile cântate în două limbi , română și engleză .)
+2003 - cvadruplul album i.r.i.s . 4motion include proiecte solo ale celor patru membri , susținute și de un turneu național .
+2005 ( decembrie ) - apare iris maxima
+2007 - în iulie , formația cântă în deschiderea concertului rolling stones , iar pe 5 octombrie are loc sărbătorirea a 30 de ani de existență , printr - un concert extraordinar pe aeroportul băneasa , ocazie cu care se lansează un dublu compact disc , intitulat cei ce vor fi .
+2007 ( 6 octombrie ) - membrii iris sunt decorați cu ordinul meritul cultural în grad de cavaler pentru promovarea rockului timp de treizeci de ani .
+2009 ( 8 octombrie ) - formația susține la sala polivalentă din bucurești primul mare concert după operația de transplant de ficat suferită de cristi minculescu . biletele s - au epuizat cu mult înainte de data concertului , în sală fiind prezenți peste 7000 de fani . cu ocazia acestui spectacol a fost lansată și " integrala iris ", practic un boxset cuprinzând toată discografia trupei , în ambalaj nou și remasterizată .
+2010 ( 16 mai )- iris concertează în deschiderea show - ului pe care ac / dc îl susține la bucurești .
+2010 ( 21 noiembrie )- iris a lansat albumul “ 12 porți ”; în cadrul unui concert care a avut loc la sala palatului din bucurești .
+2012 ( 22 iunie ) - iris a susținut un concert aniversar în piața constituției , ce a marcat și lansarea albumului " iris 35 ". spectacolul a cuprins proiecții multimedia cu istoricul formației , iar soprana felicia filip a cântat alături de iris melodia “ de vei pleca ”
+2012 ( 28 august ) - solistul cristi minculescu se desparte de trupă , în locul său urmând să cânte toni șeicărescu , fost membru în direcția 5 .
+2013 ( 25 iunie ) - solistul toni șeicărescu pleacă din trupă , pe fondul neînțelegerilor cu nelu dumitrescu , locul său fiind luat de rafael cătălin paul ciobotaru ).
+2015 ( 22 aprilie ) - cristi minculescu revine în trupa iris .
+
+discografie
+
+" corabia cu pânze ", " țara adevărului ", " lumina zilei ", " ape curgătoare " ( demo în arhiva tvr , august 1977 )
+" mă întorc acasă " ( demo în arhiva electrecord , 1978 )
+" corabia cu pânze " ( prima apariție discografică a formației , pe compilația " formații de muzică pop iii ", 1979 )
+" cine mă strigă - n noapte ?", " valuri ", " călătorul ", " speranța ", " pământul îl cuprind ", " fug cu timpul ", " lumini și umbre " ( demo în arhiva radio , 1980 )
+" noaptea " ( demo în arhiva electrecord , 1981 )
+" vrem pace pe pământ " ( demo în arhiva electrecord , 1982 )
+" cei ce vor fi ", " aceasta - i întrebarea ", " trenul fără naș " ( demo în arhiva electrecord , 1982 )
+" aceasta - i întrebarea " ( înregistrare din cenaclul flacăra , 1983 )
+iris i ( 1984 ) este albumul de debut al formației , lansat de casa de discuri unică , electrecord . la momentul publicării lui , cristi minculescu sărbătorea patru ani de activitate cu iris . albumul poate fi considerat ca fiind o lucrare „ disidentă ”, pentru piesele trenul fără naș ( pe versuri de adrian păunescu – „ hei , hei , nașule ,/ dă - te dumneata - ntr - o haltă jos !”) și cei ce vor fi ( semnatarul versurilor este poetul mircea dinescu , el însuși considerat la vremea respectivă disident ).
+" în calea norilor ", " albina " ( demo în arhiva radio , 1984 )
+iris ii ( 1987 ) coperta discului , îndrăzneață pentru acele vremuri , îl prezintă pe chitaristul angus young ( ac / dc ) – grafică semnată de alexandru andrieș . albumul cuprinde strada ta , melodie de mare succes a formației . pe album apare și piesa lumea vrea pace , reprezentând un compromis pe care l - au urmat toate discurile românești de muzică rock în anii optzeci , după instalarea mișcării punk în vestul european .
+iris iii - nu te opri ! ( 1988 ) include cunoscuta piesă floare de iris , înregistrată din pricina temerilor că formația urma să fie interzisă , în condițiile în care erau primite tot mai multe avertizări de acest fel . formația a fost , într - adevăr , suspendată pe termen nelimitat în urma unui concert la miercurea ciuc , dar în urma intervențiilor insistente ale unor apropiați ai formației , revenirea pe scenă se produce . în schimb , " floare de iris " devine un imn al formației . programată ca ultimă piesă a discului , eponima nu te opri ! este o compoziție a pianistului romeo vanica ( membru al formației mondial în anii șaizeci ).
+iris iv ( 1990 ) disc înregistrat în perioada decembrie 1989 - ianuarie 1990 , de altfel primul album iris produs după revoluție . albumul oferă fanilor și o re - imprimare a piesei cine mă strigă în noapte ? compusă de chitaristul adrian ilie în 1980 .
+iris 1993 ( 1993 ) albumul dispune de cel mai agresive versuri , comparativ cu discurile produse anterior de formație . albumul de altfel se remarca cu noul chitarist dan alex sârbu care contribuie desăvârșit la compunerea pieselor harley - davidson , suflete de gheață și iris , nu pleca !. ca și la albumul precedent se realizează o nouă re - imprimare a pieselor mai vechi neapărute până atunci și anume melodia valuri compusă de același inegalabil adrian ilie în 1980 .
+the best of iris ( 1993 ) conținând piesele albumelor iris i și iris iv (( excepție făcând numai piesa rock ' n ' roll )). reprezintă ultimul material iris produs de electrecord .
+live at sala polivalentă
+lună plină ( 1996 ) marchează începutul unei noi perioade pentru formație , fiind și primul disc produs de către zone records . este lansat pe 13 decembrie 1996 la sala polivalentă , ocazie cu care soprana felicia filip își face prima dată apariția alături de formație , cântând împreună piesa baby . albumul conține de altfel re - imprimarea piesei călătorul mult iubită de fani în anii ' 80 . aceasta fiind și ultima piesa a lui adrian ilie re - făcută de formația iris după plecarea lui în statele unite din 1986 .
+iris 20 de ani ( 1997 ) album live înregistrat la sala polivalentă în data de 17 octombrie 1997 . primul album live imprimat vreodată și realizat ca format de compact disc . concertul oferă o performanță de excepție având ca produs piese mai rar cântate în concerte cum ar fi speranța și pământul îl cuprind - melodii care nu au mai văzut și alte realizări de studio la fel cum s - a întâmplat cu valuri , cine mă strigă în noapte ? sau călătorul .
+mirage ( 1998 ) discul este recompensat cu premiul pentru cel mai bun album rock al anului . producția este una elaborată , aducând sonorități noi pentru formație . versurile pun în discuție problematica degradării societății .
+casino ( 1999 , maxi - single ) include versiuni cover după formații precum : led zeppelin , bad company , thin lizzy .
+iris 2000 ( 1999 ) pe disc apare , între altele , o variantă reorchestrată a piesei strada ta .
+iris athenaeum ( 2000 ) colecție de piese de la concertul live cu același nume , care a avut loc la sala palatului . pe lângă membrii formației , în concert au mai participat : felicia filip , johnny răducanu , florentin milcoff , adrian pintea ș.a . concertul se lansează pe dublu cd dar și , pe dvd ( în 2001 ), fiind primul material discografic în românia lansat pe acest suport .
+da , da , eu știu ! ( 2002 ) un disc care pregătește viitorul album , mătase albă . pe lângă piesa eponimă , figurează aici și lumina zilei și câteva piese live , înregistrate într - un concert susținut la brașov în 1997 (" nu vor ( să meargă pe sârmă ), nelu - minat ( solo de baterie ), pe ape și floare de iris ).
+mătase albă ( 2002 ) lansarea albumului s - a desfășurat la 27 septembrie , pe aeroportul băneasa , în cadrul concertului aniversar „ iris – 25 de ani ”. recitalul este susținut alături de formația britanică uriah heep .
+i.r.i.s . 4motion ( 2003 ) reprezintă un box - set de patru cd - uri . fiecare inițială este atribuită unui membru , în următoarea ordine : boro : i - novator , valter : r - ealist , nelu : î - nvingător , cristi : s - entimental . cu prilejul acestui proiect , formația bifează încă o premieră în industria muzicală românească , anume primul album cvadruplu .
+iris maxima ( 2005 ) este lansat pe 10 decembrie la sala polivalentă .
+cei ce vor fi ( 2007 ) discul este lansat pe 5 octombrie la aeroportul băneasa , în cadrul concertului aniversar „ iris – 30 de ani ”. se editează un dublu cd care cuprinde colaborări cu nume precum : felicia filip , maia morgenstern , nicu covaci , adrian „ artan ” pleșca , tudor chirilă , mihai „ mike ” godoroja , adrian despot , vlad miriță , florin chilian , corul „ accustic ”, nuțu olteanu , abis , voodoo , cezar popescu și adrian pintea .
+12 porți ( 2010 ) iris a lansat albumul “ 12 porți ”; în cadrul unui concert care a avut loc la sala palatului din bucurești .
+o lume doar a lor - 35 de ani ( 2012 ) iris a lansat albumul “ iris 35 ” cu ocazia aniversării a 35 de ani printr - un concert multimedia în piața constituției pe 22 iunie 2012 . materialul marchează și revenirea la iris a producătorului mihai alexandru , precum și semnarea unui contract cu casa de discuri cat music .
+materiale video :
+iris digital athenaeum ( dvd / vhs , 2001 )
+iris aeterna - dăruind vei dobândi ( dvd , 2010 )
+
+note
+
+
+legături externe
+
+pagina oficiala de facebook https :// www.facebook.com / trupairis
+discografia formației iris la discogs
+fansite iris
+un triumf numit iris , formula as - anul 2000 , numărul 438
+aniversare : iris - 25 de ani : " la mulți ani , prieteni !", formula as - anul 2002 , numărul 536
+povestea de 35 de ani a trupei iris , 2 noiembrie 2011 , evenimentul zilei
+iris , o iubire fără sfârșit , 13 martie 2006 , cătălina iancu , jurnalul național
+aniversare : iris - 25 de ani " la mulți ani , prieteni !", iulian ignat , formula as - anul 2005 , numărul 698
+
+interviuri
+
+" avem o energie extraordinară și cântăm mai bine ca acum 15 ani ", iulian ignat , formula as - anul 1999 , numărul 361
+25 de ani de " formula ... unu ", formula as - anul 2002 , numărul 502
+video „ e normal să nu mai fim unica supapă de distracție “, 18 noiembrie 2010 , ruxandra grecu , adevărul
+valter popa , chitaristul de la iris : " prima mea chitară era din tablă și semăna cu o tigaie ", 13 decembrie 2011 , evenimentul zilei
+cristi minculescu vorbește despre albumul iris 35 de ani , 12 aprilie 2012 , info music
+iris
+formații rock
+formații hard rock
+formații rock românești
+formații românești
+formații rock din bucurești
+
+enciclopedie
+o enciclopedie este un compendiu lexicografic , scris în mod sistematic , al cunoștințelor umane .
+acest termen vine din greacă : εγκύκλιοσ παιδεία , enkylios paideia (" într - un cerc al cunoașterii ").
+enciclopediile pot fi generale , conținând articole din toate domeniile ( ex : enciclopaedia britannica ) sau pot fi specializate doar pe un anume domeniu ( ex : enciclopedii de muzică , fizică , etc .). în afară de acestea mai există și enciclopedii cu o varietate de domenii dintr - o singură țară sau cultură ( ex : marea enciclopedie sovietică sau rocarta ).
+lucrări enciclopedice s - au făcut în mare parte din istoria omenirii , dar termenul de enciclopedie nu a fost utilizat înainte de secolul xvi .
+
+primele lucrări enciclopedice
+
+scriitori din antichitate ( ex : aristotel ) au încercat să creeze o lucrare care să cuprindă toate cunoștințele umane din acea vreme . faimoasa enciclopedie britanică a avut un început modest , între 1768 și 1771 au fost publicate trei volume . poate cea mai cunoscută enciclopedie a acelor vremuri a fost enciclopedia franceză , enciclopedie editată de către jean baptiste le rond d' alembert și denis diderot , fiind terminată în 1772 , având 28 de volume , 71.818 articole și 2.885 de ilustrații .
+
+enciclopedii pentru copii
+
+astăzi , o sumedenie de enciclopedii bazate pe multe subiecte au fost tipărite . acestea există și în format pentru copii , având nume ca mica enciclopedie a copiilor sau prima mea enciclopedie .
+
+vezi și
+
+enciclopedism
+lexicon
+wikipedia
+
+bibliografie
+
+dex - 1996 , pag . 340 .
+
+legături externe
+
+cum a aparut prima enciclopedie din lume , 1 iulie 2013 , victor pitigoi , ziare.com
+*
+
+wikipedia
+wikipedia ( pronunțat în română sau , iar în engleză ▶ ) este o enciclopedie generală , disponibilă pe internet în mai multe limbi , având conținut deschis tuturor , atât pentru utilizare , cât și pentru dezvoltare . este dezvoltată prin colaborarea voluntară a unui mare număr de persoane și administrată de fundația non - profit wikimedia . face parte din fenomenul numit web 2.0 .
+prefixul din denumirea wikipedia se referă la metoda „ wiki ” de a edita pagini de web în colaborare , o metodă simplă și rapidă care permite participarea unui mare număr de persoane la redactarea aceluiași material . în limba hawaiiană wiki wiki , scris și wiki - wiki , înseamnă „ iute - iute ”.
+proiectul a început în limba engleză la 15 ianuarie 2001 la inițiativa lui jimmy wales și larry sanger . ediția în limba engleză , cea mai dezvoltată dintre versiuni , a depășit în anul 2007 pragul de 2 milioane de articole , iar numărul de articole în toate limbile a depășit 9 milioane . ediția în limba română are în prezent aproximativ de articole . ulterior noi proiecte au început să construiască wikipedia în alte limbi , în prezent existând peste 200 de proiecte , dintre care circa 100 sunt active .
+wikipedia folosește software liber , fiind inspirată de ideile lui richard stallman , fondator al free software foundation , probabil primul care a propus existența unei enciclopedii complet libere .
+același nume , wikipedia , desemnează și site - ul wikipedia.org , unde se pot accesa articolele scrise în cadrul proiectului și unde voluntarii participă la dezvoltarea lui .
+
+autori
+
+la scrierea articolelor din wikipedia poate contribui oricine . pentru a modifica articolele sau a adăuga altele noi nu este necesară nicio identificare a persoanelor și nicio verificare a competenței lor . în general , acest caracter liber al proiectului este privit cu suspiciune , întrucât este greu de imaginat că în urma unui astfel de proces neîngrădit se poate crea o lucrare enciclopedică de calitate . vizitatorii sitului wikipedia întreabă adesea : „ bine , dar atunci orice neștiutor sau răuvoitor poate să scrie în articole absolut orice ! mai mult , oricine poate să șteargă contribuțiile valoroase făcute de alții ! nu e periculos ?” deși într - adevăr articolele sunt uneori vandalizate de răuvoitori , modificările operate sunt permanent supravegheate de către comunitatea de utilizatori , care în timp s - au organizat și , pe lângă activitatea de dezvoltare continuă a proiectului , reușesc și să facă față atacurilor . imediat ce apare o modificare nepotrivită , ea este anulată iar persoana respectivă avertizată , totul petrecându - se de obicei într - un interval de câteva minute . în plus administratorii sitului au și posibilitatea de a bloca accesul la editare al răuvoitorilor .
+printre contribuitori se află oameni din toate părțile lumii și toate categoriile de vârstă , singurele condiții fiind accesul la internet și dorința de a participa la scrierea unei enciclopedii . desigur , sunt preferați editorii care cunosc suficient de bine un domeniu și care pot redacta articolele într - un stil propriu unei enciclopedii .
+
+wikipedia în limba română
+
+wikipedia logo
+wikipedia în limba română ( abreviată uneori „ ro.wp ”) a început în luna iulie 2003 . versiunile inițiale ale paginii principale și ale primelor articole au fost scrise pe 12 iulie . în 15 iulie bogdan stăncescu ( cu numele de utilizator gutza ) a primit statutul de administrator și a început să traducă interfața din limba engleză . tot el a făcut primele eforturi de atragere a contribuitorilor , adresându - se prin e - mail mai multor universități și academiei române . aceste demersuri au fost curând remarcate de presă și au avut ca urmare publicarea unor articole de prezentare a wikipediei .
+referitor la începuturile wikipediei în limba română , bogdan stăncescu a mărturisit următoarele :
+pe mine m - a încântat conceptul pe care l - am descoperit la wikipedia în engleză și i - am întrebat pe cei de acolo cum aș putea să ajut la cultivarea site - ului în română . am și acum răspunsul în arhiva de mailuri : « oh , you just want to be a sysop ? done !» (« tot ce vrei este să fii un sysop ? s - a făcut !»). așa că m - am apucat de treabă . am tradus toată interfața — neașteptat de mult de lucru și tot au scăpat niște greșeli pe care mi le - au semnalat contribuitorii mai târziu — și m - am pus pe scris articole care să dea o formă și o direcție site - ului .
+până la sfârșitul aceluiași an wikipedia în limba română avea deja nu mai puțin de 3.000 de articole și ocupa astfel locul 16 în clasamentul edițiilor wikipediei . proiectul s - a dezvoltat în continuare ajungând la 10.000 de articole la 13 decembrie 2004 , 50.000 de articole la 5 ianuarie 2007 , depășind 100.000 de articole la data de 11 ianuarie 2008 . în prezent există aproximativ de articole la wikipedia în limba română și circa de utilizatori înregistrați .
+de - a lungul existenței sale wikipedia în limba română s - a aflat în fața mai multor probleme . astfel , crearea automată a unei serii de proiecte în alte limbi , pe baza standardelor internaționale , a dus printre altele la apariția unei wikipedii în limba moldovenească , urmare a faptului că această limbă avea în standardul iso 639 codurile mo și mol , separate de limba română . acest proiect permitea inițial scrierea articolelor atât în alfabetul latin cât și în cel chirilic ( forma moldovenească de dinainte de 1989 ), dar ca urmare a numărului foarte redus de articole funcționa în mare măsură ca un portal cu trimiteri spre wikipedia în limba română . după numeroase și aprinse discuții proiectul a fost în cele din urmă înghețat în anul 2006 , pe baza faptului că limba moldovenească și limba română sunt identice și că nu s - au găsit vorbitori nativi ai acestei limbi care să dorească să contribuie în alfabetul chirilic .
+în anul 2010 wikipedia în limba română a trecut la utilizarea semnelor diacritice corecte din limba română , mai exact virgule sub ș și ț ( care până atunci apăreau în mod greșit drept sedile ). acest proces a putut fi în mare măsură automatizat , astfel încât dacă cineva scrie sau caută cu diacritice greșite , acestea sunt acum corectate automat .
+
+note
+
+
+vezi și
+
+acoperire în presă
+lista wikipediilor
+
+legături externe
+
+situl oficial wikipedia
+
+
+biologie
+animale
+pești
+biologia ( din , βίοσ bíos însemnând „ viață ”) este știința care se ocupă de studiul tuturor organismelor vii . termenul a fost creat și introdus în știință in 1802 de către jean - baptiste de lamarck și g . treviranus și provine din cuvintele grecești βίοσ / bios , « viață » și λόγοσ / logos , « cuvânt , discurs , știință ». cele mai vechi cunoștințe scrise din domeniul biologiei datează de la aristotel și teofrast . dintre personalitățile biologiei mondiale putem aminti pe g.l.l . de buffon , g . cuvier , j.h . fabre , ernst haeckel , jean - baptiste de lamarck , carl linné , charles darwin , g.j . mendel , th . schwann , h . de vries , alfred russel wallace , a . weismann . analizează structură , funcții , origini , evoluție , difuzare și creștere a ființelor vii . de asemenea , clasifică și descrie organismele , funcțiile lor și de unde și - au originile . sunt patru principii de bază ale biologiei moderne : teoria celulară , evoluția , genetica și homeostazia .
+biologia ca domeniu separat al științelor exacte și naturale a fost dezvoltată în secolul xix când științiști au descoperit că organismele împărtășesc caracteristici fundamentale . acum , este una dintre materiile standarde de învățamânt în școli și universități pretutindeni , iar peste un milion de articole sunt publicate anual într - o mulțime de reviste din domeniul biologiei și medicinei .
+
+subdomenii
+
+majoritatea științelor biologice sunt discipline specializate , grupate în subdomenii după tipul de organism care se cercetează în cadrul lor :
+botanică — studiul plantelor
+zoologie — studiul animalelor și microbiologie — studiul microorganismelor
+biochimie — studiul proceselor chimice care au loc în organisme
+biologie celulară — studiul celulelor
+fiziologie — studiul funcțiunilor de țesuturi , organe și sisteme de organe ale organismului
+ecologie — studiul interacțiunilor între organismele însăși și între ele și ambianță
+biologie marină – studiul vieții în bazinele oceanice , diversității viețuitoarelor marine
+
+definiții ale diverșilor autori
+
+după teofil craciun ( 1989 ) ( 4 ), biologia este știința despre viață și materie vie , ea studiind : originea , evoluția , reproducerea , ereditatea , caracteristicile morfo - fiziologice , obiceiurile etc . plantelor și animalelor .
+după kósa et al . ( 2000 ) ( 5 ), biologia este un sistem de discipline care studiază legile vieții . ea cercetează originea , dezvoltarea , complexitatea organismelor vii .
+
+istorie
+
+deși conceptul biologiei ca domeniu separat de știință a apărut în secolul xix , științele biologice își au originile din tradițiile medicinei și istoria naturală din grecia și roma antică și au fost mai dezvoltate în evul mediu de vindecători musulmani , spre exemplu al - jahiz avicenna , avenzoar și ibn al - nafis . în timpul renașterii și evului modern , cugetul biologic a fost revoluționat în europa datorită interesului restaurat de empirism și descopeririea multor organisme noi . andreas vesalius și william harvey au fost persoane prominente ale acestei mișcări fiindcă au utilizat experimentări și observări atente cercetând fiziologia . trebuie menționați aici și naturaliști cum ar fi carl linné sau georges - louis leclerc de buffon , care au început să clasifice organismele și fosilele precum și dezvoltarea și comportarea ființelor vii . datorită dezvoltării microscopiei a fost descoperită lumea microorganismelor , punând bazele pentru teoria celulară . importanța crescătoare a teologiei naturale , parțial un răspuns pentru filozofia mecanică , a susținut dezvoltarea rapidă a istoriei naturale .
+peste secolele xviii și xix , științele biologice cum ar fi botanică sau zoologie au devenit din ce în ce mai rapid discipline științifice profesionale . antoine lavoisier și alții chimiști și fizicieni au început să conecteze lumea animată și neanimată prin chimie și fizică . naturalist – exploratorii au cercetat interacțiunile între organismele și ambianța și metode prin care aceste legături depind de geografie — fondând discipline precum biogeografie , ecologie și etologie . naturaliștii au început să nu mai sprijine esențialismul și să ia în considerare importanța extincției și caracterul schimbător al speciilor . teoria celulară a dat o nouă perspectivă asupra bazelor fundamentale ale vieții . aceste dezvoltări , precum și rezultatele cercetărilor embriologiei și paleontologiei , au fost sintetizate în teoria evoluției prin selecția naturală a lui charles darwin . la sfârșitul secolului xix a fost părasită teoria generației spontanee fiind înlocuită de teoria microbiană de boală . totuși , mecanismul ereditării biologice a rămas un mister .
+la începuturile secolului xx , redescoperirea lucrărilor lui gregor mendel a adus la dezvoltarea rapidă a geneticii . domeniile noi au apărut repede ca consecință a propunerii structurii adn de către james watson și francis crick . după apariția dogmei centrale a biologiei moleculare și spargerea codului genetic , biologia s - a împărțit în mult între biologia organismelor — grupul câmpurilor științifice legate de organisme și grupuri ale organismelor — și biologia moleculară și celulară . în cursul secolului xx , aceste curente au fost răsturnate , biologii moleculari și celulari folosind metode utilizate în biologia organismelor și invers .
+
+principii fondatoare
+
+sunt cinci principii fondatoare ale biologiei
+:
+teoria celulară — toate organismele vii sunt compuse din cel mai puțin o celulă , care este cea mai mică unitate funcțională . în plus mecanismele esențiale și chimia toatelor celulele în fiecare organism sunt asemănatoare , iar celulele noi apar doar ca efectul despărțirilor celulare . teoria celulară explică cum apar celule , cum se reproduc , cum se influențează reciproc cu ambianța , din ce sunt compuse și cum funcționează organitele celulare .
+evoluția — organismele în cadrul populației moștenesc caracteristiciile între generații prin selecția naturală și deriva genetică .
+teoria genelor — trăsăturile organismului viu sunt codificate în adn , componenta esențială a genelor . trăsăturile sunt moștenite de la una generație la o altă prin aceste gene . toate informațiile curg de la genotip la fenotip , o caracteristică fizică sau biochimică a organismului pe care se o poate observa . deși fenotipul formulat de gena se poate adapta la ambianța în care trăiește organismul , această informație nu este retransmisă la gene . doar prin procesul evoluției genele se schimbă ca răspuns pentru condițiile ambianței .
+homeostazia — procesele fiziologice care permit organismului să mențină ambianța sa internă .
+energia — trăsătura caracteristică a oricărui organism viu care este esențial pentru viața .
+
+cercetări
+
+
+structură
+
+biologia moleculară este studiul biologiei la nivelul moleculelor . coincide parțial cu alte domenii , cum ar fi genetica și biochimia . această disciplină se concentrează la înțelegerea interacțiunilor între diverse sisteme ale celulelor , incluzând o legătură între adn , arn , sinteza proteinelor și învățarea mecanismelor acestor procese .
+biologia celulară cercetează proprietățile fiziologice ale celulelor precum și comportarea , interacțiunile și ambianța lor . experimentările se fac atât la nivelul microscopic cât și molecular . acest domeniu face cercetări pe organisme monocelulare precum și pe celule specializate în organisme multicelulare cum ar fi cele ale omului .
+ceea ce este fundamental pentru toate științele legate de biologie este de a înțelege din ce sunt compuse și cum funcționează celulele . cunoașterea asemănărilor și diferențelor este în special importantă în biologia celulară și moleculară .
+genetica este știința genelor , eredității și varietății ale organismelor . genele codează informații necesare pentru sinteza proteinelor care joacă un rol important în influențare ( dar în multe cazuri nu determină complet ) a fenotipului final al organismului . în cercetările moderne , genetică prevede unelte importante în investigarea funcțiunilor ale genelor particulare și analiza interacțiunilor genetice . organismele țin informația genetică în general în cromozoame unde este reprezentată de structura chimică a moleculelor adn particulare .
+biologia de dezvoltare cercetează procesele după care organismele cresc și se dezvolt . își are originile în embriologie . biologia de dezvoltare modernă studiază și controlul genetic al creșterii celulare , diferențierii , anatomiei și morfogeneză — procesul care permite țesuturilor și organelor să apară și să dezvolte .
+
+fiziologie
+
+fiziologia studiază procesele mecanice , fizice și biochimice ale organismelor vii cu scopul de a înțelege cum funcționează toate structurile ca un întreg . studii fiziologice au fost împărțite tradițional în fiziologia oamenilor , fiziologia plantelor și fiziologia animalelor . totuși , regulile principale ale fiziologiei sunt aceleași pentru orice organism . fiziologia animalelor folosește metodele și uneltele fiziologiei oamenilor pentru a cerceta alte animale , iar fiziologia plantelor de împrumută tehnici ale ambelor discipline .
+anatomia este un subdomeniu important al fiziologiei și cercetează funcțiile și interacțiunile sitemelor de organe ale animalelor . acest studiu își are subdiscipline orientate spre medicină , cum ar fi neurologia — studiul sistemului nervos , sau cardiologia — studiul sistemului cardiovascular .
+
+evoluție
+
+evoluția se preocupă cu originea și descindența speciilor și schimbările lor peste timp și include oameni de știință din multe discipline legate de taxonomie . în general , studiul evoluției are nevoie de oameni de știință specializați în anumite grupuri ale organismelor : mamifere , păsări , plante sau reptile , comparând rezultatele cercetărilor făcute de ei . biologia evoluționară este bazată pe paleontologie , studiul care folosește fosile pentru a răspunde la întrebări legate de mod și timp al evoluției , dar și pe genetica populației și teoria evoluției .
+
+personalități și istorie
+
+biologi celebri -- istoria biologiei -- premiul nobel pentru fiziologie sau medicină -- listă de zoologi după abrevierile de autor -- etape în dezvoltarea biologiei -- instituții de învățământ
+
+biologia în românia
+
+contribuții remarcabile în domeniul biologiei au avut : grigore antipa , dimitrie brândză , aristide caradja , radu codreanu , constantin motaș , emil racoviță , dimitrie voinov , alexandru borza , florian porcius , iuliu prodan .
+
+ramuri ale biologiei
+
+datorită aprofundării cunoștințelor din domeniul biologiei după inventarea microscopului de către a . van leeuwenhoek la mijlocul secolului al xvii - a , în interiorul biologiei au început să se formeze numeroase ramuri cu domenii de studiu bine definite . unele din aceste ramuri au un caracter predominant teoretic precum botanica , zoologia , taxonomia , iar altele — un caracter predominant practic precum agricultura , horticultura .
+
+clasificarea organismelor
+
+ordinea în clasificări este cea filogenetică , dată de autorii respectivi pentru coloanele 2 , 3 , 4 , 5 .
+bibliografia folosită pentru acest tabel
+ariniș i . et al . biologie . manual pentru clasa a ix - a . editura all , 2000 ( aprobat de ministerul educației și cercetării cu omec nr . 4205 din 12 august 1999 );
+mohan gh ., corneanu c ., ardelean a . biologie manual pentru clasa a ix - a , editura corint , 2004 . ( manualul a fost aprobat cu nr . 3886 din 24.05.2004 de ministerul educației și cercetării );
+sârbu anca , biologie vegetală , editura universității din bucurești , 1999 .
+crăciun t ., crăciun l.l ., dictionar de biologie , editura albatros , 1989 ;
+hósa maria , rákosy - tican lenuța , dezsöandrás , biologie manual pentru clasa a ix - a editura niculescu abc , bucurești , 2000 .
+
+galerie
+
+
+note
+
+
+bibliografie
+
+gheorghe mohan , aurel ardelean . enciclopedie de biologie . bucurești : all educational , 2007
+marin andrei . dicționar de biologie : clasică și actuală . editura victor b victor . 2009
+gheorghe mohan , aurel ardelean . dicționar enciclopedic de biologie . editura all educational . 2007
+elizabeth martin . oxford - dictionar de biologie . editura univers enciclopedic . 1999
+petre neacșu , zoe apostolache - stoicescu . dicționar de ecologie . editura științifică și enciclopedică , bucurești , 1982
+constantin pârvu . dicționar enciclopedic de mediu ( dem ), volumul 1 - 2 . regia autonomă monitorul oficial , 2005
+„ mică enciclopedie de biologie și medicină ”, victor sahleanu , bogdan stugren , editura științifică și enciclopedică , 1976
+ariniș i . et al . biologie . manual pentru clasa a ix - a , editura all , 2000 ( aprobat de ministerul educației și cercetării cu omec nr . 4205 din 12 august 1999 );
+mohan gh ., corneanu c ., ardelean a . biologie manual pentru clasa a ix - a , editura corint , 2004 . ( manualul a fost aprobat cu nr . 3886 din 24.05.2004 de ministerul educației și cercetării );
+hósa maria , rákosy - tican lenuța , dezsö andrás , biologie manual pentru clasa a ix - a , editura niculescu abc , bucurești , 2000 .
+sârbu anca , biologie vegetală , editura universității din bucurești , 1999 .
+crăciun t ., crăciun l.l ., dicționar de biologie , editura albatros , 1989 ;
+g . zarnea , o.v . popescu . dicționar de microbiologie generală și biologie moleculară . editura academiei române , bucurești , 2011
+
+legături externe
+
+on - line biology book
+ramurile biologiei
+
+

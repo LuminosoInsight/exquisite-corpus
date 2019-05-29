@@ -1,0 +1,250 @@
+hlavní strana
+kultura kultura
+geografie geografie
+historie historie
+matematika matematika
+lidé lidé
+filosofie filosofie
+věda věda
+společnost společnost
+technologie technologie
+
+astronomie
+astronomie , řecky αστρονομία z άστρον ( astron ) hvězda a νόμοσ ( nomos ) zákon , česky též hvězdářství , je věda , která se zabývá jevy za hranicemi zemské atmosféry . zvláště tedy výzkumem vesmírných těles , jejich soustav , různých dějů ve vesmíru i vesmírem jako celkem .
+
+historie astronomie
+
+
+antika
+
+astronomie se podobně jako další vědy začala rozvíjet ve starověku . na území babylonie však nebylo k popisu používáno již vynalezené geometrie ( grafy ). první se z astronomie rozvíjela astrometrie , zabývající se měřením poloh hvězd a planet na obloze . tato oblast astronomie měla velký význam pro navigaci . podstatnou částí astrometrie je sférická astronomie sloužící k popisu poloh objektů na nebeské sféře , zavádí souřadnice a popisuje významné křivky a body na nebeské sféře . pojmy ze sférické astronomie se také používají při měření času .
+další oblastí astronomie , která se rozvinula , byla nebeská mechanika . zabývá se pohybem těles v gravitačním poli , například planet ve sluneční soustavě . základem nebeské mechaniky jsou práce keplera a newtona .
+aristotelés ve svém díle o nebi z roku 340 př . n . l . dokázal , že tvar země musí být kulatý , jelikož stín země na měsíci je při zatmění vždy kulatý , což by při plochém tvaru země nebylo možné . řekové také zjistili , že pokud sledujeme polárku z jižnějšího místa na zemi , jeví se nám níže nad obzorem než pro pozorovatele ze severu , kterému se bude její poloha na obloze jevit výše . aristotelés dále určil poloměr země , který ale odhadl na dvojnásobek skutečného poloměru . v aristotelovském modelu země stojí a měsíc se sluncem a hvězdami krouží kolem ní , a to po kruhových drahách .
+
+myšlenky aristotelovy rozvinul ve 2 . století našeho letopočtu klaudios ptolemaios , který také stavěl zemi do středu a další objekty nechal obíhat kolem ní ve sférách :
+první byla sféra měsíce ,
+dále sféry sluneční soustavy - slunce a planet : merkuru , venuše , marsu , jupitera , saturna a
+sféra stálic - hvězd , jež byly považovány za nehybné , jak to plyne z názvu , měly se pohybovat jen společně s oblohou . tento model dostatečně vyhovoval polohám těles na obloze .
+
+novověk
+
+roku 1514 navrhl mikuláš koperník nový model , ve kterém bylo ve středu soustavy slunce a planety obíhaly kolem něj po kruhových drahách , setkal se ale s problémy při pozorováních , objekty se nenacházely na správných souřadnicích .
+roku 1609 zkonstruoval galileo galilei dalekohled , s jehož pomocí objevil čtyři měsíce obíhající kolem planety jupiter , a tím dokázal koperníkovu teorii o slunci ve středu a planetách kroužících kolem .
+johannes kepler zaměnil kruhové dráhy planet za eliptické , čímž bylo dosaženo souladu s pozorovanými polohami těles .
+v roce 1687 vydal sir isaac newton knihu philosophiae naturalis principia mathematica o poloze těles v prostoru a čase a zákon obecné přitažlivosti , podle něhož jsou k sobě tělesa vázána gravitací , která závisí na hmotnosti těles a na jejich vzdálenosti . z gravitačního zákona vychází eliptický pohyb planet .
+
+nová doba
+
+roku 1929 studoval edwin hubble daleké galaxie , zjistil rudý posuv , který se zvětšuje se vzdáleností , to byl důkaz o rozpínání vesmíru . fakt , že se od sebe objekty vzdalují , naznačuje , že někdy v minulosti byly objekty velmi blízko od sebe , tím se zrodily myšlenky o velkém třesku , místě a čase , kdy byl vesmír nekonečně malý a hustý .
+v letech 1905 – 1915 napsal albert einstein teorii relativity – speciální , ve které zavedl konečnou rychlost světla a obecnou relativitu o gravitaci , čase a prostoru ve velkých rozměrech . na začátku 20 . století vznikla kvantová teorie o chování elementárních částic .
+
+čínská astronomie
+
+čínská astronomie má velice dlouhou historii a dějepisci považují číňany za " nejdůslednější a nejpřesnější pozorovatele nebeských jevů na světě před araby ."
+jména hvězd později rozdělili do 28 kategorií (" panství ", [ říší ?]) v dobách dynastie šang ( shang ) v čínské době bronzové a zřejmě se zformovaly za vlády wu - tinga ( wu ding ) ( 1339 - 1281 př . n . l .).
+podrobné záznamy astrologických pozorování započaly v éře válek kolem 4 . století př . n . l . a vzkvétaly dále od období dynastie chan . čínská astronomie byla rovníková soustředěná na podrobná pozorování hvězd z okolí pólu a byla založená na jiných principech než převládaly v západoevropské astronomie , kde východ a západ slunce zodiakálních souhvězdí tvořil základní ekliptický rámec .
+některé prvky indické astronomie se dostaly do číny při expanzi buddhismu po dynastii chan ( 25 – 220 n.l .), ale nejpodrobnější vtělení indické astronomie nastalo za dynastie tchang ( tang , 618 - 907 ), kdy mnozí indičtí astronomové přesídlili do čínského hlavního města a čínští učenci , jako velký tantrický buddhistický mnich a matematik ji - šing ( yi xing ) propracoval její systém . astronomie islámského středověku úzce spolupracovala se svými čínskými kolegy během dynastie juan ( yuan ) a po období poměrného ústupu za dynastie ming astronomie ožila podněty západní kosmologie a techniky po vzniku jezuitských misií . dalekohled byl zaveden v 17 . století . v roce 1669 byla pekingská observatoř přestavěna pod vedením ferdinanda verbiesta . dnešní čína pokračuje v astronomických aktivitách s mnoha hvězdárnami a vlastním vesmírným programem .
+
+části astronomie
+
+od novověku do současnosti se astronomie nesmírně rozšířila a vznikla celá řada nových oblastí výzkumu , které lze velmi zhruba rozdělit na pozorování a teorii , nebo podle objektu zájmu .
+
+astronomické pozorování
+
+astronom , česky hvězdář , se zabývá zkoumáním vesmíru . kromě profesionálních astronomů se astronomii věnuje i řada astronomů amatérských .
+nejvýznamnějším zdrojem informací o vesmíru je elektromagnetické záření . část jeho vlnových délek , vnímatelná očima , je světlo . obory astronomického pozorování podle využívaných vlnových délek jsou
+gama - astronomie
+rentgenová astronomie
+ultrafialová astronomie
+optická astronomie
+infračervená astronomie
+mikrovlnná astronomie
+radioastronomie
+nejstarší a nejdůležitější je optická astronomie , využívající světlo . rozvoj dalších oborů souvisel s vývojem techniky . například radioastronomie se začala rozvíjet ve 30 . letech 20 . století , kdy karl guthe jansky při zkoumání zdrojů šumu rušících rádiové hovory objevil rádiové emise centra naší galaxie . atmosféra země mnoho vlnových délek účinně pohlcuje , takže gama a rentgenové pozorování se mohlo konat jen pomocí stratosférických balónů a výrazný rozvoj se dostavil teprve s pokrokem kosmonautiky .
+ještě exotičtější je pozorování jiných částic než elektromagnetického záření .
+neutrinová astronomie pozoruje neutrina , teleskopy jsou v současnosti velké prostory hluboko pod zemí , zaplněné vodou nebo jiným pozorovacím médiem
+studium kosmického záření , vysokoenergetických částic mimozemského původu . využívá metod jaderné fyziky ( v kosmickém záření se vyskytují i částice s o mnoho řádů větší energií než jaká je dosažitelná na urychlovačích ).
+hypotetická gravitační astronomie by měla pozorovat gravitační vlny . v současnosti jsou převažujícím způsobem detekce velké interferometry , nadějný projekt ligo je ve stádiu ověřování .
+
+astronomická teorie
+
+obecným teoretickým oborem je astrofyzika . zabývá se fyzikou hvězd a mezihvězdné hmoty ( hustotou , teplotou , chemickým složením atd .).
+kosmologie studuje vesmír jako celek a zvláště jeho vznik , současný a budoucí vývoj .
+astrobiologie se zabývá možnostmi existence života ve vesmíru .
+
+astronomie podle objektu zájmu
+
+hvězdná astronomie se zabývá hvězdami , včetně slunce ; výzkumem prostorového rozložení a zákonitostmi pohybů hvězd a hvězdných soustav .
+podle metody výzkumu se dělí na : 1 . stelární statistiku , 2 . stelární kinematiku , 3 . stelární dynamiku
+galaktická astronomie se zabývá zkoumáním struktury , součástí a vývoje galaxií – v prvé řadě naší galaxie .
+extragalaktická astronomie zkoumá objekty za hranicemi naší galaxie .
+planetární vědy zkoumají planety v naší sluneční soustavě . řadí se do astronomie , ale jejich části mají často užší spojitost s odpovídajícími vědami o planetě zemi ( například geologie marsu ).
+meteorická astronomie se zabývá studiem pohybu a dalšími vlastnostmi meteorů a meteoritů .
+
+vztah astronomie k dalším vědám
+
+astronomie má nejužší vztah s fyzikou . astronomická teorie je v podstatě fyzika astronomických systémů . naopak astronomické systémy jsou pro velkou část fyzikální teorie nejdůležitější „ laboratoří “, přirozeně především ve velkých prostorových a časových měřítkách se projevuje gravitace a testuje obecná teorie relativity . ve vesmíru se vyskytují i extrémní podmínky , které nejsou zatím dosažitelné v laboratořích , například tlak , hustota , teplota , magnetické pole a další .
+významný vztah má astronomie i k religionistice .
+
+odkazy
+
+
+reference
+
+
+související články
+
+astrofyzika
+astronomický ústav av
+hvězda
+planeta
+sluneční soustava
+souhvězdí
+vesmír
+významní astronomové
+
+externí odkazy
+
+
+přírodní vědy
+sedm svobodných umění
+
+biologie
+biologie ( z řeckého jako život a jako věda – tedy životověda – věda zkoumající život ) v nejširším slova smyslu je vědní obor zabývající se organismy a vším , co s nimi souvisí , od chemických dějů v organismech probíhajících na úrovni atomů a molekul , až po celé ekosystémy – tedy společenstva mnoha populací různých organismů a jejich vzájemné vztahy i vztahy k jejich životnímu prostředí .
+v užším slova smyslu bychom pak biologii mohli popsat jako vědu , zkoumající organismy od úrovně subcelulární , tedy od úrovně jednotlivých buněčných organel se vším , co s nimi souvisí , přes úrovně buněk , tkání , orgánů a jedinců až po úroveň populací , společenstev , ekosystémů a biomů .
+
+historie
+
+slovo „ biologie " ( řecky βιολογία ; ze slov βίοσ ( život ) a λόγοσ ( slovo )) bylo zřejmě poprvé použito v díle michaela christopha hanova – philosophiae naturalis sive physicae dogmaticae : geologia , biologia , phytologia generalis et dendrologia , publikovaném v roce 1766 . termín „ biologie “ tak , jak ho známe dnes , byl zaveden jeanem - baptistou lamarckem ( 1744 – 1829 ). historii biologie můžeme ovšem hledat už v dobách dávných lidských civilizací a klasických filozofů , jako způsob chápání života .
+ačkoli pojetí biologie jako samostatného souvislého odvětví vzniklo v 19 . století , biologie se objevila již v dobách antického řecka a říma , kde se živou přírodou zabývali aristoteles a claudius galén . v jejich bádání pokračovali ve středověku arabští lékaři jako al - jahiz , avicenna , avenzoar a ibn al - nafis . během období renesance a začátkem novověku biologie jako věda pronikla i do evropy . významnými vědci byli v té době william harvey a andreas vesalius , kteří prováděli pokusy a pozorování a linné a buffon , kteří začali zkoumat různorodost života a fosílie stejně jako vývoj a chování organismů .
+na přelomu 18 . a 19 . století se biologie stala stále více přírodní vědou určenou pouze odborníkům . badatelé jako alexander von humbolt zkoumali spolupráci mezi organismy a jejich životním prostředím . nejvýznamnějším biologem 19 . století je bezesporu charles darwin se svou teorií o evoluci na základě přírodního výběru . ta se nejdříve setkávala s odporem společnosti , protože byla v rozporu s křesťanstvím , později však byla uznána jako pravdivá .
+počátkem 20 . století znovuobjevení práce gregora mendela vedlo k rapidnímu vzrůstu výzkumu genetiky thomasem morganem a jeho studenty a kolem roku 1930 kombinací populační genetiky a přírodního výběru v „ novo - darwinovské syntéze “. james d . watson a francis crick objevili roku 1953 strukturu dna , za což dostali v roce 1962 nobelovu cenu za medicínu . po celé dvacáté století probíhal výzkum genetického kódu od jeho rozluštění v roce 1966 až po postupné mapování genomů jednotlivých organismů , pokračující v 21 . století .
+
+základy moderní biologie
+
+je pět základů biologie .
+buněčná teorie – studuje všechno co zahrnuje buňky . všechny živé organismy se skládají z buněk , základních stavebních kamenů života . navíc , všechny pochody v nitru buněk jsou podobné a vznikají jen z buněk předešlých násobným dělením . buněčná teorie studuje stavbu buněk , jejich rozmnožování a životní prostředí .
+evoluce – v biologii je to označení procesu postupné změny genetických vlastností organismů a procesu přírodního výběru .
+teorie genů – vlastnosti všech živých organismů jsou zakódovány v genech .
+homeostáze – fyziologické procesy udržující stálé vnitřní podmínky těla nehledíc na podmínky vnější .
+energie – základním rysem každého živého organismu je využití energie . přežití každého živočicha a rostliny závisí na jejím neustálém přísunu .
+
+podřízené a související vědní obory
+
+pod biologii tedy můžeme zařadit , nebo nalézt její úzkou spojitost s následujícími vědními obory :
+agrobiologie – věda , která využívá biologické zákonitosti v zemědělství
+anatomie – studium forem a funkcí u rostlin , zvířat a jiných organismů , nebo specificky u lidí
+bionomie – je komplexní studium organismu a jeho vztah k jeho prostředí
+biogeografie – je nauka o rozdělení biodiverzity v prostoru a čase
+biochemie – je vědní disciplína na pomezí biologie a chemie
+biologická systematika – ( též taxonomie ) vědecky zkoumá druhy a druhovou diverzitu organismů a všechny vztahy mezi nimi
+bionika – je hraniční obor , systematicky zaměřený na uplatňování poznatků ze studia živých organismů a jejich struktur při vývoji nových technologií
+biostatistika – obor využívající metody matematické statistiky při studiu proměnlivosti živých organizmů
+botanika – ( též rostlinopis , fytologie ) zabývá se flórou , tudíž rostlinnou částí přírody
+buněčná biologie – ( též cytologie ) je věda zabývající se studiem buněk
+ekologie – studium vlivů živých organismů a neživých složek navzájem , nebo na jejich prostředí
+etologie – vědní obor v rámci zoologie , který se zabývá studiem chování živočichů
+evoluční biologie – zabývá se biologickou evolucí organismů a mechanismy , které se při ní uplatňují
+fyziologie – studium o fungování živých organismů , jejich částí a orgánů
+genetika – zabývá se dědičností i proměnlivostí organismů a jejími příčinami
+matematická biologie – používá matematické metody ke studiu živých organismů
+medicínská biologie a lékařské disciplíny
+mikrobiologie – je věda studující mikroorganismy
+molekulární biologie – studium buněčných biologických procesů na jejich molekulární úrovni
+morfologie – zabývá se vnější stavbou organismů
+mykologie – studium hub , jejich genetických a biochemických vlastností
+paleontologie – je věda o životě v minulých geologických obdobích
+virologie – zabývá se studiem nebuněčných organismů , zejména virů , ale i viroidů a virusoidů
+vývojová biologie – zabývá se studiem procesů růstu a vývoje organismů
+zoologie – studie zvířat , včetně klasifikace , fyziologie , vývoje a chování
+a mnoho dalších specializovaných vědních disciplín .
+
+obory
+
+
+strukturální
+
+molekulární biologie studuje biologické buněčné procesy na jejich molekulární úrovni . například podstata dědičnosti se dá odhalit jen studiem její molekulární podstaty .
+molekulární biologie popisuje biologické makromolekuly a jejich vzájemné funkční vztahy , přičemž zvláštní pozornost věnuje dna , rna a proteinům . tato oblast molekulární biologie se nazývá molekulární genetika .
+znalosti molekulární biologie jsou využívány v medicíně a genetickém inženýrství , ale i například v kriminalistice .
+cytologie , neboli buněčná biologie studuje buňky , jejich stavbu , fyziologii , vlastnosti a chování ve vztahu k životním funkcím organismu . je úzce provázána s molekulární biologii , organickou chemií , biochemií , biofyzikou , mikrobiologií , mikroskopií a histologií .
+genetika je věda zabývající se geny , dědičností a proměnlivostí organismů . každá buňka v sobě přechovává v chromozomech genetickou informaci reprezentovanou strukturou dna .
+vývojová biologie studuje růst a vývoj organismů . vyvíjející se z embryologie , moderní vývojová biologie zkoumá genetické řízení růstu buněk a jejich rozdílností , jaký proces dává vznik tkáním , orgánům a celé anatomii .
+
+fyziologické
+
+fyziologie zkoumá mechanické , fyzické a biochemické procesy živých organismů . fyziologie má dva hlavní obory , fyziologii rostlin a fyziologii živočichů , ale principy fyziologie jsou univerzální , ať je zkoumán jakýkoliv organismus . například , co známe o buňce kvasinky , dá se použít i na lidskou buňku .
+anatomie je důležité odvětví fyziologie a zabývá se funkcí orgánovými soustavami jako oběhovou , nervovou , dýchací a endokrinní . studie těchto systémů se využívají v medicíně v disciplínách jako neurologie a imunologie .
+
+evoluce
+
+evoluce je odpovědná za původ druhů , stejně jako za jejich změny v průběhu času a zahrnuje vědce z mnoha taxonomicky orientovaných oborů . zpravidla to zahrnuje vědce specializované na obory jako mammalogie , ornitologie , botanika nebo herpetologie , kteří využívají poznatky o přírodním řádu k zodpovědění hlavních otázek ohledně evoluce . evoluční biologie se zakládá na paleontologii , která užívá poznatky k určení způsobu a rychlosti evoluce a také k rozvoji oblastí jako populační genetika a teorie evoluce .
+
+taxonomie
+
+taxonomie se teoreticky i prakticky zabývá klasifikací druhů . zařazuje organismy do jednotlivých kategorií ( taxonů ).
+základní taxonomické kategorie jsou :
+život
+doména
+říše ( regnum )
+kmen , oddělení ( phyllum , divisio )
+třída ( classis )
+řád ( ordo )
+čeleď ( familia )
+rod ( genus )
+druh ( species )
+organismy se obvykle dělí do tří domén :
+archaea
+bakterie
+eukaryota
+eukaryota se zpravidla dělí buď do šesti " superskupin ":
+amoebozoa – opisthokonta ( obsahuje tradiční říše houby a živočichové ) – rhizaria – archaeplastida ( rostliny ) – chromalveolata – excavata
+nebo do pěti říší :
+protozoa ( prvoci ) — metazoa ( živočichové ) — fungi ( houby ) — plantae ( rostliny ) — chromista
+
+environmentální
+
+ekologie má několik významů . ten původní definoval ernst haeckel v roce 1866 a znamená biologická věda , která se zabývá vztahem organismů a jejich prostředí a vztahem organismů navzájem . ekologie má řadu oborů od obecné ekologie a globální ekologie k ekologii mikroorganismů , ekologie lesa a moří . dle šíře zkoumaných objektů se ekologie dělí na ekologii jedince ( autekologie ), populací ( demekologie ), společenstev ( synekologie ) a biomů .
+etologie se zabývá studiem chování živočichů , jejich vrozených a naučených dovedností . prvním moderním etologem byl charles darwin , jehož kniha ( v originále the expression of the emotions in man and animals ) inspiovala řadu dalších etologů .
+biogeografie studuje rozmístění organismů na zemi , věnuje pozornost především tektonickým deskám , změně klimatu , migraci a kladistice .
+
+obecná biologie
+
+obecná biologie je průřezové odvětví biologie , zkoumající obecné základy živých soustav . jejím hlavním úkolem je integrovat poznatky a zákonitosti související s živými soustavami a definovat je na všech úrovních života . je úzce spjata s tzv . teoretickou biologií , která popisuje biologické zákonitosti za pomoci matematického , kybernetického a logického modelování a s přispěním dalších exaktních věd ( zejména fyziky a chemie ).
+
+galerie
+
+
+poznámky
+
+
+odkazy
+
+
+reference
+
+
+literatura
+
+
+související články
+
+seznam biologů
+hierarchie druhů
+prokaryota
+eukaryota
+fylogenetika
+biologická klasifikace
+vědecká nomenklatura
+carl linné
+lékařství
+taxon
+
+externí odkazy
+
+toxikologický výzkum – cro ( anglicky , česky )
+biomach.cz – přehled sš biologie
+
+přírodní vědy
+studijní obory
+

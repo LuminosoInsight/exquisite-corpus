@@ -1,0 +1,501 @@
+àbac
+l' àbac ( del llatí abăcus , i grec άβαξ - ακοσ , que significa " taula ") és una eina per al càlcul manual d' operacions aritmètiques , que consisteix en un marc amb filferros paral·lels per on es fan córrer boles . s' hi poden representar nombres enters o decimals . per a representar un nombre es fa servir la base decimal on cada fil de boles representa les unitats , desenes , centenes , etcètera .
+l' àbac generalment s' utilitza per realitzar les operacions aritmètiques bàsiques ( suma , resta , multiplicació i divisió ).
+a més dels àbacs basats en boles o pedres també s' han desenvolupat àbacs que fan servir els nombres decimals . el primer va ser l' àbac de gerbert , que el va inventar al voltant de l' any 1000 després d' haver après els nombres decimals a vic i a ripoll sota la protecció del comte borrell ii de barcelona . l' àbac neperià incorpora unes regletes que contenen la taula de multiplicar facilitant aquesta operació que amb l' àbac de gerbert requereix la memorització de les taules . les regletes de genaille - lucas milloren les de napier i permeten llegir directament el resultat de la multiplicació sense fer sumes intermèdies .
+a l' amèrica precolombina també s' havien desenvolupat instruments de càlcul basats en boles anomenats yupana i un sistema d' enregistrament de dades i nombres anomenat quipu . el seu funcionament es desconeix perquè els espanyols varen prohibir - ne i perseguir - ne l' ús i ensenyament . els investigadors creuen que el yupana es feia sevir emprant els nombres de fibonacci .
+
+història
+
+en èpoques molt primerenques l' home primitiu va trobar materials per a idear instruments per a comptar . és probable que el seu inici fos una superfície plana i pedres que es movien sobre línies dibuixades amb pols . avui dia es tendeix a pensar que l' origen de l' àbac es troba a la xina , on l' ús d' aquest instrument encara és notable , igual que al japó .
+
+àbac a mesopotàmia
+
+l' àbac sumeri apareix en el període comprès entre els anys 2700 - 2300 ac . aquest era format per una taula de successives columnes que delimitaven les successives ordres de magnitud el sistema sexagesimal que empraven . no obstant diferents experts sostenen que els sumeris " podien haver utilitzat l' àbac per a les operacions d' addició i sostracció ; tanmateix , aquest mecanisme primitiu resultava difícil d' utilitzar per a càlculs més complexos ".
+
+àbac a l' antic egipte
+
+l' historiador grec heròdot esmenta l' ús de l' àbac a l' antic egipte . descriu que els egipcis manipulaven els còdols de dreta a esquerra , en contraposició a la direcció esquerra - dreta emprada pels grecs . s' han trobat diverses restes arqueològiques en forma de discs de diferents mides , fet que porta a pensar als arqueòlegs que foren emprats com a comptes de l' àbac . tanmateix , no s' han trobat descripcions de paret d' aquest instrument , fet que suscita algun dubte sobre l' abast de la utilització d' aquest instrument .
+
+àbac a pèrsia
+
+durant la dinastia aquemènida , al voltant de 600 ac els perses començaren a estendre l' ús de l' àbac . sota els imperis arsàcides i sassànida iranians , els estudiosos d' aquests intercanviarien coneixements i invencions amb els pobles veïns ( índia , xina , i l' imperi romà ). es considera que aquest intercanvi de coneixement i tecnologia portà l' expansió en l' ús de l' àbac a la resta de països .
+
+àbacs on les xifres es representen per la posició d' un conjunt de pedres o indicadors
+
+les diferents civilitzacions han desenvolupat o adaptat diferents àbacs . en general fan servir un sistema de numeració posicional de base decimal i quinària i les diferències entre els uns i els altres es troben en si les pedres estan unides o no a la taula , si els decimals també són en base deu o base dotze , la posició cap a on es desplacen les pedres per adoptar valors significatius i en el cas de l' àbac xinès més pedres per permetre emprar nombres en base 16 .
+en aquests àbacs les operacions d' addició i sostracció són gairebé immediates afegint o traient les pedres que representen un nombre de les que representen l' altre i arranjant el resultat .
+les multiplicacions es basen a sumar repetides vegades el nombre , però aprofitant les propietats de la base decimal i quinària el nombre de sumes es redueix . així multiplicar per deu és desplaçar les pedres una columna , multiplicar per cinc és desplaçar - les mitja i arranjar - les , o multiplicar per 8 és multiplicar per 10 i restar el doble .
+pel que fa a les divisions es basen a restar repetidament del dividend el divisor i comptar quantes vegades es pot fer l' operació , però aprofitant principis com l' anterior per reduir el nombre de moviments .
+la multiplicació i la divisió requereixen més moviments que amb els àbacs que empren símbols per representar les xifres però no cal aprendre les taules de multiplicar per a emprar - los .
+
+àbac grec de salamina
+
+l' àbac grec de salamina és una taula de marbre trobada a salamina el 1846 . està datat al voltant de l' any 300 ac . les mides de la taula de marbre són de 150 75 4,5 cm .
+a la taula hi apareixen cinc grups de marques .
+els tres conjunts de símbols grecs arranjats al llarg de les vores esquerra , dreta i la de davall de la taula són els nombres del sistema acrofònic .
+al centre de la taula – un conjunt de 5 és línies paral·leles dividides al mig per una línia vertical , coberta d' una semicircumferència en la intersecció de la línia horitzontal de més a baix i la línia vertical . sota d' una escletxa horitzontal àmplia hi ha un altre grup d' onze línies paral·leles . aquestes es divideixen en dues seccions per una línia perpendicular a elles però amb la semicircumferència en la part superior de la intersecció ; les terceres , sisenes i novenes d' aquestes línies estan marcades amb una creu al punt on s' encreuen amb la línia vertical .
+
+àbac romà
+
+consisteix en una tauleta amb solcs . a la dreta hi ha una columna de tres solcs identificats amb els símbols s ( semiunça ), ( quart d' unça ) i z o 2 ( terç d' unça ). seguint cap a l' esquerra hi ha una columna de dos solcs , un a baix i un altre a dalt identificats amb el símbol θ ( que vol dir unça ). llavors vénen 7 columnes de dos solcs cada una , identificades successivament de dreta a esquerra amb i ( unitats ), x ( desenes ), c ( centenes ), ci ( milers ), cci ( desenes de milers ), ccci ( centenes de milers ) i x ( milions ).
+a les columnes de solcs corresponents des de les unitats fins als milions , la columna de davall conté quatre pedretes i la de damunt en té una . per representar una xifra de l ' 1 al 4 es desplaça cap amunt el corresponent nombre de pedres del solc de davall . per representar el 5 es desplaça la pedra del solc del damunt . les xifres del 6 al 9 es representen deixant a dalt la pedra del solc del damunt i desplaçant del solc de davall tantes pedres com unitats passen de 5 .
+la columna de les unces serveix per representar fraccions duodecimals . al solc de davall hi ha 5 pedres i al de damunt n' hi ha una . cada pedra del davall representa una dotzena part i la del damunt sis dotzenes parts . afegint les dues es poden representar des d' una fins a onze dotzenes parts .
+el solc s té una pedra que desplaçant - la representa mitja unça o , el que és el mateix , 1 / 24 part d' unitat . el també en té una per representar 1 / 48 part i el 2 en té dues i permet representar 1 o 2 terços d' unça o 1 / 36 o 2 / 36 parts d' unitat .
+
+àbac xinès
+
+el suanpan és un àbac d' origen xinès descrit per primera vegada en un llibre del 190 de la dinastia han , titulat notes suplementàries sobre l' art de les xifres escrit per xu yue . tanmateix , el disseny exacte d' aquest suanpan no es coneix .
+la similitud de l' àbac romà amb el xinès suggereix que un podria haver inspirat l' altre , ja que hi ha una alguna evidència de relació comercial entre l' imperi romà i la xina . tanmateix , no es pot demostrar cap connexió directa , i la similitud amb l' abaci pot ser fortuïta , sorgint els dos de la base de comptar amb cinc dits de cada mà . on el model romà i el xinès tenen 4 més 1 grans per lloc decimal , la versió antiga del suanpan xinès en té 5 més 2 , permetent menys algoritmes aritmètics , i també permetent utilitzar - lo amb un sistema de numeració hexadecimal . en comptes de córrer en filferros com en els models xinesos i japonesos , els grans del model romà corren en solcs , presumiblement fent molt més lents els càlculs aritmètics .
+hi ha dos tipus de grans en el suanpan , els de la part de baix , sota de la barra de separadors , i els de la part superior damunt d' aquesta . els de la part de baix s' anomenen de vegades grans de terra o grans d' aigua , i tenen un valor d ' 1 a la seva columna . els de la part superior s' anomenen a vegades grans del cel i tenen un valor de 5 a la seva columna . les columnes són com els llocs en xifres decimals : una de les columnes , normalment la de la més a la dreta , representa el lloc de les unitats ; a l' esquerra d' aquesta les desenes , els centenars , els milers , etcètera , i si hi ha columnes a la dreta de les unitats , són el lloc de dècimes , lloc de les centèsimes , etcètera .
+el suanpan és un àbac de 2 : 5 : dos grans de cel i cinc grans de terra . per , de fet , representar nombres decimals i sumar o restar tals nombres , estrictament es necessita només un gra superior i quatre grans inferiors a cada columna . així aquests grans extres es podrien utilitzar per representar nombres hexadecimals en el suanpan i sumar - los o restar - los . també , alguns mètodes " antics " per multiplicar o per dividir nombres decimals utilitzen aquells grans extres com la " tècnica de gra extra " o la " tècnica del gra suspès ".
+
+àbac japonès
+
+el soroban ( 算盤 , そろばん ) o àbac japonès , és una evolució de l' àbac xinès que va ser importat al japó al segle xv en el període muromachi . va prendre la seva forma actual en els anys 1930 . no implica més que el mínim de boles requerides per efectuar les operacions sobre l' àbac . és a dir una de sola quinària ( dalt de l' àbac ) i 4 d' unàries ( a baix ). en general un soroban té almenys una quinzena de columnes , però pot arribar a tenir - ne fins a 21 , 23 , 27 o 31 columnes .
+
+àbac rus
+
+l' àbac rus , el sxioti ( счёты ), normalment té una coberta inclinada única , amb deu grans a cada filferro , excepte un filferro que té quatre grans , per a fraccions de quart de ruble ( aquest filferro és normalment prop de l' usuari ). els models més vells tenen un altre filferro de 4 grans per a quarts de copec , que es varen encunyar fins a 1916 . l' àbac rus s' utilitza sovint verticalment , amb els filferros d' esquerra a dreta a la manera d' un llibre . normalment els filferros es dobleguen amb un bony cap amunt en el centre , perquè els grans tendeixin a desplaçar - se cap a qualsevol dels dos costats . es posa a zero quan tots els grans estan cap a la dreta . durant la manipulació , els grans es mouen cap a l' esquerra . per facilitar la visualització , els 2 grans mitjans a cada filferro ( el 5è i el 6è gra ) normalment són d' un color diferent dels altres vuit grans . de la mateixa manera , el gra esquerre del filferro de milers ( i el filferro d' un milió , si és que hi és present ) pot tenir un color diferent .
+com a mecanisme simple , barat i fiable , l' àbac rus era en ús a totes les botigues i mercats per tota l' anterior unió soviètica , i el seu ús s' ensenyava a moltes escoles fins als anys 1990 . ni tan sols la invenció el 1874 de la calculadora mecànica els havia reemplaçat a rússia . l' àbac rus només va començar a perdre popularitat després de la producció en sèrie de les calculadores electròniques que va començar a la unió soviètica el 1974 . avui es considera com a arcaisme i ha estat substituït per la calculadora .
+
+àbacs on les xifres es representen emprant símbols
+
+en els àbacs com el romà els nombres es representen mitjançant unes sèries de dígits i cada un d' aquests dígits es representa emprant pedres que cal comptar per a saber a quina xifra correspon . els càlculs s' aconsegueixen movent aquestes pedres que en afegir - ne o traure'n generen les noves xifres que componen el nombre resultat de l' operació .
+a partir del segle x apareixen nous àbacs on les xifres es representen amb símbols . en aquests àbacs les operacions es fan manipulant aquests símbols en alguns casos emprant mecanismes que els faciliten .
+
+àbac de gerbert
+
+en aquest àbac es fa servir la numeració decimal que gerbert va aprendre a vic i a ripoll entre els anys 967 i 970 on va estudiar sota la protecció del comte borrell ii de barcelona .
+es creu que gerbert va ser la primera persona a fer servir la paraula llatina abacus .
+l' àbac de gerbert ha estat descrit amb detall pel seu deixeble bernelinus . el seu funcionament l' explica gerbert en la seva obra regula de abaco computi on les regles per a realitzar les operacions aritmètiques de suma resta i multiplicació coincideixen amb les actuals mentre que per a la divisió fa servir un mètode de divisió complementària .
+aquest àbac està format per trenta columnes destinades a contenir les xifres que representen els nombres . les tres columnes de la dreta estan reservades pels decimals . les altres 27 columnes es troben agrupades en blocs de tres en tres . a cada bloc de tres columnes , la de la dreta està encapçalada pel símbol s ( singular ), la del mig pel d ( desenes ) i la de l' esquerra pel c ( centenes ).
+els nombres es representen ubicant a les columnes peces que tenen escrites cada una de les 9 xifres decimals . el zero no calia en aquest àbac , perquè l' absència de peça indica que el nombre no té cap quantitat de la columna corresponent .
+
+àbac neperià
+
+amb l' àbac de gerbert per fer les operacions cal memoritzar les taules de multiplicar . el 1617 john napier va publicar la invenció d' un àbac basat en varetes . amb aquest àbac , els productes es redueixen a operacions de suma i els quocients a restes .
+l' àbac consta d' un tauler amb vora en què es col·locaran les varetes per realitzar les operacions de multiplicació o divisió . el tauler té la seva vora esquerra dividida en 9 caselles en les quals s' escriuen els nombres de l ' 1 al 9 .
+les varetes estan dividides en 9 quadrats , excepte el superior , cada quadrat està dividit en dues meitats per un traç diagonal .
+a la primera casella de cada vareta s' escriu el nombre , omplint les següents amb el nombre multiplicat per dos , tres , quatre i així successivament fins a nou . els dígits resultats del producte s' escriuen un a cada costat de la diagonal i en aquells casos en què sigui inferior a 10 , s' escriuen en la casella inferior , escrivint en la superior un zero .
+exemple d' àbac neperià
+per calcular un producte amb aquest àbac , per exemple per multiplicar el nombre 46785399 per 7 , es posen al tauler les varetes corresponents al nombre , tal com es mostra a la figura , llavors es llegeix el resultat en la faixa horitzontal corresponent al 7 , per fer - ho només calen sumes senzilles de nombres d' una xifra cada un , portant - ne en els dígits situats a diagonal .
+
+àbac de regletes de genaille - lucas
+
+les regletes de genaille - lucas són una millora de les de napier . varen ser desenvolupades el 1885 per henri genaille a partir de la proposta teòrica del matemàtic édouard lucas .
+amb aquestes regletes l' àbac proporciona directament el resultat sense necessitat de fer les sumes .
+la diferència amb les regletes de napier és que a la part que correspon a les unitats , en comptes de tenir un resultat en té tants de possibles com poden resultar d' afegir - hi el ròssec del producte de la xifra anterior , llavors a la part que correspon a les desenes , en comptes del nombre de desenes hi ha un o dos triangles que fan la funció de fletxes indicant quina de les unitats de la xifra següent és la que té acumulades les desenes de l' actual .
+per exemple , a la figura de la dreta es representa la multiplicació de 52.749 per 4 . en multiplicar 4 per 9 sempre queden 3 desenes a afegir al següent dígit , per això la primera regleta a la fila del 4 hi ha un triangle que engloba tots els resultats possibles i apunta al resultat de la següent xifra més 3 unitats . en canvi en multiplicar 7 per 7 pot ser que calgui afegir 4 o 5 unitats a la següent xifra depenent del ròssec anterior . per això a la tercera regleta a la fila del 4 hi ha dos triangles , un que engloba els resultats possibles 8 i 9 que apunta a la següent xifra més 4 unitats i un altre que engloba els resultats possibles 0 i 1 i que apunta al resultat de la següent xifra més 5 unitats . tal com s' aprecia a la figura el resultat de la multiplicació ( 210.996 ) es llegeix directament .
+
+àbacs a l' amèrica precolombina
+
+algunes fonts esmenten l' ús d' un àbac anomenat nepohualtzintzin en la cultura maia antiga . aquest àbac de mesoamericà utilitzava un sistema de base - 20 de 5 dígits .
+la paraula nepohualtzintzin ve del nahuatl i és format per les arrels ; ne - personal ; pohual o pohualli - el compte ; i tzintzin - elements similars petits . i el seu significat complet es prenia com : comptant amb elements similars petits per algú . el seu ús s' ensenyava al " kalmekak " als " temalpouhkeh ", que eren estudiants dedicats a dur els comptes dels cels , des de la infantesa . malauradament el nepohualtzintzin i el seu ensenyament varen ser entre les víctimes de la destrucció dels conqueridors espanyols , que els hi varen atribuir un origen diabòlic en observar les enormes propietats de representació , precisió i velocitat dels càlculs .
+aquesta eina aritmètica es basava en el sistema vigesimal ( base 20 ). per als asteques el compte per vintenes era completament natural . el nepohualtzintzin estava dividit en dues parts principals separades per una barra o cordó intermedi . en la part esquerra hi havia quatre grans , que a la primera fila tenen valors unitaris ( 1 , 2 , 3 , i 4 ), i en el costat dret hi ha tres grans amb valors de 5 , 10 , i 15 respectivament . per saber el valor dels grans respectius de les files superiors , n' hi ha prou amb multiplicar per 20 ( cada fila ), el valor que els correspondria si estiguessin a la primera fila .
+tot plegat , hi havia 13 files amb 7 grans en cada una , el que comprenia 91 grans a cada nepohualtzintzin . aquest era un nombre bàsic a entendre , 7 vegades 13 , una relació estreta concebuda entre fenòmens naturals , el submón i els cicles dels cels . un nepohualtzintzin ( 91 ) representa el nombre de dies que dura una estació de l' any , dos nepohualtzitzin ( 182 ) és el nombre de dies del cicle del blat de moro , des de la seva sembra fins a la seva recol·lecció , tres nepohualtzintzin ( 273 ) és el nombre de dies de la gestació d' una criatura , i quatre nepohualtzintzin ( 364 ) completa un cicle i s' aproxima a un any ( es queda curt en 1 dia i 1 / 4 ). val la pena esmentar que el nepohualtzintzin permetia representar ordres de magnitud entre 10 i 18 en coma flotant , el que permet calcular tant quantitats astronòmiques així com infinitesimals amb precisió absoluta , el que traduït a aritmètica informàtica moderna vol dir que no es permeten errors d' arrodoniment .
+la redescoberta del nepohualtzintzin va ser deguda a l' enginyer mexicà david esparza hidalgo , que en els seus viatges per tot mèxic va trobar gravats diversos i pintures d' aquest instrument i en va reconstruir uns quants fets d' or , jade , incrustacions de closca , etc . també s' han trobat nepohualtzintzin molt antics atribuïts a la cultura olmeca .
+george i . sanchez , " aritmètica en maia ", texas d' austin , 1961 va trobar un altre àbac en base 5 , i base 4 al yucatán que també calculava dades del calendari . això era un àbac digital , en una mà es feien servir 0 , 1 , 2 , 3 i 4 ; i en l' altra mà es feien servir 0 , 1 , 2 i 3 . observeu l' ús del zero al començament i al final dels dos cicles .
+el quipu dels inques era un sistema de cordons en els quals es feien nusos utilitzats per a enregistrar dades numèriques , com avançats bastons de recompte - però no es feien servir per realitzar càlculs . els càlculs es feien utilitzant un yupana ( paraula quítxua que vol dir " eina de compte ") que encara era en ús després que els espanyols envasin el perú . el principi de funcionament d' un yupana és desconegut , però el 2001 el matemàtic italià nicolino de pasquale va proposar una explicació de la base matemàtica d' aquests instruments . comparant la forma d' uns quants yupanas , els investigadors trobaven que els càlculs es basaven a fer servir la successió de fibonacci 1 , 1 , 2 , 3 , 5 i potències de 10 , 20 i 40 com valors posicionals per a les diferents àrees de l' instrument . emprant la successió de fibonacci es mantindria el nombre de grans dins d' una àrea qualsevol al mínim .
+
+galeria d' imatges
+
+
+referències
+
+
+bibliografia
+
+
+vegeu també
+
+àbac neperià
+regle de càlcul
+soroban
+suanpan
+abacista
+
+lectures sobre el tema
+
+
+enllaços externs
+
+
+tutorials
+
+min multimedia
+
+curiositats sobre l' àbac
+
+abacus in various number systems at cut - the - knot
+java applet of chinese , japanese and russian abaci
+an atomic - scale abacus
+
+grups
+
+fédération française de calcul mental
+
+educació
+
+speed maths academy.com
+
+
+
+abadia
+una abadia ( del llatí abbatia , que deriva del sirià abba , que vol dir " pare ") és un monestir cristià governat per un abat o abadessa , que és el pare o mare espiritual de la comunitat , i que s' elegeix per un determinat nombre d' anys o per tota la vida . per tal que un monestir es regeixi per un abat i tingui categoria d' abadia , cal que es compongui d' un mínim de quinze monjos amb els vots solemnes fets . en bona part de la catalunya occidental l' abadia és la casa on viu el rector ; és a dir , la rectoria de la catalunya oriental .
+
+referències
+
+monestirs
+
+adagi
+un adagi ( del llatí adagium ), altrament dit màxima , és una sentència moral , un refrany o una norma , manifestada en llenguatge concís i ponderat , que conté una regla de comportament moral o profitós .
+
+enllaços externs
+
+dites populars catalanes
+sociolingüística
+gèneres literaris
+
+adam
+adam ( en hebreu : אָדָם adam , i en àrab : آدم ādam ) fou el primer home , segons el gènesi , i com a tal el veneren el judaisme , el cristianisme , l' islam i altres religions menors .
+
+narració bíblica
+
+d' acord amb la narració bíblica , fou creat per déu a la seva imatge i semblança , de la pols de la terra i de l' alè de déu , i posat al jardí de l' edèn com a amo absolut , amb l' única condició de no menjar el fruit de l' arbre del bé . adam vivia feliç al paradís , on era dominador de tots els animals ( als qui posà un nom ) i no li faltava el menjar . però aviat es va adonar que tots els animals tenien parella i se sentí sol . déu va adormir - lo , li va treure una costella i en féu una femella , qui adam batejà amb el nom d' eva . la serp va enganyar eva qui va convèncer adam per menjar de l' arbre prohibit . aleshores van ser expulsats del jardí de l' edèn i condemnats a sofrir malalties , dolors , patiments per guanyar - se l' aliment i a envellir i morir .
+
+fills i filles
+
+segons el gènesi , amb eva van ser pares de caín , abel i set , fet a la seva imatge , de qui provindria tota la humanitat , ja que és l' avantpassat de noè .
+el llibre dels jubileus ( segle ii ac ) anomena els noms de dues filles d' adam i eva : azura , qui seria esposa de set , i avan , qui acompanyaria a caín i li donaria fills
+adam va tenir el seu fill set a l' edat de 130 anys i després encara va viure vuit - cents anys més en què va engendrar fills i filles .
+
+adam en el judaisme
+
+segons la tradició jueva , la primera esposa d' adam s' anomenava lilit i eva fou en realitat la segona dona . en tota la bíblia només és citada en un passatge : els animals feréstecs es trobaran amb les hienes , i el sàtir cridarà el seu company . també hi descansarà el dimoni lilit , serà el seu lloc de repòs . ( isaïes , 34 : 14 )
+cova dels patriarques a hebron , lloc tradicional d' enterrament d' adam per als jueus .
+kaba de la meca , lloc tradicional d' enterrament d' adam per als musulmans sunnites .
+aquesta creença jueva tan antiga es deu al fet que el gènesi explica dues vegades la creació de l' home i la dona :
+la primera : i déu va crear l' home a la seva imat­ge , a la semblança de déu el va crear ; creà l' home i la dona . ( gen , 1 : 27 )
+la segona : i de la costella que havia tret de l' home , el déu etern en va fer una dona i la dugué a l' home . ( gen , 2 : 22 )
+segons el gènesi rabba , midràs del segle v sobre el llibre del gènesi , adam tenia vint anys i eva encara no havia estat creada , quan jahvè va demanar a l' home que posés nom a totes les bèsties , aus i altres éssers vivents . quan desfilaren davant d' ell en parelles , mascle i femella , adam sentí gelosia del seu amor , i encara que va copular amb cada femella animal per torn , no trobà satisfacció en l' acte . per això va exclamar : totes les criatures tenen la parella apropiada , menys jo !, i pregà a jahvè que remeiés aquesta injustícia .
+així , déu va crear - li una femella amb qui poder estar junts . aleshores van viure feliços i abonats al plaer que es donaven mútuament . al cap d' un temps però , jahvè va adormir adam i de la seva costella en va crear una altra dona , eva , que era molt més assenyada i menys luxuriosa . aleshores lilit fou repudiada i segons algunes versions jueves abandonà l' edèn . amb tot , però , una serp ( representació del dimoni ) es va aparèixer a eva i la va convèncer per menjar de l' arbre prohibit . així fou com els primers homes es veieren obligats a abandonar l' edèn .
+després d' instal·lar - se a la terra , adam repudià eva pel pecat comès i durant 130 anys va dormir a les nits tot sol . durant aquest període , lilit s' apropava periòdicament a adam qui , cautivat per la seva bellesa , acabava mantenint relacions amb ella de les quals en van néixer els dimonis i esperits coneguts com a plagues de la humanitat o lilim .
+finalment , adam s' apropà a eva , es perdonaren i construïren una família molt nombrosa . al cap de molts anys , una jove descendent de caín , primogènit d' adam , anomenada naamà va tornar a la casa d' adam i va mantenir relacions luxurioses amb ell . de resultes en va néixer asmodeu i altres dimonis .
+segons l' historiador jueu del segle i flavi josep , quan ja era molt vell , adam va predir uns cataclismes mundials a base de foc i aigua . aleshores , uns descendents seus va començar la construcció de dues columnes gegants - una de maó i una de pedra - amb l' objectiu d' anotar - hi tota la saviesa ( ciència i invents ) adquirida per tal que , després dels cataclismes , les futures generacions poguessin aprendre ràpidament els coneixements ja adquirits . aquestes columnes eren anomenades pilars dels fills de set .
+
+adam a l' islam
+
+segons l' islam , adam va construir el primer altar a déu . uns dos mil anys després , el seu descendent abraham , ajudat pel seu fill ismael , van reconstruir aquest temple , que avui dia es coneix com la kaaba ( situada a la meca ), la mesquita més important de l' islam . les escriptures islàmiques no detallen el paper d' eva com a temptadora , sinó que el diable apareix com a instigador de la parella per desobeir déu .
+
+etimologia
+
+el mot adam prové de l' hebreu adamah , que significa " terra ", " sòl ". el derivat adam , però , va agafar el significat d '" humanitat ".
+
+notes
+
+
+referències
+
+
+vegeu també
+
+la vida d' adam i eva
+personatges del gènesi
+profetes de l' islam
+sants de l' antic testament
+
+addicció
+el terme addicció és utilitzat en un ventall ampli de contexts per a descriure una inclinació , una obsessió , una obligació o una dependència física o psicològica excessiva . alguns exemples d' addicció poden ser l' addicció a les drogues ( drogoaddicció ), als videojocs , al joc ( ludopatia ), al tabac ( tabaquisme ), a l' alcohol ( alcoholisme ), a l' ordinador , a la pornografia , al menjar , entre d' altres .
+en terminologia mèdica , una addicció és un estat en què el cos depèn d' una substància per a funcionar normalment , i desenvolupa una dependència física cap a aquesta , com en el cas de la drogoaddicció . quan la droga o la substància de què algú depèn se li retira , això causa en el malalt una síndrome d' abstinència , que presenta un conjunt característic de símptomes . en el camp de la psicologia , una addicció no està associada necessàriament amb un ús abusiu d' una substància , ja que aquesta forma d' addicció es pot generar fins i tot seguint la medicació d' un tractament mèdic convencional , prescrit per un metge .
+l' oms , per exemple , ha utilitzat els termes " habituació ", " farmacodependència ", " ús perjudicial " i altres per a referir - se a l' ús de substàncies , cosa que reflecteix la discussió a l' interior dels diversos comitès que s' han format per discutir el tema .
+en l' actualitat existeix un cert consens , no completament acceptat , que distingeix almenys dos fenòmens relacionats amb l' ús de substàncies psicoactives : addicció i dependència . aquests dos fenòmens són completament diferenciables tant en la clínica com en la neurobiologia , conducta i tractament . tanmateix , els dos grans manuals de consens al voltant dels trastorns psiquiàtrics ( el dsm iv de l' american psychiatric association , i la cie - 10 , de l' oms ) presenten una barreja dels seus signes característics .
+originalment , addicte era qui seguia cegament al líder sense criticar ni dir res ( en llatí a - dicti : ' no dicció '). després es va anomenar addictus a un ' esclau ' per deutes . d' allà addictio : ' adjudicació , cessió al millor postor , consagració , dedicació '.
+no obstant això , l' ús comú del terme addicció ha ampliat el seu camp semàntic a la dependència psicològica . en aquest context , s' utilitza el terme en la drogoaddicció i els problemes d' abús de substàncies però també es refereix als comportaments que no es reconeixen generalment com a problemes d' addicció , com l' addicció al menjar , al joc o als ordinadors . en aquest tipus d' accepció , el terme denota el comportament compulsiu d' un individu en realitzar alguna activitat específica , tot i les conseqüències perjudicials que pugui tenir per a la seva salut , el seu estat mental o la seva vida social .
+
+clínica
+
+el consum de substàncies psicoactives com les drogues és probablement una de les activitats més antigues de l' ésser humà . la importància de l' espai psíquic per a l' espècie humana , és amb seguretat el motiu pel qual aquestes conductes han tingut i segueixen tenint una alta freqüència en totes les societats . els éssers humans han usat psicotròpics per als més diversos fins : millora de l' estat d' ànim , control de l' ansietat , del dolor , comunicació amb una realitat no ordinària , socialització i un simple benestar .
+
+dependència i addiccions
+
+la distinció entre " dependència " i " addicció " és una preocupació actual dels investigadors .
+la dependència és l' ús d' una substància per evitar els efectes que tindria la seva carència . en aquest sentit els diabètics que han d' utilitzar insulina constitueixen un grup dependent . la dependència a substàncies psicoactives és l' ús de substàncies amb l' objecte d' evitar els efectes que provoca la seva suspensió ( ús preventiu ) o bé de disminuir els símptomes de la suspensió quan ja s' ha produït ( ús pal·liatiu ). típicament les benzodiazepines provoquen dependència . se les utilitza per a induir el somni , per exemple , però el seu ús continuat provoca , finalment , que el son sigui induït només gràcies al seu consum . un subjecte que fa algun temps que consumeix benzodiazepines per dormir , tindrà després grans dificultats per agafar el son sense consumir . s' ha fet dependent . el seu consum de benzodiazepines , llavors , es fa de manera preventiva ( en prevenció de no poder dormir ), o bé , per a induir el somni quan descobreix que d' altra manera no pot aconseguir - ho ( ús pal·liatiu ).
+
+tolerància i síndrome d' abstinència
+
+les substàncies capaces de provocar dependència indueixen un fenomen anomenat " tolerància ", que consisteix en la disminució dels efectes típics d' una substància quan s' usa de manera regular , o bé , el que és el mateix , un efecte que es manté similar encara quan s' augmenti la quantitat de substància . és el fenomen habitual en els bevedors d' alcohol , que són capaços de tolerar grans quantitats d' alcohol quan fa anys que en consumeixen . passa també de manera marcada amb els efectes euforitzants de la cocaïna . la tolerància apareix sobre alguns efectes de les substàncies psicoactives i no sobre altres .
+un fenomen que està estretament lligat a la tolerància és el de síndrome d' abstinència , o simplement abstinència . la síndrome d' abstinència és un fenomen agut que passa en interrompre el consum d' una substància en un subjecte que fa molt de temps que la fa servir de manera més o menys contínua . cada substància té una síndrome d' abstinència característica , i entre aquests el de l' alcohol és sens dubte el més greu . la síndrome d' abstinència a l' alcohol varia entre lleu , moderat i greu .
+la síndrome greu té una significativa mortalitat si no és tractat a temps , constituint una real emergència mèdica . la síndrome greu d' abstinència a l' alcohol es coneix com a delírium trèmens ( del llatí , que vol dir " deliri tremolós ", en al·lusió als seus dos grans símptomes ).
+tanmateix , no totes les substàncies addictives provoquen abstinència . per exemple , la síndrome és intens ( i greu ) en el consum d' alcohol . també és molt notori en el consum d' opiacis . tanmateix , és poc notori o inexistent en el consum de cocaïna i nicotina .
+la síndrome d' abstinència és el conjunt de reaccions físiques o corporals que succeeixen quan una persona amb addicció a una substància ( alcohol o begudes amb etanol , tabac o altres drogues ) deixa de consumir - la .
+aquesta síndrome també pot presentar - se en algunes patologies psicològiques com la dependència emocional , en què no es depèn d' una substància o una droga , però sí d' un afecte desmesurat cap a una altra persona , i l' individu presenta somatització ( procés pel qual es confonen problemes emotius o psicològics amb dolors físics ). encara que els símptomes varien en forma i intensitat segons el producte emprat i el temps que fa que es desenvolupa la dependència , en tots els casos es deuen al fet que s' ha alterat el funcionament normal del sistema nerviós central . la síndrome d' abstinència es denomina col·loquialment mono .
+la tolerància i la síndrome d' abstinència són fenòmens reversibles . un subjecte que s' ha fet dependent , pot deixar de consumir una substància i en un temps variable perdre la tolerància que tenia . en termes pràctics això significa que , si torna a consumir , sentirà els mateixos efectes que un subjecte verge d' experiència . acostuma a passar als consumidors d' alcohol quan han passat un llarg període sense consumir ( per exemple , un any ). quan tornen a consumir una petita dosi , que normalment no els faria efecte , pateixen una intensa embriaguesa .
+la síndrome d' abstinència també és reversible i té un tractament eficaç . el més greu , el de l' alcohol , té una durada que , en el pitjor dels casos , no supera els 10 a 12 dies . després d' aquest temps , l' individu pot tornar a fer una vida normal .
+d' aquesta manera , en ser reversibles i tenir un tractament eficaç , dependència i abstinència en estricte rigor no representen un greu problema sanitari .
+
+síndrome d' abstinència neonatal
+
+quan una dona embarassada és addicta , les substàncies que consumeix arriben al torrent sanguini del fetus a través de la placenta . en néixer , la dependència del nadó que fa a la droga continua , però no la seva administració , per la qual cosa pateix diversos trastorns en el seu sistema nerviós i en el seu organisme en general .
+abstinència en nounats . a més de les dificultats específiques de la síndrome , d' acord amb la substància emprada per la mare , un nadó pot presentar altres problemes :
+creixement deficient .
+naixement prematur .
+convulsions .
+defectes congènits .
+plor excessiu i molt fort .
+mala alimentació ; pobra succió de llet materna .
+morts prematures .
+
+sensibilització i addiccions
+
+el que sí que representa un problema greu és l' addicció , que consisteix en el consum compulsiu d' una substància .
+l' addicció sembla estar relacionada amb el fenomen de la sensibilització . la sensibilització és un fenomen oposat a la dependència . consisteix en l' augment d' alguns efectes de les substàncies psicoactives amb l' ús regular d' elles . per exemple , és molt evident amb els efectes neuromotors de la cocaïna . l' ús regular de cocaïna ( en qualsevol de les seves formes ) provoca hipertonia i conductes estereotipades tant en humans com en animals d' experimentació , així com fenòmens paranoics i il·lusions angoixants , alhora que els efectes euforitzants disminueixen producte de la tolerància . els consumidors d' alcohol de molts anys s' embriaguen amb dosis cada vegada menors d' alcohol .
+atès que la sensibilització és un fenomen que roman per molts anys ( tal vegada sigui irreversible ) s' ha utilitzat com un dels models per explicar l' addicció . la conducta compulsiva de consum sembla , igualment , no ser reversible , encara que sí que pugui ser controlada amb entrenament . l' addicció , és a dir , la conducta compulsiva de cerca i consum de substàncies , malgrat tots els problemes personals , físics i socials que li porti a l' individu , és en rigor el real problema , i el que porta a demanar ajuda al subjecte i a la seva família .
+la conducta compulsiva apareix només en algunes condicions especials . hi ha almenys tres elements que disparen la compulsió per consumir : els estímuls ambientals associats a drogues , els estats afectius desagradables ( com la tristesa o l' estrès ) i provar la substància o una altra semblant . qualsevol d' aquests tres és capaç de desencadenar un intens desig de consumir i l' aparició de conductes de cerca ( el que s' anomena estratègies de consum ).
+hi ha substàncies que són capaces de provocar una intensa dependència i síndrome d' abstinència , però que no provoquen addicció , per exemple , les benzodiazepines . els subjectes consumeixen benzodiazepines de manera preventiva o pal·liativa , però no existeixen estímuls ambientals o interns que els provoquin el desig compulsiu de consumir - les . és també l' experiència dels subjectes que consumeixen opiacis com pal·liatiu del dolor crònic ( per exemple , càncer ).
+d' altra banda , hi ha substàncies que no provoquen dependència ni síndrome d' abstinència notable , i que tanmateix són intensament addictives . entre elles , les més importants són , sens dubte , la nicotina i la cocaïna . en animals de laboratori aquestes dues han demostrat ser les substàncies més ràpidament addictives , encara que no provoquin síndrome d' abstinència .
+l' alcohol té efectes mixtos , segons el període de consum . en el curt termini provoca tolerància , però si el consum és abusiu i per llarg temps , apareixerà la compulsió .
+el cànnabis és una substància conflictiva . no s' ha aconseguit que els animals de laboratori se l' inoculin a si mateixos amb facilitat , com passa ràpidament amb totes les altres , fet que concorda amb els escassos efectes addictius i de dependència en éssers humans .
+
+context , tolerància i addicció
+
+tolerància i addicció són fenòmens que depenen del context . rates de laboratori entrenades per realitzar alguna tasca sota efectes de l' alcohol , presenten una resposta tolerant davant una dosi d' alcohol de prova , a diferència de rates control que són entrenades sense alcohol i que reben una dosi equivalent d' alcohol però un cop acabat l' entrenament , i que presenten embriaguesa davant d' una dosi de prova .
+d' igual manera , el context és capaç d' extingir la resposta tolerant . un subjecte que tolera grans dosis de cocaïna en un context de festa , on està acostumat a fer - ho , pot patir una severa intoxicació si consumeix la mateixa quantitat en un lloc desacostumat .
+l' addicció també és dependent del context . les respostes sensibilitzades neuromotores a la cocaïna són molt més evidents en rates que reben una dosi de cocaïna a la gàbia experimental , on " esperen " rebre - la , que si la reben en la seva gàbia - dormitori , on no esperen rebre - la .
+sensibilització i dependència ( tolerància ) parcialment se superposen . per exemple , en animals d' experimentació , la tolerància precedeix i emmascara la sensibilització . tanmateix , quan desapareix la tolerància , es fa evident la sensibilització davant dosi de prova . la sensibilització i la tolerància també semblen dependre del mode de consum . les dosis que es consumeixen o inoculen de manera contínua o semicontínua , provoquen tolerància i abstinència en animals de laboratori . les dosis discontínues ( per exemple , diverses vegades al dia , però amb intervals importants entre elles ), tendeixen més aviat a provocar sensibilització . cal tenir cura perquè aquests fenòmens permeten fonamentar l' existència una distinció notable entre els fenòmens de tolerància - abstinència - dependència , amb els fenòmens de sensibilització - addicció . aquestes diferències tenen també una rellevant base neurobiològica .
+en resum , les substàncies psicoactives poden o no provocar dependència , però el clínicament important és la seva capacitat per provocar conductes compulsives com a resposta a estímuls específics , que poden ser interns o externs .
+
+neurobiologia del consum de psicotròpics
+
+
+fenòmens homeostàtics
+
+hi ha almenys tres tipus de tolerància . la tolerància metabòlica , en la qual l' organisme és capaç de sintetitzar enzims , en general en el fetge ; la tolerància farmacològica , vinculada al canvi en els receptors neuronals ( up i down - regulation ) lligats a proteïnes g i amp cíclic ; i la tolerància condicionada , vinculada a fenòmens d' aprenentatge , com la que ocorre durant l' entrenament en tasques psicomotores sota efecte d' alcohol , per exemple . la tolerància farmacològica consisteix en la dessensibilització de receptors específics per a les substàncies psicoactives , a través de mecanismes lligats a amp cíclic .
+
+tipus d' addiccions
+
+la sensació de benestar o plaer que produeix el consum d' algunes substàncies és provocada per transformacions bioquímiques en el cervell , de tal manera que l' absència de consum provoca l' efecte contrari : malestar generat per la manca de químics que alleugin la tensió .
+el plaer que provoca la substància a l' addicte és poc durador i segons transcorre el temps , el plaer és menor . aquesta insensibilització progressiva s' anomena tolerància .
+si les drogues s' usen com una fugida de problemes que no se saben resoldre , la probabilitat d' addicció és molt més alta que si és per motius lúdics . encara que sempre hi ha , en major o menor mesura , algun tipus de risc .
+
+drogodependència
+
+la drogodependència o drogoaddicció és un tipus d' addicció considerada com malaltia crònica , recurrent i tractable que consisteix en l' abús de drogues , sovint ocasiona danys en la salut .
+el dsm - iv - tr ( 2002 ) " el manual diagnòstic i estadístic dels trastorns mentals " fa que per poder ser diagnosticada com a tal , la dependència a substàncies ha de comportar un patró desadaptatiu de consum que comporta malestar o deteriorament ( físic , psicològic o social ) i al costat del que s' han de donar , almenys , tres dels següents criteris en algun moment d' un període continuat de 12 mesos :
+tolerància .
+abstinència .
+la substància és consumida en quantitats majors o durant més temps del que es pretenia en un principi .
+hi ha un desig persistent o esforços infructuosos d' interrompre el consum o de controlar - ho .
+es fa servir molt de temps en activitats relacionades amb l' obtenció de la substància , consum o recuperació dels seus efectes .
+es dóna una important reducció de les activitats quotidianes del subjecte a causa de la ingesta de la substància .
+es continua consumint la substància malgrat tenir consciència dels seus potencials riscos .
+la cim - 10 ( organització mundial de la salut , 2005 ) fa que per poder parlar de dependència han de presentar tres o més dels següents criteris en un període de 12 mesos :
+fort desig de consumir la substància ( craving ).
+dificultats per a controlar el dit consum .
+síndrome d' abstinència en interrompre o reduir el consum .
+tolerància .
+abandó progressiu d' interessos aliens al consum de la substància . inversió cada vegada més gran de temps en activitats relacionades amb l' obtenció de la substància o amb la recuperació dels seus efectes .
+persistència en l' ús de la substància malgrat percebre de forma clara els seus efectes perjudicials .
+els anteriors criteris fan referència tant a aspectes relacionats amb la dependència física com amb la psicològica .
+
+alcoholisme
+
+l' alcoholisme o dipsomania és una dependència amb característiques d' addicció a les begudes alcohòliques . la seva causa principal és l' addicció provocada per la influència psicosocial en l' ambient social en què viu la persona . es caracteritza per la necessitat d' ingerir substàncies alcohòliques de manera relativament freqüent , segons cada cas , així com per la pèrdua de l' autocontrol , dependència física i síndrome d' abstinència .
+l' alcoholisme suposa un seriós risc per a la salut que sovint comporta el risc d' una mort prematura com a conseqüència d' afeccions de tipus hepàtiques com la cirrosi hepàtica , hemorràgies internes , intoxicació alcohòlica , hepatocarcinoma , accidents o suïcidi .
+l' alcoholisme no està fixat per la quantitat ingerida en un període determinat : persones afectades per aquesta malaltia poden seguir patrons molt diferents de comportament , existint tant alcohòlics que consumeixen diàriament , com alcohòlics que beuen setmanalment , mensualment , o sense una periodicitat fixa . si bé el procés degeneratiu tendeix a escurçar els terminis entre cada ingesta .
+el consum excessiu i prolongat d' aquesta substància va obligant a l' organisme a requerir quantitats creixents per sentir els mateixos efectes , a això se'n diu " tolerància augmentada " i desencadena un mecanisme adaptatiu del cos fins que arriba a un límit en el qual s' inverteix la suposada resistència i llavors " assimila menys ", per això tolerar més alcohol és en si un risc d' alcoholització .
+les defuncions per accidents relacionats amb l' alcohol ( xocs , atropellaments i suïcidis ) ocupen els primers llocs entre les causes de mort en molts països .
+els problemes socials que es deriven de l' alcoholisme poden incloure la pèrdua del lloc de treball , problemes financers , conflictes conjugals i divorcis , condemnes per crims tals com conducció sota la influència de l' alcohol , desordres públics o maltractaments , marginació , manca de respecte de gent que arriba a veure en l' alcoholisme com un mal que l' alcohòlic s' infligeix a si mateix i que veuen com fàcilment evitable . estudis exhaustius , mostren que l' alcoholisme no només afecta els alcohòlics sinó que pot afectar profundament a qualsevol persona de la seva comunitat que estigui al seu voltant .
+en els col·legis sobretot en secundària es presenta greument aquest problema , cada vegada és més baixa l' edat en què s' inicien en el consum de l' alcohol i molts és només per mostrar " valor " davant els seus amics .
+existeix una senzilla fórmula per esbrinar si s' està consumint una quantitat excessiva d' alcohol amb els perjudicis que això suposa , mitjançant el càlcul dels grams d' alcohol . aquesta fórmula consisteix a multiplicar la quantitat de beguda en ml o cc pel nombre de graus d' alcohol i per 0,8 , i aquest resultat es divideix entre 100 per conèixer els grams d' alcohol de la beguda en qüestió .
+es considera un consum excessiu diari , 40 grams d' alcohol en homes , a causa de la seva suposada major tolerància a l' alcohol , i 20 grams d' alcohol en dones . un detall que es pot esmentar també en la ingesta desmesurada d' alcohol són els patrons de personalitat de les persones addictes a aquestes substàncies . molts alcohòlics arriben a l' alcoholisme per beure per a sortir d' un estat de dificultat per socialitzar , o per problemes de baixa autoestima . en alguns casos també el major o menor efecte que produeix en relació al temps d' ingestió fins al moment en què la tolerància i processament deixen de ser efectius . una persona amb un complex d' inferioritat , entre altres exemples , és més propensa a la poca resistència a l' alcohol , però no és una regla general .
+
+tabaquisme
+
+el tabaquisme és l' addicció al tabac provocada , principalment , per un dels seus components actius , la nicotina ; l' acció d' aquesta substància acaba condicionant l' abús del seu consum . el tabaquisme és una malaltia crònica sistèmica que pertany al grup de les addiccions i està catalogada en el manual diagnòstic i estadístic dels trastorns mentals dsm - iv de lamerican psychiatric association . actualment es creu que és la principal causa mundial de malaltia i mortalitat evitable . es considera una malaltia addictiva crònica amb possibilitats de tractament .
+segons l' organització mundial de la salut el tabac és la primera causa de malaltia , invalidesa i mort prematura del món . a europa el tabaquisme provoca cada any 1,2 milions de morts . està directament relacionat amb l' aparició de 29 malalties , de les quals 10 són diferents tipus de càncer , i és la principal causa del 95 % dels càncers de pulmó , del 90 % les bronquitis i de més del 50 % de les malalties cardiovasculars . a espanya cada any moren més de 50.000 persones a causa del consum de tabac , més que pels accidents de trànsit i el consum de totes les drogues il·legals juntes .
+
+no existeix avui dia una opinió unànime sobre la importància de la dependència física a la nicotina com major o únic component de l' addicció . allen carr , creador d' un conegut mètode per deixar de fumar , afirmava que encara que l' ansietat provocada per la retirada de la nicotina és físicament real , és molt més lleu del que aparenta . per tant , aquesta ansietat , tot i que existent , podria estar multiplicada en la ment del fumador per factors socials , situacions d' estrès o els seus propis temors , cosa que , si fos certa , agregaria un component psicològic molt important a l' addicció física .
+dependència moderada - intensa : consum de més de 20 cigarretes al dia , fumen el primer cigarret a la primera mitja hora després d' aixecar - se .
+dependència lleu : consum de menys de 20 cigarrets al dia , fumen el primer cigarret després de mitja hora d' aixecar .
+
+addiccions a activitats
+
+les addiccions a activitats estan relacionades amb una baixa autoestima i seguretat en un mateix ( autoconfiança ), que generen frustració i por . aquestes , mal gestionades , indueixen a la procrastinació i l' evitació . les activitats exercides de forma compulsiva ajuden a no pensar el que crea angoixa i a deixar - ho per a després . un cop acabades l' angoixa és major , i sovint se suma a la culpabilitat , amb la qual cosa la fugida cap endavant és reprendre novament l' activitat , encara que racionalment no tingui gens d' interès per a la persona i aquesta sigui conscient que afecta negativament la seva salut , feina o vida afectiva .
+qualsevol activitat per a no fer o pensar en el que fa por pot ser addictiva : exercici físic , videojocs , jocs de cartes , comprar , mirar la televisió , etc .
+
+addicció als jocs
+
+la ludopatia o ludomania és un impuls irreprimible de jugar tot i ser conscient de les seves conseqüències i del desig d' aturar - se . es considera com un trastorn del control dels impulsos , i per això l' american psychological associació no ho considera com una addicció .
+si bé el sistema dsm ( iii , iii - r i iv1 ) i la cie - 102 inclou aquest trastorn entre les alteracions degudes a un baix control dels impulsos , el cert és que els criteris diagnòstics operatius dsm tenen exactament el mateix disseny que el de les addiccions a substàncies , fet que mostra la concepció subjacent per a la malaltia en aquest sistema : es tracta d' un problema addictiu " sense substància " inclòs en un apartat que no és el seu .
+la definició de ludopatia està subjecta a debat . la ludopatia es caracteritza per greus dificultats en limitar la quantitat de diners o temps emprat en el joc , cosa que origina conseqüències adverses per al jugador , per a altres o per a la comunitat . la recerca realitzada per diversos governs a austràlia va conduir a una definició universal que sembla ser l' única basada en estudis que no utilitza criteris diagnòstics .
+la majoria de les altres definicions es poden sintetitzar en un tipus de joc que produeix danys o perjudicis en el jugador o a altres persones de qualsevol manera . no obstant aquestes definicions estan vinculades amb descripcions del tipus de dany o l' ús de criteris diagnòstics com els del south oaks gambling screen , canadian problem gambling index o els del victorian gambling screen .
+
+addicció a la feina
+
+col·loquialment , un addicte al treball o , en anglès , workaholic , és una persona a qui li agrada , estima i és addicta a la feina . no hi ha una definició mèdica per tal condició . tanmateix algunes formes d' estrès , i trastorns de personalitat obsessius - compulsius poden estar relacionats amb el treball . encara que el terme workaholic generalment té una connotació negativa , s' usa a vegades per persones que expressen forta motivació cap a una carrera o ofici . el " treball " en qüestió , normalment associat a un lloc de treball pagat , també pot fer referència a activitats com ara esports , música , arts , o addicció a internet , a través del manteniment d' una pàgina o un espai , personal o organitzacional .
+el nom com a tal deriva del terme alcohòlic . el primer registre de la seva utilització data de 1968 en una impremta , després popularitzat el 1971 per wayne oates , en el seu llibre confessions d' un workaholic .
+però el terme no va obtenir molta difusió , sinó fins a la dècada de 1990 , on es va expandir gràcies a la seva relació amb les teories d' auto ajuda , moviment centrat en les addiccions , formant analogies entre les conductes danyoses socialment com l' addicció al treball i drogoaddicció , inclosa l' addicció a l' alcohol . encara que el terme workaholic no és una accepció admesa dins de la terminologia psicològica , s' ha estès per referir - se a aquelles persones que perden el seu temps a la feina , o problemes relacionats al mateix , els qui porten una vida molt atrafegada i que va en detriment amb la seva salut i funcions fisiològiques , vides socials , familiars i personals o senzillament contra el seu temps lliure
+
+addicció al sexe
+
+la hipersexualitat o addicció al sexe és el desig de mantenir un nivell de comportament sexual humà prou alt per a ser considerat clínicament significatiu . es té una necessitat incontrolable pel sexe de tot tipus , des de relacions sexuals amb altres persones fins masturbació o consum de pornografia .
+la hipersexualitat es caracteritza per una freqüent estimulació genital que , una vegada assolida , pot no resultar en la satisfacció emocional ( o sexual ) a llarg termini de l' individu . en canvi , va acompanyada a vegades de sentiments de malestar i culpa . es pensa que aquesta insatisfacció és la que encoratja l' elevada freqüència d' estimulació sexual , així com símptomes psicològics i neurològics addicionals .
+el concepte d' hipersexualitat substitueix els antics conceptes de " nimfomania " ( o " furor uterí ") i " satiriasis ". la nimfomania es considerava com un trastorn psicològic exclusivament femení que es caracteritza per una libido molt activa i una obsessió amb el sexe . en els homes el trastorn era anomenat satiriasis . actualment , els termes " nimfomania " i " satiriasis " no apareixen llistats com trastorns específics en el dsm - iv , encara que romanen com a part del cie - 10 .
+el llindar de què constitueix la hipersexualitat està subjecte al debat , i els crítics pregunten si pot existir un llindar diagnòstic . el desig sexual varia considerablement en els humans ; el que una persona consideraria com desig sexual normal podria ser entès per altres com excessiu i per altres com baix .
+el consens entre aquells que consideren la hipersexualitat com un trastorn és que el llindar s' assoleix quan el comportament causa incomoditat o impedeix el funcionament social .
+els hipersexualitats poden tenir problemes laborals , familiars , econòmics i socials . el seu desig sexual els obliga a anar sovint a prostíbuls , comprar articles pornogràfics , realitzar amb freqüència trucades a línies eròtiques i mantenir relacions sexuals amb desconeguts , que fa que la vida giri al voltant del sexe .
+la hipersexualitat pot expressar també en aquells amb trastorns bipolars durant períodes de mania . persones que pateixen de trastorn bipolar poden presentar contínuament enormes oscil·lacions en la libido , depenent del seu estat d' ànim . algunes vegades aquesta necessitat psicològica d' activitat sexual és molt més alta del que ells reconeixen com a normal , i de vegades està molt per sota d' això .
+la hipersexualitat és una de les dependències menys conegudes i visibles , ja que les persones que el pateixen solen mantenir - la oculta i dissimular - la , sobretot amb les persones conegudes ( amb les que hi ha fins i tot tímids ). s' estima que fins al 6 % de la població el pateix , i que només el 2 % dels afectats són dones . té tractament sempre que la persona que el pateix sigui capaç de reconèixer - ho .
+
+addiccions a menjar i a no fer - ho
+
+algunes alteracions de la conducta alimentària , com l' anorèxia , la bulímia i l' obesitat , es poden considerar conseqüència d' una autoestima ferida enfront de la qual la persona reacciona compulsivament amb un comportament addictiu inconscient resultat dels efectes de la persecució inútil de metes inassolibles .
+la majoria de persones anorèxiques reconeixen que el seu estat de desnutrició és addictiu perquè satisfà una necessitat emocional important , com per exemple l' autocontrol o l' asexualitat , i els cal per a alleujar la tensió nerviosa o l' estrès .
+a la bulímia i l' obesitat el fet d' aplacar el dolor crònic d' una gana real o imaginària es pot entendre també com a una addicció , en aquest cas a menjar . seria al principi un mecanisme de defensa no racional per a no fer conscient el fracàs i dolor associat que representaria adonar - se de l' enorme diferència entre l' ideal imposat per la societat . aquesta activitat compulsiva satisfà mancances afectives i els cal per a alleujar - les i calmar l' ansietat .
+
+dependència emocional
+
+el dependent emocionalment a una altra persona sol oblidar - se de si mateix per centrar - se en els problemes de l' altre ( la seva parella , un familiar , un amic , etc .), és per això que és molt comú que es relacioni amb gent " problemàtica ", justament per poder rescatar i de crear d' aquesta manera un llaç que els uneixi . així és com el codependent , en preocupar - se per l' altre , oblida les seves pròpies necessitats i quan l' altra persona no respon com el codependent espera , aquest es frustra , es deprimeix i intenta controlar encara més . amb la seva constant ajuda , el codependent busca generar , en l' altre , la necessitat de la seva presència , i al sentir necessitat creu que d' aquesta manera mai no van a abandonar - lo .
+és molt comú que en una relació , el dependent emocional no pugui posar límits i senzillament tot ho perdoni , malgrat que l' altra persona arribi a ferir - lo de manera deliberada , això és simplement perquè el codependent confon la " obsessió " i " addicció " que sent per l' altre amb un immens amor que tot ho pot . per tant , el codependent és incapaç d' allunyar - se per si mateix d' una relació malaltissa , per més insana que aquesta sigui , i és molt comú que arribin a pensar que més enllà d' aquesta persona s' acaba el món , fins que reconeixen la seva condició psicològica i busquen ajuda , per acabar amb la codependència o no tornar a generar la seva codependència en altres persones o en futures relacions .
+
+vegeu també
+
+llei de prevenció i assistència en matèria de substàncies que poden generar dependència
+
+referències
+
+addiccions
+
+astronomia
+lastronomia és la ciència que estudia l' univers i els cossos celestes o astres , a partir de la informació que ens n' arriba per la radiació electromagnètica , tant pel que fa a la posició i moviment en l' esfera celeste com pel que fa a la seva natura , estructura i evolució ( astrofísica ). etimologia : la paraula astronomia prové del mot grec αστρονομία (' astronomia '), combinació dels mots άστρον ( astron ), que significa ' estrella ', i νόμοσ ( nomos ), ' llei '.
+l' astronomia és una de les poques ciències en què els aficionats encara poden tenir un paper actiu , especialment en el descobriment i seguiment de fenòmens com les corbes de llum d' estrelles variables , el descobriment d' asteroides i cometes , etc .
+no ha de confondre's l' astronomia amb l' astrologia , pseudociència que afirma que el destí de les persones , i dels assumptes humans en general , es troben relacionats amb les posicions aparents dels cossos astronòmics en el cel . encara que ambdós camps comparteixen un origen comú , són molt diferents ; els astrònoms segueixen el mètode científic , mentre que els astròlegs no . a més , els astròlegs no han assumit encara la precessió dels equinoccis , un descobriment que es remunta a hiparc de nicea .
+
+història
+
+el 1608 , quan va haver - hi la invenció del telescopi , l' astronomia només comprenia l' observació i predicció del moviment dels objectes que podien ser observats a simple vista . en alguns llocs , com a stonehenge , les primeres cultures crearen objectes molt grans que semblen tenir un propòsit astronòmic . a part del seu ús cerimonial , aquests observatoris podrien haver estat utilitzats per a determinar les estacions , un factor important quan s' havien de sembrar les plantes , així com la llargària de l' any .
+allà on es van desenvolupar les civilitzacions , de les quals es poden destacar els caldeus , egipcis , l' antiga grècia , l' índia i xina , es van construir observatoris astronòmics i les idees sobre la natura de l' univers es van començar a investigar . es van desenvolupar les primeres idees sobre el moviment dels planetes i sobre la natura del sol , la lluna i la terra en un univers explorat filosòficament . això inclou especulacions sobre la natura esfèrica de la terra i la lluna , la rotació i el moviment de la terra en els cels .
+alguns descobriments astronòmics notables es varen fer abans de l' aplicació del telescopi . per exemple , l' obliqüitat de l' eclíptica fou estimat en el 1000 ac pels xinesos . els caldeus descobriren que els eclipsis de lluna seguien un cicle recurrent anomenat saros . en el segle ii ac , hiparc estimà la mida i la distància de la lluna .
+durant l' edat mitjana , a europa , l' astronomia observacional va quedar estancada , almenys fins al segle xiii . no obstant això , l' astronomia va florir dins el món islàmic i en altres parts del món . alguns dels prominents astrònoms àrabs van fer contribucions significatives a la ciència ; cal destacar - ne al - battani , thebit , abd al - rahman al sufi , albumasar , al - biruni , al - zarqali , l' escola maraga , ali qushji , entre d' altres . els astrònoms , en aquesta època , van introduir molts noms en àrab que actualment s' utilitzen en les descripcions d' estels . també es creu que les ruïnes del gran zimbabwe i tombuctú poden haver acollit un observatori astronòmic . els europeus durant molt temps havien cregut que no havia existit l' observació astronòmica a l' àfrica subsahariana precolonial , però els descobriments més actuals indiquen el contrari .
+planisferi celeste de segle xvii del cartògraf neerlandès frederik de wit
+
+la revolució científica
+
+durant segles , la visió geocèntrica que el sol i els altres planetes giraven al voltant de la terra no es va qüestionar . aquesta visió era la que pels nostres sentits s' observava . en el renaixement , nicolau copèrnic va proposar el model heliocèntric del sistema solar . el seu treball de revolutionibus orbium coelestium va ser defensat , divulgat i corregit per galileo galilei i johannes kepler , autor dharmonices mundi , en el qual es desenvolupa per primera vegada la tercera llei del moviment planetari .
+galileu va afegir la novetat de l' ús del telescopi per millorar les seves observacions . la disponibilitat de dades observacionals precises portà a indagar en teories que expliquessin el comportament observat ( vegeu la seva obra sidereus nuncius ). al principi només es van obtenir regles ad hoc , com les lleis del moviment planetari de kepler , descobertes a principis del segle xvii . va ser isaac newton qui va estendre cap als cossos celestes les teories de la gravetat terrestre i conformà la llei de la gravitació universal , inventant així la mecànica celeste , amb la qual va explicar el moviment dels planetes i aconseguí unir el buit entre les lleis de kepler i la dinàmica de galileu . això també va suposar la primera unificació de l' astronomia i la física ( vegeu astrofísica ).
+després de la publicació dels principis matemàtics d' isaac newton ( que també va desenvolupar el telescopi reflector ), es va transformar la navegació marítima . a partir de 1670 aproximadament , utilitzant instruments moderns de latitud i els millors rellotges disponibles , s' ubicà cada lloc de la terra en un planisferi o mapa , calculant per a això la seva latitud i longitud . la determinació de la latitud va ser fàcil , però la determinació de la longitud va ser molt més delicada . els requeriments de la navegació suposaren una empenta per al desenvolupament progressiu d' observacions astronòmiques i instruments més precisos , constituint una base de dades creixent per als científics .
+a finals del segle xix es va descobrir que , en descompondre la llum del sol , es podien observar multitud de línies d' espectre ( regions en les quals hi havia poca o gens de llum ). experiments amb gasos calents van mostrar que les mateixes línies podien ser observades en l' espectre dels gasos , línies específiques corresponents a diferents elements químics . d' aquesta manera , es va demostrar que els elements químics del sol ( majoritàriament hidrogen ) es podien trobar igualment en la terra . de fet , l' heli va ser descobert primer en l' espectre del sol i només més tard es va trobar a la terra , d' aquí el seu nom .
+es va descobrir que les estrelles eren objectes molt llunyans i amb l' espectròmetre es va demostrar que eren semblants al sol , però amb una àmplia gamma de temperatures , masses i grandàries . l' existència de la via làctia com un grup separat d' estrelles no es va demostrar sinó fins al segle xx , juntament amb l' existència de galàxies externes i , poc després , l' expansió de l' univers , observada en l' efecte del corriment al vermell . l' astronomia moderna també ha descobert una varietat d' objectes exòtics com els quàsars , púlsars , radiogalàxies , forats negres , estrelles de neutrons , i ha utilitzat aquestes observacions per a desenvolupar teories físiques que descriuen aquests objectes . la cosmologia va fer grans avenços durant el segle xx , amb el model del big bang fortament sostingut per l' evidència proporcionada per l' astronomia i la física , com la radiació de fons de microones , la llei de hubble i l' abundància cosmològica dels elements químics .
+durant el segle xx , l' espectrometria va avançar , en particular com a resultat del naixement de la física quàntica , necessària per a comprendre les observacions astronòmiques i experimentals .
+
+branques de l' astronomia
+
+l' astronomia es pot dividir en quatre grans branques :
+astronomia de posició : té com a objecte situar en l' esfera celeste la posició dels astres mesurant determinats angles respecte a uns plans fonamentals . és la branca més antiga d' esta ciència . descriu el moviment dels astres , planetes , satèl·lits i fenòmens com els eclipsis , els trànsits dels planetes per davant del disc del sol . també estudia el moviment diürn i el moviment anual del sol i les estreles . inclou la descripció de cada un dels planetes , asteroides i satèl·lits del sistema solar . són tasques fonamentals seues la determinació de l' hora i la determinació per a la navegació de les coordenades geogràfiques .
+mecànica celeste : té com a objecte interpretar els moviments de l' astronomia de posició en l' àmbit de la mecànica newtoniana ( llei de la gravitació universal de newton ). estudia el moviment dels planetes al voltant del sol , dels seus satèl·lits , el càlcul de les òrbites de cometes i asteroides . l' estudi del moviment de la lluna al voltant de la terra fou , per la seva complexitat , molt important per al desenvolupament de la ciència . el moviment estrany d' urà causat per les pertorbacions d' un planeta fins llavors desconegut va permetre a urbain le verrier i a john couch adams descobrir , a partir de càlculs de mecànica celeste , el planeta neptú . el descobriment d' una mínima desviació en l' avanç del periheli de mercuri es va atribuir inicialment a un planeta pròxim al sol fins que einstein , amb la seua teoria de la relativitat general , la va aconseguir explicar .
+astrofísica : és una part moderna de l' astronomia , que considera els astres com a cossos de la física estudiant la seva composició , estructura i evolució . només va ser possible el seu inici en el segle xix quan , gràcies al desenvolupament de l' espectrometria , es va poder esbrinar la composició física de les estreles . les branques de la física implicades en l' estudi són la física nuclear , la teoria de la relativitat , la termodinàmica i l' electromagnetisme , entre d' altres .
+cosmologia : és la branca de l' astrofísica que estudia els orígens , estructura , evolució i naixement de l' univers en el seu conjunt . en els darrers anys , s' ha fet evident la relació entre la cosmologia i la física de partícules elementals .
+
+branques de l' astronomia segons la banda de l' espectre utilitzada
+
+atenent a la longitud d' ona de la radiació electromagnètica amb què s' observa el cos celeste , l' astronomia es divideix en :
+astronomia òptica , quan l' observació utilitza exclusivament la llum en les longituds d' ona que poden ser detectades per l' ull , o molt prop d' aquestes ( al voltant de 400 - 800 nm ). n' és la branca més antiga .
+la radioastronomia usa per a l' observació radiació amb longituds d' ona de mm a cm , semblant a la utilitzada en radiodifusió . l' astronomia òptica i de ràdio pot realitzar - se usant observatoris terrestres , perquè l' atmosfera és transparent en eixes longituds d' ona .
+astronomia infraroja que utilitza detectors de llum infraroja . la llum infraroja és fàcilment absorbida pel vapor d' aigua , de manera que els observatoris d' infrarojos han d' establir - se en llocs alts i secs , o bé en òrbita , fora de l' atmosfera terrestre .
+astronomia d' alta energia : inclou l' astronomia de raigs x , astronomia de raigs gamma i astronomia ultraviolada , així com l' estudi dels neutrins i els raigs còsmics . les observacions es poden fer únicament des de globus aerostàtics o observatoris orbitals .
+
+branques de l' astronomia en funció del problema adreçat
+
+astrometria : l' estudi de la posició dels objectes en l' espai i els canvis de posició . defineix el sistema de coordenades utilitzat i la cinemàtica dels objectes de la nostra galàxia .
+astrofísica : l' estudi de la física de l' univers , incloses les propietats físiques ( lluminositat , densitat , temperatura , composició química ) dels objectes astronòmics .
+cosmologia : l' estudi de l' origen de l' univers i la seua evolució . l' estudi de la cosmologia és astrofísica teòrica a una escala més gran .
+formació i evolució galàctica : l' estudi de la formació de les galàxies i llurs evolucions .
+astronomia galàctica : l' estudi de l' estructura i components de la nostra galàxia i altres galàxies .
+astronomia extragalàctica : l' estudi dels objectes ( principalment galàxies ) de fora de la nostra galàxia .
+astronomia estel·lar : l' estudi dels estels .
+evolució estel·lar : l' estudi de l' evolució de les estreles , des de la seua formació fins al seu final .
+formació estel·lar : l' estudi de les condicions i processos que han conduït a la formació d' estreles en l' interior de núvols de gas , i el procés de formació en si mateix .
+ciències planetàries : l' estudi dels planetes del sistema solar i dels planetes extrasolars .
+astrobiologia ( o exobiologia ): l' estudi de l' adveniment i evolució de sistemes biològics en l' univers .
+arqueoastronomia .
+astroquímica .
+
+estudis interdisciplinaris
+
+l' astronomia i l' astrofísica han desenvolupat lligams interdisciplinaris significatius amb altres camps científics importants . l' arqueoastronomia és l' estudi de les astronomies antigues o tradicionals en el seu context cultural , emprant materials arqueològics i antropològics . l' astrobiologia és l' estudi del sorgiment i evolució de sistemes biològics en l' univers , amb particular èmfasi en la possibilitat de vida no extraterrestre .
+l' estudi dels composts químics trobats en l' espai , incloent - hi la seva formació , interacció i destrucció , és anomenada astroquímica . aquestes substàncies són normalment trobades en núvols moleculars , encara que també poden aparèixer en estrelles de baixa temperatura , nanes marrons i planetes . la cosmoquímica és l' estudi dels composts químics trobats al sistema solar , incloent - hi l' origen dels elements i variacions en les proporcions d' isòtops . tots dos camps representen la superposició de l' astronomia amb la química .
+
+astronomia teòrica
+
+els astrònoms teòrics utilitzen una gran varietat d' eines com a models matemàtics analítics i simulacions numèriques per computadora . cadascú té els seus avantatges . els models matemàtics analítics d' un procés en general són millors perquè arriben al cor del problema i expliquen millor el que hi està succeint . els models numèrics poden revelar l' existència de fenòmens i efectes que d' altra manera no es veurien .
+els teòrics de l' astronomia posen el seu esforç a crear models teòrics i imaginar les conseqüències observacionals d' aquests models . això ajuda els observadors a cercar dades que puguin refutar un model o permetin triar entre diversos models alternatius o , fins i tot , contradictoris .
+els teòrics , també , intenten generar o modificar models per aconseguir noves dades . en el cas d' una inconsistència , la tendència general és tractar de fer modificacions mínimes al model perquè es correspongui amb les dades . en alguns casos , una gran quantitat de dades inconsistents al llarg del temps pot portar a l' abandonament total d' un model .
+els temes estudiats per astrònoms teòrics inclouen : dinàmica estel·lar i evolució estel·lar ; formació i evolució de les galàxies ; origen dels raigs còsmics ; relativitat general i cosmologia física , inclosa la teoria de cordes .
+mecànica celeste
+l' astromecànica o mecànica celeste té per objecte interpretar els moviments de l' astronomia de posició , en l' àmbit de la part de la física coneguda com a mecànica , generalment la newtoniana ( llei de la gravitació universal d' isaac newton ). estudia el moviment dels planetes al voltant del sol , dels seus satèl·lits , el càlcul de les òrbites de cometes i asteroides . l' estudi del moviment de la lluna al voltant de la terra va ser per la seva complexitat molt important per al desenvolupament de la ciència . el moviment estrany d' urà , causat per les pertorbacions d' un planeta fins llavors desconegut , va permetre a urbain le verrier i a john couch adams descobrir sobre el paper al planeta neptú . el descobriment d' una petita desviació en l' avanç del periheli de mercuri es va atribuir inicialment a un planeta proper al sol , fins que einstein la va explicar amb la seva teoria de la relativitat .
+
+astrofísica
+
+l' astrofísica és una part moderna de l' astronomia que estudia els astres com a cossos de la física , estudiant la seva composició , estructura i evolució . només va ser possible el seu inici en el segle xix , quan gràcies als espectres es va poder esbrinar la composició física de les estrelles . les branques de la física implicades en l' estudi són la física nuclear ( generació de l' energia a l' interior de les estrelles ) i la física relativística . a densitats elevades , el plasma es transforma en matèria degenerada , això porta a algunes de les seves partícules a adquirir altes velocitats que hauran d' estar limitades per la velocitat de la llum , la qual cosa afectarà les seves condicions de degeneració . així mateix , en les proximitats dels objectes molt massius , estrelles de neutrons o forats negres , la matèria que cau s' accelera a velocitats relativistes emetent radiació intensa i formant potents dolls de matèria .
+
+estudi dels objectes celests
+
+
+el sistema solar des de l' astronomia
+
+l' estudi de l' univers o cosmos , i més concretament del sistema solar , ha plantejat una sèrie d' interrogants i qüestions , per exemple com i quan es va formar el sistema , per què i quan desapareixerà el sol , per què hi ha diferències físiques entre els planetes , etc .
+és difícil precisar l' origen del sistema solar . els científics creuen que pot situar - se fa uns 4.600 milions d' anys , quan un immens núvol de gas i pols va començar a contraure's , probablement a causa de l' explosió d' una supernova propera . assolida una densitat mínima , es va contraure a causa de la força de la gravetat i va començar a girar a gran velocitat , per la conservació del seu moment cinètic , igual que quan una pàtina replega els braços sobre si mateixa gira més de pressa . la major part de la matèria es va acumular en el centre . la pressió era tan elevada que els àtoms van començar a fusionar - se , alliberant energia i formant una estrella . també hi havia moltes col·lisions . milions d' objectes s' apropaven i s' unien o bé xocaven amb violència i es partien en trossos . alguns cossos petits ( planetesimals ) anaven augmentant la seva massa mitjançant col·lisions i , en créixer , augmentaven la seva gravetat i recollien més materials amb el pas del temps ( acreció ). les trobades constructives van predominar i , en només 100 milions d' anys , va adquirir un aspecte semblant a l' actual . després , cada cos va continuar la seva pròpia evolució .
+
+astronomia del sol
+
+el sol és l' estrella que , per l' efecte gravitacional de la seva massa , domina el sistema planetari que inclou la terra . és l' element més important en el nostre sistema i l' objecte més gran , que conté aproximadament el 98 % de la massa total del sistema solar . mitjançant la radiació de la seva energia electromagnètica , aporta directament o indirecta tota l' energia que manté la vida a la terra . sortint del sol , i escampats per tot el sistema solar en forma d' espiral , tenim el conegut com a vent solar , que és un flux de partícules , fonamentalment protons i neutrons . la interacció d' aquestes partícules amb els pols magnètics dels planetes i amb l' atmosfera genera les aurores polars boreals o australs . totes aquestes partícules i radiacions són absorbides per l' atmosfera . l' absència d' aurores durant el mínim de maunder s' atribueix a la manca d' activitat del sol .
+
+a causa de la seva proximitat a la terra i com és una estrella típica , el sol és un recurs extraordinari per a l' estudi dels fenòmens estel·lars . no s' ha estudiat cap altra estrella amb tant de detall . l' estrella més propera al sol és a 4,3 anys llum .
+el sol ( tot el sistema solar ) gira al voltant del centre de la via làctia , la nostra galàxia . dóna una volta cada 200 milions d' anys . ara es mou cap a la constel·lació d' hèrcules a 19 km / s . actualment , el sol s' estudia des de satèl·lits , com l' observatori heliosfèric i solar ( soho ), dotats d' instruments que permeten apreciar aspectes que , fins ara , no s' havien pogut estudiar . a més de l' observació amb telescopis convencionals , s' utilitzen : el coronògraf , que analitza la corona solar , el telescopi ultraviolat extrem , capaç de detectar el camp magnètic , i els radiotelescopis , que detecten diversos tipus de radiació que resulten imperceptibles per a l' ull humà .
+la part visible del sol està a 6.000 ° c i la corona , més allunyada , a 2.000.000 ° c . estudiant el sol en l' ultraviolat es va arribar a la conclusió que l' escalfament de la corona es deu a la gran activitat magnètica del sol . els límits del sistema solar vénen donats per la fi de la seva influència o heliosfèric , delimitada per una àrea anomenada front de xoc de terminació o heliopausa .
+
+astronomia amateur
+
+l' astronomia és una de les ciències en què els aficionats poden contribuir més .
+col·lectivament , els astrònoms aficionats observen una gran quantitat d' objectes i fenòmens celestes , alguns cops amb equips fets per ells mateixos . alguns objectius comuns d' astrònoms aficionats inclou la lluna , planetes , estrelles , cometes , meteorits , i una varietat d' objectes de l' espai profund com cúmuls , galàxies i nebuloses . una branca de l' astronomia d' aficionats , l' astrofotografia amateur implica prendre fotos en el cel nocturn . a molts aficionats , els agrada especialitzar - se en l' observació d' un tipus d' objectes o esdeveniments en concret .
+la majoria d' aficionats treballen a longituds d' ona visibles , però una petita minoria experimenta amb longitud fora de l' espectre visible . això inclou l' ús de filtres per a l' infraroig en telescopis convencionals o l' ús de radiotelescopis . el pioner en la radioastronomia amateur va ser karl jansky , que va començar observant el cel a longituds d' ona de ràdio als anys 30 . alguns aficionats fan servir telescopis autofabricats o radiotelescopis que van ser construïts originalment per a la recerca astronòmica , però que ara es troben disponibles per a aficionats ( p . ex ., el telescopi d' una milla ).
+els astrònoms aficionats continuen fent contribucions científiques en el camp de l' astronomia . és més , aquesta és una de les poques disciplines científiques en què els aficionats encara poden fer contribucions significatives . els aficionats poden fer mesures d' ocultació que són utilitzades per a refinar les òrbites dels planetes menors . també poden descobrir cometes i realitzar observacions regulars d' estrelles variables . les millores en la tecnologia digital han permès als aficionats de fer avenços importants en el camp de l' astrofotografia .
+
+vegeu també
+
+llista d' astrònoms .
+història de l' astronomia .
+astronomia estel·lar .
+llista de societats astronòmiques
+
+referències
+
+
+bibliografia
+
+galadí - enríquez , david ; wandel , amri . la kosmo kaj ni . anvers : fel , 2005 , 223 pp .
+bibliografia en castellà
+astronomía , josé luis comellas . editorial rialp ( 1983 ).
+claroscuro del universo , mariano moles villamate . csic ( 2007 ).
+cosmos , carl sagan . editorial planeta ( 1980 ).
+curso de astronomía general , bakulin , kononóvich y moroz . editorial mir ( 1987 ).
+de saturno a plutón , isaac asimov . alianza editorial ( 1984 ).
+el cometa halley , josé luis comellas y manuel cruz . aula abierta salvat , salvat editores ( 1985 ).
+el mundo de los planetas , wulff heintz . ediciones iberoamericanas ( 1968 ).
+el nuevo sistema solar , varios autores . libros de " investigación y ciencia ". editorial prensa científica ( 1982 ).
+guía de las estrellas y los planetas , patrick moore . ediciones folio ( 1982 ).
+historia del telescopio , isaac asimov . alianza editorial ( 1986 ).
+introducción a la astrofotografía , josé garcía garcía . equipo sirius .
+la exploración de marte , josé luis sérsic . editorial labor ( 1976 ).
+objetivo universo , alejandro feinstein , horacio tignanelli . ediciones colihue ( 1996 ).
+planetas del sistema solar , mijail márov . editorial mir ( 1985 ).
+sol , lunas y planetas . erhard keppler . ( ed . salvat editores , biblioteca científica salvat , 1986 ).
+un viaje al cosmos en 52 semanas , antxón alberdi y silbia lópez de lacalle . csic ( 2007 ).
+
+enllaços externs
+
+imatge astronòmica del dia - apod .
+2009 any internacional de l' astronomia .
+nostra nau , sèrie de vídeos d' iniciació a l' astronomia i l' exploració de l' espai .
+
+

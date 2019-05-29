@@ -1,0 +1,467 @@
+antoine meillet
+paul jules antoine meillet , né le à moulins ( allier ) et mort le à châteaumeillant ( cher ), est le principal linguiste français des premières décennies du .
+
+biographie
+
+d' origine bourbonnaise , fils d' un notaire de châteaumeillant ( cher ), il fait ses études secondaires au lycée théodore - de - banville de moulins .
+étudiant à la faculté des lettres de paris à partir de 1885 où il suit notamment les cours de louis havet , il assiste également à ceux de michel bréal au collège de france et de ferdinand de saussure à l' école pratique des hautes études . il assure à la suite de saussure le cours de grammaire comparée , qu' il complète à partir de 1894 par une conférence sur l' iranien .
+en 1897 , il soutient sa thèse pour le doctorat ès lettres ( recherches sur l' emploi du génitif - accusatif en vieux - slave ). en 1905 , il occupe la chaire de grammaire comparée au collège de france , où il consacre ses cours à l' histoire et à la structure des langues indo - européennes . il succéda au linguiste auguste carrière à la tête de la chaire d' arménien à l' école des langues orientales .
+secrétaire de la société de linguistique de paris , il est élu à l' académie des inscriptions et belles - lettres en 1924 .
+il a formé toute une génération de linguistes français , parmi lesquels émile benveniste , marcel cohen , georges dumézil , andré martinet , aurélien sauvageot , lucien tesnière , joseph vendryes , ainsi que le japonisant charles haguenauer . antoine meillet devait diriger la thèse de jean paulhan sur la sémantique du proverbe et c' est lui qui découvrit gustave guillaume .
+il a influencé aussi un certain nombre de linguistes étrangers . il a également été le premier à identifier le phénomène de la grammaticalisation .
+
+études arméniennes
+
+1890 , une mission de trois mois dans le caucase lui permet d' apprendre l' arménien moderne .
+1902 , il obtient la chaire d' arménien de l' école des langues orientales .
+1903 , nouvelle mission en arménie russe , il publie son esquisse d' une grammaire comparée de l' arménien classique , qui demeure une référence en linguistique arménienne et indo - européenne jusqu' à ce jour . l' un de ses étudiants , hratchia adjarian , devient le fondateur de la dialectologie arménienne . c' est également sous les encouragements de meillet qu' émile benveniste étudie la langue arménienne .
+1919 , il est cofondateur de la société des études arméniennes avec victor bérard , charles diehl , andré - ferdinand hérold , h . lacroix , frédéric macler , gabriel millet , gustave schlumberger .
+1920 , le 19 janvier , il crée la revue des études arméniennes avec frédéric macler .
+
+études homériques
+
+à la sorbonne , meillet surveille le travail de milman parry . en 1923 , un an avant que parry ne commence son travail avec meillet , celui - ci écrit ( cité dans la première des deux thèses de milman parry , à savoir celle qui traite de l' épithète homérique ) :
+meillet offre à son étudiant l' opinion , nouvelle à cette époque , que la structure formulaïque de l' iliade serait une conséquence directe de sa transmission orale . ainsi , il le dirige vers l' étude de l' oralité dans son cadre natif et lui suggère d' observer les mécanismes d' une tradition orale vivante à côté du texte classique ( l' iliade ) qui est censé résulter d' une telle tradition . en conséquence , meillet présente parry à matija murko , savant originaire de slovénie qui avait longuement écrit sur la tradition héroïque épique dans les balkans , surtout en bosnie - herzégovine . par leurs recherches , dont les résultats sont à présent hébergés par l' université de harvard , parry et son élève , albert lord , ont profondément renouvelé les études homériques .
+
+principaux ouvrages
+
+esquisse d' une grammaire comparée de l' arménien classique , 1903 .
+introduction à l' étude comparative des langues indo - européennes , 1903 ( éd .), hachette , paris , 1912 ( éd .).
+les dialectes indo - européens , 1908 .
+aperçu d' une histoire de la langue grecque , 1913 .
+altarmenisches elementarbuch , 1913 . heidelberg ( à paraître en français : manuel élémentaire d' arménien classique , traduction de gabriel képéklian , limoges , lambert - lucas , 2016 )
+linguistique historique et linguistique générale , 1921 ( le tome ii est paru en 1936 ; les deux tomes ont été réunis chez lambert - lucas , limoges , 2015 ).
+les origines indo - européennes des mètres grecs , 1923 .
+traité de grammaire comparée des langues classiques , 1924 ( avec joseph vendryés ).
+.
+la méthode comparative en linguistique historique , 1928 .
+dictionnaire étymologique de la langue latine , 1932 ( en collab . avec alfred ernout ( 1879 - 1973 ), éd . augmentée , par jacques andré ( 1910 - 1994 ), paris : klincksieck , 2001 ,
+meillet en arménie , 1891 , 1903 , journaux et lettres publiés par francis gandon , limoges , lambert - lucas , 2014 , .
+
+notes
+
+
+bibliographie
+
+
+voir aussi
+
+franz bopp
+johann kaspar zeuss
+académie des inscriptions et belles - lettres
+linguiste français
+slaviste
+naissance en novembre 1866
+naissance à moulins ( allier )
+décès en septembre 1936
+décès dans le cher
+décès à 69 ans
+institut national des langues et civilisations orientales
+arménologue français
+indo - européaniste
+étudiant de l' université de paris
+personnalité enterrée à moulins
+
+algèbre linéaire
+r3 est un espace vectoriel de dimension 3 . droites et plans qui passent par l' origine sont des sous - espaces vectoriels .
+l’ algèbre linéaire est la branche des mathématiques qui s' intéresse aux espaces vectoriels et aux transformations linéaires , formalisation générale des théories des systèmes d' équations linéaires .
+
+histoire
+
+l' histoire de l' algèbre linéaire commence avec al - khawarizmi qui a traduit des textes de mathématiques indiens , réinterprété les travaux de l' école grecque et qui est la source du développement conscient de l' algèbre qui s' étendra pendant des siècles après lui . elle a été reprise par rené descartes qui pose des problèmes de géométrie , comme la détermination de l' intersection de deux droites , en termes d' équation linéaire , établissant dès lors un pont entre deux branches mathématiques jusqu' alors séparées : l' algèbre et la géométrie . s' il ne définit pas la notion de base de l' algèbre linéaire qu' est celle d' espace vectoriel , il l' utilise déjà avec succès , et cette utilisation naturelle des aspects linéaires des équations manipulées demeurera utilisée de manière ad hoc , fondée essentiellement sur les idées géométriques sous - jacentes . après cette découverte , les progrès en algèbre linéaire vont se limiter à des études ponctuelles comme la définition et l' analyse des premières propriétés des déterminants par jean d' alembert .
+ce n' est qu' au que l' algèbre linéaire devient une branche des mathématiques à part entière . carl friedrich gauss trouve une méthode générique pour la résolution des systèmes d' équations linéaires et camille jordan résout définitivement le problème de la réduction d' endomorphisme . en 1843 , william rowan hamilton ( inventeur du terme vector ) découvre les quaternions ( extension de degré 4 du corps des nombres réels ). en 1844 , hermann grassmann publie son traité die lineale ausdehnungslehre , la théorie de l' extension linéaire , qui est la première tentative de formalisation générale de la notion d' espace vectoriel . si son œuvre reste grandement inaperçue , elle contient l' essentiel des idées modernes de l' algèbre linéaire , et cette étape fondamentale dans le développement de l' algèbre linéaire est reconnue comme telle tant par hamilton que par giuseppe peano , qui axiomatise entièrement la théorie en 1888 . les espaces vectoriels deviennent alors une structure générale omniprésente dans presque tous les domaines mathématiques , notamment en analyse ( espaces de fonctions ).
+
+intérêt
+
+sous leur forme la plus simple , les applications linéaires dans les espaces vectoriels représentent intuitivement les déplacements dans les espaces géométriques élémentaires comme la droite , le plan ou notre espace physique . les bases de cette théorie remplacent maintenant la représentation construite par euclide au . la construction moderne permet de généraliser la notion d' espace à des dimensions quelconques .
+l' algèbre linéaire permet de résoudre tout un ensemble d' équations dites linéaires utilisées non seulement en mathématiques ou en mécanique , mais dans de nombreuses autres branches comme les sciences naturelles ou les sciences sociales .
+les espaces vectoriels forment aussi un outil fondamental pour les sciences de l' ingénieur et servent de base à de nombreux domaines dans la recherche opérationnelle .
+enfin , c' est un outil utilisé en mathématiques dans des domaines aussi divers que la théorie des groupes , des anneaux ou des corps , l' analyse fonctionnelle , la géométrie différentielle ou la théorie des nombres .
+
+présentation élémentaire
+
+l' algèbre linéaire commence par l' étude de vecteurs dans les espaces cartésiens de dimension 2 et 3 . un vecteur , ici , est une classe d' équivalence de bipoints qui unifie les segments de droite caractérisés à la fois par leur longueur ( ou norme ), leur direction et leur sens : deux bipoints représentent un même vecteur si le quadrilatère formé sur les quatre points est un parallélogramme . les vecteurs peuvent alors être utilisés pour représenter certaines entités physiques comme des déplacements , additionnés entre eux ou encore multipliés par des scalaires ( nombres ), formant ainsi le premier exemple concret d' espace vectoriel .
+l' algèbre linéaire moderne s' intéresse beaucoup aux espaces de dimension arbitraire , éventuellement infinie . la plupart des résultats obtenus en dimension 2 ou 3 peuvent être étendus aux dimensions finies supérieures . les vecteurs étant des listes ordonnées à n composantes , on peut manipuler ces données efficacement dans cet environnement . par exemple en économie , on peut créer et utiliser des vecteurs à huit dimensions pour représenter le produit national brut de huit pays .
+
+quelques théorèmes
+
+théorème de la base incomplète : soient e un espace vectoriel , g une famille génératrice de e et l une famille libre de vecteurs de e . alors il existe au moins une base de e formée en prenant la réunion de l et d' une partie de g .
+en particulier , tout espace vectoriel possède au moins une base .
+toutes les bases d' un même espace vectoriel ont le même cardinal .
+tout espace vectoriel a possède un espace dual a * ; si a est de dimension finie , a * est de même dimension .
+formule de grassmann : soient et deux sous - espaces vectoriels d' un même espace vectoriel . on a alors :
+d' autres théorèmes concernent les conditions d' inversion de matrices de divers types :
+matrice diagonale ;
+matrice triangulaire ;
+matrice à diagonale dominante .
+un théorème intéressant à l' époque des mémoires d' ordinateurs de petite taille était qu' on pouvait travailler séparément sur des sous - ensembles (« blocs ») d' une matrice en les combinant ensuite par les mêmes règles qu' on utilise pour combiner des scalaires dans les matrices ( cf . l’ article matrice par bloc ). avec les mémoires actuelles de plusieurs gigaoctets , cette question a perdu un peu de son intérêt pratique , mais reste très prisée en théorie des nombres , pour la décomposition en produit de facteurs premiers avec le crible général de corps de nombres ( gnfs ) ( méthode lanczos par blocs ).
+
+utilisations
+
+les espaces vectoriels forment le support et le fondement de l' algèbre linéaire . ils sont aussi présents dans de nombreux domaines distincts . s' il n' est pas possible d' indiquer ici tous les cas d' utilisation , on peut tout de même citer pour les principales structures objet de théories , des exemples significatifs . leurs rôles dans de vastes théories ne traitant pas d' une structure particulière , comme celles des nombres algébriques ou de galois peuvent aussi être évoqués .
+les espaces vectoriels utilisés sont d' une grande diversité . on y trouve les classiques espaces vectoriels de dimension 2 ou 3 sur les nombres réels , cependant la dimension peut être quelconque , même infinie . les nombres complexes sont aussi très utilisés , ainsi que les rationnels . il n' est pas rare qu' une partie des nombres réels ou complexes soit considéré comme un espace vectoriel rationnel . le corps de base peut aussi contenir un nombre fini d' éléments , définissant parfois un espace vectoriel fini .
+les propriétés géométriques de la structure permettent la démonstration de nombreux théorèmes . elles ne se limitent pas aux cas où l' espace est réel , même dans le cas de corps plus insolites comme les corps finis ou les extensions finies des rationnels , les propriétés géométriques s' avèrent parfois essentielles .
+
+groupe fini
+
+la classification des groupes finis est une vaste question , encore objet de recherche . si le groupe contient un petit nombre d' éléments , les théorèmes de sylow peuvent suffire pour en déterminer la structure . une méthode beaucoup plus puissante est nécessaire dans le cas général .
+georg frobenius , à la suite de travaux de richard dedekind , développe une nouvelle théorie en 1896 . elle se fonde sur l' idée que l' ensemble des symétries d' un espace vectoriel possède une structure de groupe . il est toujours possible de représenter un groupe fini par des symétries bien choisies sur un espace vectoriel de dimension suffisante . un groupe est ainsi incarné par des transformations géométriques simples . une telle incarnation prend le nom de représentation d' un groupe .
+les espaces vectoriels choisis sont de dimension finie , en général sur le corps des complexes , cependant pour disposer de bonnes propriétés arithmétiques le corps peut être celui des rationnels ou encore utiliser des entiers algébriques comme pour la démonstration du théorème de burnside sur les groupes résolubles . richard brauer étudie un cas très abstrait , celui des représentations sur un espace vectoriel construit à l' aide d' un corps fini .
+un exemple relativement simple d' utilisation de cette théorie est donné par burnside , avec son théorème sur les sous - groupes d' exposant fini du groupe linéaire gl ( n , ℂ ).
+
+anneau
+
+un exemple célèbre d' anneau disposant aussi d' une structure d' espace vectoriel est celui des polynômes à coefficients dans un corps . cet espace vectoriel , de dimension infinie , est largement utilisé en algèbre linéaire , à travers par exemple le polynôme minimal ou caractéristique . le morphisme canonique entre les polynômes et les applications linéaires d' un espace vectoriel est à l' origine d' une structure d' algèbre qui est un anneau , si la multiplication externe est oubliée .
+cette méthode permet d' élucider la structure de certains anneaux . tout anneau est un espace vectoriel sur ceux de ses sous - anneaux qui sont des corps . l' espace vectoriel ressemble à la structure développée par grassman . cette remarque est utilisée au début du , en particulier par emil artin et emmy noether , pour élucider cette structure dans le cas des anneaux artiniens et noethériens , qui sont des copies de sous - algèbres sur un espace vectoriel construit sur sous - anneau qui s' avère être un corps .
+un exemple est la généralisation d' un théorème de wedderburn par artin et portant maintenant le nom de théorème d' artin - wedderburn . il est important en algèbre non commutative .
+un lemme élémentaire permet par ailleurs d' interpréter le corps des quaternions comme l' algèbre des endomorphismes d' une représentation réelle de degré 4 du groupe associé .
+
+théorie de galois
+
+la théorie de galois contient de nombreux exemples d' espaces vectoriels . elle consiste à étudier un corps comme un espace vectoriel sur un sous - corps . ainsi chaque sous - corps permet de considérer la structure initiale comme un espace vectoriel particulier .
+un exemple d' application est celui des figures constructible à la règle et au compas . ces points forment un corps disposant d' une structure d' espace vectoriel sur les nombres rationnels . il est de dimension infinie et , pour chaque point , le plus petit sous - corps le contenant est de dimension finie égale à une puissance de 2 . un tel sous - corps est appelé une tour d' extensions quadratiques . cette propriété de ces espaces vectoriels permet de résoudre d' antiques conjectures comme la duplication du cube , la trisection de l' angle ou la construction d' un polygone régulier .
+l' exemple historique de la théorie est celui de la résolution d' une équation polynomiale . le théorème d' abel donne une condition nécessaire et suffisante de résolution par radicaux . les espaces vectoriels utilisés ont pour éléments ceux du plus petit corps l contenant tous les coefficients du polynôme ainsi que ses racines et le corps sous - jacent est un sous - corps k du premier contenant tous les coefficients . le groupe de galois est composé des automorphismes du corps l et laissant invariant le corps k . il correspond à un nombre fini de symétries de l' espace vectoriel .
+
+notes et références
+
+
+bibliographie
+
+vincent blanloeil : une introduction moderne à l’ algèbre linéaire . ellipses , 2012 .
+roger mansuy , rached mneimné : algèbre linéaire - réduction des endomorphismes . vuibert , 2012 .
+
+voir aussi
+
+
+articles connexes
+
+propriétés métriques des droites et plans
+algèbre multilinéaire
+
+liens externes
+
+linear algebra par elmer g . wiens
+les cours du roso , dont de l' algèbre linéaire
+braise : la base raisonnée d' exercices de mathématiques et son chapitre sur l' algèbre linéaire
+
+
+algèbre générale
+l' algèbre générale , ou algèbre abstraite , est la branche des mathématiques qui porte principalement sur l' étude des structures algébriques et de leurs relations . l' appellation algèbre générale s' oppose à celle dalgèbre élémentaire ; cette dernière enseigne le calcul algébrique , c' est - à - dire les règles de manipulation des formules et des expressions algébriques .
+historiquement , les structures algébriques sont apparues dans différents domaines des mathématiques , et n'y ont pas été étudiées séparément . c' est pourquoi l' algèbre générale possède beaucoup de connexions avec toutes les branches des mathématiques .
+l' étude des structures algébriques peut être faite de manière abstraite , mais unifiée dans le cadre de l' algèbre universelle .
+
+histoire
+
+comme dans d' autres parties des mathématiques , des problèmes et des exemples concrets ont joué un rôle important dans le développement de l' algèbre abstraite . jusqu' à la fin du , beaucoup - ou plus - de ces problèmes étaient en quelque sorte lié à la théorie des équations algébriques . les principaux thèmes sont les suivants :
+résolution de systèmes d' équations linéaires , ce qui a conduit à l' algèbre linéaire
+tentatives de trouver des formules aux solutions d' équations polynomiales générales de degré supérieur qui ont abouti à la découverte de groupes comme des manifestations abstraites de symétrie
+études arithmétiques des formes de degré quadratique supérieur et des équations diophantiennes , qui ont produit directement les notions d' un anneau et idéal .
+
+algèbre moderne
+
+la fin du et le début du a connu un énorme changement dans la méthodologie des mathématiques . l' algèbre abstraite a émergé autour du début du , sous le nom de lalgèbre moderne . son étude faisait partie de l' entraînement pour plus de rigueur intellectuelle en mathématiques . les définitions officielles de certaines structures algébriques ont émergé au .
+
+applications
+
+en raison de sa généralité , l' algèbre abstraite est utilisée dans de nombreux domaines des mathématiques et de la science . par exemple , la topologie algébrique utilise des objets algébriques pour son étude . la théorie algébrique des nombres étudie divers anneaux numériques qui généralisent l' ensemble des entiers . en utilisant la théorie des nombres algébriques , andrew wiles a prouvé le dernier théorème de fermat .
+
+bases
+
+théorie des ensembles
+notion d' ensemble
+sous - ensemble
+opérations sur les ensembles
+produit cartésien
+correspondances et relations
+relation binaire
+fonctions et applications
+loi de composition
+loi interne
+
+structures algébriques
+
+magma
+demi - groupe ( ou semi - groupe )
+quasigroupe
+monoïde
+groupe
+anneau
+module
+corps
+corps commutatif
+espace vectoriel
+algèbre sur un anneau
+algèbre sur un corps
+opérade
+
+articles connexes
+
+évariste galois et niels henrik abel ( mathématiciens ayant fourni un travail majeur pour la construction de l' algèbre )
+emmy noether
+théorie des codes
+théorie des groupes
+
+
+algorithmique
+lalgorithmique est l' étude et la production de règles et techniques qui sont impliquées dans la définition et la conception d' algorithmes , c' est - à - dire de processus systématiques de résolution d' un problème permettant de décrire précisément des étapes pour résoudre un problème algorithmique . en d' autres termes , un algorithme est une suite finie et non - ambiguë d’ instructions permettant de donner la réponse à un problème .
+
+étymologie
+
+le mot « algorithme » vient du nom du mathématicien al - khwârizmî ( latinisé au moyen âge en ), qui , au écrivit le premier ouvrage systématique donnant des solutions aux équations linéaires et quadratiques . « algorithme » a donné « algorithmique » auxquels certains préfèrent le néologisme « algorithmie ».
+
+histoire
+
+
+antiquité
+
+les premiers algorithmes dont on a retrouvé des descriptions datent des babyloniens , au . ils décrivent des méthodes de calcul et des résolutions d' équations à l' aide d' exemples .
+un algorithme célèbre est celui qui se trouve dans le livre 7 des éléments d' euclide , et appelé algorithme d' euclide . il permet de trouver le plus grand diviseur commun , ou pgcd , de deux nombres . un point particulièrement remarquable est qu’ il contient explicitement une itération et que les propositions 1 et 2 démontrent sa correction .
+c' est archimède qui proposa le premier un algorithme pour le calcul de .
+
+étude systématique
+
+le premier à avoir systématisé des algorithmes est le mathématicien arabophone al - khwârizmî , actif entre 813 et 833 . dans son ouvrage abrégé du calcul par la restauration et la comparaison , il étudie toutes les équations du second degré et en donne la résolution par des algorithmes généraux . il utilise des méthodes semblables à celles des babyloniens , mais se différencie par ses explications systématiques là où les babyloniens donnaient seulement des exemples .
+le savant arabe averroès ( 1126 - 1198 ) évoque une méthode de raisonnement où la thèse s’ affine étape par étape , itérativement , jusqu’ à une certaine convergence et ceci conformément au déroulement d’ un algorithme . à la même époque , au , le moine adelard de bath introduit le terme latin de , par référence au nom de al khuwarizmi . ce mot donne algorithme en français en 1554 .
+au , on pourrait entrevoir une certaine allusion à la méthode algorithmique chez rené descartes dans la méthode générale proposée par le discours de la méthode ( 1637 ), notamment quand , en sa deuxième partie , le mathématicien français propose de sans évoquer explicitement les concepts de boucle , d’ itération ou de dichotomie , l’ approche de descartes prédispose la logique à accueillir le concept de programme , mot qui naît en français en 1677 .
+l’ utilisation du terme algorithme est remarquable chez ada lovelace , fille de lord byron et assistante de charles babbage ( 1791 - 1871 ).
+
+l' époque contemporaine
+
+l’ algorithmique du se base souvent sur des formalismes comme celui des machines de turing , qui permettent de définir précisément ce qu' on entend par " étapes ", par " précis " et par " non ambigu " et elle donne un cadre scientifique pour étudier les propriétés des algorithmes . cependant , le type de formalisme choisi engendre des algorithmes différents pour résoudre un même problème , par exemple l' algorithmique récursive , l' algorithmique parallèle ou l’ informatique quantique donnent lieu à des algorithmes différents de ceux de l' algorithmique itérative issue de la machine de turing .
+avec l' informatique , l' algorithmique s' est beaucoup développée dans la deuxième moitié du et donald knuth , auteur du traité the art of computer programming , qui décrit de très nombreux algorithmes , en a posé des fondements mathématiques rigoureux de leur analyse .
+
+vocabulaire
+
+le substantif algorithmique désigne l' ensemble des méthodes permettant de créer des algorithmes . le terme est également employé comme adjectif .
+un algorithme énonce une solution à un problème sous la forme d’ un enchaînement d’ opérations à effectuer .
+les informaticiens utilisent fréquemment l’ anglicisme implémentation pour désigner la mise en œuvre de l' algorithme dans un langage de programmation . cette implémentation réalise la transcription des opérations constitutives de l’ algorithme et précise la façon dont ces opérations sont invoquées . cette écriture en langage informatique , est aussi fréquemment désignée par le terme de « codage ». on parle de « code source » pour désigner le texte , constituant le programme , réalisant l’ algorithme . le code est plus ou moins détaillé selon le niveau d’ abstraction du langage utilisé , de même qu' une recette de cuisine doit être plus ou moins détaillée selon l’ expérience du cuisinier .
+
+étude formelle
+
+de nombreux outils formels ou théoriques ont été développés pour décrire les algorithmes , les étudier , exprimer leurs qualités , pouvoir les comparer :
+ainsi , pour décrire les algorithmes , des structures algorithmiques ont été mises en évidence : structures de contrôle et structures de données .
+pour justifier de la qualité des algorithmes , les notions de correction , de complétude et de terminaison ont été mises en place .
+enfin , pour comparer les algorithmes , une théorie de la complexité des algorithmes a été définie .
+
+structures algorithmiques
+
+les concepts en œuvre en algorithmique , par exemple selon l' approche de n . wirth pour les langages les plus répandus ( pascal , c , etc .), sont en petit nombre . ils appartiennent à deux classes :
+les structures de contrôle
+séquences
+conditionnelles
+boucles
+les structures de données
+constantes
+variables
+tableaux
+structures récursives ( listes , arbres , graphes )
+ce découpage est parfois difficile à percevoir pour certains langages ( lisp , prolog …) plus basés sur la notion de récursivité où certaines structures de contrôle sont implicites et , donc , semblent disparaître .
+
+correction , complétude , terminaison
+
+ces trois notions « correction », « complétude », « terminaison » sont liées , et supposent qu' un algorithme est écrit pour résoudre un problème .
+la terminaison est l' assurance que l' algorithme terminera en un temps fini . les preuves de terminaison font habituellement intervenir une fonction entière positive strictement décroissante à chaque « pas » de l' algorithme .
+étant donnée la garantie qu' un algorithme terminera , la preuve de correction doit apporter l' assurance que si l' algorithme termine en donnant une proposition de solution , alors cette solution est correcte — c' est - à - dire qu' elle est effectivement une solution au problème posé .
+la preuve de complétude garantit que , pour un espace de problèmes donné , l' algorithme , s' il termine , donnera une solution pour chacune des entrées .
+
+complexité algorithmique
+
+les principales notions mathématiques dans le calcul du coût d’ un algorithme précis sont les notions de domination ( notée o ( f ( n )), « grand o »), où f est une fonction mathématique de n , variable désignant la quantité d’ informations ( en bits , en nombre d’ enregistrements , etc .) manipulée dans l’ algorithme . en algorithmique on trouve souvent des complexités du type :
+sans entrer dans les détails mathématiques , le calcul de l’ efficacité d’ un algorithme ( sa complexité algorithmique ) consiste en la recherche de deux quantités importantes . la première quantité est l’ évolution du nombre d’ instructions de base en fonction de la quantité de données à traiter ( par exemple , pour un algorithme de tri , il s' agit du nombre de données à trier ), que l’ on privilégiera sur le temps d' exécution mesuré en secondes ( car ce dernier dépend de la machine sur laquelle l' algorithme s' exécute ). la seconde quantité estimée est la quantité de mémoire nécessaire pour effectuer les calculs . baser le calcul de la complexité d’ un algorithme sur le temps ou la quantité effective de mémoire qu’ un ordinateur particulier prend pour effectuer ledit algorithme ne permet pas de prendre en compte la structure interne de l’ algorithme , ni la particularité de l’ ordinateur : selon sa charge de travail , la vitesse de son processeur , la vitesse d’ accès aux données , l’ exécution de l’ algorithme ( qui peut faire intervenir le hasard ) ou son organisation de la mémoire , le temps d’ exécution et la quantité de mémoire ne seront pas les mêmes .
+souvent , on examine les performances " au pire ", c' est - à - dire dans les configurations telles que le temps d' exécution ou l' espace mémoire est le plus grand . il existe également un autre aspect de l' évaluation de l' efficacité d' un algorithme : les performances " en moyenne ". cela suppose d' avoir un modèle de la répartition statistique des données de l' algorithme , tandis que la mise en œuvre des techniques d' analyse implique des méthodes assez fines de combinatoire et d' évaluation asymptotique , utilisant en particulier les séries génératrices et des méthodes avancées d' analyse complexe . l' ensemble de ces méthodes est regroupé sous le nom de combinatoire analytique .
+on trouvera dans l’ article sur la théorie de la complexité des algorithmes d’ autres évaluations de la complexité qui vont en général au - delà des valeurs proposées ci - dessus et qui répartissent les problèmes ( plutôt que les algorithmes ) en classes de complexité .
+
+quelques indications sur l’ efficacité des algorithmes
+
+souvent , l’ efficacité d’ un algorithme n’ est connue que de manière asymptotique , c’ est - à - dire pour de grandes valeurs du paramètre n .
+lorsque ce paramètre est suffisamment petit , un algorithme de complexité asymptotique plus grande peut en pratique être plus efficace .
+ainsi , pour trier un tableau de 30 lignes ( c’ est un paramètre de petite taille ), il est inutile d’ utiliser un algorithme évolué comme le tri rapide ( l’ un des algorithmes de tri asymptotiquement les plus efficaces en moyenne ) : l’ algorithme de tri le plus simple à écrire sera suffisamment efficace .
+entre deux algorithmes dont la complexité est identique , on cherchera à utiliser celui dont l’ occupation mémoire est la plus faible . l’ analyse de la complexité algorithmique peut également servir à évaluer l’ occupation mémoire d’ un algorithme . enfin , le choix d’ un algorithme plutôt qu’ un autre doit se faire en fonction des données que l’ on s’ attend à lui fournir en entrée . ainsi , le tri rapide , lorsque l’ on choisit le premier élément comme pivot , se comporte de façon désastreuse si on l’ applique à une liste de valeurs déjà triée . il n’ est donc pas judicieux de l’ utiliser si on prévoit que le programme recevra en entrée des listes déjà presque triées ou alors il faudra choisir le pivot aléatoirement .
+un autre paramètre à prendre en compte est la localité de l’ algorithme . par exemple pour un système à mémoire virtuelle qui dispose de peu de mémoire vive ( par rapport au nombre de données à traiter ), le tri rapide sera normalement plus efficace que le tri par tas car le premier ne passe qu’ une seule fois sur chaque élément de la mémoire tandis que le second accède à la mémoire de manière discontinue ( ce qui augmente le risque de ).
+enfin , il existe certains algorithmes dont l' analyse de complexité est dite amortie . cela signifie que , pour certaines exécutions de l’ algorithme ( cas marginaux ), la complexité de l’ algorithme sera très supérieure au cas moyen , mais sera compensée par des exécutions rendues efficaces du même algorithme dans une suite d' invocations de cet algorithme .
+l' analyse lisse mesure les performances des algorithmes sur les pires cas , mais avec une légère perturbation des instances . elle permet d' expliquer pourquoi des algorithmes analysés comme inefficaces autrement sont en fait efficaces en pratique . l' algorithme du simplexe est un exemple d' un algorithme qui se comporte bien pour l' analyse lisse .
+
+approches pratiques
+
+l' algorithmique a développé quelques stratégies pour résoudre les problèmes :
+algorithme glouton : un premier algorithme peut souvent être proposé en étudiant le problème très progressivement : on résout chaque sous - problème localement en espérant que l' ensemble de leurs résultats composera bien une solution du problème global . on parle alors d' algorithme glouton . l' algorithme glouton n' est souvent qu' une première étape dans la rédaction d' un algorithme plus performant ;
+diviser pour régner : pour améliorer les performances des algorithmes , une technique usuelle consiste à diviser les données d' un problème en sous - ensembles de tailles plus petites , jusqu' à obtenir des données que l' algorithme pourra traiter au cas par cas . une seconde étape dans ces algorithmes consiste à « fusionner » les résultats partiels pour obtenir une solution globale . ces algorithmes sont souvent associés à la récursivité ;
+recherche exhaustive ( ou combinatoire ) : une méthode utilisant l' énorme puissance de calcul des ordinateurs consiste à regarder tous les cas possibles . cela n' est pour autant possible que dans certains cas particuliers ( la combinatoire est souvent plus forte que l' énorme puissance des ordinateurs , aussi énorme soit - elle ) ;
+décomposition top - down / bottom - up : ( décomposition descendante , décomposition remontante ) les décompositions top - down consistent à essayer de décomposer le problème en sous - problèmes à résoudre successivement , la décomposition allant jusqu' à des problèmes triviaux faciles à résoudre . l' algorithme global est alors donné par la composée des algorithmes définis au cours de la décomposition . la démarche bottom - up est la démarche inverse , elle consiste à partir d' algorithmes simples , ne résolvant qu' une étape du problème , pour essayer de les composer pour obtenir un algorithme global ;
+pré - traitement / post - traitement : parfois , certains algorithmes comportent une ou deux phases identifiées comme des pré - traitements ( à faire avant l' algorithme principal ), ou post - traitement ( à faire après l' algorithme principal ), pour simplifier l' écriture de l' algorithme général ;
+programmation dynamique : elle s' applique lorsque le problème d' optimisation est composé de plusieurs sous - problèmes de même nature , et qu' une solution optimale du problème global s' obtient à partir de solutions optimales des sous - problèmes .
+
+les heuristiques
+
+pour certains problèmes , les algorithmes ont une complexité beaucoup trop grande pour obtenir un résultat en temps raisonnable , même si l’ on pouvait utiliser une puissance de calcul phénoménale . on est donc amené à rechercher la solution de façon non systématique ( algorithme de las vegas ) ou de se contenter d' une solution la plus proche possible d’ une solution optimale en procédant par essais successifs ( algorithme de monte - carlo ). puisque toutes les combinaisons ne peuvent être essayées , certains choix stratégiques doivent être faits . ces choix , généralement très dépendants du problème traité , constituent ce qu’ on appelle une heuristique . le but d’ une heuristique n' est donc pas d' essayer toutes les combinaisons possibles , mais de trouver une solution en un temps raisonnable et par un autre moyen , par exemple en procédant à des tirages aléatoires . la solution peut être exacte ( las vegas ) ou approchée ( monte - carlo ). les algorithmes d' atlantic city quant à eux donnent de façon probablement efficace une réponse probablement juste ( disons avec une chance sur cent millions de se tromper ) à la question posée .
+c’ est ainsi que les programmes de jeu d’ échecs ou de jeu de go ( pour ne citer que ceux - là ) font appel de manière très fréquente à des heuristiques qui modélisent l’ expérience d’ un joueur . certains logiciels antivirus se basent également sur des heuristiques pour reconnaître des virus informatiques non répertoriés dans leur base , en s’ appuyant sur des ressemblances avec des virus connus , c' est un exemple d' algorithme d' atlantic city . de même le problème sat qui est l' archétype du problème np - complet donc très difficile est résolu de façon pratique et efficace par la mise au point d' heuristiques .
+
+exemples d’ algorithmes , de problèmes , d' applications ou domaines d' application
+
+il existe un certain nombre d’ algorithmes classiques , utilisés pour résoudre des problèmes ou plus simplement pour illustrer des méthodes de programmation . on se référera aux articles suivants pour de plus amples détails ( voir aussi liste des algorithmes ) :
+algorithmes ou problèmes classiques ( du plus simple ou plus complexe )
+échange , ou comment échanger les valeurs de deux variables : problème classique illustrant la notion de variable informatique ( voir aussi structure de données )
+algorithmes de recherche , ou comment retrouver une information dans un ensemble structuré ou non ( par exemple recherche dichotomique )
+algorithme de tri , ou comment trier un ensemble de nombres le plus rapidement possible ou en utilisant le moins de ressources possible
+problème du voyageur de commerce , problème du sac à dos , problème sat et autres algorithmes ou approximations de solutions pour les problèmes combinatoires difficiles ( dit np - complets )
+algorithmes ou problèmes illustrant la programmation récursive ( voir aussi algorithme récursif )
+tours de hanoï
+huit dames , placer huit dames sur un échiquier sans qu’ elles puissent se prendre entre elles ,
+suite de conway ,
+algorithme de dessins récursifs ( fractale ) pour le tapis de sierpiński , la courbe du dragon , le flocon de koch …
+algorithmes dans le domaine des mathématiques
+calcul de la factorielle d' un nombre , de la fonction d' ackermann ou de la suite de fibonacci ,
+algorithme du simplexe , qui minimise une fonction linéaire de variables réelles soumises à des contraintes linéaires ,
+fraction continue d' un nombre quadratique , permettant d' extraire une racine carrée , cas particulier de la méthode de newton
+dans le domaine de l' algèbre : l' algorithme d' unification , le calcul d' une base de gröbner d' un idéal de polynôme et plus généralement presque toutes les méthodes de calcul symbolique ,
+en théorie des graphes qui donne lieu à de nombreux algorithmes ,
+test de primalité .
+algorithmes pour et dans le domaine de l' informatique
+cryptologie et compression de données
+informatique musicale
+algorithme génétique en informatique décisionnelle
+analyse et compilation des langages formels ( voir compilateur et interprète ( informatique ))
+allocation de mémoire ( ramasse - miettes )
+
+annexes
+
+
+notes et références
+
+
+bibliographie
+
+
+liens externes
+
+qu’ est - ce qu' un algorithme ? par philippe flajolet et étienne parizot sur la revue en ligne interstices
+
+articles connexes
+
+al - khwârizmî
+algorithme récursif
+algorithme réparti
+algorithme émergent
+algorithme adaptatif
+art algorithmique
+liste des algorithmes
+métaheuristique
+recherche opérationnelle
+*
+
+politique en argentine
+l' argentine est une république présidentielle multipartite , où le président est à la fois chef de l' état et chef du gouvernement . le pouvoir exécutif est détenu par le gouvernement et le pouvoir législatif est partagé entre le gouvernement et les deux chambres du parlement . le pouvoir judiciaire est indépendant des deux premiers .
+
+pouvoir exécutif
+
+les élections présidentielles se déroulent en un ou deux tours . si aucun candidat ne récolte plus de 45 % des votes , alors un deuxième tour est organisé . seuls les deux candidats qui ont remporté le plus de votes participent au deuxième tour ( 2003 ). historiquement , le pays est marqué par le bipartisme entre le parti justicialiste ( ou péroniste ), qui fut cependant interdit de 1955 aux élections de 1973 , puis à nouveau réprimé après le coup d' etat de mars 1976 , et le parti radical ( union civique radicale , ucr ) et l' élection se fait normalement dès le premier tour .
+depuis 1989 , il n'y eut aucun débat télévisé entre deux candidats à la présidentielle .
+
+histoire
+
+19 candidats étaient inscrits pour les élections du , fait exceptionnel et un second tour était attendu .
+
+élection présidentielle 2003
+
+les 19 candidats étaient ( dans l' ordre alphabétique ) :
+jorge altamira
+juan carlos arcagni
+josé bonacci
+alfredo bravo
+elisa carrió
+manuel herrera
+néstor kirchner
+manuel manusovich
+mario mazzitelli
+carlos menem
+leopoldo moreau
+ricardo lópez murphy
+ricardo mussa
+gustavo breide obeid
+adolfo rodríguez saá
+guillermo sulling
+enrique venturino
+patricia walsh
+carlos zaffore
+carlos menem , ancien président est arrivé en tête au premier tour avec 24 % des voix , suivi de néstor kirchner , proche du président en titre , eduardo duhalde , avec 22 %. tous les deux sont issus du parti justicialiste ( péroniste ). carlos menem , d' après les sondages , ne paraissait pas pouvoir significativement progresser par rapport à son score du premier tour et semblait donc promis à une lourde défaite , avec 30 % de retard . il a renoncé le 14 mai , à quatre jours du second tour , laissant nestor kirchner devenir automatiquement président . les adversaires de menem et notamment l' entourage du président duhalde ont qualifié cette décision d' irresponsable , puisqu' en privant kirchner de la victoire au second tour , en faisant un président par défaut , elle pourrait miner sérieusement sa légitimité …
+
+mandat de nestor kirchner
+
+une fois élu à la tête de l' argentine , nestor kirchner a eu devant lui un chantier imposant : reconstruire l' économie de l' argentine , gravement endommagée par la crise financière de 2001 . il tente d' appliquer à l' argentine les recettes qui ont fait le succès économique de la province de santa cruz , en patagonie , dont il était le gouverneur jusqu' en 2003 .
+ses premières tâches ont été :
+la renégociation de la dette en défaut , avec le fmi et avec les créanciers privés . un accord a été trouvé avec ces derniers début 2005 , ceux - ci devant renoncer à 75 % de leurs créances .
+les renégociations des contrats d' eau , de gaz … avec de grandes entreprises étrangères ( suez …). la plupart des services publics ont été privatisés pendant l' ère menem .
+les discussions avec les « piqueteros », associations de chômeurs bloquant régulièrement les routes pour demander la revalorisation des aides sociales .
+nestor kirchner a également été confronté à une vague de violences et d' enlèvements ( contre rançons ), avec l' implication de la police de la province de buenos aires . il a donc mené une épuration de la police et de la justice pour lutter contre la corruption et la violence organisée , et nomma en juin 2004 esteban righi , l' ex - ministre de l' intérieur d' héctor cámpora ( mai - juillet 1973 ), procureur de la nation .
+les élections générales de 2007 ont été à nouveau remportées par le parti justicialiste , portant la femme de kirchner , cristina fernández de kirchner , à la présidence . elle est réélue en 2011 . les élections générales de 2015 voient la victoire de mauricio macri , opposant au dauphin de la présidente sortante , qui ne pouvait se représenter après deux mandats . sous le mandat de ce dernier , la militante indigène et élue du parlement sud - américain milagro salas est incarcérée , en dépit de son immunité parlementaire , pour avoir organisé une manifestation déclarée illégale par les autorités . les nations unies qualifient sa détention « d' illégale et d' arbitraire » et sollicitent sa libération , tout comme la commission interaméricaine des droits de l’homme et différentes associations de défense des droits de l' homme .
+
+extrême droite
+
+depuis au moins les années 1930 , il existe une extrême droite argentine organisée ( création du parti fasciste argentin en 1932 , élection du gouverneur de buenos aires manuel fresco en 1935 , mouvement nationaliste tacuara des années 1960 qui organisa une forte campagne antisémite après l' enlèvement du nazi adolf eichmann par le mossad ). celle - ci , désignée sous le terme de « national - catholicisme », eut une influence importante dans l' armée et l' église ( avec notamment l' abbé julio meinvielle ; la cité catholique fondée par jean ousset , un disciple de maurras , proche par ailleurs de l' archévêque antonio caggiano , ou le magazine cabildo ) et les différents coups d' état (« révolution libératrice », « révolution argentine » de 1966 et coup d' etat de mars 1976 , préparé , entre autres , par l' activisme violent de l' alliance anticommuniste argentine et de la concentración nacional universitaria ), celle - ci fut intégrée au régime de jorge rafael videla après mars 1976 , participant aux nombreux escadrons de la mort , ce qui lui ôta toute existence indépendante du pouvoir .
+depuis la transition démocratique des années 1980 , elle se montre plus discrète , à l' exception des soulèvements militaires organisés par les carapintadas . elle n' en continue pas moins d' exister , avec la fondation du en 1990 , par , ou la re - création du magazine national - catholique et antisémite cabildo . la cour suprême a néanmoins ordonné la dissolution de ce parti en 2009 en raison de déclarations nazies et antisémites .
+par ailleurs , , l' un des partisans du carapintada seineldín et participants à son putsch , condamné à 7 ans de prison , a fondé en 1996 le marginal . candidat à l' élection présidentielle de 2003 et de 2007 , il obtint à cette dernière voix , soit 0,25 % des suffrages exprimés .
+
+notes et références
+
+
+voir aussi
+
+
+bibliographie
+
+l' argentine des kirchner : dix ans après la crise , choiseul , paris , 2011 , 142 p . ( de la revue problèmes d' amérique latine , 2011 )
+
+articles connexes
+
+économie de l' argentine
+histoire de l' argentine
+liste des chefs d' état argentins
+représentations diplomatiques de l' argentine
+
+liens externes
+
+site officiel du gouvernement
+politique en argentine
+
+armée républicaine irlandaise
+l' armée républicaine irlandaise (, ira ; ) est le nom porté , depuis le début du , par plusieurs organisations paramilitaires luttant par les armes contre la présence britannique en irlande du nord . les différents groupes se référent à eux comme óglaigh na héireann , c' est - à - dire , volontaires d' irlande .
+l' irish republican army appelée aussi old ira , issue de l' union en 1916 entre lirish citizen army ( proche du parti travailliste irlandais ) et les irish volunteers ( alors généralement proches de l' irb ), fut active entre janvier 1919 et décembre 1921 , pendant la guerre d' indépendance irlandaise . si ceux qui acceptèrent le traité anglo - irlandais formèrent les forces de défense irlandaises , une partie de l' organisation , refusant cet accord , se constitua en une nouvelle irish republican army , illégale .
+l' irish republican army anti - traité apparaît entre avril et juin 1922 du fait du refus du traité anglo - irlandais par une partie de l' old ira . elle participe ainsi à la guerre civile irlandaise de juin 1922 à mars 1923 . elle maintient son activité dans les deux irlandes ( état libre d' irlande , indépendant , et irlande du nord , britannique ), mais concentre son action sur les intérêts britanniques , surtout en irlande du nord . en 1969 l' organisation se divise , donnant naissance à lofficial irish republican army et à la provisional irish republican army , minoritaire , moins socialiste et plus activiste .
+lofficial irish republican army , proche de lofficial sinn féin , plus socialiste et moins nationaliste que la provisional irish republican army , mènera des campagnes d' attentats principalement entre 1969 et 1972 durant le conflit nord - irlandais , avant de décréter un cessez - le - feu .
+la provisional irish republican army , minoritaire après la scission de 1969 ( d' où son nom de provisional , « provisoire ») devient rapidement grâce à son militantisme la principale organisation armée républicaine du conflit nord - irlandais . le terme de provisional est d' ailleurs abandonné vers la fin des années 1970 . elle fut active de 1969 à 1997 ( date du cessez - le - feu définitif ), puis déposa définitivement les armes en 2005 . refusant le processus de paix , deux organisations scissionnèrent d' avec la pira : la real irish republican army et la continuity irish republican army .
+la continuity irish republican army est issue d' une scission d' avec la provisional irish republican army dès 1986 . opposée à l' accord du vendredi saint de 1997 , elle continue son action armée jusqu' à aujourd'hui .
+la real irish republican army est une scission opposée au processus de paix de la provisional irish republican army , apparue en 1997 et encore active aujourd'hui .
+lirish republican liberation army nait en 2006 d' une scission de la continuity irish republican army .
+
+généalogie de l' irish republican army
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+armée républicaine irlandaise
+conflit nord - irlandais
+

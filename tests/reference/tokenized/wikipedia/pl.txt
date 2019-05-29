@@ -1,0 +1,279 @@
+awk
+awk – interpretowany język programowania , którego główną funkcją jest wyszukiwanie i przetwarzanie wzorców w plikach lub strumieniach danych . jest także nazwą programu początkowo dostępnego dla systemów operacyjnych będących pochodnymi unix - a , obecnie także na inne platformy .
+awk jest językiem , który w znacznym stopniu wykorzystuje tablice asocjacyjne , stringi i wyrażenia regularne . nazwa języka pochodzi od pierwszych liter nazwisk jego autorów alfreda v . aho , petera weinbergera i briana kernighana i czasami jest zapisywana małymi literami oraz odczytywana jako jedno słowo awk .
+definicja języka awk jest zawarta w posix 1003.2 command language and utilities standard . wersja ta jest z kolei oparta na opisie z the awk programming language napisanym przez aho , weinbergera i kernighana , z dodatkowymi właściwościami zdefiniowanymi w wersji awk z svr4 .
+w wierszu poleceń podaje się opcje dla awk , tekst programu ( jeśli nie podano go poprzez opcję lub ) i wartości , które mają być udostępnione w predefiniowanych zmiennych i .
+
+struktura programów awk
+
+„ awk jest językiem służącym do przetwarzania plików tekstowych . plik jest traktowany jako ciąg rekordów , przy czym domyślnie rekordem jest każdy wiersz . każda linia jest podzielona na pola , więc można traktować pierwsze pole linii jako pierwsze słowo , drugie pole jako drugie słowo itd . program awk składa się z sekwencji instrukcji wzorzec - akcja . awk czyta wejście linia po linii . każda linia jest przeszukiwana pod kątem wzorców występujących w programie i dla każdego pasującego wzorca wykonywana jest akcja z nim skojarzona .” – alfred v . aho
+program awk składa się z sekwencji instrukcji wzorzec - akcja oraz opcjonalnych definicji funkcji .
+wzorzec { instrukcje akcji }
+function nazwa ( lista parametrów ) { instrukcje }
+gdzie to zwykle jakieś wyrażenie , a – lista komend . wejście dzielone jest na rekordy , domyślnie oddzielone znakiem nowej linii .
+dla każdego rekordu wejścia awk dokonuje porównania , sprawdzając czy odpowiada on jakiemuś wzorcowi z programu awk . jeśli wzorzec będzie odpowiadał rekordowi , zostanie wykonana związana z nim akcja . wzorce są sprawdzane w kolejności ich pojawienia się w programie . domyślną akcją jest wypisanie rekordu .
+
+komendy i składnia
+
+na komendy awk składają się wywołania funkcji , nadawanie wartości zmiennym , obliczenia lub jakaś kombinacja wymienionych zadań . awk posiada wbudowane wsparcie dla wielu funkcji . niektóre wersje pozwalają na dynamiczne linkowanie bibliotek , co umożliwia korzystanie z jeszcze większej liczby funkcji .
+dla uproszczenia nawiasy klamrowe () w poniższych przykładach zostaną pominięte .
+
+
+polecenie jest używane do wypisywania tekstu . wyjście jest zawsze zakończone predefiniowanym separatorem rekordów ( output record separator ( ors )), który domyślnie jest znakiem nowej linii . najprostsze zastosowanie polecenia to :
+;
+wyświetla zawartość obecnego rekordu .
+w awk rekordy rozbijane są na pola , które można wyświetlić osobno :
+;
+wyświetla pierwsze pole obecnego rekordu .
+;
+wyświetla pierwsze i trzecie pole obecnego rekordu oddzielone separatorem pola ( output field separator ( ofs )) – domyślnie spacją .
+choć zapis pól () może kojarzyć się z zapisem określającym zmienne ( jak np . w perlu ), to jednak określa pola bieżącego rekordu . ponadto odnosi się do całego rekordu , więc "" oraz "" mają takie samo działanie .
+pozwala również wyświetlić wynik obliczeń lub wywołania funkcji . np .
+print 3 2
+print foobar ( 3 )
+print foobar ( zmienna )
+print sin ( 3 - 2 )
+wyjście można również przekierować do pliku :
+print " wyrażenie " " nazwa pliku "
+lub do innej komendy przez użycie pipe' a :
+print " wyrażenie " " komenda "
+
+zmienne i tablice
+
+
+zmienne
+
+zmienne awk są dynamiczne — zaczynają istnieć , gdy są po raz pierwszy użyte . nazwy zmiennych mogą zawierać znaki z zakresu [ a - za - z0 - 9_ ], lecz nie mogą być słowami kluczowymi . zmienne oraz pola mogą być liczbami ( zmiennoprzecinkowymi ), łańcuchami lub jednym i drugim naraz . interpretacja wartości zmiennej zależy od kontekstu . jeśli jest użyta w wyrażeniu numerycznym , jest interpretowana jako liczba . natomiast jeśli jest użyta w wyrażeniu łańcuchowym — jest traktowana jak łańcuch .
+awk posiada tablice jednowymiarowe . symulowane mogą być również tablice wielowymiarowe . podczas działania programu ustawianych jest kilka predefiniowanych zmiennych opisanych niżej .
+
+zmienne wbudowane
+
+zmienne wbudowane w awk to m.in . zmienne określające pola : , itd . zwracają one wartość lub tekst przechowywany aktualnie w określonym polu rekordu . poza nimi awk posiada również inne zmienne :
+
+tablice
+
+tablice są indeksowane wyrażeniem ujętym w nawiasy kwadratowe (). jeśli wyrażenie jest listą wyrażeń ( wyrażenie , wyrażenie , ...), to indeks tablicy jest sklejany z wartości ( łańcuchowych ) każdego wyrażenia , oddzielonych wartością zmiennej . jest tak dlatego , że awk posiada wyłącznie tablice asocjacyjne , zaś klucze numeryczne pamiętane są jako łańcuchy .
+symulowanie tablic wielowymiarowych polega na sklejaniu poszczególnych indeksów w unikalny łańcuch . na przykład :
+i " a " ; j " b " ; k " c "
+x [ i , j , k ] " hello , world \ n "
+przypisuje łańcuch " hello , world \ n " elementowi tablicy , o indeksie będącym łańcuchem " a \ 034b \ 034c ".
+jeśli tablica posiada wielokrotne indeksy , można użyć konstrukcji . element można skasować z tablicy przy użyciu polecenia . poleceniem można się też posłużyć do skasowania całej zawartości tablicy , przez podanie jej nazwy bez indeksu .
+
+funkcje
+
+funkcje są wykonywane po wywołaniu ich z wyrażeń występujących we wzorcach lub akcjach . definicja funkcji składa się ze słowa kluczowego , jej nazwy , argumentów i ciała . poniżej znajduje się przykład funkcji :
+function dodaj_siedem ( liczba ) {
+return liczba 7
+}
+tę funkcję można wywołać w następujący sposób :
+print dodaj_siedem ( 51 ) # zwraca 58
+między nazwą funkcji , a nawiasem otwierającym można wstawić spację jedynie podczas jej deklaracji – w wywołaniu nawias musi stać bezpośrednio po nazwie funkcji . ma to na celu zapobieżenie niejednoznaczności składni z operatorem konkatenacji ( łączenia ). ograniczenie to nie odnosi się do funkcji wbudowanych .
+funkcje mogą posiadać zmienne lokalne . ich nazwy dodawane są na końcu listy argumentów w definicji funkcji . jednak ich wartości powinno się pomijać wywołując daną funkcję . zazwyczaj przed deklaracją zmiennych lokalnych dodaje się kilka białych znaków , by wskazać miejsce , w którym kończą się argumenty funkcji i zaczynają zmienne lokalne .
+zamiast słowa można używać słowa .
+
+operatory
+
+operatory w awk , w kolejności malejącego priorytetu , to :
+
+wywołanie programu awk
+
+tekst programu czytany jest tak , jakby wszystkie pliki programu zostały połączone ze sobą w całość , przy czym pierwszeństwo mają pliki podane jako argumenty polecenia . przydaje się to do budowania bibliotek funkcji awk , bez konieczności włączania ich do każdego nowego programu awk , który z nich korzysta . umożliwia to również łączenie funkcji bibliotecznych z programami z wiersza poleceń . zmienna środowiskowa określa ścieżkę przeszukiwania , używaną do znajdowania plików źródłowych podanych w opcji . jeśli zmienna ta nie istnieje , domyślną ścieżką staje się . ( faktyczny katalog może być różny , zależnie od tego jak skompilowano i zainstalowano awk ). jeśli nazwa pliku , podana opcji zawiera znak , nie jest dokonywane żadne przeszukiwanie ścieżki .
+program awk wykonywany jest w następującej kolejności :
+inicjalizacja zmiennych podanych w opcjach ,
+kompilacja do postaci wewnętrznej ,
+wywołanie kodu zawartego w blokach ( o ile istnieją ),
+odczytywanie plików podanych w tablicy ,
+odczytywanie standardowego wejścia , jeśli pliki nie zostały podane .
+z poziomu wiersza poleceń można także ustawić wartość zmiennej , podając zamiast nazwy pliku ciąg . ten sposób inicjalizowania zmiennych najbardziej przydaje się do dynamicznego nadawania wartości zmiennym , których awk używa do określania sposobu , w jaki wejście rozbijane jest na pola i rekordy . jest też użyteczny do kontroli stanu , jeśli zachodzi potrzeba wielokrotnego czytania danego pliku danych . jeśli wartość konkretnego elementu jest pusta (""), to awk ją pomija .
+
+przykłady zastosowań
+
+
+hello world
+
+poniżej znajduje się przykład programu " hello world " napisanego w awk :
+begin { print " hello , world !" }
+niekoniecznie trzeba w tym wypadku pisać na końcu . jedynym wzorcem jest , więc żadne argumenty z linii komend nie są przetwarzane .
+w niektórych wersjach awk i niektórych krajach dodanie znaku ”_“ przed łańcuchem znaków wypisze go w języku narodowym . np .
+begin { print _" hello , world !" }
+we francji może wypisać bonjour , monde !.
+
+wypisywanie linii zawierających więcej niż 80 znaków
+
+length ( 0 ) 80
+
+zliczanie liczby słów
+
+program liczy liczbę słów na wejściu i wypisuje liczbę słów , linii i znaków podanych na wejściu ( podobnie jak wc ).
+{
+w nf
+c length 1
+}
+end { print nr , w , c }
+ze względu na brak wzorca w pierwszej linii programu akcja jest wykonywana dla każdego wiersza wejścia .
+
+suma numerów ostatnich słów
+
+{ s nf }
+end { print s 0 }
+jest zwiększane o numer ostatniego słowa w każdym rekordzie .
+na końcu wejścia wzorzec pasuje , więc jest wypisywane . jednak wejście może nie zawierać ani jednej linii . wtedy , jako że zmiennej nie została nadana żadna wartość , będzie to pusty ciąg . dodanie zera na końcu przy wypisywaniu wymusza traktowanie zmiennej tak , jakby zawierała ona liczbę . dzięki temu nawet , gdy jest pustym ciągiem na wyjściu nie będzie pustej linii , lecz .
+
+wypisanie określonej liczby pasujących linii wejścia
+
+yes wikipedia awk ' nr % 4 1 , nr % 4 3 { printf "% 6d % s \ n ", nr , 0 }' sed 7q
+1 wikipedia
+2 wikipedia
+3 wikipedia
+5 wikipedia
+6 wikipedia
+7 wikipedia
+9 wikipedia
+
+tutaj komenda yes wypisuje słowo „ wikipedia ” tak długo , aż sed wykryje , że zostało wypisanych 7 linii . dalsza część polecenia wypisuje każdą z linii poprzedzoną jej numerem . wypisywane są tylko linie , których numery dają resztę z dzielenia przez 4 o wartościach od 1 do 3 .
+
+obliczanie częstotliwości występowania słów
+
+program używa tablicy asocjacyjnej :
+begin {
+fs "[ a - za - z ] "
+}
+{
+for ( i 1 ; i nf ; i )
+words [ tolower ( i )]
+}
+end {
+for ( i in words )
+print i , words [ i ]
+}
+blok ustawia separator pola na dowolny znak nie będący literą . warto zauważyć , że separatory mogą być też wyrażeniami regularnymi .
+następnie następuje akcja wykonywana na każdej linii wejścia : dla każdego pola linii zwiększana jest liczba razy , jaką to słowo ( uprzednio zamienione na małe litery ) wystąpiło . na końcu wypisywane są wszystkie słowa wraz z częstotliwościami występowania .
+
+samodzielne skrypty awk
+
+podobnie jak wiele innych języków skrypt awk można napisać poprzedzając go znakiem " shebang ". dla przykładu komendę wypisującą " hello , world !" można napisać tworząc plik o nazwie zawierający następujące linijki :
+begin { print " hello , world !" }
+opcja informuje awk , że następny argument to plik , z którego należy przeczytać program . jest on tam umieszczany przez powłokę podczas działania .
+
+przypisy
+
+
+zobacz też
+
+sed
+perl
+polecenia systemu operacyjnego unix
+
+linki zewnętrzne
+
+strona domowa gnu awk
+the amazing awk assembler by henry spencer .
+gawkinet : tcp / ip internetworking with gawk
+języki skryptowe
+
+alergologia
+alergologia – dziedzina medycyny zajmująca się rozpoznawaniem i leczeniem schorzeń alergicznych .
+
+zobacz też
+
+alergen
+
+przypisy
+
+
+linki zewnętrzne
+
+polskie towarzystwo alergologiczne
+portal lekarzy alergologów ' alergologia.org '
+alergie.mp.pl , serwis wydawnictwa medycyna praktyczna
+
+specjalności lekarskie
+
+ascii
+ascii ( czyt . aski , skrót od ang . american standard code for information interchange ) – siedmiobitowy system kodowania znaków , używany we współczesnych komputerach oraz sieciach komputerowych , a także innych urządzeniach wyposażonych w mikroprocesor . przyporządkowuje liczbom z zakresu 0 127 : litery alfabetu angielskiego , cyfry , znaki przestankowe i inne symbole oraz polecenia sterujące . na przykład litera „ a ” jest kodowana jako liczba 97 , a znak spacji jest kodowany jako 32 . większość współczesnych systemów kodowania znaków jest rozszerzeniem standardu ascii .
+ascii jest tradycyjną nazwą tego zestawu znaków , jednak iana zaleca używanie określenia us - ascii , które podkreśla pochodzenie standardu , oraz to , pod kątem jakich znaków był projektowany ( ascii nie zawiera na przykład liter diakrytyzowanych , powszechnych w alfabetach europejskich ).
+ascii znajduje się na liście kamieni milowych ieee .
+
+przegląd
+
+standard ascii został stworzony na podstawie kodu telegraficznego . prace nad nim rozpoczęły się 6 października 1960 roku , podczas pierwszego spotkania grupy x3.2 american national standards institute ( ansi ). trzy lata później , w 1963 roku , została udostępniona pierwsza wersja standardu ascii . w porównaniu do wcześniejszych systemów kodowania znaków , ten zestaw znaków był wygodny w użyciu do sortowania alfabetycznego tekstów , zmiany wielkości znaków , a także wspierał urządzenia inne niż dalekopisy . od czasu wprowadzenia na rynek , ascii został czterokrotnie zaktualizowany – w 1967 , 1968 , 1977 i 1986 roku .
+każdy znak w kodzie ascii jest przedstawiany jako 7 - bitowa liczba całkowita . 95 spośród nich stanowią znaki drukowalne : małe i wielkie litery alfabetu łacińskiego , cyfry , znaki przestankowe oraz inne symbole . standard ten został stworzony do obsługi języka angielskiego , dlatego pośród liter , które znajdują się w tabeli , nie ma żadnych diakrytyzowanych . większość znaków sterujących jest dzisiaj przestarzała – zostały one pomyślane głównie dla dalekopisów .
+standard ascii był najpopularniejszym zestawem znaków używanym w internecie do grudnia 2007 , kiedy to został zastąpiony przez utf - 8 . kodowanie utf - 8 jest wstecznie kompatybilne z ascii .
+
+historia
+
+kod ascii został opublikowany jako standard asa x3.4 - 1963 . zestaw znaków w niewielkim stopniu różnił się od obecnego . nieprzypisana była 1 sekwencja sterująca oraz 28 pozycji zarezerwowanych do późniejszego wykorzystania . w grupie roboczej toczyła się dyskusja , czy należy do kodu wprowadzić małe litery , czy też więcej znaków sterujących . w maju 1963 zadecydowano , by tzw . patyki szósty i siódmy wypełnić małymi literami alfabetu łacińskiego . spowodowało to , że między wielką a małą literą jest tylko jeden bit różnicy ( np . literze „ a ” jest przyporządkowany kod 65 ( 1000001 ), a „ a ” – 97 ( 1100001 )), co ułatwiało konstruowanie klawiatur oraz porównywanie tekstów nieuwzględniające wielkości liter . ta zmiana weszła do standardu ascii dopiero w 1967 roku .
+do standardu ascii z 1963 roku zostały wprowadzone jeszcze następujące zmiany :
+wprowadzenie znaków takich jak nawiasy klamrowe oraz kreska pionowa ,
+zmiana nazwy niektórych kodów kontrolnych ( np . som zmieniono na soh ),
+przeniesienie lub usunięcie niektórych znaków kontrolnych ( np . usunięto ru ).
+standard ascii był uaktualniany czterokrotnie – w latach 1967 , 1968 , 1977 i 1986 . przygotowany został także piąty standard – z 1965 roku , ale nie został opublikowany ( mimo wszystko był używany przez niektóre maszyny ibm ).
+
+założenia przyjęte podczas projektowania
+
+
+ilość bitów
+
+grupa x3.2 projektowała ascii na podstawie dawniejszych zestawów znaków , przeznaczonych dla dalekopisów . zawierały one 26 liter , 10 cyfr oraz od 11 do 25 symboli . aby uwzględnić je wszystkie oraz znaki kontrolne zgodne ze standardami ccitt ita2 ( 1924 ), fieldata ( 1956 – 57 ) oraz wczesnym ebcdic ( 1963 ), potrzeba było więcej niż 64 znaki . można by je zmieścić na 6 bitach używając dwóch zestawów znaków i specjalnych kodów shift zmieniających używany zestaw ( jak np . w ita2 ). jednak wiadomości zakodowane w ten sposób łatwo mogły ulec zniekształceniu , ponieważ przekłamanie podczas transmisji kodu shift mogłoby zmienić brzmienie dużej części tekstu . grupa odpowiedzialna za sformułowanie standardu ascii sprzeciwiała się temu , dlatego kod musiał używać co najmniej 7 bitów na jeden znak .
+rozważano także wykorzystanie ośmiu bitów , co pozwoliłoby na zastosowanie większego zestawu znaków , jednak zadecydowano , że ascii będzie siedmiobitowy , ponieważ każdy dodatkowy bit zwiększyłby długość wiadomości , a co za tym idzie – również koszt jej przesłania . ówczesne karty dziurkowane mogły przechować na jednej pozycji osiem bitów , co można było wykorzystać do przechowywania bitu parzystości . urządzenia niestosujące kontroli błędów przechowywały tam 0 . niektóre drukarki korzystały z ósmego bitu , by obsługiwać kursywę .
+
+podział na grupy znaków
+
+kod ascii został podzielony na dwie grupy – dwa patyki ( zerowy i pierwszy ) przeznaczone na znaki sterujące oraz sześć patyków ( od drugiego do siódmego ) zawierających znaki drukowalne ( wyjątkiem jest znak 127 : del ). znak spacji został umieszczony pod adresem 0x20 , czyli przed wszystkimi innymi literami , aby ułatwić sortowanie . z tego samego względu , wiele symboli używanych jako separatory znajduje się przed literami i cyframi – na patyku drugim . grupa robocza zadecydowała , że wydzielenie sensownego 64 - znakowego ( sześciobitowego ) alfabetu z ascii ma być łatwe i taki alfabet powinien być jednym ciągłym blokiem . z tego powodu małe litery nie są przeplecione z wielkimi . wielka litera a została umieszczona na pozycji 0x41 , w celu zgodności z brytyjską propozycją standardu kodowania znaków . cyfry 0 – 9 składają się z bitów 011 oraz , następującej po nich , binarnej reprezentacji liczb odpowiadających każdej z cyfr . ułatwia to konwersję liczb na system binary - coded decimal .
+pozycja większości znaków niealfanumerycznych jest związana z ich umiejscowieniem na klawiaturach mechanicznych maszyn do pisania . standardowy układ klawiszy pochodzi z maszyny remington no . 2 z 1878 roku , pierwszej z klawiszem shift . klawiszom odpowiadały , kolejno , znaki . początkowo , na klawiaturach maszyn do pisania nie używano cyfr 0 i 1 , ponieważ mogły one być zastąpione przez o ( wielkie o ) oraz l ( małe l ). pary oraz stały się popularne , gdy klawisze z tymi cyframi weszły do użycia . znaki zostały umieszczone na drugim patyku , obok odpowiadających im cyfr . ze względu na to , że zero znajduje się w tabeli kodu ascii obok spacji i nie można tam wstawić nawiasu zamykającego , znak podkreślenia został usunięty ( wstawiono go w 1967 roku za wielkimi literami ), a za procentem znajdują się znaki odpowiadające kolejnym cyfrom ( tj . ). taki układ był często spotykany na europejskich maszynach do pisania . para znaków pochodzi również z maszyny no . 2 , natomiast były używane tylko na części klawiatur . na pozostałych kropkę i przecinek można było wpisać zarówno z naciśniętym klawiszem shift , jak i bez niego . standard ascii rozbił znaki , spotykane dotąd na jednym klawiszu , oraz zmienił układ symboli matematycznych ( zamiast najczęstszego wariantu było ).
+niektóre , popularne w usa znaki , takie jak , nie zostały uwzględnione , podczas gdy wprowadzono : diakrytyki do użytku międzynarodowego oraz znaki . symbol @ nie był powszechny w europie , dlatego grupa x3.2 spodziewała się umieszczenia w jego miejscu litery à we francuskiej odmianie standardu . z tego względu małpa została umieszczona na pozycji 0x40 , czyli tuż przed wielkim a .
+najważniejszymi kodami sterującymi były : start of message ( som ), end of address ( eoa ), end of message ( eom ), end of transmission ( eot ), who are you ? ( wru ), are you ? ( ru ), reserved device control ( dc0 ), synchronous idle ( sync ) i acknowledge ( ack ). zostały one rozmieszczone w ten sposób , by odległość hamminga między nimi była jak największa .
+
+podział
+
+
+znaki sterujące
+
+standard ascii przeznacza pierwsze 32 kody ( 0 – 31 ) na znaki sterujące . nie są one przeznaczone do przenoszenia drukowalnych symboli , lecz do sterowania urządzeniem odbierającym dane . na przykład , znak 10 ( lf ) oznaczający przejście do nowej linii , powoduje przesunięcie papieru w drukarce , a znak 8 , czyli backspace powodował cofnięcie karetki o jedno pole . ascii nie definiuje żadnego mechanizmu pozwalającego na formatowanie tekstu w obrębie jednej linii .
+
+znaki drukowalne
+
+kody 0x20 – 0x7e reprezentują litery , cyfry oraz inne , możliwe do wyświetlenia na ekranie , symbole . standard ascii definiuje łącznie ( wliczając spację ) 95 znaków drukowalnych :
+wcześniejsze wersje ascii zawierały strzałkę do góry zamiast karety oraz strzałkę w lewo zamiast znaku podkreślenia .
+
+rozszerzenia
+
+ponieważ kod ascii jest 7 - bitowy , a większość komputerów operuje na 8 - bitowych bajtach , dodatkowy bit można wykorzystać na powiększenie zbioru kodowanych znaków do 256 symboli . powstało wiele różnych rozszerzeń ascii wykorzystujących ósmy bit ( np . norma iso 8859 , rozszerzenia firm ibm lub microsoft ) nazywanych stronami kodowymi . również kodowanie utf - 8 można uważać za rozszerzenie ascii , tutaj jednak dodatkowe znaki są kodowane na 2 i więcej bajtach . formalnie , mianem rozszerzeń ascii można nazwać jedynie te standardy , które zachowują układ pierwszych 128 znaków i dodają nowe na końcu tabeli .
+
+zestawy 7 - bitowe
+
+ascii było od początku projektowane jako jedna z wielu narodowych wersji międzynarodowego zestawu znaków . w europie popularny był standard iso 646 , oparty na ascii , który rezerwował określone pozycje ( odpowiadające m . in . znakom : ) dla liter używanych w narodowych językach oraz dla lokalnego symbolu waluty .
+ze względu na to , że niektóre symbole zamieniono w iso 646 na litery , programista w europie musiał wybrać , czy chce na swoim komputerze korzystać z lokalnych liter , czy też z pierwotnie przypisanych znaków . wybranie pierwszego powodowało , że kod stawał się mniej czytelny – zamiast w polskiej odmianie standardu wyświetlone zostałoby .
+
+zestawy 8 - bitowe
+
+wraz z rozwojem komputerów oraz spadkiem kosztów transmisji danych , zaczęły się pojawiać 8 - bitowe zestawy znaków . pojawiły się standardy z rodziny iso 8859 oraz windows - 1250 , które zapewniały obsługę liter narodowych używając do tego zakresu 128 – 255 , jednocześnie pozostawiając nietknięty obszar wspólny z ascii . alfabet polski był wspierany przez kodowanie iso 8859 - 2 oraz windows - 1250 .
+
+unicode
+
+unicode oraz universal character set ( ucs , iso 10646 ) obsługują znacznie większą ilość znaków , dzięki czemu wszystkie alfabety używane na świecie mogą zostać umieszczone w jednym kodowaniu . są one wstecznie kompatybilne z ascii ( tekst składający się wyłącznie ze znaków 0 – 127 ma taką samą reprezentację w obu standardach ).
+
+tabela kodów ascii
+
+
+zobacz też
+
+ascii85
+ascii - art
+basic latin ( blok unicode )
+extended ascii
+
+przypisy
+
+
+uwagi
+
+
+bibliografia
+
+
+linki zewnętrzne
+
+formaty plików komputerowych
+kodowania znaków
+

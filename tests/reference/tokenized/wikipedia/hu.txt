@@ -1,0 +1,44 @@
+gnu free documentation license
+200px
+a gnu free documentation license ( gnu fdl vagy gfdl ), azaz a gnu szabad dokumentációs licence egy szövegekre vonatkozó szabad licenc , amelyet a free software foundation tervezett a gnu projekthez . a licenc eredetileg a gpl programokhoz tartozó dokumentációk , kezelési útmutatók , tankönyvek és egyéb kiegészítő anyagok számára készült , de bármilyen szöveges műre alkalmazható ; mára számos könyv és internetes oldal használja . korábban a wikipédia szövege is gfdl alatt volt felhasználható .
+a licenc lényege – más szabad licencekhez hasonlóan –, hogy a mű szabadon terjeszthető ( akár pénzért is ) és szabadon módosítható , feltéve , hogy feltüntetik az eredeti szerzőt , és a lehetővé teszik mindenkinek a mű – módosítás esetén az új mű – gfdl szerinti felhasználását , módosítását és továbbterjesztését .
+
+másodlagos szakaszok
+
+bár a gfdl szövegek rendszerint szabadon módosíthatóak , a szerzők kijelölhetnek a szövegben bizonyos másodlagos szakaszokat ( secondary sections ), amikre különféle korlátozások érvényesülnek . ezeknek a szakaszoknak a szerzőknek vagy a kiadóknak a műhöz való viszonyáról kell szólniuk , a mű témájával nem foglalkozhatnak . a céljuk , hogy biztosítsák , hogy a korábbi szerzők kilétét , hozzájárulásának mértékét , a művel kapcsolatos üzleti , jogi , politikai , erkölcsi vagy filozófiai álláspontját ne lehessen eltitkolni vagy meghamisítani a későbbi változtatások során .
+a másodlagos szakaszoknak számos változata van : nem változtatható szakaszok ( invariant sections ), amiket a későbbi módosítás során nem lehet megváltoztatni vagy kitörölni , pár soros címlap - és hátlapszövegek ( front cover texts , back cover texts ), amiket a cím - illetve hátlapon kell megjeleníteni , és meg nem változtatható címek ( entitled xyz ). a gfdl szabályozza azt is , hogy a korábbi szerzők listáját hogyan szabad módosítani .
+a dokumentumot módosító nem változtathatja meg a korábbi szövegek státuszát , de a maga által hozzáadott szöveg egyes részeit tetszés szerinti másodlagos szakasszá nyilváníthatja
+
+transzparens másolat
+
+aki a gfdl dokumentumot olyan formátumban terjeszti , ami számítógéppel nem dolgozható fel ( ilyen például a nyomtatott szöveg vagy a pdf fájl ), az köteles egy transzparens , géppel feldolgozható másolatot is elérhetővé tenni , például letölthetővé tenni a dokumentum nyers szövegét az internetről . ( a dokumentumot csak kis példányszámban terjesztőkre ez a megkötés nem vonatkozik .)
+
+kritikák
+
+a gfdl - t érő egyik fő kritika a licenc rugalmatlansága : mivel a licencet eredetileg felhasználói kézikönyvekhez szánták , számos korlátozása kényelmetlen lehet rövid vagy sűrűn változó szövegek esetén . például az a követelmény , hogy a több oldalnyi licencszöveget mindig mellékelni kell az eredeti műhöz , közel lehetetlenné teszi gfdl dokumentumok újságban vagy más rövid nyomtatott szövegben való közlését .
+a debian , az egyik nagy linux disztribúció fejlesztői a 2003 - ban a „ nem szabad ” kategóriába sorolták a gfdl - t , mivel az szerintük nem kompatibilis a debian szabad szoftver irányelvekkel ; mindenekelőtt a nem változtatható szakaszok létét és a drm tiltását kifogásolták . a fejlesztők végül 2006 - ban megszavazták , hogy a nem változtatható szakaszokat nem tartalmazó gfdl dokumentumok ( de csak azok ) szabadnak minősülnek .
+sok problémát okoz a gfdl más szabad licencekkel , mindenekelőtt a creative commons attribution – sharealike licenccel való inkompatibilitása is . a gfdl inkompatibilis a gpl licenccel is , így egy gpl alatti kódrészletet nem lehet megjelentetni a programról szóló gfdl alatti könyvben .
+
+a licenc fejlődése
+
+a gfdl vázlatát 1999 végén tették közzé ; az első , 1.1 - es verziót 2000 márciusában , a jelenlegi , 1.2 - est 2002 novemberében publikálták . a tervezett 2 - es verzió és a rugalmatlansággal kapcsolatos kritikák megválaszolására szánt gsfdl ( gnu egyszerűbb szabad dokumentációs licenc ) vázlatát 2006 szeptemberében tették közzé . a gfdl 2 - es verziója a tervek szerint könnyebbé teszi a fordítást és a részletek felhasználását , a gsfdl pedig nem tartalmaz cím - és hátlapot , illetve nem módosítható szakaszokat .
+
+lásd még
+
+gpl
+lgpl
+gsfdl
+creative commons
+
+források
+
+a gfdl szövege
+a gfdl 1.2 nem hivatalos magyar fordítása
+how to use the optional features of the gfdl
+gfdl version 2 draft
+
+hivatkozások
+
+szabad licencek
+gnu projektek
+
