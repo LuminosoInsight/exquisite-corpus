@@ -83,7 +83,8 @@ def train_sentencepiece(in_file, model_prefix):
     Outputs are model and vocabulary files (<prefix>.model and <prefix>.vocab).
     Maximum size of sentences the trainer loads, by randomly sampling input sentences,
     is 1M. Vocabulary size is 16K and is a soft limit.
-    It uses NFKC normalization with some additional normalization around spaces.
+    It uses NFKC normalization with some additional normalization around spaces and
+    Unicode case folding (mostly lower casing).
     """
     parms = "--model_type=unigram " \
             "--input={file} " \
@@ -93,7 +94,7 @@ def train_sentencepiece(in_file, model_prefix):
             "--shuffle_input_sentence " \
             "--vocab_size=16000 " \
             "--hard_vocab_limit=false " \
-            "--normalization_rule_name=nmt_nfkc".format(file=in_file, prefix=model_prefix)
+            "--normalization_rule_name=nmt_nfkc_cf".format(file=in_file, prefix=model_prefix)
     sentencepiece.SentencePieceTrainer.Train(parms)
 
 
