@@ -4,7 +4,11 @@
 import os
 from collections import defaultdict
 
-DATA = os.environ.get("TEST_BUILD_DATA", "data")
+DATA = 'data'
+
+TESTMODE = bool(os.environ.get("XC_BUILD_TEST"))
+if TESTMODE:
+    DATA = 'tests/data'
 
 SOURCE_LANGUAGES = {
     # OPUS's data files of OpenSubtitles 2018
