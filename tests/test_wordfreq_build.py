@@ -1,5 +1,5 @@
 import pytest
-import shutil
+from shutil import rmtree
 
 from tests.testing_utils import (
     gzipped_result_dir_same_as_reference,
@@ -9,15 +9,15 @@ from tests.testing_utils import (
 
 
 @pytest.fixture(scope='session')
-def run_build(test_env_variables):
+def run_build(test_env_variables, setup_input_files):
     run_snakemake(test_env_variables)
     yield
-    shutil.rmtree('tests/data/extracted')
-    shutil.rmtree('tests/data/tokenized')
-    shutil.rmtree('tests/data/counts')
-    shutil.rmtree('tests/data/messy-counts')
-    shutil.rmtree('tests/data/freqs')
-    shutil.rmtree('tests/data/wordfreq')
+    rmtree('tests/data/extracted')
+    rmtree('tests/data/tokenized')
+    rmtree('tests/data/counts')
+    rmtree('tests/data/messy-counts')
+    rmtree('tests/data/freqs')
+    rmtree('tests/data/wordfreq')
 
 
 @pytest.mark.parametrize(
