@@ -467,8 +467,8 @@ rule wordfreq:
 
 rule parallel:
     input:
-        expand("data/parallel/training/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
-        expand("data/parallel/training/tatoeba_test.{pair}.txt", pair=TATOEBA_LANGUAGE_PAIRS)
+        expand("data/parallel/training/joined/{pair}.{mode}.txt", pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
+        expand("data/parallel/training/joined/tatoeba_test.{pair}.txt", pair=TATOEBA_LANGUAGE_PAIRS)
 
 rule frequencies:
     input:
@@ -1045,11 +1045,10 @@ rule tokenize_voa:
 # ======================
 
 rule parallel_opus:
-    # Join parallel text from OpenSubtitles that has been tokenized in
-    # separate, monolingual files.
+    # Join monolingual files from OPUS into a parallel text file.
     input:
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/opus/{dataset}.{lang1}_{lang2}.{lang2}.txt"
+        "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang1}",
+        "data/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}"
     output:
         "data/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
     shell:
@@ -1069,17 +1068,17 @@ rule parallel_opus:
         "paste {input} | LANG=C grep -v $'\xee' > {output}"
 
 rule parallel_paracrawl:
-    # Join parallel text from ParaCrawl that has been tokenized in
-    # separate, monolingual files.
+    # Join monolingual files from ParaCrawl into a parallel text file.
     input:
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang1}.txt",
-        "data/tokenized/paracrawl-paired/{lang1}_{lang2}.{lang2}.txt"
+        "data/extracted/paracrawl/{lang1}_{lang2}.{lang1}.txt",
+        "data/extracted/paracrawl/{lang1}_{lang2}.{lang2}.txt"
     output:
         "data/parallel/paracrawl/{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
 rule parallel_jesc:
+    # Join monolingual files from JESC into a parallel text file.
     input:
         "data/extracted/jesc/detokenized/train.en",
         "data/extracted/jesc/detokenized/train.ja"
@@ -1108,20 +1107,48 @@ rule separate_parallel:
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
 
 
-# BPE is learned only from the train set and is later applied to train, valid, and test sets
-rule learn_bpe:
+# Train SentencePiece model on the train set and get the vocabulary (one piece per line).
+# Maximum size of sentences the trainer loads, by randomly sampling, is 1M.
+rule train_sentencepiece:
     input:
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.train.txt",
-        "data/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.train.txt"
+        "data/parallel/shuffled-split/{pair}.{lang}.train.txt",
     output:
-        "data/parallel/bpe/{lang1}_{lang2}.codes",
-        "data/parallel/bpe/{lang1}_{lang2}.{lang1}.vocab",
-        "data/parallel/bpe/{lang1}_{lang2}.{lang2}.vocab"
+        "data/parallel/training/sp/{pair}.{lang}.model",
+        "data/parallel/training/sp/{pair}.{lang}.nmt.vocab"
+    resources:
+        sp_trainer=1
     run:
-        bpe_file, vocab1, vocab2 = output
+        model_file, nmt_vocab_file = output
         shell(
-            "subword-nmt learn-joint-bpe-and-vocab --input {input} "
-            "--output {bpe_file} --write-vocabulary {vocab1} {vocab2}"
+            "xc train-sp {input} data/parallel/training/sp/{wildcards.pair}.{wildcards.lang} && "
+            "xc get-vocab-sp {nmt_vocab_file} {model_file}"
+        )
+
+
+# Encode raw train, valid, and test set into sentence pieces.
+rule apply_sentencepiece:
+    input:
+        "data/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
+        "data/parallel/training/sp/{pair}.{lang}.model"
+    output:
+        "data/parallel/training/paired/{pair}.{lang}.{mode}.txt"
+    run:
+        in_file, model_file = input
+        shell(
+            "xc encode-with-sp {in_file} {output} {model_file}"
+        )
+
+
+rule apply_sentencepiece_tatoeba:
+    input:
+        "data/extracted/opus/Tatoeba.{pair}.{lang}",
+        "data/parallel/training/sp/{pair}.{lang}.model"
+    output:
+        "data/parallel/training/paired/tatoeba_test.{pair}.{lang}.txt"
+    run:
+        in_file, model_file = input
+        shell(
+            "xc encode-with-sp {in_file} {output} {model_file}"
         )
 
 
@@ -1147,36 +1174,6 @@ rule learn_sentencepiece:
         "--normalization_rule_name nmt_nfkc_cf"
 
 
-rule apply_bpe:
-    input:
-        "data/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
-        "data/parallel/bpe/{pair}.codes",
-        "data/parallel/bpe/{pair}.{lang}.vocab"
-    output:
-        "data/parallel/bpe/{pair}.{lang}.{mode}.txt"
-    run:
-        text_in, bpe_file, vocab_file = input
-        shell(
-            "subword-nmt apply-bpe --input {text_in} --output {output} "
-            "--codes {bpe_file} --vocabulary {vocab_file}"
-        )
-
-
-rule apply_bpe_tatoeba:
-    input:
-        "data/tokenized/opus/Tatoeba.{pair}.{lang}.txt",
-        "data/parallel/bpe/{pair}.codes",
-        "data/parallel/bpe/{pair}.{lang}.vocab"
-    output:
-        "data/parallel/bpe/tatoeba_test.{pair}.{lang}.txt"
-    run:
-        text_in, bpe_file, vocab_file = input
-        shell(
-            "subword-nmt apply-bpe --input {text_in} --output {output} "
-            "--codes {bpe_file} --vocabulary {vocab_file}"
-        )
-
-
 # Split files into train, valid, and test sets; 10000 lines for valid and test set each
 # and rest is kept for the train set.
 rule split_train_valid_test:
@@ -1195,22 +1192,22 @@ rule split_train_valid_test:
         )
 
 
-rule rejoin_training_data:
+rule join_training_data:
     input:
-        "data/parallel/bpe/{lang1}_{lang2}.{lang1}.{mode}.txt",
-        "data/parallel/bpe/{lang1}_{lang2}.{lang2}.{mode}.txt"
+        "data/parallel/training/paired/{lang1}_{lang2}.{lang1}.{mode}.txt",
+        "data/parallel/training/paired/{lang1}_{lang2}.{lang2}.{mode}.txt"
     output:
-        "data/parallel/training/{lang1}_{lang2}.{mode}.txt"
+        "data/parallel/training/joined/{lang1}_{lang2}.{mode}.txt"
     shell:
         "paste {input} > {output}"
 
 
 rule join_tatoeba_data:
     input:
-        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
-        "data/parallel/bpe/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
+        "data/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
+        "data/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
     output:
-        "data/parallel/training/tatoeba_test.{lang1}_{lang2}.txt"
+        "data/parallel/training/joined/tatoeba_test.{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
 
