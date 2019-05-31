@@ -486,14 +486,6 @@ rule google_3grams:
     input:
         expand("data/downloaded/google-ngrams/3grams-en-{shard}.txt.gz", shard=GOOGLE_3GRAM_SHARDS)
 
-rule sentencepiece_ids:
-    input:
-        expand("data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy",
-               lang=SPM_LANGUAGES,
-               task=["training", "testing", "validation"],
-               n=range(MAX_SPM_ENCODE_IDS + 1)
-        )
-
 
 # Downloaders
 # ===========
@@ -1153,75 +1145,6 @@ rule learn_sentencepiece:
         # Case-fold, apply NFKC, and apply a couple other substitutions that
         # machine translation people have found useful:
         "--normalization_rule_name nmt_nfkc_cf"
-
-
-# Take another (larger) sample of the full data set previously sampled to train
-# SentencePiece, and encode it as ids using the trained SentencePiece model.
-# Split the encoded output into files containing uniform numbers of ids.
-rule encode_sentencepiece_ids:
-    input:
-        "data/monolingual/{lang}.txt.gz",
-        "data/sentencepiece/{lang}.model"
-    output:
-        temp(expand("data/sentencepiece/{{lang}}.spm_txt_ids/length_{n}.txt",
-                    n=range(MAX_SPM_ENCODE_IDS + 1)))
-    run:
-        # We invoke awk to sample the input data file.  Then we invoke a
-        # python script to distribute the output of spm_encode to output
-        # files whose names include the length of each encoded input line.
-        data_file, model_file = input
-        output_dir = os.path.dirname(output[0])
-        output_prefix = '"{}"'.format(os.path.join(output_dir, "length_"))
-        for output_file in output:  # make empty files
-             shell("touch {output_file}")
-        shell(
-            "zcat {data_file} | "
-            "awk 'BEGIN {{srand(3)}} rand() < {FRACTION_OF_DATA_TO_SPM_ENCODE}' | "
-            "spm_encode --model={model_file} --output_format=id | "
-            "python scripts/slice_sentencepiece_ids.py"
-            " --spm-model {model_file}"
-            " --min-chunk-length {MIN_SPM_CHUNK_LEN}"
-            " --max-chunk-length {MAX_SPM_CHUNK_LEN}"
-            " --max-length {MAX_SPM_ENCODE_IDS}"
-            " --file-prefix {output_prefix}"
-        )
-
-
-# Split the encoded SentencePiece id's into training, validation, and testing sets.
-rule split_one_sentencepiece_id_file:
-    input:
-        "data/sentencepiece/{lang}.spm_txt_ids/length_{n}.txt"
-    output:
-        temp("data/sentencepiece/{lang}.spm_txt_ids_training/length_{n}.txt"),
-        temp("data/sentencepiece/{lang}.spm_txt_ids_validation/length_{n}.txt"),
-        temp("data/sentencepiece/{lang}.spm_txt_ids_testing/length_{n}.txt")
-    run:
-        training_file, validation_file, testing_file = output
-        frac_valid = FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION
-        frac_test = FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING
-        # touch the outputs so that they are created even if empty
-        shell(
-            "cat {input} | "
-            "python scripts/split_sentencepiece_id_file.py"
-            "  --output-file1 {validation_file}"
-            "  --fraction1 {frac_valid}"
-            "  --output-file2 {testing_file}"
-            "  --fraction2 {frac_test}"
-            "  --output-file3 {training_file} ; "
-            "touch {training_file} ; "
-            "touch {validation_file} ; "
-            "touch {testing_file}"
-        )
-
-
-# Convert the outputs of encode_sentencepiece_ids into .npy files.
-rule numberize_one_sentencepiece_id_file:
-    input:
-        "data/sentencepiece/{lang}.spm_txt_ids_{task}/length_{n}.txt"
-    output:
-        "data/sentencepiece/{lang}.spm_ids_{task}/length_{n}.npy"
-    shell:
-        "scripts/sentencepiece_id_converter.py {input} {output}"
 
 
 rule apply_bpe:
