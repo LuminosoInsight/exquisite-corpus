@@ -35,7 +35,7 @@ def tokenize_file(
             print(' '.join(tokens), file=outfile)
 
 
-def tokenize_by_language(in_file, out_dir, zipped=False):
+def tokenize_by_language(in_file, out_dir, zipped=False, languages=CLD2_LANGUAGES):
     """
     Take in language-tagged text, and use wordfreq to tokenize it.
     """
@@ -44,21 +44,22 @@ def tokenize_by_language(in_file, out_dir, zipped=False):
             language: gzip.open(
                 '%s/%s.txt.gz' % (out_dir, language), 'wt', encoding='utf-8'
             )
-            for language in CLD2_LANGUAGES
+            for language in languages
         }
     else:
         out_files = {
             language: open('%s/%s.txt' % (out_dir, language), 'w', encoding='utf-8')
-            for language in CLD2_LANGUAGES
+            for language in languages
         }
     try:
         for line in in_file:
             lang, text = line.rstrip().split('\t', 1)
-            tokenized = tokenize(
-                text, lang, include_punctuation=True, external_wordlist=True
-            )
-            out_file = out_files[lang]
-            print(' '.join(tokenized), file=out_file)
+            if lang in languages:
+                tokenized = tokenize(
+                    text, lang, include_punctuation=True, external_wordlist=True
+                )
+                out_file = out_files[lang]
+                print(' '.join(tokenized), file=out_file)
     finally:
         for out_file in out_files.values():
             out_file.close()

@@ -6,10 +6,6 @@ from collections import defaultdict
 
 DATA = 'data'
 
-TESTMODE = bool(os.environ.get("XC_BUILD_TEST"))
-if TESTMODE:
-    DATA = 'tests/data'
-
 SOURCE_LANGUAGES = {
     # OPUS's data files of OpenSubtitles 2018
     #
@@ -316,6 +312,13 @@ MAX_SPM_CHUNK_LEN = 70
 # size of the output of the encoding process.
 FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION = 0.1
 FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING = 0.1
+
+TESTMODE = bool(os.environ.get("XC_BUILD_TEST"))
+if TESTMODE:
+    DATA = 'tests/data'
+    REDDIT_SHARDS = [
+        '2007-10', '2009-09', '2011-01', '2013-12', '2015-08', '2017-02',
+    ]
 
 
 def map_opus_language(dataset, lang):
@@ -1031,8 +1034,11 @@ rule tokenize_reddit:
     output:
         expand(DATA + "/tokenized/reddit/{{date}}/{lang}.txt.gz",
                 lang=SOURCE_LANGUAGES['reddit/merged'])
+    params:
+        languages = ','.join(SOURCE_LANGUAGES['reddit/merged'])
     shell:
-        "zcat {input} | xc tokenize-by-language -z - {DATA}/tokenized/reddit/{wildcards.date}"
+        "zcat {input} | xc tokenize-by-language -z -l {params.languages} - " \
+        "{DATA}/tokenized/reddit/{wildcards.date}"
 
 
 rule extract_twitter:
@@ -1053,8 +1059,11 @@ rule tokenize_twitter:
         DATA + "/extracted/twitter/twitter-2018.txt.gz"
     output:
         expand(DATA + "/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
+    params:
+        languages = ','.join(SOURCE_LANGUAGES['twitter'])
     shell:
-        "zcat {input} | xc tokenize-by-language - {DATA}/tokenized/twitter"
+        "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
+        "{DATA}/tokenized/twitter"
 
 rule tokenize_voa:
     input:
