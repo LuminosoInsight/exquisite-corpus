@@ -1,0 +1,1001 @@
+﻿Word	Length	Pinyin	Pinyin.Input	WCount	W.million	log10W	W-CD	W-CD%	log10CD	Dominant.PoS	Dominant.PoS.Freq	All.PoS	All.PoS.Freq	Eng.Tran.
+肉弹	2	rou4 dan4/tan2	roudan	4	0.12	0.6021	4	0.06	0.6021	n	4	.n.	.4.	#
+罗伯特·惠勒	6	luo1/luo2/luo5 bai3/bo2 te4 #hui4 le4/lei1	luobote*huile	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+蒲生	2	pu2 sheng1	pusheng	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+冰火城	3	bing1 huo3 cheng2	binghuocheng	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+杰克·尼克尔森	7	jie2 ke4 #ni2 ke4 er3 sen1	jieke*nikeersen	3	0.09	0.4771	2	0.03	0.301	nr	3	.nr.	.3.	#
+加号	2	jia1 hao4	jiahao	19	0.57	1.2788	10	0.16	1	n	19	.n.	.19.	plus sign +
+佛家	2	fo2 jia1	fojia	1	0.03	0	1	0.02	0	nz	1	.nz.	.1.	a Buddhist
+水晶	2	shui3 jing1	shuijing	307	9.15	2.4871	151	2.42	2.179	n	307	.n.	.307.	crystal
+克利夫·柯蒂斯	7	ke4 li4 fu1/fu2 #ke1 di4 si1	kelifu*kedisi	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+阿克伦	3	A1 ke4 lun2	akelun	4	0.12	0.6021	2	0.03	0.301	nr	4	.nr.	.4.	"Acheron river in Epirus, northwest Greece"
+孙	1	sun1	sun	145	4.32	2.1614	83	1.33	1.9191	nr	125	.nr.g.n.	.125.14.6.	grandson/descendant/surname Sun
+远在	2	yuan3 zai4	yuanzai	38	1.13	1.5798	37	0.59	1.5682	v	38	.v.	.38.	#
+华威	2	hua1/hua2/hua4 wei1	huawei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+音叉	2	yin1 cha1	yincha	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	tuning fork
+闵容培	3	min3 rong2 pei2	*rongpei	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+风云录	3	feng1 yun2 lu4	fengyunlu	2	0.06	0.301	1	0.02	0	n	2	.n.	.2.	#
+奥林来	3	ao4 lin2 lai2	aolinlai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+七十六万	4	qi1 shi2 liu4/lu4 mo4/wan4	qishiliuwan	1	0.03	0	1	0.02	0	m	1	.m.	.1.	#
+舅舅	2	jiu4 jiu5	jiujiu	248	7.39	2.3945	74	1.19	1.8692	n	248	.n.	.248.	(informal) mother's brother; maternal uncle
+罗伯特德尼罗	6	luo1/luo2/luo5 bai3/bo2 te4 de2 ni2 luo1/luo2/luo5	luobotedeniluo	12	0.36	1.0792	3	0.05	0.4771	nr	12	.nr.	.12.	#
+珊	1	shan1	shan	122	3.64	2.0864	35	0.56	1.5441	g	122	.g.	.122.	coral
+鸬鹚	2	lu2 ci2	luci	8	0.24	0.9031	5	0.08	0.699	n	8	.n.	.8.	cormorant (Phalacrocorax carbo)
+放学	2	fang4 xue2	fangxue	430	12.82	2.6335	310	4.97	2.4914	v	430	.v.	.430.	classes are over
+日益	2	ri4 yi4	riyi	67	2	1.8261	63	1.01	1.7993	d	67	.d.	.67.	day by day/more and more/increasingly/more and more with each passing day
+布鲁诺	3	bu4 lu3 nuo4	bulunuo	132	3.93	2.1206	21	0.34	1.3222	nr	132	.nr.	.132.	#
+油纸	2	you2 zhi3	youzhi	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+西莲山	3	xi1 lian2 shan1	xilianshan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+开门见山	4	kai1 men2 jian4 shan1	kaimenjianshan	83	2.47	1.9191	81	1.3	1.9085	v	83	.v.	.83.	to get right to the point/to open the door and see the mountain
+顺口	2	shun4 kou3	shunkou	20	0.6	1.301	19	0.3	1.2788	a	17	.a.ad.	.17.3.	to read smoothly (of text)/to blurt out (without thinking)/to suit one's taste (of food)
+路易斯波尼尔	6	lu4 yi4 si1 bo1 ni2 er3	luyisibonier	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+艾普碧	3	ai4/yi4 pu3 bi4	aipubi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+纳什干	3	na4 shen2/shi2 gan1/gan4	nashigan	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+军训	2	jun1 xun4	junxun	8	0.24	0.9031	6	0.1	0.7782	vn	4	.vn.v.	.4.4.	"military practice, esp. for reservists or new recruits/military training as a (sometimes compulsory) subject in schools and colleges/drill"
+布莱思·拉金	6	bu4 lai2 sai1/si1 #la1/la2/la3/la4 jin1	bulaisi*lajin	9	0.27	0.9542	3	0.05	0.4771	nr	9	.nr.	.9.	#
+汤尼	2	shang1/tang1 ni2	tangni	175	5.22	2.243	15	0.24	1.1761	nr	175	.nr.	.175.	#
+斯文斯加	4	si1 wen2 si1 jia1	siwensijia	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+蒙面	2	meng2 mian4	mengmian	67	2	1.8261	38	0.61	1.5798	vn	67	.vn.	.67.	masked/covered face
+网民	2	wang3 min2	wangmin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	web users
+阿森尼奥	4	a1/a5/e1 sen1 ni2 ao4	asenniao	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+蜂拥而至	4	feng1 yong1 er2 zhi4	fengyongerzhi	31	0.92	1.4914	30	0.48	1.4771	v	31	.v.	.31.	#
+顽固不化	4	wan2 gu4 bu2/bu4 hua1/hua4	wangubuhua	23	0.69	1.3617	22	0.35	1.3424	v	23	.v.	.23.	#
+构	1	gou4	gou	37	1.1	1.5682	32	0.51	1.5051	g	36	.g.v.	.36.1.	Broussonetia papyrifera/to construct/to form/to make up/to compose
+公认	2	gong1 ren4	gongren	77	2.3	1.8865	73	1.17	1.8633	v	77	.v.	.77.	publicly known (to be)/accepted (as)
+骨折	2	gu3 zhe2	guzhe	449	13.38	2.6522	260	4.16	2.415	v	390	.v.vn.	.390.59.	broken bones/fracture
+强酸	2	jiang4/qiang2/qiang3 suan1	qiangsuan	7	0.21	0.8451	5	0.08	0.699	n	7	.n.	.7.	#
+维可劳尼	4	wei2 ke3/ke4 lao2 ni2	weikelaoni	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+日货	2	Ri4 huo4	rihuo	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	Japanese goods
+星期四	3	xing1 qi1 si4	xingqisi	274	8.17	2.4378	205	3.28	2.3118	t	274	.t.	.274.	Thursday
+汤博	2	shang1/tang1 bo2	tangbo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+看	1	kan1/kan4	kan	102546	3056.83	5.0109	6235	99.87	3.7948	v	102543	.v.u.	.102543.3.	to look after/to take care of/to watch/to guard; to see/to look at/to read/to watch/to consider/to regard as/to view as/to treat as/to judge/(after repeated verb) to give it a try/depending on (how you're judging)/to visit/to call on/to treat (an illness)/to look after/Watch out! (for a danger)
+皮格马利	4	pi2 ge1/ge2 ma3 li4	pigemali	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+高攀	2	gao1 pan1	gaopan	14	0.42	1.1461	13	0.21	1.1139	v	14	.v.	.14.	social climbing/to claim connections with people in higher social class
+昆尔根	3	kun1 er3 gen1	kunergen	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+块状	2	kuai4 zhuang4	kuaizhuang	9	0.27	0.9542	3	0.05	0.4771	n	9	.n.	.9.	lump
+洛海普诺	4	luo4 hai3 pu3 nuo4	luohaipunuo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+大功告成	4	da4 gong1 gao4 cheng2	dagonggaocheng	41	1.22	1.6128	41	0.66	1.6128	v	41	.v.	.41.	successfully accomplished (project or goal)/to be highly successful
+条件句	3	tiao2 jian4 ju4	tiaojianju	2	0.06	0.301	1	0.02	0	n	2	.n.	.2.	conditional clause
+达西	2	da2 xi1	daxi	128	3.82	2.1072	9	0.14	0.9542	nr	128	.nr.	.128.	#
+灯心草	3	deng1 xin1 cao3	dengxincao	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+积	1	ji1	ji	162	4.83	2.2095	107	1.71	2.0294	v	162	.v.	.162.	to amass/to accumulate/to store/measured quantity (such as area of volume)/product (the result of multiplication)/to integrate (math.)/to solve (or integrate) an ordinary differential equation (math.)/old/long-standing
+杜普理	3	du4 pu3 li3	dupuli	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+曼尼·帕瑞	5	man4 ni2 #pa4 rui4	manni*parui	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+溪水	2	xi1 shui3	xishui	14	0.42	1.1461	9	0.14	0.9542	n	14	.n.	.14.	#
+普罗普斯	4	pu3 luo1/luo2/luo5 pu3 si1	puluopusi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+蛰居	2	zhe2 ju1	zheju	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	to live in seclusion
+人格	2	ren2 ge2	renge	362	10.79	2.5587	234	3.75	2.3692	n	362	.n.	.362.	personality/integrity/dignity
+里克特	3	Li3 ke4 te4	likete	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	"Richter (name)/Charles Francis Richter (1900-1985), US physicist and seismologist, after whom the Richter scale is named"
+茧子	2	jian3 zi5	jianzi	11	0.33	1.0414	11	0.18	1.0414	n	11	.n.	.11.	callus (patch or hardened skin)/corns (on feet)/also 趼子
+谅必	2	liang4 bi4	liangbi	1	0.03	0	1	0.02	0	d	1	.d.	.1.	#
+自缢	2	zi4 yi4	ziyi	1	0.03	0	1	0.02	0	v	1	.v.	.1.	to hang oneself
+主任医师	4	zhu3 ren2/ren4 yi1 shi1	zhurenyishi	4	0.12	0.6021	3	0.05	0.4771	l	2	.l.n.	.2.2.	#
+阿提拉王	4	a1/a5/e1 di1/ti2 la1/la2/la3/la4 wang2/wang4	atilawang	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+博尔德	3	bo2 er3 de2	boerde	2	0.06	0.301	2	0.03	0.301	ns	2	.ns.	.2.	"Baldr or Baldur, god of light in Norse mythology"
+玛丽来	3	ma3 li2/li4 lai2	malilai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+付之东流	4	fu4 zhi1 dong1 liu2	fuzhidongliu	11	0.33	1.0414	11	0.18	1.0414	v	11	.v.	.11.	to commit to the waters (idiom); to lose sth irrevocably
+脑膜	2	nao3 mo2	naomo	18	0.54	1.2553	13	0.21	1.1139	n	18	.n.	.18.	meninx/meninges/membranes lining the brain
+本韦	2	ben3 wei2	benwei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+联邦	2	lian2 bang1	lianbang	2261	67.4	3.3543	894	14.32	2.9513	n	2261	.n.	.2261.	#
+罗费欧蒙特洛	6	luo1/luo2/luo5 fei4 ou1 meng1/meng2/meng3 te4 luo4	luofeioumengteluo	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+电梯	2	dian4 ti1	dianti	1025	30.55	3.0107	526	8.43	2.721	n	1025	.n.	.1025.	elevator
+梅瓦特	3	mei2 wa3/wa4 te4	meiwate	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+照静马	3	zhao4 jing4 ma3	zhaojingma	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+迪米奇	3	di2 mi3 ji1/qi2	dimiqi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+学无止境	4	xue2 wu2 zhi3 jing4	xuewuzhijing	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	no end to learning (idiom); There's always something new to study./You live and learn.
+枝叶	2	zhi1 ye4	zhiye	13	0.39	1.1139	8	0.13	0.9031	n	13	.n.	.13.	branch and leaf
+非议	2	fei1 yi4	feiyi	17	0.51	1.2304	14	0.22	1.1461	vn	15	.vn.v.	.15.2.	criticize
+但埃丝特	4	dan4 ai1 si1 te4	danaisite	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+旅游者	3	lu:3 you2 zhe3	lvyouzhe	13	0.39	1.1139	12	0.19	1.0792	n	13	.n.	.13.	tourist/traveler/visitor
+敏基	2	min3 ji1	minji	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+若虫	2	re3/ruo4 chong2	ruochong	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+攻心	2	gong1 xin1	gongxin	7	0.21	0.8451	7	0.11	0.8451	v	7	.v.	.7.	#
+安德伍德	4	an1 de2 wu3 de2	andewude	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+源	1	yuan2	yuan	330	9.84	2.5185	207	3.32	2.316	g	330	.g.	.330.	root/source/origin
+执委会	3	zhi2 wei3 hui4	zhiweihui	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	executive committee
+吉田	2	ji2 tian2	jitian	7	0.21	0.8451	7	0.11	0.8451	nr	7	.nr.	.7.	#
+墨绿色	3	mo4 lu4/lu:4 se4/shai3	molvse	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	#
+冯·席腊赫	5	feng2/ping2 #xi2 la4/xi1 he4	feng*xilahe	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+加剧	2	jia1 ju4	jiaju	30	0.89	1.4771	29	0.46	1.4624	v	29	.v.vn.	.29.1.	to intensify/to sharpen/to accelerate/to aggravate/to exacerbate/to embitter
+强克	2	jiang4/qiang2/qiang3 ke4	qiangke	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+白露	2	Bai2 lu4	bailu	6	0.18	0.7782	2	0.03	0.301	t	6	.t.	.6.	"Bailu or White Dew, 15th of the 24 solar terms 二十四节气 8th-22nd September"
+论	1	lun2/lun4	lun	359	10.7	2.5551	299	4.79	2.4757	v	313	.v.k.g.	.313.39.7.	the Analects (of Confucius); by the/per/discuss/theory/to talk (about)/to discuss
+标准语	3	biao1 zhun3 yu3	biaozhunyu	1	0.03	0	1	0.02	0	n	1	.n.	.1.	standard language
+重量	2	zhong4 liang4	zhongliang	261	7.78	2.4166	193	3.09	2.2856	n	261	.n.	.261.	weight
+惠俊	2	hui4 juan4/jun4	huijun	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+卡罗瑟的拉吉	6	ka3/qia3 luo1/luo2/luo5 se4 de5/di2/di4 la1/la2/la3/la4 ji2	kaluosedelaji	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+格莱谢姆	4	ge1/ge2 lai2 xie4 mu3	gelaixiemu	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+城垛	2	cheng2 duo3/duo4	chengduo	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+威廉·赫	4	wei1 lian2 #he4	weilian*he	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+卡力	2	ka3/qia3 li4	kali	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+大卫克林	4	da4/dai4 wei4 ke4 lin2	daweikelin	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+杰汉	2	jie2 han4	jiehan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+辛迪加	3	xin1 di2 jia1	xindijia	10	0.3	1	6	0.1	0.7782	n	10	.n.	.10.	syndicate (loan)
+我行我素	4	wo3 xing2 wo3 su4	woxingwosu	34	1.01	1.5315	33	0.53	1.5185	v	34	.v.	.34.	to continue in one's own way (idiom); to ignore advice/to persist whatever others say
+权且	2	quan2 ju1/qie3	quanqie	1	0.03	0	1	0.02	0	d	1	.d.	.1.	#
+行李箱	3	xing2 li5 xiang1	xinglixiang	112	3.34	2.0492	79	1.27	1.8976	n	112	.n.	.112.	suitcase
+溢美之词	4	yi4 mei3 zhi1 ci2	yimeizhici	14	0.42	1.1461	13	0.21	1.1139	l	14	.l.	.14.	#
+该区	2	gai1 ou1/qu1	gaiqu	8	0.24	0.9031	8	0.13	0.9031	r	8	.r.	.8.	#
+宋昆	2	song4 kun1	songkun	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+油污	2	you2 wu1	youwu	13	0.39	1.1139	11	0.18	1.0414	n	13	.n.	.13.	greasy and dirty
+生日卡	3	sheng1 ri4 ka3/qia3	shengrika	26	0.78	1.415	24	0.38	1.3802	n	26	.n.	.26.	#
+瑾子	2	jin3 zi3	jinzi	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+拉车	2	la1/la2/la3/la4 che1/ju1	lache	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+伊斯班塞拉	5	yi1 si1 ban1 sai1/sai4/se4 la1/la2/la3/la4	yisibansaila	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+李维乌斯·杜路苏斯·克劳迪乌斯	15	li3 wei2 wu1/wu4 si1 #du4 lu4 su1 si1 #ke4 lao2 di2 wu1/wu4 si1	liweiwusi*dulususi*kelaodiwusi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+涂布	2	tu2 bu4	tubu	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+明目张胆	4	ming2 mu4 zhang1 dan3	mingmuzhangdan	22	0.66	1.3424	22	0.35	1.3424	l	22	.l.	.22.	frank and unscrupulous
+玛尔戈	3	ma3 er3 ge1	maerge	6	0.18	0.7782	4	0.06	0.6021	nr	6	.nr.	.6.	#
+思达克	3	sai1/si1 da2 ke4	sidake	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+内尔逊·曼德拉	7	nei4 er3 xun4 #man4 de2 la1/la2/la3/la4	neierxun*mandela	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+德克勒	3	de2 ke4 le4/lei1	dekele	9	0.27	0.9542	1	0.02	0	nr	9	.nr.	.9.	#
+废弃	2	fei4 qi4	feiqi	218	6.5	2.3385	179	2.87	2.2529	v	191	.v.vn.	.191.27.	to discard/to abandon (old ways)/to invalidate
+总结	2	zong3 jie2	zongjie	200	5.96	2.301	181	2.9	2.2577	v	172	.v.vn.	.172.28.	to sum up/to conclude/summary/resume
+麦加	2	Mai4 jia1	maijia	22	0.66	1.3424	15	0.24	1.1761	ns	22	.ns.	.22.	Mecca (the holiest city of Islam)
+塞车	2	sai1 che1	saiche	57	1.7	1.7559	48	0.77	1.6812	v	57	.v.	.57.	traffic jam
+那里那堆	4	na1/na3/na4/nei4 li3 na1/na3/na4/nei4 dui1/zui1	nalinadui	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+灿熙	2	can4 xi1	canxi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+阿尔·塔哈林	6	a1/a5/e1 er3 #da5/ta3 ha1/ha3/ha4 lin2	aer*tahalin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+胡闹	2	hu2 nao4	hunao	220	6.56	2.3424	190	3.04	2.2788	v	220	.v.	.220.	to act willfully and make a scene
+大静脉	3	da4/dai4 jing4 mai4/mo4	dajingmai	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+贝特妮	3	bei4 te4 ni1	beiteni	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+慰问金	3	wei4 wen4 jin1	weiwenjin	3	0.09	0.4771	2	0.03	0.301	n	3	.n.	.3.	#
+认得	2	ren4 de5	rende	355	10.58	2.5502	267	4.28	2.4265	v	355	.v.	.355.	to recognize/to remember sth (or sb) on seeing it/to know
+光柱	2	guang1 zhu4	guangzhu	6	0.18	0.7782	6	0.1	0.7782	n	6	.n.	.6.	#
+在天之灵	4	zai4 tian1 zhi1 ling2	zaitianzhiling	12	0.36	1.0792	11	0.18	1.0414	l	12	.l.	.12.	#
+皮开肉绽	4	pi2 kai1 rou4 zhan4	pikairouzhan	2	0.06	0.301	2	0.03	0.301	l	2	.l.	.2.	#
+迪米特	3	di2 mi3 te4	dimite	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+帕罗特	3	pa4 luo1/luo2/luo5 te4	paluote	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+钱	1	qian2	qian	29221	871.06	4.4657	4602	73.71	3.6629	n	29217	.n.nr.	.29217.4.	coin/money/surname Qian
+蹙眉	2	cu4 mei2	cumei	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	#
+马年生	3	ma3 nian2 sheng1	maniansheng	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+帅帅	2	shuai4 shuai4	shuaishuai	10	0.3	1	10	0.16	1	nr	10	.nr.	.10.	#
+停产	2	ting2 chan3	tingchan	6	0.18	0.7782	5	0.08	0.699	v	6	.v.	.6.	stop production
+吉永	2	ji2 yong3	jiyong	3	0.09	0.4771	2	0.03	0.301	nr	3	.nr.	.3.	#
+喧	1	xuan1	xuan	8	0.24	0.9031	6	0.1	0.7782	g	8	.g.	.8.	clamor/noise; clamor/noise/deceitful
+亚伯·惠勒	5	ya4 bai3/bo2 #hui4 le4/lei1	yabo*huile	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+欢度	2	huan1 du4/duo2	huandu	13	0.39	1.1139	13	0.21	1.1139	v	13	.v.	.13.	#
+回合	2	hui2 he2	huihe	383	11.42	2.5832	144	2.31	2.1584	n	362	.n.q.	.362.21.	"round (of negotiations)/bout (of sporting competition, boxing match, confrontation etc)/rally (in volley-ball, tennis etc)"
+爱丽卡	3	ai4 li2/li4 ka3/qia3	ailika	7	0.21	0.8451	1	0.02	0	nr	7	.nr.	.7.	#
+猛龙	2	meng3 long2	menglong	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+韩魏相	3	han2 wei4 xiang1/xiang4	hanweixiang	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+帕特·凯利	5	pa4 te4 #kai3 li4	pate*kaili	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+塞斯尔	3	sai1/sai4/se4 si1 er3	saisier	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+雍贺	2	yong1 he4	yonghe	18	0.54	1.2553	1	0.02	0	nr	18	.nr.	.18.	#
+爱犬	2	ai4 quan3	aiquan	11	0.33	1.0414	10	0.16	1	n	11	.n.	.11.	#
+欧仕	2	ou1 shi4	oushi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+戈·里卡多	5	ge1 #li3 ka3/qia3 duo1	ge*likaduo	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+克姆	2	ke4 mu3	kemu	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+一力康	3	yi1 li4 kang1	yilikang	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+山姆	2	shan1 mu3	shanmu	707	21.08	2.8494	97	1.55	1.9868	nr	707	.nr.	.707.	#
+那尼亚	3	na1/na3/na4/nei4 ni2 ya4	naniya	12	0.36	1.0792	1	0.02	0	nr	12	.nr.	.12.	#
+倌	1	guan1	guan	1	0.03	0	1	0.02	0	n	1	.n.	.1.	keeper of domestic animals/herdsman/(old) hired hand in certain trade
+亚马逊里	4	ya4 ma3 xun4 li3	yamaxunli	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+钩骨	2	gou1 gu1/gu2/gu3	gougu	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+卡梅隆·迪亚茨	7	ka3/qia3 mei2 long1/long2 #di2 ya4 ci2	kameilong*diyaci	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+绝非	2	jue2 fei1	juefei	75	2.24	1.8751	69	1.11	1.8388	v	75	.v.	.75.	#
+马鬃	2	ma3 zong1	mazong	6	0.18	0.7782	4	0.06	0.6021	n	6	.n.	.6.	#
+谢莉来	3	xie4 li4 lai2	xielilai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+盲干	2	mang2 gan1/gan4	manggan	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+乘号	2	cheng2 hao4	chenghao	1	0.03	0	1	0.02	0	n	1	.n.	.1.	multiplication sign/times x
+灰烬	2	hui1 jin4	huijin	100	2.98	2	83	1.33	1.9191	n	100	.n.	.100.	ashes
+军官	2	jun1 guan1	junguan	395	11.77	2.5966	213	3.41	2.3284	n	395	.n.	.395.	(military) officer
+塔伦蒂诺	4	da5/ta3 lun2 di4 nuo4	talundinuo	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+捂	1	wu2/wu3	wu	52	1.55	1.716	48	0.77	1.6812	v	52	.v.	.52.	to cover/to seal/to muffle; to resist
+序	1	xu4	xu	41	1.22	1.6128	31	0.5	1.4914	n	40	.n.g.	.40.1.	order/sequence/preface
+打主意	3	da2/da3 zhu3 yi4	dazhuyi	9	0.27	0.9542	9	0.14	0.9542	v	9	.v.	.9.	#
+来历不明	4	lai2 li4 bu4 ming2	lailibuming	11	0.33	1.0414	10	0.16	1	v	11	.v.	.11.	of unknown origin
+一摞摞	3	yi1 luo4 luo4	yiluoluo	1	0.03	0	1	0.02	0	m	1	.m.	.1.	#
+冰窟	2	bing1 ku1	bingku	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	#
+越升	2	yue4 sheng1	yuesheng	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+我校	2	wo3 jiao4/xiao4	woxiao	9	0.27	0.9542	8	0.13	0.9031	n	7	.n.r.	.7.2.	#
+亚荣	2	ya4 rong2	yarong	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+跑马	2	pao3 ma3	paoma	15	0.45	1.1761	7	0.11	0.8451	v	15	.v.	.15.	horse race
+近年	2	jin4 nian2	jinnian	2	0.06	0.301	2	0.03	0.301	t	2	.t.	.2.	recent year(s)
+金斯	2	jin1 si1	jinsi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+阿列克斯	4	a1/a5/e1 lie4 ke4 si1	aliekesi	21	0.63	1.3222	4	0.06	0.6021	nr	21	.nr.	.21.	#
+凯蒂·马丁	5	kai3 di4 #ma3 ding1/zheng1	kaidi*mading	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+卢武铉	3	Lu2 Wu3 xuan4	luwu*	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	"Roh Moo-hyun, president of South Korea from 2003"
+自营	2	zi4 ying2	ziying	1	0.03	0	1	0.02	0	vn	1	.vn.	.1.	#
+饭桌	2	fan4 zhuo1	fanzhuo	38	1.13	1.5798	34	0.54	1.5315	n	38	.n.	.38.	dining table
+曼尼托巴	4	man4 ni2 tuo1 ba1	mannituoba	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+商法全	3	shang1 fa3 quan2	shangfaquan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+爱欧文	3	ai4 ou1 wen2	aiouwen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+跪拜	2	gui4 bai4	guibai	8	0.24	0.9031	6	0.1	0.7782	v	8	.v.	.8.	to kowtow/to kneel and worship
+许可证	3	xu3 ke3 zheng4	xukezheng	184	5.48	2.2648	137	2.19	2.1367	n	184	.n.	.184.	license/authorization/permit
+特·戈海姆	5	te4 #ge1 hai3 mu3	te*gehaimu	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+平平淡淡	4	ping2 ping2 dan4 dan4	pingpingdandan	11	0.33	1.0414	9	0.14	0.9542	z	11	.z.	.11.	#
+沃特加	3	wo4 te4 jia1	wotejia	4	0.12	0.6021	2	0.03	0.301	nr	4	.nr.	.4.	#
+盛况	2	sheng4 kuang4	shengkuang	7	0.21	0.8451	7	0.11	0.8451	n	7	.n.	.7.	grand occasion
+假如	2	jia3 ru2	jiaru	1038	30.94	3.0162	498	7.98	2.6972	c	1034	.c.v.	.1034.4.	if
+拉磨	2	la1/la2/la3/la4 mo2/mo4	lamo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+克瑞夫	3	ke4 rui4 fu1/fu2	keruifu	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+甲肝	2	jia3 gan1	jiagan	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	hepatitis A
+千河俊	3	qian1 he2 juan4/jun4	qianhejun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+乔治娅·尼科森	7	qiao2 zhi4 ya4 #ni2 ke1 sen1	qiaozhi**nikesen	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+瑞纳德	3	rui4 na4 de2	ruinade	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+毫不相干	4	hao2 bu2/bu4 xiang1/xiang4 gan1/gan4	haobuxianggan	19	0.57	1.2788	18	0.29	1.2553	v	19	.v.	.19.	#
+马特·约翰逊	6	ma3 te4 #yao1/yue1 han4 xun4	mate*yuehanxun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+坡	1	po1	po	159	4.74	2.2014	103	1.65	2.0128	n	159	.n.	.159.	slope
+巴格拉姆	4	ba1 ge1/ge2 la1/la2/la3/la4 mu3	bagelamu	3	0.09	0.4771	3	0.05	0.4771	nr	3	.nr.	.3.	#
+小郎	2	xiao3 lang2/lang4	xiaolang	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+国家机器	4	guo2 jia1/jia5/jie5 ji1 qi4	guojiajiqi	7	0.21	0.8451	6	0.1	0.7782	l	7	.l.	.7.	#
+俄城	2	e2 cheng2	echeng	10	0.3	1	6	0.1	0.7782	n	10	.n.	.10.	#
+书记员	3	shu1 ji4 yuan2/yun2/yun4	shujiyuan	36	1.07	1.5563	30	0.48	1.4771	n	36	.n.	.36.	#
+古剑	2	gu3 jian4	gujian	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+冲毁	2	chong1/chong4 hui3	chonghui	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	#
+费周章	3	fei4 zhou1 zhang1	feizhouzhang	19	0.57	1.2788	19	0.3	1.2788	nr	19	.nr.	.19.	#
+除	1	chu2	chu	581	17.32	2.7642	441	7.06	2.6444	p	562	.p.v.	.562.19.	to get rid of/to remove/to exclude/to eliminate/to wipe out/to divide/except/not including
+父权	2	fu3/fu4 quan2	fuquan	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	#
+回见	2	hui2 jian4	huijian	430	12.82	2.6335	339	5.43	2.5302	v	430	.v.	.430.	See you later!
+上衣	2	shang4 yi1	shangyi	373	11.12	2.5717	251	4.02	2.3997	n	373	.n.	.373.	jacket/upper outer garment
+潘德	2	pan1 de2	pande	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+中介费	3	zhong1/zhong4 jie4 fei4	zhongjiefei	7	0.21	0.8451	7	0.11	0.8451	n	7	.n.	.7.	#
+划破	2	hua4 po4	huapo	50	1.49	1.699	43	0.69	1.6335	v	50	.v.	.50.	"to scratch (damage by cutting)/to slash/to streak across (lightning, meteor etc)/to pierce (scream, searchlight etc)"
+圭吾	2	gui1 wu2	guiwu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+吟	1	yin2	yin	99	2.95	1.9956	37	0.59	1.5682	v	98	.v.g.	.98.1.	moan/to hum
+蹶	1	jue2/jue3	jue	4	0.12	0.6021	3	0.05	0.4771	n	4	.n.	.4.	to stumble/to trample/to kick (of horse)
+安德雷·海勒	6	an1 de2 lei2 #hai3 le4/lei1	andelei*haile	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+克丽斯	3	ke4 li2/li4 si1	kelisi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+小凯文	3	xiao3 kai3 wen2	xiaokaiwen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+八分之一又十四分之三	10	ba1/ba2 fen1/fen4 zhi1 yi1 you4 shi2 si4 fen1/fen4 zhi1 san1	bafenzhiyiyoushisifenzhisan	1	0.03	0	1	0.02	0	m	1	.m.	.1.	#
+索拉奇	3	suo3 la1/la2/la3/la4 ji1/qi2	suolaqi	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+黑冰	2	hei1 bing1	heibing	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+穿行	2	chuan1 xing2	chuanxing	42	1.25	1.6232	34	0.54	1.5315	v	42	.v.	.42.	to go through/to bore through/to push one's way through
+芝麻	2	zhi1 ma5	zhima	93	2.77	1.9685	84	1.35	1.9243	n	93	.n.	.93.	sesame (seed)
+苏珊·史密斯	6	su1 shan1 #shi3 mi4 si1	sushan*shimisi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+罗马百夫	4	luo1/luo2/luo5 ma3 bai3/bo2 fu1/fu2	luomabaifu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+言述	2	yan2 shu4	yanshu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+拉希德·穆罕穆德	8	la1/la2/la3/la4 xi1 de2 #mu4 han3 mu4 de2	laxide*muhanmude	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+告诫	2	gao4 jie4	gaojie	76	2.27	1.8808	66	1.06	1.8195	v	73	.v.vn.	.73.3.	to warn/to admonish
+受聘	2	shou4 pin4	shoupin	9	0.27	0.9542	9	0.14	0.9542	v	9	.v.	.9.	hired (for employment)/invited (e.g. to lecture)/engaged (for a task)/(in olden times) betrothal gift from the groom's family
+菲格牛顿	4	fei1/fei3 ge1/ge2 niu2 du2/dun4	feigeniudun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+运输船	3	yun4 shu1 chuan2	yunshuchuan	7	0.21	0.8451	7	0.11	0.8451	n	7	.n.	.7.	transport ship
+奸贼	2	jian1 zei2	jianzei	1	0.03	0	1	0.02	0	n	1	.n.	.1.	a traitor/a treacherous bandit
+愚忠	2	yu2 zhong1	yuzhong	4	0.12	0.6021	4	0.06	0.6021	nr	4	.nr.	.4.	#
+转轮	2	zhuan4 lun2	zhuanlun	26	0.78	1.415	19	0.3	1.2788	n	26	.n.	.26.	reel/rotary grill/the Buddhist cycle of reincarnation
+这种	2	zhe4 zhong3	zhezhong	14615	435.66	4.1648	4907	78.6	3.6908	r	14615	.r.	.14615.	this/this kind of/this sort of/this type of
+格兰市	3	ge1/ge2 lan2 shi4	gelanshi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+敌对	2	di2 dui4	didui	112	3.34	2.0492	92	1.47	1.9638	a	110	.a.ad.	.110.2.	hostile/enemy (factions)/combative
+伦琴	2	lun2 qin2	lunqin	2	0.06	0.301	2	0.03	0.301	q	2	.q.	.2.	Wilhelm Conrad Roentgen or Roentgen (1845-1923)
+观赏	2	guan1 shang3	guanshang	117	3.49	2.0682	105	1.68	2.0212	v	111	.v.vn.	.111.6.	to see and enjoy/to admire the view
+方向感	3	fang1 xiang4 gan3	fangxianggan	37	1.1	1.5682	28	0.45	1.4472	n	37	.n.	.37.	#
+不顾一切	4	bu4 gu4 yi1 qie4	buguyiqie	117	3.49	2.0682	109	1.75	2.0374	l	117	.l.	.117.	reckless/regardless of everything
+战和	2	zhan4 he2/he4/hu2/huo2/huo4	zhanhe	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	#
+小长	2	xiao3 chang2/zhang3	xiaochang	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+西尔维亚	4	xi1 er3 wei2 ya4	xierweiya	9	0.27	0.9542	6	0.1	0.7782	nr	9	.nr.	.9.	#
+罗伯特·威尔逊	7	luo1/luo2/luo5 bai3/bo2 te4 #wei1 er3 xun4	luobote*weierxun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+萨姆·米拉克	6	sa4 mu3 #mi3 la1/la2/la3/la4 ke4	samu*milake	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+尼科莱·特斯拉	7	ni2 ke1 lai2 #te4 si1 la1/la2/la3/la4	nikelai*tesila	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+雄性	2	xiong2 xing4	xiongxing	70	2.09	1.8451	58	0.93	1.7634	b	70	.b.	.70.	male
+冲床	2	chong1/chong4 chuang2	chongchuang	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+马克·高德	5	ma3 ke4 #gao1 de2	make*gaode	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+过去	2	guo4 qu5	guoqu	13485	401.98	4.1299	4787	76.68	3.6801	v	7217	.v.t.	.7217.6268.	(in the) past/former/previous/to go over/to pass by
+科	1	ke1	ke	1269	37.83	3.1035	735	11.77	2.8663	n	1269	.n.	.1269.	branch of study/administrative section/division/field/branch/stage directions/family (taxonomy)/rules/laws/to mete out (punishment)/to levy (taxes etc)/to fine sb
+艾尔·韦伯	5	ai4/yi4 er3 #wei2 bai3/bo2	aier*weibo	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+正吉	2	zheng1/zheng4 ji2	zhengji	19	0.57	1.2788	1	0.02	0	nr	19	.nr.	.19.	#
+跳槽	2	tiao4 cao2	tiaocao	26	0.78	1.415	25	0.4	1.3979	v	26	.v.	.26.	change jobs
+克力	2	ke4 li4	keli	3	0.09	0.4771	3	0.05	0.4771	nr	3	.nr.	.3.	#
+不含糊	3	bu4 han2 hu5	buhanhu	6	0.18	0.7782	6	0.1	0.7782	a	6	.a.	.6.	unambiguous/unequivocal/explicit/prudent/cautious/not negligent/unafraid/unhesitating/really good/extraordinary
+嗟	1	jie1/jue1	jie	1	0.03	0	1	0.02	0	n	1	.n.	.1.	sigh; sigh
+海鱼	2	hai3 yu2	haiyu	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+椭圆	2	tuo3 yuan2	tuoyuan	28	0.83	1.4472	21	0.34	1.3222	n	28	.n.	.28.	oval/ellipse/elliptic
+荷美尔	3	he2/he4 mei3 er3	hemeier	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+杂耍	2	za2 shua3	zashua	140	4.17	2.1461	67	1.07	1.8261	n	134	.n.v.	.134.6.	a sideshow/vaudeville
+配饰	2	pei4 shi4	peishi	41	1.22	1.6128	22	0.35	1.3424	n	41	.n.	.41.	"ornament (jewelry, accoutrements etc)/decorations"
+萨莫	2	sa4 mo4	samo	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+金人	2	jin1 ren2	jinren	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+押车	2	ya1 che1/ju1	yache	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	#
+敲门砖	3	qiao1 men2 zhuan1	qiaomenzhuan	9	0.27	0.9542	9	0.14	0.9542	n	9	.n.	.9.	lit. a brick as a door knocker (idiom); fig. a temporary expedient/to use sb as a stepping stone to fortune
+罗伊斯	3	luo1/luo2/luo5 yi1 si1	luoyisi	8	0.24	0.9031	2	0.03	0.301	nr	8	.nr.	.8.	#
+斯努普·道格	6	si1 nao2/nu3 pu3 #dao4 ge1/ge2	sinupu*daoge	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+富莱	2	fu4 lai2	fulai	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+奥克伍德	4	ao4 ke4 wu3 de2	aokewude	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+磨洋工	3	mo2 yang2 gong1	moyanggong	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	to idle on the job
+承元	2	cheng2 yuan2	chengyuan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+计时表	3	ji4 shi2 biao3	jishibiao	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+桑尼威尔	4	sang1 ni2 wei1 er3	sangniweier	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+爱克莱	3	ai4 ke4 lai2	aikelai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+结晶	2	jie2 jing1	jiejing	79	2.35	1.8976	70	1.12	1.8451	n	79	.n.	.79.	a crystal/to crystallize
+乐平	2	le4/yue4 ping2	leping	6	0.18	0.7782	3	0.05	0.4771	ns	6	.ns.	.6.	#
+灶间	2	zao4 jian1/jian4	zaojian	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+苜	1	mu4	mu	1	0.03	0	1	0.02	0	n	1	.n.	.1.	clover
+有日子	3	you3/you4 ri4 zi3	yourizi	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+牧群	2	mu4 qun2	muqun	5	0.15	0.699	3	0.05	0.4771	n	5	.n.	.5.	#
+马科斯·佐林	6	ma3 ke1 si1 #zuo3 lin2	makesi*zuolin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+残酷	2	can2 ku4	canku	541	16.13	2.7332	461	7.38	2.6637	a	513	.a.ad.an.	.513.22.6.	cruel/cruelty
+让莱斯恩	4	rang4 lai2 si1 en1	ranglaisien	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+军车	2	jun1 che1	junche	4	0.12	0.6021	4	0.06	0.6021	n	4	.n.	.4.	military vehicle
+加索夫	3	jia1 suo3 fu1/fu2	jiasuofu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+辍	1	chuo4	chuo	7	0.21	0.8451	7	0.11	0.8451	g	7	.g.	.7.	stop/cease/suspend
+叠	1	die2	die	170	5.07	2.2304	142	2.27	2.1523	v	125	.v.q.	.125.45.	to fold/to fold over in layers/to furl/to layer/to pile up/to repeat/to duplicate
+可亲	2	ke3 qin1	keqin	20	0.6	1.301	19	0.3	1.2788	a	20	.a.	.20.	kindly/nice/amiable
+千头万绪	4	qian1 tou2 wan4 xu4	qiantouwanxu	6	0.18	0.7782	6	0.1	0.7782	l	6	.l.	.6.	plethora of things to tackle/multitude of loose ends/very complicated/chaotic
+队长	2	dui4 zhang3	duizhang	1731	51.6	3.2383	581	9.31	2.7642	n	1731	.n.	.1731.	captain/team leader
+悠	1	you1	you	160	4.77	2.2041	131	2.1	2.1173	v	125	.v.g.	.125.35.	at ease/long (in time)/sad
+普赖迪	3	pu3 lai4 di2	pulaidi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+埃塞克斯	4	ai1 sai1/sai4/se4 ke4 si1	aisaikesi	12	0.36	1.0792	6	0.1	0.7782	nr	12	.nr.	.12.	#
+胡克	2	Hu2 ke4	huke	9	0.27	0.9542	5	0.08	0.699	nr	9	.nr.	.9.	"Hook or Hooke (name)/Robert Hooke (1635-1703), brilliant English experimental scientist and inventor"
+下不来	3	xia4 bu2/bu4 lai2	xiabulai	13	0.39	1.1139	13	0.21	1.1139	v	13	.v.	.13.	#
+领空	2	ling3 kong1	lingkong	46	1.37	1.6628	32	0.51	1.5051	n	46	.n.	.46.	territorial air space
+古尔德	3	gu3 er3 de2	guerde	8	0.24	0.9031	1	0.02	0	nr	8	.nr.	.8.	#
+博士生	3	bo2 shi4 sheng1	boshisheng	4	0.12	0.6021	4	0.06	0.6021	n	4	.n.	.4.	#
+吉龙	2	ji2 long2	jilong	6	0.18	0.7782	1	0.02	0	nr	6	.nr.	.6.	#
+起哄	2	qi3 hong4	qihong	22	0.66	1.3424	17	0.27	1.2304	v	21	.v.vn.	.21.1.	to heckle/rowdy jeering/to create a disturbance
+水垢	2	shui3 gou4	shuigou	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+图示	2	tu2 shi4	tushi	8	0.24	0.9031	7	0.11	0.8451	v	8	.v.	.8.	#
+顺手牵羊	4	shun4 shou3 qian1 yang2	shunshouqianyang	32	0.95	1.5051	26	0.42	1.415	l	32	.l.	.32.	lit. to lead away a goat in passing (idiom); to steal sth under cover of an emergency/to take advantage of a crisis for personal gain
+钱拉	2	qian2 la1/la2/la3/la4	qianla	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+民国	2	Min2 guo2	minguo	25	0.75	1.3979	12	0.19	1.0792	n	25	.n.	.25.	"Republic of China (1912-1949)/used instead of reign name by the nationalist government, then by Taiwan/used in PRC as reign name of a former dynasty"
+索尔顿湖	4	suo3 er3 du2/dun4 hu2	suoerdunhu	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+珍妮佛凯莉	5	zhen1 ni1 fo2/fu2 kai3 li4	zhennifokaili	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+艾迪·曼尼克斯	7	ai4/yi4 di2 #man4 ni2 ke4 si1	aidi*mannikesi	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+旅顺	2	Lu:3 shun4	lvshun	1	0.03	0	1	0.02	0	ns	1	.ns.	.1.	"Lüshun/Lüshunkou district of Dalian city 大连市, Liaoning/called Port Arthur during Russian occupation and Russian-Japanese war of 1905"
+德加尔多	4	de2 jia1 er3 duo1	dejiaerduo	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+明申	2	ming2 shen1	mingshen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+截	1	jie2	jie	242	7.21	2.3838	203	3.25	2.3075	v	184	.v.q.	.184.58.	a section/to cut off (a length)
+隐身术	3	yin3 shen1 shu4/zhu2	yinshenshu	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+山大礼	3	shan1 da4/dai4 li3	shandali	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+李凡秀	3	li3 fan2 xiu4	lifanxiu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+迪加朵	3	di2 jia1 duo3	dijiaduo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+百伦	2	bai3/bo2 lun2	bailun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+舒克曼	3	shu1 ke4 man4	shukeman	9	0.27	0.9542	1	0.02	0	nr	9	.nr.	.9.	#
+邪路	2	xie2/ye2 lu4	xielu	9	0.27	0.9542	9	0.14	0.9542	n	9	.n.	.9.	#
+凄	1	qi1	qi	17	0.51	1.2304	6	0.1	0.7782	g	17	.g.	.17.	intense cold/frigid/dismal/grim/lamentable/mournful
+恶鬼	2	e4 gui3	egui	59	1.76	1.7709	27	0.43	1.4314	n	59	.n.	.59.	evil spirit/devil
+北流	2	Bei3 liu2	beiliu	1	0.03	0	1	0.02	0	ns	1	.ns.	.1.	(N) Beiliu (city in Guangxi)
+朗格福特	4	lang3 ge1/ge2 fu2 te4	langgefute	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+村委会	3	cun1 wei1/wei3 hui4/kuai4	cunweihui	4	0.12	0.6021	1	0.02	0	n	4	.n.	.4.	#
+透彻	2	tou4 che4	touche	37	1.1	1.5682	34	0.54	1.5315	a	34	.a.ad.	.34.3.	penetrating (analysis)/thorough-going/thorough (understanding of the situation)
+查理卓别林	5	cha2/zha1 li3 zhuo1 bie2/bie4 lin2	chalizhuobielin	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+佐拉·尼尔·赫斯顿	9	zuo3 la1/la2/la3/la4 #ni2 er3 #he4 si1 du2/dun4	zuola*nier*hesidun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+伊丽莎白·谢尔曼	8	yi1 li2/li4 sha1/suo1 bai2 #xie4 er3 man4	yilishabai*xieerman	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+明天	2	ming2 tian1	mingtian	10108	301.31	4.0047	3900	62.47	3.5911	t	10108	.t.	.10108.	tomorrow
+曼声咏	3	man4 sheng1 yong3	manshengyong	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+蜈蚣	2	wu2 gong1	wugong	16	0.48	1.2041	10	0.16	1	n	16	.n.	.16.	centipede
+爱德华兹	4	Ai4 de2 hua2 zi1	aidehuazi	5	0.15	0.699	5	0.08	0.699	nr	5	.nr.	.5.	Edwards (name)
+托尼阿尔梅达	6	tuo1 ni2 a1/a5/e1 er3 mei2 da2	tuoniaermeida	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+收容所	3	shou1 rong2 suo3	shourongsuo	124	3.7	2.0934	79	1.27	1.8976	n	124	.n.	.124.	#
+猿人	2	yuan2 ren2	yuanren	33	0.98	1.5185	21	0.34	1.3222	n	33	.n.	.33.	ape man
+加·加·宾克斯	7	jia1 #jia1 #bin1 ke4 si1	jia*jia*binkesi	3	0.09	0.4771	3	0.05	0.4771	nr	3	.nr.	.3.	#
+汽缸	2	qi4 gang1	qigang	15	0.45	1.1761	12	0.19	1.0792	n	15	.n.	.15.	cylinder (of steam engine or internal combustion engine)
+哈里明加	4	ha1/ha3/ha4 li3 ming2 jia1	halimingjia	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+不拘小节	4	bu2/bu4 ju1 xiao3 jie1/jie2	bujuxiaojie	5	0.15	0.699	5	0.08	0.699	v	5	.v.	.5.	#
+逻辑性	3	luo2 ji2 xing4	luojixing	10	0.3	1	10	0.16	1	n	10	.n.	.10.	#
+杏树	2	xing4 shu4	xingshu	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	apricot tree
+素贞	2	su4 zhen1	suzhen	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+蒙特拉	3	meng1/meng2/meng3 te4 la1/la2/la3/la4	mengtela	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+因	1	yin1	yin	2900	86.45	3.4624	1759	28.18	3.2453	p	2735	.p.c.g.	.2735.145.20.	cause/reason/because
+物理学家	4	wu4 li3 xue2 jia1	wulixuejia	103	3.07	2.0128	71	1.14	1.8513	n	103	.n.	.103.	physicist
+勋爵	2	xun1 jue2	xunjue	160	4.77	2.2041	34	0.54	1.5315	n	160	.n.	.160.	Lord (UK hereditary nobility)/UK life peer
+盗窃罪	3	dao4 qie4 zui4	daoqiezui	29	0.86	1.4624	25	0.4	1.3979	n	29	.n.	.29.	#
+孤儿	2	gu1 er2	guer	392	11.69	2.5933	239	3.83	2.3784	n	392	.n.	.392.	orphan
+报警	2	bao4 jing3	baojing	1495	44.56	3.1746	904	14.48	2.9562	v	953	.v.vn.	.953.542.	to give a warning/to sound an alarm/to report sth to the police/warning/omen
+威克多尔	4	wei1 ke4 duo1 er3	weikeduoer	6	0.18	0.7782	1	0.02	0	nr	6	.nr.	.6.	#
+有碍于	3	you3/you4 ai4 yu2	youaiyu	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+西波	2	xi1 bo1	xibo	13	0.39	1.1139	1	0.02	0	nr	13	.nr.	.13.	#
+老薛	2	lao3 xue1	laoxue	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+平坦	2	ping2 tan3	pingtan	34	1.01	1.5315	31	0.5	1.4914	a	34	.a.	.34.	flat
+萨尔斯堡	4	sa4 er3 si1 bao3/bu3/pu3/pu4	saersibao	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+亚历克西	4	ya4 li4 ke4 xi1	yalikexi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+镇静剂	3	zhen4 jing4 ji4	zhenjingji	244	7.27	2.3874	179	2.87	2.2529	n	244	.n.	.244.	tranquilizer
+露斯	2	lou4/lu4 si1	lusi	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+尼希	2	ni2 xi1	nixi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+文学奖	3	wen2 xue2 jiang3	wenxuejiang	13	0.39	1.1139	13	0.21	1.1139	n	13	.n.	.13.	a literary prize
+梅塞德斯	4	mei2 sai1/sai4/se4 de2 si1	meisaidesi	9	0.27	0.9542	7	0.11	0.8451	nr	9	.nr.	.9.	#
+肝火	2	gan1 huo3	ganhuo	13	0.39	1.1139	12	0.19	1.0792	n	13	.n.	.13.	#
+艾利克斯	4	ai4/yi4 li4 ke4 si1	ailikesi	18	0.54	1.2553	5	0.08	0.699	nr	18	.nr.	.18.	#
+店小二	3	dian4 xiao3 er4	dianxiaoer	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+分行	2	fen1 hang2	fenxing	42	1.25	1.6232	28	0.45	1.4472	n	42	.n.	.42.	branch of bank or store/subsidiary bank
+圣何塞	3	sheng4 he2/he4 sai1/sai4/se4	shenghesai	7	0.21	0.8451	6	0.1	0.7782	ns	7	.ns.	.7.	#
+风吹雨打	4	feng1 chui1 yu3/yu4 da2/da3	fengchuiyuda	3	0.09	0.4771	3	0.05	0.4771	v	3	.v.	.3.	#
+深谷	2	shen1 gu3	shengu	7	0.21	0.8451	7	0.11	0.8451	n	7	.n.	.7.	deep valley/ravine
+主叫	2	zhu3 jiao4	zhujiao	5	0.15	0.699	5	0.08	0.699	v	5	.v.	.5.	#
+年产量	3	nian2 chan3 liang2/liang4	nianchanliang	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+云斯摩尔	4	yun2 si1 ma1/mo2 er3	yunsimoer	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+喀嚓	2	ka1 ca1	kaca	18	0.54	1.2553	6	0.1	0.7782	o	18	.o.	.18.	breaking sound
+螳螂	2	tang2 lang2	tanglang	50	1.49	1.699	23	0.37	1.3617	n	50	.n.	.50.	#
+群太远	3	qun2 tai4 yuan3	quntaiyuan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+爱德华·摩	5	ai4 de2 hua1/hua2/hua4 #ma1/mo2	aidehua*mo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+内燃机	3	nei4 ran2 ji1	neiranji	5	0.15	0.699	5	0.08	0.699	n	5	.n.	.5.	internal combustion engine
+三十三秒	4	san1 shi2 san1 miao3	sanshisanmiao	2	0.06	0.301	2	0.03	0.301	t	2	.t.	.2.	#
+美林	2	mei3 lin2	meilin	1	0.03	0	1	0.02	0	nz	1	.nz.	.1.	#
+严明	2	yan2 ming2	yanming	8	0.24	0.9031	8	0.13	0.9031	nr	5	.nr.a.	.5.3.	#
+西山	2	xi1 shan1	xishan	2	0.06	0.301	2	0.03	0.301	ns	2	.ns.	.2.	#
+伯希	2	bai3/bo2 xi1	boxi	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+邓波儿	3	deng4 bo1 er2	dengboer	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+阿莉萨	3	a1/a5/e1 li4 sa4	alisa	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+汤姆·班奈杰克	7	shang1/tang1 mu3 #ban1 nai4 jie2 ke4	tangmu*bannaijieke	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+对话框	3	dui4 hua4 kuang4	duihuakuang	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	dialog box (computing)
+街坊	2	jie1 fang1	jiefang	41	1.22	1.6128	33	0.53	1.5185	n	41	.n.	.41.	neighborhood
+里斯	2	li3 si1	lisi	345	10.28	2.5378	157	2.51	2.1959	nr	345	.nr.	.345.	#
+罗卡斯	3	luo1/luo2/luo5 ka3/qia3 si1	luokasi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+美非	2	mei3 fei1	meifei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+山路	2	shan1 lu4	shanlu	39	1.16	1.5911	24	0.38	1.3802	n	39	.n.	.39.	mountain road
+引路	2	yin3 lu4	yinlu	24	0.72	1.3802	24	0.38	1.3802	v	19	.v.vn.	.19.5.	to guide/to show the way
+溜达	2	liu1 da5	liuda	62	1.85	1.7924	53	0.85	1.7243	v	62	.v.	.62.	to stroll/to go for a walk
+平底	2	ping2 de5/di3	pingdi	7	0.21	0.8451	7	0.11	0.8451	b	7	.b.	.7.	#
+水雷	2	shui3 lei2	shuilei	13	0.39	1.1139	9	0.14	0.9542	n	13	.n.	.13.	naval mine
+睐	1	lai4	lai	5	0.15	0.699	5	0.08	0.699	g	5	.g.	.5.	gaze/stare
+小说书	3	xiao3 shui4/shuo1/yue4 shu1	xiaoshuoshu	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+辛顿	2	xin1 du2/dun4	xindun	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+砜	1	feng1	feng	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+克来拉	3	ke4 lai2 la1/la2/la3/la4	kelaila	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+拉希得	3	la1/la2/la3/la4 xi1 de2/de5/dei3	laxide	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+主力军	3	zhu3 li4 jun1	zhulijun	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+塞缪尔·杰克逊	7	sai1/sai4/se4 miao4/miu4/mou2 er3 #jie2 ke4 xun4	saimiuer*jiekexun	9	0.27	0.9542	1	0.02	0	nr	9	.nr.	.9.	#
+麦克雷蒂	4	mai4 ke4 lei2 di4	maikeleidi	9	0.27	0.9542	1	0.02	0	nr	9	.nr.	.9.	#
+洪永客	3	hong2 yong3 ke4	hongyongke	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+外形	2	wai4 xing2	waixing	98	2.92	1.9912	87	1.39	1.9395	n	98	.n.	.98.	figure/shape/external form/contour
+领受	2	ling3 shou4	lingshou	9	0.27	0.9542	4	0.06	0.6021	v	9	.v.	.9.	to accept
+泛舟	2	fan2/fan4 zhou1	fanzhou	13	0.39	1.1139	6	0.1	0.7782	v	11	.v.n.	.11.2.	#
+疲乏	2	pi2 fa2	pifa	5	0.15	0.699	5	0.08	0.699	a	5	.a.	.5.	tired/weary
+路德·金	4	lu4 de2 #jin1	lude*jin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+利比里亚人	5	li4 bi3 li3 ya4 ren2	libiliyaren	1	0.03	0	1	0.02	0	nz	1	.nz.	.1.	#
+水流量	3	shui3 liu2 liang2/liang4	shuiliuliang	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+纺车	2	fang3 che1	fangche	1	0.03	0	1	0.02	0	n	1	.n.	.1.	spinning wheel
+谍	1	die2	die	26	0.78	1.415	21	0.34	1.3222	n	26	.n.	.26.	to spy
+此刻	2	ci3 ke4	cike	490	14.61	2.6902	393	6.3	2.5944	r	490	.r.	.490.	this moment/now/at present
+好好	2	hao3 hao3	haohao	7704	229.65	3.8867	3718	59.55	3.5703	d	7488	.d.z.	.7488.216.	good/nicely/properly
+小品	2	xiao3 pin3	xiaopin	235	7.01	2.3711	32	0.51	1.5051	n	235	.n.	.235.	"short, simple literary or artistic creation/essay/skit"
+例行公事	4	li4 hang2/hang4/heng2/xing2 gong1 shi4	lixinggongshi	95	2.83	1.9777	86	1.38	1.9345	v	95	.v.	.95.	#
+讽	1	feng3	feng	22	0.66	1.3424	22	0.35	1.3424	g	22	.g.	.22.	to satirize/to mock/Taiwan pr. feng4
+名扬四海	4	ming2 yang2 si4 hai3	mingyangsihai	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+责难	2	ze2 nan4	zenan	45	1.34	1.6532	34	0.54	1.5315	v	36	.v.vn.	.36.9.	censure
+艾伯斯坦	4	ai4/yi4 bai3/bo2 si1 tan3	aibositan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+高唱	2	gao1 chang4	gaochang	22	0.66	1.3424	19	0.3	1.2788	v	22	.v.	.22.	to sing loudly/fig. to mouth slogans
+英诺森	3	ying1 nuo4 sen1	yingnuosen	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+泰勒·普林斯	6	tai4 le4/lei1 #pu3 lin2 si1	taile*pulinsi	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+完人	2	wan2 ren2	wanren	49	1.46	1.6902	44	0.7	1.6435	n	49	.n.	.49.	#
+尖兵	2	jian1 bing1	jianbing	70	2.09	1.8451	5	0.08	0.699	n	70	.n.	.70.	#
+卡利亚	3	ka3/qia3 li4 ya4	kaliya	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+流沙	2	liu2 sha1/sha4	liusha	17	0.51	1.2304	14	0.22	1.1461	n	17	.n.	.17.	#
+鼓足	2	gu3 zu2	guzu	21	0.63	1.3222	20	0.32	1.301	v	21	.v.	.21.	#
+陶德会	3	tao2/yao2 de2 hui4/kuai4	taodehui	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+丹尼·布赖恩特	7	dan1 ni2 #bu4 lai4 en1 te4	danni*bulaiente	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+杰瑞米·诺森	6	jie2 rui4 mi3 #nuo4 sen1	jieruimi*nuosen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+年久失修	4	nian2 jiu3 shi1 xiu1	nianjiushixiu	5	0.15	0.699	5	0.08	0.699	v	5	.v.	.5.	#
+排挡	2	pai2 dang3	paidang	10	0.3	1	7	0.11	0.8451	n	10	.n.	.10.	gear
+汉赛尔	3	han4 sai4 er3	hansaier	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+异姓	2	yi4 xing4	yixing	1	0.03	0	1	0.02	0	b	1	.b.	.1.	#
+哈里·波特里	6	ha1/ha3/ha4 li3 #bo1 te4 li3	hali*boteli	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+鲁雪夫	3	lu3 xue3 fu1/fu2	luxuefu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+太久	2	tai4 jiu3	taijiu	3	0.09	0.4771	3	0.05	0.4771	nr	3	.nr.	.3.	#
+善于	2	shan4 yu2	shanyu	290	8.64	2.4624	259	4.15	2.4133	v	290	.v.	.290.	be good at/be adept in
+同病相怜	4	tong2 bing4 xiang1 lian2	tongbingxianglian	24	0.72	1.3802	21	0.34	1.3222	v	24	.v.	.24.	fellow sufferers empathize with each other (idiom); misery loves company
+玛丽昂·维特克	7	ma3 li2/li4 ang2 #wei2 te4 ke4	maliang*weiteke	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+席芙	2	xi2 fu2	xifu	14	0.42	1.1461	1	0.02	0	nr	14	.nr.	.14.	#
+挂钩	2	gua4 gou1	guagou	21	0.63	1.3222	20	0.32	1.301	v	21	.v.	.21.	couple/link together
+索赔	2	suo3 pei2	suopei	67	2	1.8261	46	0.74	1.6628	v	40	.v.vn.	.40.27.	compensation/(be awarded) damages
+艾伦·艾·艾伦	7	ai4/yi4 lun2 #ai4/yi4 #ai4/yi4 lun2	ailun*ai*ailun	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+残毒	2	can2 du2	candu	1	0.03	0	1	0.02	0	n	1	.n.	.1.	cruelty
+唐木君	3	tang2 mu4 jun1	tangmujun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+股份公司	4	gu3 fen4 gong1 si1	gufengongsi	10	0.3	1	7	0.11	0.8451	l	10	.l.	.10.	joint-stock company
+基茨	2	ji1 ci2	jici	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+尸蜡	2	shi1 la4/zha4	shila	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+戟	1	ji3	ji	29	0.86	1.4624	16	0.26	1.2041	g	29	.g.	.29.	a lance with two points
+小汽车	3	xiao3 qi4 che1	xiaoqiche	21	0.63	1.3222	17	0.27	1.2304	n	21	.n.	.21.	compact car
+劳瑞	2	lao2 rui4	laorui	12	0.36	1.0792	4	0.06	0.6021	nr	12	.nr.	.12.	#
+世通	2	shi4 tong1/tong4	shitong	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+但约瑟夫	4	dan4 yao1/yue1 se4 fu1/fu2	danyuesefu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+别针	2	bie2 zhen1	biezhen	115	3.43	2.0607	43	0.69	1.6335	n	115	.n.	.115.	pin
+达芙妮	3	da2 fu2 ni1	dafuni	94	2.8	1.9731	17	0.27	1.2304	nr	94	.nr.	.94.	#
+法衣	2	fa3 yi1/yi3/yi4	fayi	8	0.24	0.9031	2	0.03	0.301	n	8	.n.	.8.	#
+文雅	2	wen2 ya3	wenya	64	1.91	1.8062	59	0.95	1.7709	a	64	.a.	.64.	elegant/refined
+拎	1	ling1	lin	87	2.59	1.9395	74	1.19	1.8692	v	87	.v.	.87.	to lift/to hold up/to carry (on bent fingers)
+次之	2	ci4 zhi1	cizhi	1	0.03	0	1	0.02	0	v	1	.v.	.1.	second (in a competition)/occupying second place
+安全局	3	an1 quan2 ju2	anquanju	152	4.53	2.1818	90	1.44	1.9542	nt	152	.nt.	.152.	security authorities
+绿豆	2	lu:4 dou4	lvdou	24	0.72	1.3802	19	0.3	1.2788	n	24	.n.	.24.	mung bean
+塞瓦	2	sai1/sai4/se4 wa3/wa4	saiwa	9	0.27	0.9542	2	0.03	0.301	nr	9	.nr.	.9.	#
+控制塔	3	kong4 zhi4 da5/ta3	kongzhita	31	0.92	1.4914	12	0.19	1.0792	n	31	.n.	.31.	#
+凯诺赛比	4	kai3 nuo4 sai4 bi3	kainuosaibi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+文化课	3	wen2 hua1/hua4 ke4	wenhuake	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+薯干	2	shu3 gan1/gan4	shugan	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+苏伦·巴考尔	6	su1 lun2 #ba1 kao3 er3	sulun*bakaoer	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+紫苑	2	zi3 yuan4	ziyuan	6	0.18	0.7782	1	0.02	0	nr	6	.nr.	.6.	#
+加莫	2	jia1 mo4	jiamo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+技师	2	ji4 shi1	jishi	91	2.71	1.959	59	0.95	1.7709	n	91	.n.	.91.	technician/technical expert
+负责人	3	fu4 ze2 ren2	fuzeren	402	11.98	2.6042	290	4.65	2.4624	n	402	.n.	.402.	person in charge (of something)
+慕名	2	mu4 ming2	muming	3	0.09	0.4771	3	0.05	0.4771	v	3	.v.	.3.	to admire sb's reputation/to seek out famous person or location
+鞍	1	an1	an	25	0.75	1.3979	21	0.34	1.3222	g	25	.g.	.25.	saddle
+还款	2	hai2/huan2 kuan3	huankuan	31	0.92	1.4914	19	0.3	1.2788	v	17	.v.vn.	.17.14.	#
+香烟	2	xiang1 yan1	xiangyan	441	13.15	2.6444	290	4.65	2.4624	n	441	.n.	.441.	cigarette/smoke from burning incense
+黑色素	3	hei1 se4 su4	heisesu	6	0.18	0.7782	6	0.1	0.7782	n	6	.n.	.6.	black pigment/melanin
+波尔提	3	bo1 er3 di1/ti2	boerti	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+嗖嗖	2	sou1 sou1	sousou	6	0.18	0.7782	6	0.1	0.7782	o	6	.o.	.6.	onomat. whooshing sound/swishing/rustle of skirts
+马尔济斯	4	ma3 er3 ji3/ji4 si1	maerjisi	8	0.24	0.9031	4	0.06	0.6021	nr	8	.nr.	.8.	#
+文弱	2	wen2 ruo4	wenruo	1	0.03	0	1	0.02	0	z	1	.z.	.1.	#
+淫猥	2	yin2 wei3	yinwei	1	0.03	0	1	0.02	0	a	1	.a.	.1.	abominations/whoredoms
+吴	1	#	*	14	0.42	1.1461	2	0.03	0.301	n	14	.n.	.14.	#
+枫叶	2	feng1 ye4	fengye	32	0.95	1.5051	19	0.3	1.2788	n	32	.n.	.32.	maple leaf
+塞尔沃曼·詹姆士	8	sai1/sai4/se4 er3 wo4 man4 #zhan1 mu3 shi4	saierwoman*zhanmushi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+固体	2	gu4 ti3	guti	49	1.46	1.6902	41	0.66	1.6128	n	49	.n.	.49.	solid
+刹那间	3	cha4/sha1 na1/na3/na4/nei4 jian1/jian4	shanajian	9	0.27	0.9542	8	0.13	0.9031	t	9	.t.	.9.	#
+全心	2	quan2 xin1	quanxin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+艾米莉·狄金森比	8	ai4/yi4 mi3 li4 #di2 jin1 sen1 bi3	aimili*dijinsenbi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+阴和阳	3	yin1 he2/he4/hu2/huo2/huo4 yang2	yinheyang	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+免去	2	mian3 qu4	mianqu	46	1.37	1.6628	45	0.72	1.6532	v	46	.v.	.46.	#
+博比·拉克利	6	bo2 bi3 #la1/la2/la3/la4 ke4 li4	bobi*lakeli	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+剑锷	2	jian4 e4	jian*	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+王室	2	wang2 shi4	wangshi	65	1.94	1.8129	46	0.74	1.6628	n	65	.n.	.65.	Royal family/Royal household/the Throne/the King
+垂青	2	chui2 qing1	chuiqing	17	0.51	1.2304	17	0.27	1.2304	v	17	.v.	.17.	#
+贾尼杰克逊	5	gu3/jia3 ni2 jie2 ke4 xun4	jianijiekexun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+麦克达	3	mai4 ke4 da2	maikeda	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+令	1	ling2/ling3/ling4	ling	6425	191.53	3.8079	2819	45.15	3.4501	v	6423	.v.g.	.6423.2.	make or cause to be/order/command/decree/honorable
+汗水	2	han2/han4 shui3	hanshui	71	2.12	1.8513	62	0.99	1.7924	n	71	.n.	.71.	#
+洛汗	2	luo4 han2/han4	luohan	8	0.24	0.9031	1	0.02	0	nr	8	.nr.	.8.	#
+佩姬	2	pei4 ji1	peiji	43	1.28	1.6335	7	0.11	0.8451	nr	43	.nr.	.43.	#
+恩·特劳特	5	en1 #te4 lao2 te4	en*telaote	11	0.33	1.0414	7	0.11	0.8451	nr	11	.nr.	.11.	#
+凉台	2	liang2/liang4 tai1/tai2	liangtai	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+亚瑟·潘	4	ya4 se4 #pan1	yase*pan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+十二点四十八	6	shi2 er4 dian3 si4 shi2 ba1/ba2	shierdiansishiba	1	0.03	0	1	0.02	0	m	1	.m.	.1.	#
+胚胎学	3	pei1 tai1 xue2	peitaixue	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	embryology
+陶森	2	tao2/yao2 sen1	taosen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+桑塔伊莲娜	5	sang1 da5/ta3 yi1 lian2 na4/nuo2	sangtayilianna	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+精致	2	jing1 zhi4	jingzhi	147	4.38	2.1673	129	2.07	2.1106	a	145	.a.ad.	.145.2.	delicate/fine/exquisite
+商业性	3	shang1 ye4 xing4	shangyexing	5	0.15	0.699	5	0.08	0.699	n	5	.n.	.5.	#
+千里之行	4	qian1 li3 zhi1 hang2/hang4/heng2/xing2	qianlizhixing	2	0.06	0.301	2	0.03	0.301	l	2	.l.	.2.	#
+吉姆·卡罗尔	6	ji2 mu3 #ka3/qia3 luo1/luo2/luo5 er3	jimu*kaluoer	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+六子	2	liu4/lu4 zi3	liuzi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+大岛	2	da4/dai4 dao3	dadao	9	0.27	0.9542	7	0.11	0.8451	nr	9	.nr.	.9.	#
+雅胡	2	ya1/ya3 hu2	yahu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+三万一	3	san1 mo4/wan4 yi1	sanwanyi	1	0.03	0	1	0.02	0	m	1	.m.	.1.	#
+虚脱	2	xu1 tuo1	xutuo	10	0.3	1	10	0.16	1	v	10	.v.	.10.	exhaustion/collapse from dehydration
+尼格斯	3	ni2 ge1/ge2 si1	nigesi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+米德堡	3	mi3 de2 bao3/bu3/pu3/pu4	midebao	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+皮特里	3	pi2 te4 li3	piteli	4	0.12	0.6021	2	0.03	0.301	nr	4	.nr.	.4.	#
+布拉克	3	bu4 la1/la2/la3/la4 ke4	bulake	11	0.33	1.0414	3	0.05	0.4771	nr	11	.nr.	.11.	#
+问号	2	wen4 hao4	wenhao	29	0.86	1.4624	27	0.43	1.4314	n	29	.n.	.29.	question mark (punct.)/unknown factor/unsolved problem/interrogation
+王子吻	3	wang2/wang4 zi3 wen3	wangziwen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+额外	2	e2 wai4	ewai	496	14.79	2.6955	407	6.52	2.6096	b	426	.b.d.	.426.70.	extra/added/additional
+教育委员会	5	jiao4 yu4 wei3 yuan2 hui4	jiaoyuweiyuanhui	1	0.03	0	1	0.02	0	nt	1	.nt.	.1.	school board
+卡美隆	3	ka3/qia3 mei3 long1/long2	kameilong	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+俞光石	3	shu4/yu2 guang1 dan4/shi2	yuguangshi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+蚀	1	shi2	shi	47	1.4	1.6721	31	0.5	1.4914	g	47	.g.	.47.	to nibble/erosion/eclipse
+以此	2	yi3 ci3	yici	166	4.95	2.2201	159	2.55	2.2014	d	166	.d.	.166.	hence
+莱斯特干	4	lai2 si1 te4 gan1/gan4	laisitegan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+韩亚	2	han2 ya4	hanya	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+特维南	3	te4 wei2 na1/nan2	teweinan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+紧缺	2	jin3 que1	jinque	14	0.42	1.1461	14	0.22	1.1461	a	14	.a.	.14.	#
+房地产	3	fang2 di4 chan3	fangdichan	288	8.59	2.4594	197	3.16	2.2945	n	288	.n.	.288.	real estate
+情急	2	qing2 ji2	qingji	9	0.27	0.9542	9	0.14	0.9542	a	9	.a.	.9.	anxious
+高尚	2	gao1 shang4	gaoshang	310	9.24	2.4914	264	4.23	2.4216	a	310	.a.	.310.	nobly/lofty
+不必	2	bu4 bi4	bubi	2468	73.57	3.3923	1617	25.9	3.2087	d	2468	.d.	.2468.	need not/does not have to
+刮风	2	gua1 feng1	guafeng	12	0.36	1.0792	10	0.16	1	v	12	.v.	.12.	to be windy
+卡普西尼	4	ka3/qia3 pu3 xi1 ni2	kapuxini	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+思爱	2	sai1/si1 ai4	siai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+温德翰姆	4	wen1 de2 han4 mu3	wendehanmu	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+豁口	2	hua2/huo1/huo4 kou3	huokou	7	0.21	0.8451	6	0.1	0.7782	n	7	.n.	.7.	#
+认同感	3	ren4 tong2/tong4 gan3	rentonggan	5	0.15	0.699	5	0.08	0.699	n	5	.n.	.5.	#
+元件	2	yuan2 jian4	yuanjian	43	1.28	1.6335	13	0.21	1.1139	n	43	.n.	.43.	element/component
+皮塔干	3	pi2 da5/ta3 gan1/gan4	pitagan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+尼生	2	ni2 sheng1	nisheng	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+玛吉·麦佛莱	6	ma3 ji2 #mai4 fo2/fu2 lai2	maji*maifolai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+梁成慈	3	liang2 cheng2 ci2	liangchengci	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+默不作声	4	mo4 bu2/bu4 zuo1/zuo2/zuo4 sheng1	mobuzuosheng	5	0.15	0.699	5	0.08	0.699	v	5	.v.	.5.	#
+笔墨	2	bi3 mo4	bimo	5	0.15	0.699	4	0.06	0.6021	n	5	.n.	.5.	pen and ink/words/writing
+同意	2	tong2 yi4	tongyi	5759	171.67	3.7603	2916	46.71	3.4648	v	5608	.v.vn.	.5608.151.	to agree/to consent/to approve
+马西阿斯	4	ma3 xi1 a1/a5/e1 si1	maxiasi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+定期	2	ding4 qi1	dingqi	102	3.04	2.0086	98	1.57	1.9912	d	76	.d.b.	.76.26.	regularly/at regular intervals
+杰克·巴克利	6	jie2 ke4 #ba1 ke4 li4	jieke*bakeli	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+摹	1	mo2	mo	3	0.09	0.4771	3	0.05	0.4771	g	3	.g.	.3.	imitate/copy
+危险	2	wei1 xian3	weixian	5711	170.24	3.7567	2813	45.06	3.4492	a	3358	.a.an.n.	.3358.2214.139.	danger/dangerous
+字样	2	zi4 yang4	ziyang	27	0.8	1.4314	27	0.43	1.4314	n	27	.n.	.27.	"model or template character/words writ large (e.g. slogan 标语 on banner, stamp ""r mail"" 航空 or header ""rst draft"" 初稿 etc)hhas"
+皮艾特	3	pi2 ai4/yi4 te4	piaite	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+托普	2	tuo1 pu3	tuopu	16	0.48	1.2041	3	0.05	0.4771	nr	16	.nr.	.16.	#
+挽	1	wan3	wan	58	1.73	1.7634	53	0.85	1.7243	v	58	.v.	.58.	to pull/to draw (a cart or a bow)/to lead (an animal)/an elegy (for use in funeral procession)/to turn (change direction)/to roll up (a scroll)/to coil
+兵戎相见	4	bing1 rong2 xiang1/xiang4 jian4/xian4	bingrongxiangjian	5	0.15	0.699	4	0.06	0.6021	v	5	.v.	.5.	#
+马丁·麦佛莱	6	ma3 ding1/zheng1 #mai4 fo2/fu2 lai2	mading*maifolai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+统辖	2	tong3 xia2	tongxia	1	0.03	0	1	0.02	0	v	1	.v.	.1.	to govern/to have complete control over/to be in command of
+本尼迪克特	5	ben3 ni2 di2 ke4 te4	bennidikete	25	0.75	1.3979	6	0.1	0.7782	nr	25	.nr.	.25.	#
+拼盘	2	pin1 pan2	pinpan	19	0.57	1.2788	14	0.22	1.1461	n	19	.n.	.19.	cold platter
+冯·哈根斯	5	feng2/ping2 #ha1/ha3/ha4 gen1 si1	feng*hagensi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+斯蒂文·卢卡斯	7	si1 di4 wen2 #lu2 ka3/qia3 si1	sidiwen*lukasi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+阿斯塔纳	4	A1 si1 ta3 na4	asitana	3	0.09	0.4771	1	0.02	0	ns	3	.ns.	.3.	"Astana, capital of Kazakhstan"
+摇篮曲	3	yao2 lan2 qu1/qu3	yaolanqu	39	1.16	1.5911	30	0.48	1.4771	n	39	.n.	.39.	#
+金美珍	3	jin1 mei3 zhen1	jinmeizhen	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+瘪三	2	bie1 san1	biesan	35	1.04	1.5441	27	0.43	1.4314	n	35	.n.	.35.	a wretched-looking tramp who lives by begging or stealing
+演唱	2	yan3 chang4	yanchang	957	28.53	2.9809	267	4.28	2.4265	v	797	.v.vn.	.797.160.	sung performance/to sing for an audience
+哲圭	2	zhe2 gui1	zhegui	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+怯懦	2	qie4 nuo4	qienuo	24	0.72	1.3802	23	0.37	1.3617	a	12	.a.an.	.12.12.	timid/gutless/weakling
+凡图	2	fan2 tu2	fantu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+布置	2	bu4 zhi4	buzhi	446	13.29	2.6493	361	5.78	2.5575	v	428	.v.vn.	.428.18.	to put in order/to arrange/to decorate/to fix up/to deploy
+小提瑟	3	xiao3 di1/ti2 se4	xiaotise	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+危殆	2	wei1 dai4	weidai	4	0.12	0.6021	3	0.05	0.4771	a	4	.a.	.4.	grave danger
+欧比·旺	4	ou1 bi3 #wang4	oubi*wang	17	0.51	1.2304	3	0.05	0.4771	nr	17	.nr.	.17.	#
+希罗尼姆斯·博施	8	xi1 luo1/luo2/luo5 ni2 mu3 si1 #bo2 shi1	xiluonimusi*boshi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+高压线	3	gao1 ya1 xian4	gaoyaxian	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	high tension power line
+浅黄	2	jian1/qian3 huang2	qianhuang	1	0.03	0	1	0.02	0	z	1	.z.	.1.	#
+迈克尔·欧文	6	mai4 ke4 er3 #ou1 wen2	maikeer*ouwen	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+别在意	3	bie2/bie4 zai4 yi4	biezaiyi	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+乔克三	3	qiao2 ke4 san1	qiaokesan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+烟头	2	yan1 tou2	yantou	61	1.82	1.7853	41	0.66	1.6128	n	61	.n.	.61.	cigarette butt/fag-end
+磨牙	2	mo2 ya2	moya	31	0.92	1.4914	21	0.34	1.3222	v	31	.v.	.31.	to grind one's teeth (during sleep)/pointless arguing
+演讲	2	yan3 jiang3	yanjiang	862	25.7	2.9355	477	7.64	2.6785	vn	561	.vn.v.	.561.301.	lecture/to make a speech
+和格温	3	he2/he4/hu2/huo2/huo4 ge1/ge2 wen1	hegewen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+莫里桑纳	4	mo4 li3 sang1 na4	molisangna	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+巴解组织	4	ba1 jie3/jie4/xie4 zu3 zhi1	bajiezuzhi	5	0.15	0.699	1	0.02	0	nt	5	.nt.	.5.	#
+圣父	2	Sheng4 Fu4	shengfu	95	2.83	1.9777	62	0.99	1.7924	n	95	.n.	.95.	Holy Father/God the Father (in the Christian Trinity)
+洞	1	dong4	dong	1581	47.13	3.1989	883	14.14	2.946	n	1510	.n.g.	.1510.71.	cave/hole/zero (unambiguous spoken form when spelling out numbers)
+枫	1	feng1	feng	67	2	1.8261	36	0.58	1.5563	g	67	.g.	.67.	maple
+埃迪·拉扎勒斯	7	ai1 di2 #la1/la2/la3/la4 za1/zha1/zha2 le4/lei1 si1	aidi*lazhalesi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+古怪	2	gu3 guai4	guguai	918	27.36	2.9628	690	11.05	2.8388	a	918	.a.	.918.	eccentric/grotesque/oddly/queer
+莫索普	3	mo4 suo3 pu3	mosuopu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+核武器	3	he2 wu3 qi4	hewuqi	183	5.46	2.2625	92	1.47	1.9638	n	183	.n.	.183.	nuclear weapon
+直拨	2	zhi2 bo1	zhibo	5	0.15	0.699	5	0.08	0.699	vn	3	.vn.v.	.3.2.	#
+宝藏	2	bao3 zang4	baocang	327	9.75	2.5145	98	1.57	1.9912	n	327	.n.	.327.	precious (mineral) deposits/(budd.) the treasure of Buddha's law
+庭园	2	ting2 yuan2	tingyuan	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	flower garden
+瑞安	2	Rui4 an1	ruian	41	1.22	1.6128	12	0.19	1.0792	ns	41	.ns.	.41.	(N) Rui'an (city in Zhejiang)
+磨刀霍霍	4	mo2/mo4 dao1 huo4 huo4	modaohuohuo	3	0.09	0.4771	3	0.05	0.4771	v	3	.v.	.3.	#
+曲线美	3	qu1/qu3 xian4 mei3	quxianmei	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+宝莲	2	bao3 lian2	baolian	3	0.09	0.4771	3	0.05	0.4771	nr	3	.nr.	.3.	#
+安柏超	3	an1 bai3/bo2/bo4 chao1	anbaichao	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+圣詹纳斯	4	sheng4 zhan1 na4 si1	shengzhannasi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+都都	2	dou1/du1 dou1/du1	dudu	1	0.03	0	1	0.02	0	nz	1	.nz.	.1.	#
+帕特里克·布莱登	8	pa4 te4 li3 ke4 #bu4 lai2 deng1	patelike*bulaideng	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+营利	2	ying2 li4	yingli	14	0.42	1.1461	14	0.22	1.1461	vn	8	.vn.v.	.8.6.	for profit/seek profit
+巴乔夫	3	ba1 qiao2 fu1/fu2	baqiaofu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+素朴	2	su4 piao2/po1/po4/pu3	supu	1	0.03	0	1	0.02	0	a	1	.a.	.1.	#
+动人心弦	4	dong4 ren2 xin1 xian2	dongrenxinxian	4	0.12	0.6021	4	0.06	0.6021	v	4	.v.	.4.	#
+贝林	2	bei4 lin2	beilin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+数百万	3	shu4 bai3 wan4	shubaiwan	165	4.92	2.2175	139	2.23	2.143	m	165	.m.	.165.	several million
+此一时	3	ci3 yi1 shi2	ciyishi	11	0.33	1.0414	10	0.16	1	l	11	.l.	.11.	#
+比佛利山真	5	bi3 fo2/fu2 li4 shan1 zhen1	bifolishanzhen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+吊兰	2	diao4 lan2	diaolan	1	0.03	0	1	0.02	0	n	1	.n.	.1.	hanging orchid (Chlorophytum comosum)/bracket plant
+双边	2	shuang1 bian1	shuangbian	12	0.36	1.0792	8	0.13	0.9031	n	12	.n.	.12.	bilateral
+克里洛	3	ke4 li3 luo4	keliluo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+坂	1	ban3	ban	62	1.85	1.7924	24	0.38	1.3802	n	62	.n.	.62.	Japanese or nonstandard variant of 阪
+未遂	2	wei4 sui4	weisui	137	4.08	2.1367	102	1.63	2.0086	v	96	.v.vn.	.96.41.	not accomplished/unsuccessful (attempt at assassination)/abortive
+克雷·泰勒	5	ke4 lei2 #tai4 le4/lei1	kelei*taile	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+心腹	2	xin1 fu4	xinfu	27	0.8	1.4314	20	0.32	1.301	n	27	.n.	.27.	trusted aide/confidant/reliable agent/to confide
+阿迪尔	3	a1/a5/e1 di2 er3	adier	6	0.18	0.7782	1	0.02	0	nr	6	.nr.	.6.	#
+排雷	2	pai2 lei2	pailei	3	0.09	0.4771	3	0.05	0.4771	vn	2	.vn.v.	.2.1.	mine clearance
+表意	2	biao3 yi4	biaoyi	1	0.03	0	1	0.02	0	vn	1	.vn.	.1.	to express meaning/ideographic
+七千六百万	5	qi1 qian1 liu4/lu4 bai3/bo2 mo4/wan4	qiqianliubaiwan	3	0.09	0.4771	2	0.03	0.301	m	3	.m.	.3.	#
+南希·赫夫	5	na1/nan2 xi1 #he4 fu1/fu2	nanxi*hefu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+强艾卡	3	jiang4/qiang2/qiang3 ai4/yi4 ka3/qia3	qiangaika	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+交朋友	3	jiao1 peng2 you5	jiaopengyou	65	1.94	1.8129	63	1.01	1.7993	v	65	.v.	.65.	to make friends/to start an affair with sb
+阔步	2	kuo4 bu4	kuobu	3	0.09	0.4771	3	0.05	0.4771	d	3	.d.	.3.	#
+老幼	2	lao3 you4	laoyou	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+唐纳·丁斯莫	6	tang2 na4 #ding1/zheng1 si1 mo4	tangna*dingsimo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+首映式	3	shou3 ying4 shi4	shouyingshi	54	1.61	1.7324	33	0.53	1.5185	n	54	.n.	.54.	premiere of a movie
+原教旨主义	5	yuan2 jiao1/jiao4 zhi3 zhu3 yi4	yuanjiaozhizhuyi	8	0.24	0.9031	7	0.11	0.8451	n	8	.n.	.8.	#
+沃夫甘帕克	5	wo4 fu1/fu2 gan1 pa4 ke4	wofuganpake	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+潮呼呼	3	chao2 hu1 hu1	chaohuhu	1	0.03	0	1	0.02	0	z	1	.z.	.1.	#
+串连	2	chuan4 lian2	chuanlian	4	0.12	0.6021	3	0.05	0.4771	vn	4	.vn.	.4.	#
+天秀	2	tian1 xiu4	tianxiu	5	0.15	0.699	2	0.03	0.301	nr	5	.nr.	.5.	#
+克逊	2	ke4 xun4	kexun	3	0.09	0.4771	3	0.05	0.4771	nr	3	.nr.	.3.	#
+姊夫	2	zi3 fu5	zifu	1	0.03	0	1	0.02	0	n	1	.n.	.1.	older sister's husband
+疑案	2	yi2 an4	yian	12	0.36	1.0792	10	0.16	1	n	12	.n.	.12.	a doubtful case/a controversy
+买方	2	mai3 fang1	maifang	9	0.27	0.9542	9	0.14	0.9542	n	9	.n.	.9.	buyer (in contracts)
+柯丽	2	ke1 li2/li4	keli	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+西方化	3	xi1 fang1 hua1/hua4	xifanghua	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+反思	2	fan3 si1	fansi	47	1.4	1.6721	39	0.62	1.5911	v	40	.v.vn.	.40.7.	to think back over sth that happened/to recollect/to turn over in one's mind
+月辉	2	yue4 hui1	yuehui	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+考	1	kao3	kao	815	24.29	2.9112	408	6.54	2.6107	v	814	.v.g.	.814.1.	to check/to verify/to test/to examine/to take an exam
+叩门	2	kou4 men2	koumen	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+马努	2	ma3 nao2/nu3	manu	9	0.27	0.9542	2	0.03	0.301	nr	9	.nr.	.9.	#
+东飞	2	dong1 fei1	dongfei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+克里斯托夫·蒙塔格	9	ke4 li3 si1 tuo1 fu1/fu2 #meng1/meng2/meng3 da5/ta3 ge1/ge2	kelisituofu*mengtage	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+温赛拉斯	4	wen1 sai4 la1/la2/la3/la4 si1	wensailasi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+办事员	3	ban4 shi4 yuan2/yun2/yun4	banshiyuan	29	0.86	1.4624	24	0.38	1.3802	n	29	.n.	.29.	#
+后顾之忧	4	hou4 gu4 zhi1 you1	houguzhiyou	12	0.36	1.0792	11	0.18	1.0414	l	12	.l.	.12.	"(set phrase) disturbance in the rear, trouble back home, family worries"
+明年	2	ming2 nian2	mingnian	634	18.9	2.8021	421	6.74	2.6243	t	634	.t.	.634.	next year
+霍伯坎	3	huo4 bai3/bo2 kan3	huobokan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+我方	2	wo3 fang1	wofang	72	2.15	1.8573	52	0.83	1.716	r	72	.r.	.72.	our side/we
+罐车	2	guan4 che1	guanche	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	tanker truck/tanker wagon
+豪儿	2	hao2 er2	haoer	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+交叉点	3	jiao1 cha1 dian3	jiaochadian	21	0.63	1.3222	12	0.19	1.0792	n	21	.n.	.21.	junction/crossroads/intersection point
+利兰·贾纳斯	6	li4 lan2 #gu3/jia3 na4 si1	lilan*jianasi	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+普普	2	pu3 pu3	pupu	4	0.12	0.6021	1	0.02	0	nr	4	.nr.	.4.	#
+柳昌元	3	liu3 chang1 yuan2	liuchangyuan	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+士人	2	shi4 ren2	shiren	3	0.09	0.4771	2	0.03	0.301	n	3	.n.	.3.	#
+茂盛	2	mao4 sheng4	maosheng	18	0.54	1.2553	17	0.27	1.2304	a	18	.a.	.18.	lush
+碳素钢	3	tan4 su4 gang1/gang4	tansugang	2	0.06	0.301	1	0.02	0	n	2	.n.	.2.	#
+广告费	3	an1/guang3 gao4 fei4	guanggaofei	11	0.33	1.0414	9	0.14	0.9542	n	11	.n.	.11.	#
+玛莎·斯图尔	6	ma3 sha1/suo1 #si1 tu2 er3	masha*situer	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+管辖	2	guan3 xia2	guanxia	121	3.61	2.0828	94	1.51	1.9731	v	64	.v.vn.	.64.57.	to administer/to have jurisdiction (over)
+守礼	2	shou3 li3	shouli	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+软磨	2	ruan3 mo2/mo4	ruanmo	3	0.09	0.4771	3	0.05	0.4771	v	3	.v.	.3.	#
+装填	2	zhuang1 tian2	zhuangtian	15	0.45	1.1761	13	0.21	1.1139	v	15	.v.	.15.	#
+工人	2	gong1 ren2	gongren	617	18.39	2.7903	400	6.41	2.6021	n	617	.n.	.617.	worker
+别楞	2	bie2/bie4 leng2	bieleng	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+曼密欧	3	man4 mi4 ou1	manmiou	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+弗农·沃森	5	fu2 nong2 #wo4 sen1	funong*wosen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+杰夫·戴利	5	jie2 fu1/fu2 #dai4 li4	jiefu*daili	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+阿浩来	3	a1/a5/e1 hao4 lai2	ahaolai	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+奎因先	3	kui2 yin1 xian1	kuiyinxian	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+瑟奇	2	se4 ji1/qi2	seqi	8	0.24	0.9031	1	0.02	0	nr	8	.nr.	.8.	#
+妃	1	fei1	fei	130	3.88	2.1139	40	0.64	1.6021	g	130	.g.	.130.	imperial concubine
+诞	1	dan4	dan	36	1.07	1.5563	17	0.27	1.2304	n	36	.n.	.36.	birth/birthday/brag/boast/to increase
+提尼	2	di1/ti2 ni2	tini	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+肯亚	2	ken3 ya4	kenya	6	0.18	0.7782	5	0.08	0.699	nr	6	.nr.	.6.	#
+措辞	2	cuo4 ci2	cuoci	86	2.56	1.9345	84	1.35	1.9243	vn	49	.vn.v.	.49.37.	wording/way of expressing something/turn of phrase/diction
+照顾	2	zhao4 gu5	zhaogu	4451	132.68	3.6485	2354	37.71	3.3718	v	4244	.v.vn.	.4244.207.	to take care of/to show consideration/to attend to/to look after
+直肠子	3	zhi2 chang2 zi3	zhichangzi	5	0.15	0.699	5	0.08	0.699	n	5	.n.	.5.	#
+俑	1	yong3	yong	3	0.09	0.4771	3	0.05	0.4771	g	3	.g.	.3.	wooden figures buried with the dead
+莱尔·拉维特	6	lai2 er3 #la1/la2/la3/la4 wei2 te4	laier*laweite	3	0.09	0.4771	2	0.03	0.301	nr	3	.nr.	.3.	#
+揩	1	kai1	kai	17	0.51	1.2304	17	0.27	1.2304	v	17	.v.	.17.	wipe
+真名实姓	4	zhen1 ming2 shi2 xing4	zhenmingshixing	2	0.06	0.301	2	0.03	0.301	l	2	.l.	.2.	#
+报价单	3	bao4 jia4 dan1	baojiadan	1	0.03	0	1	0.02	0	n	1	.n.	.1.	quotation/price list/written estimate of price
+泳装	2	yong3 zhuang1	yongzhuang	150	4.47	2.1761	66	1.06	1.8195	n	150	.n.	.150.	#
+登记卡	3	deng1 ji4 ka3/qia3	dengjika	10	0.3	1	6	0.1	0.7782	n	10	.n.	.10.	#
+让维廉姆斯	5	rang4 wei2 lian2 mu3 si1	rangweilianmusi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+拉兹洛	3	la1/la2/la3/la4 ci2/zi1 luo4	laziluo	20	0.6	1.301	2	0.03	0.301	nr	20	.nr.	.20.	#
+切题	2	qie4 ti2	qieti	11	0.33	1.0414	9	0.14	0.9542	a	11	.a.	.11.	to keep to the subject
+修建	2	xiu1 jian4	xiujian	99	2.95	1.9956	89	1.43	1.9494	v	97	.v.vn.	.97.2.	to build/to construct
+哈森	2	ha1/ha3/ha4 sen1	hasen	10	0.3	1	2	0.03	0.301	nr	10	.nr.	.10.	#
+善儿	2	shan4 er2	shaner	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+欧加皮尼	4	ou1 jia1 pi2 ni2	oujiapini	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+瑞利	2	rui4 li4	ruili	38	1.13	1.5798	8	0.13	0.9031	nr	38	.nr.	.38.	#
+维拉罗波斯	5	wei2 la1/la2/la3/la4 luo1/luo2/luo5 bo1 si1	weilaluobosi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+心里有数	4	xin1 li3 you3/you4 shu3/shu4/shuo4	xinliyoushu	27	0.8	1.4314	25	0.4	1.3979	v	27	.v.	.27.	#
+梗阻	2	geng3 zu3	gengzu	7	0.21	0.8451	5	0.08	0.699	v	7	.v.	.7.	to hamper/to obstruct
+保温层	3	bao3 wen1 ceng2	baowenceng	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+梅格·吉里	5	mei2 ge1/ge2 #ji2 li3	meige*jili	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+劳拉比	3	lao2 la1/la2/la3/la4 bi3	laolabi	11	0.33	1.0414	1	0.02	0	nr	11	.nr.	.11.	#
+去路	2	qu4 lu4	qulu	14	0.42	1.1461	14	0.22	1.1461	n	14	.n.	.14.	#
+温妮佛尔	4	wen1 ni1 fo2/fu2 er3	wennifoer	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+估价	2	gu1 jia4	gujia	51	1.52	1.7076	46	0.74	1.6628	n	34	.n.v.vn.	.34.12.5.	to value/to appraise/to be valued at/estimate/valuation
+供需	2	gong1 xu1	gongxu	5	0.15	0.699	3	0.05	0.4771	n	5	.n.	.5.	supply and demand
+苏斯金德	4	su1 si1 jin1 de2	susijinde	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+燎	1	liao2/liao3	liao	4	0.12	0.6021	3	0.05	0.4771	v	4	.v.	.4.	singe
+布莫	2	bu4 mo4	bumo	10	0.3	1	2	0.03	0.301	nr	10	.nr.	.10.	#
+科西嘉岛	4	ke1 xi1 jia1 dao3	kexijiadao	1	0.03	0	1	0.02	0	ns	1	.ns.	.1.	#
+比罗斯摩尔山	6	bi3 luo1/luo2/luo5 si1 ma1/mo2 er3 shan1	biluosimoershan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+千年虫	3	qian1 nian2 chong2	qiannianchong	10	0.3	1	8	0.13	0.9031	n	10	.n.	.10.	#
+欢聚一堂	4	huan1 ju4 yi1 tang2	huanjuyitang	22	0.66	1.3424	20	0.32	1.301	v	22	.v.	.22.	(set phrase) to happily gather under the same roof
+德·弗兰克林	6	de2 #fu2 lan2 ke4 lin2	de*fulankelin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+半仙	2	ban4 xian1	banxian	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+齐	1	ji4/qi2/qi4	qi	727	21.67	2.8615	484	7.75	2.6848	a	445	.a.d.v.nr.tg.b.	.445.135.82.54.10.1.	(name of states and dynasties at several different periods)/surname Qi; neat/even/level with/identical/simultaneous/all together/to even sth out
+债	1	zhai4	zhai	274	8.17	2.4378	212	3.4	2.3263	n	274	.n.	.274.	debt
+影视剧	3	ying3 shi4 ju4	yingshiju	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+扔	1	reng1	reng	4145	123.56	3.6175	2246	35.98	3.3514	v	4145	.v.	.4145.	to throw/to throw away
+瓦色尔曼	4	wa3/wa4 se4/shai3 er3 man4	waseerman	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+开张	2	kai1 zhang1	kaizhang	212	6.32	2.3263	169	2.71	2.2279	v	204	.v.vn.	.204.8.	open a business/first transaction of a business day
+旁门左道	4	pang2 men2 zuo3 dao4	pangmenzuodao	2	0.06	0.301	2	0.03	0.301	l	2	.l.	.2.	dissenting religious sect (idiom); heretical school of opinion/dissident group
+萨默尔	3	sa4 mo4 er3	samoer	3	0.09	0.4771	2	0.03	0.301	nr	3	.nr.	.3.	#
+片山	2	pian1/pian4 shan1	pianshan	2	0.06	0.301	2	0.03	0.301	nr	2	.nr.	.2.	#
+肯道·沃伦斯	6	ken3 dao4 #wo4 lun2 si1	kendao*wolunsi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+纷繁	2	fen1 fan2	fenfan	5	0.15	0.699	5	0.08	0.699	a	5	.a.	.5.	numerous and complicated
+爱德华·玛格瑞姆	8	ai4 de2 hua1/hua2/hua4 #ma3 ge1/ge2 rui4 mu3	aidehua*mageruimu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+艾德海德	4	ai4/yi4 de2 hai3 de2	aidehaide	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+吉易	2	ji2 yi4	jiyi	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+穆恩	2	mu4 en1	muen	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+竖线	2	shu4 xian4	shuxian	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+重现	2	chong2 xian4	zhongxian	176	5.25	2.2455	153	2.45	2.1847	v	175	.v.vn.	.175.1.	to reappear
+梅丽莎·约翰逊	7	mei2 li2/li4 sha1/suo1 #yao1/yue1 han4 xun4	meilisha*yuehanxun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+丁克雷	3	ding1/zheng1 ke4 lei2	dingkelei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+尼克莱·布里克	7	ni2 ke4 lai2 #bu4 li3 ke4	nikelai*bulike	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+麦克贝	3	mai4 ke4 bei4	maikebei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+劳务	2	lao2 wu4	laowu	12	0.36	1.0792	8	0.13	0.9031	n	12	.n.	.12.	#
+劳伯特	3	lao2 bai3/bo2 te4	laobote	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+儿媳妇	3	er2 xi2 fu4	erxifu	33	0.98	1.5185	26	0.42	1.415	n	33	.n.	.33.	#
+乓乓	2	pang1 pang1	pangpang	7	0.21	0.8451	4	0.06	0.6021	o	7	.o.	.7.	#
+耍滑	2	shua3 hua2	shuahua	19	0.57	1.2788	18	0.29	1.2553	v	19	.v.	.19.	to shirk/to get out of responsibility
+建于	2	jian4 yu2	jianyu	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	#
+雏菊	2	chu2 ju2	chuju	25	0.75	1.3979	11	0.18	1.0414	nr	25	.nr.	.25.	daisy
+楚拉夫	3	chu3 la1/la2/la3/la4 fu1/fu2	chulafu	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+曲直	2	qu1/qu3 zhi2	quzhi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+发货	2	fa1 huo4	fahuo	26	0.78	1.415	18	0.29	1.2553	v	24	.v.vn.	.24.2.	to dispatch/to send out goods
+托尼·格雷格	6	tuo1 ni2 #ge1/ge2 lei2 ge1/ge2	tuoni*geleige	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+下跌	2	xia4 die1	xiadie	39	1.16	1.5911	32	0.51	1.5051	v	39	.v.	.39.	to fall/to tumble
+必将	2	bi4 jiang1	bijiang	63	1.88	1.7993	50	0.8	1.699	d	63	.d.	.63.	inevitably
+黛拉·比伊	5	dai4 la1/la2/la3/la4 #bi3 yi1	*la*biyi	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+得闲	2	de2/de5/dei3 xian2	dexian	7	0.21	0.8451	7	0.11	0.8451	v	7	.v.	.7.	#
+咬紧牙关	4	yao3 jin3 ya2 guan1	yaojinyaguan	23	0.69	1.3617	20	0.32	1.301	v	23	.v.	.23.	lit. to bite the teeth tightly (idiom); fig. to grit one's teeth and bear the pain/to bite the bullet
+安东尼·曼森	6	an1 dong1 ni2 #man4 sen1	andongni*mansen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+凯伯	2	kai3 bai3/bo2	kaibo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+鹤	1	he4	he	73	2.18	1.8633	26	0.42	1.415	n	73	.n.	.73.	crane
+厄科尔	3	e4 ke1 er3	ekeer	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+以防不测	4	yi3 fang2 bu2/bu4 ce4	yifangbuce	6	0.18	0.7782	6	0.1	0.7782	v	6	.v.	.6.	#
+书面	2	shu1 mian4	shumian	196	5.84	2.2923	170	2.72	2.2304	b	186	.b.d.n.	.186.9.1.	in writing/written (guarantee etc)
+路桥	2	lu4 qiao2	luqiao	1	0.03	0	1	0.02	0	ns	1	.ns.	.1.	road bridge
+核试验	3	he2 shi4 yan4	heshiyan	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	nuclear test
+德玛科	3	de2 ma3 ke1	demake	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+高低	2	gao1 di1	gaodi	39	1.16	1.5911	29	0.46	1.4624	n	39	.n.	.39.	"height/high or low (altitude or pitch of sound)/ups and downs (success or failure)/whether sth is right or wrong/comparative strength, weight, depth, stature/(spoken interjection) anyway, whatever/eventually, in the end"
+奥的斯	3	ao4 de5/di2/di4 si1	aodesi	3	0.09	0.4771	1	0.02	0	nz	3	.nz.	.3.	#
+肯·洛奇	4	ken3 #luo4 ji1/qi2	ken*luoqi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+错别字	3	cuo4 bie2 zi4	cuobiezi	5	0.15	0.699	5	0.08	0.699	n	5	.n.	.5.	misspelt or mispronounced characters
+圣埃维斯	4	sheng4 ai1 wei2 si1	shengaiweisi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+秀贤	2	xiu4 xian2	xiuxian	43	1.28	1.6335	3	0.05	0.4771	nr	43	.nr.	.43.	#
+内政	2	nei4 zheng4	neizheng	49	1.46	1.6902	34	0.54	1.5315	n	49	.n.	.49.	internal affairs (of a country)
+凹	1	ao1/wa1	ao	100	2.98	2	79	1.27	1.8976	a	100	.a.	.100.	a depression/indentation/concave/hollow
+相加	2	xiang1/xiang4 jia1	xiangjia	16	0.48	1.2041	16	0.26	1.2041	v	16	.v.	.16.	#
+凯姆·威克斯勒	7	kai3 mu3 #wei1 ke4 si1 le4/lei1	kaimu*weikesile	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+海伦·帕尔	5	hai3 lun2 #pa4 er3	hailun*paer	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+有损于	3	you3/you4 sun3 yu2	yousunyu	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	#
+誓约	2	shi4 yue1	shiyue	37	1.1	1.5682	27	0.43	1.4314	n	37	.n.	.37.	honor-bound/bound by an oath
+贤一	2	xian2 yi1	xianyi	6	0.18	0.7782	2	0.03	0.301	nr	6	.nr.	.6.	#
+贝比	2	bei4 bi3	beibi	78	2.33	1.8921	4	0.06	0.6021	nr	78	.nr.	.78.	#
+硝烟	2	xiao1 yan1	xiaoyan	16	0.48	1.2041	13	0.21	1.1139	n	16	.n.	.16.	smoke (from guns)
+支持	2	zhi1 chi2	zhichi	3841	114.5	3.5844	2025	32.44	3.3064	v	3198	.v.vn.	.3198.643.	to be in favor of/to support/to back/support/backing/to stand by
+无懈可击	4	wu2 xie4 ke3 ji1	wuxiekeji	79	2.35	1.8976	74	1.19	1.8692	l	79	.l.	.79.	invulnerable
+福克尔	3	fu2 ke4 er3	fukeer	22	0.66	1.3424	1	0.02	0	nr	22	.nr.	.22.	#
+痛不欲生	4	tong4 bu2/bu4 yu4 sheng1	tongbuyusheng	63	1.88	1.7993	58	0.93	1.7634	v	63	.v.	.63.	#
+金永浩	3	jin1 yong3 hao4	jinyonghao	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+气吁吁	3	qi4 xu1/yu1/yu4 xu1/yu1/yu4	qiyuyu	2	0.06	0.301	2	0.03	0.301	z	2	.z.	.2.	#
+圣庙	2	sheng4 miao4	shengmiao	1	0.03	0	1	0.02	0	n	1	.n.	.1.	shrine to a sage (esp. Confucius)
+威斯康星州	5	Wei1 si1 kang1 xing1 zhou1	weisikangxingzhou	28	0.83	1.4472	21	0.34	1.3222	ns	28	.ns.	.28.	"Wisconsin, US state"
+巴伯	2	ba1 bai3/bo2	babo	5	0.15	0.699	4	0.06	0.6021	nr	5	.nr.	.5.	#
+字谜	2	zi4 mi2	zimi	73	2.18	1.8633	44	0.7	1.6435	n	73	.n.	.73.	letter puzzle
+辫子	2	bian4 zi5	bianzi	104	3.1	2.017	85	1.36	1.9294	n	104	.n.	.104.	plait/braid/pigtail/a mistake or shortcoming that may be exploited by an opponent/handle
+理论	2	li3 lun4	lilun	1240	36.96	3.0934	817	13.09	2.9122	n	1240	.n.	.1240.	theory
+对立面	3	dui4 li4 mian4	duilimian	25	0.75	1.3979	20	0.32	1.301	n	25	.n.	.25.	opposite/antonym/the opposite side (in a conflict)
+那桑宏	3	na1/na3/na4/nei4 sang1 hong2	nasanghong	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+黑帮	2	hei1 bang1	heibang	687	20.48	2.837	288	4.61	2.4594	n	687	.n.	.687.	bunch of gangsters/criminal gang/organized crime syndicate
+不当	2	bu4 dang4	budang	106	3.16	2.0253	91	1.46	1.959	a	106	.a.	.106.	unsuitable/improper/inappropriate
+下山	2	xia4 shan1	xiashan	33	0.98	1.5185	27	0.43	1.4314	v	33	.v.	.33.	#
+变迁	2	bian4 qian1	bianqian	26	0.78	1.415	23	0.37	1.3617	vn	23	.vn.v.	.23.3.	changes/vicissitudes
+梅丽莎·凯利	6	mei2 li2/li4 sha1/suo1 #kai3 li4	meilisha*kaili	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+查尔斯·西恩	6	cha2/zha1 er3 si1 #xi1 en1	chaersi*xien	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+戈杰·戈桑美	6	ge1 jie2 #ge1 sang1 mei3	gejie*gesangmei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+转变	2	zhuan3 bian4	zhuanbian	485	14.46	2.6857	373	5.97	2.5717	v	330	.v.vn.	.330.155.	change/transform
+德雷克·杰特	6	de2 lei2 ke4 #jie2 te4	deleike*jiete	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+海关	2	hai3 guan1	haiguan	171	5.1	2.233	117	1.87	2.0682	n	171	.n.	.171.	customs (i.e. border crossing inspection)
+铂	1	bo2	bo	32	0.95	1.5051	17	0.27	1.2304	n	32	.n.	.32.	"platinum Pt, transition metal, atomic number 78"
+馨香	2	xin1 xiang1	xinxiang	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	fragrant (of incense)
+装料	2	zhuang1 liao4	zhuangliao	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	#
+映象	2	ying4 xiang4	yingxiang	7	0.21	0.8451	5	0.08	0.699	n	7	.n.	.7.	#
+克罗宁	3	ke4 luo1/luo2/luo5 ning2/ning4	keluoning	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+加重	2	jia1 zhong4	jiazhong	83	2.47	1.9191	80	1.28	1.9031	v	82	.v.vn.	.82.1.	make more serious
+延申	2	yan2 shen1	yanshen	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+特价品	3	te4 jia4/jie4/jie5 pin3	tejiapin	3	0.09	0.4771	3	0.05	0.4771	n	3	.n.	.3.	#
+信息	2	xin4 xi1	xinxi	3725	111.04	3.5711	1896	30.37	3.2778	n	3725	.n.	.3725.	information/news/message
+专职	2	zhuan1 zhi2	zhuanzhi	49	1.46	1.6902	44	0.7	1.6435	b	49	.b.	.49.	special duty/assigned full time to a task
+热饮	2	re4 yin3	reyin	15	0.45	1.1761	13	0.21	1.1139	n	15	.n.	.15.	hot drink
+解惑	2	jie3 huo4	jiehuo	6	0.18	0.7782	6	0.1	0.7782	v	6	.v.	.6.	to dispel doubts/to clear up confusion
+肯帕森内特	5	ken3 pa4 sen1 nei4 te4	kenpasenneite	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+精怪	2	jing1 guai4	jingguai	11	0.33	1.0414	9	0.14	0.9542	n	11	.n.	.11.	#
+抑扬顿挫	4	yi4 yang2 dun4 cuo4	yiyangduncuo	3	0.09	0.4771	3	0.05	0.4771	l	3	.l.	.3.	"pattern or falling, remaining even and rising in pitch and rythm/inflection/intonation/cadence"
+卡斯	2	ka3/qia3 si1	kasi	12	0.36	1.0792	8	0.13	0.9031	nr	12	.nr.	.12.	#
+吞并	2	tun1 bing4	tunbing	32	0.95	1.5051	15	0.24	1.1761	v	32	.v.	.32.	to annex
+船上	2	chuan2 shang4	chuanshang	1019	30.38	3.0082	508	8.14	2.7059	s	1019	.s.	.1019.	aboard
+薰	1	xun1	xun	81	2.41	1.9085	55	0.88	1.7404	v	81	.v.	.81.	Coumarouna odorata/tonka beans/coumarin/sweet smelling grass/same as 熏
+列入	2	lie4 ru4	lieru	95	2.83	1.9777	80	1.28	1.9031	v	95	.v.	.95.	included (on a roster)/incorporated (into the agenda)
+温切斯特	4	wen1 qie1/qie4 si1 te4	wenqiesite	6	0.18	0.7782	4	0.06	0.6021	nr	6	.nr.	.6.	#
+不忠之	3	bu2/bu4 zhong1 zhi1	buzhongzhi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+少言寡语	4	shao3/shao4 yan2 gua3 yu3/yu4	shaoyanguayu	5	0.15	0.699	5	0.08	0.699	l	5	.l.	.5.	#
+保修期	3	bao3 xiu1 qi1	baoxiuqi	4	0.12	0.6021	4	0.06	0.6021	n	4	.n.	.4.	warranty period/still under guarantee
+遮遮掩掩	4	zhe1 zhe1 yan3 yan3	zhezheyanyan	49	1.46	1.6902	46	0.74	1.6628	v	49	.v.	.49.	#
+坚	1	jian1	jian	153	4.56	2.1847	111	1.78	2.0453	g	124	.g.a.ad.	.124.17.12.	strong/solid/firm/unyielding/resolute
+伯里兹	3	bai3/bo2 li3 ci2/zi1	bolizi	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+溢	1	yi4	yi	59	1.76	1.7709	55	0.88	1.7404	v	59	.v.	.59.	overflow
+昂首挺胸	4	ang2 shou3 ting3 xiong1	angshoutingxiong	10	0.3	1	10	0.16	1	v	10	.v.	.10.	"head high, chest out (idiom); to keep up one's spirits/in fine mettle (of animal)"
+生佑	2	sheng1 you4	shengyou	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+早产	2	zao3 chan3	zaochan	27	0.8	1.4314	24	0.38	1.3802	v	26	.v.vn.	.26.1.	premature birth/premature labor
+课本	2	ke4 ben3	keben	63	1.88	1.7993	48	0.77	1.6812	n	63	.n.	.63.	textbook
+铁定会	3	tie3 ding4 hui4/kuai4	tiedinghui	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+玛蒂涅兹	4	ma3 di4 nie4 ci2/zi1	madiniezi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+着风	2	zhao1/zhao2/zhe5/zhuo2 feng1	zhuofeng	4	0.12	0.6021	4	0.06	0.6021	v	4	.v.	.4.	#
+塔玛拉	3	da5/ta3 ma3 la1/la2/la3/la4	tamala	8	0.24	0.9031	4	0.06	0.6021	nr	8	.nr.	.8.	#
+孜	1	zi1	zi	9	0.27	0.9542	8	0.13	0.9031	g	9	.g.	.9.	hard-working/industrious
+侧	1	ce4/ze4/zhai1	ce	651	19.41	2.8136	402	6.44	2.6042	v	360	.v.g.f.q.	.360.200.61.30.	the side/to incline towards/to lean/inclined/lateral/side; lean on one side
+红岸	2	gong1/hong2 an4	hongan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+荻原	2	di2 yuan2	*yuan	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+威尔伯·罗宾逊	7	wei1 er3 bai3/bo2 #luo1/luo2/luo5 bin1 xun4	weierbo*luobinxun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+武田军兵	4	wu3 tian2 jun1 bing1	wutianjunbing	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+看得见	3	kan4 de2 jian4	kandejian	124	3.7	2.0934	108	1.73	2.0334	v	124	.v.	.124.	visible
+谭克	2	tan2 ke4	tanke	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+布列克	3	bu4 lie4 ke4	bulieke	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+开屏	2	kai1 ping2	kaiping	4	0.12	0.6021	2	0.03	0.301	v	4	.v.	.4.	(a peacock) spreads its tail
+三十六分	4	san1 shi2 liu4/lu4 fen1/fen4	sanshiliufen	1	0.03	0	1	0.02	0	t	1	.t.	.1.	#
+呈	1	cheng2	cheng	344	10.25	2.5366	298	4.77	2.4742	v	344	.v.	.344.	to assume (a form)/to submit/to petition/to show/to present/to offer
+威松	2	wei1 song1	weisong	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+虎背	2	hu3/hu4 bei1/bei4	hubei	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+珍妮·瓦格纳	6	zhen1 ni1 #wa3/wa4 ge1/ge2 na4	zhenni*wagena	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+菲尔·伯顿	5	fei1/fei3 er3 #bai3/bo2 du2/dun4	feier*bodun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+拉斯柯尔尼科夫	7	la1/la2/la3/la4 si1 ke1 er3 ni2 ke1 fu1/fu2	lasikeernikefu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+大半生	3	da4/dai4 ban4 sheng1	dabansheng	15	0.45	1.1761	14	0.22	1.1461	n	15	.n.	.15.	#
+凯伦·海因斯德	7	kai3 lun2 #hai3 yin1 si1 de2	kailun*haiyinside	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+欧菲姆	3	ou1 fei1/fei3 mu3	oufeimu	6	0.18	0.7782	2	0.03	0.301	nr	6	.nr.	.6.	#
+贝雷特	3	bei4 lei2 te4	beileite	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+马提撒	3	ma3 di1/ti2 sa1/sa3	matisa	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+曾曾曾	3	ceng2/zeng1 ceng2/zeng1 ceng2/zeng1	zengzengzeng	5	0.15	0.699	4	0.06	0.6021	nr	5	.nr.	.5.	#
+失	1	shi1	shi	754	22.48	2.8774	569	9.11	2.7551	v	754	.v.	.754.	to lose/to miss/to fail
+年终	2	nian2 zhong1	nianzhong	22	0.66	1.3424	15	0.24	1.1761	t	22	.t.	.22.	end of the year
+快运	2	kuai4 yun4	kuaiyun	1	0.03	0	1	0.02	0	vn	1	.vn.	.1.	#
+恩知	2	en1 zhi1/zhi4	enzhi	26	0.78	1.415	1	0.02	0	nr	26	.nr.	.26.	#
+预示	2	yu4 shi4	yushi	73	2.18	1.8633	64	1.03	1.8062	v	73	.v.	.73.	to indicate/to foretell/to forebode/to betoken
+信任	2	xin4 ren4	xinren	3441	102.57	3.5367	1800	28.83	3.2553	v	2648	.v.vn.	.2648.793.	trust/have confidence in
+克利佛德	4	ke4 li4 fo2/fu2 de2	kelifode	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+李昌钰	3	li3 chang1 yu4	lichang*	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+李素芬	3	li3 su4 fen1	lisufen	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+八五	2	ba1/ba2 wu3	bawu	3	0.09	0.4771	3	0.05	0.4771	m	3	.m.	.3.	#
+海力特	3	hai3 li4 te4	hailite	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+诉冤	2	su4 yuan1	suyuan	1	0.03	0	1	0.02	0	v	1	.v.	.1.	#
+游行	2	you2 xing2	youxing	518	15.44	2.7143	254	4.07	2.4048	vn	301	.vn.v.	.301.217.	march/parade/demonstration
+比尔·布利斯	6	bi3 er3 #bu4 li4 si1	bier*bulisi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+肆	1	si4	si	4	0.12	0.6021	3	0.05	0.4771	g	3	.g.t.	.3.1.	four (banker's anti-fraud numeral)/market
+兰瑞	2	lan2 rui4	lanrui	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+代表大会	4	dai4 biao3 da4/dai4 hui4/kuai4	daibiaodahui	6	0.18	0.7782	6	0.1	0.7782	n	6	.n.	.6.	#
+狰狞	2	zheng1 ning2	zhengning	17	0.51	1.2304	13	0.21	1.1139	a	17	.a.	.17.	mean and ferocious
+饱和	2	bao3 he2	baohe	20	0.6	1.301	18	0.29	1.2553	v	19	.v.vn.	.19.1.	saturation
+放纵	2	fang4 zong4	fangzong	153	4.56	2.1847	128	2.05	2.1072	v	136	.v.vn.	.136.17.	to let sb have their own way/to connive at/to indulge/unrestrained/undisciplined/uncultured/boorish
+萨扬	2	sa4 yang2	sayang	3	0.09	0.4771	1	0.02	0	nr	3	.nr.	.3.	#
+洁米·桑摩斯得	7	jie2 mi3 #sang1 ma1/mo2 si1 de2/de5/dei3	jiemi*sangmoside	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+狄氏	2	di2 shi4/zhi1	dishi	4	0.12	0.6021	2	0.03	0.301	nr	4	.nr.	.4.	#
+戴维斯·古根海姆	8	dai4 wei2 si1 #gu3 gen1 hai3 mu3	daiweisi*gugenhaimu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+伊凡·瑟瓦	5	yi1 fan2 #se4 wa3/wa4	yifan*sewa	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+左后方	3	zuo3 hou4 fang1	zuohoufang	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+为时过早	4	wei2 shi2 guo4 zao3	weishiguozao	50	1.49	1.699	48	0.77	1.6812	v	50	.v.	.50.	premature/too soon
+地质	2	di4 zhi4	dizhi	46	1.37	1.6628	28	0.45	1.4472	n	46	.n.	.46.	geology
+西哥	2	xi1 ge1	xige	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+格雷戈里·皮特	7	ge1/ge2 lei2 ge1 li3 #pi2 te4	geleigeli*pite	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+琼	1	qiong2	qiong	184	5.48	2.2648	47	0.75	1.6721	nr	104	.nr.g.b.	.104.50.30.	"jasper/fine jade/beautiful/exquisite (e.g. wine, food)/abbr. for Hainan island province 海南"
+埃特伍德	4	ai1 te4 wu3 de2	aitewude	6	0.18	0.7782	1	0.02	0	nr	6	.nr.	.6.	#
+小杰	2	xiao3 jie2	xiaojie	25	0.75	1.3979	4	0.06	0.6021	nr	25	.nr.	.25.	#
+发昏	2	fa1 hun1	fahun	23	0.69	1.3617	23	0.37	1.3617	v	23	.v.	.23.	to faint
+祸患	2	huo4 huan4	huohuan	1	0.03	0	1	0.02	0	n	1	.n.	.1.	disaster/calamity
+韦伯·桑德斯	6	wei2 bai3/bo2 #sang1 de2 si1	weibo*sangdesi	5	0.15	0.699	1	0.02	0	nr	5	.nr.	.5.	#
+九连胜	3	jiu3 lian2 sheng1/sheng4	jiuliansheng	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+引子	2	yin3 zi5	yinzi	5	0.15	0.699	5	0.08	0.699	n	5	.n.	.5.	primer
+黄道	2	huang2 dao4	huangdao	13	0.39	1.1139	8	0.13	0.9031	n	13	.n.	.13.	the ecliptic (the plane of the solar system)
+辺	1	#	*	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+开腔	2	kai1 qiang1	kaiqiang	5	0.15	0.699	5	0.08	0.699	v	5	.v.	.5.	to speak out/to start speaking
+减法	2	jian3 fa3	jianfa	6	0.18	0.7782	6	0.1	0.7782	n	6	.n.	.6.	subtraction
+扣押	2	kou4 ya1	kouya	133	3.96	2.1239	103	1.65	2.0128	v	126	.v.vn.	.126.7.	to detain/to keep in custody
+查核	2	cha2 he2	chahe	1	0.03	0	1	0.02	0	v	1	.v.	.1.	to check
+红票	2	gong1/hong2 piao4	hongpiao	8	0.24	0.9031	1	0.02	0	n	8	.n.	.8.	#
+师大	2	shi1 da4	shida	7	0.21	0.8451	3	0.05	0.4771	n	7	.n.	.7.	"abbr. for 师范大学, Normal University/teacher-training college"
+军警	2	jun1 jing3	junjing	22	0.66	1.3424	15	0.24	1.1761	n	22	.n.	.22.	#
+小姑	2	xiao3 gu1	xiaogu	5	0.15	0.699	4	0.06	0.6021	n	5	.n.	.5.	husband's younger sister; sister-in-law
+光荣	2	guang1 rong2	guangrong	366	10.91	2.5635	275	4.4	2.4393	a	324	.a.ad.an.	.324.29.13.	honor and glory
+追加	2	zhui1 jia1	zhuijia	30	0.89	1.4771	23	0.37	1.3617	v	28	.v.vn.	.28.2.	to add something extra/an additional increment/addendum/to append/an additional posthumous title
+仲淑	2	zhong4 shu1	zhongshu	7	0.21	0.8451	1	0.02	0	nr	7	.nr.	.7.	#
+前年	2	qian2 nian2	qiannian	22	0.66	1.3424	20	0.32	1.301	t	22	.t.	.22.	the year before last
+乔恩·邦·乔维	7	qiao2 en1 #bang1 #qiao2 wei2	qiaoen*bang*qiaowei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+匈奴	2	Xiong1 nu2	xiongnu	15	0.45	1.1761	9	0.14	0.9542	n	15	.n.	.15.	Xiongnu/Huns/general term for nomadic people
+方子	2	fang1 zi5	fangzi	6	0.18	0.7782	6	0.1	0.7782	n	6	.n.	.6.	prescription (of medicine)
+梅洛蒂	3	mei2 luo4 di4	meiluodi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+萨利·安·米德尔顿	9	sa4 li4 #an1 #mi3 de2 er3 du2/dun4	sali*an*mideerdun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+马斯特罗	4	ma3 si1 te4 luo1/luo2/luo5	masiteluo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+兑换券	3	dui4 huan4 quan4/xuan4	duihuanquan	1	0.03	0	1	0.02	0	n	1	.n.	.1.	#
+答应	2	da1 ying5	daying	3241	96.61	3.5107	1962	31.43	3.2927	v	3241	.v.	.3241.	to reply/to respond/to promise/to agree
+普罗沃	3	pu3 luo1/luo2/luo5 wo4	puluowo	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+受得了	3	shou4 de2/de5/dei3 le5/liao3/liao4	shoudeliao	106	3.16	2.0253	100	1.6	2	v	106	.v.	.106.	#
+若范妮莎	4	re3/ruo4 fan4 ni1 sha1/suo1	ruofannisha	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+电饭锅	3	dian4 fan4 guo1	dianfanguo	1	0.03	0	1	0.02	0	n	1	.n.	.1.	electric rice cooker
+加文	2	jia1 wen2	jiawen	26	0.78	1.415	4	0.06	0.6021	nr	26	.nr.	.26.	#
+马背	2	ma3 bei4	mabei	33	0.98	1.5185	30	0.48	1.4771	n	33	.n.	.33.	horseback
+量变	2	liang4 bian4	liangbian	1	0.03	0	1	0.02	0	n	1	.n.	.1.	quantitative change
+呕心沥血	4	ou3 xin1 li4 xue4	ouxinlixue	16	0.48	1.2041	14	0.22	1.1461	v	16	.v.	.16.	"lit. to spit out one's heart and spill blood (idiom)/to work one's heart out/blood, sweat and tears"
+遗留	2	yi2 liu2	yiliu	81	2.41	1.9085	67	1.07	1.8261	v	48	.v.vn.	.48.33.	(leave or be a) legacy/left over/hand down (to next generation)
+和拉科鲁尼亚	6	he2/he4/hu2/huo2/huo4 la1/la2/la3/la4 ke1 lu3 ni2 ya4	helakeluniya	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+召	1	shao4/zhao4	zhao	292	8.7	2.4654	179	2.87	2.2529	g	292	.g.	.292.	surname Shao/name of an ancient state; to call together/to summon/to convene
+索韦	2	suo3 wei2	suowei	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+营造	2	ying2 zao4	yingzao	77	2.3	1.8865	68	1.09	1.8325	v	77	.v.	.77.	to build (housing)/to construct/to make
+路易斯安那州	6	Lu4 yi4 si1 an1 na4 zhou1	luyisiannazhou	41	1.22	1.6128	26	0.42	1.415	ns	41	.ns.	.41.	"Louisiana, US state"
+奥克荷马	4	ao4 ke4 he2/he4 ma3	aokehema	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+用琳	2	yong4 lin2	yonglin	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+他里普	3	ta1 li3 pu3	talipu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+哈姆纳塔	4	ha1/ha3/ha4 mu3 na4 da5/ta3	hamunata	18	0.54	1.2553	1	0.02	0	nr	18	.nr.	.18.	#
+西宫	2	xi1 gong1	xigong	4	0.12	0.6021	1	0.02	0	n	4	.n.	.4.	#
+熙敏	2	xi1 min3	ximin	17	0.51	1.2304	1	0.02	0	nr	17	.nr.	.17.	#
+中程	2	zhong1 cheng2	zhongcheng	1	0.03	0	1	0.02	0	b	1	.b.	.1.	medium-range
+杀虫药	3	sha1 chong2 yao4	shachongyao	2	0.06	0.301	2	0.03	0.301	n	2	.n.	.2.	#
+软饮料	3	ruan3 yin3 liao4	ruanyinliao	18	0.54	1.2553	14	0.22	1.1461	n	18	.n.	.18.	soft drink
+补考	2	bu3 kao3	bukao	21	0.63	1.3222	17	0.27	1.2304	v	17	.v.vn.	.17.4.	make-up examination
+闹	1	nao4	nao	1219	36.34	3.086	906	14.51	2.9571	v	1211	.v.a.	.1211.8.	noisy/cacophonous/to make noise/to disturb/to vent (feelings)/to fall ill/to have an attack (of sickness)/to go in (for some activity)/to joke
+脸谱	2	lian3 pu3	lianpu	5	0.15	0.699	4	0.06	0.6021	n	5	.n.	.5.	types of facial makeup in operas
+雷文伍德	4	lei2 wen2 wu3 de2	leiwenwude	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+朵	1	duo3	duo	388	11.57	2.5888	229	3.67	2.3598	q	360	.q.g.	.360.28.	"flower/earlobe/fig. item on both sides/classifier for flowers, clouds etc"
+搀杂	2	chan1 za2	chanza	2	0.06	0.301	2	0.03	0.301	v	2	.v.	.2.	to mix/to blend/to dilute/also written 掺杂
+祖巴	2	zu3 ba1	zuba	21	0.63	1.3222	1	0.02	0	nr	21	.nr.	.21.	#
+崔西儿	3	cui1 xi1 er2	cuixier	2	0.06	0.301	1	0.02	0	nr	2	.nr.	.2.	#
+史摩基·罗宾逊	7	shi3 ma1/mo2 ji1 #luo1/luo2/luo5 bin1 xun4	shimoji*luobinxun	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+泸	1	lu2	lu	4	0.12	0.6021	2	0.03	0.301	n	4	.n.	.4.	old name of a river in Jiangxi/place name
+卡柴科瓦夫	5	ka3/qia3 chai2 ke1 wa3/wa4 fu1/fu2	kachaikewafu	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+阴暗	2	yin1 an4	yinan	172	5.13	2.2355	142	2.27	2.1523	a	171	.a.v.	.171.1.	dim/somber
+轻轻松松	4	qing1 qing1 song1 song1	qingqingsongsong	19	0.57	1.2788	19	0.3	1.2788	z	19	.z.	.19.	#
+盲女	2	mang2 nu:3	mangnv	9	0.27	0.9542	7	0.11	0.8451	n	9	.n.	.9.	#
+亩	1	mu3	mu	47	1.4	1.6721	33	0.53	1.5185	q	47	.q.	.47.	classifier for fields/unit of area equal to one fifteenth of a hectare
+做礼拜	3	zuo4 li3 bai4	zuolibai	48	1.43	1.6812	33	0.53	1.5185	v	48	.v.	.48.	to go to church on Sunday (of Christians)
+房舍	2	fang2 she3/she4	fangshe	7	0.21	0.8451	6	0.1	0.7782	n	7	.n.	.7.	#
+讳言	2	hui4 yan2	huiyan	2	0.06	0.301	1	0.02	0	v	2	.v.	.2.	#
+让科扎克	4	rang4 ke1 za1/zha1/zha2 ke4	rangkezhake	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+单刀赴会	4	chan2/dan1/shan4 dao1 fu4 hui4/kuai4	dandaofuhui	3	0.09	0.4771	3	0.05	0.4771	v	3	.v.	.3.	#
+彼奇·豪兹·拉马特	9	bi3 ji1/qi2 #hao2 ci2/zi1 #la1/la2/la3/la4 ma3 te4	biqi*haozi*lamate	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+夏夏	2	xia4 xia4	xiaxia	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
+闾	1	lu:5	*	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	gate of a village/village
+唐纳德·安德鲁斯	8	tang2 na4 de2 #an1 de2 lu3 si1	tangnade*andelusi	1	0.03	0	1	0.02	0	nr	1	.nr.	.1.	#
