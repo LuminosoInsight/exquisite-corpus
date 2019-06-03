@@ -248,6 +248,9 @@ if TESTMODE:
     SOURCE_LANGUAGES['wikipedia'] = [
         'ar', 'bn', 'cs', 'en', 'fr', 'hu', 'it', 'nl', 'pl', 'zh'
     ]
+    GOOGLE_1GRAM_SHARDS = [
+        '2', 'a', 'e', 'm', 'n', 'p', 's', 'r', 't', 'u', 'other',
+    ]
 
 # Create a mapping from language codes to sources that we have for that
 # language.
