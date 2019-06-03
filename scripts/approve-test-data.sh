@@ -1,12 +1,18 @@
 #!/bin/bash
 
 echo "Copying input files from tests/input_data"
-cp -r tests/input_data/* tests/data
+rm -r tests/data/raw
+rm -r tests/data/downloaded
+rm -r tests/data/source-lists
+cp -r tests/input_data/raw tests/data
+cp -r tests/input_data/downloaded tests/data
+cp -r tests/input_data/source-lists tests/data
 
 echo "Running the build"
 XC_BUILD_TEST="1" snakemake -j 4
 
 echo "Copying the output files to tests/reference"
+rm -r tests/reference/*
 cp -r tests/data/extracted tests/reference
 cp -r tests/data/tokenized tests/reference
 cp -r tests/data/messy-counts tests/reference

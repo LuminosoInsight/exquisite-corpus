@@ -238,6 +238,17 @@ AMAZON_ACL_DATASETS = [
 
 AMAZON_ACL_CODES = ['en', 'de', 'fr', 'jp']
 
+# Sample the datasets and languages in testmode
+TESTMODE = bool(os.environ.get("XC_BUILD_TEST"))
+if TESTMODE:
+    DATA = 'tests/data'
+    REDDIT_SHARDS = [
+        '2007-10', '2009-09', '2011-01', '2013-12', '2015-08', '2017-02',
+    ]
+    SOURCE_LANGUAGES['wikipedia'] = [
+        'ar', 'bn', 'cs', 'en', 'fr', 'hu', 'it', 'nl', 'pl', 'zh'
+    ]
+
 # Create a mapping from language codes to sources that we have for that
 # language.
 
@@ -313,12 +324,6 @@ MAX_SPM_CHUNK_LEN = 70
 FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION = 0.1
 FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING = 0.1
 
-TESTMODE = bool(os.environ.get("XC_BUILD_TEST"))
-if TESTMODE:
-    DATA = 'tests/data'
-    REDDIT_SHARDS = [
-        '2007-10', '2009-09', '2011-01', '2013-12', '2015-08', '2017-02',
-    ]
 
 
 def map_opus_language(dataset, lang):
