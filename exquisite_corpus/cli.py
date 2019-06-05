@@ -1,4 +1,5 @@
 import click
+from .language_detection import CLD2_LANGUAGES
 from .preprocess import preprocess_reddit, preprocess_twitter
 from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
@@ -44,9 +45,12 @@ def run_tokenize_sp(input_file, output_file, model_filename):
 @click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
 @click.argument('output_dir', type=click.Path(exists=False, file_okay=False, dir_okay=True, writable=True))
 @click.option('--zip/--no-zip', '-z', is_flag=True, default=False)
-def run_tokenize_by_language(input_file, output_dir, zip):
+@click.option('--languages', '-l', default=CLD2_LANGUAGES)
+def run_tokenize_by_language(input_file, output_dir, zip, languages):
+    if isinstance(languages, str):
+        languages = languages.split(',')
     os.makedirs(output_dir, exist_ok=True)
-    tokenize_by_language(input_file, output_dir, zipped=zip)
+    tokenize_by_language(input_file, output_dir, zipped=zip, languages=languages)
 
 
 @cli.command(name='preprocess-reddit')
