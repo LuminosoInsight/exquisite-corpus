@@ -20,8 +20,10 @@ def run_build(test_env_variables, setup_input_files):
 
 @pytest.mark.parametrize(
     'result, reference',
-    [('tests/data/' + directory, 'tests/reference/' + directory)
-     for directory in directories]
+    [
+        ('tests/data/' + directory, 'tests/reference/' + directory)
+        for directory in directories
+    ],
 )
 def test_text_result_same_as_reference(run_build, result, reference):
     assert result_dir_same_as_reference(result, reference)
@@ -32,7 +34,7 @@ def test_text_result_same_as_reference(run_build, result, reference):
     [
         ('tests/data' + directory, 'tests/reference' + directory)
         for directory in directories[:3]
-    ]
+    ],
 )
 def test_gzipped_result_same_as_reference(run_build, result, reference):
     assert gzipped_result_dir_same_as_reference(result, reference)
