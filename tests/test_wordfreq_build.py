@@ -32,7 +32,7 @@ def test_text_result_same_as_reference(run_build, result, reference):
 @pytest.mark.parametrize(
     'result, reference',
     [
-        ('tests/data' + directory, 'tests/reference' + directory)
+        ('tests/data/' + directory, 'tests/reference/' + directory)
         for directory in directories[:3]
     ],
 )
