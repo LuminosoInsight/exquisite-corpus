@@ -15,7 +15,7 @@ def quick_run(pytestconfig):
 
 
 @pytest.fixture(scope='session')
-def setup_input_files(is_quick_run):
+def setup_test_directory(is_quick_run):
     if not is_quick_run:
         rmtree('tests/data', ignore_errors=True)
         copytree('tests/input_data/', 'tests/data/')
