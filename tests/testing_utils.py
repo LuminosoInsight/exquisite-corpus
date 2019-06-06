@@ -39,6 +39,6 @@ def result_dir_same_as_reference(result, reference):
     Return True if all text files in result directory matched the text files in the
     reference directory and False otherwise. Skip the gzipped files.
     """
-    cmd_args = ['diff', '-r', '-x', '*.gz', '-q']
+    cmd_args = ['diff', '-r', '-x', '*.gz', '-q', '-N']
     code = subprocess.call(cmd_args + [result, reference])
     return not bool(code)
