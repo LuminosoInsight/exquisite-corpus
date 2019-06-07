@@ -1239,7 +1239,7 @@ rule split_train_valid_test:
 
 rule join_training_data:
     input:
-        DATA + "data/parallel/training/paired/{lang1}_{lang2}.{lang1}.{" \
+        DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang1}.{" \
              "mode}.txt",
         DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang2}.{mode}.txt"
     output:
