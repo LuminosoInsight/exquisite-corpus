@@ -1,5 +1,4 @@
 import pytest
-from shutil import rmtree
 
 from tests.testing_utils import (
     gzipped_result_dir_same_as_reference,
