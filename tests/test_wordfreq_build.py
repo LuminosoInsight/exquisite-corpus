@@ -1,5 +1,4 @@
 import pytest
-from shutil import rmtree
 
 from tests.testing_utils import (
     gzipped_result_dir_same_as_reference,
@@ -11,11 +10,8 @@ directories = ['extracted', 'tokenized', 'wordfreq', 'messy-counts', 'counts', '
 
 
 @pytest.fixture(scope='session')
-def run_build(test_env_variables, setup_input_files):
+def run_build(test_env_variables, setup_test_directory):
     run_snakemake(test_env_variables)
-    yield
-    for directory in directories:
-        rmtree('tests/data/' + directory)
 
 
 @pytest.mark.parametrize(
