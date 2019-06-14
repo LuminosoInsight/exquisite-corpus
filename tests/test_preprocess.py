@@ -117,90 +117,83 @@ def test_strip_markdown(text, expected):
             preprocess_reddit,
             id='Strip url after stripping markdown in a Reddit post',
         ),
+        pytest.param(
+            {
+                'body': '**https**://company.com',
+                'score': 3,
+                'subreddit': 'some_subreddit',
+            },
+            '',
+            preprocess_reddit,
+            id='Ignore a Reddit post if no text left after preprocessing',
+        ),
+        pytest.param(
+            {'body': 'Short text', 'score': 3, 'subreddit': 'some_subreddit'},
+            '',
+            preprocess_reddit,
+            id='Ignore a Reddit post if we are not confident in language detection',
+        ),
+        pytest.param(
+            {
+                'body': 'Jag hade tvättat fönstren på våren men nu är de smutsiga igen.',
+                'score': 2,
+                'subreddit': 'some_subreddit',
+            },
+            'sv\tJag hade tvättat fönstren på våren men nu är de smutsiga igen.\n',
+            preprocess_reddit,
+            id='Write Reddit text in a language other than English',
+        ),
+        pytest.param(
+            {
+                'body': 'Sample text in English with a score of 1 and length of 58.',
+                'score': 1,
+                'subreddit': 'some_subreddit',
+            },
+            '',
+            preprocess_reddit,
+            id='Ignore English text with a score less than 2',
+        ),
+        pytest.param(
+            'ar\tRT  A long-ish string in which there is a single tab',
+            'en\tRT  A long-ish string in which there is a single tab\n',
+            preprocess_twitter,
+            id='Select Twitter text after a tab',
+        ),
+        pytest.param(
+            'A long-ish string in which there are no tabs, not even one.',
+            'en\tA long-ish string in which there are no tabs, not even one.\n',
+            preprocess_twitter,
+            id='Select Twitter text if there are no tabs',
+        ),
+        pytest.param(
+            'A long-ish string in which there are multiple newlines\n\n\n\n',
+            'en\tA long-ish string in which there are multiple newlines\n',
+            preprocess_twitter,
+            id='Remove whitespace from the end of a tweet',
+        ),
+        pytest.param(
+            (
+                'A string with a bunch of Twitter handles in it, such as '
+                '@made_up_test_handle1 and @made_up_test_handle2'
+            ),
+            'en\tA string with a bunch of Twitter handles in it, such as  and \n',
+            preprocess_twitter,
+            id='Strip Twitter handles',
+        ),
+        pytest.param(
+            'A string with a number of urls, such as http://t.co/somelink as well as '
+            'https://t.co/someotherlink',
+            'en\tA string with a number of urls, such as  as well as \n',
+            preprocess_twitter,
+            id='Remove urls from tweets',
+        ),
+        pytest.param(
+            'fdmsfkresfjgre defrnefewf wdfmesnfesscvnds sdfwred',
+            '',
+            preprocess_twitter,
+            id='Ignore a tweet if we are not confident in language detection'
+        )
     ],
 )
 def test_preprocess(test_object, expected, func):
     assert run_preprocess(func, test_object) == expected
-
-
-def test_reddit_ignore_if_no_text_left_after_processing():
-    test_json = {
-        'body': '**https**://company.com',
-        'score': 3,
-        'subreddit': 'some_subreddit',
-    }
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_ignore_if_not_confident_in_language_detection():
-    test_json = {'body': 'Short text', 'score': 3, 'subreddit': 'some_subreddit'}
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_write_text_in_language_other_than_english():
-    test_json = {
-        'body': 'Jag hade tvättat fönstren på våren men nu är de smutsiga igen.',
-        'score': 2,
-        'subreddit': 'some_subreddit',
-    }
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert (
-        output == 'sv\tJag hade tvättat fönstren på våren men nu är de smutsiga igen.\n'
-    )
-
-
-def test_reddit_ignore_english_text_with_score_less_than_2():
-    test_json = {
-        'body': 'Sample text in English with a score of 1 and length of 58.',
-        'score': 1,
-        'subreddit': 'some_subreddit',
-    }
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_twitter_select_text_after_tab():
-    test_str = 'ar\tRT  A long-ish string in which there is a single tab'
-    output = run_preprocess(preprocess_twitter, test_str)
-    assert output == 'en\tRT  A long-ish string in which there is a single tab\n'
-
-
-def test_twitter_select_text_with_no_tab():
-    test_str = 'A long-ish string in which there are no tabs, not even one.'
-    output = run_preprocess(preprocess_twitter, test_str)
-    assert output == 'en\tA long-ish string in which there are no tabs, not even one.\n'
-
-
-def test_twitter_strip_writespace_from_end():
-    test_str = 'A long-ish string in which there are multiple newlines\n\n\n\n'
-    output = run_preprocess(preprocess_twitter, test_str)
-    assert output == 'en\tA long-ish string in which there are multiple newlines\n'
-
-
-def test_twitter_strip_twitter_handle():
-    test_str = (
-        'A string with a bunch of Twitter handles in it, such as '
-        '@made_up_test_handle1 and @made_up_test_handle2'
-    )
-    output = run_preprocess(preprocess_twitter, test_str)
-    assert (
-        output == 'en\tA string with a bunch of Twitter handles in it, such as  and \n'
-    )
-
-
-def test_twitter_remove_url():
-    test_str = (
-        'A string with a number of urls, such as '
-        'http://t.co/somelink as well as '
-        'https://t.co/someotherlink'
-    )
-    output = run_preprocess(preprocess_twitter, test_str)
-    assert output == 'en\tA string with a number of urls, such as  as well as \n'
-
-
-def test_twitter_ignore_if_not_confident_in_language_detection():
-    test_str = 'fdmsfkresfjgre defrnefewf wdfmesnfesscvnds sdfwred'
-    output = run_preprocess(preprocess_twitter, test_str)
-    assert output == ''
