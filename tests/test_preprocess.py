@@ -191,8 +191,8 @@ def test_strip_markdown(text, expected):
             'fdmsfkresfjgre defrnefewf wdfmesnfesscvnds sdfwred',
             '',
             preprocess_twitter,
-            id='Ignore a tweet if we are not confident in language detection'
-        )
+            id='Ignore a tweet if we are not confident in language detection',
+        ),
     ],
 )
 def test_preprocess(test_object, expected, func):
