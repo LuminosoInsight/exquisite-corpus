@@ -56,69 +56,71 @@ def test_strip_markdown(text, expected):
     assert strip_markdown(text) == expected
 
 
-def test_reddit_ignore_post_when_no_score():
-    test_json = {'body': 'This is a Reddit comment with no score'}
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_ignore_post_when_no_body():
-    test_json = {'score': 15}
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_ignore_post_when_score_is_none():
-    test_json = {'score': None, 'body': 'A post'}
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_ignore_post_when_score_less_than_1():
-    test_json = {'score': 0, 'body': 'Underrated post'}
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-    test_json = {'score': -10, 'body': 'Meh post'}
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_ignore_post_when_body_deleted():
-    test_json = {'body': '[deleted]', 'score': 15}
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_ignore_post_from_banned_subreddit():
-    test_json = {
-        'body': 'Probably a spam comment',
-        'score': 15,
-        'subreddit': 'amazondeals',
-    }
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == ''
-
-
-def test_reddit_replace_problematic_characters():
-    test_json = {
-        'body': 'A post with \n a new line and some weird characters \u200b\n',
-        'score': 3,
-        'subreddit': 'some_subreddit',
-    }
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == 'en\tA post with  a new line and some weird characters  \n'
-
-
-def test_reddit_strip_url_after_stripping_markdown():
-    test_json = {
-        'body': '**https**://company.com is a url with some emphasis,'
-        ' which will be removed',
-        'score': 3,
-        'subreddit': 'some_subreddit',
-    }
-    output = run_preprocess(preprocess_reddit, test_json)
-    assert output == 'en\t is a url with some emphasis, which will be removed\n'
+@pytest.mark.parametrize(
+    'test_object, expected, func',
+    [
+        pytest.param(
+            {'body': 'This is a Reddit comment with no score'},
+            '',
+            preprocess_reddit,
+            id='Ignore a Reddit post with no score',
+        ),
+        pytest.param(
+            {'score': 15}, '', preprocess_reddit, id='Ignore a Reddit post with no body'
+        ),
+        pytest.param(
+            {'score': None, 'body': 'A post'},
+            '',
+            preprocess_reddit,
+            id='Ignore a Reddit post when its score is None',
+        ),
+        pytest.param(
+            {'score': 0, 'body': 'Underrated post'},
+            '',
+            preprocess_reddit,
+            id='Ignore a Reddit post when its score is less than 1',
+        ),
+        pytest.param(
+            {'body': '[deleted]', 'score': 15},
+            '',
+            preprocess_reddit,
+            id='Ignore a Reddit post when its body was deleted',
+        ),
+        pytest.param(
+            {
+                'body': 'Probably a spam comment',
+                'score': 15,
+                'subreddit': 'amazondeals',
+            },
+            '',
+            preprocess_reddit,
+            id='Ignore a post from a banned subreddit',
+        ),
+        pytest.param(
+            {
+                'body': 'A post with \n a new line and some weird characters \u200b\n',
+                'score': 3,
+                'subreddit': 'some_subreddit',
+            },
+            'en\tA post with  a new line and some weird characters  \n',
+            preprocess_reddit,
+            id='Replace problematic characters in a Reddit post',
+        ),
+        pytest.param(
+            {
+                'body': '**https**://company.com is a url with some emphasis,'
+                ' which will be removed',
+                'score': 3,
+                'subreddit': 'some_subreddit',
+            },
+            'en\t is a url with some emphasis, which will be removed\n',
+            preprocess_reddit,
+            id='Strip url after stripping markdown in a Reddit post',
+        ),
+    ],
+)
+def test_preprocess(test_object, expected, func):
+    assert run_preprocess(func, test_object) == expected
 
 
 def test_reddit_ignore_if_no_text_left_after_processing():
