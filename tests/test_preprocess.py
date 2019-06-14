@@ -21,25 +21,37 @@ def run_preprocess(func, test_obj):
     return result
 
 
-@pytest.mark.parametrize('text, expected', [
-    pytest.param("Don't blame me for that pic, blame [this site](http://url.com/)",
-                 "Don't blame me for that pic, blame this site",
-                 id='strip down markdown url'),
-    pytest.param("Some [[url]](http://url.com/)",
-                 'Some [url]',
-                 id='strip url with brackets'),
-    pytest.param('_This_ is *important* and ~this~ is too.',
-                 'This is important and this is too.',
-                 id='strip markdown empasis characters'),
-    pytest.param((
-        '> This line starts with ">"\n# This one starts with "#"\n* This'
-        ' one starts with an asterisk\n- This one starts with "-"\n And'
-        ' this one with a space.'),
-        ('This line starts with ">" This one starts with "#" This'
-        ' one starts with an asterisk This one starts with "-"'
-        ' And this one with a space.'),
-        id='remove markdown from a start of line')
-])
+@pytest.mark.parametrize(
+    'text, expected',
+    [
+        pytest.param(
+            "Don't blame me for that pic, blame [this site](http://url.com/)",
+            "Don't blame me for that pic, blame this site",
+            id='strip down markdown url',
+        ),
+        pytest.param(
+            "Some [[url]](http://url.com/)", 'Some [url]', id='strip url with brackets'
+        ),
+        pytest.param(
+            '_This_ is *important* and ~this~ is too.',
+            'This is important and this is too.',
+            id='strip markdown empasis characters',
+        ),
+        pytest.param(
+            (
+                '> This line starts with ">"\n# This one starts with "#"\n* This'
+                ' one starts with an asterisk\n- This one starts with "-"\n And'
+                ' this one with a space.'
+            ),
+            (
+                'This line starts with ">" This one starts with "#" This'
+                ' one starts with an asterisk This one starts with "-"'
+                ' And this one with a space.'
+            ),
+            id='remove markdown from a start of line',
+        ),
+    ],
+)
 def test_strip_markdown(text, expected):
     assert strip_markdown(text) == expected
 
