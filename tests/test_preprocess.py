@@ -1,5 +1,6 @@
 import json
 
+import pytest
 from io import StringIO
 
 from exquisite_corpus.preprocess import (
@@ -20,36 +21,27 @@ def run_preprocess(func, test_obj):
     return result
 
 
-def test_strip_markdown_url():
-    text = "Don't blame me for that pic, blame [this site](http://url.com/)"
-    output = strip_markdown(text)
-    assert output == "Don't blame me for that pic, blame this site"
-
-
-def test_strip_markdown_url_with_brackets():
-    text = "Some [[url]](http://url.com/)"
-    output = strip_markdown(text)
-    assert output == 'Some [url]'
-
-
-def test_strip_markdown_emphasis_characters():
-    text = '_This_ is *important* and ~this~ is too.'
-    output = strip_markdown(text)
-    assert output == 'This is important and this is too.'
-
-
-def test_strip_markdown_remove_from_start_of_line():
-    text = (
+@pytest.mark.parametrize('text, expected', [
+    pytest.param("Don't blame me for that pic, blame [this site](http://url.com/)",
+                 "Don't blame me for that pic, blame this site",
+                 id='strip down markdown url'),
+    pytest.param("Some [[url]](http://url.com/)",
+                 'Some [url]',
+                 id='strip url with brackets'),
+    pytest.param('_This_ is *important* and ~this~ is too.',
+                 'This is important and this is too.',
+                 id='strip markdown empasis characters'),
+    pytest.param((
         '> This line starts with ">"\n# This one starts with "#"\n* This'
         ' one starts with an asterisk\n- This one starts with "-"\n And'
-        ' this one with a space.'
-    )
-    output = strip_markdown(text)
-    assert output == (
-        'This line starts with ">" This one starts with "#" This'
+        ' this one with a space.'),
+        ('This line starts with ">" This one starts with "#" This'
         ' one starts with an asterisk This one starts with "-"'
-        ' And this one with a space.'
-    )
+        ' And this one with a space.'),
+        id='remove markdown from a start of line')
+])
+def test_strip_markdown(text, expected):
+    assert strip_markdown(text) == expected
 
 
 def test_reddit_ignore_post_when_no_score():
