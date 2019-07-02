@@ -279,10 +279,6 @@ OPENSUB_LANGUAGE_PAIRS = [
     if _lang1 < _lang2
 ]
 
-# Define the languages for which we'll build SentencePiece models.
-
-SPM_LANGUAGES = ['en']
-
 # We'll build parallel text between English and any other language that has
 # translations in OpenSubtitles or ParaCrawl. (Europarl and Tatoeba are not
 # enough.)
@@ -301,32 +297,6 @@ TATOEBA_LANGUAGE_PAIRS = [
     'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_it',
     'en_ja', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
 ]
-
-# We want some flexibility in the amount of data we encode via SentencePiece
-# to use in training a language model.  That data will be a subset of the
-# monolingual data sampled to train SentencePiece itself; we define the size
-# of that subset here as the fraction of the whole monolingual dataset to use.
-FRACTION_OF_DATA_TO_SPM_ENCODE = 0.5
-
-# To have a (statically) predictable set of SentencePiece id files when
-# segregated by length (number of id's per input, not the number of inputs),
-# we set an upper bound on the length.  Sentences with longer encodings will
-# be split into chunks with sizes ranging between two specified lengths.
-# The maximum possible length is set based on Salesforce's awd-lstm-lm code.
-# (Note that we add the SentencePiece start and end ids to the sequences
-# before splitting, and that these symbols are counted against the maximum
-# length.)
-MAX_SPM_ENCODE_IDS = 70
-MIN_SPM_CHUNK_LEN = 35
-MAX_SPM_CHUNK_LEN = 70
-
-# We split the encoded SentencePiece data into three disjoint datasets, for
-# training, validation, and testing purposes.  Here we set the relative sizes
-# of these subsets of the data for the language model, as fractions of the
-# size of the output of the encoding process.
-FRACTION_OF_ENCODED_SPM_DATA_FOR_VALIDATION = 0.1
-FRACTION_OF_ENCODED_SPM_DATA_FOR_TESTING = 0.1
-
 
 
 def map_opus_language(dataset, lang):
