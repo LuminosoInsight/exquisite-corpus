@@ -93,7 +93,7 @@ def train_sentencepiece(in_file, model_prefix):
             "--input_format=text " \
             "--input_sentence_size=1000000 " \
             "--shuffle_input_sentence " \
-            "--vocab_size=16000 " \
+            "--vocab_size=32000 " \
             "--hard_vocab_limit=false " \
             "--normalization_rule_name=nmt_nfkc_cf".format(file=in_file, prefix=model_prefix)
     sentencepiece.SentencePieceTrainer.Train(parms)
