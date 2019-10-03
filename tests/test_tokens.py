@@ -57,10 +57,11 @@ def test_tokenize_file(text, expected, kwargs):
     'in_file, expected, kwargs',
     [
         pytest.param(
-            ['en\tsample text'],
-            'sample text',
+            ['en\tSample text.'],
+            'sample text .',
             {'languages': ['en']},
-            id='Write text to a file for that language'
+            id='Write tokenized text to a file containing only text in its '
+               'language'
         ),
         pytest.param(
             ['pl\tsample text'],
@@ -83,4 +84,5 @@ def test_tokenize_by_language(in_file, expected, kwargs):
         else:
             calls = [call(f'./{lang}.txt', 'w', encoding='utf-8'),
                      call().close()]
-        m.assert_has_calls(calls) # TODO Uninformative error
+
+        assert m.mock_calls == calls
