@@ -270,8 +270,8 @@ SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAG
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
 OPENSUB_PARALLEL_LANGUAGES = [
-    'ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'it', 'ja', 'nl', 'pl', 'pt', 'ru',
-    'sv', 'zh-Hans', 'zh-Hant'
+    'ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'id', 'it', 'ja', 'ko', 'nl', 'pl', 'pt',
+    'ru', 'sv', 'zh-Hans', 'zh-Hant'
 ]
 OPENSUB_LANGUAGE_PAIRS = [
     "{}_{}".format(_lang1, _lang2)
@@ -286,16 +286,16 @@ OPENSUB_LANGUAGE_PAIRS = [
 # Construct this list manually for now to be sure we get the codes in the
 # right order.
 PARALLEL_LANGUAGE_PAIRS = [
-    'ar_en', 'cs_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr',
-    'en_it', 'en_ja', 'en_lv', 'en_nl', 'en_pl', 'en_pt', 'en_ro',
+    'ar_en', 'cs_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id',
+    'en_it', 'en_ja', 'en_ko', 'en_lv', 'en_nl', 'en_pl', 'en_pt', 'en_ro',
     'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
 ]
 
 # Tatoeba language pairs; constructed manually such that cs_en, en_lv, en_ro, and
 # en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
 TATOEBA_LANGUAGE_PAIRS = [
-    'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_it',
-    'en_ja', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
+    'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id', 'en_it',
+    'en_ja', 'en_ko', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
 ]
 
 
