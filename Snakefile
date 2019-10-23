@@ -1109,9 +1109,30 @@ rule shuffle_parallel:
         "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_{wildcards.lang1}_{wildcards.lang2}"
 
 
+rule download_fasttext_lid:
+    output:
+        DATA + "/parallel/fasttext-lid/lid.176.bin"
+    shell:
+        "curl -Lf 'https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin' -o {output}"
+
+
+rule cleanup_parallel:
+    input:
+        DATA + "/parallel/shuffled/{lang1}_{lang2}.txt",
+        DATA + "/parallel/fasttext-lid/lid.176.bin"
+    output:
+        DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
+    run:
+        input_file, fasttext_model_file = input
+        shell(
+            "xc cleanup-parallel {input_file} {output} {fasttext_model_file} "
+            "{wildcards.lang1} {wildcards.lang2}"
+        )
+
+
 rule separate_parallel:
     input:
-        DATA + "/parallel/shuffled/{lang1}_{lang2}.txt"
+        DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
     output:
         DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
         DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
@@ -1119,6 +1140,23 @@ rule separate_parallel:
         out1, out2 = output
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
 
+
+# Split files into train, valid, and test sets; 10000 lines for valid and test set each
+# and rest is kept for the train set.
+rule split_train_valid_test:
+    input:
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.all.txt"
+    output:
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.train.txt",
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.valid.txt",
+        DATA + "/parallel/shuffled-split/{pair}.{lang}.test.txt"
+    run:
+        train_file, valid_file, test_file = output
+        shell(
+            "sed -n '1,10000p' {input} > {test_file} && "
+            "sed -n '10001,20000p' {input} > {valid_file} && "
+            "tail -n +20001 {input} > {train_file}"
+        )
 
 # Train SentencePiece model on the train set and get the vocabulary (one piece per line).
 # Maximum size of sentences the trainer loads, by randomly sampling, is 1M.
@@ -1133,7 +1171,7 @@ rule train_sentencepiece:
     run:
         model_file, nmt_vocab_file = output
         shell(
-            "xc train-sp {input} data/parallel/training/sp/{wildcards.pair}.{wildcards.lang} && "
+            "xc train-sp {input} data/parallel/training/sp/{wildcards.pair}.{wildcards.lang} {wildcards.lang} && "
             "xc get-vocab-sp {nmt_vocab_file} {model_file}"
         )
 
@@ -1166,6 +1204,30 @@ rule apply_sentencepiece_tatoeba:
         )
 
 
+rule join_training_data:
+    input:
+        DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang1}.{mode}.txt",
+        DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang2}.{mode}.txt"
+    output:
+        DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt"
+
+    shell:
+        "paste {input} > {output}"
+
+
+rule join_tatoeba_data:
+    input:
+        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
+           "lang1}.txt",
+        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
+            "lang2}.txt"
+    output:
+        DATA + "/parallel/training/joined/tatoeba_test.{lang1}_{lang2}.txt"
+
+    shell:
+        "paste {input} > {output}"
+
+
 rule learn_sentencepiece:
     input:
         DATA + "/monolingual/{lang}.sample.txt"
@@ -1186,50 +1248,6 @@ rule learn_sentencepiece:
         # Case-fold, apply NFKC, and apply a couple other substitutions that
         # machine translation people have found useful:
         "--normalization_rule_name nmt_nfkc_cf"
-
-
-
-# Split files into train, valid, and test sets; 10000 lines for valid and test set each
-# and rest is kept for the train set.
-rule split_train_valid_test:
-    input:
-        DATA + "/parallel/shuffled-split/{pair}.{lang}.all.txt"
-    output:
-        DATA + "/parallel/shuffled-split/{pair}.{lang}.train.txt",
-        DATA + "/parallel/shuffled-split/{pair}.{lang}.valid.txt",
-        DATA + "/parallel/shuffled-split/{pair}.{lang}.test.txt"
-    run:
-        train_file, valid_file, test_file = output
-        shell(
-            "sed -n '1,10000p' {input} > {test_file} && "
-            "sed -n '10001,20000p' {input} > {valid_file} && "
-            "tail -n +20001 {input} > {train_file}"
-        )
-
-
-rule join_training_data:
-    input:
-        DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang1}.{" \
-             "mode}.txt",
-        DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang2}.{mode}.txt"
-    output:
-        DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt"
-
-    shell:
-        "paste {input} > {output}"
-
-
-rule join_tatoeba_data:
-    input:
-        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
-           "lang1}.txt",
-        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
-            "lang2}.txt"
-    output:
-        DATA + "/parallel/training/joined/tatoeba_test.{lang1}_{lang2}.txt"
-
-    shell:
-        "paste {input} > {output}"
 
 
 # Counting tokens

@@ -5,8 +5,8 @@ from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
 from .tokens import (
     tokenize_file, tokenize_by_language, tokenize_with_sentencepiece,
-    train_sentencepiece, encode_with_sp_as_pieces, decode_pieces_with_sp,
-    get_vocabulary_from_sp
+    cleanup_parallel_file, train_sentencepiece, encode_with_sp_as_pieces,
+    decode_pieces_with_sp, get_vocabulary_from_sp
 )
 from .freq import (
     count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack,
@@ -147,11 +147,22 @@ def run_intersperse(input_file, output_file, lang1, lang2):
     intersperse_parallel_text(input_file, output_file, lang1, lang2)
 
 
+@cli.command(name='cleanup-parallel')
+@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+@click.argument('ft_model_file')
+@click.argument('lang1')
+@click.argument('lang2')
+def run_cleanup_parallel_file(input_file, output_file, ft_model_file, lang1, lang2):
+    cleanup_parallel_file(input_file, output_file, ft_model_file, lang1, lang2)
+
+
 @cli.command(name='train-sp')
 @click.argument('input_file')
 @click.argument('model_prefix')
-def run_train_sentencepiece(input_file, model_prefix):
-    train_sentencepiece(input_file, model_prefix)
+@click.argument('lang')
+def run_train_sentencepiece(input_file, model_prefix, lang):
+    train_sentencepiece(input_file, model_prefix, lang)
 
 
 @cli.command(name='encode-with-sp')
