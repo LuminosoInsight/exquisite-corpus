@@ -4,7 +4,9 @@ from .preprocess import preprocess_reddit, preprocess_twitter
 from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
 from .tokens import (
-    tokenize_file, tokenize_by_language, tokenize_with_sentencepiece,
+    tokenize_file, tokenize_by_language, tokenize_with_sentencepiece
+)
+from .parallel_corpus import (
     cleanup_parallel_file, train_sentencepiece, encode_with_sp_as_pieces,
     decode_pieces_with_sp, get_vocabulary_from_sp
 )
