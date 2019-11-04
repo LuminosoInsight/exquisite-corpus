@@ -124,31 +124,19 @@ def test_get_vocabulary_from_sp(path_to_sp_model):
     assert count == 27
 
 
-@pytest.mark.parametrize(
-    'text, expected',
-    [
-        (DECODED[0], ENCODED[0]),
-        (DECODED[1], ENCODED[1])
-    ]
-)
-def test_encode_with_sp_as_pieces(path_to_sp_model, text, expected):
-    in_file = [text]
-    out_file = StringIO()
-    encode_with_sp_as_pieces(in_file, out_file, path_to_sp_model)
-    out_file.seek(0)
-    assert out_file.read().replace('\n', '') == expected
+def test_encode_with_sp_as_pieces(path_to_sp_model):
+    for text, expected in zip(DECODED, ENCODED):
+        in_file = [text]
+        out_file = StringIO()
+        encode_with_sp_as_pieces(in_file, out_file, path_to_sp_model)
+        out_file.seek(0)
+        assert out_file.read().replace('\n', '') == expected
 
 
-@pytest.mark.parametrize(
-    'text, expected',
-    [
-        (ENCODED[0], DECODED[0]),
-        (ENCODED[1], DECODED[1])
-    ]
-)
-def test_decode_pieces_with_sp(path_to_sp_model, text, expected):
-    in_file = [text]
-    out_file = StringIO()
-    decode_pieces_with_sp(in_file, out_file, path_to_sp_model)
-    out_file.seek(0)
-    assert out_file.read().replace('\n', '') == expected
+def test_decode_pieces_with_sp(path_to_sp_model):
+    for text, expected in zip(ENCODED, DECODED):
+        in_file = [text]
+        out_file = StringIO()
+        decode_pieces_with_sp(in_file, out_file, path_to_sp_model)
+        out_file.seek(0)
+        assert out_file.read().replace('\n', '') == expected
