@@ -7,8 +7,8 @@ from .tokens import (
     tokenize_file, tokenize_by_language, tokenize_with_sentencepiece
 )
 from .parallel_corpus import (
-    cleanup_parallel_file, train_sentencepiece, encode_with_sp_as_pieces,
-    decode_pieces_with_sp, get_vocabulary_from_sp
+    cleanup_parallel_file, sample_multilingual, train_sentencepiece,
+    encode_with_sp_as_pieces, decode_pieces_with_sp, get_vocabulary_from_sp
 )
 from .freq import (
     count_files_to_freqs, single_count_file_to_freqs, freqs_to_cBpack,
@@ -157,6 +157,13 @@ def run_intersperse(input_file, output_file, lang1, lang2):
 @click.argument('lang2')
 def run_cleanup_parallel_file(input_file, output_file, ft_model_file, lang1, lang2):
     cleanup_parallel_file(input_file, output_file, ft_model_file, lang1, lang2)
+
+
+@cli.command(name='sample-multilingual')
+@click.argument('input_files', nargs=-1)
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+def run_sample_multilingual(input_files, output_file):
+    sample_multilingual(input_files, output_file)
 
 
 @cli.command(name='train-sp')

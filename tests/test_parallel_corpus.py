@@ -6,8 +6,8 @@ import pytest
 import sentencepiece
 
 from exquisite_corpus.parallel_corpus import (
-    cleanup_parallel_file, decode_pieces_with_sp, encode_with_sp_as_pieces,
-    get_vocabulary_from_sp, train_sentencepiece
+    cleanup_parallel_file, sample_multilingual, decode_pieces_with_sp,
+    encode_with_sp_as_pieces, get_vocabulary_from_sp, train_sentencepiece
 )
 
 DECODED = [
@@ -78,7 +78,7 @@ def path_to_ft_model(tmpdir_factory):
 
     ]
 )
-def test_cleanup_parallel_file(tmpdir, text, expected, lang1, lang2, path_to_ft_model):
+def test_cleanup_parallel_file(text, expected, lang1, lang2, path_to_ft_model):
     in_file = [text]
     out_file = StringIO()
 
@@ -87,6 +87,54 @@ def test_cleanup_parallel_file(tmpdir, text, expected, lang1, lang2, path_to_ft_
     )
     out_file.seek(0)
     assert out_file.read() == expected
+
+
+def test_sample_multilingual(tmpdir):
+    input_file1 = tmpdir.mkdir('inputs').join('x_en.txt')
+    input_file1.write(
+        'two\tone\n'
+        'four\tthree\n'
+        'six\tfive\n'
+        'eight\tseven\n'
+        'ten\tnine'
+    )
+
+    input_file2 = tmpdir.join('inputs', 'en_x.txt')
+    input_file2.write(
+        '1\t2\n'
+        '3\t4'
+    )
+
+    input_file3 = tmpdir.join('inputs', 'en_y.txt')
+    input_file3.write(
+        'I\tII\n'
+        'III\tIV\n'
+        'V\tVI'
+    )
+
+    # Largest language pair is input_file1 with 5 lines, so input_file2 and input_file3
+    # should be oversampled to have 5 lines each.
+    # For input_file1, English is on the right side of the file. For the final file,
+    # input_file1 should be copied such that English is on the left side of the file.
+    expected = 'one\ttwo\n' \
+               'three\tfour\n' \
+               'five\tsix\n' \
+               'seven\teight\n' \
+               'nine\tten\n' \
+               '1\t2\n' \
+               '3\t4\n' \
+               'I\tII\n' \
+               'III\tIV\n' \
+               'V\tVI\n' \
+               '1\t2\n' \
+               '3\t4\n' \
+               'I\tII\n' \
+               'III\tIV\n' \
+               '1\t2\n'
+    output_file = StringIO()
+    sample_multilingual([input_file1, input_file2, input_file3], output_file)
+    output_file.seek(0)
+    assert output_file.read() == expected
 
 
 @pytest.fixture(scope="session")

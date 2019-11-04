@@ -1,3 +1,4 @@
+import os
 import sentencepiece
 import fasttext
 from ftfy import fix_text
@@ -71,6 +72,61 @@ def cleanup_parallel_file(
 
         if note_match and clean_lang1 and clean_lang2:
             outfile.write(line)
+
+
+def sample_multilingual(in_files, out_file):
+    """
+    Take in tab-separated parallel text files and oversample the data from all language
+    pairs to be of the same size as the largest language pair.
+    """
+    files = []
+    line_count = []
+    for file in in_files:
+        # ar_en, cs_en, and de_en have English text on the right side of the
+        # tab-separated parallel text file. The following step is needed to ensure
+        # that English is on the left side of the multi-lingual dataset for all
+        # language pairs.
+        basename = os.path.basename(file)
+        basename_root = os.path.splitext(basename)[0]
+        first_lang = basename_root.split('_')[0]
+        second_lang = basename_root.split('_')[1]
+
+        if first_lang != 'en':
+            tmp_dir = os.path.join('data', 'tmp')
+            if not os.path.exists(tmp_dir):
+                os.makedirs(tmp_dir)
+
+            new_file = os.path.join(tmp_dir, second_lang + '_' + first_lang + '.txt')
+            lines = 0
+            with open(new_file, 'w', encoding='utf-8') as file_new:
+                with open(file, 'r', encoding='utf-8') as file_old:
+                    for line in file_old:
+                        lines += 1
+                        sequences = line.replace('\n', '').split('\t')
+                        file_new.write(sequences[1]+'\t'+sequences[0]+'\n')
+            line_count.append(lines)
+            files.append(new_file)
+        else:
+            line_count.append(len(open(file).readlines()))
+            files.append(file)
+
+    # Oversample the data from all language pairs to be of the same size as the largest
+    # language pair. To ensure homogeneity, files are added in a continuous fashion (and
+    # shuffled later).
+    max_line_count = max(line_count)
+    count = [0] * len(files)
+    balanced = False
+    while not balanced:
+        for i in range(len(files)):
+            with open(files[i], 'r', encoding='utf-8') as file:
+                for line in file:
+                    if count[i] == max_line_count:
+                        break
+                    out_file.write(line)
+                    if line[-1] != '\n':
+                        out_file.write('\n')
+                    count[i] += 1
+        balanced = all([True if c == max_line_count else False for c in count])
 
 
 def train_sentencepiece(in_file, model_prefix, lang):

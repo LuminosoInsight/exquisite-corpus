@@ -298,6 +298,8 @@ TATOEBA_LANGUAGE_PAIRS = [
     'en_ja', 'en_ko', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
 ]
 
+MULTILINGUAL_LANGUAGE_PAIRS = ['en_cjk', 'en_romance']
+
 
 def map_opus_language(dataset, lang):
     if dataset.startswith('opus/'):
@@ -461,7 +463,9 @@ rule parallel:
         expand(DATA + "/parallel/training/joined/{pair}.{mode}.txt",
                 pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
         expand(DATA + "/parallel/training/joined/tatoeba_test.{pair}.txt",
-                pair=TATOEBA_LANGUAGE_PAIRS)
+                pair=TATOEBA_LANGUAGE_PAIRS),
+        expand(DATA + "/parallel/training/joined/{pair}.{mode}.txt",
+                pair=MULTILINGUAL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test'])
 
 rule frequencies:
     input:
@@ -1130,6 +1134,41 @@ rule cleanup_parallel:
         )
 
 
+def multilingual_group(wildcards):
+    group = []
+    if wildcards.lang2 == 'cjk':
+        for lang in ['zh-Hans', 'zh-Hant', 'ja', 'ko']:
+            lang1, lang2 = sorted(['en', lang])
+            pair = '{}_{}'.format(lang1, lang2)
+            group.append(DATA + "/parallel/shuffled-clean/{}.txt".format(pair))
+    elif wildcards.lang2 == 'romance':
+        for lang in ['es', 'pt', 'fr', 'it']:
+            lang1, lang2 = sorted(['en', lang])
+            pair = '{}_{}'.format(lang1, lang2)
+            group.append(DATA + "/parallel/shuffled-clean/{}.txt".format(pair))
+    return group
+
+
+rule sample_multilingual:
+    input:
+        multilingual_group
+    output:
+        DATA + "/parallel/multi-lingual/{lang1}_{lang2}.txt"
+    wildcard_constraints:
+        lang2="cjk|romance"
+    shell:
+        "xc sample-multilingual {input} {output}"
+
+
+rule shuffle_multilingual:
+    input:
+        DATA + "/parallel/multi-lingual/{lang1}_{lang2}.txt"
+    output:
+        DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
+    shell:
+        "shuf {input} > {output}"
+
+
 rule separate_parallel:
     input:
         DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
@@ -1491,4 +1530,4 @@ ruleorder:
     merge_news > merge_subtitles > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     count_tokens > recount_messy_tokens > \
-    tokenize_parallel_opus > tokenize_opus > tokenize_gzipped_text
+    tokenize_parallel_opus > tokenize_opus > tokenize_gzipped_text > shuffle_multilingual > cleanup_parallel
