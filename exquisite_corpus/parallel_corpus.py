@@ -86,7 +86,7 @@ def train_sentencepiece(in_file, model_prefix, lang):
     # model. Setting it to 1.0 will include all the characters in the training dataset.
     # As the dataset may contain many noisy/rare characters, we set it to 0.9994 for CJK
     # and 0.9999 for other languages with smaller character set.
-    if lang in ['en_zh-Hans', 'en_zh-Hant', 'ja', 'ko']:
+    if lang in ['zh-Hans', 'zh-Hant', 'ja', 'ko']:
         lang_character_coverage = 0.9994
     else:
         lang_character_coverage = 0.9999
