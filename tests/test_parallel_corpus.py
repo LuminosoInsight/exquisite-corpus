@@ -10,6 +10,8 @@ from exquisite_corpus.parallel_corpus import (
     get_vocabulary_from_sp, train_sentencepiece
 )
 
+THIS_DIR = os.path.dirname(__file__)
+
 DECODED = [
     'abcdefghijklmnopqrstuvwxyz',
     'this is a sample text'
@@ -21,16 +23,21 @@ ENCODED = [
 
 
 @pytest.fixture(scope="session")
-def path_to_ft_model(tmpdir_factory):
-    fasttext_model = str(tmpdir_factory.mktemp('ft').join('lid.176.bin'))
-    subprocess.call(
-        [
-            'curl', '-Lf',
-            'https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin',
-            '-o', fasttext_model
-        ]
-    )
-    return fasttext_model
+def path_to_ft_model():
+    # Download FastText model only if needed
+    fasttext_model_dir = os.path.join(THIS_DIR, 'ft_model')
+    fasttext_model_path = os.path.join(fasttext_model_dir, 'lid.176.bin')
+    if not os.path.isfile(fasttext_model_path):
+        if not os.path.exists(fasttext_model_dir):
+            os.makedirs(fasttext_model_dir)
+        subprocess.call(
+            [
+                'curl', '-Lf',
+                'https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin',
+                '-o', fasttext_model_path
+            ]
+        )
+    return fasttext_model_path
 
 
 @pytest.mark.parametrize(
@@ -77,7 +84,7 @@ def path_to_ft_model(tmpdir_factory):
 
     ]
 )
-def test_cleanup_parallel_file(tmpdir, text, expected, lang1, lang2, path_to_ft_model):
+def test_cleanup_parallel_file(text, expected, lang1, lang2, path_to_ft_model):
     in_file = [text]
     out_file = StringIO()
 
