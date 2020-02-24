@@ -463,6 +463,11 @@ rule parallel:
         expand(DATA + "/parallel/training/joined/tatoeba_test.{pair}.txt",
                 pair=TATOEBA_LANGUAGE_PAIRS)
 
+rule alignment:
+    input:
+        expand(DATA + "/parallel/training/alignment/{pair}.{mode}.txt",
+                pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
+
 rule frequencies:
     input:
         expand(DATA + "/freqs/{lang}.txt", lang=SUPPORTED_LANGUAGES)
@@ -1228,6 +1233,34 @@ rule join_tatoeba_data:
     shell:
         "paste -d '\t' {input}  | sed 's/\t/ ||| /g' > {output}"
 
+
+# fast_align generates asymmetric alignments (by default, it treats the left language in
+# the parallel corpus as primary language being modeled).
+# Sometimes there will be empty lines in alignment files. Fill those with '0-0' so that
+# OpenNMT's pre-processing will not throw an error.
+
+# Options used with fast_align:
+# -i: Input parallel corpus
+# -d: (strongly recommended)Favor alignment points close to the monotonic diagonal
+# -o: (strongly recommended) Optimize how close to the diagonal alignment points should be
+# -v: (strongly recommended) Use Dirichlet prior on lexical translation distributions
+# -r: Run alignment in reverse (condition on target and predict source)
+rule get_alignment:
+    input:
+        DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt"
+    output:
+        DATA + "/parallel/training/alignment/{lang1}_{lang2}.{mode}.txt",
+        DATA + "/parallel/training/alignment/{lang2}_{lang1}.{mode}.txt"
+    resources:
+        alignment=1
+    run:
+         outfile_forward, outfile_reversed = output
+         shell(
+            "./fast_align -i {input} -d -o -v > {outfile_forward} && "
+            "sed -i 's/^$/0-0/' {outfile_forward}"
+            "./fast_align -i {input} -d -o -v -r > {outfile_reversed} && "
+            "sed -i 's/^$/0-0/' {outfile_reversed}"
+        )
 
 rule learn_sentencepiece:
     input:
