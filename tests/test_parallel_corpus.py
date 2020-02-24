@@ -64,8 +64,8 @@ def path_to_ft_model():
             'en', 'es'
         ),
         pytest.param(
-            'Short text.\tछोटो पाठ',
-            'Short text.\tछोटो पाठ',
+            'Short text.\tTexto corto.',
+            'Short text.\tTexto corto.',
             'en', 'es'
         ),
         pytest.param(
@@ -78,6 +78,18 @@ def path_to_ft_model():
         pytest.param(
             'This is a sample text with wrong language on one side.\t'
             'これは、一方の言語が間違っているサンプルテキストです。',
+            '',
+            'en', 'es'
+        ),
+        pytest.param(
+            'This is a sample text with length ratio exceeding 2.0.\t'
+            'Texto corto.',
+            '',
+            'en', 'es'
+        ),
+        pytest.param(
+            'This is a sample \t text with additional tab.\t'
+            'Este es un texto de muestra con pestaña adicional.',
             '',
             'en', 'es'
         ),
