@@ -53,7 +53,9 @@ def cleanup_parallel_file(
         # Threshold to say that the language has been identified with confidence
         id_threshold = 0.70
 
-        if len(lang1_sent.encode('utf-8')) > min_length:
+        len_lang1_sent = len(lang1_sent.encode('utf-8'))
+        len_lang2_sent = len(lang2_sent.encode('utf-8'))
+        if len_lang1_sent > min_length:
             lang1_pred = fasttext_model.predict(lang1_sent.replace('\n', ' ').lower())
             lang1_pred_code = lang1_pred[0][0][-2:]
             lang1_pred_prob = lang1_pred[1][0]
@@ -61,7 +63,7 @@ def cleanup_parallel_file(
             lang1 = map_to_fasttext_language(lang1)
             clean_lang1 = lang1_pred_code == lang1 and lang1_pred_prob >= id_threshold
 
-        if len(lang2_sent.encode('utf-8')) > min_length:
+        if len_lang2_sent > min_length:
             lang2_pred = fasttext_model.predict(lang2_sent.replace('\n', ' ').lower())
             lang2_pred_code = lang2_pred[0][0][-2:]
             lang2_pred_prob = lang2_pred[1][0]
@@ -69,7 +71,23 @@ def cleanup_parallel_file(
             lang2 = map_to_fasttext_language(lang2)
             clean_lang2 = lang2_pred_code == lang2 and lang2_pred_prob >= id_threshold
 
-        if note_match and clean_lang1 and clean_lang2:
+        # Require the source and target length ratio to not exceed 2.0. This also makes
+        # sure that there are no empty source or target side so that fast_align would
+        # not complain and throw an error.
+        ratio = 0.0
+        if len_lang2_sent != 0:
+            ratio = len_lang1_sent / len_lang2_sent
+        balanced = 0.5 < ratio < 2.0
+
+        # Input to fast_align must be tokenized and aligned into parallel sentences.
+        # Each line is a source and target separated by a triple pipe symbol with
+        # leading and trailing white space ( ||| ). To generate these, we paste two
+        # files together and replace '\t' with this symbol. For this to work (see rule
+        # join_training_data), we want to make sure that there are no additional '\t'
+        # in the source or target side.
+        no_tab = '\t' not in lang1_sent and '\t' not in lang2_sent
+
+        if note_match and clean_lang1 and clean_lang2 and balanced and no_tab:
             outfile.write(line)
 
 
