@@ -29,11 +29,15 @@ def cleanup_parallel_file(
         # Run all ftfy fixes
         line = fix_text(line)
 
+        # Make sure we have both sides
+        parallel_language_pair = line.split('\t')
+        if len(parallel_language_pair) != 2:
+            continue
+
         # '♪' mostly occurs only on the English side of the file. So, the X-to-English
         # translation model learns to translate 'something else' to this symbol. To
         # avoid that, skip any parallel line if text on either side contains different
         # numbers of '♪'.
-        parallel_language_pair = line.split('\t')
         lang1_sent = parallel_language_pair[0]
         lang2_sent = parallel_language_pair[1]
 

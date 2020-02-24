@@ -88,6 +88,16 @@ def path_to_ft_model():
             'en', 'es'
         ),
         pytest.param(
+            'This is a sample text with only one side.',
+            '',
+            'en', 'es'
+        ),
+        pytest.param(
+            '\tThis is a sample text with only one side.',
+            '',
+            'es', 'en'
+        ),
+        pytest.param(
             'This is a sample \t text with additional tab.\t'
             'Este es un texto de muestra con pestaña adicional.',
             '',

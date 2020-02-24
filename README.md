@@ -48,7 +48,7 @@ stack install
 - If building `alignment` files to get alignments for parallel corpus:
     - Make sure to build `parallel` corpus first (by running `./build.sh parallel`)
     - Compile `fast_align` by following the instructions at 
-    `https://github.com/clab/fast_align`
+    https://github.com/clab/fast_align
     - Create a symbolic link to executable `fast_align` inside this directory 
     (executable `fast_align` is found in the directory where `fast_align` was compiled)
 
