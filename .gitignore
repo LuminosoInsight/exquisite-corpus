@@ -11,3 +11,4 @@ data
 .snakemake
 .idea
 tests/ft_model
+fast_align

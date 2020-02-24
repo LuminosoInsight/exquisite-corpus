@@ -73,7 +73,7 @@ def cleanup_parallel_file(
 
         # Require the source and target length ratio to not exceed 2.0. This also makes
         # sure that there are no empty source or target side so that fast_align would
-        # not complain and throw an error.
+        # not throw an error.
         ratio = 0.0
         if len_lang2_sent != 0:
             ratio = len_lang1_sent / len_lang2_sent
