@@ -1203,7 +1203,10 @@ rule apply_sentencepiece_tatoeba:
             "xc encode-with-sp {in_file} {output} {model_file}"
         )
 
-
+# Input to fast_align must be tokenized and aligned into parallel sentences. Each line
+# is a source and target separated by a triple pipe symbol with leading and trailing
+# white space ( ||| ). To generate these, we paste two files together and replace '\t'
+# with this symbol.
 rule join_training_data:
     input:
         DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang1}.{mode}.txt",
@@ -1212,20 +1215,18 @@ rule join_training_data:
         DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt"
 
     shell:
-        "paste {input} > {output}"
+        "paste -d '\t' {input}  | sed 's/\t/ ||| /g' > {output}"
 
 
 rule join_tatoeba_data:
     input:
-        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
-           "lang1}.txt",
-        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
-            "lang2}.txt"
+        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
+        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
     output:
         DATA + "/parallel/training/joined/tatoeba_test.{lang1}_{lang2}.txt"
 
     shell:
-        "paste {input} > {output}"
+        "paste -d '\t' {input}  | sed 's/\t/ ||| /g' > {output}"
 
 
 rule learn_sentencepiece:
