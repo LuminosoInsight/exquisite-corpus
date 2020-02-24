@@ -1236,15 +1236,15 @@ rule join_tatoeba_data:
 
 # fast_align generates asymmetric alignments (by default, it treats the left language in
 # the parallel corpus as primary language being modeled).
-# Sometimes there will be empty lines in alignment files. Fill those with '0-0' so that
-# OpenNMT's pre-processing will not throw an error.
-
 # Options used with fast_align:
 # -i: Input parallel corpus
 # -d: (strongly recommended)Favor alignment points close to the monotonic diagonal
 # -o: (strongly recommended) Optimize how close to the diagonal alignment points should be
 # -v: (strongly recommended) Use Dirichlet prior on lexical translation distributions
 # -r: Run alignment in reverse (condition on target and predict source)
+
+# Sometimes fast_aline outputs an empty line in the alignment file. We fill those with
+# '0-0' so that OpenNMT-py's pre-processing would not throw an error.
 rule get_alignment:
     input:
         DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt"
