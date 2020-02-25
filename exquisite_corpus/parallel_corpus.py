@@ -29,6 +29,10 @@ def cleanup_parallel_file(
         # Run all ftfy fixes
         line = fix_text(line)
 
+        # Replace any '\n' with space; else we will end up with one sided line in the
+        # end
+        line = line.replace('\n', ' ')
+
         # Make sure we have both sides
         parallel_language_pair = line.split('\t')
         if len(parallel_language_pair) != 2:
@@ -92,7 +96,7 @@ def cleanup_parallel_file(
         no_tab = '\t' not in lang1_sent and '\t' not in lang2_sent
 
         if note_match and clean_lang1 and clean_lang2 and balanced and no_tab:
-            outfile.write(line)
+            outfile.write(line + '\n')
 
 
 def train_sentencepiece(in_file, model_prefix, lang):

@@ -51,6 +51,13 @@ def path_to_ft_model():
             'en', 'es'
         ),
         pytest.param(
+            'This is a sample text with\nnew line\t'
+            'Este es un texto de muestra con una nueva línea.',
+            'This is a sample text with new line\t'
+            'Este es un texto de muestra con una nueva línea.',
+            'en', 'es'
+        ),
+        pytest.param(
             '♪ I am happy with these notes by my sides. ♪\t'
             '♪ Estoy feliz con estas notas a mi lado. ♪',
             '♪ I am happy with these notes by my sides. ♪\t'
