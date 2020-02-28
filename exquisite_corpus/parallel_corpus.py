@@ -37,14 +37,13 @@ def cleanup_parallel_file(
         parallel_language_pair = line.split('\t')
         if len(parallel_language_pair) != 2:
             continue
+        lang1_sent = parallel_language_pair[0].strip()
+        lang2_sent = parallel_language_pair[1].strip()
 
         # '♪' mostly occurs only on the English side of the file. So, the X-to-English
         # translation model learns to translate 'something else' to this symbol. To
         # avoid that, skip any parallel line if text on either side contains different
         # numbers of '♪'.
-        lang1_sent = parallel_language_pair[0]
-        lang2_sent = parallel_language_pair[1]
-
         count1 = lang1_sent.count('♪')
         count2 = lang2_sent.count('♪')
         note_match = count1 == count2
@@ -61,8 +60,8 @@ def cleanup_parallel_file(
         # Threshold to say that the language has been identified with confidence
         id_threshold = 0.70
 
-        len_lang1_sent = len(lang1_sent.encode('utf-8'))
-        len_lang2_sent = len(lang2_sent.encode('utf-8'))
+        len_lang1_sent = len(lang1_sent)
+        len_lang2_sent = len(lang2_sent)
         if len_lang1_sent > min_length:
             lang1_pred = fasttext_model.predict(lang1_sent.replace('\n', ' ').lower())
             lang1_pred_code = lang1_pred[0][0][-2:]
@@ -79,13 +78,13 @@ def cleanup_parallel_file(
             lang2 = map_to_fasttext_language(lang2)
             clean_lang2 = lang2_pred_code == lang2 and lang2_pred_prob >= id_threshold
 
-        # Require the source and target length ratio to not exceed 2.0. This also makes
+        # Require the source and target length ratio to not exceed 4.0. This also makes
         # sure that there are no empty source or target side so that fast_align would
         # not throw an error.
         ratio = 0.0
         if len_lang2_sent != 0:
             ratio = len_lang1_sent / len_lang2_sent
-        balanced = 0.5 < ratio < 2.0
+        balanced = 0.25 < ratio < 4.0
 
         # Input to fast_align must be tokenized and aligned into parallel sentences.
         # Each line is a source and target separated by a triple pipe symbol with
