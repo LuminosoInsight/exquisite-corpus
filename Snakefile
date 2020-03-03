@@ -1276,7 +1276,7 @@ rule get_tatoeba_data:
 # the parallel corpus as primary language being modeled).
 # Options used with fast_align:
 # -i: Input parallel corpus
-# -d: (strongly recommended)Favor alignment points close to the monotonic diagonal
+# -d: (strongly recommended) Favor alignment points close to the monotonic diagonal
 # -o: (strongly recommended) Optimize how close to the diagonal alignment points should be
 # -v: (strongly recommended) Use Dirichlet prior on lexical translation distributions
 
