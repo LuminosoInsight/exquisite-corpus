@@ -45,7 +45,7 @@ cd wikiparsec
 stack install
 ```
 
-- If building `alignment` files to get alignments for parallel corpus:
+- If building _alignment_ files to get alignments for parallel corpus:
     - Compile `fast_align` by following the instructions at 
     https://github.com/clab/fast_align
     - Create a symbolic link to executable `fast_align` inside this directory 
@@ -82,6 +82,6 @@ snakemake -j 8
 
 ...and wait a day or two for results, or a crash that may tell you what you need to fix.
 
-To build `parallel` corpus, run `./build.sh parallel`. If you want `alignment` files for
+To build _parallel_ corpus, run `./build.sh parallel`. If you want _alignment_ files for
 already built parallel corpus or want to build parallel corpus and alignment together, run
 `./build.sh alignment`.
