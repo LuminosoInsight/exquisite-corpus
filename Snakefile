@@ -285,7 +285,7 @@ OPENSUB_LANGUAGE_PAIRS = [
 #
 # Construct this list manually for now to be sure we get the codes in the
 # right order.
-PARALLEL_LANGUAGE_PAIRS = [
+PARALLEL_LANGUAGES = [
     'ar_en', 'cs_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id',
     'en_it', 'en_ja', 'en_ko', 'en_lv', 'en_nl', 'en_pl', 'en_pt', 'en_ro',
     'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
@@ -293,10 +293,22 @@ PARALLEL_LANGUAGE_PAIRS = [
 
 # Tatoeba language pairs; constructed manually such that cs_en, en_lv, en_ro, and
 # en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
-TATOEBA_LANGUAGE_PAIRS = [
+TATOEBA_LANGUAGES = [
     'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id', 'en_it',
     'en_ja', 'en_ko', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
 ]
+
+PARALLEL_LANGUAGE_PAIRS = []
+for pair in PARALLEL_LANGUAGES:
+    lang1, lang2 = pair.split('_')
+    PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
+    PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
+
+TATOEBA_LANGUAGE_PAIRS = []
+for pair in TATOEBA_LANGUAGES:
+    lang1, lang2 = pair.split('_')
+    TATOEBA_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
+    TATOEBA_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
 
 
 def map_opus_language(dataset, lang):
@@ -462,6 +474,11 @@ rule parallel:
                 pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
         expand(DATA + "/parallel/training/joined/tatoeba_test.{pair}.txt",
                 pair=TATOEBA_LANGUAGE_PAIRS)
+
+rule alignment:
+    input:
+        expand(DATA + "/parallel/training/alignment/{pair}.{mode}.txt",
+                pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
 
 rule frequencies:
     input:
@@ -1182,7 +1199,7 @@ rule apply_sentencepiece:
         DATA + "/parallel/shuffled-split/{pair}.{lang}.{mode}.txt",
         DATA + "/parallel/training/sp/{pair}.{lang}.model"
     output:
-        DATA + "/parallel/training/paired/{pair}.{lang}.{mode}.txt"
+        temp(DATA + "/tmp/paired/{pair}.{lang}.{mode}.txt")
 
     run:
         in_file, model_file = input
@@ -1196,36 +1213,93 @@ rule apply_sentencepiece_tatoeba:
         "data/extracted/opus/Tatoeba.{pair}.{lang}",
         "data/parallel/training/sp/{pair}.{lang}.model"
     output:
-        "data/parallel/training/paired/tatoeba_test.{pair}.{lang}.txt"
+        temp(DATA + "/tmp/paired/tatoeba_test.{pair}.{lang}.txt")
     run:
         in_file, model_file = input
         shell(
             "xc encode-with-sp {in_file} {output} {model_file}"
         )
 
-
-rule join_training_data:
+# Input to fast_align must be tokenized and aligned into parallel sentences. Each line
+# is a source and target separated by a triple pipe symbol with leading and trailing
+# white space ( ||| ). To generate these, we paste two files together and replace '\t'
+# with this symbol.
+# Tokenization can create empty source or target side- remove those lines so that
+# fast_align would not throw an error.
+# Finally, we make paired files from the joined file.
+rule get_training_data:
     input:
+        DATA + "/tmp/paired/{lang1}_{lang2}.{lang1}.{mode}.txt",
+        DATA + "/tmp/paired/{lang1}_{lang2}.{lang2}.{mode}.txt"
+    output:
+        DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt",
+        DATA + "/parallel/training/joined/{lang2}_{lang1}.{mode}.txt",
         DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang1}.{mode}.txt",
         DATA + "/parallel/training/paired/{lang1}_{lang2}.{lang2}.{mode}.txt"
-    output:
-        DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt"
 
-    shell:
-        "paste {input} > {output}"
+    run:
+        input1, input2 = input
+        joined1, joined2, paired1, paired2 = output
+        shell(
+            "paste -d '\t' {input1} {input2} | sed 's/\t/ ||| /g' > {joined1} && "
+            "sed -i -e '/^ |||/d' -e '/||| $/d' {joined1} && "
+            "paste -d '\t' {input2} {input1} | sed 's/\t/ ||| /g' > {joined2} && "
+            "sed -i -e '/^ |||/d' -e '/||| $/d' {joined2} && "
+            "sed 's/ ||| /\t/g' {joined1} | cut -d '\t' -f 1 > {paired1} && "
+            "sed 's/ ||| /\t/g' {joined1} | cut -d '\t' -f 2 > {paired2}"
+        )
 
 
-rule join_tatoeba_data:
+rule get_tatoeba_data:
     input:
-        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
-           "lang1}.txt",
-        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{" \
-            "lang2}.txt"
+        DATA + "/tmp/paired/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
+        DATA + "/tmp/paired/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
     output:
-        DATA + "/parallel/training/joined/tatoeba_test.{lang1}_{lang2}.txt"
+        DATA + "/parallel/training/joined/tatoeba_test.{lang1}_{lang2}.txt",
+        DATA + "/parallel/training/joined/tatoeba_test.{lang2}_{lang1}.txt",
+        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{lang1}.txt",
+        DATA + "/parallel/training/paired/tatoeba_test.{lang1}_{lang2}.{lang2}.txt"
 
-    shell:
-        "paste {input} > {output}"
+    run:
+        input1, input2 = input
+        joined1, joined2, paired1, paired2 = output
+        shell(
+            "paste -d '\t' {input1} {input2} | sed 's/\t/ ||| /g' > {joined1} && "
+            "sed -i -e '/^ |||/d' -e '/||| $/d' {joined1} && "
+            "paste -d '\t' {input2} {input1} | sed 's/\t/ ||| /g' > {joined2} && "
+            "sed -i -e '/^ |||/d' -e '/||| $/d' {joined2} && "
+            "sed 's/ ||| /\t/g' {joined1} | cut -d '\t' -f 1 > {paired1} && "
+            "sed 's/ ||| /\t/g' {joined1} | cut -d '\t' -f 2 > {paired2}"
+        )
+
+# fast_align generates asymmetric alignments (by default, it treats the left language in
+# the parallel corpus as primary language being modeled).
+# Options used with fast_align:
+# -i: Input parallel corpus
+# -d: (strongly recommended) Favor alignment points close to the monotonic diagonal
+# -o: (strongly recommended) Optimize how close to the diagonal alignment points should be
+# -v: (strongly recommended) Use Dirichlet prior on lexical translation distributions
+
+# Sometimes fast_aline outputs an empty line in the alignment file. We fill those with
+# '0-0' so that OpenNMT-py's pre-processing would not throw an error.
+rule get_alignment:
+    input:
+        DATA + "/parallel/training/joined/{lang1}_{lang2}.{mode}.txt",
+        DATA + "/parallel/training/joined/{lang2}_{lang1}.{mode}.txt"
+    output:
+        DATA + "/parallel/training/alignment/{lang1}_{lang2}.{mode}.txt",
+        DATA + "/parallel/training/alignment/{lang2}_{lang1}.{mode}.txt"
+    resources:
+        alignment=1
+    run:
+        input1, input2 = input
+        outfile1, outfile2 = output
+        shell(
+            "./fast_align -i {input1} -d -o -v > {outfile1} && "
+            "sed -i 's/^$/0-0/' {outfile1} && "
+            "./fast_align -i {input2} -d -o -v > {outfile2} && "
+            "sed -i 's/^$/0-0/' {outfile2}"
+        )
 
 
 rule learn_sentencepiece:

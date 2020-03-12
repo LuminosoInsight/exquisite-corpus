@@ -29,14 +29,21 @@ def cleanup_parallel_file(
         # Run all ftfy fixes
         line = fix_text(line)
 
+        # Replace any '\n' with space; else we will end up with one sided line in the
+        # end
+        line = line.replace('\n', ' ')
+
+        # Make sure we have both sides
+        parallel_language_pair = line.split('\t')
+        if len(parallel_language_pair) != 2:
+            continue
+        lang1_sent = parallel_language_pair[0].strip()
+        lang2_sent = parallel_language_pair[1].strip()
+
         # '♪' mostly occurs only on the English side of the file. So, the X-to-English
         # translation model learns to translate 'something else' to this symbol. To
         # avoid that, skip any parallel line if text on either side contains different
         # numbers of '♪'.
-        parallel_language_pair = line.split('\t')
-        lang1_sent = parallel_language_pair[0]
-        lang2_sent = parallel_language_pair[1]
-
         count1 = lang1_sent.count('♪')
         count2 = lang2_sent.count('♪')
         note_match = count1 == count2
@@ -53,7 +60,9 @@ def cleanup_parallel_file(
         # Threshold to say that the language has been identified with confidence
         id_threshold = 0.70
 
-        if len(lang1_sent.encode('utf-8')) > min_length:
+        len_lang1_sent = len(lang1_sent)
+        len_lang2_sent = len(lang2_sent)
+        if len_lang1_sent > min_length:
             lang1_pred = fasttext_model.predict(lang1_sent.replace('\n', ' ').lower())
             lang1_pred_code = lang1_pred[0][0][-2:]
             lang1_pred_prob = lang1_pred[1][0]
@@ -61,7 +70,7 @@ def cleanup_parallel_file(
             lang1 = map_to_fasttext_language(lang1)
             clean_lang1 = lang1_pred_code == lang1 and lang1_pred_prob >= id_threshold
 
-        if len(lang2_sent.encode('utf-8')) > min_length:
+        if len_lang2_sent > min_length:
             lang2_pred = fasttext_model.predict(lang2_sent.replace('\n', ' ').lower())
             lang2_pred_code = lang2_pred[0][0][-2:]
             lang2_pred_prob = lang2_pred[1][0]
@@ -69,8 +78,24 @@ def cleanup_parallel_file(
             lang2 = map_to_fasttext_language(lang2)
             clean_lang2 = lang2_pred_code == lang2 and lang2_pred_prob >= id_threshold
 
-        if note_match and clean_lang1 and clean_lang2:
-            outfile.write(line)
+        # Require the source and target length ratio to not exceed 4.0. This also makes
+        # sure that there are no empty source or target side so that fast_align would
+        # not throw an error.
+        ratio = 0.0
+        if len_lang2_sent != 0:
+            ratio = len_lang1_sent / len_lang2_sent
+        balanced = 0.25 < ratio < 4.0
+
+        # Input to fast_align must be tokenized and aligned into parallel sentences.
+        # Each line is a source and target separated by a triple pipe symbol with
+        # leading and trailing white space ( ||| ). To generate these, we paste two
+        # files together and replace '\t' with this symbol. For this to work (see rule
+        # join_training_data), we want to make sure that there are no additional '\t'
+        # in the source or target side.
+        no_tab = '\t' not in lang1_sent and '\t' not in lang2_sent
+
+        if note_match and clean_lang1 and clean_lang2 and balanced and no_tab:
+            outfile.write(line + '\n')
 
 
 def train_sentencepiece(in_file, model_prefix, lang):

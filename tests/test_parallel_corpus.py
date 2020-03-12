@@ -47,14 +47,21 @@ def path_to_ft_model():
             'This is a sample text with a mojibake dash â€”\t'
             'Este es un texto de muestra con un guión mojibake â€”',
             'This is a sample text with a mojibake dash —\t'
-            'Este es un texto de muestra con un guión mojibake —',
+            'Este es un texto de muestra con un guión mojibake —\n',
+            'en', 'es'
+        ),
+        pytest.param(
+            'This is a sample text with\nnew line\t'
+            'Este es un texto de muestra con una nueva línea.',
+            'This is a sample text with new line\t'
+            'Este es un texto de muestra con una nueva línea.\n',
             'en', 'es'
         ),
         pytest.param(
             '♪ I am happy with these notes by my sides. ♪\t'
             '♪ Estoy feliz con estas notas a mi lado. ♪',
             '♪ I am happy with these notes by my sides. ♪\t'
-            '♪ Estoy feliz con estas notas a mi lado. ♪',
+            '♪ Estoy feliz con estas notas a mi lado. ♪\n',
             'en', 'es'
         ),
         pytest.param(
@@ -64,20 +71,42 @@ def path_to_ft_model():
             'en', 'es'
         ),
         pytest.param(
-            'Short text.\tछोटो पाठ',
-            'Short text.\tछोटो पाठ',
+            'Short text.\tTexto corto.',
+            'Short text.\tTexto corto.\n',
             'en', 'es'
         ),
         pytest.param(
             'This is a sample text with correct language on both sides.\t'
             'Este es un texto de muestra con el lenguaje correcto en ambos lados.',
             'This is a sample text with correct language on both sides.\t'
-            'Este es un texto de muestra con el lenguaje correcto en ambos lados.',
+            'Este es un texto de muestra con el lenguaje correcto en ambos lados.\n',
             'en', 'es'
         ),
         pytest.param(
             'This is a sample text with wrong language on one side.\t'
             'これは、一方の言語が間違っているサンプルテキストです。',
+            '',
+            'en', 'es'
+        ),
+        pytest.param(
+            'This is a sample text with length ratio exceeding 2.0.\t'
+            'Texto corto.',
+            '',
+            'en', 'es'
+        ),
+        pytest.param(
+            'This is a sample text with only one side.',
+            '',
+            'en', 'es'
+        ),
+        pytest.param(
+            '\tThis is a sample text with only one side.',
+            '',
+            'es', 'en'
+        ),
+        pytest.param(
+            'This is a sample \t text with additional tab.\t'
+            'Este es un texto de muestra con pestaña adicional.',
             '',
             'en', 'es'
         ),
