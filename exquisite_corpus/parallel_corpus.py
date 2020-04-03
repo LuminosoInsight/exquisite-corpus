@@ -64,7 +64,7 @@ def cleanup_parallel_file(
         len_lang2_sent = len(lang2_sent)
         if len_lang1_sent > min_length:
             lang1_pred = fasttext_model.predict(lang1_sent.replace('\n', ' ').lower())
-            lang1_pred_code = lang1_pred[0][0][-2:]
+            lang1_pred_code = lang1_pred[0][0][9:]
             lang1_pred_prob = lang1_pred[1][0]
 
             lang1 = map_to_fasttext_language(lang1)
@@ -72,7 +72,7 @@ def cleanup_parallel_file(
 
         if len_lang2_sent > min_length:
             lang2_pred = fasttext_model.predict(lang2_sent.replace('\n', ' ').lower())
-            lang2_pred_code = lang2_pred[0][0][-2:]
+            lang2_pred_code = lang2_pred[0][0][9:]
             lang2_pred_prob = lang2_pred[1][0]
 
             lang2 = map_to_fasttext_language(lang2)
