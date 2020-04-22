@@ -1,14 +1,14 @@
-__total__	219
+__total__	215
 00	32
 校對	16
 月	16
 soup	11
 0000	10
-的	8
 年	7
 twitter	6
 flickr	6
 在	6
+的	6
 the	5
 facebook	4
 7	4
@@ -17,7 +17,6 @@ google	4
 6	4
 9	4
 於	4
-表示	4
 日	3
 youtube	3
 沒有	3
@@ -28,6 +27,7 @@ youtube	3
 8	3
 portnoy	2
 in	2
+表示	2
 0	2
 2	2
 wiki	2
@@ -37,12 +37,12 @@ wiki	2
 joe	2
 時	2
 john	2
-話	2
+的話	2
 第一	2
 vladimir	2
 putin	2
 然而	2
 智利	2
-她	2
+她表示	2
 認為	2
 hum	2
