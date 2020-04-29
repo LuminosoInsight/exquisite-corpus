@@ -1,4 +1,4 @@
-__total__	4517926
+__total__	4517929
 œuvre	293232
 est	286298
 00	232110
@@ -7016,6 +7016,7 @@ acle	7
 acelaşi	7
 auant	7
 afgevaardigde	7
+àl	7
 archévèque	7
 arcem	7
 aggiomamento	7
@@ -9612,7 +9613,6 @@ abase	4
 abé	4
 acufia	4
 akademischen	4
-àl	4
 arroba	4
 agréez	4
 anthropo	4
@@ -11166,7 +11166,7 @@ armee	3
 aha	3
 augustalis	3
 anticipee	3
-àl'hectare	3
+hectare	3
 albumincux	3
 aréopages	3
 accedono	3

@@ -1,4 +1,4 @@
-__total__	106715
+__total__	106716
 de	4905
 la	2714
 le	2287
@@ -24,7 +24,7 @@ au	599
 pas	529
 par	522
 ce	423
-qu	421
+qu	422
 plus	411
 son	407
 ne	356
