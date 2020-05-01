@@ -1,5 +1,9 @@
-import sentencepiece
+import string
+import unicodedata
+
 import fasttext
+import sentencepiece
+
 from ftfy import fix_text
 
 
@@ -12,6 +16,52 @@ def map_to_fasttext_language(lang):
         'zh-Hant': 'zh'
     }
     return mapping.get(lang, lang)
+
+
+def clean_text_for_ft(text):
+    """
+    Prediction of FastText's language identification model improves when the input text
+    is clean; so, we clean it before passing it to the model for prediction.
+    """
+    # FastText's predict() processes one line at a time; so remove '\n'
+    cleaned_text = text.replace('\n', ' ')
+
+    # Normalize with NFKC and lower case the text
+    cleaned_text = unicodedata.normalize('NFKC', cleaned_text).lower()
+
+    # Remove punctuations and digits
+    excluded = set(string.punctuation)
+    cleaned_text = ''.join(
+        ch for ch in cleaned_text if
+        ch.isprintable() and not ch.isdigit() and ch not in excluded
+    )
+
+    # Remove extra whitespaces
+    cleaned_text = ' '.join(cleaned_text.split())
+
+    return cleaned_text
+
+
+def get_ft_lang_code_prob(text, fasttext_model):
+    """
+    Get the language code and the corresponding probability of a text using FastText's
+    language identification model.
+    """
+    assert isinstance(text, str), \
+        'The text has to be a string.'
+
+    text = clean_text_for_ft(text)
+
+    # Given a text, get a label and corresponding probability. By default, predict()
+    # returns only one label- the one with the highest probability.
+    # Example output of predict():
+    # (('__label__en',), array([0.98069412]))
+    len_label = len('__label__')
+    lang_pred = fasttext_model.predict(text.lower())
+    lang_pred_code = lang_pred[0][0][len_label:]
+    lang_pred_prob = lang_pred[1][0]
+
+    return lang_pred_code, lang_pred_prob
 
 
 def cleanup_parallel_file(
@@ -63,18 +113,16 @@ def cleanup_parallel_file(
         len_lang1_sent = len(lang1_sent)
         len_lang2_sent = len(lang2_sent)
         if len_lang1_sent > min_length:
-            lang1_pred = fasttext_model.predict(lang1_sent.replace('\n', ' ').lower())
-            lang1_pred_code = lang1_pred[0][0][-2:]
-            lang1_pred_prob = lang1_pred[1][0]
-
+            lang1_pred_code, lang1_pred_prob = get_ft_lang_code_prob(
+                lang1_sent, fasttext_model
+            )
             lang1 = map_to_fasttext_language(lang1)
             clean_lang1 = lang1_pred_code == lang1 and lang1_pred_prob >= id_threshold
 
         if len_lang2_sent > min_length:
-            lang2_pred = fasttext_model.predict(lang2_sent.replace('\n', ' ').lower())
-            lang2_pred_code = lang2_pred[0][0][-2:]
-            lang2_pred_prob = lang2_pred[1][0]
-
+            lang2_pred_code, lang2_pred_prob = get_ft_lang_code_prob(
+                lang2_sent, fasttext_model
+            )
             lang2 = map_to_fasttext_language(lang2)
             clean_lang2 = lang2_pred_code == lang2 and lang2_pred_prob >= id_threshold
 
