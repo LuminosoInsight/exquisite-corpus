@@ -75,11 +75,13 @@ def test_get_ft_lang_code_prob(path_to_ft_model):
         text = []
         _, _ = get_ft_lang_code_prob(text, fasttext_model)
 
-    # Test if '\n' is removed before the prediction
-    text = 'This test is in English.\n It contains newline character.'
-    lang_pred_code, lang_pred_prob = get_ft_lang_code_prob(text, fasttext_model)
-    assert lang_pred_code == 'en'
-    assert lang_pred_prob > 0.9
+    # FT's predict() exptects one line at a time. Test if '\n' is removed before
+    # the prediction
+    try:
+        text = 'This test is in English.\n It contains newline character.'
+        _, _ = get_ft_lang_code_prob(text, fasttext_model)
+    except ValueError as err:
+        pytest.fail(repr(err))
 
     # This should be identified with low probability
     text = ''
