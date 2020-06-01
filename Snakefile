@@ -279,24 +279,16 @@ OPENSUB_LANGUAGE_PAIRS = [
     if _lang1 < _lang2
 ]
 
-# We'll build parallel text between English and any other language that has
-# translations in OpenSubtitles or ParaCrawl. (Europarl and Tatoeba are not
-# enough.)
-#
-# Construct this list manually for now to be sure we get the codes in the
-# right order.
+# We'll build a parallel text between English and 15 languages. We construct this list
+# manually to be sure that we get the codes in the right order.
 PARALLEL_LANGUAGES = [
-    'ar_en', 'cs_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id',
-    'en_it', 'en_ja', 'en_ko', 'en_lv', 'en_nl', 'en_pl', 'en_pt', 'en_ro',
-    'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
+    'ar_en', 'de_en', 'en_es', 'en_fr', 'en_id', 'en_it', 'en_ja', 'en_ko', 'en_nl',
+    'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
 ]
 
-# Tatoeba language pairs; constructed manually such that cs_en, en_lv, en_ro, and
-# en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
-TATOEBA_LANGUAGES = [
-    'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id', 'en_it',
-    'en_ja', 'en_ko', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
-]
+# As we map Tatoeba language code 'cmn' to 'zh-Hans', TATOEBA_LANGUAGES is the same as
+# PARALLEL_LANGUAGE except 'en_zh-Hant' is removed.
+TATOEBA_LANGUAGES = PARALLEL_LANGUAGES[:-1]
 
 PARALLEL_LANGUAGE_PAIRS = []
 for pair in PARALLEL_LANGUAGES:
