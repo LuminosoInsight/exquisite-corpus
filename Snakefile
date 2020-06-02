@@ -207,9 +207,17 @@ REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(year, month) for year in range(2008, 2017) for month in range(1, 12 + 1)] +
     [(2017, month) for month in range(1, 11 + 1)]
 )]
+
+# Sample 1 out of every 5 months, which allows us to download fewer files, but
+# (because 5 is relatively prime to 12) provides a reasonably even sample of
+# events around the year.
 SAMPLED_REDDIT_SHARDS = [
-    '2007-10', '2008-07', '2009-09', '2010-06', '2011-01', '2012-04',
-    '2013-12', '2014-09', '2015-08', '2016-03', '2017-02', '2017-11'
+    '2007-10', '2008-03', '2008-08', '2009-01', '2009-06', '2009-11',
+    '2010-04', '2010-09', '2011-02', '2011-07', '2011-12', '2012-05',
+    '2012-10', '2013-03', '2013-08', '2014-01', '2014-06', '2014-11',
+    '2015-04', '2015-09', '2015-02', '2016-07', '2016-12', '2017-05',
+    '2017-10', '2018-03', '2018-08', '2019-01', '2019-06', '2019-11',
+    '2020-04'
 ]
 
 # SNAP's Amazon data is sharded by product department.
@@ -1027,7 +1035,6 @@ rule tokenize_reddit:
         "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
         "{DATA}/tokenized/reddit/{wildcards.date}"
 
-
 rule extract_twitter:
     input:
         DATA + "/raw/twitter/twitter-{year}.txt.gz"
@@ -1482,8 +1489,8 @@ rule merge_web:
 
 rule combine_reddit:
     input:
-        expand(DATA + "/tokenized/reddit/{date}/{{lang}}.txt.gz", \
-                 date=REDDIT_SHARDS)
+        expand(DATA + "/tokenized/reddit/{date}/{{lang}}.txt.gz",
+               date=REDDIT_SHARDS)
     output:
         temp(DATA + "/tokenized/reddit/merged/{lang}.txt")
     priority:
