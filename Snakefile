@@ -1015,24 +1015,16 @@ rule tokenize_paracrawl_monolingual:
     shell:
         "cp {input} {output}"
 
-rule tokenize_gzipped_text:
-    input:
-        DATA + "/downloaded/{dir}/{lang}.txt.gz"
-    output:
-        DATA + "/tokenized/{dir}/{lang}.txt"
-    shell:
-        "zcat {input} | xc tokenize -p -l {wildcards.lang} - {output}"
-
 rule tokenize_reddit:
     input:
         DATA + "/extracted/reddit/{date}.txt.gz"
     output:
-        expand(DATA + "/tokenized/reddit/{{date}}/{lang}.txt.gz",
+        expand(DATA + "/tokenized/reddit/{{date}}/{lang}.txt",
                 lang=SOURCE_LANGUAGES['reddit/merged'])
     params:
         languages = ','.join(SOURCE_LANGUAGES['reddit/merged'])
     shell:
-        "zcat {input} | xc tokenize-by-language -z -l {params.languages} - " \
+        "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
         "{DATA}/tokenized/reddit/{wildcards.date}"
 
 
@@ -1564,5 +1556,4 @@ ruleorder:
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
     merge_news > merge_subtitles > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
-    count_tokens > recount_messy_tokens > \
-    tokenize_parallel_opus > tokenize_opus > tokenize_gzipped_text
+    count_tokens > recount_messy_tokens
