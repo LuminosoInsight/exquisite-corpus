@@ -23,9 +23,10 @@ import mmh3
 bad_hashes = set()
 for line in open('extra/reddit-ban-list.txt'):
     if line.startswith('/r/'):
-        name = line.strip()[3:]
+        name = line.strip()[3:].casefold()
         name_hash = mmh3.hash(name)
         bad_hashes.add(name_hash)
 
 if __name__ == '__main__':
-    print(sorted(bad_hashes))
+    for ahash in sorted(bad_hashes):
+        print(f'    {ahash},')

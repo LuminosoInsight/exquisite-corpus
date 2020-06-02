@@ -84,10 +84,10 @@ def preprocess_reddit(infile, outfile):
         data = json.loads(line)
         if (
             'score' in data and 'body' in data and
-            data["score"] is not None and data["score"] >= 1 and
+            data["score"] is not None and data["score"] >= 2 and
             data["body"] != "[deleted]"
         ):
-            subreddit = data["subreddit"]
+            subreddit = data["subreddit"].casefold()
             subreddit_hash = mmh3.hash(subreddit)
             if subreddit_hash not in BANNED_SUBREDDITS:
                 md = fix_surrogates(unescape_html(fix_line_breaks(data["body"])))
@@ -98,8 +98,8 @@ def preprocess_reddit(infile, outfile):
                     lang, confident = detect_language(text)
                     if confident:
                         # There are more English posts than we need, so filter them
-                        # for score >= 2
-                        if lang != "en" or data["score"] > 1:
+                        # for score >= 3
+                        if lang != "en" or data["score"] > 2:
                             print(f"{lang}\t{text}", file=outfile)
 
 
