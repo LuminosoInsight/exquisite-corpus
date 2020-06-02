@@ -3,7 +3,7 @@ import regex
 import mmh3
 
 from ftfy.fixes import fix_surrogates, unescape_html, fix_line_breaks
-from .language_detection import detect_language
+from lumi_language_id import detect_language
 from .reddit_ban_data import BANNED_SUBREDDITS
 
 
@@ -95,8 +95,8 @@ def preprocess_reddit(infile, outfile):
                 text = text.replace("\n", " ").replace("\u200b", "")
                 text = URL_RE.sub("", text)
                 if text:
-                    lang, confident = detect_language(text)
-                    if confident:
+                    lang, _confidence = detect_language(text)
+                    if lang != 'und':
                         # There are more English posts than we need, so filter them
                         # for score >= 3
                         if lang != "en" or data["score"] > 2:
@@ -127,6 +127,7 @@ def preprocess_twitter(infile, outfile):
         text = TWITTER_HANDLE_RE.sub("", text)
         text = TCO_RE.sub("", text)
         text = fix_surrogates(unescape_html(text)).replace("\n", " ")
-        lang, confident = detect_language(text)
-        if confident:
+        lang, _confidence = detect_language(text)
+        if lang != 'und':
             print(f"{lang}\t{text}", file=outfile)
+

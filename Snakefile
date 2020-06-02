@@ -65,14 +65,29 @@ SOURCE_LANGUAGES = {
         'ja', 'eo'
     ],
 
-    # Skip Greek because of kaomoji, Simplified Chinese because it's largely
-    # spam, Macedonian because of confusability with Bulgarian
+    'twitter1': [
+        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq',
+        'zh-Hans', 'el', 'mk'
+    ],
+    'twitter2': [
+        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq',
+        'zh-Hans', 'el', 'mk'
+    ],
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
         'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq'
+        'sv', 'sw', 'vi', 'az', 'sq',
+        'zh-Hans', 'el', 'mk'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
@@ -150,7 +165,8 @@ MERGED_SOURCES = {
     'news': ['newscrawl', 'opus/GlobalVoices', 'voa'],
     'web': ['mokk', 'leeds', 'paracrawl'],
     'subtitles': ['opus/OpenSubtitles2018', 'subtlex'],
-    'amazon': ['amazon-snap', 'amazon-acl10']
+    'amazon': ['amazon-snap', 'amazon-acl10'],
+    'twitter': ['twitter1', 'twitter2']
 }
 WP_LANGUAGE_MAP = {
     'fil': 'tl',
@@ -219,6 +235,8 @@ SAMPLED_REDDIT_SHARDS = [
     '2017-10', '2018-03', '2018-08', '2019-01', '2019-06', '2019-11',
     '2020-04'
 ]
+
+TWITTER_V2_YEARS = ['2020']
 
 # SNAP's Amazon data is sharded by product department.
 
@@ -768,7 +786,8 @@ rule monolingual_corpus_en:
         DATA + "/downloaded/opus/OpenSubtitles2018.en.txt.gz",
         DATA + "/downloaded/opus/Europarl.en.txt.gz",
         DATA + "/downloaded/opus/GlobalVoices.en.txt.gz",
-        expand(DATA + "/extracted/twitter/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
+        expand(DATA + "/extracted/twitter1/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
+        # TODO: include twitter2 data
         expand(DATA + "/extracted/reddit/{shard}.txt.gz", shard=SAMPLED_REDDIT_SHARDS)
     output:
         DATA + "/monolingual/en.txt.gz"
@@ -1028,7 +1047,7 @@ rule tokenize_reddit:
         DATA + "/extracted/reddit/{date}.txt.gz"
     output:
         expand(DATA + "/tokenized/reddit/{{date}}/{lang}.txt",
-                lang=SOURCE_LANGUAGES['reddit/merged'])
+               lang=SOURCE_LANGUAGES['reddit/merged'])
     params:
         languages = ','.join(SOURCE_LANGUAGES['reddit/merged'])
     shell:
@@ -1037,27 +1056,45 @@ rule tokenize_reddit:
 
 rule extract_twitter:
     input:
-        DATA + "/raw/twitter/twitter-{year}.txt.gz"
+        DATA + "/raw/twitter1/twitter-{year}.txt.gz"
     output:
-        DATA + "/extracted/twitter/twitter-{year}.txt.gz"
+        DATA + "/extracted/twitter1/twitter-{year}.txt.gz"
     shell:
         "zcat {input} | xc preprocess-twitter | gzip -c > {output}"
 
 
+rule extract_twitter_v2:
+    input:
+        DATA + "/raw/twitter2/2020/tweets.{lang}.jsonl.gz"
+    output:
+        DATA + "/extracted/twitter2/{lang}.txt.gz"
+    shell:
+        "zcat {input} | jq -r '.text' | gzip -c > {output}"
+
+
 rule tokenize_twitter:
     input:
-        DATA + "/extracted/twitter/twitter-2014.txt.gz",
-        DATA + "/extracted/twitter/twitter-2015.txt.gz",
-        DATA + "/extracted/twitter/twitter-2016.txt.gz",
-        DATA + "/extracted/twitter/twitter-2017.txt.gz",
-        DATA + "/extracted/twitter/twitter-2018.txt.gz"
+        DATA + "/extracted/twitter1/twitter-2014.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2015.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2016.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2017.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2018.txt.gz"
     output:
-        expand(DATA + "/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
+        expand(DATA + "/tokenized/twitter1/{lang}.txt", lang=SOURCE_LANGUAGES['twitter1'])
     params:
-        languages = ','.join(SOURCE_LANGUAGES['twitter'])
+        languages = ','.join(SOURCE_LANGUAGES['twitter1'])
     shell:
         "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
-        "{DATA}/tokenized/twitter"
+        "{DATA}/tokenized/twitter1"
+
+
+rule tokenize_twitter_v2:
+    input:
+        DATA + "/extracted/twitter2/{lang}.txt.gz"
+    output:
+        DATA + "/tokenized/twitter2/{lang}.txt"
+    shell:
+        "zcat {input} | xc tokenize-file -l {params.lang} - {output}"
 
 rule tokenize_voa:
     input:
@@ -1475,6 +1512,14 @@ rule merge_subtitles:
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
+rule merge_twitter:
+    input:
+        lambda wildcards: multisource_counts_to_merge('twitter', wildcards.lang)
+    output:
+        DATA + "/counts/twitter/{lang}.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l {wildcards.lang}"
+
 rule merge_web:
     input:
         lambda wildcards: multisource_counts_to_merge('web', wildcards.lang)
@@ -1561,6 +1606,6 @@ rule make_jieba_list:
 ruleorder:
     count_to_freqs > merge_freqs > merge_web > merge_reddit > \
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
-    merge_news > merge_subtitles > \
+    merge_news > merge_subtitles > merge_twitter > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     count_tokens > recount_messy_tokens
