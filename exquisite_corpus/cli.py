@@ -56,10 +56,10 @@ def run_tokenize_by_language(input_file, output_dir, zip, languages):
 
 
 @cli.command(name='preprocess-reddit')
-@click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
+@click.argument('input_filename', type=click.Path(exists=True))
 @click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
-def run_preprocess_reddit(input_file, output_file):
-    preprocess_reddit(input_file, output_file)
+def run_preprocess_reddit(input_filename, output_file):
+    preprocess_reddit(input_filename, output_file)
 
 
 @cli.command(name='preprocess-twitter')

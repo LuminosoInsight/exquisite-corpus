@@ -220,8 +220,7 @@ GOOGLE_3GRAM_SHARDS = [
 
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
-    [(year, month) for year in range(2008, 2017) for month in range(1, 12 + 1)] +
-    [(2017, month) for month in range(1, 11 + 1)]
+    [(year, month) for year in range(2008, 2020) for month in range(1, 12 + 1)]
 )]
 
 # Sample 1 out of every 5 months, which allows us to download fewer files, but
@@ -233,7 +232,6 @@ SAMPLED_REDDIT_SHARDS = [
     '2012-10', '2013-03', '2013-08', '2014-01', '2014-06', '2014-11',
     '2015-04', '2015-09', '2015-02', '2016-07', '2016-12', '2017-05',
     '2017-10', '2018-03', '2018-08', '2019-01', '2019-06', '2019-11',
-    '2020-04'
 ]
 
 TWITTER_V2_YEARS = ['2020']
@@ -372,6 +370,21 @@ def map_opus_language(dataset, lang):
     else:
         raise ValueError("Unknown OPUS dataset: %r" % dataset)
     return mapping.get(lang, lang)
+
+
+def find_reddit_filename(wildcards):
+    """
+    pushshift.io's Reddit archives are compressed in different formats
+    over time. Find the correct filename given the date.
+    """
+    yearmonth = wildcards.year + '-' + wildcards.month
+    if yearmonth <= '2017-11':
+        ext = '.bz2'
+    elif yearmonth <= '2018-10':
+        ext = '.xz'
+    else:
+        ext = '.zst'
+    return DATA + "/downloaded/reddit/" + yearmonth + ext
 
 
 def language_count_sources(lang):
@@ -541,12 +554,12 @@ rule download_opus_monolingual:
 
 rule download_reddit:
     output:
-        DATA + "/downloaded/reddit/{year}-{month}.bz2"
+        DATA + "/downloaded/reddit/{year}-{month}.{ext}"
     resources:
         download=1
     priority: 0
     shell:
-        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.bz2' -o {output}"
+        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' -o {output}"
 
 
 rule download_opus_parallel:
@@ -748,12 +761,11 @@ rule extract_google_1grams:
         r"zcat {input} | sed -n -e 's/\([^_	]\+\)\(_[A-Z]\+\)/\L\1/p' | awk -f scripts/countmerge.awk > {output}"
 
 rule extract_reddit:
-    input:
-        DATA + "/downloaded/reddit/{year}-{month}.bz2"
+    input: find_reddit_filename
     output:
         DATA + "/extracted/reddit/{year}-{month}.txt.gz"
     shell:
-        "bunzip2 -c {input} | xc preprocess-reddit | gzip -c > {output}"
+        "xc preprocess-reddit {input} | gzip -c > {output}"
 
 rule extract_amazon:
     input:
@@ -1094,7 +1106,7 @@ rule tokenize_twitter_v2:
     output:
         DATA + "/tokenized/twitter2/{lang}.txt"
     shell:
-        "zcat {input} | xc tokenize-file -l {params.lang} - {output}"
+        "zcat {input} | xc tokenize -l {wildcards.lang} - {output}"
 
 rule tokenize_voa:
     input:

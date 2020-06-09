@@ -1,6 +1,9 @@
 import json
 import regex
 import mmh3
+import lzma
+import zstandard
+import bz2
 
 from ftfy.fixes import fix_surrogates, unescape_html, fix_line_breaks
 from lumi_language_id import detect_language
@@ -69,10 +72,29 @@ def strip_markdown(text):
     return ' '.join(lines)
 
 
-def preprocess_reddit(infile, outfile):
+def stream_compressed_lines(input_filename):
     """
-    Read Reddit text from a JSON-lines file, parse the Markdown, and tag
-    what language each post is in.
+    Get a line-by-line reader from a compressed text file, no matter whether
+    the format is LZMA (.xz), bzip2 (.bz2), or Zstandard (.zst). These are
+    the three compression formats of pushshift.io Reddit data.
+    """
+    if input_filename.endswith('.zst') or input_filename.endswith('.zstd'):
+        # this leaks a file descriptor, but then the process ends so I don't care
+        file = open(path, 'rb')
+        decompressor = zstandard.ZstdDecompressor()
+        stream_reader = decompressor.stream_reader(file)
+        text_stream = io.TextIOWrapper(stream_reader, encoding='utf-8')
+        return text_stream
+    elif input_filename.endswith('.xz'):
+        return lzma.open(input_filename, 'rt', encoding='utf-8')
+    elif input_filename.endswith('.bz2'):
+        return bz2.open(input_filename, 'rt', encoding='utf-8')
+
+
+def preprocess_reddit(input_filename, outfile):
+    """
+    Read Reddit text from a JSON-lines file (optionally compressed), parse the Markdown,
+    and tag what language each post is in.
 
     Filter the posts to enforce _some_ standard of quality:
 
@@ -80,12 +102,13 @@ def preprocess_reddit(infile, outfile):
     - Other posts should have score >= 1 (no net downvotes)
     - Posts from subreddits that are banned in 2018 are skipped
     """
-    for line in infile:
+    input_lines = stream_compressed_lines(input_filename)
+    for line in input_lines:
         data = json.loads(line)
         if (
             'score' in data and 'body' in data and
             data["score"] is not None and data["score"] >= 2 and
-            data["body"] != "[deleted]"
+            data["body"] != "[deleted]" and data["body"] != "[removed]"
         ):
             subreddit = data["subreddit"].casefold()
             subreddit_hash = mmh3.hash(subreddit)

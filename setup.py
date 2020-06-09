@@ -12,7 +12,8 @@ setup(
     install_requires=[
         'snakemake < 5.6', 'wordfreq[jieba,mecab] >= 2.3.2', 'click',
         'regex >= 2018.01.08', 'pycld2', 'msgpack-python', 'ordered-set',
-        'ftfy', 'subword-nmt', 'sentencepiece', 'mmh3', 'pytest', 'tqdm', 'fasttext'
+        'ftfy', 'subword-nmt', 'sentencepiece', 'mmh3', 'pytest', 'tqdm',
+        'lumi_language_id', 'zstandard'
     ],
     zip_safe=False,
     classifiers=[
