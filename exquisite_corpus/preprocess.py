@@ -4,6 +4,7 @@ import mmh3
 import lzma
 import zstandard
 import bz2
+import io
 
 from ftfy.fixes import fix_surrogates, unescape_html, fix_line_breaks
 from lumi_language_id import detect_language
@@ -80,7 +81,7 @@ def stream_compressed_lines(input_filename):
     """
     if input_filename.endswith('.zst') or input_filename.endswith('.zstd'):
         # this leaks a file descriptor, but then the process ends so I don't care
-        file = open(path, 'rb')
+        file = open(input_filename, 'rb')
         decompressor = zstandard.ZstdDecompressor()
         stream_reader = decompressor.stream_reader(file)
         text_stream = io.TextIOWrapper(stream_reader, encoding='utf-8')
