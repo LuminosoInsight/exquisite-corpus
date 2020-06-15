@@ -76,10 +76,9 @@ SOURCE_LANGUAGES = {
     'twitter2': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
         'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
-        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
         'sv', 'sw', 'vi', 'az', 'sq',
-        'zh-Hans', 'el', 'mk'
     ],
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
@@ -87,7 +86,7 @@ SOURCE_LANGUAGES = {
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
         'sv', 'sw', 'vi', 'az', 'sq',
-        'zh-Hans', 'el', 'mk'
+        'zh-Hans', 'zh', 'el', 'mk'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
