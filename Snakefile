@@ -68,10 +68,10 @@ SOURCE_LANGUAGES = {
     'twitter1': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
         'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
-        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
         'sv', 'sw', 'vi', 'az', 'sq',
-        'zh-Hans', 'el', 'mk'
+        'el', 'mk'
     ],
     'twitter2': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
@@ -83,10 +83,10 @@ SOURCE_LANGUAGES = {
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
         'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
-        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
         'sv', 'sw', 'vi', 'az', 'sq',
-        'zh-Hans', 'zh', 'el', 'mk'
+        'el', 'mk'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
@@ -1003,12 +1003,12 @@ rule tokenize_amazon:
 
 rule tokenize_opus:
     input:
-        DATA + "/downloaded/opus/{dataset}.{lang}.txt"
+        DATA + "/downloaded/opus/{dataset}.{lang}.txt.gz"
     output:
         DATA + "/tokenized/opus/{dataset}.{lang}.txt"
     shell:
         # Remove country codes and fix mojibake
-        "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
+        "gunzip -c | sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_newscrawl:
     input:
