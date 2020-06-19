@@ -450,21 +450,6 @@ def multisource_counts_to_merge(multisource, lang):
     return result
 
 
-def balkanize_cld2_languages(languages):
-    """
-    CLD2 detects 'sr', 'hr', and 'bs' separately, and outputs them in
-    separate files that we'll have to merge together, because it's not actually
-    reliably distinguishing them.
-    """
-    result = set()
-    for lang in languages:
-        if lang == 'sh':
-            result.update(['sr', 'hr', 'bs'])
-        else:
-            result.add(lang)
-    return sorted(result)
-
-
 def paracrawl_language_pair_source(lang):
     """
     Given a language code in ParaCrawl, we find the "paired" file that contains
@@ -1008,7 +993,7 @@ rule tokenize_opus:
         DATA + "/tokenized/opus/{dataset}.{lang}.txt"
     shell:
         # Remove country codes and fix mojibake
-        "gunzip -c | sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
+        "gunzip -c {input} | sed -e 's/([A-Z][A-Z]\+)//g' | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_newscrawl:
     input:
@@ -1098,6 +1083,16 @@ rule tokenize_twitter:
         "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
         "{DATA}/tokenized/twitter1"
 
+
+rule tokenize_twitter_v2_balkans:
+    input:
+        DATA + "/extracted/twitter2/bs.txt.gz",
+        DATA + "/extracted/twitter2/hr.txt.gz",
+        DATA + "/extracted/twitter2/sr.txt.gz"
+    output:
+        DATA + "/tokenized/twitter2/sh.txt"
+    shell:
+        "zcat {input} | xc tokenize -l {wildcards.lang} - {output}"
 
 rule tokenize_twitter_v2:
     input:
@@ -1618,5 +1613,6 @@ ruleorder:
     count_to_freqs > merge_freqs > merge_web > merge_reddit > \
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
     merge_news > merge_subtitles > merge_twitter > \
+    tokenize_twitter_v2_balkans > tokenize_twitter_v2 > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
     count_tokens > recount_messy_tokens
