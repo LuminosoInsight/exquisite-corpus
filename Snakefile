@@ -1092,7 +1092,7 @@ rule tokenize_twitter_v2_balkans:
     output:
         DATA + "/tokenized/twitter2/sh.txt"
     shell:
-        "zcat {input} | xc tokenize -l {wildcards.lang} - {output}"
+        "zcat {input} | xc tokenize -l sh - {output}"
 
 rule tokenize_twitter_v2:
     input:
