@@ -51,11 +51,11 @@ def cleanup_parallel_file(
         # sides consist of the right language.
         lang1_pred, _lang1_confidence = detect_language(lang1_sent)
         lang1 = map_to_fasttext_language(lang1)
-        clean_lang1 = lang1_pred == lang1
+        lang1_match = lang1_pred == lang1
 
         lang2_pred, _lang2_confidence = detect_language(lang2_sent)
         lang2 = map_to_fasttext_language(lang2)
-        clean_lang2 = lang2_pred == lang2
+        lang2_match = lang2_pred == lang2
 
         # Require the source and target length ratio to not exceed 4.0. This also makes
         # sure that there are no empty source or target side so that fast_align would
@@ -75,7 +75,7 @@ def cleanup_parallel_file(
         # in the source or target side.
         no_tab = '\t' not in lang1_sent and '\t' not in lang2_sent
 
-        if note_match and clean_lang1 and clean_lang2 and balanced and no_tab:
+        if note_match and lang1_match and lang2_match and balanced and no_tab:
             outfile.write(line + '\n')
 
 
