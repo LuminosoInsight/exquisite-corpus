@@ -1126,24 +1126,14 @@ rule shuffle_parallel:
         "cat {input} | scripts/imperfect-shuffle.sh {output} parallel_{wildcards.lang1}_{wildcards.lang2}"
 
 
-rule download_fasttext_lid:
-    output:
-        DATA + "/parallel/fasttext-lid/lid.176.bin"
-    shell:
-        "curl -Lf 'https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin' -o {output}"
-
-
 rule cleanup_parallel:
     input:
-        DATA + "/parallel/shuffled/{lang1}_{lang2}.txt",
-        DATA + "/parallel/fasttext-lid/lid.176.bin"
+        DATA + "/parallel/shuffled/{lang1}_{lang2}.txt"
     output:
         DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
     run:
-        input_file, fasttext_model_file = input
         shell(
-            "xc cleanup-parallel {input_file} {output} {fasttext_model_file} "
-            "{wildcards.lang1} {wildcards.lang2}"
+            "xc cleanup-parallel {input} {output} {wildcards.lang1} {wildcards.lang2}"
         )
 
 
