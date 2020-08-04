@@ -1131,10 +1131,8 @@ rule cleanup_parallel:
         DATA + "/parallel/shuffled/{lang1}_{lang2}.txt"
     output:
         DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
-    run:
-        shell(
-            "xc cleanup-parallel {input} {output} {wildcards.lang1} {wildcards.lang2}"
-        )
+    shell:
+        "xc cleanup-parallel {input} {output} {wildcards.lang1} {wildcards.lang2}"
 
 
 rule separate_parallel:
