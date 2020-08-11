@@ -294,6 +294,7 @@ for pair in PARALLEL_LANGUAGES:
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
 
+
 def map_opus_language(dataset, lang):
     if dataset.startswith('opus/'):
         raise ValueError("Wildcard matched incorrectly; the 'opus/' directory should not be included in the match.")
@@ -1122,11 +1123,29 @@ rule separate_parallel:
     input:
         DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
     output:
-        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
-        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
+        temp(DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt"),
+        temp(DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt")
     run:
         out1, out2 = output
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
+
+
+rule simplify_and_merge_parallel_zh:
+     input:
+         DATA + "/parallel/shuffled-split/en_zh-Hans.zh-Hans.all.txt",
+         DATA + "/parallel/shuffled-split/en_zh-Hant.zh-Hant.all.txt",
+         DATA + "/parallel/shuffled-split/en_zh-Hans.en.all.txt",
+         DATA + "/parallel/shuffled-split/en_zh-Hant.en.all.txt"
+     output:
+         temp(DATA + "/parallel/shuffled-split/en_zh.zh.all.txt"),
+         temp(DATA + "/parallel/shuffled-split/en_zh.en.all.txt")
+     run:
+         input_Hans, input_Hant, input_en1, input_en2 = input
+         output_zh, output_en = output
+         shell(
+         "cat {input_Hans} {input_Hant} | xc simplify-chinese > {output_zh} && "
+         "cat {input_en1} {input_en2} > {output_en}"
+         )
 
 
 # Split files into train, valid, and test sets; 10000 lines for valid and test set each
@@ -1171,12 +1190,27 @@ rule apply_sentencepiece:
         DATA + "/parallel/training/sp/{pair}.{lang}.model"
     output:
         temp(DATA + "/tmp/paired/{pair}.{lang}.{mode}.txt")
-
     run:
         in_file, model_file = input
         shell(
             "xc encode-with-sp {in_file} {output} {model_file}"
         )
+
+
+rule simplify_tatoeba_parallel_zh:
+     input:
+         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.zh-Hans",
+         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.en"
+     output:
+         DATA + "/extracted/opus/Tatoeba.en_zh.zh",
+         DATA + "/extracted/opus/Tatoeba.en_zh.en"
+     run:
+         input_Hans, input_en = input
+         output_zh, output_en = output
+         shell(
+             "cat {input_Hans} | xc simplify-chinese > {output_zh} && "
+             "cp {input_en}  {output_en}"
+         )
 
 
 rule apply_sentencepiece_tatoeba:
