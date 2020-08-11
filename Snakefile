@@ -269,6 +269,8 @@ for _source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
+
+
 OPENSUB_PARALLEL_LANGUAGES = [
     'ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'id', 'it', 'ja', 'ko', 'nl', 'pl', 'pt',
     'ru', 'sv', 'zh-Hans', 'zh-Hant'
@@ -279,29 +281,18 @@ OPENSUB_LANGUAGE_PAIRS = [
     if _lang1 < _lang2
 ]
 
-# We'll build a parallel text between English and 15 languages. We construct this list
+# We'll build a parallel text between English and 14 languages. We construct this list
 # manually to be sure that we get the codes in the right order.
 PARALLEL_LANGUAGES = [
     'ar_en', 'de_en', 'en_es', 'en_fr', 'en_id', 'en_it', 'en_ja', 'en_ko', 'en_nl',
-    'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
+    'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh'
 ]
-
-# As we map Tatoeba language code 'cmn' to 'zh-Hans', TATOEBA_LANGUAGES is the same as
-# PARALLEL_LANGUAGE except 'en_zh-Hant' is removed.
-TATOEBA_LANGUAGES = PARALLEL_LANGUAGES[:-1]
 
 PARALLEL_LANGUAGE_PAIRS = []
 for pair in PARALLEL_LANGUAGES:
     lang1, lang2 = pair.split('_')
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
-
-TATOEBA_LANGUAGE_PAIRS = []
-for pair in TATOEBA_LANGUAGES:
-    lang1, lang2 = pair.split('_')
-    TATOEBA_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
-    TATOEBA_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
-
 
 def map_opus_language(dataset, lang):
     if dataset.startswith('opus/'):
@@ -465,7 +456,7 @@ rule parallel:
         expand(DATA + "/parallel/training/joined/{pair}.{mode}.txt",
                 pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
         expand(DATA + "/parallel/training/joined/tatoeba_test.{pair}.txt",
-                pair=TATOEBA_LANGUAGE_PAIRS)
+                pair=PARALLEL_LANGUAGE_PAIRS)
 
 rule alignment:
     input:
@@ -1190,8 +1181,8 @@ rule apply_sentencepiece:
 
 rule apply_sentencepiece_tatoeba:
     input:
-        "data/extracted/opus/Tatoeba.{pair}.{lang}",
-        "data/parallel/training/sp/{pair}.{lang}.model"
+        DATA + "/extracted/opus/Tatoeba.{pair}.{lang}",
+        DATA + "/parallel/training/sp/{pair}.{lang}.model"
     output:
         temp(DATA + "/tmp/paired/tatoeba_test.{pair}.{lang}.txt")
     run:
