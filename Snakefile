@@ -296,6 +296,12 @@ PARALLEL_LANGUAGE_SOURCES = {
     'opus/Europarl': [
         'de_en', 'en_es', 'en_fr', 'en_it', 'en_nl', 'en_pl', 'en_pt', 'en_sv'
     ],
+    'opus/MultiUN' : [
+        'ar_en', 'de_en', 'en_es', 'en_fr', 'en_ru', 'en_zh'
+    ],
+    'opus/UNPC' : [
+        'ar_en', 'en_es', 'en_fr', 'en_ru', 'en_zh'
+    ],
     'jesc': 'en_ja'
 }
 
@@ -305,12 +311,16 @@ def parallel_sources(wildcards):
     lang1, lang2 = sorted([wildcards.lang1, wildcards.lang2])
     pair = '{}_{}'.format(lang1, lang2)
 
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/OpenSubtitles2018']:
+        sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/ParaCrawl']:
         sources.append(DATA + "/parallel/opus/Paracrawl.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/Europarl']:
         sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
-    if pair in PARALLEL_LANGUAGE_SOURCES['opus/OpenSubtitles2018']:
-        sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/MultiUN']:
+        sources.append(DATA + "/parallel/opus/MultiUN.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/UNPC']:
+        sources.append(DATA + "/parallel/opus/UNPC.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['jesc']:
         sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
     return sources
@@ -348,6 +358,10 @@ def map_opus_language(dataset, lang):
         mapping = {
             'pt-PT': 'pt'
         }
+    elif dataset == 'UNPC':
+        mapping = {}
+    elif dataset == 'MultiUN':
+        mapping = {}
     else:
         raise ValueError("Unknown OPUS dataset: %r" % dataset)
     return mapping.get(lang, lang)
@@ -1084,7 +1098,7 @@ rule simplify_tatoeba_parallel_zh:
          input_Hans, input_en = input
          output_zh, output_en = output
          shell(
-         "cat {input_Hans} | xc simplify-chinese > {output_zh} && "
+         "xc simplify-chinese {input_Hans} {output_zh} && "
          "cp {input_en} {output_en}"
          )
 
