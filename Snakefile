@@ -270,17 +270,6 @@ SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAG
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
 
-
-OPENSUB_PARALLEL_LANGUAGES = [
-    'ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'id', 'it', 'ja', 'ko', 'nl', 'pl', 'pt',
-    'ru', 'sv', 'zh-Hans', 'zh-Hant'
-]
-OPENSUB_LANGUAGE_PAIRS = [
-    "{}_{}".format(_lang1, _lang2)
-    for _lang1 in OPENSUB_PARALLEL_LANGUAGES for _lang2 in OPENSUB_PARALLEL_LANGUAGES
-    if _lang1 < _lang2
-]
-
 # We'll build a parallel text between English and 14 languages. We construct this list
 # manually to be sure that we get the codes in the right order.
 PARALLEL_LANGUAGES = [
@@ -367,7 +356,7 @@ def parallel_sources(wildcards):
         sources.append(DATA + "/parallel/paracrawl/{}.txt".format(pair))
     if other_lang in SOURCE_LANGUAGES['jesc']:
         sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
-    if pair in OPENSUB_LANGUAGE_PAIRS:
+    if pair in PARALLEL_LANGUAGES:
         sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
     if other_lang in SOURCE_LANGUAGES['opus/Europarl']:
         sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
@@ -1055,6 +1044,39 @@ rule tokenize_voa:
 
 # Handling parallel text
 # ======================
+rule simplify_and_merge_opensubtitles_parallel_zh:
+     input:
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.zh-Hans",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hant.zh-Hant",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.en",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hant.en"
+     output:
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh.zh",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh.en"
+     run:
+         input_Hans, input_Hant, input_en1, input_en2 = input
+         output_zh, output_en = output
+         shell(
+         "cat {input_Hans} {input_Hant} | xc simplify-chinese > {output_zh} && "
+         "cat {input_en1} {input_en2} > {output_en}"
+         )
+
+
+rule simplify_tatoeba_parallel_zh:
+     input:
+         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.zh-Hans",
+         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.en"
+     output:
+         DATA + "/extracted/opus/Tatoeba.en_zh.zh",
+         DATA + "/extracted/opus/Tatoeba.en_zh.en"
+     run:
+         input_Hans, input_en = input
+         output_zh, output_en = output
+         shell(
+         "cat {input_Hans} | xc simplify-chinese > {output_zh} && "
+         "cp {input_en} {output_en}"
+         )
+
 
 rule parallel_opus:
     # Join monolingual files from OPUS into a parallel text file.
@@ -1130,24 +1152,6 @@ rule separate_parallel:
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
 
 
-rule simplify_and_merge_parallel_zh:
-     input:
-         DATA + "/parallel/shuffled-split/en_zh-Hans.zh-Hans.all.txt",
-         DATA + "/parallel/shuffled-split/en_zh-Hant.zh-Hant.all.txt",
-         DATA + "/parallel/shuffled-split/en_zh-Hans.en.all.txt",
-         DATA + "/parallel/shuffled-split/en_zh-Hant.en.all.txt"
-     output:
-         temp(DATA + "/parallel/shuffled-split/en_zh.zh.all.txt"),
-         temp(DATA + "/parallel/shuffled-split/en_zh.en.all.txt")
-     run:
-         input_Hans, input_Hant, input_en1, input_en2 = input
-         output_zh, output_en = output
-         shell(
-         "cat {input_Hans} {input_Hant} | xc simplify-chinese > {output_zh} && "
-         "cat {input_en1} {input_en2} > {output_en}"
-         )
-
-
 # Split files into train, valid, and test sets; 10000 lines for valid and test set each
 # and rest is kept for the train set.
 rule split_train_valid_test:
@@ -1195,22 +1199,6 @@ rule apply_sentencepiece:
         shell(
             "xc encode-with-sp {in_file} {output} {model_file}"
         )
-
-
-rule simplify_tatoeba_parallel_zh:
-     input:
-         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.zh-Hans",
-         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.en"
-     output:
-         DATA + "/extracted/opus/Tatoeba.en_zh.zh",
-         DATA + "/extracted/opus/Tatoeba.en_zh.en"
-     run:
-         input_Hans, input_en = input
-         output_zh, output_en = output
-         shell(
-             "cat {input_Hans} | xc simplify-chinese > {output_zh} && "
-             "cp {input_en}  {output_en}"
-         )
 
 
 rule apply_sentencepiece_tatoeba:
