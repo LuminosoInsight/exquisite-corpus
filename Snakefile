@@ -270,8 +270,12 @@ SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAG
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
 
-# We'll build a parallel text between English and 14 languages. We construct this list
-# manually to be sure that we get the codes in the right order.
+
+# We'll build a parallel text between English and 14 languages. We construct
+# PARALLEL_LANGUAGES and PARALLEL_SOURCES lists manually to be sure that we get the
+# codes and sources correctly.
+
+# Parallel language pairs
 PARALLEL_LANGUAGES = [
     'ar_en', 'de_en', 'en_es', 'en_fr', 'en_id', 'en_it', 'en_ja', 'en_ko', 'en_nl',
     'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh'
@@ -282,6 +286,34 @@ for pair in PARALLEL_LANGUAGES:
     lang1, lang2 = pair.split('_')
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
+
+# Parallel language sources
+PARALLEL_LANGUAGE_SOURCES = {
+    'opus/OpenSubtitles2018': PARALLEL_LANGUAGES,
+    'opus/ParaCrawl' : [
+        'de_en', 'en_es', 'en_fr', 'en_it', 'en_nl', 'en_pl', 'en_pt', 'en_sv'
+    ],
+    'opus/Europarl': [
+        'de_en', 'en_es', 'en_fr', 'en_it', 'en_nl', 'en_pl', 'en_pt', 'en_sv'
+    ],
+    'jesc': 'en_ja'
+}
+
+
+def parallel_sources(wildcards):
+    sources = []
+    lang1, lang2 = sorted([wildcards.lang1, wildcards.lang2])
+    pair = '{}_{}'.format(lang1, lang2)
+
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/ParaCrawl']:
+        sources.append(DATA + "/parallel/opus/Paracrawl.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/Europarl']:
+        sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/OpenSubtitles2018']:
+        sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['jesc']:
+        sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
+    return sources
 
 
 def map_opus_language(dataset, lang):
@@ -340,27 +372,6 @@ def language_text_sources(lang):
         for source in LANGUAGE_SOURCES[lang]
         if source in FULL_TEXT_SOURCES
     ]
-
-
-def parallel_sources(wildcards):
-    sources = []
-    lang1, lang2 = sorted([wildcards.lang1, wildcards.lang2])
-    if lang1 == 'en':
-        other_lang = lang2
-    elif lang2 == 'en':
-        other_lang = lang1
-    else:
-        other_lang = None
-    pair = '{}_{}'.format(lang1, lang2)
-    if other_lang in SOURCE_LANGUAGES['paracrawl']:
-        sources.append(DATA + "/parallel/paracrawl/{}.txt".format(pair))
-    if other_lang in SOURCE_LANGUAGES['jesc']:
-        sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
-    if pair in PARALLEL_LANGUAGES:
-        sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
-    if other_lang in SOURCE_LANGUAGES['opus/Europarl']:
-        sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
-    return sources
 
 
 def _count_filename(source, lang):
