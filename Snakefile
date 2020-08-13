@@ -333,12 +333,14 @@ def get_opus_version(dataset):
         version = 'OPUS-OpenSubtitles/v2018'
     elif dataset == 'ParaCrawl':
         version = 'OPUS-ParaCrawl/v5'
-    elif dataset == 'Europral':
+    elif dataset == 'Europarl':
         version = 'OPUS-Europarl/v8'
     elif dataset == 'MultiUN':
-        version = 'OPUS-MultiUN/v1/'
+        version = 'OPUS-MultiUN/v1'
     elif dataset == 'UNPC':
         version = 'OPUS-UNPC/v1.0'
+    elif dataset == 'Tatoeba':
+        version = 'OPUS-Tatoeba/v20190709'
     else:
         raise ValueError(f"Unknown OPUS dataset: {dataset}")
     return version
@@ -554,7 +556,7 @@ rule download_opus_parallel:
         # Manage the version of the OPUS dataset manually
         version = get_opus_version(dataset)
         shell(
-            "curl -Lf https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -o {output}"
+            "curl -Lf 'https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -o {output}"
         )
 
 
