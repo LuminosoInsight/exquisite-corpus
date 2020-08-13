@@ -276,9 +276,10 @@ TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANG
 # codes and sources correctly.
 
 # Parallel language pairs
+# zh-simp means simplified Chinese
 PARALLEL_LANGUAGES = [
     'ar_en', 'de_en', 'en_es', 'en_fr', 'en_id', 'en_it', 'en_ja', 'en_ko', 'en_nl',
-    'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh'
+    'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh-simp'
 ]
 
 PARALLEL_LANGUAGE_PAIRS = []
@@ -297,10 +298,10 @@ PARALLEL_LANGUAGE_SOURCES = {
         'de_en', 'en_es', 'en_fr', 'en_it', 'en_nl', 'en_pl', 'en_pt', 'en_sv'
     ],
     'opus/MultiUN' : [
-        'ar_en', 'de_en', 'en_es', 'en_fr', 'en_ru', 'en_zh'
+        'ar_en', 'de_en', 'en_es', 'en_fr', 'en_ru', 'en_zh-simp'
     ],
     'opus/UNPC' : [
-        'ar_en', 'en_es', 'en_fr', 'en_ru', 'en_zh'
+        'ar_en', 'en_es', 'en_fr', 'en_ru', 'en_zh-simp'
     ],
     'jesc': 'en_ja'
 }
@@ -1089,15 +1090,15 @@ rule tokenize_voa:
 
 # Handling parallel text
 # ======================
-rule simplify_and_merge_opensubtitles_parallel_zh:
+rule simplify_and_merge_opensubtitles_zh:
      input:
          DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.zh-Hans",
          DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hant.zh-Hant",
          DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.en",
          DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hant.en"
      output:
-         DATA + "/extracted/opus/OpenSubtitles2018.en_zh.zh",
-         DATA + "/extracted/opus/OpenSubtitles2018.en_zh.en"
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-simp.zh-simp",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-simp.en"
      run:
          input_Hans, input_Hant, input_en1, input_en2 = input
          output_zh, output_en = output
@@ -1107,13 +1108,44 @@ rule simplify_and_merge_opensubtitles_parallel_zh:
          )
 
 
-rule simplify_tatoeba_parallel_zh:
+rule simplify_multi_un_zh:
+     input:
+         DATA + "/extracted/opus/MultiUN.en_zh.zh",
+         DATA + "/extracted/opus/MultiUN.en_zh.en"
+     output:
+         DATA + "/extracted/opus/MultiUN.en_zh-simp.zh-simp",
+         DATA + "/extracted/opus/MultiUN.en_zh-simp.en"
+     run:
+         input_zh, input_en = input
+         output_zh, output_en = output
+         shell(
+         "xc simplify-chinese {input_zh} {output_zh} && "
+         "cp {input_en} {output_en}"
+         )
+
+
+rule simplify_unpc_zh:
+     input:
+         DATA + "/extracted/opus/UNPC.en_zh.zh",
+         DATA + "/extracted/opus/UNPC.en_zh.en"
+     output:
+         DATA + "/extracted/opus/UNPC.en_zh-simp.zh-simp",
+         DATA + "/extracted/opus/UNPC.en_zh-simp.en"
+     run:
+         input_zh, input_en = input
+         output_zh, output_en = output
+         shell(
+         "xc simplify-chinese {input_zh} {output_zh} && "
+         "cp {input_en} {output_en}"
+         )
+
+rule simplify_tatoeba_zh:
      input:
          DATA + "/extracted/opus/Tatoeba.en_zh-Hans.zh-Hans",
          DATA + "/extracted/opus/Tatoeba.en_zh-Hans.en"
      output:
-         DATA + "/extracted/opus/Tatoeba.en_zh.zh",
-         DATA + "/extracted/opus/Tatoeba.en_zh.en"
+         DATA + "/extracted/opus/Tatoeba.en_zh-simp.zh-simp",
+         DATA + "/extracted/opus/Tatoeba.en_zh-simp.en"
      run:
          input_Hans, input_en = input
          output_zh, output_en = output
