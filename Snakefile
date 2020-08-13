@@ -314,7 +314,7 @@ def parallel_sources(wildcards):
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/OpenSubtitles2018']:
         sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/ParaCrawl']:
-        sources.append(DATA + "/parallel/opus/Paracrawl.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/opus/ParaCrawl.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/Europarl']:
         sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/MultiUN']:
@@ -324,6 +324,23 @@ def parallel_sources(wildcards):
     if pair in PARALLEL_LANGUAGE_SOURCES['jesc']:
         sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
     return sources
+
+
+def get_opus_version(dataset):
+    # Manage the version of the OPUS dataset manually
+    if dataset == 'OpenSubtitles2018':
+        version = 'OPUS-OpenSubtitles/v2018'
+    elif dataset == 'ParaCrawl':
+        version = 'OPUS-ParaCrawl/v5'
+    elif dataset == 'Europral':
+        version = 'OPUS-Europarl/v8'
+    elif dataset == 'MultiUN':
+        version = 'OPUS-MultiUN/v1/'
+    elif dataset == 'UNPC':
+        version = 'OPUS-UNPC/v1.0'
+    else:
+        raise ValueError(f"Unknown OPUS dataset: {dataset}")
+    return version
 
 
 def map_opus_language(dataset, lang):
@@ -358,9 +375,7 @@ def map_opus_language(dataset, lang):
         mapping = {
             'pt-PT': 'pt'
         }
-    elif dataset == 'UNPC':
-        mapping = {}
-    elif dataset == 'MultiUN':
+    elif dataset == 'ParaCrawl' or 'MultiUN' or 'UNPC':
         mapping = {}
     else:
         raise ValueError("Unknown OPUS dataset: %r" % dataset)
@@ -534,7 +549,12 @@ rule download_opus_parallel:
         lang1 = map_opus_language(dataset, wildcards.lang1)
         lang2 = map_opus_language(dataset, wildcards.lang2)
         lang1, lang2 = sorted([lang1, lang2])
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/{lang1}-{lang2}.txt.zip' -o {output}")
+
+        # Manage the version of the OPUS dataset manually
+        version = get_opus_version(dataset)
+        shell(
+            "curl -Lf https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -o {output}"
+        )
 
 
 rule download_wikipedia:
