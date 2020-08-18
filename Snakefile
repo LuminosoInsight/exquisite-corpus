@@ -628,9 +628,9 @@ rule download_paracrawl:
 
 rule download_jesc:
     output:
-        DATA + "/downloaded/jesc/detokenized.tar.gz"
+        DATA + "/downloaded/jesc/raw.tar.gz"
     shell:
-        "curl -Lf 'https://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
+        "curl -Lf 'https://nlp.stanford.edu/projects/jesc/data/raw.tar.gz' -o {output}"
 
 
 # Handling downloaded data
@@ -691,6 +691,14 @@ rule extract_opus_parallel:
         shell("unzip -o -d '{DATA}/extracted/opus/' {input} && mv {"
               "zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
 
+rule extract_parallel_jesc:
+    input:
+        DATA + "/downloaded/jesc/raw.tar.gz"
+    output:
+        DATA + "/parallel/jesc/en_ja.txt"
+    shell:
+        "tar xf {input} -C {DATA}/parallel/jesc && touch {output}"
+
 rule extract_newscrawl:
     input:
         DATA + "/downloaded/newscrawl-2014-monolingual.tar.gz"
@@ -710,15 +718,6 @@ rule gzip_newscrawl:
                ".2014.{lang}.shuffled.gz"
     shell:
         "gzip -c {input} > {output}"
-
-rule extract_jesc:
-    input:
-        DATA + "/downloaded/jesc/detokenized.tar.gz"
-    output:
-        temp(DATA + "/extracted/jesc/detokenized/train.en"),
-        temp(DATA + "/extracted/jesc/detokenized/train.ja")
-    shell:
-        "tar xf {input} -C {DATA}/extracted/jesc && touch {DATA}/extracted/jesc/detokenized/*"
 
 rule extract_amazon_acl10:
     input:
@@ -1189,16 +1188,6 @@ rule parallel_paracrawl:
 
     output:
         DATA + "/parallel/paracrawl/{lang1}_{lang2}.txt"
-    shell:
-        "paste {input} > {output}"
-
-rule parallel_jesc:
-    # Join monolingual files from JESC into a parallel text file.
-    input:
-        DATA + "/extracted/jesc/detokenized/train.en",
-        DATA + "/extracted/jesc/detokenized/train.ja"
-    output:
-        DATA + "/parallel/jesc/en_ja.txt"
     shell:
         "paste {input} > {output}"
 
