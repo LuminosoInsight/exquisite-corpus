@@ -1,6 +1,23 @@
 #!/usr/bin/env python3
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
+
+### Languages to add when OSCAR data is included:
+# Urdu (ur)
+# Nynorsk (nn)
+# Slovenian (sl)
+# Slovak (sk)
+# Estonian (et)
+# Albanian (sq)
+# Vietnamese (vi)
+# Lithuanian (lt)
+# Galician (gl)
+# Filipino (fil)
+# Swahili (sw)
+# Basque (eu)
+# Icelandic (is)
+# Tamil (ta)
+
 import os
 from collections import defaultdict
 
@@ -49,6 +66,8 @@ SOURCE_LANGUAGES = {
         'ja', 'ka', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt',
         'ro', 'ru', 'sh', 'sk', 'sl', 'sv', 'th', 'tr', 'uk', 'ur', 'uz', 'vi',
         'zh',
+
+        'ta', 'cy',
 
         # Smaller but high-quality, high-depth Wikipedias
         'mk', 'my', 'te', 'ml', 'bn', 'mr', 'is', 'ku', 'mn', 'si', 'or'
@@ -533,7 +552,7 @@ rule download_opus_monolingual:
     run:
         dataset = wildcards.dataset
         source_lang = map_opus_language(dataset, wildcards.lang)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -o {output}")
+        shell("wget 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -O {output}")
 
 
 rule download_reddit:
@@ -543,7 +562,7 @@ rule download_reddit:
         download=1
     priority: 0
     shell:
-        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' -o {output}"
+        "wget 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' -O {output}"
 
 
 rule download_opus_parallel:
@@ -559,7 +578,7 @@ rule download_opus_parallel:
         lang1 = map_opus_language(dataset, wildcards.lang1)
         lang2 = map_opus_language(dataset, wildcards.lang2)
         lang1, lang2 = sorted([lang1, lang2])
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/{lang1}-{lang2}.txt.zip' -o {output}")
+        shell("wget 'http://opus.nlpl.eu/download.php?f={dataset}/{lang1}-{lang2}.txt.zip' -O {output}")
 
 
 rule download_wikipedia:
@@ -571,13 +590,13 @@ rule download_wikipedia:
     run:
         source_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         version = WP_VERSION
-        shell("curl 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
+        shell("wget 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -O {output}")
 
 rule download_newscrawl:
     output:
         DATA + "/downloaded/newscrawl-2014-monolingual.tar.gz"
     shell:
-        "curl -Lf 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
+        "wget 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -O {output}"
 
 rule download_google_1grams:
     output:
@@ -606,13 +625,13 @@ rule download_amazon_snap:
     output:
         DATA + "/downloaded/amazon/{category}.json.gz"
     shell:
-        "curl -Lf 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
+        "wget 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -O {output}"
 
 rule download_amazon_acl10:
     output:
         DATA + "/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     shell:
-        "curl -Lf 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
+        "wget 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -O {output}"
 
 rule download_paracrawl:
     output:
@@ -626,13 +645,13 @@ rule download_paracrawl:
         else:
             raise ValueError("One language in a ParaCrawl pair must be English")
 
-        shell("curl -Lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -o {output}")
+        shell("wget 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -O {output}")
 
 rule download_jesc:
     output:
         DATA + "/downloaded/jesc/detokenized.tar.gz"
     shell:
-        "curl -Lf 'https://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
+        "wget 'https://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -O {output}"
 
 
 # Handling downloaded data
@@ -1172,7 +1191,7 @@ rule download_fasttext_lid:
     output:
         DATA + "/parallel/fasttext-lid/lid.176.bin"
     shell:
-        "curl -Lf 'https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin' -o {output}"
+        "wget 'https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin' -O {output}"
 
 
 rule cleanup_parallel:
