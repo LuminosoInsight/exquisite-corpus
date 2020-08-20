@@ -303,7 +303,12 @@ PARALLEL_LANGUAGE_SOURCES = {
     'opus/UNPC' : [
         'ar_en', 'en_es', 'en_fr', 'en_ru', 'en_zh-simp'
     ],
-    'jesc': 'en_ja'
+    'jesc': [
+        'en_ja'
+    ],
+    'jparacrawl': [
+        'en_ja'
+    ]
 }
 
 
@@ -324,6 +329,8 @@ def parallel_sources(wildcards):
         sources.append(DATA + "/parallel/opus/UNPC.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['jesc']:
         sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['jparacrawl']:
+        sources.append(DATA + "/parallel/jparacrawl/{}.txt".format(pair))
     return sources
 
 
@@ -633,6 +640,13 @@ rule download_jesc:
         "curl -Lf 'https://nlp.stanford.edu/projects/jesc/data/raw.tar.gz' -o {output}"
 
 
+rule download_jparacrawl:
+    output:
+        DATA + "/downloaded/jparacrawl/en-ja.tar.gz"
+    shell:
+        "curl -Lf 'http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/release/2.0/bitext/en-ja.tar.gz' -o {output}"
+
+
 # Handling downloaded data
 # ========================
 rule extract_opus_parallel:
@@ -698,6 +712,16 @@ rule extract_parallel_jesc:
         DATA + "/parallel/jesc/en_ja.txt"
     shell:
         "tar xf {input} -C {DATA}/parallel/jesc && touch {output}"
+
+
+rule extract_jparacrawl:
+    input:
+        DATA + "/downloaded/jparacrawl/en-ja.tar.gz"
+    output:
+        temp(DATA + "/extracted/jparacrawl/en-ja.bicleaner05.txt")
+    shell:
+        "tar xf {input} -C {DATA}/extracted/jparacrawl && touch {output}"
+
 
 rule extract_newscrawl:
     input:
@@ -1180,6 +1204,7 @@ rule parallel_opus:
         # mojibake.
         "paste {input} | LANG=C grep -v $'\xee' > {output}"
 
+
 rule parallel_paracrawl:
     # Join monolingual files from ParaCrawl into a parallel text file.
     input:
@@ -1190,6 +1215,17 @@ rule parallel_paracrawl:
         DATA + "/parallel/paracrawl/{lang1}_{lang2}.txt"
     shell:
         "paste {input} > {output}"
+
+
+rule parallel_jparacrawl:
+    input:
+        DATA + "/extracted/jparacrawl/en-ja.bicleaner05.txt"
+    output:
+        DATA + "/parallel/jparacrawl/en_ja.txt"
+    shell:
+         # en-ja.bicleaner05.txt contains tab-separated domain name, score, English
+         # text, and Japanese text
+        "cut -f 3,4 {input} > {output}"
 
 
 rule shuffle_parallel:
