@@ -21,7 +21,8 @@ def cleanup_parallel_file(
     """
     Take in a tab-separated parallel text, run ftfy over each line, and skip the line if
     the text on either side contains different numbers of '♪' or if languages on either
-    side are not identified with confidence (given text is long enough).
+    side are not identified with confidence or the source to target length ratio is
+    greater than 4.0.
     """
     for line in infile:
         # Run all ftfy fixes
