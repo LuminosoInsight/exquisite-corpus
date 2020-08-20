@@ -705,20 +705,21 @@ rule extract_opus_parallel:
         shell("unzip -o -d '{DATA}/extracted/opus/' {input} && mv {"
               "zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
 
-rule extract_parallel_jesc:
+
+rule extract_jesc:
     input:
         DATA + "/downloaded/jesc/raw.tar.gz"
     output:
-        DATA + "/parallel/jesc/en_ja.txt"
+        temp(DATA + "/extracted/jesc/raw/raw")
     shell:
-        "tar xf {input} -C {DATA}/parallel/jesc && touch {output}"
+        "tar xf {input} -C {DATA}/extracted/jesc && touch {output}"
 
 
 rule extract_jparacrawl:
     input:
         DATA + "/downloaded/jparacrawl/en-ja.tar.gz"
     output:
-        temp(DATA + "/extracted/jparacrawl/en-ja.bicleaner05.txt")
+        temp(DATA + "/extracted/jparacrawl/en-ja/en-ja.bicleaner05.txt")
     shell:
         "tar xf {input} -C {DATA}/extracted/jparacrawl && touch {output}"
 
@@ -1217,9 +1218,18 @@ rule parallel_paracrawl:
         "paste {input} > {output}"
 
 
+rule parallel_jesc:
+    input:
+        DATA + "/extracted/jesc/raw/raw"
+    output:
+        DATA + "/parallel/jesc/en_ja.txt"
+    shell:
+        "cp {input} {output}"
+
+
 rule parallel_jparacrawl:
     input:
-        DATA + "/extracted/jparacrawl/en-ja.bicleaner05.txt"
+        DATA + "/extracted/jparacrawl/en-ja/en-ja.bicleaner05.txt"
     output:
         DATA + "/parallel/jparacrawl/en_ja.txt"
     shell:
