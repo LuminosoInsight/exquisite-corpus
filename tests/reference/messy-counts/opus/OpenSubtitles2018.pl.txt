@@ -1,4 +1,4 @@
-__total__	6122
+__total__	6119
 nie	161
 to	110
 się	109
@@ -13,7 +13,7 @@ do	50
 tak	48
 jak	36
 o	33
-a	32
+a	29
 mi	27
 za	27
 mnie	25
@@ -396,7 +396,6 @@ temu	2
 złość	2
 człowiekiem	2
 całego	2
-show	2
 pozwól	2
 znam	2
 potrwa	2

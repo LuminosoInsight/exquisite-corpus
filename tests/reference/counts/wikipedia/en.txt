@@ -1,4 +1,4 @@
-__total__	70083
+__total__	70080
 the	5381
 of	3000
 and	2275
@@ -3290,8 +3290,7 @@ churches	3
 immigrants	3
 cumberland	3
 faith	3
-bahá	3
-í	3
+bahá'í	3
 jews	3
 temples	3
 automobile	3

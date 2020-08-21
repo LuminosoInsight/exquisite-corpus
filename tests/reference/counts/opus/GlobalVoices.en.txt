@@ -1,9 +1,9 @@
-__total__	15029
+__total__	15023
 the	1155
 of	574
 and	453
 to	446
-a	431
+a	429
 in	411
 is	231
 that	214
@@ -236,7 +236,6 @@ major	9
 another	9
 know	9
 show	9
-al	9
 posts	9
 end	9
 times	9
@@ -261,6 +260,7 @@ fear	8
 published	8
 men	8
 already	8
+al	8
 few	8
 using	8
 among	8
@@ -836,7 +836,6 @@ effort	3
 polls	3
 cause	3
 intellectuals	3
-orange	3
 registered	3
 dead	3
 release	3
@@ -1228,6 +1227,7 @@ role	2
 debated	2
 advocating	2
 originally	2
+orange	2
 nicaragua	2
 dispatch	2
 moment	2
@@ -1770,7 +1770,6 @@ year's	2
 experimentation	2
 ultimately	2
 program	2
-shi	2
 vietnam	2
 close	2
 mentioned	2
