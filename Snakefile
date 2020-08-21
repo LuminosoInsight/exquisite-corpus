@@ -282,6 +282,8 @@ PARALLEL_LANGUAGES = [
     'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh-simp'
 ]
 
+PARALLEL_LANGUAGES = ['en_zh-simp']
+
 PARALLEL_LANGUAGE_PAIRS = []
 for pair in PARALLEL_LANGUAGES:
     lang1, lang2 = pair.split('_')
@@ -318,19 +320,19 @@ def parallel_sources(wildcards):
     pair = '{}_{}'.format(lang1, lang2)
 
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/OpenSubtitles2018']:
-        sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/sources/opus/OpenSubtitles2018.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/ParaCrawl']:
-        sources.append(DATA + "/parallel/opus/ParaCrawl.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/sources/opus/ParaCrawl.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/Europarl']:
-        sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/sources/opus/Europarl.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/MultiUN']:
-        sources.append(DATA + "/parallel/opus/MultiUN.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/sources/opus/MultiUN.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['opus/UNPC']:
-        sources.append(DATA + "/parallel/opus/UNPC.{}.txt".format(pair))
+        sources.append(DATA + "/parallel/sources/opus/UNPC.{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['jesc']:
-        sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
+        sources.append(DATA + "/parallel/sources/jesc/{}.txt".format(pair))
     if pair in PARALLEL_LANGUAGE_SOURCES['jparacrawl']:
-        sources.append(DATA + "/parallel/jparacrawl/{}.txt".format(pair))
+        sources.append(DATA + "/parallel/sources/jparacrawl/{}.txt".format(pair))
     return sources
 
 
@@ -1123,8 +1125,8 @@ rule simplify_and_merge_opensubtitles_zh:
          DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.en",
          DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hant.en"
      output:
-         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-simp.zh-simp",
-         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-simp.en"
+         temp(DATA + "/extracted/opus/OpenSubtitles2018.en_zh-simp.zh-simp"),
+         temp(DATA + "/extracted/opus/OpenSubtitles2018.en_zh-simp.en")
      run:
          input_Hans, input_Hant, input_en1, input_en2 = input
          output_zh, output_en = output
@@ -1139,8 +1141,8 @@ rule simplify_multi_un_zh:
          DATA + "/extracted/opus/MultiUN.en_zh.zh",
          DATA + "/extracted/opus/MultiUN.en_zh.en"
      output:
-         DATA + "/extracted/opus/MultiUN.en_zh-simp.zh-simp",
-         DATA + "/extracted/opus/MultiUN.en_zh-simp.en"
+         temp(DATA + "/extracted/opus/MultiUN.en_zh-simp.zh-simp"),
+         temp(DATA + "/extracted/opus/MultiUN.en_zh-simp.en")
      run:
          input_zh, input_en = input
          output_zh, output_en = output
@@ -1155,8 +1157,8 @@ rule simplify_unpc_zh:
          DATA + "/extracted/opus/UNPC.en_zh.zh",
          DATA + "/extracted/opus/UNPC.en_zh.en"
      output:
-         DATA + "/extracted/opus/UNPC.en_zh-simp.zh-simp",
-         DATA + "/extracted/opus/UNPC.en_zh-simp.en"
+         temp(DATA + "/extracted/opus/UNPC.en_zh-simp.zh-simp"),
+         temp(DATA + "/extracted/opus/UNPC.en_zh-simp.en")
      run:
          input_zh, input_en = input
          output_zh, output_en = output
@@ -1170,8 +1172,8 @@ rule simplify_tatoeba_zh:
          DATA + "/extracted/opus/Tatoeba.en_zh-Hans.zh-Hans",
          DATA + "/extracted/opus/Tatoeba.en_zh-Hans.en"
      output:
-         DATA + "/extracted/opus/Tatoeba.en_zh-simp.zh-simp",
-         DATA + "/extracted/opus/Tatoeba.en_zh-simp.en"
+         temp(DATA + "/extracted/opus/Tatoeba.en_zh-simp.zh-simp"),
+         temp(DATA + "/extracted/opus/Tatoeba.en_zh-simp.en")
      run:
          input_Hans, input_en = input
          output_zh, output_en = output
@@ -1188,7 +1190,7 @@ rule parallel_opus:
         DATA + "/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}"
 
     output:
-        DATA + "/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
+        DATA + "/parallel/sources/opus/{dataset}.{lang1}_{lang2}.txt"
     shell:
         # OpenSubtitles text may have come out in a form of Chinese mojibake
         # where many characters are mapped to the private use area.
@@ -1222,7 +1224,7 @@ rule parallel_jesc:
     input:
         DATA + "/extracted/jesc/raw/raw"
     output:
-        DATA + "/parallel/jesc/en_ja.txt"
+        DATA + "/parallel/sources/jesc/en_ja.txt"
     shell:
         "cp {input} {output}"
 
@@ -1231,7 +1233,7 @@ rule parallel_jparacrawl:
     input:
         DATA + "/extracted/jparacrawl/en-ja/en-ja.bicleaner05.txt"
     output:
-        DATA + "/parallel/jparacrawl/en_ja.txt"
+        DATA + "/parallel/sources/jparacrawl/en_ja.txt"
     shell:
          # en-ja.bicleaner05.txt contains tab-separated domain name, score, English
          # text, and Japanese text
