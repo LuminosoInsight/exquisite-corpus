@@ -6,11 +6,10 @@ from ftfy import fix_text
 
 def map_to_fasttext_language(lang):
     """
-    Map both 'zh-Hans' and 'zh-Hant' to 'zh' for language identification.
+    Map 'zh-simp' to 'zh' for language identification.
     """
     mapping = {
-        'zh-Hans': 'zh',
-        'zh-Hant': 'zh'
+        'zh-simp': 'zh'
     }
     return mapping.get(lang, lang)
 
