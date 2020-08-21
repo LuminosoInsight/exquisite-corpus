@@ -276,7 +276,7 @@ TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANG
 # codes and sources correctly.
 
 # Parallel language pairs
-# zh-x-oversimplified means simplified Chinese
+# zh-x-oversimplified means oversimplified Chinese
 PARALLEL_LANGUAGES = [
     'ar_en', 'de_en', 'en_es', 'en_fr', 'en_id', 'en_it', 'en_ja', 'en_ko', 'en_nl',
     'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh-x-oversimplified'
@@ -1117,7 +1117,8 @@ rule tokenize_voa:
 # Handling parallel text
 # ======================
 
-# Merge zh-Hans and zh-Hant obtained from OpenSubtitles and simplify them as zh-x-oversimplified
+# Merge zh-Hans and zh-Hant data obtained from OpenSubtitles and simplify them as
+# zh-x-oversimplified
 rule merge_and_simplify_opensubtitles_zh:
      input:
          DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.zh-Hans",
