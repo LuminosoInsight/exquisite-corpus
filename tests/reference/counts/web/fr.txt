@@ -1,4 +1,4 @@
-__total__	871911
+__total__	871907
 point	49327
 déjà	41997
 plusieurs	30758
@@ -590,9 +590,9 @@ transmutation	140
 coûterait	139
 saper	139
 momentanée	139
-à	139
 reconsidérer	138
 etrangères	138
+à	138
 émanait	137
 exit	137
 dioxyde	137
@@ -1022,7 +1022,7 @@ que	53
 par	51
 je	49
 avec	46
-au	45
+au	43
 a	41
 sur	37
 nous	33
@@ -1324,7 +1324,6 @@ légèrement	3
 belle	3
 amertume	3
 noir	3
-jusqu	3
 famille	3
 gordon	3
 exécutif	3
@@ -1756,6 +1755,7 @@ jamnikund	2
 road	2
 mètres	2
 ville	2
+jusqu'au	2
 élimination	2
 transports	2
 afficher	2

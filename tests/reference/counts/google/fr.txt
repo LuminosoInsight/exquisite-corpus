@@ -1,12 +1,12 @@
-__total__	4517929
+__total__	4516953
 œuvre	293232
-est	286298
+est	286297
 00	232110
 mai	177367
 terre	171691
 trop	171085
 passer	140058
-une	123856
+une	123855
 enfin	104082
 œuvres	103623
 œil	77758
@@ -72,7 +72,7 @@ recueil	8764
 réservoir	8687
 mathématiques	8524
 richard	8517
-a	8251
+a	8250
 navarre	8142
 empêche	8130
 attente	8000
@@ -202,9 +202,9 @@ succursales	2178
 schiller	2176
 sorgho	2158
 marrons	2147
-il	2126
 metz	2123
 mal	2107
+il	2096
 postérieure	2054
 achevés	2014
 rejette	2007
@@ -471,7 +471,6 @@ ravivé	618
 penchant	617
 rétrogrades	615
 urgences	615
-un	614
 urundi	612
 encourageait	611
 papier	611
@@ -532,7 +531,6 @@ rayonnant	511
 œstrogènes	510
 pressèrent	509
 t	509
-puisqu	505
 amusait	503
 approprier	502
 évesque	502
@@ -562,7 +560,6 @@ narbonnaise	477
 sournoise	476
 renouvela	474
 road	474
-uti	474
 mézières	473
 pesanteur	473
 transports	471
@@ -577,6 +574,7 @@ emplir	465
 moderne	465
 rico	465
 représentatives	463
+uti	463
 eussions	462
 passeraient	462
 promotions	460
@@ -589,12 +587,13 @@ transcrite	458
 arragon	455
 etablissements	455
 asservie	454
+puisqu'un	454
 prétendons	453
 exorbitant	452
 nancy	452
 percevons	452
 south	450
-aider	448
+aider	447
 tampons	447
 el	444
 réminiscence	444
@@ -605,7 +604,6 @@ ua	440
 aliénations	439
 reux	436
 nestlé	435
-ouvre	434
 trituration	434
 usagers	433
 puissant	432
@@ -636,6 +634,7 @@ aval	413
 sionisme	412
 allégories	411
 00,000	409
+ouvre	408
 momentlà	407
 untersuchung	406
 mulroney	399
@@ -899,7 +898,6 @@ promets	234
 nautiques	232
 rassis	232
 sorle	231
-à	230
 apparent	230
 non	230
 notions	229
@@ -916,7 +914,6 @@ remonteraient	224
 animées	223
 épouse	223
 tem	223
-usqu	223
 protestant	222
 etudes	221
 palpiter	221
@@ -934,6 +931,7 @@ een	217
 maman	217
 magistrales	217
 roy	217
+usqu'à	217
 obtiendra	216
 profaner	216
 pédagogie	216
@@ -1137,6 +1135,7 @@ urs	159
 ullmann	159
 aplatir	158
 executive	158
+un	158
 nomos	158
 rets	158
 envoyez	157
@@ -1301,7 +1300,6 @@ intéressaient	122
 scierie	122
 extériorisent	121
 moralischen	121
-nes	121
 û	121
 exclus	120
 memorandum	120
@@ -1320,6 +1318,7 @@ agréer	118
 asocial	118
 may	118
 miel	118
+nes	118
 pourvus	118
 souriant	118
 tourmente	118
@@ -2041,7 +2040,6 @@ rapprocherai	60
 théâtralité	60
 transmettre	60
 ugarit	60
-eft	59
 embarquer	59
 n00	59
 apportera	59
@@ -2064,6 +2062,7 @@ molino	58
 mùssen	58
 meyrin	58
 noircies	58
+eft	58
 nauki	58
 pénitenciers	58
 pamplemousses	58
@@ -2149,7 +2148,6 @@ aigue	54
 apas	54
 apprécierait	54
 ett	54
-entr	54
 envahisse	54
 emporium	54
 malla	54
@@ -2226,7 +2224,6 @@ redeploiement	52
 tiré	52
 uis	52
 œtte	52
-all	51
 amerika	51
 adorés	51
 engorgements	51
@@ -2378,7 +2375,7 @@ négrier	46
 n2	46
 nantais	46
 omettra	46
-aussi	46
+puisqu'aussi	46
 persistât	46
 pinnata	46
 pferd	46
@@ -2728,7 +2725,6 @@ acanthe	36
 achromatiques	36
 approbations	36
 alcoolates	36
-e	36
 emportera	36
 endroicts	36
 emontrer	36
@@ -2979,13 +2975,13 @@ apres	31
 amicaux	31
 alourdissaient	31
 architects	31
+e	31
 éprave	31
 méprisés	31
 matamoros	31
 massenet	31
 névrosées	31
 nichait	31
-uso	31
 évoluaient	31
 usent	31
 pichat	31
@@ -3132,6 +3128,7 @@ ultramontains	29
 untouched	29
 uit	29
 unendliche	29
+uso	29
 œterna	29
 œadministration	29
 œqualibus	29
@@ -3169,7 +3166,6 @@ nathaniel	28
 nov	28
 nosologique	28
 apprendre	28
-parcequ	28
 prends	28
 patte	28
 pomme	28
@@ -3255,7 +3251,6 @@ muta	27
 messieurs	27
 na	27
 nc	27
-nell	27
 indiquons	27
 nomade	27
 noticias	27
@@ -3339,6 +3334,7 @@ occupa	26
 none	26
 nacre	26
 préférerons	26
+parcequ'il	26
 palastre	26
 packet	26
 pouschkin	26
@@ -3355,6 +3351,7 @@ solutréen	26
 sikhota	26
 soria	26
 scofone	26
+entr'ouvre	26
 sensu	26
 surprime	26
 sectionna	26
@@ -3399,7 +3396,6 @@ embrayé	25
 excep	25
 élagué	25
 éfficacité	25
-elles	25
 eruditionis	25
 mamoz	25
 monstre	25
@@ -3464,7 +3460,7 @@ unius	25
 œque	25
 asik	24
 aquiculture	24
-altra	24
+all'altra	24
 alarcon	24
 acoustiques	24
 antidétonant	24
@@ -3476,6 +3472,7 @@ ebersold	24
 é	24
 étai	24
 évêques	24
+entr'elles	24
 emboutie	24
 éteinte	24
 éc	24
@@ -3682,7 +3679,6 @@ nautonier	22
 nalura	22
 ignorât	22
 préraphaélites	22
-presqu	22
 pair	22
 procédais	22
 parasitologiques	22
@@ -3864,7 +3860,6 @@ annotazione	20
 échouons	20
 égoïsme	20
 échute	20
-es	20
 exemplifié	20
 exploicts	20
 e0	20
@@ -4387,6 +4382,7 @@ espargner	16
 évèque	16
 erme	16
 ébéniste	16
+es	16
 écrit	16
 espérez	16
 exécuté	16
@@ -5414,11 +5410,12 @@ agrégés	11
 alcohol	11
 aflez	11
 auraitété	11
-italiana	11
+all'italiana	11
 avrebbe	11
 arrosable	11
 apocalypse	11
 aelvoet	11
+à	11
 almacenar	11
 assunte	11
 anderthalb	11
@@ -5626,8 +5623,7 @@ r00	11
 rücktritt	11
 tousiours	11
 trèsdéveloppée	11
-tutt	11
-altro	11
+tutt'altro	11
 thérèse	11
 tartakowski	11
 tiberté	11
@@ -5678,7 +5674,7 @@ uner	11
 urbem	11
 unterkunft	11
 utopien	11
-isé	11
+uti'isé	11
 unco	11
 uos	11
 übergeordneten	11
@@ -5851,7 +5847,7 @@ pique	10
 pouvoit	10
 paratt	10
 pailles	10
-entière	10
+presqu'entière	10
 padelletti	10
 paroisse	10
 pisces	10
@@ -6196,7 +6192,6 @@ negozi	9
 approuvât	9
 nouvellle	9
 nay	9
-ont	9
 nzamba	9
 nazioni	9
 nonnulla	9
@@ -6549,7 +6544,6 @@ engigneurs	8
 ecrite	8
 etae	8
 éclaire	8
-et	8
 efflanquées	8
 eléctricos	8
 emporteroit	8
@@ -6653,6 +6647,7 @@ numérique	8
 noe	8
 neveux	8
 nescitis	8
+ont	8
 exagérez	8
 nontraditional	8
 neux	8
@@ -7143,6 +7138,7 @@ essénien	7
 êcosse	7
 mordekhay	7
 moravians	7
+et	7
 inspirera	7
 méda	7
 méziriac	7
@@ -7336,7 +7332,7 @@ pèrent	7
 poku	7
 préfixai	7
 pollicis	7
-épuisé	7
+presqu'épuisé	7
 preface	7
 parçonniers	7
 pionner	7
@@ -7663,8 +7659,7 @@ av	6
 atomes	6
 assentientibus	6
 argenteus	6
-axes	6
-intorno	6
+all'intorno	6
 àrztliche	6
 avoientcru	6
 amortissants	6
@@ -7752,11 +7747,8 @@ elocution	6
 estadlstica	6
 erhöhung	6
 erieu	6
-etl	6
 enchérirent	6
 endométriomes	6
-ens	6
-appuyant	6
 effeuillant	6
 érité	6
 epochè	6
@@ -7945,7 +7937,7 @@ noisetiers	6
 esquissa	6
 nta	6
 noir	6
-interno	6
+nell'interno	6
 assureraient	6
 nyrop	6
 nianière	6
@@ -7968,7 +7960,7 @@ nationalié	6
 natermann	6
 noso	6
 neuvieme	6
-archivio	6
+nell'archivio	6
 nyvenheim	6
 normanni	6
 nocet	6
@@ -8508,6 +8500,7 @@ alatorre	5
 aurez	5
 advénement	5
 aujourd'huy	5
+axes	5
 atione	5
 auréola	5
 aristotélicienne	5
@@ -8630,7 +8623,6 @@ embodiment	5
 entretenoient	5
 eveil	5
 épître	5
-europe	5
 embase	5
 exhumation	5
 estre	5
@@ -8668,7 +8660,6 @@ enthaltsamkeit	5
 épurèrent	5
 editis	5
 écouvillonnement	5
-ell	5
 emmitouflé	5
 ents	5
 enfanté	5
@@ -8945,7 +8936,6 @@ ninias	5
 national8	5
 nieves	5
 négalive	5
-étaient	5
 navali	5
 notabiliser	5
 opt	5
@@ -9574,7 +9564,7 @@ aperta	4
 apreciación	4
 avantagee	4
 atchafalaya	4
-ampliamento	4
+all'ampliamento	4
 auftrag	4
 altération	4
 ausitôt	4
@@ -9688,7 +9678,7 @@ arbe	4
 accordions	4
 ang	4
 aisch	4
-indietro	4
+all'indietro	4
 antonopoulo	4
 allopathe	4
 aspectum	4
@@ -9770,6 +9760,7 @@ embarquant	4
 eustaehe	4
 erdek	4
 épuraloire	4
+europe'ens	4
 exerc	4
 estimative	4
 externc	4
@@ -9899,6 +9890,7 @@ maniè	4
 mieuxque	4
 morge	4
 moisiraient	4
+appuyant	4
 moschata	4
 minor	4
 margeot	4
@@ -10157,7 +10149,7 @@ avonsnous	4
 empeche	4
 incriminons	4
 nzalakanda	4
-infinito	4
+nell'infinito	4
 nervat	4
 etant	4
 numidicus	4
@@ -10509,7 +10501,6 @@ scénarisation	4
 siècle	4
 salicylurique	4
 éreintait	4
-sull	4
 sarpédon	4
 sacristan	4
 stns	4
@@ -10685,7 +10676,7 @@ rapportâmes	4
 ratez	4
 remonté	4
 rebaisse	4
-relev	4
+relev'es	4
 riyals	4
 rappelonsnous	4
 rencontreroient	4
@@ -10720,6 +10711,7 @@ torrettes	4
 tronquié	4
 temores	4
 titianus	4
+étaient	4
 toutepuissante	4
 topographe	4
 troittoir	4
@@ -11357,6 +11349,7 @@ elefthérios	3
 einschalten	3
 estoir	3
 eigenaars	3
+etl	3
 expo	3
 execute	3
 économie00	3
@@ -11430,6 +11423,7 @@ extcnso	3
 ëii	3
 ersonnes	3
 enb	3
+ell	3
 emmènent	3
 exciterait	3
 ety	3
@@ -11917,7 +11911,7 @@ nditions	3
 norrkoping	3
 nousparaît	3
 nutte	3
-impero	3
+nell'impero	3
 nului	3
 niains	3
 échet	3
@@ -11970,7 +11964,7 @@ nogués	3
 notabilités	3
 nhuong	3
 northeim	3
-assemblea	3
+nell'assemblea	3
 associons	3
 nemoribus	3
 narben	3
@@ -12177,8 +12171,7 @@ prendelle	3
 podstatzky	3
 pestang	3
 prench	3
-pontl	3
-évêque	3
+pontl'évêque	3
 postrera	3
 précédemment	3
 professor	3
@@ -12424,7 +12417,7 @@ steinen	3
 singole	3
 signalen	3
 shoshan	3
-interpretazione	3
+sull'interpretazione	3
 sect1on	3
 io	3
 stornoway	3
@@ -12449,8 +12442,7 @@ solb	3
 seguirlo	3
 sauverait	3
 servandis	3
-efl	3
-orce	3
+efl'orce	3
 sabatler	3
 surtoul	3
 sonnerai	3
@@ -13060,6 +13052,7 @@ undulato	3
 uence	3
 unanimité1	3
 última	3
+usqu	3
 uqueur	3
 unenotion	3
 uelconque	3
@@ -13104,7 +13097,7 @@ unbenützt	3
 urcéole	3
 uttér	3
 ultimus	3
-ici	3
+usqu'ici	3
 utillement	3
 únicamente	3
 unfathomable	3
@@ -13731,6 +13724,7 @@ errando	2
 évocatoire	2
 estatistica	2
 emeris	2
+ens'appuyant	2
 enrichies	2
 ethicon	2
 exacta	2
@@ -13742,7 +13736,6 @@ eufiu	2
 elmahdi	2
 etno	2
 eurofed	2
-esp	2
 e.n	2
 enclôture	2
 eriminal	2
@@ -13872,7 +13865,7 @@ extrovertis	2
 entencion	2
 ericoïdes	2
 épure	2
-application	2
+etl'application	2
 excellerez	2
 exhaure	2
 edenhuizen	2
@@ -13903,7 +13896,7 @@ einschreiben	2
 émilien	2
 entretuaient	2
 engcrth	2
-ectifs	2
+ell'ectifs	2
 expédiant	2
 édrophonium	2
 eurent	2
@@ -14113,7 +14106,7 @@ musulman	2
 mobitières	2
 mordant	2
 merola	2
-masâ	2
+masâ'il	2
 massachusset	2
 moriendi	2
 maquette	2
@@ -14470,7 +14463,7 @@ nigricante	2
 nommee	2
 nng	2
 effacerais	2
-occupant	2
+nes'occupant	2
 épuiserait	2
 noine	2
 nicoclès	2
@@ -14492,6 +14485,7 @@ nâme	2
 not1ces	2
 neuroradiol	2
 nubie	2
+nell'uso	2
 naturolle	2
 omettrais	2
 écoutez	2
@@ -14502,7 +14496,7 @@ nonnullas	2
 nenuphar	2
 nacque	2
 naturalistes	2
-indie	2
+nell'indie	2
 nxes	2
 novelette	2
 natanson	2
@@ -14991,7 +14985,6 @@ posterieure	2
 phyl	2
 purifierai	2
 pompadouras	2
-autant	2
 pelolte	2
 pageot	2
 pradi	2
@@ -15012,7 +15005,7 @@ piant	2
 phithéâtres	2
 phenotype	2
 poupon	2
-infranchissable	2
+presqu'infranchissable	2
 proclament	2
 puerco	2
 proportionelle	2
@@ -15023,7 +15016,7 @@ privilege	2
 pallam	2
 prune	2
 prostheses	2
-ibn	2
+puisqu'ibn	2
 prœdicatorum	2
 péronéen	2
 piadosamente	2
@@ -15054,7 +15047,7 @@ princesse	2
 pousses	2
 platons	2
 phénoménique	2
-elle	2
+parcequ'elle	2
 positit	2
 piatek	2
 pof	2
@@ -15085,7 +15078,7 @@ palamedea	2
 processado	2
 perpétuateurs	2
 portefaix	2
-inconnus	2
+presqu'inconnus	2
 pédalo	2
 payses	2
 parleraient	2
@@ -15226,7 +15219,7 @@ pourchon	2
 phat	2
 percement	2
 profezie	2
-aussitôt	2
+puisqu'aussitôt	2
 picker	2
 plètes	2
 politicam	2
@@ -15263,7 +15256,7 @@ pardedens	2
 proferam	2
 partillerie	2
 parisiensis	2
-pas	2
+pas'à	2
 patronnes	2
 patiebantur	2
 p6	2
@@ -15576,6 +15569,7 @@ sibes	2
 successiou	2
 sigmaringen	2
 sepassoit	2
+entr	2
 sincères	2
 salpyngite	2
 supine	2
@@ -16903,7 +16897,7 @@ usinent	2
 œw	2
 œéconomie	2
 œuvés	2
-œuvred	2
+œuvred'un	2
 œéchanges	2
 œobservation	2
 œrumnarum	2
@@ -17111,7 +17105,7 @@ arrondlssement	1
 actif2	1
 amadieu	1
 adultérer	1
-alorsqu	1
+alorsqu'il	1
 adessc	1
 an5	1
 atfaiblie	1
@@ -17222,7 +17216,7 @@ arenbergh	1
 agnesseau	1
 amylase	1
 àugereau	1
-italiano	1
+all'italiano	1
 advoiie	1
 aborlifs	1
 aviation1	1
@@ -17764,7 +17758,7 @@ amou	1
 ausgebildet	1
 aussigné	1
 auden	1
-obiettivo	1
+all'obiettivo	1
 amandin	1
 acroistre	1
 anamorphosées	1
@@ -17864,8 +17858,7 @@ auróit	1
 ascar	1
 arborisations	1
 athe	1
-aux	1
-autres	1
+aux'autres	1
 acomodación	1
 autne	1
 aume	1
@@ -18174,6 +18167,7 @@ excesivo	1
 eriguntur	1
 établie5	1
 erucastrum	1
+europe	1
 erreur	1
 estimoit	1
 éclaircie	1
@@ -18191,6 +18185,7 @@ entière5	1
 eacb	1
 échanerées	1
 entirelv	1
+entr'axes	1
 essource	1
 étruire	1
 enfra	1
@@ -18232,7 +18227,7 @@ enbourg	1
 évaluais	1
 écumanl	1
 enchantant	1
-agne	1
+esp'agne	1
 egéens	1
 erate	1
 excedera	1
@@ -18515,6 +18510,7 @@ estimera	1
 échauffent	1
 extinguido	1
 encriers	1
+eft'et	1
 énéficiaires	1
 eûssent	1
 erfolgt	1
@@ -18772,6 +18768,7 @@ ehe	1
 eup	1
 exploitatiou	1
 ébarber	1
+esp	1
 éventrés	1
 écifique	1
 éternelle	1
@@ -18818,7 +18815,7 @@ explique1	1
 exceptionnelles	1
 estudiarlas	1
 emonde	1
-engage	1
+engage'e	1
 étouffc	1
 exauces	1
 étaiedt	1
@@ -18929,7 +18926,7 @@ ense	1
 epprecht	1
 evitandas	1
 exaravit	1
-objet	1
+etl'objet	1
 escardo	1
 élasticitérevenu	1
 êar	1
@@ -19505,7 +19502,7 @@ marh	1
 maior	1
 effrayerait	1
 martbe	1
-maisd	1
+maisd'une	1
 mineralogiste	1
 mirez	1
 médusée	1
@@ -20114,7 +20111,7 @@ nécefíaire	1
 nombraient	1
 niembres	1
 naturelles5	1
-nous	1
+nous'ont	1
 nachher	1
 aya	1
 nizonne	1
@@ -20164,7 +20161,7 @@ nommés2	1
 novelties	1
 naby	1
 napie	1
-insieme	1
+nell'insieme	1
 euffent	1
 noce	1
 niettemin	1
@@ -20288,7 +20285,7 @@ nogay	1
 noskowski	1
 ninistres	1
 nasua	1
-nem	1
+nem'est	1
 nlebuhr	1
 nsi	1
 nervons	1
@@ -20481,6 +20478,7 @@ n'fait	1
 nostris	1
 nêne	1
 nauticum	1
+nes'étaient	1
 nordestinos	1
 nntes	1
 nto	1
@@ -20827,6 +20825,7 @@ pie	1
 причины	1
 persuadai	1
 poets	1
+presqu'autant	1
 proloc	1
 plotin	1
 pariy	1
@@ -20847,7 +20846,7 @@ prêtres4	1
 ptc	1
 pévêque	1
 paralysé	1
-aujourd'hui	1
+puisqu'aujourd'hui	1
 pillage1	1
 partouneaux	1
 ployans	1
@@ -20880,7 +20879,7 @@ phytotechnie	1
 pensionnaient	1
 paroítre	1
 picchio	1
-présen	1
+présen'e	1
 prennentle	1
 pointce	1
 paradis3	1
@@ -21235,7 +21234,7 @@ pronostiquées	1
 patro	1
 pepercisset	1
 protestants2	1
-premièi	1
+premièi'e	1
 parum	1
 poignées	1
 pénn	1
@@ -21411,7 +21410,7 @@ srâmek	1
 salida	1
 secondât	1
 scarifiant	1
-shart	1
+shart'a	1
 spermaphytes	1
 établiroient	1
 sufficiant	1
@@ -21696,7 +21695,7 @@ sld	1
 sécula	1
 soutenues	1
 steuerzahlung	1
-enlr	1
+enlr'aider	1
 serbe	1
 sanitalis	1
 sanctitatem	1
@@ -21733,7 +21732,7 @@ successiones	1
 surpris	1
 specs	1
 situce	1
-squ	1
+squ'il	1
 seignobos1	1
 satisfactoriamente	1
 semaine8	1
@@ -21751,7 +21750,7 @@ ssi	1
 senit	1
 scripsi	1
 sbpc	1
-expriment	1
+entr'expriment	1
 serges	1
 slration	1
 soussaturées	1
@@ -21910,7 +21909,7 @@ ssement	1
 soyei	1
 souiïre	1
 stuaht	1
-esito	1
+sull'esito	1
 staphylocoecique	1
 soumit	1
 stipulated	1
@@ -22644,7 +22643,7 @@ región	1
 reclit	1
 rogy	1
 reynolds	1
-revl	1
+revl'e	1
 renntniss	1
 raprès	1
 reiette	1
@@ -22909,7 +22908,7 @@ raréfaction	1
 réiinion	1
 rivaud	1
 reboisement	1
-roya	1
+roya'e	1
 rallumé	1
 rametti	1
 refléta	1
@@ -22976,6 +22975,7 @@ réiléchie	1
 ressaut	1
 rposition	1
 rucquoy	1
+elles	1
 rhamnusium	1
 ruffle	1
 réalisée2	1
@@ -24087,6 +24087,7 @@ unifloris	1
 uberschuss	1
 ui.e	1
 uayant	1
+autant	1
 undulate	1
 uelsingfors	1
 unutn	1

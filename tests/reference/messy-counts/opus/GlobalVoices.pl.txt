@@ -1,4 +1,4 @@
-__total__	18366
+__total__	18360
 w	556
 na	338
 i	313
@@ -11,8 +11,8 @@ jest	154
 to	148
 o	100
 przez	76
-a	74
 jak	73
+a	71
 od	62
 za	59
 dla	59
@@ -108,7 +108,6 @@ jestem	11
 niż	11
 jedna	11
 najbardziej	11
-al	11
 więcej	11
 projektu	11
 ta	11
@@ -124,6 +123,7 @@ był	10
 wydaje	10
 można	10
 którego	10
+al	10
 film	10
 zostały	10
 swoim	10
@@ -1652,7 +1652,6 @@ takie	2
 współczucia	2
 rozmów	2
 wielokrotnych	2
-skype	2
 wielki	2
 zbrodnie	2
 waq	2

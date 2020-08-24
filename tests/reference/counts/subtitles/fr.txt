@@ -1,4 +1,4 @@
-__total__	4800
+__total__	4792
 de	155
 est	147
 je	139
@@ -10,8 +10,8 @@ la	98
 et	92
 que	90
 il	85
-un	84
-à	82
+à	81
+un	78
 l	75
 c	72
 ne	69
@@ -37,11 +37,11 @@ qui	30
 dans	30
 bien	28
 plus	28
-ils	27
 suis	27
 moi	27
 y	26
 non	26
+ils	26
 fait	25
 mais	25
 être	24
@@ -122,7 +122,7 @@ trop	7
 son	7
 chose	7
 avoir	7
-quelqu	6
+quelqu'un	6
 dieu	6
 fois	6
 i	6

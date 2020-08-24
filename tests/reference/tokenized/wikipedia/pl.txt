@@ -35,7 +35,7 @@ print foobar ( zmienna )
 print sin ( 3 - 2 )
 wyjście można również przekierować do pliku :
 print " wyrażenie " " nazwa pliku "
-lub do innej komendy przez użycie pipe' a :
+lub do innej komendy przez użycie pipe'a :
 print " wyrażenie " " komenda "
 
 zmienne i tablice
@@ -508,7 +508,7 @@ jeśli jest skończonym zbiorem aksjomatów , to istnieje podzbiór taki , że j
 
 zupełność
 
-często okazuje się , że aksjomatyka nie jest zupełna , to znaczy istnieją pewne twierdzenia , dające się wyrazić w języku dowolnego modelu danej aksjomatyki , których prawdziwości nie da się rozstrzygnąć na podstawie tego zestawu aksjomatów . przykładowo geometria euklidesowa była pierwotnie zaksjomatyzowana przez euklidesa , okazało się jednak , że jego aksjomatyka była zbyt uboga i nie pozwalała udowodnić pewnych prawdziwych twierdzeń geometrycznych ( np . twierdzenia desargues’ a i twierdzenia pappusa ). powstała kolejna aksjomatyka , a mianowicie aksjomatyka hilberta .
+często okazuje się , że aksjomatyka nie jest zupełna , to znaczy istnieją pewne twierdzenia , dające się wyrazić w języku dowolnego modelu danej aksjomatyki , których prawdziwości nie da się rozstrzygnąć na podstawie tego zestawu aksjomatów . przykładowo geometria euklidesowa była pierwotnie zaksjomatyzowana przez euklidesa , okazało się jednak , że jego aksjomatyka była zbyt uboga i nie pozwalała udowodnić pewnych prawdziwych twierdzeń geometrycznych ( np . twierdzenia desargues’a i twierdzenia pappusa ). powstała kolejna aksjomatyka , a mianowicie aksjomatyka hilberta .
 z powodów praktycznych aksjomatów powinno być na tyle dużo , aby prawdziwość wszelkich „ ważnych ” twierdzeń danej teorii dało się rozstrzygnąć na ich podstawie . kryterium ważności jest tu subiektywne – teoria , w której żadne zdanie nie daje się rozstrzygnąć , jest formalnie poprawna , lecz bezużyteczna . nie musi to oznaczać rozstrzygalności wszystkich możliwych twierdzeń danej teorii , choć byłby to stan idealny ; twierdzenie gödla mówi jednak , że nawet dla tak prostej teorii jak arytmetyka istnieją twierdzenia , których nie da się wyprowadzić z jej aksjomatów . co więcej , nie da się uzupełnić zbioru aksjomatów arytmetyki skończoną liczbą nowych aksjomatów , tak aby był już do tego wystarczający .
 
 kategoryczność
@@ -1143,7 +1143,7 @@ ci , którzy uczestniczą w formowaniu czarnych bloków , odróżniają pojęcie
 pacyfizm
 
 niektórzy anarchiści uważają pacyfizm ( sprzeciw przeciwko wojnie ) jako będący nieodłączny z ich filozofią . są tacy , którzy idą o krok dalej i podzielają pogląd lwa tołstoja o nie - przemocy ( zauważ , że ci anarcho - pacyfiści nie są , w przeciwieństwie do tołstoja , chrześcijańskimi anarchistami ), uważają , że bierny opór ( opór bez użycia przemocy ) jest jedyną metodą na przeprowadzenie prawdziwej anarchistycznej rewolucji .
-literatura anarchistyczna często przedstawia wojnę jako działalność , za pomocą której państwo zdobywa i kumuluje władzę , zarówno w obrębie swoich granic , jak i poza nimi . wielu anarchistów podpisuje się pod stwierdzeniem randolpha bourne’ a „ wojna jest zdrowiem państwa ”. anarchiści wierzą , że gdyby wspierali wojnę , umacnialiby tym samym państwo – w rzeczy samej , piotr kropotkin został wykluczony z grona anarchistów po tym , jak wyraził swoje poparcie dla włączenia się brytyjczyków w i wojnę światową .
+literatura anarchistyczna często przedstawia wojnę jako działalność , za pomocą której państwo zdobywa i kumuluje władzę , zarówno w obrębie swoich granic , jak i poza nimi . wielu anarchistów podpisuje się pod stwierdzeniem randolpha bourne’a „ wojna jest zdrowiem państwa ”. anarchiści wierzą , że gdyby wspierali wojnę , umacnialiby tym samym państwo – w rzeczy samej , piotr kropotkin został wykluczony z grona anarchistów po tym , jak wyraził swoje poparcie dla włączenia się brytyjczyków w i wojnę światową .
 jako że są krytyczni i nieufni wobec działalności rządu , anarchiści zawsze z cynizmem patrzyli na powody z jakich państwa przystępowały do wojny . działalność anarchistów jest w dużej mierze skierowana przeciwko wojnom . okazywali to podczas protestów w ameryce północnej w czasie wojny w wietnamie , a ostatnimi czasy organizując protesty przeciwko wojnie w iraku .
 obecnie wielu anarchistów sprzeciwia się całkowitemu pacyfizmowi ( chociaż grupy takie jak earth first ! i jedzenie zamiast bomb opierają się na zasadzie nieużywania przemocy ), popierając użycie przemocy w celu obrony własnej i czasem również przeciwko opresyjnym i autorytarnym siłom , co de facto również uważają za obronę własną . anarchiści podchodzą sceptycznie do wizji wygranej zbrojnego konfliktu z państwem i zamiast tego skupiają się głównie na tworzeniu organizacji .
 
@@ -1170,7 +1170,7 @@ klasyczne nurty anarchizmu
 
 anarchizm indywidualistyczny ( anarchoindywidualizm )
 
-anarchizm indywidualistyczny zapoczątkowany został przez pierre’ a josepha proudhona ( choć niektórzy dopatrują się jego początków w myśli maxa stirnera oraz josiaha warrena ). system społeczny powinien opierać się według proudhona na wzajemnej pomocy sąsiedzkiej oraz wolnej wymianie dóbr . myśliciel ten podał również w wątpliwość własność . nie jest jednak on krytykiem własności jednostki , ale własności kapitalistycznej , opartej na wyzysku słabszych poprzez silniejszych . taką formę własności uznaje on za kradzież oraz przestępstwo . dopuszczona jest również pewna forma przedstawicielstwa .
+anarchizm indywidualistyczny zapoczątkowany został przez pierre’a josepha proudhona ( choć niektórzy dopatrują się jego początków w myśli maxa stirnera oraz josiaha warrena ). system społeczny powinien opierać się według proudhona na wzajemnej pomocy sąsiedzkiej oraz wolnej wymianie dóbr . myśliciel ten podał również w wątpliwość własność . nie jest jednak on krytykiem własności jednostki , ale własności kapitalistycznej , opartej na wyzysku słabszych poprzez silniejszych . taką formę własności uznaje on za kradzież oraz przestępstwo . dopuszczona jest również pewna forma przedstawicielstwa .
 anarchiści indywidualistyczni , mają historycznie istotne znaczenie dla wolnego społeczeństwa . jednak większość wczesnych anarcho - indywidualistów uważało się za „ żarliwych anty - kapitalistów , którzy nie widzą sprzeczności między indywidualistyczną postawą a odrzuceniem kapitalizmu ”. wielu określało się mianem socjalistów . tak wcześnie indywidualistyczno - anarchistycznie zdefiniowany „ kapitalizm ”, był często omawiany w zakresie lichwy :
 „ istnieją trzy rodzaje lichwy , odsetek od kapitału , dzierżawa gruntów i domów , oraz zysk w zamian . ktokolwiek otrzymuje któreś z nich jest lichwiarzem . [ cytowane w „ men against the state ”, james j . martin , s . 208 ]
 mieli tendencję do wspierania wolnego handlu , wolnej konkurencji oraz nierównych poziomów własności prywatnej , takich jak mutualizm i zawłaszczenia .
@@ -1187,7 +1187,7 @@ anarchokomunizm lub wolnościowy komunizm to najbardziej usystematyzowana odmian
 zamiast indywidualnej albo grupowej własności środków produkcji ten nurt anarchizmu postuluje własność ogólnospołeczną , a użytkowaniem tej własności powinny według jego zwolenników zajmować się samorządne komuny ( komunistyczne gminy działające na zasadzie demokracji bezpośredniej ), w administrowaniu którymi wszyscy mieszkańcy mają mieć równy głos , łączące się ze sobą w federacje najpierw prowincjonalne czy regionalne , a potem krajowe i kontynentalne , a na końcu łącząc się w ogólnoświatową federację .
 wszystkie jednostki powinny mieć swobodny dostęp do produktów pracy , również posiadanych wspólnie , na mocy zasady „ od każdego według jego zdolności , każdemu według jego potrzeb ” oraz pomocy wzajemnej ( czym różni się od nurtów anarchizmu proponujących powiązanie w gospodarce ilości otrzymywanych dóbr z ilością wykonywanej pracy ).
 podczas gdy komunizm jest proponowany jako forma organizacji społecznej i gospodarczej przez wielu anarchistów , inni uważają go za zagrożenie dla wolności i swobodnego rozwoju jednostki . większość szkół anarchizmu uznała rozróżnienie między wolnościowymi i autorytarnymi formami komunizmu . michaił bakunin stwierdził : „ nienawidzę komunizmu , gdyż jest zaprzeczeniem wolności , a dla mnie człowieczeństwo jest nie do pomyślenia bez wolności . nie jestem komunistą , ponieważ komunizm skupia się i połyka się w sobie na rzecz rządów wszystkich sił społecznych , a to nieuchronnie prowadzi do koncentracji własności w rękach państwa ”.
-chociaż piotr kropotkin , jeden z czołowych zwolenników anarchokomunizmu , jednocześnie sprzeciwiający się „ komunizmowi państwa ”, opowiedział się za modelem ekonomicznym bezpłatnej dystrybucji pomiędzy wszystkich ludzi , wielu anarchistów indywidualistycznych sprzeciwia się komunizmowi we wszystkich jego formach , ze względu na to , że dobrowolny komunizm nie jest to możliwy . indywidualiści , tacy jak benjamin tucker , victor yarros i henry appleton zaprzeczyli , by anarchokomunizm był autentyczną formą anarchizmu . odrzucili tę strategię i twierdzili , że jest z natury autorytarny . w ocenie indywidualistycznego henry’ ego appletona „ komunizm , w przeciwieństwie do prawa naturalnego , musi koniecznie wzywać do nienaturalnych metod , jeżeli ma być stosowany w praktyce ” oraz stosować „ grabież , brutalną siłę i przemoc ”.
+chociaż piotr kropotkin , jeden z czołowych zwolenników anarchokomunizmu , jednocześnie sprzeciwiający się „ komunizmowi państwa ”, opowiedział się za modelem ekonomicznym bezpłatnej dystrybucji pomiędzy wszystkich ludzi , wielu anarchistów indywidualistycznych sprzeciwia się komunizmowi we wszystkich jego formach , ze względu na to , że dobrowolny komunizm nie jest to możliwy . indywidualiści , tacy jak benjamin tucker , victor yarros i henry appleton zaprzeczyli , by anarchokomunizm był autentyczną formą anarchizmu . odrzucili tę strategię i twierdzili , że jest z natury autorytarny . w ocenie indywidualistycznego henry’ego appletona „ komunizm , w przeciwieństwie do prawa naturalnego , musi koniecznie wzywać do nienaturalnych metod , jeżeli ma być stosowany w praktyce ” oraz stosować „ grabież , brutalną siłę i przemoc ”.
 anarchokomuniści odrzucają krytykę , wskazując zasadę dobrowolnego zrzeszania się , które stanowią podstawę ich teorii i odróżniają ich od komunizmu państwa . niektórzy anarchoindywidualiści są skłonni do uznania anarchistycznego komunizmu za legalną formę . kevin carson pisze , że „ wolny rynek , wolnościowi komuniści , syndykalizm , i inne rodzaje kolektywistycznego anarchizmu muszą nauczyć się współistnieć w pokoju i wzajemnym poszanowaniu – dziś , w naszej walce z przedsiębiorstwami państwowymi , i jutro , w panarchii , która może go zastąpić ”.
 
 anarchizm syndykalistyczny ( anarchosyndykalizm )
@@ -1207,7 +1207,7 @@ inne nurty
 
 anarchizm pacyfistyczny ( anarchopacyfizm )
 
-nurt anarchizmu całkowicie odrzucający używanie przemocy , niezależnie od jej formy i celów . za jego prekursorów uznaje się henry’ ego davida thoreau , lwa tołstoja oraz barta de ligt . jednak odrzucenie przemocy nie jest równoznaczne z odrzuceniem oporu i wszelkich działań rewolucyjnych – przykładowo koncepcja strajku generalnego jako rewolucyjnego działania cieszy się poparciem wielu anarchistów - pacyfistów . mimo że ten nurt anarchizmu był historycznie mocno powiązany z religiami , szczególnie chrześcijaństwem i buddyzmem , istnieją w nim również tendencje areligijne lub antyreligijne .
+nurt anarchizmu całkowicie odrzucający używanie przemocy , niezależnie od jej formy i celów . za jego prekursorów uznaje się henry’ego davida thoreau , lwa tołstoja oraz barta de ligt . jednak odrzucenie przemocy nie jest równoznaczne z odrzuceniem oporu i wszelkich działań rewolucyjnych – przykładowo koncepcja strajku generalnego jako rewolucyjnego działania cieszy się poparciem wielu anarchistów - pacyfistów . mimo że ten nurt anarchizmu był historycznie mocno powiązany z religiami , szczególnie chrześcijaństwem i buddyzmem , istnieją w nim również tendencje areligijne lub antyreligijne .
 
 anarchizm feministyczny ( anarchofeminizm )
 
@@ -1304,7 +1304,7 @@ rewolucja w hiszpanii
 
 hiszpański ruch anarchistyczny skupił się wokół utworzonej w 1910 r . krajowej konfederacji pracy oraz powstałej 17 lat później iberyjskiej federacji anarchistycznej . obie organizacje odgrywały istotną rolę w walce przeciwko nacjonalistom i faszystom podczas hiszpańskiej wojny domowej . wraz z wybuchem wojny rozpoczęła się anarchistyczna rewolucja , podczas której anarchiści próbowali stworzyć samorządną gospodarkę i bezpaństwowe społeczeństwo . rewolucja spotkała się z oporem stalinowców i frankistów , wskutek czego poniosła porażkę .
 w burzliwych dniach po 19 lipca 1936 władza i inicjatywa naprawdę spoczywały w rękach szeregowych członków cnt i fai . to właśnie zwyczajni ludzie , bez wątpienia pod wpływem faistas ( członków fai ) i bojowników cnt , byli tymi , którzy po pokonaniu faszystowskiej rebelii uruchomili na nowo produkcję , podział dóbr i ich konsumpcję ( oczywiście według bardziej egalitarnych zasad ), a także organizowali milicje i zgłaszali się do nich na ochotnika ( dziesiątkami tysięcy ). milicje te miały zostać wysłane w celu oswobodzenia tych części hiszpanii , które znajdowały się pod rządami franco . wszystkimi możliwymi sposobami klasy pracujące hiszpanii tworzyły za pomocą swoich własnych działań nowy świat , oparty na ich własnych ideach sprawiedliwości społecznej i wolności – ideach inspirowanych oczywiście przez anarchizm i anarchosyndykalizm .
-naoczne świadectwo george’ a orwella dotyczące rewolucyjnej barcelony pod koniec grudnia 1936 roku przedstawia wyrazisty obraz społecznej transformacji , jaka się rozpoczęła :
+naoczne świadectwo george’a orwella dotyczące rewolucyjnej barcelony pod koniec grudnia 1936 roku przedstawia wyrazisty obraz społecznej transformacji , jaka się rozpoczęła :
 „ anarchiści mieli wciąż faktyczną kontrolę nad katalonią , a rewolucja znajdowała się jeszcze w pełnym rozpędzie . każdemu , kto był tutaj od początku , prawdopodobnie zdawało się już w grudniu czy styczniu , że rewolucyjny okres zmierza ku końcowi ; ale gdy ktoś przybył prosto z anglii , to dla niego wygląd barcelony był nieco wstrząsający i przytłaczający . po raz pierwszy w życiu znalazłem się w mieście , gdzie klasa robotnicza znajdowała się u steru . praktycznie każdy budynek , niezależnie od rozmiarów , został przejęty przez robotników i przyozdobiony czerwonymi flagami lub czerwono - czarną flagą anarchistów ; na każdej ścianie został namazany sierp i młot oraz inicjały rewolucyjnych stronnictw ; niemal w każdym kościele pozostawiono tylko gołe ściany , a obrazy spalono . tu i ówdzie kościoły były systematycznie demolowane przez bandy robotników . każdy sklep i kawiarnia posiadały napis , mówiący , że zostały skolektywizowane ; nawet miejsca pracy pucybutów zostały skolektywizowane , a ich skrzynki pomalowane na czerwono - czarno . kelnerzy i nadzorcy sklepowi patrzyli ci prosto w twarz i traktowali cię jak równego sobie . służalcze , a nawet grzecznościowe formy zwracania się do rozmówców na jakiś czas zanikły . nikt nie mówił ‘ sentilde ’ ani ‘ don ’, ani nawet ‘ usted ’; każdy zwracał się do każdego ‘ towarzyszu ’ albo ‘ ty ’, i mówił ‘ salud !’ zamiast ‘ buenos dias ’. przede wszystkim , istniała wiara w rewolucję i przyszłość , uczucie nagłego wyłonienia się ery równości i wolności . ludzkie istoty próbowały się zachowywać jak ludzkie istoty , a nie jak trybiki w kapitalistycznej maszynie ” [ w hołdzie katalonii ].
 w objętej ruchami rewolucyjnymi republikańskiej części hiszpanii , na większości terenów pozbyto się władzy . na ich miejscu powstały komitety rewolucyjne , rady , gminy , samorządy , komuny zdominowane przez anarchistów i socjalistów . większość fabryk przeszła w ręce robotników , kolektywizowano wsie . kolektywy zaczęły budować własne zaplecza : nowe szkoły , gazety . otwarto i udostępniono publicznie muzea i biblioteki . rozpoczęto produkcję żywności , organizowano teatry . odbywały się comiesięczne spotkania , na których w obecności wszystkich podejmowano decyzje dotyczące kolektywów . w wielu regionach wycofano pieniądze , a zwiększając hodowle , handel i produkcję nastawiono się na wymianę
 
@@ -1595,7 +1595,7 @@ rcho ⇌
 uzyskany addukt bisulfitowy często można wykrystalizować . pod wpływem kwasów i zasad odtwarza się wyjściowy aldehyd . proces jest wykorzystywany do oczyszczania aldehydów i ketonów .
 addycja amoniaku lub amin , a następnie eliminacja wody , daje iminy :
 powstawanie iminy z aldehydu i aminy
-reakcja amin z formaldehydem w obecności kwasu ( najczęściej kwasu mrówkowego ) wykorzystywana jest do metylowania amin ( reakcja eschweilera - clarke' a ):
+reakcja amin z formaldehydem w obecności kwasu ( najczęściej kwasu mrówkowego ) wykorzystywana jest do metylowania amin ( reakcja eschweilera - clarke'a ):
 400px
 kondensacja aldolowa ( na przykładzie aldehydu octowego ):
 kondensacja aldolowa
@@ -1679,7 +1679,7 @@ pojedyncze opowiadania
 2009 the incident of the dog's ball ( agatha christie's secret notebooks : fifty years of mysteries in the making )
 2014 hercule poirot and the greenshore folly
 
-sztuki teatralne zaadaptowane na powieści przez charlesa osborne’ a
+sztuki teatralne zaadaptowane na powieści przez charlesa osborne’a
 
 jako współautorka :
 1931 the floating admiral razem z g.k . chestertonem , dorothy l . sayers i innymi członkami detection club .
@@ -1768,29 +1768,29 @@ rodzaje genów
 
 --------
 anatole france
-anatole france , właśc . jacques anatole thibault ( ur . 16 kwietnia 1844 w paryżu , zm . 12 października 1924 w saint - cyr - sur - loire ) – poeta , powieściopisarz i krytyk francuski . zapalony bibliofil i historyk , przedstawiciel postawy racjonalistycznej oraz sceptycznej . przez jemu współczesnych porównywany do voltaire’ a i jean baptiste racine’ a .
+anatole france , właśc . jacques anatole thibault ( ur . 16 kwietnia 1844 w paryżu , zm . 12 października 1924 w saint - cyr - sur - loire ) – poeta , powieściopisarz i krytyk francuski . zapalony bibliofil i historyk , przedstawiciel postawy racjonalistycznej oraz sceptycznej . przez jemu współczesnych porównywany do voltaire’a i jean baptiste racine’a .
 jako poeta – przedstawiciel parnasizmu . autor licznych powieści satyryczno - heroikomicznych wzorowanych na xvii - wiecznych powiastkach filozoficznych i libertyńskich . w swojej twórczości , zarówno literackiej , jak i eseistycznej , głośno krytykował konwenanse religijno - obyczajowo - społeczne we francji przełomu xix i xx wieku . laureat literackiej nagrody nobla za rok 1921 . z uzasadnienia komisji noblowskiej otrzymał ją za błyskotliwe osiągnięcia literackie wyróżniające się wykwintnością stylu , głębokim humanizmem i prawdziwie galijskim temperamentem . jeden z członków jury , erik axel karlfeldt , okrzyknął go ostatnim wielkim klasykiem naszych czasów , a być może nawet ostatnim europejczykiem .
-przez josepha conrada nazwany „ księciem prozy ” ( jego twórczość scharakteryzował jako „ najsprawiedliwszą i najbardziej godną uwagi ”). humanizm france’ a wywarł również wpływ na takich pisarzy jak : marcel proust , tomasz mann , aldous huxley , jean paul sartre czy andré gide .
+przez josepha conrada nazwany „ księciem prozy ” ( jego twórczość scharakteryzował jako „ najsprawiedliwszą i najbardziej godną uwagi ”). humanizm france’a wywarł również wpływ na takich pisarzy jak : marcel proust , tomasz mann , aldous huxley , jean paul sartre czy andré gide .
 
 życie
 
-anatole france w młodości czytał wiele dzieł literatury starożytnej , pracując jako bibliotekarz , krytyk literacki i lektor rękopisów . uzyskał w ten sposób olbrzymią wiedzę ( literatura , historia literatury , historia powszechna ) i wykorzystywał ją w swych dziełach . był bibliofilem uznającym poglądy woltera . w okresie sprawy dreyfusa zaangażował się w jego obronę ( słynny list otwarty emila zoli j’ accuse …!) i m.in . z tego powodu zaczęto go łączyć z francuską lewicą . od 1896 r . był członkiem akademii francuskiej . pod koniec życia wstąpił do francuskiej partii komunistycznej .
+anatole france w młodości czytał wiele dzieł literatury starożytnej , pracując jako bibliotekarz , krytyk literacki i lektor rękopisów . uzyskał w ten sposób olbrzymią wiedzę ( literatura , historia literatury , historia powszechna ) i wykorzystywał ją w swych dziełach . był bibliofilem uznającym poglądy woltera . w okresie sprawy dreyfusa zaangażował się w jego obronę ( słynny list otwarty emila zoli j’accuse …!) i m.in . z tego powodu zaczęto go łączyć z francuską lewicą . od 1896 r . był członkiem akademii francuskiej . pod koniec życia wstąpił do francuskiej partii komunistycznej .
 
 twórczość
 
 początkowo pisał wiersze utrzymane w duchu parnasizmu i klasycyzmu , w 1873 wydając tomik poezji les poèmes dorés , jednak bez większego powodzenia .
-pierwszy sukces osiągnął powieścią „ le crime de sylvestre bonnard ” ( 1881 , pol . „ zbrodnia sylwestra bonnard ”). pisał głównie powieści , jak thaïs ( 1890 ), „ la rôtisserie de la reine pédauque ” ( 1893 ) „ gospoda pod królową gęsia nóżką ” na tle xviii . wieku – jedno z jego arcydzieł i jego uzupełnienie „ les opinions de m . jérôme coignard ” ( 1893 ) „ poglądy księdza hieronima coignard ”, współczesną powieść psychologiczno - obyczajową „ le lys rouge ” ( 1894 ), satyryczną „ histoire contemporaine ” ( 1897 - 1900 ) – 4 tomowy pełen dowcipu obraz trzeciej republiki , ironizującą całą historię francji : „ l' île des pingouins ” ( 1908 ) „ wyspa pingwinów ”, rozgrywającą się w realiach wielkiej rewolucji francuskiej „ les dieux ont soif ” ( 1912 ) bogowie łakną krwi , „ la révolte des anges ” ( 1913 ) „ bunt aniołów ” i inne . nadto nowele i opowiadania , jak „ balthasar ” ( 1889 ), „ l' étui de nacre ” ( 1892 ), „ crainquebille ” ( 1903 ), „ les sept femmes de barbe - bleue ” ( 1909 ) i i . autobiograficzne : „ le livre de mon ami ” ( 1885 ), „ le petit pierre ” ( 1918 ), i „ la vie en fleur ” ( 1922 ), historyczna „ vie de jeanne d’ arc ” ( 1908 , 2 tomy ), czy aforystyczno - filozoficzny „ le jardin d' épicure ” ( 1895 ). felietony zebrane w „ la vie littéraire ” ( 1888 - 1892 , 4 tomy ) i w „ opinions sociales ” ( 1902 , 2 . tomy ). świetne szkice z literatury francuskiej : „ le génie latin ” ( 1917 ).
+pierwszy sukces osiągnął powieścią „ le crime de sylvestre bonnard ” ( 1881 , pol . „ zbrodnia sylwestra bonnard ”). pisał głównie powieści , jak thaïs ( 1890 ), „ la rôtisserie de la reine pédauque ” ( 1893 ) „ gospoda pod królową gęsia nóżką ” na tle xviii . wieku – jedno z jego arcydzieł i jego uzupełnienie „ les opinions de m . jérôme coignard ” ( 1893 ) „ poglądy księdza hieronima coignard ”, współczesną powieść psychologiczno - obyczajową „ le lys rouge ” ( 1894 ), satyryczną „ histoire contemporaine ” ( 1897 - 1900 ) – 4 tomowy pełen dowcipu obraz trzeciej republiki , ironizującą całą historię francji : „ l' île des pingouins ” ( 1908 ) „ wyspa pingwinów ”, rozgrywającą się w realiach wielkiej rewolucji francuskiej „ les dieux ont soif ” ( 1912 ) bogowie łakną krwi , „ la révolte des anges ” ( 1913 ) „ bunt aniołów ” i inne . nadto nowele i opowiadania , jak „ balthasar ” ( 1889 ), „ l' étui de nacre ” ( 1892 ), „ crainquebille ” ( 1903 ), „ les sept femmes de barbe - bleue ” ( 1909 ) i i . autobiograficzne : „ le livre de mon ami ” ( 1885 ), „ le petit pierre ” ( 1918 ), i „ la vie en fleur ” ( 1922 ), historyczna „ vie de jeanne d’arc ” ( 1908 , 2 tomy ), czy aforystyczno - filozoficzny „ le jardin d' épicure ” ( 1895 ). felietony zebrane w „ la vie littéraire ” ( 1888 - 1892 , 4 tomy ) i w „ opinions sociales ” ( 1902 , 2 . tomy ). świetne szkice z literatury francuskiej : „ le génie latin ” ( 1917 ).
 
 ocena twórczości
 
 anatole france miał wielu wrogów ze względu na swój sceptycyzm , socjalizm i pacyfizm . powszechnie jest uznany za jednego z mistrzów francuskiej prozy . wydanie zbiorowe ukazywało się od roku 1925 . literatura o anatolu france jest bardzo obfita , istnieje sporo pozycji ( przeważnie jednak drobnych ) także w j . polskim .
 w swych utworach przedstawiał problematykę społeczną , związaną z polityką religią i filozofią .
 początkowo głównym środkiem wyrazu była u niego inteligentna i wyrafinowana satyra , którą posługiwał się w celu krytyki życia , a postawą pogodny i ironiczny sceptycyzm , ukrywający głęboki humanizm .
-pod koniec dziewiętnastego wieku w twórczości france’ a zaobserwować można radykalizm skierowany ku ideologii socjalizmu . wyznając poglądy socjalistyczne , wstąpił do francuskiej partii komunistycznej .
+pod koniec dziewiętnastego wieku w twórczości france’a zaobserwować można radykalizm skierowany ku ideologii socjalizmu . wyznając poglądy socjalistyczne , wstąpił do francuskiej partii komunistycznej .
 jako tło swoich utworów często wybierał historię : początki chrześcijaństwa , rewolucję francuską i czasy współczesne .
 w swojej oryginalnej twórczości wykorzystywał motywy baśniowe , groteskowe i satyryczne dla ukazania śmiesznostek dotychczasowych schematów i ludzkich zachowań . tak było m.in . w powieści bunt aniołów , w której zrewoltowani przeciw wszechwładzy boga aniołowie zstępują na ziemię i planują wielką wojnę . historia ta dała autorowi możliwość do filozoficznych rozważań nad ludzką i boską ułomnością oraz nad schematem rzeczy boskich , wytworzonym przez sztukę .
 w utworze wyspa pingwinów ukazał historię państwa pingwińskiego , będącą karykaturą dziejów francji .
-w rok po otrzymaniu literackiej nagrody nobla , w maju 1922 roku dzieła wszystkie anatola france’ a trafiły na listę indeksu ksiąg zakazanych kościoła katolickiego .
+w rok po otrzymaniu literackiej nagrody nobla , w maju 1922 roku dzieła wszystkie anatola france’a trafiły na listę indeksu ksiąg zakazanych kościoła katolickiego .
 twórca , dziś zapomniany i niewydawany , był za życia uznawany za najwybitniejszego prozaika swojej epoki .
 
 nagroda nobla
@@ -1800,7 +1800,7 @@ z uzasadnienia komitetu noblowskiego : „ za błyskotliwe osiągnięcia literac
 
 polskie tłumaczenia
 
-dzieła france’ a tłumaczyli na język polski : jadwiga boelke , w . i j . dąbrowscy , f . k ., st . godlewski , e . ligocki , j . mareschowa , f . mirandola , h . niemirowska , st . popowski , j . rogoziński , jan sten , t . świstakowski , z . wróblewska .
+dzieła france’a tłumaczyli na język polski : jadwiga boelke , w . i j . dąbrowscy , f . k ., st . godlewski , e . ligocki , j . mareschowa , f . mirandola , h . niemirowska , st . popowski , j . rogoziński , jan sten , t . świstakowski , z . wróblewska .
 ukazał się też „ wybór pism ” w przekładzie jana stena ( 1904 - 1912 ), 9 t . ( nowe wyd . od r . 1931 , ze wstępem jana parandowskiego ).
 
 dzieła
@@ -1851,9 +1851,9 @@ sztuki teatralne :
 au petit bonheur ( 1898 )
 crainquebille ( 1903 )
 komedia o człowieku który zaślubił niemowę ( 1908 , wyd . pol . 1912 , 1922 )
-le mannequin d’ osier ( 1928 )
+le mannequin d’osier ( 1928 )
 prace historyczne :
-vie de jeanne d’ arc ( 1908 )
+vie de jeanne d’arc ( 1908 )
 krytyka literacka :
 alfred de vigny ( 1869 )
 le château de vaux - le - vicomte ( 1888 )
@@ -1866,7 +1866,7 @@ wybór pism ( wyd . pol . 1904 )
 vers les temps meilleurs ( 1906 )
 pisma krytyczne ( wyd . pol . 1907 )
 sur la voie glorieuse ( 1915 )
-trente ans de vie sociale ; tom i , 1897 - 1904 ( 1949 ), tom ii , 1905 - 1908 ( 1953 ), z komentarzem claude’ a aveline’ a ; tom iii , 1909 - 1914 ( 1964 ) i tom iv , 1915 - 1924 ( 1973 )
+trente ans de vie sociale ; tom i , 1897 - 1904 ( 1949 ), tom ii , 1905 - 1908 ( 1953 ), z komentarzem claude’a aveline’a ; tom iii , 1909 - 1914 ( 1964 ) i tom iv , 1915 - 1924 ( 1973 )
 ironie ( wyd . pol . 1925 )
 
 zobacz też
@@ -2186,7 +2186,7 @@ powołanie urzędu kontrolera ruin starożytnych w państwie kościelnym , rafae
 w . camden , xvi w ., „ britannia ”, odnotowuje wszystkie nazwy miejscowości , założyciel i towarzystwa starożytnośći ,
 1662 – uniwersytet w uppsali , katedra starożytności w zakresie propagowania szwedzkich starożytności
 1710 del bef (?) – wykopaliska w herkulanum , rocco d' alkubierre ( wybuchy )
-1754 – d’ alkubierre w pompejach
+1754 – d’alkubierre w pompejach
 johann joachim winckelmann , „ o sztuce u dawnych ”, przekład stanisław kostka potocki , kultury azji są cywilizacjami
 carsten niebuhr – opis naukowy arabii , persepolis
 richard pockocke – ziemia święta , azja mniejsza , zbierał zabytki
@@ -2398,7 +2398,7 @@ aceton może być wykorzystywany jako prekursor do produkcji narkotyków i w zwi
 
 szkodliwość
 
-aceton nie jest toksyczny ani nie jest substancją szkodliwą , klasyfikowany jest jako substancja drażniąca ( oznaczenie xi ) lub mogąca spowodować tymczasowe uszkodzenie zdrowia ( nfpa 704 1 ). jego dawki śmiertelne ld50 wynoszą : 5800 mg / kg ( szczur , doustnie ) oraz 7,4 g / kg ( świnka morska , przez skórę ). są to parametry zbliżone do alkoholu etylowego ( spirytusu ). w klasyfikacji toksyczności według hodge’ a i sternera aceton należy do grupy słabo toksycznych . według kryteriów ue substancje o ld50 powyżej 2000 mg / kg nie są klasyfikowane jako toksyczne . opary acetonu łatwo wchłaniają się przez płuca do krwi , która rozprowadza ten związek po całym organizmie . jeśli stężenie acetonu we krwi nie jest zbyt wysokie , jest on skutecznie metabolizowany przez wątrobę . w większym stężeniu aceton zaczyna powodować ostre podrażnienia błon śluzowych nosa i ust oraz łzawienie oczu i ból głowy . duże stężenie acetonu w powietrzu powoduje utratę przytomności i śpiączkę ( lc50 50,1 g / m / 8 h ; szczur , wdychanie ). małe ilości acetonu podane doustnie nie powodują większych skutków oprócz podrażnienia całego układu pokarmowego i ewentualnych wymiotów . duże ilości powodują podobne efekty jak przy wdychaniu . aceton podrażnia skórę , wywołując jej zaczerwienienie . przy częstym kontakcie może wywołać trwałe zniszczenia struktury skóry , podobne nieco do poparzeń . dotychczasowe badania na zwierzętach wskazują , że aceton nie powoduje uszkodzeń dna . nie stwierdzono również , aby miał on bezpośrednie działanie rakotwórcze .
+aceton nie jest toksyczny ani nie jest substancją szkodliwą , klasyfikowany jest jako substancja drażniąca ( oznaczenie xi ) lub mogąca spowodować tymczasowe uszkodzenie zdrowia ( nfpa 704 1 ). jego dawki śmiertelne ld50 wynoszą : 5800 mg / kg ( szczur , doustnie ) oraz 7,4 g / kg ( świnka morska , przez skórę ). są to parametry zbliżone do alkoholu etylowego ( spirytusu ). w klasyfikacji toksyczności według hodge’a i sternera aceton należy do grupy słabo toksycznych . według kryteriów ue substancje o ld50 powyżej 2000 mg / kg nie są klasyfikowane jako toksyczne . opary acetonu łatwo wchłaniają się przez płuca do krwi , która rozprowadza ten związek po całym organizmie . jeśli stężenie acetonu we krwi nie jest zbyt wysokie , jest on skutecznie metabolizowany przez wątrobę . w większym stężeniu aceton zaczyna powodować ostre podrażnienia błon śluzowych nosa i ust oraz łzawienie oczu i ból głowy . duże stężenie acetonu w powietrzu powoduje utratę przytomności i śpiączkę ( lc50 50,1 g / m / 8 h ; szczur , wdychanie ). małe ilości acetonu podane doustnie nie powodują większych skutków oprócz podrażnienia całego układu pokarmowego i ewentualnych wymiotów . duże ilości powodują podobne efekty jak przy wdychaniu . aceton podrażnia skórę , wywołując jej zaczerwienienie . przy częstym kontakcie może wywołać trwałe zniszczenia struktury skóry , podobne nieco do poparzeń . dotychczasowe badania na zwierzętach wskazują , że aceton nie powoduje uszkodzeń dna . nie stwierdzono również , aby miał on bezpośrednie działanie rakotwórcze .
 
 przypisy
 
@@ -2425,7 +2425,7 @@ indyjscy matematycy mahavira i bhaskara ii , perski al - karaji i chiński zhu s
 
 późniejsza historia
 
-praca françois viète’ a nad nową algebrą u schyłku xvi wieku była ważnym krokiem w kierunku nowoczesnej algebry . w 1637 kartezjusz opublikował la géométrie , wymyślając geometrię analityczną i wprowadził nowoczesną notację algebraiczną . kolejnym kluczowym wydarzeniem w dalszym rozwoju algebry było ogólne algebraiczne rozwiązanie równań trzeciego i czwartego stopnia , opracowane w xvi wieku . pomysł wyznacznika został opracowany przez japońskiego matematyka kowa sekiego w wieku xvii , co niezależnie kontynuował gottfried leibniz 10 lat później w rozwiązywaniu układów równań liniowych z wykorzystaniem macierzy . gabriel cramer również przysłużył się pracy nad macierzami i wyznacznikami w xviii wieku .
+praca françois viète’a nad nową algebrą u schyłku xvi wieku była ważnym krokiem w kierunku nowoczesnej algebry . w 1637 kartezjusz opublikował la géométrie , wymyślając geometrię analityczną i wprowadził nowoczesną notację algebraiczną . kolejnym kluczowym wydarzeniem w dalszym rozwoju algebry było ogólne algebraiczne rozwiązanie równań trzeciego i czwartego stopnia , opracowane w xvi wieku . pomysł wyznacznika został opracowany przez japońskiego matematyka kowa sekiego w wieku xvii , co niezależnie kontynuował gottfried leibniz 10 lat później w rozwiązywaniu układów równań liniowych z wykorzystaniem macierzy . gabriel cramer również przysłużył się pracy nad macierzami i wyznacznikami w xviii wieku .
 algebra abstrakcyjna powstała w xix wieku początkowo skupiając się na tym , co jest teraz nazywane teorią galoisa . augustus de morgan wynalazł relacje w algebrze , o których pisał w swoim dziele syllabus of a proposed system of logic . josiah willard gibbs opracował wektory w przestrzeni trójwymiarowej , a arthur cayley algebrę macierzy ( nieprzemienna algebra ).
 
 przykłady
@@ -2443,7 +2443,7 @@ przekształcenia wyrażenia algebraicznego :
 podział
 
 niektóre działy algebry to :
-algebra boole’ a
+algebra boole’a
 algebra homologiczna
 algebra liniowa
 algebra abstrakcyjna
@@ -2749,7 +2749,7 @@ inne komputery posługujące się nazwą amiga lub zbliżoną
 amigaone – linia komputerów produkowana przez brytyjską firmę eyetech . działa z procesorami powerpc g3 i g4 . płyta nie jest już produkowana . na bazie tej linii powstał również model micro a1 .
 micro a1 – produkowany przez brytyjską firmę eyetech . płyta główna w formacie miniatx ze zintegrowanym układem graficznym ( radeon firmy ati ) i dźwiękowym . płyta była sprzedawana z procesorem 750fx / 800 mhz lub 750gx / 800 mhz i systemem operacyjnym amigaos 4.0 . płyta nie jest już produkowana .
 amigaone x1000 – najnowszy model , zaprojektowany w firmie varisys , a wprowadzony na rynek 25 stycznia 2012 przez firmę a - eon technology . nazwą nawiązuje do pierwszego , historycznego modelu amigi . wyposażony w procesor pwrficient pa6t - 1682m firmy p.a . semi ( architektura powerisa v2.04 , dwa rdzenie , 2.0 ghz ) i procesor wspomagający xena architektury xcore xs1 firmy xmos .
-commodore amiga mini – próba wprowadzenia na rynek komputera pc z licencjonowaną nazwą " amiga " przez commodore usa - zakończyła się po śmierci właściciela firmy barry' ego s . altmana w 2012 roku
+commodore amiga mini – próba wprowadzenia na rynek komputera pc z licencjonowaną nazwą " amiga " przez commodore usa - zakończyła się po śmierci właściciela firmy barry'ego s . altmana w 2012 roku
 
 obecna sytuacja
 
@@ -3086,7 +3086,7 @@ członkowie organizacji narodów zjednoczonych
 
 --------
 andora
-andora , księstwo andory ( katal . principat d’ andorra []), nazwa historyczna ( tradycyjna ): doliny andory ( katal . les valls d’ andorra ) – małe państwo w południowo - zachodniej europie , bez dostępu do morza . leży w pirenejach , granicząc od północy z francją , a od południa z hiszpanią .
+andora , księstwo andory ( katal . principat d’andorra []), nazwa historyczna ( tradycyjna ): doliny andory ( katal . les valls d’andorra ) – małe państwo w południowo - zachodniej europie , bez dostępu do morza . leży w pirenejach , granicząc od północy z francją , a od południa z hiszpanią .
 
 geografia
 
@@ -3112,7 +3112,7 @@ mapa topograficzna andory
 
 historia
 
-w nagrodę za waleczność mieszkańców podczas walk z maurami karol wielki nadał andorze prawa miejskie . następnie stała się ona lennem hrabiów urgell , aby ostatecznie w 1133 r . przejść pod władanie biskupa z la seu d’ urgell . w xii wieku była przedmiotem sporu pomiędzy biskupami a ich francuskimi sąsiadami z północy , hrabiami z foix . w 1278 r . udało się rozwiązać konflikt – na mocy zawartego porozumienia biskup i hrabia zostali współrządcami . andora natomiast zobowiązała się płacić obu stronom daniny : biskupom urgell w wysokości 460 peset rocznie , hrabiom foix w wysokości 960 franków rocznie . w 1419 r . na wniosek ludności andory został powołany lokalny parlament nazywany radą terytorialną ( consell de la terra ), później przekształcony w radę generalną ( consell general ). w 1607 król henryk iv , hrabia foix wydał edykt , na mocy którego przekazał swe prawa do współrządzenia andorą francuskiemu władcy .
+w nagrodę za waleczność mieszkańców podczas walk z maurami karol wielki nadał andorze prawa miejskie . następnie stała się ona lennem hrabiów urgell , aby ostatecznie w 1133 r . przejść pod władanie biskupa z la seu d’urgell . w xii wieku była przedmiotem sporu pomiędzy biskupami a ich francuskimi sąsiadami z północy , hrabiami z foix . w 1278 r . udało się rozwiązać konflikt – na mocy zawartego porozumienia biskup i hrabia zostali współrządcami . andora natomiast zobowiązała się płacić obu stronom daniny : biskupom urgell w wysokości 460 peset rocznie , hrabiom foix w wysokości 960 franków rocznie . w 1419 r . na wniosek ludności andory został powołany lokalny parlament nazywany radą terytorialną ( consell de la terra ), później przekształcony w radę generalną ( consell general ). w 1607 król henryk iv , hrabia foix wydał edykt , na mocy którego przekazał swe prawa do współrządzenia andorą francuskiemu władcy .
 w okresie 1812 – 1813 cesarstwo francuskie zajęło katalonię i podzieliło ją na cztery departamenty . wówczas andora weszła w skład jednego z nich ( départament de sègre ). w 1933 r . francja zajęła andorę wobec społecznych zamieszek przed wyborami .
 12 lipca 1934 r . rosyjski awanturnik boris m . skosyriew ogłosił się borisem i , niepodległym księciem andory , równocześnie ogłaszając wojnę przeciwko biskupowi z urgel . 20 lipca został aresztowany przez policję hiszpańską i wydalony z hiszpanii . w latach 1936 – 1940 w andorze stacjonował francuski garnizon , aby przeciwdziałać wpływom hiszpańskiej wojny domowej .
 w czasie ii wojny światowej andora pozostawała neutralna , ale dopiero w 1958 r . ogłosiła pokój z niemcami po i wojnie ( 1914 - 1918 ), z którymi pozostawała w stanie formalnej wojny , co zostało pominięte w traktacie wersalskim . pozostawiona w stanie pewnej izolacji andora była niejako poza głównym nurtem europejskiej historii . w ostatnich czasach , dzięki kwitnącej turystyce oraz rozwojowi transportu , udało się jej wyjść z tej izolacji oraz gruntownie zmienić swój system polityczny w 1993 roku , gdy została członkiem onz .
@@ -3426,7 +3426,7 @@ tzw . „ alfabet fonetyczny icao ” ( zwany również jako „ alfabet fonetyc
 podobnie terminem „ alfabet ” określa się inne sposoby przekazywania słów na odległość , nie będące systemami pisma :
 flagowy ,
 semaforowy ,
-morse’ a ,
+morse’a ,
 palcowy .
 
 alfabety
@@ -3557,7 +3557,7 @@ czynnik psychologiczny również mógł odegrać ważną rolę ; pierwsza genera
 w bardziej komercyjnym spektrum do najważniejszych powodów użycia języka asemblera zaliczamy jego minimalistyczną postać , minimalną wielkość potrzebnych zasobów , szybkość oraz niezawodność .
 typowe przykłady dużych programów napisanych w języku asemblera w dzisiejszych czasach to system operacyjny ibm pc dos , kompilator turbo pascal oraz wczesne aplikacje , takie jak program do arkuszy kalkulacyjnych lotus 1 - 2 - 3 .
 według niektórych ludzi w branży , język asemblera był najlepszym językiem komputerowym do uzyskania najwyższej wydajności z sega saturn , konsoli która była znana z notorycznie trudnego tworzenia gier . gra nba jam z 1993 roku jest kolejnym tego przykładem .
-był również podstawowym językiem programowania wielu popularnych komputerów domowych lat ‘ 80 i ‘ 90 ( takich jak msx , sinclair zx spectrum , commodore 64 , commodore amiga , atari st ). było tak w dużej części przez to , że dialekty basic’ a na tych systemach nie oferowały dostatecznej szybkości wykonania oraz niewystarczającego zaplecza aby w pełni wykorzystać potencjał sprzętu na tych komputerach . niektóre systemy mają nawet zintegrowane środowisko programistyczne ( ide ) z wysoko rozwiniętymi funkcjami debugowania i macro .
+był również podstawowym językiem programowania wielu popularnych komputerów domowych lat ‘ 80 i ‘ 90 ( takich jak msx , sinclair zx spectrum , commodore 64 , commodore amiga , atari st ). było tak w dużej części przez to , że dialekty basic’a na tych systemach nie oferowały dostatecznej szybkości wykonania oraz niewystarczającego zaplecza aby w pełni wykorzystać potencjał sprzętu na tych komputerach . niektóre systemy mają nawet zintegrowane środowisko programistyczne ( ide ) z wysoko rozwiniętymi funkcjami debugowania i macro .
 
 bieżące użycie
 
@@ -3686,7 +3686,7 @@ następnie santa anna zaczął obwiniać valentína gómeza faríasa ( 1781 – 
 
 rewolucja teksańska 1835 – 1836
 
-santa anna poddaje się , obraz williama henry' ego huddle' a ( 1847 – 1892 ) z 1886 roku , ukazujący scenę poddania się santa anny po bitwie pod san jacinto
+santa anna poddaje się , obraz williama henry'ego huddle'a ( 1847 – 1892 ) z 1886 roku , ukazujący scenę poddania się santa anny po bitwie pod san jacinto
 w grudniu 1835 roku santa anna zebrał 6 - tysięczna armię i na początku 1836 roku wyruszył do teksasu . w tym czasie teksańczycy ogłosili swoją niepodległość i 2 marca 1836 roku proklamowali republikę teksasu . meksykanie pokonali powstańców w alamo i pod goliad , a wszyscy jeńcy zostali straceni z rozkazu santa anny . następnie armia santa anny udała się na wschód w kierunku rzeki san jacinto , gdzie 21 kwietnia 1836 roku została pokonana przez wojska sama houstona ( 1793 – 1863 ). santa anna w ciągu 20 minut miał stracić 500 żołnierzy , podczas gdy straty houstona wyniosły 6 żołnierzy . santa anna został pojmany i doprowadzony do houstona , który wbrew głosom wymierzenia santa annie najwyższej kary przez powieszenie , zmusił go do podpisania traktatu pokojowego uznającego niepodległość teksasu . następnie santa anna został odesłany do waszyngtonu , gdzie spotkał się z prezydentem andrew jacksonem ( 1767 – 1845 ) i został puszczony wolno .
 w 1837 roku santa anna powrócił do meksyku , gdzie podczas jego nieobecności pozbawiono go urzędu , a jego miejsce zajął busamante . santa anna powrócił do swojego majątku manga de clavo w veracruz .
 
@@ -3986,8 +3986,8 @@ c : teorie koncentrujące się na zagadnieniach dynamiki tożsamości u osób z 
 
 john berry
 
-kanadyjski psycholog john berry znany jest ze wprowadzenia najbardziej popularnego obecnie modelu akulturacji . akulturacja psychologiczna według berry’ ego odnosi się do zmian w jednostce , która uczestniczy w sytuacji kontaktu kulturowego – jednostce , na którą bezpośrednio oddziałuje wpływ zewnętrznej kultury . akulturacja psychologiczna odnosi się do zmiany w kulturze , której jednostka jest uczestnikiem .
-model akulturacji berry’ ego odnosi się zarówno do decyzji osoby będącej w procesie akulturacji ( migranta ), jak i grupy dominującej ( społeczeństwa przyjmującego ).
+kanadyjski psycholog john berry znany jest ze wprowadzenia najbardziej popularnego obecnie modelu akulturacji . akulturacja psychologiczna według berry’ego odnosi się do zmian w jednostce , która uczestniczy w sytuacji kontaktu kulturowego – jednostce , na którą bezpośrednio oddziałuje wpływ zewnętrznej kultury . akulturacja psychologiczna odnosi się do zmiany w kulturze , której jednostka jest uczestnikiem .
+model akulturacji berry’ego odnosi się zarówno do decyzji osoby będącej w procesie akulturacji ( migranta ), jak i grupy dominującej ( społeczeństwa przyjmującego ).
 
 strategie akulturacji na poziomie relacji międzygrupowych
 
@@ -4149,7 +4149,7 @@ organizacje non - profit
 --------
 abelard
 abelard – imię męskie zapewne pochodzenia francuskiego ( prowansalskiego ), którego pierwotne znaczenie wywodzone jest od wyrazu prowansalskiego abelha , oznaczającego „ pszczelarza ”. jednak bywa ono także łączone z niemieckimi imionami adalhard ( dosł . „ szlachetna siła ”) bądź też eberhard ( dosł . „ silny jak dzik ”).
-początki tego imienia wiążą się z postacią filozofa i teologa francuskiego pierre’ a abélarda ( 1079 – 1142 ).
+początki tego imienia wiążą się z postacią filozofa i teologa francuskiego pierre’a abélarda ( 1079 – 1142 ).
 w polsce imię to jest niemal nieużywane , znane jest przede wszystkim z literatury ( por . np . heloiza i abelard rogera vaillanda ).
 abelard imieniny obchodzi 21 kwietnia .
 
@@ -4458,7 +4458,7 @@ albert camus zdobył wykształcenie dzięki wychowawcy , który po długich star
 zainteresowania
 
 kilka lat później zaczęły się jego pierwsze związki z polityką i dziennikarstwem . na krótko wstąpił do francuskiej partii komunistycznej , z której został jednak wydalony z powodu zbyt dużej różnicy zdań . od 1937 do 1940 pracował jako dziennikarz w antykolonialnym dzienniku alger républicain .
-mniej więcej w tym samym okresie rozpoczęła się jego przygoda z teatrem . w 1936 wraz z przyjaciółmi założył bowiem „ théâtre du travail ” ( teatr pracy ), którego pierwsze przedstawienie ( grano wówczas czas pogardy andré malraux ; później wystawiano tam ajschylosa , gorkiego i innych ) okazało się wielkim sukcesem . po jego rozwiązaniu camus założył kolejny teatr o nazwie „ l’ équipe ”.
+mniej więcej w tym samym okresie rozpoczęła się jego przygoda z teatrem . w 1936 wraz z przyjaciółmi założył bowiem „ théâtre du travail ” ( teatr pracy ), którego pierwsze przedstawienie ( grano wówczas czas pogardy andré malraux ; później wystawiano tam ajschylosa , gorkiego i innych ) okazało się wielkim sukcesem . po jego rozwiązaniu camus założył kolejny teatr o nazwie „ l’équipe ”.
 
 emigracja z afryki
 
@@ -4494,20 +4494,20 @@ książka została przez wydawnictwo odrzucona . jak podkreśla córka pisarza ,
 
 dzieła ( chronologicznie )
 
-dwie strony medalu ( l’ envers et l’ endroit , 1937 ) – eseje
+dwie strony medalu ( l’envers et l’endroit , 1937 ) – eseje
 kaligula ( caligula , 1938 ) – dramat , premiera 1944
 gody ( noces , 1939 ) – eseje
 mit syzyfa ( le mythe de sisyphe , 1942 ) – esej
-obcy ( l’ étranger , 1942 ) – powieść
+obcy ( l’étranger , 1942 ) – powieść
 nieporozumienie ( le malentendu , 1944 ) – dramat
 listy do przyjaciela niemca ( lettres à un ami allemand , 1945 ) – esej
 dżuma ( la peste , 1947 ) – powieść
-stan oblężenia ( l’ état de siège , 1948 ) – dramat
+stan oblężenia ( l’état de siège , 1948 ) – dramat
 sprawiedliwi ( les justes , 1950 ) – dramat
 człowiek zbuntowany ( l’homme révolté , 1951 ) – esej
-lato ( l’ été , 1954 ) – eseje i szkice z lat 1939 – 1953 .
+lato ( l’été , 1954 ) – eseje i szkice z lat 1939 – 1953 .
 upadek ( la chute , 1956 ) – powieść
-wygnanie i królestwo ( l’ exil et le royaume , 1957 ) – nowele
+wygnanie i królestwo ( l’exil et le royaume , 1957 ) – nowele
 śmierć szczęśliwa ( la mort heureuse , 1971 ) – powieść ( nieukończona , wydana pośmiertnie )
 pierwszy człowiek ( le premier homme , 1994 ) – powieść ( nieukończona , wydana pośmiertnie )
 albert camus , maria casarès . correspondance inédite ( 1944 – 1959 ). édition de béatrice vaillant . collection blanche , gallimard . 09 - 11 - 2017 .

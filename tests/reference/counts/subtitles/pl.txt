@@ -1,4 +1,4 @@
-__total__	521707
+__total__	521702
 po	353268
 rację	38382
 macie	28316
@@ -285,7 +285,6 @@ nasłali	33
 spoleczenstwo	33
 charakterystycznych	33
 zagrożeniach	33
-a	32
 merkle	32
 ryzykowałam	32
 recznik	32
@@ -304,6 +303,7 @@ rekrutami	30
 nimmo	30
 000	30
 italiano	30
+a	29
 xavi	29
 łani	29
 binks	29
@@ -1394,7 +1394,6 @@ temu	2
 złość	2
 człowiekiem	2
 całego	2
-show	2
 pozwól	2
 znam	2
 potrwa	2

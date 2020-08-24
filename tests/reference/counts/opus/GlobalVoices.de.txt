@@ -1,4 +1,4 @@
-__total__	12781
+__total__	12778
 die	621
 der	564
 und	451
@@ -785,7 +785,6 @@ initiative	3
 manche	3
 bemerkt	3
 februar	3
-a	3
 ums	3
 zensur	3
 lange	3
@@ -1300,7 +1299,6 @@ enthält	2
 russen	2
 bewiesen	2
 day	2
-i	2
 willen	2
 dank	2
 neues	2
@@ -1381,6 +1379,7 @@ is	2
 übersetzer	2
 übersetzen	2
 arabisch	2
+a	2
 6	2
 zusammenhang	2
 werfen	2

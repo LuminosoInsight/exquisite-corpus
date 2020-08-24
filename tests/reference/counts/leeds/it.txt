@@ -1,4 +1,4 @@
-__total__	1179463
+__total__	1179075
 gli	253421
 possono	48104
 mentre	42952
@@ -304,7 +304,6 @@ nei	396
 avvalendosi	396
 ca	388
 deputati	388
-l’	388
 eco	388
 partecipando	380
 riscrivere	380
@@ -677,11 +676,11 @@ apportati	132
 cieli	132
 usar	132
 poco	132
-informazione	132
+l’informazione	132
 vattene	132
 stralci	132
 portandosi	132
-individuo	132
+l’individuo	132
 lovelock	132
 riunitosi	132
 macro	124
@@ -717,7 +716,7 @@ gestendo	124
 assicurato	124
 attenuato	124
 irriverente	124
-acqua	124
+l’acqua	124
 intransigenti	124
 terremoti	116
 mondatori	116

@@ -1,9 +1,9 @@
-__total__	5201375
+__total__	5201290
 sich	2879083
 ein	660024
 übrigen	72642
 normen	69388
-e	65734
+e	65733
 000	63411
 treten	46602
 rolle	31750
@@ -1572,7 +1572,6 @@ ssige	68
 eingeprägten	67
 eigenkirche	67
 eröffnungstag	67
-nell	67
 pflichtmitgliedschaft	67
 posaunte	67
 pipeline	67
@@ -2044,7 +2043,7 @@ mordplan	45
 netzwerklogik	45
 natives	45
 nüchternste	45
-ambito	45
+nell'ambito	45
 nächstjährige	45
 parteilose	45
 pecati	45
@@ -3951,7 +3950,6 @@ sseneratio	18
 00j	17
 april	17
 arbeitsverdienstes	17
-all	17
 augmentation	17
 abracadabra	17
 alp	17
@@ -5264,7 +5262,7 @@ nnsers	11
 nw	11
 negat	11
 nenerleye	11
-alto	11
+nell'alto	11
 nummernblock	11
 niederm	11
 nichtens	11
@@ -5966,7 +5964,7 @@ nervenstämmchens	9
 nebellande	9
 naunyn	9
 nürnbergische	9
-uno	9
+nell'uno	9
 niedrigwasserführung	9
 nichtbeschäftigung	9
 nachzurühmen	9
@@ -6898,7 +6896,7 @@ acs	7
 angsterlebnissen	7
 ausgefeiltere	7
 altfränkischem	7
-intervento	7
+all'intervento	7
 actuel	7
 aussenhandelsgesetzes	7
 armlösung	7
@@ -8528,7 +8526,7 @@ anuario	5
 allzuwillig	5
 asbest	5
 alcover	5
-autonomia	5
+all'autonomia	5
 analyseur	5
 ahrle	5
 antastbare	5
@@ -11328,7 +11326,7 @@ ausg	3
 asker	3
 agitationsflugblatt	3
 appellationsrates	3
-età	3
+all'età	3
 aorticum	3
 aushaltende	3
 accrued	3
@@ -13454,7 +13452,7 @@ antiguedades	2
 abwasserleitung	2
 albert	2
 aber1	2
-attività	2
+all'attività	2
 acuña	2
 altanen	2
 arbeitsorgane	2
@@ -19910,7 +19908,7 @@ nabelbeschauer	1
 nnscrn	1
 neuaufgehende	1
 nonne	1
-isola	1
+nell'isola	1
 normaliter	1
 ndi	1
 nachdrücklicher	1
@@ -20024,7 +20022,7 @@ nitiative	1
 nengel	1
 nostis	1
 nutricia	1
-infinito	1
+nell'infinito	1
 namenswiederholung	1
 neveux	1
 nahverwandte	1
@@ -21948,7 +21946,7 @@ rentbeamten	1
 riesenbäume	1
 restelektrifizierung	1
 reisepass	1
-rene	1
+rene'e	1
 riesenflusses	1
 reinanschaulichen	1
 richtungsgegensätzen	1
