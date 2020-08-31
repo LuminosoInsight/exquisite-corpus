@@ -171,7 +171,7 @@ WP_LANGUAGE_MAP = {
     'fil': 'tl',
     'nb': 'no'
 }
-WP_VERSION = '20190120'
+WP_VERSION = '20200801'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
     'zh-Hans': 'chi-sim',
@@ -533,7 +533,7 @@ rule download_opus_monolingual:
     run:
         dataset = wildcards.dataset
         source_lang = map_opus_language(dataset, wildcards.lang)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -o {output}")
+        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' --retry 3 -o {output}")
 
 
 rule download_reddit:
@@ -543,7 +543,7 @@ rule download_reddit:
         download=1
     priority: 0
     shell:
-        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' -o {output}"
+        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' --retry 3 -o {output}"
 
 
 rule download_opus_parallel:
