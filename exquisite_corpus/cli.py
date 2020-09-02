@@ -152,11 +152,10 @@ def run_intersperse(input_file, output_file, lang1, lang2):
 @cli.command(name='cleanup-parallel')
 @click.argument('input_file', type=click.File('r', encoding='utf-8'), default='-')
 @click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
-@click.argument('ft_model_file')
 @click.argument('lang1')
 @click.argument('lang2')
-def run_cleanup_parallel_file(input_file, output_file, ft_model_file, lang1, lang2):
-    cleanup_parallel_file(input_file, output_file, ft_model_file, lang1, lang2)
+def run_cleanup_parallel_file(input_file, output_file, lang1, lang2):
+    cleanup_parallel_file(input_file, output_file, lang1, lang2)
 
 
 @cli.command(name='train-sp')

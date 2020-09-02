@@ -1,9 +1,9 @@
-__total__	5864
+__total__	5860
 de	389
 et	214
 la	204
 les	141
-à	139
+à	138
 l	137
 en	129
 des	124
@@ -18,7 +18,7 @@ que	53
 par	51
 je	49
 avec	46
-au	45
+au	43
 a	41
 sur	37
 nous	33
@@ -344,7 +344,6 @@ belle	3
 amertume	3
 ayant	3
 noir	3
-jusqu	3
 famille	3
 gordon	3
 avant	3
@@ -793,6 +792,7 @@ jamnikund	2
 road	2
 mètres	2
 ville	2
+jusqu'au	2
 élimination	2
 transports	2
 afficher	2

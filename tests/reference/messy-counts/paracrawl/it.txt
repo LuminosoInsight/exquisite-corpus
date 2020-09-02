@@ -1,4 +1,4 @@
-__total__	4383
+__total__	4375
 2º	85
 1º	80
 punti	76
@@ -65,7 +65,6 @@ pool	9
 soldati	8
 sepoltura	8
 alla	8
-dell	8
 team	8
 un	7
 dei	7
@@ -85,7 +84,6 @@ soldato	6
 che	6
 nostro	6
 l	6
-armata	6
 15	6
 squadra	6
 diatec	6
@@ -102,6 +100,7 @@ ordine	5
 è	5
 della	5
 nella	5
+dell'armata	5
 serie	5
 14	5
 palleggiatore	5

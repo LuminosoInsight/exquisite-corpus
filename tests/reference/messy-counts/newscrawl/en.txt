@@ -1,4 +1,4 @@
-__total__	110929
+__total__	110927
 the	5730
 to	2642
 of	2425
@@ -3056,7 +3056,6 @@ contemporary	4
 capable	4
 gender	4
 advertising	4
-o	4
 involving	4
 duo	4
 anger	4
@@ -3871,6 +3870,7 @@ pleased	3
 perception	3
 navigate	3
 astonishing	3
+o	3
 thrown	3
 carriage	3
 acquire	3

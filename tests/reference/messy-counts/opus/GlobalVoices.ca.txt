@@ -1,4 +1,4 @@
-__total__	23253
+__total__	23217
 de	1151
 la	755
 a	571
@@ -7,14 +7,14 @@ i	475
 el	462
 les	301
 en	297
-l	296
+l	281
 per	278
-d	275
+d	259
 un	254
 els	244
 del	232
 va	229
-una	206
+una	205
 no	154
 es	153
 amb	151
@@ -24,7 +24,7 @@ com	125
 és	122
 ha	114
 més	112
-s	80
+s	76
 van	70
 han	64
 sobre	64
@@ -36,10 +36,10 @@ però	51
 hi	50
 mitjans	47
 aquest	45
-estat	45
 ser	44
+estat	44
 també	43
-aquesta	42
+aquesta	41
 seva	41
 seu	40
 durant	38
@@ -100,13 +100,13 @@ política	17
 policia	17
 lloc	17
 primer	17
-està	17
 gran	17
 només	17
 veure	17
 llibertat	17
 altre	17
 tant	16
+està	16
 ciutat	16
 món	16
 imatge	16
@@ -135,20 +135,19 @@ persones	14
 dona	13
 fotografia	13
 mort	13
-internet	13
 població	13
 president	13
 xina	13
 tan	13
 haver	13
 hem	13
-any	13
 quals	13
 passat	13
 notícies	12
 dos	12
 nostra	12
 poc	12
+internet	12
 vaig	12
 cas	12
 línia	12
@@ -156,6 +155,7 @@ alguns	12
 diu	12
 llei	12
 informació	12
+any	12
 comentaris	12
 algunes	12
 he	12
@@ -184,7 +184,6 @@ poden	11
 vida	11
 aquestes	11
 comunitat	10
-imatges	10
 activistes	10
 important	10
 mateix	10
@@ -200,7 +199,6 @@ problemes	10
 així	10
 davant	10
 polític	10
-estan	10
 tota	10
 m	10
 qual	10
@@ -209,7 +207,6 @@ aquí	10
 suport	10
 nacional	10
 demanar	10
-espanya	10
 quatre	9
 força	9
 través	9
@@ -223,12 +220,15 @@ iran	9
 família	9
 rússia	9
 casa	9
+estan	9
 partit	9
 possible	9
 tres	9
 poble	9
 autoritats	9
 sempre	9
+espanya	9
+imatges	9
 n	8
 vegades	8
 altra	8
@@ -347,7 +347,6 @@ esperança	6
 recursos	6
 fent	6
 social	6
-educació	6
 dret	6
 líder	6
 molta	6
@@ -429,6 +428,7 @@ festival	5
 finalment	5
 hagi	5
 relacions	5
+educació	5
 explicar	5
 fora	5
 context	5
@@ -635,7 +635,6 @@ ucraïna	4
 ràpidament	4
 pau	4
 canviar	4
-odi	4
 qualitat	4
 músic	4
 dr	4
@@ -652,7 +651,6 @@ supervivents	4
 organització	4
 unes	4
 presentar	4
-opinió	4
 reaccions	4
 secció	4
 pares	4
@@ -685,7 +683,6 @@ cal	4
 violacions	4
 sèrie	4
 mateixa	4
-açò	4
 defensors	4
 maig	4
 2010	4
@@ -758,7 +755,6 @@ autors	3
 mal	3
 cinquanta	3
 enrere	3
-aleshores	3
 cortesia	3
 tragèdia	3
 ichri	3
@@ -819,7 +815,6 @@ origen	3
 decret	3
 25	3
 vaga	3
-augment	3
 2	3
 carretera	3
 etc	3
@@ -898,6 +893,7 @@ somni	3
 comprar	3
 pro	3
 mursi	3
+odi	3
 creador	3
 música	3
 eres	3
@@ -917,13 +913,13 @@ esclatar	3
 tuit	3
 sud	3
 latuff	3
+opinió	3
 blogs	3
 lectors	3
 iemen	3
 corea	3
 revolució	3
 preguntes	3
-idioma	3
 dirigir	3
 real	3
 ordre	3
@@ -970,12 +966,12 @@ basada	3
 fort	3
 cases	3
 edició	3
-abril	3
 autorització	3
 connexió	3
 informar	3
 ajudar	3
 troba	3
+açò	3
 armènia	3
 recent	3
 desaparició	3
@@ -1127,6 +1123,7 @@ juliana	2
 amic	2
 matí	2
 utilitza	2
+aleshores	2
 wikipedia	2
 captura	2
 diria	2
@@ -1253,6 +1250,7 @@ sindicat	2
 professors	2
 ràdio	2
 portuguès	2
+augment	2
 bilions	2
 eliminar	2
 anònima	2
@@ -1305,7 +1303,6 @@ basat	2
 baixos	2
 associació	2
 pense	2
-opció	2
 escoltar	2
 fonamentals	2
 veig	2
@@ -1440,7 +1437,7 @@ civil	2
 lector	2
 autònoma	2
 espanyola	2
-èxit	2
+l'èxit	2
 prové	2
 llarga	2
 pròpia	2
@@ -1567,6 +1564,7 @@ trauma	2
 abandonats	2
 edificis	2
 escenari	2
+abril	2
 clara	2
 cantant	2
 velocitat	2
@@ -1663,7 +1661,6 @@ maldives	2
 petició	2
 sostenible	2
 idiomes	2
-extinció	2
 indignats	2
 creien	2
 liberal	2
@@ -1691,6 +1688,7 @@ jutjar	2
 banderes	2
 àrab	2
 gaza	2
+idioma	2
 dilluns	2
 prohibeix	2
 quines	2

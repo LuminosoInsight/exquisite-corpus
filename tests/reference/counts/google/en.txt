@@ -1,4 +1,4 @@
-__total__	7844980
+__total__	7844729
 them	1004636
 not	1004378
 °	917093
@@ -43,7 +43,7 @@ everybody	24872
 stefan	24433
 neck	24378
 afford	24305
-pin	23987
+pin	23986
 republic	23187
 prudent	22903
 asserted	22613
@@ -1276,11 +1276,11 @@ mentioned	139
 apatite	138
 sariette	138
 økonomiske	138
-aro	137
 nolin	137
 sweatered	137
 rursus	137
 unzipping	137
+aro	136
 esophageal	136
 ne	136
 prosperous	136
@@ -1291,7 +1291,6 @@ unslipped	136
 egeon	135
 photospheres	135
 sobrino	135
-er	134
 moomin	134
 manne	134
 matrix	134
@@ -1301,6 +1300,7 @@ tio	134
 ultra	134
 ssow	134
 anticompetition	133
+er	133
 mistake	133
 neglect	133
 anticlimax	132
@@ -1840,7 +1840,6 @@ terentius	77
 teide	77
 untoward	77
 ætas	77
-a	76
 acylamino	76
 authoritatively	76
 employing	76
@@ -1975,12 +1974,12 @@ ucayali	69
 ætherial	69
 ægypto	69
 ædui	69
+a	68
 amitié	68
 elsberg	68
 exhaust	68
 methylcyclohexane	68
 mindell	68
-nell	68
 nanus	68
 phas	68
 pnf	68
@@ -2221,7 +2220,7 @@ aquatilis	56
 exploratory	56
 eichler	56
 neutestamentliche	56
-opera	56
+nell'opera	56
 nt	56
 parchmentlike	56
 p4	56
@@ -2465,7 +2464,6 @@ areois	47
 arbat	47
 eruditus	47
 etousa	47
-man	47
 maxterms	47
 nondiseased	47
 nun	47
@@ -2663,6 +2661,7 @@ autour	41
 eberus	41
 eed	41
 expurgated	41
+man	41
 merkmals	41
 multiline	41
 madhava	41
@@ -2874,7 +2873,6 @@ actualem	36
 auletes	36
 antiquos	36
 acc	36
-all	36
 anisogamy	36
 autonomic	36
 exacdy	36
@@ -3108,8 +3106,7 @@ endoplasm	32
 exercising	32
 mexicana	32
 mimap	32
-miqva	32
-ot	32
+miqva'ot	32
 meisen	32
 monge	32
 macdonough	32
@@ -3388,8 +3385,7 @@ prisca	28
 poursuite	28
 pi	28
 pachelbel	28
-presqu	28
-isle	28
+presqu'isle	28
 struc	28
 shadja	28
 shipkov	28
@@ -3948,7 +3944,7 @@ albones	21
 antikythira	21
 autocrat	21
 argons	21
-insegna	21
+all'insegna	21
 angustissime	21
 alteste	21
 amelungs	21
@@ -4063,8 +4059,7 @@ attische	20
 ebb	20
 e.y	20
 etrelles	20
-esma	20
-il	20
+esma'il	20
 erster	20
 expects	20
 envie	20
@@ -4492,7 +4487,6 @@ elvenich	17
 enioy	17
 ersi	17
 electrocardiography	17
-eng	17
 erythroblast	17
 elote	17
 expedient	17
@@ -4657,7 +4651,6 @@ exhib	16
 entrance	16
 exigé	16
 entieres	16
-ev	16
 esdale	16
 elektron	16
 edii	16
@@ -5285,6 +5278,7 @@ aij	13
 apuntamientos	13
 altagyptische	13
 apablaza	13
+all	13
 aksaray	13
 audiocassette	13
 armena	13
@@ -5393,8 +5387,7 @@ preromanesque	13
 paintjob	13
 sandalwoods	13
 stratigraphic	13
-she	13
-elot	13
+she'elot	13
 surasenas	13
 soysauce	13
 serike	13
@@ -5523,7 +5516,6 @@ equivocality	12
 enterovirus	12
 each	12
 eligendi	12
-europe	12
 eue	12
 erosioncontrol	12
 embolised	12
@@ -5533,7 +5525,6 @@ entomobrya	12
 epithet	12
 ensueth	12
 e0.00	12
-and	12
 euge	12
 manca	12
 margravine	12
@@ -5622,7 +5613,6 @@ song3	12
 stressfree	12
 stark	12
 saild	12
-id	12
 studies00	12
 studies	12
 stoplosses	12
@@ -5828,8 +5818,7 @@ magnifici	11
 misknowledge	11
 marangone	11
 mercure	11
-mutma	11
-inna	11
+mutma'inna	11
 mensaje	11
 morsitans	11
 mout	11
@@ -5936,6 +5925,7 @@ sompting	11
 snabb	11
 szita	11
 sa	11
+id	11
 sedition	11
 success	11
 sucre	11
@@ -6117,7 +6107,7 @@ exponit	10
 erudes	10
 evo	10
 exigences	10
-ennes	10
+europe'ennes	10
 enniscrone	10
 elderton	10
 enrolla	10
@@ -6136,6 +6126,7 @@ emanavit	10
 energetical	10
 elphinstone	10
 ensidesa	10
+eng'and	10
 ensete	10
 encima	10
 euros	10
@@ -6209,7 +6200,6 @@ nuchtern	10
 nationi	10
 niederreiter	10
 nirbija	10
-as	10
 neuroendocrinologically	10
 niversitv	10
 nudiflora	10
@@ -6917,7 +6907,6 @@ avayavas	8
 anisotropic	8
 abstractconcrete	8
 anorgan	8
-i	8
 applicate	8
 achieve	8
 anamalous	8
@@ -6975,6 +6964,7 @@ exeeed	8
 equise	8
 esterbauer	8
 einkommenspolitik	8
+ev	8
 elrie	8
 euastrum	8
 epitheliopathy	8
@@ -7122,7 +7112,7 @@ negreponti	8
 nlan	8
 northrepps	8
 néant	8
-nefed	8
+nefed'ev	8
 noleggiare	8
 nasu	8
 ndices	8
@@ -7575,6 +7565,7 @@ esays	7
 euthyroid	7
 elegance	7
 enamoran	7
+eng	7
 electrometric	7
 ergs	7
 everyman	7
@@ -7723,6 +7714,7 @@ naquet	7
 newburgh	7
 novices	7
 nayadhammakahao	7
+as	7
 n.zeeb	7
 neurocentral	7
 nonintended	7
@@ -8298,7 +8290,6 @@ mudaji	6
 marshmallows	6
 mathematiker	6
 mtw	6
-mau	6
 musicographers	6
 m2	6
 mortellari	6
@@ -8346,6 +8337,7 @@ mcclintook	6
 mm00	6
 mlawa	6
 magazine	6
+man'a	6
 mentir	6
 microfuge	6
 monumentum	6
@@ -8442,7 +8434,7 @@ n.ys	6
 nursemidwifery	6
 nachrichten	6
 nateq	6
-università	6
+nell'università	6
 naiden	6
 nvelope	6
 nasua	6
@@ -10491,6 +10483,7 @@ meerschweinchen	4
 merne	4
 malking	4
 mover	4
+mau'i	4
 meteorologic	4
 monnoie	4
 mathams	4
@@ -10585,7 +10578,7 @@ niyself	4
 nonassisted	4
 nigella	4
 natt	4
-inghilterra	4
+nell'inghilterra	4
 nuar	4
 nkandabwe	4
 novelistas	4
@@ -10838,7 +10831,6 @@ shattal	4
 singlelayered	4
 stravinskyites	4
 savan	4
-such	4
 slavoniji	4
 sequens	4
 siccitate	4
@@ -11204,8 +11196,7 @@ themselves	4
 theosophia	4
 tillväxt	4
 trein	4
-tant	4
-è	4
+tant'è	4
 tireur	4
 tophores	4
 towerings	4
@@ -11789,7 +11780,6 @@ anasaki	3
 andcr	3
 ast	3
 ambushment	3
-app	3
 associa	3
 alagoas	3
 adulteresses	3
@@ -12837,6 +12827,7 @@ subfascicular	3
 spilo	3
 suburbani	3
 snoek	3
+such'as	3
 snowbound	3
 starrum	3
 sam	3
@@ -13409,7 +13400,6 @@ t'le	3
 trachite	3
 theodoretus	3
 tillverkats	3
-type	3
 tfcere	3
 twigged	3
 transub	3
@@ -13980,6 +13970,7 @@ alacer	2
 assensio	2
 answers	2
 årige	2
+i	2
 aiit	2
 atom	2
 afep	2
@@ -14055,7 +14046,7 @@ actide	2
 aquilone	2
 apparitionibus	2
 advifes	2
-avventura	2
+all'avventura	2
 amide	2
 angliae	2
 aeademy	2
@@ -14176,6 +14167,7 @@ assets	2
 achintoul	2
 anilinium	2
 affixa	2
+app	2
 aperit	2
 augert	2
 aktiven	2
@@ -14643,6 +14635,7 @@ eivers	2
 enfevered	2
 electrotherapy	2
 erricker	2
+europe	2
 eintragen	2
 enssia	2
 epsl	2
@@ -14788,6 +14781,7 @@ mahagony	2
 methylation	2
 mahameghasutra	2
 mesosphere	2
+mau	2
 madiis	2
 manducation	2
 mahren	2
@@ -14816,7 +14810,7 @@ microprints	2
 martin.s	2
 microtilms	2
 manderscheidt	2
-mcculloch	2
+mcculloch'a	2
 motel	2
 multiconf	2
 mub	2
@@ -16088,8 +16082,7 @@ shrutis	2
 servite	2
 synodontis	2
 speise	2
-shi	2
-ites	2
+shi'ites	2
 squirtguns	2
 shippenville	2
 summut	2
@@ -16532,6 +16525,7 @@ reconsolidated	2
 rosenfels	2
 rother	2
 redempcon	2
+and	2
 rpor	2
 rahula	2
 reappearance	2
@@ -16951,6 +16945,7 @@ tases	2
 ternment	2
 trudi	2
 tsur	2
+type	2
 thanksgave	2
 traughton	2
 trigonometrical	2
@@ -18078,6 +18073,7 @@ atel	1
 annualmeeting	1
 ausnahmebestimmungen	1
 araes	1
+aro'er	1
 arrabida	1
 absolv'd	1
 adolplie	1
@@ -18218,7 +18214,7 @@ amongsf	1
 amor	1
 aight	1
 aisk	1
-ied	1
+app'ied	1
 ausschliessend	1
 actual	1
 asti	1
@@ -18568,8 +18564,7 @@ establishn	1
 exliausted	1
 erl	1
 entlastet	1
-expl	1
-ite	1
+expl'ite	1
 emanuel	1
 elsc	1
 expectan	1
@@ -20095,7 +20090,7 @@ nephthalim	1
 neverl	1
 nieasure	1
 nonwillingness	1
-argomento	1
+nell'argomento	1
 nonj	1
 nodi	1
 nyt	1
@@ -20600,6 +20595,7 @@ nuin	1
 nivaquine	1
 negama	1
 numb'ring	1
+nell	1
 nvova	1
 nadaswaram	1
 ncle	1
@@ -20722,6 +20718,7 @@ perpetually	1
 ptriod	1
 ponce	1
 pluralisme	1
+pin'i	1
 principalis	1
 pste	1
 périgord	1
@@ -21432,6 +21429,7 @@ suspicor	1
 saero	1
 sortitions	1
 stitu	1
+such	1
 socalled	1
 shirtleff	1
 speces	1
@@ -22566,7 +22564,7 @@ ryden	1
 riglit	1
 raphanistrum	1
 ranihati	1
-rot	1
+rot'id	1
 rusu	1
 rdr	1
 ramong	1
@@ -22816,8 +22814,7 @@ ramayana3	1
 rivees	1
 rancy	1
 russobritish	1
-regu	1
-ations	1
+regu'ations	1
 reselections	1
 ritschi	1
 rye	1
@@ -22866,7 +22863,7 @@ radiologische	1
 reflation	1
 resolved	1
 raunged	1
-ruba	1
+ruba'i	1
 rainera	1
 religon	1
 rewithin	1
@@ -23272,7 +23269,7 @@ tumoren	1
 trtatite	1
 ttj	1
 totius	1
-of	1
+type'of	1
 twohinged	1
 trophedema	1
 torroni	1
