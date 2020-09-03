@@ -269,33 +269,17 @@ for _source in COUNT_SOURCES:
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
 TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
-OPENSUB_PARALLEL_LANGUAGES = [
-    'ar', 'de', 'en', 'es', 'fa', 'fi', 'fr', 'id', 'it', 'ja', 'ko', 'nl', 'pl', 'pt',
-    'ru', 'sv', 'zh-Hans', 'zh-Hant'
-]
-OPENSUB_LANGUAGE_PAIRS = [
-    "{}_{}".format(_lang1, _lang2)
-    for _lang1 in OPENSUB_PARALLEL_LANGUAGES for _lang2 in OPENSUB_PARALLEL_LANGUAGES
-    if _lang1 < _lang2
-]
 
-# We'll build parallel text between English and any other language that has
-# translations in OpenSubtitles or ParaCrawl. (Europarl and Tatoeba are not
-# enough.)
-#
-# Construct this list manually for now to be sure we get the codes in the
-# right order.
+
+# We'll build a parallel text between English and 14 languages. We construct
+# PARALLEL_LANGUAGES and PARALLEL_SOURCES lists manually to be sure that we get the
+# codes and sources correctly.
+
+# Parallel language pairs
+# zh-x-oversimplified means oversimplified Chinese
 PARALLEL_LANGUAGES = [
-    'ar_en', 'cs_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id',
-    'en_it', 'en_ja', 'en_ko', 'en_lv', 'en_nl', 'en_pl', 'en_pt', 'en_ro',
-    'en_ru', 'en_sv', 'en_zh-Hans', 'en_zh-Hant'
-]
-
-# Tatoeba language pairs; constructed manually such that cs_en, en_lv, en_ro, and
-# en_zh-Hant are removed from PARALLEL_LANGUAGE_PAIRS
-TATOEBA_LANGUAGES = [
-    'ar_en', 'de_en', 'en_es', 'en_fa', 'en_fi', 'en_fr', 'en_id', 'en_it',
-    'en_ja', 'en_ko', 'en_nl', 'en_pl', 'en_pt','en_ru', 'en_sv', 'en_zh-Hans'
+    'ar_en', 'de_en', 'en_es', 'en_fr', 'en_id', 'en_it', 'en_ja', 'en_ko', 'en_nl',
+    'en_pl', 'en_pt', 'en_ru', 'en_sv', 'en_zh-x-oversimplified'
 ]
 
 PARALLEL_LANGUAGE_PAIRS = []
@@ -304,11 +288,69 @@ for pair in PARALLEL_LANGUAGES:
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
     PARALLEL_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
 
-TATOEBA_LANGUAGE_PAIRS = []
-for pair in TATOEBA_LANGUAGES:
-    lang1, lang2 = pair.split('_')
-    TATOEBA_LANGUAGE_PAIRS.append("{}_{}".format(lang1, lang2))
-    TATOEBA_LANGUAGE_PAIRS.append("{}_{}".format(lang2, lang1))
+# Parallel language sources
+PARALLEL_LANGUAGE_SOURCES = {
+    'opus/OpenSubtitles2018': PARALLEL_LANGUAGES,
+    'opus/ParaCrawl' : [
+        'de_en', 'en_es', 'en_fr', 'en_it', 'en_nl', 'en_pl', 'en_pt', 'en_sv'
+    ],
+    'opus/Europarl': [
+        'de_en', 'en_es', 'en_fr', 'en_it', 'en_nl', 'en_pl', 'en_pt', 'en_sv'
+    ],
+    'opus/MultiUN' : [
+        'ar_en', 'de_en', 'en_es', 'en_fr', 'en_ru', 'en_zh-x-oversimplified'
+    ],
+    'opus/UNPC' : [
+        'ar_en', 'en_es', 'en_fr', 'en_ru', 'en_zh-x-oversimplified'
+    ],
+    'jesc': [
+        'en_ja'
+    ],
+    'jparacrawl': [
+        'en_ja'
+    ]
+}
+
+
+def parallel_sources(wildcards):
+    sources = []
+    lang1, lang2 = sorted([wildcards.lang1, wildcards.lang2])
+    pair = '{}_{}'.format(lang1, lang2)
+
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/OpenSubtitles2018']:
+        sources.append(DATA + "/parallel/sources/opus/OpenSubtitles2018.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/ParaCrawl']:
+        sources.append(DATA + "/parallel/sources/opus/ParaCrawl.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/Europarl']:
+        sources.append(DATA + "/parallel/sources/opus/Europarl.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/MultiUN']:
+        sources.append(DATA + "/parallel/sources/opus/MultiUN.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['opus/UNPC']:
+        sources.append(DATA + "/parallel/sources/opus/UNPC.{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['jesc']:
+        sources.append(DATA + "/parallel/sources/jesc/{}.txt".format(pair))
+    if pair in PARALLEL_LANGUAGE_SOURCES['jparacrawl']:
+        sources.append(DATA + "/parallel/sources/jparacrawl/{}.txt".format(pair))
+    return sources
+
+
+def get_opus_version(dataset):
+    # Manage the version of the OPUS datasets manually
+    if dataset == 'OpenSubtitles2018':
+        version = 'OPUS-OpenSubtitles/v2018'
+    elif dataset == 'ParaCrawl':
+        version = 'OPUS-ParaCrawl/v5'
+    elif dataset == 'Europarl':
+        version = 'OPUS-Europarl/v8'
+    elif dataset == 'MultiUN':
+        version = 'OPUS-MultiUN/v1'
+    elif dataset == 'UNPC':
+        version = 'OPUS-UNPC/v1.0'
+    elif dataset == 'Tatoeba':
+        version = 'OPUS-Tatoeba/v20190709'
+    else:
+        raise ValueError(f"Unknown OPUS dataset: {dataset}")
+    return version
 
 
 def map_opus_language(dataset, lang):
@@ -343,6 +385,8 @@ def map_opus_language(dataset, lang):
         mapping = {
             'pt-PT': 'pt'
         }
+    elif dataset == 'ParaCrawl' or 'MultiUN' or 'UNPC':
+        mapping = {}
     else:
         raise ValueError("Unknown OPUS dataset: %r" % dataset)
     return mapping.get(lang, lang)
@@ -367,27 +411,6 @@ def language_text_sources(lang):
         for source in LANGUAGE_SOURCES[lang]
         if source in FULL_TEXT_SOURCES
     ]
-
-
-def parallel_sources(wildcards):
-    sources = []
-    lang1, lang2 = sorted([wildcards.lang1, wildcards.lang2])
-    if lang1 == 'en':
-        other_lang = lang2
-    elif lang2 == 'en':
-        other_lang = lang1
-    else:
-        other_lang = None
-    pair = '{}_{}'.format(lang1, lang2)
-    if other_lang in SOURCE_LANGUAGES['paracrawl']:
-        sources.append(DATA + "/parallel/paracrawl/{}.txt".format(pair))
-    if other_lang in SOURCE_LANGUAGES['jesc']:
-        sources.append(DATA + "/parallel/jesc/{}.txt".format(pair))
-    if pair in OPENSUB_LANGUAGE_PAIRS:
-        sources.append(DATA + "/parallel/opus/OpenSubtitles2018.{}.txt".format(pair))
-    if other_lang in SOURCE_LANGUAGES['opus/Europarl']:
-        sources.append(DATA + "/parallel/opus/Europarl.{}.txt".format(pair))
-    return sources
 
 
 def _count_filename(source, lang):
@@ -473,7 +496,7 @@ rule parallel:
         expand(DATA + "/parallel/training/joined/{pair}.{mode}.txt",
                 pair=PARALLEL_LANGUAGE_PAIRS, mode=['train', 'valid', 'test']),
         expand(DATA + "/parallel/training/joined/tatoeba_test.{pair}.txt",
-                pair=TATOEBA_LANGUAGE_PAIRS)
+                pair=PARALLEL_LANGUAGE_PAIRS)
 
 rule alignment:
     input:
@@ -536,7 +559,12 @@ rule download_opus_parallel:
         lang1 = map_opus_language(dataset, wildcards.lang1)
         lang2 = map_opus_language(dataset, wildcards.lang2)
         lang1, lang2 = sorted([lang1, lang2])
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/{lang1}-{lang2}.txt.zip' -o {output}")
+
+        # Manage the version of the OPUS dataset manually
+        version = get_opus_version(dataset)
+        shell(
+            "curl -Lf 'https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -o {output}"
+        )
 
 
 rule download_wikipedia:
@@ -607,9 +635,16 @@ rule download_paracrawl:
 
 rule download_jesc:
     output:
-        DATA + "/downloaded/jesc/detokenized.tar.gz"
+        DATA + "/downloaded/jesc/raw.tar.gz"
     shell:
-        "curl -Lf 'https://nlp.stanford.edu/rpryzant/jesc/detokenized.tar.gz' -o {output}"
+        "curl -Lf 'https://nlp.stanford.edu/projects/jesc/data/raw.tar.gz' -o {output}"
+
+
+rule download_jparacrawl:
+    output:
+        DATA + "/downloaded/jparacrawl/en-ja.tar.gz"
+    shell:
+        "curl -Lf 'http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/release/2.0/bitext/en-ja.tar.gz' -o {output}"
 
 
 # Handling downloaded data
@@ -670,6 +705,25 @@ rule extract_opus_parallel:
         shell("unzip -o -d '{DATA}/extracted/opus/' {input} && mv {"
               "zip_output1} {output1} && mv {zip_output2} {output2} && touch {output}")
 
+
+rule extract_jesc:
+    input:
+        DATA + "/downloaded/jesc/raw.tar.gz"
+    output:
+        temp(DATA + "/extracted/jesc/raw/raw")
+    shell:
+        "tar xf {input} -C {DATA}/extracted/jesc && touch {output}"
+
+
+rule extract_jparacrawl:
+    input:
+        DATA + "/downloaded/jparacrawl/en-ja.tar.gz"
+    output:
+        temp(DATA + "/extracted/jparacrawl/en-ja/en-ja.bicleaner05.txt")
+    shell:
+        "tar xf {input} -C {DATA}/extracted/jparacrawl && touch {output}"
+
+
 rule extract_newscrawl:
     input:
         DATA + "/downloaded/newscrawl-2014-monolingual.tar.gz"
@@ -689,15 +743,6 @@ rule gzip_newscrawl:
                ".2014.{lang}.shuffled.gz"
     shell:
         "gzip -c {input} > {output}"
-
-rule extract_jesc:
-    input:
-        DATA + "/downloaded/jesc/detokenized.tar.gz"
-    output:
-        temp(DATA + "/extracted/jesc/detokenized/train.en"),
-        temp(DATA + "/extracted/jesc/detokenized/train.ja")
-    shell:
-        "tar xf {input} -C {DATA}/extracted/jesc && touch {DATA}/extracted/jesc/detokenized/*"
 
 rule extract_amazon_acl10:
     input:
@@ -1072,6 +1117,73 @@ rule tokenize_voa:
 # Handling parallel text
 # ======================
 
+# Merge zh-Hans and zh-Hant data obtained from OpenSubtitles and simplify them as
+# zh-x-oversimplified
+rule merge_and_simplify_opensubtitles_zh:
+     input:
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.zh-Hans",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hant.zh-Hant",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hans.en",
+         DATA + "/extracted/opus/OpenSubtitles2018.en_zh-Hant.en"
+     output:
+         temp(DATA + "/extracted/opus/OpenSubtitles2018.en_zh-x-oversimplified.zh-x-oversimplified"),
+         temp(DATA + "/extracted/opus/OpenSubtitles2018.en_zh-x-oversimplified.en")
+     run:
+         input_Hans, input_Hant, input_en1, input_en2 = input
+         output_zh, output_en = output
+         shell(
+         "cat {input_Hans} {input_Hant} | xc simplify-chinese > {output_zh} && "
+         "cat {input_en1} {input_en2} > {output_en}"
+         )
+
+
+rule simplify_multi_un_zh:
+     input:
+         DATA + "/extracted/opus/MultiUN.en_zh.zh",
+         DATA + "/extracted/opus/MultiUN.en_zh.en"
+     output:
+         temp(DATA + "/extracted/opus/MultiUN.en_zh-x-oversimplified.zh-x-oversimplified"),
+         temp(DATA + "/extracted/opus/MultiUN.en_zh-x-oversimplified.en")
+     run:
+         input_zh, input_en = input
+         output_zh, output_en = output
+         shell(
+         "xc simplify-chinese {input_zh} {output_zh} && "
+         "cp {input_en} {output_en}"
+         )
+
+
+rule simplify_unpc_zh:
+     input:
+         DATA + "/extracted/opus/UNPC.en_zh.zh",
+         DATA + "/extracted/opus/UNPC.en_zh.en"
+     output:
+         temp(DATA + "/extracted/opus/UNPC.en_zh-x-oversimplified.zh-x-oversimplified"),
+         temp(DATA + "/extracted/opus/UNPC.en_zh-x-oversimplified.en")
+     run:
+         input_zh, input_en = input
+         output_zh, output_en = output
+         shell(
+         "xc simplify-chinese {input_zh} {output_zh} && "
+         "cp {input_en} {output_en}"
+         )
+
+rule simplify_tatoeba_zh:
+     input:
+         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.zh-Hans",
+         DATA + "/extracted/opus/Tatoeba.en_zh-Hans.en"
+     output:
+         temp(DATA + "/extracted/opus/Tatoeba.en_zh-x-oversimplified.zh-x-oversimplified"),
+         temp(DATA + "/extracted/opus/Tatoeba.en_zh-x-oversimplified.en")
+     run:
+         input_Hans, input_en = input
+         output_zh, output_en = output
+         shell(
+         "xc simplify-chinese {input_Hans} {output_zh} && "
+         "cp {input_en} {output_en}"
+         )
+
+
 rule parallel_opus:
     # Join monolingual files from OPUS into a parallel text file.
     input:
@@ -1079,7 +1191,7 @@ rule parallel_opus:
         DATA + "/extracted/opus/{dataset}.{lang1}_{lang2}.{lang2}"
 
     output:
-        DATA + "/parallel/opus/{dataset}.{lang1}_{lang2}.txt"
+        DATA + "/parallel/sources/opus/{dataset}.{lang1}_{lang2}.txt"
     shell:
         # OpenSubtitles text may have come out in a form of Chinese mojibake
         # where many characters are mapped to the private use area.
@@ -1096,6 +1208,7 @@ rule parallel_opus:
         # mojibake.
         "paste {input} | LANG=C grep -v $'\xee' > {output}"
 
+
 rule parallel_paracrawl:
     # Join monolingual files from ParaCrawl into a parallel text file.
     input:
@@ -1107,15 +1220,25 @@ rule parallel_paracrawl:
     shell:
         "paste {input} > {output}"
 
+
 rule parallel_jesc:
-    # Join monolingual files from JESC into a parallel text file.
     input:
-        DATA + "/extracted/jesc/detokenized/train.en",
-        DATA + "/extracted/jesc/detokenized/train.ja"
+        DATA + "/extracted/jesc/raw/raw"
     output:
-        DATA + "/parallel/jesc/en_ja.txt"
+        DATA + "/parallel/sources/jesc/en_ja.txt"
     shell:
-        "paste {input} > {output}"
+        "cp {input} {output}"
+
+
+rule parallel_jparacrawl:
+    input:
+        DATA + "/extracted/jparacrawl/en-ja/en-ja.bicleaner05.txt"
+    output:
+        DATA + "/parallel/sources/jparacrawl/en_ja.txt"
+    shell:
+         # en-ja.bicleaner05.txt contains tab-separated domain name, score, English
+         # text, and Japanese text
+        "cut -f 3,4 {input} > {output}"
 
 
 rule shuffle_parallel:
@@ -1139,8 +1262,8 @@ rule separate_parallel:
     input:
         DATA + "/parallel/shuffled-clean/{lang1}_{lang2}.txt"
     output:
-        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt",
-        DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt"
+        temp(DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang1}.all.txt"),
+        temp(DATA + "/parallel/shuffled-split/{lang1}_{lang2}.{lang2}.all.txt")
     run:
         out1, out2 = output
         shell("cut -f 1 {input} > {out1} && cut -f 2 {input} > {out2}")
@@ -1188,7 +1311,6 @@ rule apply_sentencepiece:
         DATA + "/parallel/training/sp/{pair}.{lang}.model"
     output:
         temp(DATA + "/tmp/paired/{pair}.{lang}.{mode}.txt")
-
     run:
         in_file, model_file = input
         shell(
@@ -1198,8 +1320,8 @@ rule apply_sentencepiece:
 
 rule apply_sentencepiece_tatoeba:
     input:
-        "data/extracted/opus/Tatoeba.{pair}.{lang}",
-        "data/parallel/training/sp/{pair}.{lang}.model"
+        DATA + "/extracted/opus/Tatoeba.{pair}.{lang}",
+        DATA + "/parallel/training/sp/{pair}.{lang}.model"
     output:
         temp(DATA + "/tmp/paired/tatoeba_test.{pair}.{lang}.txt")
     run:

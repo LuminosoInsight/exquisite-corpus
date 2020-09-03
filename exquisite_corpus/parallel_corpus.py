@@ -6,11 +6,10 @@ from ftfy import fix_text
 
 def map_to_fasttext_language(lang):
     """
-    Map both 'zh-Hans' and 'zh-Hant' to 'zh' for language identification.
+    Map 'zh-x-oversimplified' to 'zh' for language identification.
     """
     mapping = {
-        'zh-Hans': 'zh',
-        'zh-Hant': 'zh'
+        'zh-x-oversimplified': 'zh'
     }
     return mapping.get(lang, lang)
 
@@ -21,7 +20,8 @@ def cleanup_parallel_file(
     """
     Take in a tab-separated parallel text, run ftfy over each line, and skip the line if
     the text on either side contains different numbers of '♪' or if languages on either
-    side are not identified with confidence (given text is long enough).
+    side are not identified with confidence or the source to target length ratio is
+    greater than 4.0.
     """
     for line in infile:
         # Run all ftfy fixes
