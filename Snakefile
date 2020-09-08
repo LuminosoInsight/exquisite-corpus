@@ -190,7 +190,7 @@ WP_LANGUAGE_MAP = {
     'fil': 'tl',
     'nb': 'no'
 }
-WP_VERSION = '20190120'
+WP_VERSION = '20200801'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
     'zh-Hans': 'chi-sim',
