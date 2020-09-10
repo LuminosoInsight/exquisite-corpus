@@ -104,6 +104,11 @@ def preprocess_reddit(input_filename, outfile):
     - Posts from subreddits that are banned in 2018 are skipped
     """
     input_lines = stream_compressed_lines(input_filename)
+    for lang, text in preprocess_reddit_lines(input_lines):
+        print(f"{lang}\t{text}", file=outfile)
+
+
+def preprocess_reddit_lines(input_lines):
     for line in input_lines:
         data = json.loads(line)
         if (
@@ -124,7 +129,7 @@ def preprocess_reddit(input_filename, outfile):
                         # There are more English posts than we need, so filter them
                         # for score >= 3
                         if lang != "en" or data["score"] > 2:
-                            print(f"{lang}\t{text}", file=outfile)
+                            yield (lang, text)
 
 
 def preprocess_twitter(infile, outfile):

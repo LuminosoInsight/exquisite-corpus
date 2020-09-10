@@ -11,7 +11,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'snakemake < 5.6', 'wordfreq[jieba,mecab] >= 2.3.2', 'click',
-        'regex >= 2018.01.08', 'pycld2', 'msgpack-python', 'ordered-set',
+        'regex >= 2020.04.04', 'pycld2', 'msgpack-python', 'ordered-set',
         'ftfy', 'subword-nmt', 'sentencepiece', 'mmh3', 'pytest', 'tqdm',
         'lumi_language_id', 'zstandard'
     ],

@@ -4,21 +4,10 @@ import pytest
 from io import StringIO
 
 from exquisite_corpus.preprocess import (
-    preprocess_reddit,
+    preprocess_reddit_lines,
     preprocess_twitter,
     strip_markdown,
 )
-
-
-def run_preprocess(func, test_obj):
-    if isinstance(test_obj, dict):
-        test_obj = json.dumps(test_obj)
-    input_file = [test_obj]
-    output_file = StringIO()
-    func(input_file, output_file)
-    output_file.seek(0)
-    result = output_file.read()
-    return result
 
 
 @pytest.mark.parametrize(
@@ -57,33 +46,76 @@ def test_strip_markdown(text, expected):
 
 
 @pytest.mark.parametrize(
-    'test_object, expected, func',
+    'test_object, expected',
+    [
+        pytest.param(
+            'ar\tRT  A long-ish string in which there is a single tab',
+            'en\tRT  A long-ish string in which there is a single tab\n',
+            id='Select Twitter text after a tab',
+        ),
+        pytest.param(
+            'A long-ish string in which there are no tabs, not even one.',
+            'en\tA long-ish string in which there are no tabs, not even one.\n',
+            id='Select Twitter text if there are no tabs',
+        ),
+        pytest.param(
+            'A long-ish string in which there are multiple newlines\n\n\n\n',
+            'en\tA long-ish string in which there are multiple newlines\n',
+            id='Remove whitespace from the end of a tweet',
+        ),
+        pytest.param(
+            (
+                'A string with a bunch of Twitter handles in it, such as '
+                '@made_up_test_handle1 and @made_up_test_handle2'
+            ),
+            'en\tA string with a bunch of Twitter handles in it, such as  and \n',
+            id='Strip Twitter handles',
+        ),
+        pytest.param(
+            'A string with a number of urls, such as http://t.co/somelink as well as '
+            'https://t.co/someotherlink',
+            'en\tA string with a number of urls, such as  as well as \n',
+            id='Remove urls from tweets',
+        ),
+        pytest.param(
+            'fdmsfkresfjgre defrnefewf wdfmesnfesscvnds sdfwred',
+            '',
+            id='Ignore a tweet if we are not confident in language detection',
+        ),
+    ],
+)
+def test_preprocess_twitter(test_object, expected):
+    input_file = [test_object]
+    output_file = StringIO()
+    preprocess_twitter(input_file, output_file)
+    output_file.seek(0)
+    assert output_file.read() == expected
+
+
+@pytest.mark.parametrize(
+    'test_object, expected',
     [
         pytest.param(
             {'body': 'This is a Reddit comment with no score'},
-            '',
-            preprocess_reddit,
+            [],
             id='Ignore a Reddit post with no score',
         ),
         pytest.param(
-            {'score': 15}, '', preprocess_reddit, id='Ignore a Reddit post with no body'
+            {'score': 15}, [], id='Ignore a Reddit post with no body'
         ),
         pytest.param(
             {'score': None, 'body': 'A post'},
-            '',
-            preprocess_reddit,
+            [],
             id='Ignore a Reddit post when its score is None',
         ),
         pytest.param(
             {'score': 0, 'body': 'Underrated post'},
-            '',
-            preprocess_reddit,
+            [],
             id='Ignore a Reddit post when its score is less than 1',
         ),
         pytest.param(
             {'body': '[deleted]', 'score': 15},
-            '',
-            preprocess_reddit,
+            [],
             id='Ignore a Reddit post when its body was deleted',
         ),
         pytest.param(
@@ -92,8 +124,7 @@ def test_strip_markdown(text, expected):
                 'score': 15,
                 'subreddit': 'amazondeals',
             },
-            '',
-            preprocess_reddit,
+            [],
             id='Ignore a post from a banned subreddit',
         ),
         pytest.param(
@@ -102,8 +133,7 @@ def test_strip_markdown(text, expected):
                 'score': 3,
                 'subreddit': 'some_subreddit',
             },
-            'en\tA post with  a new line and some weird characters  \n',
-            preprocess_reddit,
+            [('en', 'A post with  a new line and some weird characters  ')],
             id='Replace problematic characters in a Reddit post',
         ),
         pytest.param(
@@ -113,8 +143,7 @@ def test_strip_markdown(text, expected):
                 'score': 3,
                 'subreddit': 'some_subreddit',
             },
-            'en\t is a url with some emphasis, which will be removed\n',
-            preprocess_reddit,
+            [('en', ' is a url with some emphasis, which will be removed')],
             id='Strip url after stripping markdown in a Reddit post',
         ),
         pytest.param(
@@ -123,14 +152,12 @@ def test_strip_markdown(text, expected):
                 'score': 3,
                 'subreddit': 'some_subreddit',
             },
-            '',
-            preprocess_reddit,
+            [],
             id='Ignore a Reddit post if no text left after preprocessing',
         ),
         pytest.param(
-            {'body': 'Short text', 'score': 3, 'subreddit': 'some_subreddit'},
-            '',
-            preprocess_reddit,
+            {'body': 'tooshort', 'score': 3, 'subreddit': 'some_subreddit'},
+            [],
             id='Ignore a Reddit post if we are not confident in language detection',
         ),
         pytest.param(
@@ -139,8 +166,7 @@ def test_strip_markdown(text, expected):
                 'score': 2,
                 'subreddit': 'some_subreddit',
             },
-            'sv\tJag hade tvättat fönstren på våren men nu är de smutsiga igen.\n',
-            preprocess_reddit,
+            [('sv', 'Jag hade tvättat fönstren på våren men nu är de smutsiga igen.')],
             id='Write Reddit text in a language other than English',
         ),
         pytest.param(
@@ -149,51 +175,11 @@ def test_strip_markdown(text, expected):
                 'score': 1,
                 'subreddit': 'some_subreddit',
             },
-            '',
-            preprocess_reddit,
+            [],
             id='Ignore English text with a score less than 2',
-        ),
-        pytest.param(
-            'ar\tRT  A long-ish string in which there is a single tab',
-            'en\tRT  A long-ish string in which there is a single tab\n',
-            preprocess_twitter,
-            id='Select Twitter text after a tab',
-        ),
-        pytest.param(
-            'A long-ish string in which there are no tabs, not even one.',
-            'en\tA long-ish string in which there are no tabs, not even one.\n',
-            preprocess_twitter,
-            id='Select Twitter text if there are no tabs',
-        ),
-        pytest.param(
-            'A long-ish string in which there are multiple newlines\n\n\n\n',
-            'en\tA long-ish string in which there are multiple newlines\n',
-            preprocess_twitter,
-            id='Remove whitespace from the end of a tweet',
-        ),
-        pytest.param(
-            (
-                'A string with a bunch of Twitter handles in it, such as '
-                '@made_up_test_handle1 and @made_up_test_handle2'
-            ),
-            'en\tA string with a bunch of Twitter handles in it, such as  and \n',
-            preprocess_twitter,
-            id='Strip Twitter handles',
-        ),
-        pytest.param(
-            'A string with a number of urls, such as http://t.co/somelink as well as '
-            'https://t.co/someotherlink',
-            'en\tA string with a number of urls, such as  as well as \n',
-            preprocess_twitter,
-            id='Remove urls from tweets',
-        ),
-        pytest.param(
-            'fdmsfkresfjgre defrnefewf wdfmesnfesscvnds sdfwred',
-            '',
-            preprocess_twitter,
-            id='Ignore a tweet if we are not confident in language detection',
         ),
     ],
 )
-def test_preprocess(test_object, expected, func):
-    assert run_preprocess(func, test_object) == expected
+def test_preprocess_reddit(test_object, expected):
+    input_lines = [json.dumps(test_object)]
+    assert list(preprocess_reddit_lines(input_lines)) == expected
