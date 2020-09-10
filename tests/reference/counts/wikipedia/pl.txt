@@ -1,4 +1,4 @@
-__total__	53190
+__total__	53146
 w	2476
 i	1534
 z	1053
@@ -8,7 +8,7 @@ się	899
 do	714
 jest	586
 00	424
-a	361
+a	339
 przez	319
 nie	316
 to	293
@@ -352,7 +352,6 @@ istnieją	19
 0	19
 ansi	19
 dwóch	19
-l	19
 nowe	19
 atom	19
 bądź	19
@@ -609,6 +608,7 @@ kod	12
 mimo	12
 symboli	12
 podział	12
+l	12
 tj	12
 niego	12
 dane	12
@@ -645,7 +645,6 @@ handlu	12
 zwierząt	12
 urodzeni	12
 nobla	12
-d	12
 źródeł	12
 archeologicznych	12
 archeologiczne	12
@@ -824,7 +823,6 @@ ur	10
 twórczości	10
 allel	10
 krwi	10
-france	10
 twórczość	10
 les	10
 alkaloidów	10
@@ -845,7 +843,6 @@ akcja	9
 odpowiada	9
 używane	9
 tekstu	9
-j	9
 b	9
 element	9
 poziomu	9
@@ -963,6 +960,7 @@ głowic	9
 konwencja	9
 sejm	9
 muszli	9
+d	9
 stopniu	8
 v	8
 tekst	8
@@ -971,6 +969,7 @@ wyrażenie	8
 rekordu	8
 innej	8
 indeks	8
+j	8
 k	8
 hello	8
 będącym	8
@@ -1008,7 +1007,6 @@ istnienie	8
 powszechnie	8
 okazało	8
 miało	8
-pierre	8
 czterech	8
 john	8
 rozpuszczają	8
@@ -1169,7 +1167,6 @@ trzeba	7
 end	7
 określonej	7
 operacyjnego	7
-henry	7
 american	7
 używany	7
 komputerowych	7
@@ -1326,7 +1323,6 @@ politycznych	7
 gospodarka	7
 pewnego	7
 komuny	7
-ego	7
 cel	7
 nowym	7
 stąd	7
@@ -1464,6 +1460,7 @@ znany	6
 obiekty	6
 świat	6
 uważa	6
+pierre	6
 opublikował	6
 światła	6
 niewielkich	6
@@ -1620,6 +1617,7 @@ wschodzie	6
 uwagę	6
 białek	6
 anatole	6
+france	6
 otrzymał	6
 komunistycznej	6
 republiki	6
@@ -2093,7 +2091,6 @@ lotnictwo	5
 su	5
 strategie	5
 kulturze	5
-berry	5
 dz.u	5
 poz	5
 abelardo	5
@@ -2133,6 +2130,7 @@ każdą	4
 częstotliwości	4
 warto	4
 samodzielne	4
+henry	4
 symbole	4
 sterujące	4
 us	4
@@ -2168,7 +2166,6 @@ dodatkowe	4
 zestawy	4
 rozwojem	4
 obsługę	4
-basic	4
 dodatnio	4
 greckiego	4
 xvii	4
@@ -2607,6 +2604,7 @@ mężczyzn	4
 populacji	4
 porządek	4
 paryżu	4
+france'a	4
 uzyskał	4
 francuską	4
 wstąpił	4
@@ -2928,6 +2926,7 @@ nazywanych	3
 bitowe	3
 unicode	3
 składający	3
+basic	3
 latin	3
 podstawowy	3
 składnik	3
@@ -3436,6 +3435,7 @@ zdolności	3
 skupia	3
 rządów	3
 dystrybucji	3
+henry'ego	3
 anarchosyndykalizm	3
 przedstawicielem	3
 przyjął	3
@@ -3994,7 +3994,6 @@ wyznawało	3
 rzeki	3
 casa	3
 andorze	3
-urgell	3
 foix	3
 hrabia	3
 wniosek	3
@@ -4101,6 +4100,7 @@ rozumiana	3
 ojczystej	3
 znaniecki	3
 tożsamości	3
+berry	3
 achtung	3
 panzer	3
 rpa	3
@@ -5190,6 +5190,7 @@ mówiący	2
 odmiennym	2
 lesigne	2
 anarchism	2
+pierre'a	2
 opierać	2
 wolnej	2
 kapitalistycznej	2
@@ -5861,7 +5862,6 @@ papież	2
 eugeniusz	2
 mapa	2
 ruin	2
-alkubierre	2
 święta	2
 napoleona	2
 zachodzących	2
@@ -6545,6 +6545,7 @@ pas	2
 granice	2
 państwami	2
 nadał	2
+urgell	2
 biskup	2
 consell	2
 francja	2
@@ -6914,6 +6915,7 @@ badaniach	2
 badacze	2
 bochner	2
 kulturowego	2
+berry'ego	2
 jednostce	2
 czołg	2
 zwyczaj	2

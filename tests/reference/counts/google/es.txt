@@ -1,4 +1,4 @@
-__total__	4826053
+__total__	4825968
 º	422560
 00	294558
 actual	218638
@@ -13,7 +13,7 @@ mayoría	106923
 trabajos	97630
 nacionales	85144
 norte	74097
-a	66823
+a	66820
 al	65011
 propias	56603
 sociedad	46240
@@ -801,7 +801,7 @@ tendiera	300
 esse	299
 trataré	298
 urundi	298
-nos	297
+nos	296
 n2	296
 afirmo	295
 estad	295
@@ -981,10 +981,10 @@ trans	219
 afrecho	218
 sole	218
 trece	218
-ana	217
 privados	217
 provenza	216
 urriola	216
+ana	215
 etnomusicología	215
 raederas	215
 normandos	213
@@ -2415,7 +2415,6 @@ mondada	47
 mimados	47
 mister	47
 marangani	47
-noch	47
 nonas	47
 natales	47
 numéro	47
@@ -2478,6 +2477,7 @@ matarani	45
 mayolo	45
 nuremberga	45
 negociacáo	45
+noch	45
 presidirlo	45
 pellico	45
 permiten	45
@@ -3413,7 +3413,6 @@ adiestra	26
 anunciad	26
 alambicados	26
 aclarará	26
-e	26
 empezándose	26
 explicar	26
 esquivé	26
@@ -3678,6 +3677,7 @@ abstuviesen	23
 amedrentarlo	23
 año9	23
 adopting	23
+e	23
 en	23
 ejecutándolas	23
 embudos	23
@@ -3873,7 +3873,6 @@ antiliteratura	21
 arcalaus	21
 águila	21
 aderezaba	21
-os	21
 arduos	21
 admítase	21
 esperasen	21
@@ -4111,7 +4110,6 @@ masacre	19
 morat	19
 nacional3	19
 nouveue	19
-nell	19
 ñirihuau	19
 noviombre	19
 numerarios	19
@@ -4190,7 +4188,7 @@ asesinado	18
 aucune	18
 almotacén	18
 alom	18
-artícu	18
+artícu'os	18
 adea	18
 apaciblemente	18
 auxiliado	18
@@ -4368,7 +4366,6 @@ encañadas	17
 eximente	17
 ecológica	17
 extremistas	17
-ejecutivo	17
 estructuralidad	17
 enloquecían	17
 mayanse	17
@@ -4526,6 +4523,7 @@ ensanchados	16
 egó	16
 emmy	16
 enseñoreamiento	16
+ejecutivo	16
 economics	16
 ejerciéndola	16
 erasure	16
@@ -5295,7 +5293,6 @@ exosomáticas	12
 erguidez	12
 empezará	12
 émulas	12
-estab	12
 escrebir	12
 eutr	12
 expüca	12
@@ -5315,7 +5312,6 @@ epos	12
 enredada	12
 eftuviera	12
 exquise	12
-o	12
 marcna	12
 marking	12
 manpower	12
@@ -5338,7 +5334,6 @@ missilia	12
 mnemotécnicos	12
 mueite	12
 moyobamba	12
-ón	12
 m00	12
 miracles	12
 maleta	12
@@ -5902,6 +5897,7 @@ españoleta	10
 excluyeme	10
 extramatrímonial	10
 entontecidos	10
+estab	10
 enmalezadas	10
 estupefaciente	10
 emprés	10
@@ -5970,7 +5966,7 @@ neighbourhood	10
 ndimiento	10
 nichos	10
 negus	10
-ambito	10
+nell'ambito	10
 natuturaleza	10
 neolocales	10
 nobilis	10
@@ -6217,7 +6213,6 @@ avanzaste	9
 autopreservación	9
 accedere	9
 amazónica	9
-es	9
 agestión	9
 acomodadores	9
 alida	9
@@ -6703,6 +6698,7 @@ entrevlstas	8
 escluía	8
 emplearte	8
 encandilarlo	8
+o	8
 erj	8
 extralimitar	8
 espoliadores	8
@@ -6804,7 +6800,7 @@ najo	8
 neutralizaban	8
 nabb	8
 nombreuses	8
-nac	8
+nac'ón	8
 nombradla	8
 nivelado	8
 nazas	8
@@ -7316,7 +7312,6 @@ metodóloga	7
 mü00er	7
 meliorista	7
 miración	7
-mis	7
 mazars	7
 montalegre	7
 maltz	7
@@ -8646,6 +8641,7 @@ evara	5
 element	5
 españóla	5
 enthoven	5
+es	5
 eutiquio	5
 esquilaya	5
 escritorzuelos	5
@@ -9408,7 +9404,6 @@ unfettered	5
 unicoloro	5
 uuam	5
 urridos	5
-uti	5
 unánimes	5
 ulldecona	5
 unós	5
@@ -9891,6 +9886,7 @@ macftros	4
 mterrelación	4
 matrimonia	4
 mapiripan	4
+mis'ón	4
 machorra	4
 meona	4
 marketera	4
@@ -10019,7 +10015,6 @@ nomio	4
 noticiaa	4
 nunquid	4
 naftalenacético	4
-natura	4
 nientos	4
 nolicia	4
 no	4
@@ -11368,7 +11363,6 @@ mixtecos	3
 moestis	3
 multic	3
 marcelita	3
-ico	3
 mestrezat	3
 marchaban	3
 mariola	3
@@ -11444,7 +11438,7 @@ minantem	3
 manigüero	3
 manengue	3
 medular	3
-ones	3
+mis'ones	3
 miiton	3
 maquilishuat	3
 metrólogos	3
@@ -11587,7 +11581,7 @@ nirgún	3
 ntar	3
 neomedievales	3
 nostrorumque	3
-eza	3
+natura'eza	3
 nesterios	3
 nómbrale	3
 neure	3
@@ -11637,7 +11631,7 @@ nexis	3
 nusvo	3
 nrima	3
 norrls	3
-necesar	3
+necesar'os	3
 norteamericanización	3
 novado	3
 nro	3
@@ -11662,7 +11656,7 @@ neófito	3
 neocomiensis	3
 naviguer	3
 natíon	3
-animo	3
+nell'animo	3
 nefelometría	3
 nihilum	3
 ndia	3
@@ -12766,6 +12760,7 @@ unionismo	3
 unero	3
 unidas8	3
 unlt	3
+uti	3
 uta	3
 unbalance	3
 urgeles	3
@@ -13021,6 +13016,7 @@ azabachero	2
 altisimos	2
 aot	2
 atendiéndonos	2
+ana'es	2
 azacán	2
 admiraciones	2
 azogues	2
@@ -13401,7 +13397,7 @@ etiologico	2
 eringe	2
 eroycas	2
 emero	2
-ecerse	2
+estab'ecerse	2
 engendrasen	2
 ediclones	2
 excarcelamiento	2
@@ -13731,7 +13727,7 @@ macaro	2
 mordisqueando	2
 mns	2
 maquinota	2
-mit	2
+mit'a	2
 miramomelin	2
 minoanos	2
 meandros	2
@@ -14028,6 +14024,7 @@ nívea	2
 nstrumento	2
 negrl	2
 nalus	2
+noch'e	2
 nostros	2
 netti	2
 ñ	2
@@ -14121,7 +14118,7 @@ nillo	2
 notoungulados	2
 nubiese	2
 nestrales	2
-attività	2
+nell'attività	2
 northam	2
 notificação	2
 nevizas	2
@@ -14183,7 +14180,7 @@ nebraskan	2
 nnry	2
 neutres	2
 nadiu	2
-archivio	2
+nell'archivio	2
 nntos	2
 nltima	2
 navajuela	2
@@ -14452,7 +14449,7 @@ provechada	2
 polüics	2
 presage	2
 pieno	2
-púb	2
+púb'ico	2
 plome	2
 privetur	2
 praderio	2
@@ -14471,7 +14468,6 @@ polco	2
 picarezca	2
 praedicatur	2
 poterie	2
-pla	2
 parólales	2
 pnmer	2
 poccardi	2
@@ -14730,7 +14726,6 @@ pareciendo	2
 pex	2
 plantos	2
 papei	2
-poder	2
 persistia	2
 proteol	2
 poundianos	2
@@ -14988,7 +14983,7 @@ st.kitts	2
 seccionalero	2
 supervisaban	2
 sozialistische	2
-sig	2
+sig'o	2
 sírvales	2
 simplificadoras	2
 seftores	2
@@ -15017,8 +15012,7 @@ scurvy	2
 sella	2
 sertoriana	2
 sonrisita	2
-sull	2
-argomento	2
+sull'argomento	2
 saien	2
 séria	2
 segusa	2
@@ -16112,7 +16106,7 @@ ubicativo	2
 ufsia	2
 uigi	2
 urunday	2
-izar	2
+uti'izar	2
 uiuos	2
 uscgs	2
 uictoriae	2
@@ -17131,8 +17125,7 @@ acusarlo	1
 audiográfica	1
 abogodo	1
 analeí	1
-all	1
-argentina	1
+all'argentina	1
 aanque	1
 amandoos	1
 atc	1
@@ -18305,6 +18298,7 @@ mensajeras	1
 muraglia	1
 matemáticas	1
 mé	1
+ico	1
 masana	1
 mayoría6	1
 malhaya	1
@@ -18498,7 +18492,7 @@ mejir	1
 mencheviquismo	1
 mfime	1
 menazado	1
-miérco	1
+miérco'es	1
 megalitico	1
 monticelli	1
 mollier	1
@@ -18776,7 +18770,7 @@ nuebe	1
 ningún	1
 nedad	1
 nedicamentos	1
-nápo	1
+nápo'es	1
 ncluirse	1
 neudecker	1
 nishida	1
@@ -19241,6 +19235,7 @@ nuil	1
 nunero	1
 nues3	1
 nnos	1
+natura	1
 natalité	1
 nadie5	1
 napité	1
@@ -19315,7 +19310,7 @@ nuii	1
 ntre	1
 nalidades	1
 norteamerciana	1
-azione	1
+nell'azione	1
 nhora	1
 nécios	1
 nfermedad	1
@@ -19341,7 +19336,7 @@ neoplasmas	1
 nohe	1
 nombrandole	1
 nimato	1
-otros	1
+nos'otros	1
 neq	1
 ndicaciones	1
 nltura	1
@@ -19413,7 +19408,7 @@ nejos	1
 noveta	1
 noci	1
 nemésio	1
-antico	1
+nell'antico	1
 nigroque	1
 notte	1
 needless	1
@@ -19554,6 +19549,7 @@ presentóla	1
 postmasters	1
 piróforo	1
 pavimentador	1
+pla'a	1
 prefatory	1
 prerequisito	1
 politice	1
@@ -20033,6 +20029,7 @@ poiliers	1
 platonicorum	1
 philisteos	1
 par1	1
+poder'ejecutivo	1
 programació	1
 padree	1
 passionis	1
@@ -20045,11 +20042,13 @@ pier	1
 puzcoano	1
 poetae	1
 però	1
+pla	1
 proporoiona	1
 polque	1
 peilz	1
 próblema	1
 partet	1
+poder	1
 preinformes	1
 phens	1
 presenc	1
@@ -20854,8 +20853,7 @@ stenopterus	1
 sometie	1
 sigüema	1
 salvator	1
-sei	1
-illa	1
+sei'illa	1
 sarto	1
 schejman	1
 sobreexpandidas	1
@@ -21013,7 +21011,7 @@ rresidengia	1
 radicionalmente	1
 raconable	1
 revalidamos	1
-responsab	1
+responsab'e	1
 reelación	1
 reeducándolos	1
 revelables	1
@@ -21197,7 +21195,7 @@ redomones	1
 reventó	1
 rillento	1
 radier	1
-respec	1
+respec'o	1
 relijiou	1
 ruanco	1
 repit	1
@@ -21706,8 +21704,7 @@ rutilaron	1
 reintroducidas	1
 refereridos	1
 rrogables	1
-rez	1
-ista	1
+rez'ista	1
 rinconero	1
 rennía	1
 rodiezmo	1
@@ -21918,7 +21915,7 @@ tori	1
 tmando	1
 tribuo	1
 tudi	1
-temp	1
+temp'o	1
 trabucci	1
 toaa	1
 tinún	1

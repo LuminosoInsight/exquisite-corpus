@@ -1,4 +1,4 @@
-__total__	5214
+__total__	5212
 und	251
 in	198
 der	161
@@ -17,8 +17,8 @@ china	49
 den	44
 guido	40
 des	39
-an	39
 oder	39
+an	38
 ein	38
 0000	38
 hübner	37
@@ -331,7 +331,6 @@ beim	3
 zeit	3
 ende	3
 kompetenzen	3
-yan	3
 west	3
 director	3
 innerhalb	3
@@ -629,6 +628,7 @@ anderer	2
 regionen	2
 summit	2
 centre	2
+yan	2
 bilden	2
 chinas	2
 langer	2

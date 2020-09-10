@@ -1,7 +1,4 @@
-import string
-import unicodedata
-
-import fasttext
+from lumi_language_id import detect_language
 import sentencepiece
 
 from ftfy import fix_text
@@ -9,72 +6,23 @@ from ftfy import fix_text
 
 def map_to_fasttext_language(lang):
     """
-    Map both 'zh-Hans' and 'zh-Hant' to 'zh' for fastText language identification.
+    Map 'zh-x-oversimplified' to 'zh' for language identification.
     """
     mapping = {
-        'zh-Hans': 'zh',
-        'zh-Hant': 'zh'
+        'zh-x-oversimplified': 'zh'
     }
     return mapping.get(lang, lang)
 
 
-def clean_text_for_ft(text):
-    """
-    Prediction of FastText's language identification model improves when the input text
-    is clean; so, we clean it before passing it to the model for prediction.
-    """
-    # FastText's predict() processes one line at a time; so remove '\n'
-    cleaned_text = text.replace('\n', ' ')
-
-    # Normalize with NFKC and lower case the text
-    cleaned_text = unicodedata.normalize('NFKC', cleaned_text).lower()
-
-    # Remove punctuations and digits
-    excluded = set(string.punctuation)
-    cleaned_text = ''.join(
-        ch for ch in cleaned_text if
-        ch.isprintable() and not ch.isdigit() and ch not in excluded
-    )
-
-    # Remove extra whitespaces
-    cleaned_text = ' '.join(cleaned_text.split())
-
-    return cleaned_text
-
-
-def get_ft_lang_code_prob(text, fasttext_model):
-    """
-    Get the language code and the corresponding probability of a text using FastText's
-    language identification model.
-    """
-    assert isinstance(text, str), \
-        'The text has to be a string.'
-
-    text = clean_text_for_ft(text)
-
-    # Given a text, get a label and corresponding probability. By default, predict()
-    # returns only one label- the one with the highest probability.
-    # Example output of predict():
-    # (('__label__en',), array([0.98069412]))
-    len_label = len('__label__')
-    lang_pred = fasttext_model.predict(text.lower())
-    lang_pred_code = lang_pred[0][0][len_label:]
-    lang_pred_prob = lang_pred[1][0]
-
-    return lang_pred_code, lang_pred_prob
-
-
 def cleanup_parallel_file(
-        infile, outfile, fasttext_model_file, lang1, lang2
+        infile, outfile, lang1, lang2
 ):
     """
     Take in a tab-separated parallel text, run ftfy over each line, and skip the line if
     the text on either side contains different numbers of '♪' or if languages on either
-    side are not identified with confidence (given text is long enough).
+    side are not identified with confidence or the source to target length ratio is
+    greater than 4.0.
     """
-    # Load the FastText's language identification model
-    fasttext_model = fasttext.load_model(fasttext_model_file)
-
     for line in infile:
         # Run all ftfy fixes
         line = fix_text(line)
@@ -101,34 +49,19 @@ def cleanup_parallel_file(
         # There can be mixed or wrong language in source and/or target; including
         # untranslated source in the target. So, make sure that the sentences on both
         # sides consist of the right language.
-        clean_lang1 = True
-        clean_lang2 = True
+        lang1_pred, _lang1_confidence = detect_language(lang1_sent)
+        lang1 = map_to_fasttext_language(lang1)
+        lang1_match = lang1_pred == lang1
 
-        # Minimum length to perform language identification
-        min_length = 25
-
-        # Threshold to say that the language has been identified with confidence
-        id_threshold = 0.70
-
-        len_lang1_sent = len(lang1_sent)
-        len_lang2_sent = len(lang2_sent)
-        if len_lang1_sent > min_length:
-            lang1_pred_code, lang1_pred_prob = get_ft_lang_code_prob(
-                lang1_sent, fasttext_model
-            )
-            lang1 = map_to_fasttext_language(lang1)
-            clean_lang1 = lang1_pred_code == lang1 and lang1_pred_prob >= id_threshold
-
-        if len_lang2_sent > min_length:
-            lang2_pred_code, lang2_pred_prob = get_ft_lang_code_prob(
-                lang2_sent, fasttext_model
-            )
-            lang2 = map_to_fasttext_language(lang2)
-            clean_lang2 = lang2_pred_code == lang2 and lang2_pred_prob >= id_threshold
+        lang2_pred, _lang2_confidence = detect_language(lang2_sent)
+        lang2 = map_to_fasttext_language(lang2)
+        lang2_match = lang2_pred == lang2
 
         # Require the source and target length ratio to not exceed 4.0. This also makes
         # sure that there are no empty source or target side so that fast_align would
         # not throw an error.
+        len_lang1_sent = len(lang1_sent)
+        len_lang2_sent = len(lang2_sent)
         ratio = 0.0
         if len_lang2_sent != 0:
             ratio = len_lang1_sent / len_lang2_sent
@@ -142,7 +75,7 @@ def cleanup_parallel_file(
         # in the source or target side.
         no_tab = '\t' not in lang1_sent and '\t' not in lang2_sent
 
-        if note_match and clean_lang1 and clean_lang2 and balanced and no_tab:
+        if note_match and lang1_match and lang2_match and balanced and no_tab:
             outfile.write(line + '\n')
 
 

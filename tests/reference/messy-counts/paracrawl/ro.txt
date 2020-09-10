@@ -1,4 +1,4 @@
-__total__	11245
+__total__	11243
 de	426
 a	324
 la	155
@@ -836,7 +836,6 @@ ur	2
 shahida	2
 k	2
 bikumu	2
-yas	2
 buy	2
 mani	2
 existã	2

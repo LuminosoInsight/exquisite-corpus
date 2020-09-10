@@ -1,4 +1,4 @@
-__total__	83249
+__total__	83244
 de	5951
 van	3010
 het	2121
@@ -151,7 +151,6 @@ antarctica	41
 tegenwoordig	40
 vaak	40
 hoogste	40
-a	40
 atmosfeer	40
 steeds	39
 noord	39
@@ -161,6 +160,7 @@ maan	39
 punten	39
 september	38
 wereld	38
+a	38
 langs	37
 weer	37
 tijd	37
@@ -1052,7 +1052,6 @@ hypothese	8
 genaamd	8
 aangetroffen	8
 gingen	8
-t	8
 r	8
 pp	8
 uitgevoerd	8
@@ -1196,6 +1195,7 @@ turingmachine	7
 hierin	7
 chemische	7
 versie	7
+t	7
 london	7
 college	7
 math	7
@@ -1886,7 +1886,6 @@ bathymetrie	5
 troggen	5
 bestaande	5
 bouwmeester	5
-ir	5
 ontvangt	5
 complexe	5
 regelmatig	5
@@ -3018,7 +3017,6 @@ maansverduistering	3
 planetaire	3
 planetoïde	3
 z	3
-u	3
 meteorologie	3
 stichting	3
 jongerenvereniging	3
@@ -3282,6 +3280,7 @@ periodes	3
 bouwkundig	3
 nauw	3
 doorgaans	3
+ir	3
 gemeenschappelijke	3
 bond	3
 schetsontwerp	3
@@ -4339,6 +4338,7 @@ nevel	2
 spectraalklasse	2
 complete	2
 f	2
+u	2
 artikelen	2
 actuele	2
 site	2
@@ -5267,7 +5267,7 @@ wl	2
 onderzoeksstations	2
 mcmurdo	2
 antarctic	2
-jazā	2
+jazā'ir	2
 volksrepubliek	2
 mali	2
 niger	2

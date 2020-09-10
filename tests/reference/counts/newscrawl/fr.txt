@@ -1,27 +1,27 @@
-__total__	83958
+__total__	83864
 de	4905
 la	2714
 le	2287
 l	2006
-à	1899
+à	1862
 les	1687
 et	1641
 des	1447
 d	1444
-en	1358
+en	1351
 a	1302
-un	1194
+un	1189
 du	1050
 est	983
-une	967
+une	966
 pour	857
-il	815
+il	808
 dans	773
 que	732
 qui	683
 sur	611
-au	599
 00	588
+au	585
 pas	529
 par	522
 ce	423
@@ -36,21 +36,21 @@ avec	346
 n	337
 ont	324
 été	309
-on	277
-aux	268
+on	275
 c	268
+aux	267
 mais	263
 cette	252
 sont	250
 sa	234
-elle	210
+elle	208
 ses	195
 deux	191
 je	189
 nous	184
 avait	184
 être	181
-ils	176
+ils	170
 leur	169
 ou	168
 ans	168
@@ -90,8 +90,8 @@ où	86
 ministre	86
 encore	86
 t	86
-alors	86
 euros	85
+alors	85
 fois	85
 monde	82
 france	82
@@ -113,7 +113,6 @@ notre	71
 sous	69
 peu	68
 dit	68
-jusqu	68
 ai	67
 va	66
 quelques	64
@@ -206,6 +205,7 @@ etat	37
 certains	37
 toute	37
 suis	37
+jusqu'à	37
 déclaré	37
 6	37
 mercredi	37
@@ -235,7 +235,6 @@ dernière	34
 milliards	34
 conseil	34
 jeunes	34
-ici	34
 celle	33
 niveau	33
 avons	33
@@ -252,6 +251,7 @@ tête	32
 tour	32
 2	32
 petit	32
+ici	32
 dès	31
 jeune	31
 dollars	31
@@ -666,7 +666,7 @@ vos	14
 réponse	14
 charge	14
 forte	14
-lorsqu	14
+jusqu'au	14
 sein	14
 devient	14
 passer	14
@@ -1146,7 +1146,6 @@ mairie	8
 reprendre	8
 vais	8
 record	8
-alain	8
 bons	8
 brésil	8
 réflexion	8
@@ -1303,6 +1302,7 @@ viol	7
 moderne	7
 commercial	7
 représentant	7
+jusqu'en	7
 études	7
 attaque	7
 militants	7
@@ -1312,6 +1312,7 @@ conséquences	7
 parfaitement	7
 socialiste	7
 futur	7
+alain	7
 blessés	7
 orange	7
 montré	7
@@ -1657,7 +1658,6 @@ géant	6
 style	6
 médicaments	6
 travaillent	6
-puisqu	6
 communes	6
 prêt	6
 tiers	6
@@ -1774,6 +1774,7 @@ stage	6
 battre	6
 rester	6
 catégorie	6
+jusqu	6
 revoir	6
 sylvie	6
 progression	6
@@ -2242,7 +2243,7 @@ standard	4
 tarif	4
 drapeau	4
 dure	4
-quelqu	4
+quelqu'un	4
 lesquelles	4
 clôture	4
 frappe	4
@@ -2373,6 +2374,7 @@ conflit	4
 métro	4
 adjoint	4
 modifier	4
+lorsqu'ils	4
 mini	4
 statut	4
 del	4
@@ -2434,6 +2436,7 @@ souhaitent	4
 parlé	4
 évacué	4
 distance	4
+puisqu'il	4
 bouygues	4
 spécialiste	4
 progrès	4
@@ -4247,6 +4250,7 @@ encadré	2
 nicole	2
 dynastie	2
 coupée	2
+lorsqu'il	2
 proposer	2
 température	2
 créateurs	2
@@ -4408,6 +4412,7 @@ abordables	2
 vole	2
 hein	2
 fonctionne	2
+lorsqu'on	2
 gourmand	2
 labeaume	2
 étudiés	2
@@ -5249,6 +5254,7 @@ fisc	2
 renouvelables	2
 ser	2
 travaillé	2
+jusqu'ici	2
 venant	2
 essayé	2
 inspire	2
@@ -5411,6 +5417,7 @@ visent	2
 vérités	2
 manières	2
 rentre	2
+puisqu'ils	2
 urgences	2
 décalée	2
 participe	2
@@ -6024,6 +6031,7 @@ honte	2
 commises	2
 séoul	2
 décrit	2
+lorsqu'elle	2
 précis	2
 têtes	2
 réputée	2
@@ -6078,7 +6086,6 @@ fascinant	2
 opposants	2
 siècles	2
 légumes	2
-emma	2
 mobilis	2
 accompagner	2
 desgagnés	2

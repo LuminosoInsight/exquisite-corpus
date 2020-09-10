@@ -1,4 +1,4 @@
-__total__	74987
+__total__	74984
 die	3201
 der	3179
 und	2142
@@ -390,7 +390,6 @@ dennoch	22
 musik	22
 grünen	22
 erneut	22
-a	22
 anderem	22
 haus	22
 nachdem	22
@@ -405,6 +404,7 @@ besten	21
 kreis	21
 bayern	21
 meter	21
+a	21
 gekommen	21
 lässt	21
 weiteren	21
@@ -1284,7 +1284,6 @@ leiter	7
 zusätzliche	7
 fährt	7
 vfb	7
-i	7
 staaten	7
 starten	7
 ergebnisse	7
@@ -1615,6 +1614,7 @@ gv	6
 verhaftet	6
 ordentlich	5
 verfügt	5
+i	5
 baut	5
 system	5
 verteidigung	5
