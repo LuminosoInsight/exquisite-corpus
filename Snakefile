@@ -1125,11 +1125,11 @@ rule extract_twitter:
 
 rule extract_twitter_v2:
     input:
-        DATA + "/raw/twitter2/2020/tweets.{lang}.jsonl.gz"
+        expand(DATA + "/raw/twitter2/{year}/tweets.{{lang}}.jsonl", year=TWITTER_V2_YEARS)
     output:
         DATA + "/extracted/twitter2/{lang}.txt.gz"
     shell:
-        "zcat {input} | jq -r '.text' | gzip -c > {output}"
+        "jq -r '.text' | gzip -c > {output}"
 
 
 rule tokenize_twitter:
