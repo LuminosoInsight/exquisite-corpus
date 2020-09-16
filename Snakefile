@@ -1129,7 +1129,7 @@ rule extract_twitter_v2:
     output:
         DATA + "/extracted/twitter2/{lang}.txt.gz"
     shell:
-        "jq -r '.text' | gzip -c > {output}"
+        "jq -r '.text' {input} | gzip -c > {output}"
 
 
 rule tokenize_twitter:
