@@ -1,4 +1,4 @@
-__total__	12778
+__total__	12772
 die	621
 der	564
 und	451
@@ -320,7 +320,6 @@ gar	6
 ganzen	6
 erfahrungen	6
 könnte	6
-gv	6
 mal	6
 ihres	6
 unterstützen	6
@@ -513,6 +512,7 @@ bewegung	4
 journalist	4
 ort	4
 lage	4
+gv	4
 wollte	4
 genehmigung	4
 einigen	4
@@ -1375,7 +1375,6 @@ druck	2
 internetnutzer	2
 kritisiert	2
 hinblick	2
-is	2
 übersetzer	2
 übersetzen	2
 arabisch	2
@@ -1397,7 +1396,6 @@ watch	2
 enthüllt	2
 veröffentlichung	2
 polizisten	2
-msf	2
 stärker	2
 verwenden	2
 freude	2

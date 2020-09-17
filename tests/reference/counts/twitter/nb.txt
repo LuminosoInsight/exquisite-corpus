@@ -1,1 +1,7 @@
-__total__	0
+__total__	12
+free	2
+my	2
+lil	2
+cousins	2
+que	2
+vtnc	2

@@ -1,4 +1,4 @@
-__total__	60396
+__total__	60393
 ihr	23311
 nein	15963
 seid	2042
@@ -525,7 +525,6 @@ freunde	3
 niemals	3
 lernten	3
 kam	3
-lacht	3
 bleibt	3
 falls	3
 bekomme	3

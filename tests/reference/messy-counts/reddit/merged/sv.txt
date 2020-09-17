@@ -1,7 +1,0 @@
-__total__	72
-att	3
-för	3
-har	2
-säga	2
-vad	2
-vara	2

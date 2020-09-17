@@ -1,6 +1,0 @@
-__total__	28
-que	2
-é	2
-uma	2
-palavra	2
-feia	2

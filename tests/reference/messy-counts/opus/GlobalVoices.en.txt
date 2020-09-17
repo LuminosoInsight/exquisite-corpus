@@ -1,9 +1,9 @@
-__total__	21060
+__total__	21030
 the	1155
 of	574
 and	453
 to	446
-a	429
+a	430
 in	411
 is	231
 that	214
@@ -234,6 +234,7 @@ major	9
 another	9
 know	9
 show	9
+al	9
 posts	9
 end	9
 times	9
@@ -258,7 +259,6 @@ fear	8
 published	8
 men	8
 already	8
-al	8
 few	8
 using	8
 among	8
@@ -512,7 +512,6 @@ indian	5
 18	5
 name	5
 morning	5
-gv	5
 done	5
 open	5
 water	5
@@ -702,6 +701,7 @@ conflict	4
 actually	4
 case	4
 greek	4
+gv	4
 poor	4
 north	4
 updates	4
@@ -846,6 +846,7 @@ effort	3
 polls	3
 cause	3
 intellectuals	3
+orange	3
 registered	3
 dead	3
 release	3
@@ -1128,7 +1129,6 @@ formally	2
 permit	2
 continued	2
 destruction	2
-rus	2
 palestinians	2
 territories	2
 engineer	2
@@ -1246,7 +1246,6 @@ role	2
 debated	2
 advocating	2
 originally	2
-orange	2
 nicaragua	2
 dispatch	2
 moment	2
@@ -1734,7 +1733,6 @@ encouraged	2
 approach	2
 younger	2
 generations	2
-hun	2
 chevron	2
 paid	2
 cnn	2

@@ -1,1 +1,4 @@
-__total__	0
+__total__	7
+prettyyy	3
+good	2
+article	2

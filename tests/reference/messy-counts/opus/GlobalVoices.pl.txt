@@ -1,4 +1,4 @@
-__total__	18360
+__total__	18341
 w	556
 na	338
 i	313
@@ -108,6 +108,7 @@ jestem	11
 niż	11
 jedna	11
 najbardziej	11
+al	11
 więcej	11
 projektu	11
 ta	11
@@ -123,7 +124,6 @@ był	10
 wydaje	10
 można	10
 którego	10
-al	10
 film	10
 zostały	10
 swoim	10
@@ -144,7 +144,6 @@ iż	9
 swoje	9
 stanie	9
 takich	9
-cc	9
 sprawie	9
 niektórzy	9
 ciągu	9
@@ -171,6 +170,7 @@ przy	8
 działań	8
 będą	8
 jeden	8
+cc	8
 informacji	8
 prawie	8
 powodu	8
@@ -1315,7 +1315,6 @@ wprowadzenie	2
 edukacja	2
 należą	2
 indyjskiej	2
-bjp	2
 widać	2
 pełna	2
 szczęśliwa	2

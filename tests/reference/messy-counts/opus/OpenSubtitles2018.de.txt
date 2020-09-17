@@ -1,4 +1,4 @@
-__total__	6752
+__total__	6740
 ich	210
 sie	124
 das	102
@@ -228,7 +228,6 @@ freunde	3
 niemals	3
 lernten	3
 kam	3
-lacht	3
 bleibt	3
 falls	3
 bekomme	3

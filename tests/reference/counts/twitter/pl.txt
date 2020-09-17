@@ -1,2 +1,7 @@
-__total__	2
-i	2
+__total__	15
+i	4
+to	3
+sie	2
+na	2
+w	2
+do	2

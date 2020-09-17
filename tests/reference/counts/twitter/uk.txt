@@ -1,1 +1,4 @@
-__total__	0
+__total__	7
+amo	3
+te	2
+о	2

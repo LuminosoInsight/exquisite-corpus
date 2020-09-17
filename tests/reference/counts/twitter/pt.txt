@@ -1,4 +1,5 @@
-__total__	10
+__total__	13
+eu	3
 que	2
 é	2
 uma	2

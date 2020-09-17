@@ -1,2 +1,4 @@
-__total__	2
+__total__	6
 n	2
+t	2
+de	2
