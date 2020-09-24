@@ -86,26 +86,24 @@ SOURCE_LANGUAGES = {
 
     'twitter1': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq',
-        'el', 'mk'
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
     ],
     'twitter2': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
     ],
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq',
-        'el', 'mk'
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
@@ -202,9 +200,19 @@ GOOGLE_LANGUAGE_MAP = {
     'es': 'spa'
 }
 
-# Google Books unigrams are sharded by the first letter or digit of the token,
-# or 'other'.
+GOOGLE_NUM_1GRAM_SHARDS = {
+    'en': 24,
+    'zh-Hans': 1,
+    'fr': 6,
+    'de': 8,
+    'he': 1,
+    'it': 2,
+    'ru': 2,
+    'es': 3
+}
 
+# Google Books 2012 unigrams are sharded by the first letter or digit of the token,
+# or 'other'.
 GOOGLE_1GRAM_SHARDS = [
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
@@ -628,16 +636,13 @@ rule download_newscrawl:
 
 rule download_google_1grams:
     output:
-        DATA + "/downloaded/google/1grams-{lang}-{shard}.txt.gz"
+        DATA + "/downloaded/google/1grams-{lang}.txt"
     run:
         source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shard = wildcards.shard
-        if source_lang == 'heb' and shard == 'other':
-            # This file happens not to exist
-            shell("echo -n '' | gzip -c > {output}")
-        else:
-            # Do a bit of pre-processing as we download
-            shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+        nshards = GOOGLE_NUM_1GRAM_SHARDS[wildcards.lang]
+        for shard in range(nshards):
+            url = f'http://storage.googleapis.com/books/ngrams/books/20200217/{source_lang}/1-{shard:>05}-of-{nshards:>05}.gz'
+            shell("curl -Lf {url} | gunzip -c | awk -f scripts/google-sum-columns.awk >> {output}")
 
 rule download_google_ngrams:
     output:
@@ -798,6 +803,7 @@ rule extract_amazon_acl10:
         "tar xf {input} -C {DATA}/extracted/amazon-acl10 && touch {output}"
 
 rule extract_google_1grams:
+    # FIXME
     input:
         expand(DATA + "/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
                shard=GOOGLE_1GRAM_SHARDS)
@@ -1164,7 +1170,7 @@ rule tokenize_twitter_v2:
     output:
         DATA + "/tokenized/twitter2/{lang}.txt"
     shell:
-        "zcat {input} | xc tokenize -l {wildcards.lang} - {output}"
+        "zcat {input} | xc tokenize -c -l {wildcards.lang} - {output}"
 
 rule tokenize_voa:
     input:
