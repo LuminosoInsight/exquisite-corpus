@@ -1,9 +1,7 @@
-__total__	46
-i'm	9
+__total__	34
 die	7
-in	5
 und	5
-your	2
+in	4
 halt	2
 der	2
 waffen	2

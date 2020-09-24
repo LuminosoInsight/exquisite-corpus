@@ -7,7 +7,7 @@ import bz2
 import io
 
 from ftfy.fixes import fix_surrogates, unescape_html, fix_line_breaks
-from lumi_language_id import detect_language
+from exquisite_corpus.language_detection import detect_language_checked
 from .reddit_ban_data import BANNED_SUBREDDITS
 
 
@@ -124,7 +124,7 @@ def preprocess_reddit_lines(input_lines):
                 text = text.replace("\n", " ").replace("\u200b", "")
                 text = URL_RE.sub("", text)
                 if text:
-                    lang, _confidence = detect_language(text)
+                    lang, _confidence = detect_language_checked(text)
                     if lang != 'und':
                         # There are more English posts than we need, so filter them
                         # for score >= 3
@@ -156,7 +156,7 @@ def preprocess_twitter(infile, outfile):
         text = TWITTER_HANDLE_RE.sub("", text)
         text = TCO_RE.sub("", text)
         text = fix_surrogates(unescape_html(text)).replace("\n", " ")
-        lang, _confidence = detect_language(text)
+        lang, _confidence = detect_language_checked(text)
         if lang != 'und':
             print(f"{lang}\t{text}", file=outfile)
 

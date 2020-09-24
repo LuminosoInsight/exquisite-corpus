@@ -1,4 +1,6 @@
+from lumi_language_id import detect_language
 import pycld2
+import langcodes
 import regex
 
 
@@ -59,7 +61,16 @@ CLD2_LANGUAGES = sorted(set([
 ]))
 
 
-def detect_language(text):
+def detect_language_checked(text):
+    cld2_lang, cld2_confident = detect_language_cld2(text)
+    ft_lang, ft_confidence = detect_language(text)
+    if langcodes.tag_distance(cld2_lang, ft_lang) < 10:
+        return ft_lang, ft_confidence
+    else:
+        return 'und', 0
+
+
+def detect_language_cld2(text):
     """
     Uses CLD2 to detect the language of text.
 

@@ -54,11 +54,6 @@ ENCODED = [
             'en', 'es'
         ),
         pytest.param(
-            'Short text.\tTexto corto.',
-            'Short text.\tTexto corto.\n',
-            'en', 'es'
-        ),
-        pytest.param(
             'This is a sample text with correct language on both sides.\t'
             'Este es un texto de muestra con el lenguaje correcto en ambos lados.',
             'This is a sample text with correct language on both sides.\t'

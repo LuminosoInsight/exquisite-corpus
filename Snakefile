@@ -191,7 +191,7 @@ WP_LANGUAGE_MAP = {
 WP_VERSION = '20200801'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
-    'zh-Hans': 'chi-sim',
+    'zh-Hans': 'chi_sim',
     'fr': 'fre',
     'de': 'ger',
     'he': 'heb',
@@ -635,6 +635,8 @@ rule download_newscrawl:
         "wget 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -O {output}"
 
 rule download_google_1grams:
+    resources:
+        download=1
     output:
         DATA + "/downloaded/google/1grams-{lang}.txt"
     run:
@@ -642,7 +644,7 @@ rule download_google_1grams:
         nshards = GOOGLE_NUM_1GRAM_SHARDS[wildcards.lang]
         for shard in range(nshards):
             url = f'http://storage.googleapis.com/books/ngrams/books/20200217/{source_lang}/1-{shard:>05}-of-{nshards:>05}.gz'
-            shell("curl -Lf {url} | gunzip -c | awk -f scripts/google-sum-columns.awk >> {output}")
+            shell("curl -Lf '{url}' | gunzip -c | awk -f scripts/google-sum-columns.awk >> {output}")
 
 rule download_google_ngrams:
     output:
@@ -805,14 +807,13 @@ rule extract_amazon_acl10:
 rule extract_google_1grams:
     # FIXME
     input:
-        expand(DATA + "/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
-               shard=GOOGLE_1GRAM_SHARDS)
+        DATA + "/downloaded/google/1grams-{lang}.txt"
     output:
         DATA + "/messy-counts/google/{lang}.txt"
     shell:
         # Lowercase the terms, remove part-of-speech tags such as _NOUN, and
         # run the result through the 'countmerge' utility
-        r"zcat {input} | sed -n -e 's/\([^_	]\+\)\(_[A-Z]\+\)/\L\1/p' | awk -f scripts/countmerge.awk > {output}"
+        r"LANG=C sort {input} | awk -f scripts/countmerge.awk > {output}"
 
 rule extract_reddit:
     input: find_reddit_filename
@@ -1750,4 +1751,4 @@ ruleorder:
     merge_news > merge_subtitles > merge_twitter > \
     tokenize_twitter_v2_balkans > tokenize_twitter_v2 > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
-    count_tokens > recount_messy_tokens
+    extract_google_1grams > count_tokens > recount_messy_tokens

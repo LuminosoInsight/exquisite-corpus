@@ -1,42 +1,42 @@
-__total__	110529
-the	5723
-to	2632
+__total__	110288
+the	5717
+to	2629
 of	2420
-and	2366
-a	2353
-in	2076
-that	919
+and	2364
+a	2347
+in	2075
+that	918
 is	897
-for	896
+for	895
 on	864
-was	712
 with	711
-it	670
+was	711
+it	669
 at	590
-he	552
-said	552
 as	551
-by	482
+said	550
+he	549
+by	480
 his	467
 from	462
 has	455
-have	443
+have	442
 be	427
 but	426
 are	395
-i	379
+i	376
 an	362
-this	343
+this	342
 not	339
 they	298
 who	292
-had	286
+had	285
 we	282
 will	269
 been	258
 were	257
 their	249
-more	234
+more	233
 after	233
 year	232
 you	228
@@ -48,16 +48,16 @@ over	205
 when	196
 about	196
 all	196
-or	195
+or	194
 would	194
 up	189
 her	188
-there	183
+there	182
 so	180
 out	173
 two	169
 also	168
-she	167
+she	165
 people	164
 last	159
 time	157
@@ -66,15 +66,15 @@ first	155
 than	153
 it's	151
 years	147
-what	147
 into	146
+what	146
 just	145
-can	142
+can	141
 mr	140
-no	139
+no	138
 my	132
 them	125
-could	121
+could	120
 our	118
 other	113
 some	113
@@ -83,17 +83,17 @@ now	110
 like	108
 do	103
 only	101
-back	97
+back	96
 him	96
 being	96
 three	93
 most	91
 even	89
-against	89
 where	89
 because	89
+against	88
 then	87
-get	87
+get	86
 government	86
 off	86
 very	86
@@ -105,8 +105,8 @@ right	82
 told	82
 per	80
 many	79
-day	79
 make	78
+day	78
 how	77
 those	77
 through	76
@@ -133,16 +133,15 @@ four	68
 come	66
 these	66
 take	65
-go	65
 under	65
 say	65
+go	64
 national	63
 good	63
 next	62
-1	62
+1	61
 between	61
 best	61
-going	61
 man	60
 market	60
 see	59
@@ -150,6 +149,7 @@ set	59
 including	59
 cent	59
 around	59
+going	59
 city	58
 long	58
 another	58
@@ -161,33 +161,33 @@ company	57
 group	57
 don't	56
 should	56
-think	56
 high	55
+think	55
 both	55
 end	55
-here	54
 found	54
 own	54
 big	54
+here	53
 life	53
-2014	53
 family	53
-did	53
 house	53
 part	52
 second	52
-help	52
+2014	52
+did	52
 president	51
 five	51
+help	51
 south	51
 need	50
 less	50
 too	50
 great	50
-news	50
 show	50
 same	49
 week	49
+news	49
 few	49
 recent	48
 children	48
@@ -197,10 +197,10 @@ that's	48
 business	47
 something	47
 support	47
-party	46
 left	46
 use	45
 without	45
+party	45
 country	45
 report	45
 minister	45
@@ -252,20 +252,20 @@ why	38
 final	38
 campaign	37
 better	37
-30	37
 run	37
 2012	37
-yet	37
 early	37
 security	37
 companies	36
 never	36
 death	36
 look	36
+30	36
 half	36
 north	36
 united	36
 international	36
+yet	36
 took	36
 again	36
 i'm	36
@@ -311,7 +311,6 @@ billion	32
 already	32
 together	32
 major	32
-10	32
 making	32
 number	32
 able	32
@@ -321,14 +320,13 @@ least	32
 low	31
 trying	31
 friday	31
-shot	31
+10	31
 care	31
 women	31
 though	31
 law	31
 rather	31
 until	31
-john	31
 british	31
 officials	31
 ms	31
@@ -339,8 +337,10 @@ federal	30
 earlier	30
 film	30
 west	30
+shot	30
 scotland	30
 authorities	30
+john	30
 saturday	30
 ever	30
 15	30
@@ -377,7 +377,6 @@ return	28
 once	28
 local	28
 does	28
-street	28
 staff	28
 club	28
 weeks	28
@@ -394,6 +393,7 @@ vote	27
 global	27
 full	27
 child	27
+street	27
 uk	27
 london	27
 almost	27
@@ -447,7 +447,6 @@ morning	25
 march	25
 hand	25
 obama	25
-short	25
 story	25
 14	25
 enough	25
@@ -456,9 +455,7 @@ sure	24
 east	24
 side	24
 ball	24
-8	24
 live	24
-order	24
 known	24
 important	24
 large	24
@@ -474,8 +471,8 @@ iraq	24
 phone	24
 announced	24
 person	24
-asked	24
 goal	24
+short	24
 24	24
 policy	24
 others	24
@@ -483,9 +480,9 @@ cup	24
 centre	24
 growth	23
 likely	23
+8	23
 largest	23
 middle	23
-june	23
 general	23
 prime	23
 foreign	23
@@ -501,6 +498,7 @@ groups	23
 england	23
 washington	23
 leaders	23
+asked	23
 building	23
 quarter	23
 process	23
@@ -510,13 +508,14 @@ period	23
 european	22
 sales	22
 co	22
+order	22
 we've	22
 region	22
+june	22
 father	22
 you're	22
 different	22
 price	22
-white	22
 russia	22
 ground	22
 personal	22
@@ -526,7 +525,6 @@ post	22
 start	22
 strong	22
 wrote	22
-black	22
 based	22
 free	22
 changes	22
@@ -552,9 +550,11 @@ updated	21
 bank	21
 scottish	21
 meeting	21
+white	21
 coach	21
 we're	21
 data	21
+black	21
 statement	21
 bill	21
 book	21
@@ -571,7 +571,6 @@ interest	20
 feel	20
 small	20
 playing	20
-saw	20
 northern	20
 outside	20
 share	20
@@ -598,7 +597,6 @@ october	20
 questions	20
 age	20
 result	20
-november	20
 cut	20
 land	19
 sale	19
@@ -610,6 +608,7 @@ schools	19
 patients	19
 possible	19
 ahead	19
+saw	19
 career	19
 numbers	19
 rates	19
@@ -628,7 +627,6 @@ effort	19
 council	19
 gold	19
 stay	19
-calls	19
 himself	19
 drive	19
 capital	19
@@ -639,6 +637,7 @@ trial	19
 mother	19
 online	19
 sex	19
+november	19
 increase	19
 growing	18
 course	18
@@ -665,7 +664,6 @@ yesterday	18
 allowed	18
 results	18
 brought	18
-airport	18
 missing	18
 opening	18
 issue	18
@@ -673,6 +671,7 @@ probably	18
 won	18
 heart	18
 agreement	18
+calls	18
 list	18
 believe	18
 weekend	18
@@ -685,7 +684,6 @@ energy	18
 needed	18
 turn	18
 medical	17
-credit	17
 2010	17
 began	17
 chairman	17
@@ -702,7 +700,7 @@ compared	17
 investors	17
 expect	17
 income	17
-what's	17
+airport	17
 officers	17
 friends	17
 officer	17
@@ -726,6 +724,7 @@ year's	17
 instead	16
 markets	16
 100	16
+credit	16
 thousands	16
 experience	16
 check	16
@@ -738,11 +737,11 @@ independence	16
 bit	16
 chinese	16
 yes	16
-food	16
 quickly	16
 7	16
 seems	16
 certainly	16
+what's	16
 common	16
 coast	16
 original	16
@@ -779,9 +778,7 @@ europe	15
 victory	15
 opportunity	15
 source	15
-western	15
 center	15
-positive	15
 operation	15
 hope	15
 prevent	15
@@ -794,6 +791,7 @@ worth	15
 review	15
 named	15
 insurance	15
+food	15
 happened	15
 position	15
 brother	15
@@ -804,7 +802,6 @@ view	15
 failed	15
 message	15
 site	15
-minutes	15
 biggest	15
 value	15
 attention	15
@@ -833,7 +830,9 @@ williams	14
 kind	14
 lower	14
 claims	14
+western	14
 summer	14
+positive	14
 chris	14
 paid	14
 chance	14
@@ -859,6 +858,7 @@ safe	14
 impact	14
 charge	14
 crisis	14
+minutes	14
 protection	14
 visit	14
 adelaide	14
@@ -951,13 +951,11 @@ michael	13
 anti	13
 adding	13
 i've	13
-opposition	13
 congress	13
 wants	13
 she's	13
 farm	13
 paul	13
-stand	13
 finished	13
 company's	13
 art	13
@@ -997,18 +995,15 @@ bad	12
 efforts	12
 goes	12
 history	12
-response	12
 member	12
 blood	12
 wall	12
 levels	12
 amid	12
-26	12
 cameron	12
 included	12
 required	12
 college	12
-andrew	12
 george	12
 although	12
 plane	12
@@ -1042,6 +1037,7 @@ cover	12
 deputy	12
 meanwhile	12
 provided	12
+opposition	12
 commission	12
 spokesman	12
 grand	12
@@ -1051,6 +1047,7 @@ title	12
 e	12
 committee	12
 die	12
+stand	12
 rise	12
 defence	12
 daughter	12
@@ -1100,11 +1097,13 @@ perhaps	11
 access	11
 giving	11
 modern	11
+response	11
 fresh	11
 spoke	11
 scene	11
 injured	11
 dramatic	11
+26	11
 mid	11
 wasn't	11
 afternoon	11
@@ -1115,6 +1114,7 @@ someone	11
 researchers	11
 returned	11
 track	11
+andrew	11
 labor	11
 effect	11
 previously	11
@@ -1154,12 +1154,9 @@ clinton	11
 analysts	11
 civil	11
 democrats	11
-lady	11
 fear	11
 militants	11
-27	11
 blame	11
-skills	11
 tried	11
 mike	11
 parties	11
@@ -1214,7 +1211,6 @@ los	10
 angeles	10
 account	10
 simple	10
-release	10
 cause	10
 either	10
 lack	10
@@ -1252,7 +1248,6 @@ indeed	10
 range	10
 banking	10
 sir	10
-richard	10
 aged	10
 standard	10
 word	10
@@ -1287,10 +1282,13 @@ supply	10
 kept	10
 stars	10
 seek	10
+lady	10
 risks	10
 confident	10
 newspaper	10
+27	10
 talk	10
+skills	10
 offered	10
 double	10
 conflict	10
@@ -1300,7 +1298,6 @@ standing	10
 below	10
 movement	10
 hundreds	10
-perfect	10
 kerry	10
 warned	10
 whole	10
@@ -1335,6 +1332,7 @@ daniel	9
 extra	9
 towards	9
 records	9
+release	9
 contract	9
 decade	9
 government's	9
@@ -1360,6 +1358,7 @@ produced	9
 moving	9
 hall	9
 comment	9
+richard	9
 laws	9
 tv	9
 lee	9
@@ -1374,11 +1373,9 @@ association	9
 followed	9
 concerned	9
 raising	9
-programme	9
 closer	9
 writer	9
 he'd	9
-super	9
 korean	9
 add	9
 southern	9
@@ -1416,6 +1413,7 @@ tough	9
 storm	9
 associated	9
 america	9
+perfect	9
 protests	9
 fine	9
 homes	9
@@ -1454,7 +1452,6 @@ sometimes	9
 drinking	9
 recovery	9
 trading	9
-loan	9
 potentially	9
 guilty	9
 file	9
@@ -1524,10 +1521,12 @@ muslim	8
 exhibition	8
 afghanistan	8
 camp	8
+programme	8
 port	8
 jersey	8
 powerful	8
 hits	8
+super	8
 corporate	8
 adults	8
 amount	8
@@ -1594,7 +1593,6 @@ i'd	8
 develop	8
 healthy	8
 elections	8
-steel	8
 infrastructure	8
 liberal	8
 sam	8
@@ -1624,7 +1622,6 @@ words	8
 identified	8
 announcement	8
 concern	8
-steve	8
 finish	8
 ban	8
 scott	8
@@ -1635,11 +1632,11 @@ disease	8
 penalty	8
 push	8
 beyond	8
-negative	8
 competitive	8
 thomas	8
 providing	8
 animals	8
+loan	8
 families	8
 gives	8
 emergency	7
@@ -1712,7 +1709,6 @@ knows	7
 removed	7
 convicted	7
 auto	7
-aid	7
 signs	7
 gains	7
 mind	7
@@ -1756,7 +1752,6 @@ handful	7
 carried	7
 album	7
 entirely	7
-negotiate	7
 p.m	7
 partners	7
 join	7
@@ -1801,7 +1796,6 @@ diplomatic	7
 sides	7
 relations	7
 justin	7
-solution	7
 admitted	7
 clothes	7
 reveal	7
@@ -1820,6 +1814,7 @@ exchange	7
 island	7
 perth	7
 sound	7
+steel	7
 bay	7
 decided	7
 dropped	7
@@ -1837,7 +1832,6 @@ memory	7
 founded	7
 drinks	7
 adviser	7
-apology	7
 britain's	7
 finding	7
 calling	7
@@ -1861,6 +1855,7 @@ suffer	7
 stake	7
 drink	7
 tree	7
+steve	7
 deals	7
 secure	7
 earnings	7
@@ -1870,6 +1865,7 @@ replaced	7
 signals	7
 environmental	7
 novel	7
+negative	7
 turkey	7
 employees	7
 chef	7
@@ -1960,7 +1956,6 @@ academy	6
 singles	6
 suspect	6
 severe	6
-festival	6
 prize	6
 38	6
 request	6
@@ -1978,6 +1973,7 @@ smoking	6
 uses	6
 gene	6
 shop	6
+aid	6
 improving	6
 equipment	6
 showing	6
@@ -1986,7 +1982,6 @@ posted	6
 facilities	6
 forecast	6
 asset	6
-details	6
 wonder	6
 concept	6
 advanced	6
@@ -2006,10 +2001,8 @@ sunday's	6
 subject	6
 purchase	6
 consequences	6
-45	6
 station	6
 apartment	6
-woods	6
 bridge	6
 attacking	6
 customer	6
@@ -2024,7 +2017,6 @@ lending	6
 explains	6
 sweet	6
 60	6
-delta	6
 unable	6
 document	6
 speech	6
@@ -2032,6 +2024,7 @@ posting	6
 finds	6
 regime	6
 married	6
+negotiate	6
 located	6
 iraqi	6
 darren	6
@@ -2042,7 +2035,6 @@ iranian	6
 1997	6
 frequently	6
 louis	6
-2001	6
 they've	6
 direct	6
 terrorist	6
@@ -2087,6 +2079,7 @@ yards	6
 organization	6
 ambassador	6
 dropping	6
+solution	6
 beautiful	6
 1.5	6
 satellite	6
@@ -2117,7 +2110,6 @@ matt	6
 strength	6
 surface	6
 pitch	6
-stone	6
 offensive	6
 reportedly	6
 rail	6
@@ -2197,6 +2189,7 @@ turns	6
 florida	6
 fixed	6
 rooms	6
+apology	6
 identify	6
 analyst	6
 character	6
@@ -2302,6 +2295,7 @@ grade	5
 interests	5
 respond	5
 tensions	5
+festival	5
 soldiers	5
 incidents	5
 print	5
@@ -2330,6 +2324,7 @@ hunger	5
 canadian	5
 tropical	5
 wells	5
+details	5
 killer	5
 church	5
 southeast	5
@@ -2347,6 +2342,7 @@ premium	5
 upon	5
 holder	5
 wildlife	5
+45	5
 macquarie	5
 developers	5
 lane	5
@@ -2354,6 +2350,7 @@ mirror	5
 rivals	5
 shape	5
 scotland's	5
+woods	5
 eve	5
 conduct	5
 downing	5
@@ -2372,6 +2369,7 @@ afraid	5
 wealth	5
 repeated	5
 truth	5
+delta	5
 eels	5
 designer	5
 worried	5
@@ -2382,7 +2380,6 @@ hiring	5
 capacity	5
 proposal	5
 coaches	5
-danny	5
 duty	5
 decide	5
 ministry	5
@@ -2390,6 +2387,7 @@ symptoms	5
 defender	5
 mail	5
 episode	5
+2001	5
 opened	5
 stands	5
 farmers	5
@@ -2509,7 +2507,6 @@ men's	5
 periods	5
 bigger	5
 renewed	5
-alexander	5
 naked	5
 alive	5
 corp	5
@@ -2663,6 +2660,7 @@ crimes	5
 payments	5
 restraint	5
 egypt	5
+stone	5
 compromise	5
 speak	5
 bell	5
@@ -2813,7 +2811,6 @@ polling	4
 historic	4
 56	4
 movies	4
-airbus	4
 crashed	4
 spend	4
 69	4
@@ -2822,7 +2819,6 @@ rebel	4
 n.y	4
 ibm	4
 disappeared	4
-opposite	4
 relatively	4
 eligible	4
 contenders	4
@@ -2874,6 +2870,7 @@ lines	4
 pulled	4
 sites	4
 sparked	4
+danny	4
 ship	4
 lift	4
 transparency	4
@@ -2972,7 +2969,6 @@ intelligence	4
 illness	4
 rapidly	4
 degree	4
-feb	4
 dream	4
 nice	4
 33	4
@@ -2985,7 +2981,6 @@ prints	4
 variety	4
 bieber	4
 impossible	4
-recall	4
 kelly	4
 vietnam	4
 purchases	4
@@ -3003,7 +2998,6 @@ connected	4
 hopefully	4
 trained	4
 properties	4
-rice	4
 attached	4
 easier	4
 rep	4
@@ -3013,6 +3007,7 @@ participants	4
 steven	4
 mixed	4
 color	4
+alexander	4
 detained	4
 cleaning	4
 heated	4
@@ -3061,7 +3056,6 @@ actual	4
 toll	4
 mitch	4
 suspicion	4
-responding	4
 measures	4
 rodgers	4
 worldwide	4
@@ -3131,7 +3125,6 @@ architecture	4
 safely	4
 distance	4
 pleaded	4
-musical	4
 shift	4
 59	4
 river	4
@@ -3431,7 +3424,6 @@ anchor	3
 useful	3
 veterinary	3
 surgeons	3
-dresses	3
 lag	3
 experiment	3
 allies	3
@@ -3488,6 +3480,7 @@ addressed	3
 hitting	3
 oversaw	3
 administrative	3
+airbus	3
 southwest	3
 blast	3
 teenage	3
@@ -3498,6 +3491,7 @@ manufacturer	3
 analytics	3
 transaction	3
 tackle	3
+opposite	3
 existed	3
 membership	3
 aims	3
@@ -3508,7 +3502,6 @@ chase	3
 racing	3
 approached	3
 escort	3
-butter	3
 dysfunction	3
 achievements	3
 regulated	3
@@ -3526,11 +3519,9 @@ artist	3
 broadcast	3
 hospitals	3
 viewers	3
-nordic	3
 cell	3
 smell	3
 stood	3
-drain	3
 ministers	3
 command	3
 films	3
@@ -3568,7 +3559,6 @@ scholar	3
 responses	3
 establishment	3
 goals	3
-flu	3
 desert	3
 kenny	3
 taught	3
@@ -3718,6 +3708,7 @@ rare	3
 62	3
 hague	3
 refugees	3
+feb	3
 q	3
 factors	3
 sporting	3
@@ -3734,6 +3725,7 @@ geological	3
 selfie	3
 hike	3
 appeals	3
+recall	3
 compare	3
 forcing	3
 billions	3
@@ -3772,6 +3764,7 @@ shocked	3
 strengthen	3
 chen	3
 helm	3
+rice	3
 innings	3
 royals	3
 dodgers	3
@@ -3843,7 +3836,6 @@ theatre	3
 ghana	3
 nation's	3
 tavener	3
-drew	3
 gross	3
 ltd	3
 motivation	3
@@ -3853,7 +3845,6 @@ perception	3
 navigate	3
 astonishing	3
 o	3
-instrument	3
 thrown	3
 carriage	3
 acquire	3
@@ -4016,11 +4007,13 @@ cleaner	3
 convincing	3
 ken	3
 raids	3
+responding	3
 breath	3
 integration	3
 robinson	3
 highlights	3
 farah	3
+musical	3
 iphone	3
 receiver	3
 massachusetts	3
@@ -4142,7 +4135,6 @@ acclaimed	3
 ensuring	3
 burton	3
 obamacare	3
-smoke	3
 fail	3
 organisers	3
 notices	3
@@ -4156,7 +4148,6 @@ indicating	3
 protected	3
 savvy	3
 begins	3
-forest	3
 you'd	3
 mammals	3
 transit	3
@@ -4272,7 +4263,6 @@ slower	3
 prestigious	3
 drivers	3
 sean	3
-cue	3
 brendan	3
 thanksgiving	3
 nobel	3
@@ -4423,7 +4413,6 @@ gained	3
 mining	3
 experimental	3
 speaks	3
-51	3
 cristian	3
 arctic	3
 chronic	3
@@ -4582,6 +4571,7 @@ disappointment	2
 fatal	2
 copenhagen	2
 crochet	2
+dresses	2
 fussy	2
 crucial	2
 bert	2
@@ -4607,7 +4597,6 @@ maturity	2
 artwork	2
 tan	2
 treviso	2
-emailed	2
 prosecuting	2
 venue	2
 wondering	2
@@ -4703,7 +4692,6 @@ acquisition	2
 ruaha	2
 lends	2
 faulty	2
-tip	2
 contamination	2
 stab	2
 priceless	2
@@ -4722,10 +4710,12 @@ thick	2
 flavour	2
 recognised	2
 they'd	2
+nordic	2
 potent	2
 derived	2
 diana	2
 frontiers	2
+drain	2
 chest	2
 reporters	2
 lineup	2
@@ -4757,7 +4747,6 @@ appetite	2
 constant	2
 caregivers	2
 accomplished	2
-exhibit	2
 lyttelton	2
 enterprise	2
 consensus	2
@@ -4780,6 +4769,7 @@ advises	2
 dean	2
 inequality	2
 ibm's	2
+flu	2
 oxford	2
 ought	2
 surpassed	2
@@ -4861,7 +4851,6 @@ beds	2
 lung	2
 borrowing	2
 siblings	2
-personally	2
 stalin	2
 assure	2
 47	2
@@ -5080,7 +5069,6 @@ o'brien	2
 roos	2
 nigel	2
 appearing	2
-emma	2
 sore	2
 cares	2
 exercised	2
@@ -5210,6 +5198,7 @@ privilege	2
 occasions	2
 engineer	2
 platforms	2
+drew	2
 influenced	2
 crushed	2
 birmingham	2
@@ -5233,6 +5222,7 @@ stationed	2
 mimic	2
 dangers	2
 pollution	2
+instrument	2
 boasts	2
 momentarily	2
 deeper	2
@@ -5320,7 +5310,6 @@ curb	2
 resting	2
 nominee	2
 slaughtered	2
-deserted	2
 ultimate	2
 shomi	2
 victor	2
@@ -5660,6 +5649,7 @@ argentina	2
 invaded	2
 chain	2
 potatoes	2
+butter	2
 salads	2
 daiichi	2
 stumbled	2
@@ -5723,7 +5713,6 @@ misery	2
 releases	2
 accounting	2
 consulting	2
-selected	2
 litter	2
 clay	2
 suitable	2
@@ -5750,7 +5739,6 @@ employ	2
 dazzling	2
 hills	2
 steak	2
-122	2
 follows	2
 sightings	2
 ripping	2
@@ -5929,6 +5917,7 @@ spence	2
 wade	2
 franco	2
 alien	2
+forest	2
 jennings	2
 landscaping	2
 bulk	2
@@ -5976,14 +5965,12 @@ trademarks	2
 da	2
 breeding	2
 community's	2
-planes	2
 underneath	2
 5.2	2
 statesman	2
 opcw	2
 screening	2
 federation	2
-snp's	2
 mega	2
 drawing	2
 321	2
@@ -6068,6 +6055,7 @@ chromosome	2
 yeast	2
 thoughts	2
 automatic	2
+cue	2
 bury	2
 upgraded	2
 polar	2
@@ -6389,7 +6377,6 @@ resulting	2
 audi	2
 deliberate	2
 mislead	2
-boyce	2
 concrete	2
 headed	2
 exaggerated	2
@@ -6502,7 +6489,6 @@ smuggling	2
 approve	2
 enjoyed	2
 rbs	2
-swaps	2
 mis	2
 values	2
 treasuries	2
@@ -6545,6 +6531,7 @@ obtained	2
 racism	2
 cruz	2
 max	2
+smoke	2
 organic	2
 blackman	2
 herald	2
@@ -6580,6 +6567,7 @@ n	2
 issuance	2
 instant	2
 rogue	2
+51	2
 wiltshire	2
 suggestions	2
 sluggish	2

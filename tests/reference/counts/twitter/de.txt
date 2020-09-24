@@ -1,7 +1,9 @@
-__total__	62
+__total__	64
+von	5
+ich	4
 nicht	4
-von	4
-ich	2
+muss	4
+das	3
 will	2
 meine	2
 ideen	2
@@ -16,9 +18,7 @@ extrem	2
 sind	2
 hat	2
 oder	2
-das	2
 der	2
-muss	2
 und	2
 dieses	2
 leckere	2
@@ -26,5 +26,3 @@ essen	2
 meiner	2
 mitbewohnerin	2
 gekocht	2
-i'm	2
-🌸	2

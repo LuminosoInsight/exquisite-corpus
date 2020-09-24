@@ -6,7 +6,8 @@ import gzip
 import sentencepiece
 import msgpack
 
-from lumi_language_id import detect_language, FT_LANGUAGES
+from lumi_language_id import FT_LANGUAGES
+from exquisite_corpus.language_detection import detect_language_checked
 
 
 def tokenize_file(
@@ -28,11 +29,14 @@ def tokenize_file(
         )
         checked_lang = None
         if check_language:
-            checked_lang, _confidence = detect_language(line.rstrip())
-        if (not check_language) or langcodes.tag_distance(
-            checked_lang, language
-        ) < 10:
+            checked_lang, _confidence = detect_language_checked(line.rstrip())
+        if (not check_language):
             print(' '.join(tokens), file=outfile)
+        else: 
+            if langcodes.tag_distance(checked_lang, language) < 10:
+                print(' '.join(tokens), file=outfile)
+            else:
+                print(f"Rejecting {line!r} because it appears to be in language {checked_lang!r}.")
 
 
 def tokenize_by_language(in_file, out_dir, zipped=False, languages=FT_LANGUAGES):
