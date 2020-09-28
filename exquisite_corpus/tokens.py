@@ -35,8 +35,6 @@ def tokenize_file(
         else: 
             if langcodes.tag_distance(checked_lang, language) < 10:
                 print(' '.join(tokens), file=outfile)
-            else:
-                print(f"Rejecting {line!r} because it appears to be in language {checked_lang!r}.")
 
 
 def tokenize_by_language(in_file, out_dir, zipped=False, languages=FT_LANGUAGES):
