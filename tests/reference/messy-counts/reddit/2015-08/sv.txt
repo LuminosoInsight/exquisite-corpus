@@ -1,0 +1,4 @@
+__total__	30
+har	2
+säga	2
+vad	2

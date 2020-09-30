@@ -1,4 +1,4 @@
-__total__	22447
+__total__	22448
 di	789
 e	434
 il	425
@@ -6,13 +6,13 @@ la	398
 che	368
 a	274
 in	269
-un	260
+un	262
 per	246
-è	244
+è	246
 del	225
 i	207
+l	197
 le	181
-l	170
 ha	170
 una	162
 della	150
@@ -77,12 +77,12 @@ durante	24
 nelle	23
 mondo	23
 sua	23
+d	23
 fatto	23
 alcuni	23
 era	22
 mi	22
 quando	22
-d	22
 dai	22
 stata	22
 suoi	21
@@ -113,6 +113,7 @@ blogger	17
 mentre	16
 cittadini	16
 foto	16
+c	16
 post	16
 donne	16
 mai	16
@@ -142,7 +143,6 @@ cina	13
 abbiamo	13
 può	13
 qui	13
-c	13
 ne	13
 scrive	13
 perché	13
@@ -175,6 +175,7 @@ particolare	11
 grazie	11
 dalle	11
 circa	11
+utente	11
 vita	11
 sulle	11
 città	11
@@ -183,6 +184,7 @@ sud	11
 milioni	11
 verso	11
 già	11
+attenzione	10
 donna	10
 nuovo	10
 detto	10
@@ -197,7 +199,6 @@ dove	10
 bambini	10
 proprio	10
 nonostante	10
-utente	10
 alcune	10
 storia	10
 paesi	10
@@ -225,6 +226,7 @@ novembre	9
 lingua	9
 casa	9
 10	9
+erano	9
 sue	9
 fa	9
 pubblicato	9
@@ -263,7 +265,6 @@ politica	8
 visto	8
 questione	8
 brasile	8
-erano	8
 fatti	8
 appena	8
 elezioni	8
@@ -287,7 +288,6 @@ egitto	8
 scuola	8
 politico	7
 articolo	7
-attenzione	7
 2010	7
 30	7
 poi	7
@@ -417,6 +417,7 @@ fosse	6
 singapore	6
 sembra	6
 el	6
+accesso	5
 software	5
 nuovi	5
 ricerca	5
@@ -532,11 +533,11 @@ nazione	5
 uomo	5
 carlos	5
 sessuali	5
+allora	5
 ormai	5
 animali	5
 rivolta	4
 sé	4
-accesso	4
 tema	4
 dipartimento	4
 bene	4
@@ -598,6 +599,7 @@ generale	4
 sostenere	4
 nota	4
 documenti	4
+aumento	4
 abuso	4
 raccontare	4
 segue	4
@@ -640,6 +642,7 @@ ore	4
 coinvolte	4
 alimentare	4
 ecco	4
+accaduto	4
 ritorno	4
 corpo	4
 presentare	4
@@ -708,7 +711,6 @@ uso	4
 paura	4
 presso	4
 corso	4
-allora	4
 domanda	4
 crisi	4
 presente	4
@@ -739,6 +741,7 @@ pagine	3
 nessuna	3
 forma	3
 partecipazione	3
+ambiente	3
 legale	3
 ministri	3
 varie	3
@@ -750,6 +753,7 @@ metà	3
 terra	3
 discussione	3
 simili	3
+aggressore	3
 farlo	3
 posizione	3
 2015	3
@@ -769,7 +773,6 @@ nc	3
 correre	3
 urbano	3
 spiega	3
-gv	3
 18	3
 potrà	3
 figli	3
@@ -802,7 +805,6 @@ spero	3
 fra	3
 promesse	3
 gas	3
-l'attenzione	3
 trova	3
 origine	3
 ognuno	3
@@ -820,7 +822,6 @@ ricercatori	3
 12	3
 finora	3
 alto	3
-aumento	3
 mani	3
 versione	3
 decisamente	3
@@ -863,6 +864,7 @@ verità	3
 cremlino	3
 scorsa	3
 passa	3
+ultimo	3
 effetti	3
 giovedì	3
 venerdì	3
@@ -892,7 +894,6 @@ principali	3
 buona	3
 necessario	3
 faccia	3
-accaduto	3
 castro	3
 cc	3
 sa	3
@@ -949,6 +950,7 @@ giappone	3
 principio	3
 gestione	3
 sciopero	3
+arresto	3
 conti	3
 internazionali	3
 diventare	3
@@ -1051,6 +1053,7 @@ pensiero	3
 facendo	3
 15	3
 pen	3
+america	3
 patrimonio	3
 fenomeno	3
 consumatori	3
@@ -1092,7 +1095,6 @@ mantenersi	2
 pechino	2
 servivano	2
 conoscenza	2
-ambiente	2
 relazione	2
 iraniano	2
 paio	2
@@ -1114,7 +1116,6 @@ cibi	2
 dando	2
 ragione	2
 regolamentazioni	2
-aggressore	2
 unico	2
 guida	2
 cambiamento	2
@@ -1150,6 +1151,7 @@ stiamo	2
 immaginare	2
 rurale	2
 termini	2
+gv	2
 ricevuto	2
 viaggio	2
 petrolio	2
@@ -1266,7 +1268,6 @@ alcuna	2
 riesce	2
 conoscere	2
 mubarak	2
-mds	2
 riuniti	2
 municipali	2
 oscuro	2
@@ -1314,7 +1315,6 @@ producendo	2
 contrasto	2
 netto	2
 facilitare	2
-ultimo	2
 india	2
 esistono	2
 mattina	2
@@ -1352,6 +1352,7 @@ forte	2
 link	2
 stessa	2
 assolutamente	2
+islam	2
 rappresentanza	2
 poster	2
 vorrebbe	2
@@ -1360,6 +1361,7 @@ comuni	2
 specialmente	2
 guatemala	2
 visibile	2
+on	2
 lina	2
 alcun	2
 paz	2
@@ -1422,6 +1424,7 @@ rurali	2
 antica	2
 sull'isola	2
 battaglia	2
+applicazione	2
 pirata	2
 sopra	2
 carattere	2
@@ -1483,7 +1486,6 @@ traffico	2
 fame	2
 potete	2
 ottenuto	2
-arresto	2
 distorta	2
 affatto	2
 cuore	2
@@ -1599,6 +1601,7 @@ pérez	2
 power	2
 riescono	2
 confermato	2
+affluenza	2
 aventi	2
 presidenziali	2
 tensioni	2
@@ -1730,6 +1733,7 @@ speciale	2
 percezione	2
 00	2
 wendy	2
+intenzione	2
 imparando	2
 livejournal	2
 felice	2
@@ -1750,7 +1754,6 @@ sostanzialmente	2
 petizione	2
 aperto	2
 socialista	2
-c'è	2
 raccolto	2
 dimostrare	2
 chiediamo	2
@@ -1779,9 +1782,10 @@ ambientale	2
 spiaggia	2
 quotidiano	2
 leone	2
-america	2
 write	2
+impegno	2
 lotta	2
+interventi	2
 disponibile	2
 concittadini	2
 sim	2

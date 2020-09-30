@@ -1,4 +1,4 @@
-__total__	4106
+__total__	4108
 jag	220
 det	195
 du	173
@@ -62,11 +62,11 @@ nåt	14
 upp	13
 får	13
 då	13
+gå	13
 okej	13
 ta	13
 sig	12
 igen	12
-gå	12
 in	11
 blir	11
 finns	11
@@ -98,6 +98,7 @@ hade	7
 ju	7
 borta	7
 mot	7
+få	7
 mina	7
 mitt	7
 år	7
@@ -112,7 +113,6 @@ sen	6
 utan	6
 låter	6
 trodde	6
-få	6
 barn	6
 berätta	6
 ser	6

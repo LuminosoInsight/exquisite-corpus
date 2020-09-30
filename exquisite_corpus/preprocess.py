@@ -1,9 +1,13 @@
 import json
 import regex
 import mmh3
+import lzma
+import zstandard
+import bz2
+import io
 
 from ftfy.fixes import fix_surrogates, unescape_html, fix_line_breaks
-from .language_detection import detect_language
+from exquisite_corpus.language_detection import detect_language_checked
 from .reddit_ban_data import BANNED_SUBREDDITS
 
 
@@ -69,10 +73,29 @@ def strip_markdown(text):
     return ' '.join(lines)
 
 
-def preprocess_reddit(infile, outfile):
+def stream_compressed_lines(input_filename):
     """
-    Read Reddit text from a JSON-lines file, parse the Markdown, and tag
-    what language each post is in.
+    Get a line-by-line reader from a compressed text file, no matter whether
+    the format is LZMA (.xz), bzip2 (.bz2), or Zstandard (.zst). These are
+    the three compression formats of pushshift.io Reddit data.
+    """
+    if input_filename.endswith('.zst') or input_filename.endswith('.zstd'):
+        # this leaks a file descriptor, but then the process ends so I don't care
+        file = open(input_filename, 'rb')
+        decompressor = zstandard.ZstdDecompressor()
+        stream_reader = decompressor.stream_reader(file)
+        text_stream = io.TextIOWrapper(stream_reader, encoding='utf-8')
+        return text_stream
+    elif input_filename.endswith('.xz'):
+        return lzma.open(input_filename, 'rt', encoding='utf-8')
+    elif input_filename.endswith('.bz2'):
+        return bz2.open(input_filename, 'rt', encoding='utf-8')
+
+
+def preprocess_reddit(input_filename, outfile):
+    """
+    Read Reddit text from a JSON-lines file (optionally compressed), parse the Markdown,
+    and tag what language each post is in.
 
     Filter the posts to enforce _some_ standard of quality:
 
@@ -80,14 +103,20 @@ def preprocess_reddit(infile, outfile):
     - Other posts should have score >= 1 (no net downvotes)
     - Posts from subreddits that are banned in 2018 are skipped
     """
-    for line in infile:
+    input_lines = stream_compressed_lines(input_filename)
+    for lang, text in preprocess_reddit_lines(input_lines):
+        print(f"{lang}\t{text}", file=outfile)
+
+
+def preprocess_reddit_lines(input_lines):
+    for line in input_lines:
         data = json.loads(line)
         if (
             'score' in data and 'body' in data and
-            data["score"] is not None and data["score"] >= 1 and
-            data["body"] != "[deleted]"
+            data["score"] is not None and data["score"] >= 2 and
+            data["body"] != "[deleted]" and data["body"] != "[removed]"
         ):
-            subreddit = data["subreddit"]
+            subreddit = data["subreddit"].casefold()
             subreddit_hash = mmh3.hash(subreddit)
             if subreddit_hash not in BANNED_SUBREDDITS:
                 md = fix_surrogates(unescape_html(fix_line_breaks(data["body"])))
@@ -95,12 +124,12 @@ def preprocess_reddit(infile, outfile):
                 text = text.replace("\n", " ").replace("\u200b", "")
                 text = URL_RE.sub("", text)
                 if text:
-                    lang, confident = detect_language(text)
-                    if confident:
+                    lang, _confidence = detect_language_checked(text)
+                    if lang != 'und':
                         # There are more English posts than we need, so filter them
-                        # for score >= 2
-                        if lang != "en" or data["score"] > 1:
-                            print(f"{lang}\t{text}", file=outfile)
+                        # for score >= 3
+                        if lang != "en" or data["score"] > 2:
+                            yield (lang, text)
 
 
 def preprocess_twitter(infile, outfile):
@@ -127,6 +156,7 @@ def preprocess_twitter(infile, outfile):
         text = TWITTER_HANDLE_RE.sub("", text)
         text = TCO_RE.sub("", text)
         text = fix_surrogates(unescape_html(text)).replace("\n", " ")
-        lang, confident = detect_language(text)
-        if confident:
+        lang, _confidence = detect_language_checked(text)
+        if lang != 'und':
             print(f"{lang}\t{text}", file=outfile)
+

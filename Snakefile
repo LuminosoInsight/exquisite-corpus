@@ -1,6 +1,23 @@
 #!/usr/bin/env python3
 # The above line is a lie, but it's close enough to the truth to make syntax
 # highlighting happen. Snakemake syntax is an extension of Python 3 syntax.
+
+### Languages to add when OSCAR data is included:
+# Urdu (ur)
+# Nynorsk (nn)
+# Slovenian (sl)
+# Slovak (sk)
+# Estonian (et)
+# Albanian (sq)
+# Vietnamese (vi)
+# Lithuanian (lt)
+# Galician (gl)
+# Filipino (fil)
+# Swahili (sw)
+# Basque (eu)
+# Icelandic (is)
+# Tamil (ta)
+
 import os
 from collections import defaultdict
 
@@ -50,6 +67,8 @@ SOURCE_LANGUAGES = {
         'ro', 'ru', 'sh', 'sk', 'sl', 'sv', 'th', 'tr', 'uk', 'ur', 'uz', 'vi',
         'zh',
 
+        'ta', 'cy',
+
         # Smaller but high-quality, high-depth Wikipedias
         'mk', 'my', 'te', 'ml', 'bn', 'mr', 'is', 'ku', 'mn', 'si', 'or'
     ],
@@ -65,14 +84,26 @@ SOURCE_LANGUAGES = {
         'ja', 'eo'
     ],
 
-    # Skip Greek because of kaomoji, Simplified Chinese because it's largely
-    # spam, Macedonian because of confusability with Bulgarian
+    'twitter1': [
+        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
+    ],
+    'twitter2': [
+        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
+    ],
     'twitter': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk', 'sh',
-        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh-Hant',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'ro', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq'
+        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
+        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
+        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
+        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
@@ -150,16 +181,17 @@ MERGED_SOURCES = {
     'news': ['newscrawl', 'opus/GlobalVoices', 'voa'],
     'web': ['mokk', 'leeds', 'paracrawl'],
     'subtitles': ['opus/OpenSubtitles2018', 'subtlex'],
-    'amazon': ['amazon-snap', 'amazon-acl10']
+    'amazon': ['amazon-snap', 'amazon-acl10'],
+    'twitter': ['twitter1', 'twitter2']
 }
 WP_LANGUAGE_MAP = {
     'fil': 'tl',
     'nb': 'no'
 }
-WP_VERSION = '20190120'
+WP_VERSION = '20200801'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
-    'zh-Hans': 'chi-sim',
+    'zh-Hans': 'chi_sim',
     'fr': 'fre',
     'de': 'ger',
     'he': 'heb',
@@ -168,9 +200,19 @@ GOOGLE_LANGUAGE_MAP = {
     'es': 'spa'
 }
 
-# Google Books unigrams are sharded by the first letter or digit of the token,
-# or 'other'.
+GOOGLE_NUM_1GRAM_SHARDS = {
+    'en': 24,
+    'zh-Hans': 1,
+    'fr': 6,
+    'de': 8,
+    'he': 1,
+    'it': 2,
+    'ru': 2,
+    'es': 3
+}
 
+# Google Books 2012 unigrams are sharded by the first letter or digit of the token,
+# or 'other'.
 GOOGLE_1GRAM_SHARDS = [
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e',
     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'other',
@@ -204,13 +246,21 @@ GOOGLE_3GRAM_SHARDS = [
 
 REDDIT_SHARDS = ['{:04d}-{:02d}'.format(y, m) for (y, m) in (
     [(2007, month) for month in range(10, 12 + 1)] +
-    [(year, month) for year in range(2008, 2017) for month in range(1, 12 + 1)] +
-    [(2017, month) for month in range(1, 11 + 1)]
+    [(year, month) for year in range(2008, 2020) for month in range(1, 12 + 1)]
 )]
+
+# Sample 1 out of every 5 months, which allows us to download fewer files, but
+# (because 5 is relatively prime to 12) provides a reasonably even sample of
+# events around the year.
 SAMPLED_REDDIT_SHARDS = [
-    '2007-10', '2008-07', '2009-09', '2010-06', '2011-01', '2012-04',
-    '2013-12', '2014-09', '2015-08', '2016-03', '2017-02', '2017-11'
+    '2007-10', '2008-03', '2008-08', '2009-01', '2009-06', '2009-11',
+    '2010-04', '2010-09', '2011-02', '2011-07', '2011-12', '2012-05',
+    '2012-10', '2013-03', '2013-08', '2014-01', '2014-06', '2014-11',
+    '2015-04', '2015-09', '2015-02', '2016-07', '2016-12', '2017-05',
+    '2017-10', '2018-03', '2018-08', '2019-01', '2019-06', '2019-11',
 ]
+
+TWITTER_V2_YEARS = ['2020']
 
 # SNAP's Amazon data is sharded by product department.
 
@@ -392,6 +442,21 @@ def map_opus_language(dataset, lang):
     return mapping.get(lang, lang)
 
 
+def find_reddit_filename(wildcards):
+    """
+    pushshift.io's Reddit archives are compressed in different formats
+    over time. Find the correct filename given the date.
+    """
+    yearmonth = wildcards.year + '-' + wildcards.month
+    if yearmonth <= '2017-11':
+        ext = '.bz2'
+    elif yearmonth <= '2018-10':
+        ext = '.xz'
+    else:
+        ext = '.zst'
+    return DATA + "/downloaded/reddit/" + yearmonth + ext
+
+
 def language_count_sources(lang):
     """
     Get all the sources of word counts we have in a language.
@@ -433,21 +498,6 @@ def multisource_counts_to_merge(multisource, lang):
         if lang in SOURCE_LANGUAGES[source]
     ]
     return result
-
-
-def balkanize_cld2_languages(languages):
-    """
-    CLD2 detects 'sr', 'hr', and 'bs' separately, and outputs them in
-    separate files that we'll have to merge together, because it's not actually
-    reliably distinguishing them.
-    """
-    result = set()
-    for lang in languages:
-        if lang == 'sh':
-            result.update(['sr', 'hr', 'bs'])
-        else:
-            result.add(lang)
-    return sorted(result)
 
 
 def paracrawl_language_pair_source(lang):
@@ -533,17 +583,17 @@ rule download_opus_monolingual:
     run:
         dataset = wildcards.dataset
         source_lang = map_opus_language(dataset, wildcards.lang)
-        shell("curl -Lf 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -o {output}")
+        shell("wget 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -O {output}")
 
 
 rule download_reddit:
     output:
-        DATA + "/downloaded/reddit/{year}-{month}.bz2"
+        DATA + "/downloaded/reddit/{year}-{month}.{ext}"
     resources:
         download=1
     priority: 0
     shell:
-        "curl -Lf 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.bz2' -o {output}"
+        "wget 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' -O {output}"
 
 
 rule download_opus_parallel:
@@ -563,7 +613,7 @@ rule download_opus_parallel:
         # Manage the version of the OPUS dataset manually
         version = get_opus_version(dataset)
         shell(
-            "curl -Lf 'https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -o {output}"
+            "wget 'https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -O {output}"
         )
 
 
@@ -576,26 +626,25 @@ rule download_wikipedia:
     run:
         source_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         version = WP_VERSION
-        shell("curl 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -o {output}")
+        shell("wget 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -O {output}")
 
 rule download_newscrawl:
     output:
         DATA + "/downloaded/newscrawl-2014-monolingual.tar.gz"
     shell:
-        "curl -Lf 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -o {output}"
+        "wget 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -O {output}"
 
 rule download_google_1grams:
+    resources:
+        download=1
     output:
-        DATA + "/downloaded/google/1grams-{lang}-{shard}.txt.gz"
+        DATA + "/downloaded/google/1grams-{lang}.txt"
     run:
         source_lang = GOOGLE_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
-        shard = wildcards.shard
-        if source_lang == 'heb' and shard == 'other':
-            # This file happens not to exist
-            shell("echo -n '' | gzip -c > {output}")
-        else:
-            # Do a bit of pre-processing as we download
-            shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-all-1gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+        nshards = GOOGLE_NUM_1GRAM_SHARDS[wildcards.lang]
+        for shard in range(nshards):
+            url = f'http://storage.googleapis.com/books/ngrams/books/20200217/{source_lang}/1-{shard:>05}-of-{nshards:>05}.gz'
+            shell("curl -Lf '{url}' | gunzip -c | awk -f scripts/google-sum-columns.awk >> {output}")
 
 rule download_google_ngrams:
     output:
@@ -611,13 +660,13 @@ rule download_amazon_snap:
     output:
         DATA + "/downloaded/amazon/{category}.json.gz"
     shell:
-        "curl -Lf 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -o {output}"
+        "wget 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -O {output}"
 
 rule download_amazon_acl10:
     output:
         DATA + "/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
     shell:
-        "curl -Lf 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -o {output}"
+        "wget 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -O {output}"
 
 rule download_paracrawl:
     output:
@@ -631,7 +680,7 @@ rule download_paracrawl:
         else:
             raise ValueError("One language in a ParaCrawl pair must be English")
 
-        shell("curl -Lf 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -o {output}")
+        shell("wget 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -O {output}")
 
 rule download_jesc:
     output:
@@ -644,7 +693,7 @@ rule download_jparacrawl:
     output:
         DATA + "/downloaded/jparacrawl/en-ja.tar.gz"
     shell:
-        "curl -Lf 'http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/release/2.0/bitext/en-ja.tar.gz' -o {output}"
+        "wget 'http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/release/2.0/bitext/en-ja.tar.gz' -O {output}"
 
 
 # Handling downloaded data
@@ -756,23 +805,22 @@ rule extract_amazon_acl10:
         "tar xf {input} -C {DATA}/extracted/amazon-acl10 && touch {output}"
 
 rule extract_google_1grams:
+    # FIXME
     input:
-        expand(DATA + "/downloaded/google/1grams-{{lang}}-{shard}.txt.gz",
-               shard=GOOGLE_1GRAM_SHARDS)
+        DATA + "/downloaded/google/1grams-{lang}.txt"
     output:
         DATA + "/messy-counts/google/{lang}.txt"
     shell:
         # Lowercase the terms, remove part-of-speech tags such as _NOUN, and
         # run the result through the 'countmerge' utility
-        r"zcat {input} | sed -n -e 's/\([^_	]\+\)\(_[A-Z]\+\)/\L\1/p' | awk -f scripts/countmerge.awk > {output}"
+        r"LANG=C sort {input} | awk -f scripts/countmerge.awk > {output}"
 
 rule extract_reddit:
-    input:
-        DATA + "/downloaded/reddit/{year}-{month}.bz2"
+    input: find_reddit_filename
     output:
         DATA + "/extracted/reddit/{year}-{month}.txt.gz"
     shell:
-        "bunzip2 -c {input} | xc preprocess-reddit | gzip -c > {output}"
+        "xc preprocess-reddit {input} | gzip -c > {output}"
 
 rule extract_amazon:
     input:
@@ -805,7 +853,8 @@ rule monolingual_corpus_en:
         DATA + "/downloaded/opus/OpenSubtitles2018.en.txt.gz",
         DATA + "/downloaded/opus/Europarl.en.txt.gz",
         DATA + "/downloaded/opus/GlobalVoices.en.txt.gz",
-        expand(DATA + "/extracted/twitter/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
+        expand(DATA + "/extracted/twitter1/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
+        # TODO: include twitter2 data
         expand(DATA + "/extracted/reddit/{shard}.txt.gz", shard=SAMPLED_REDDIT_SHARDS)
     output:
         DATA + "/monolingual/en.txt.gz"
@@ -1010,12 +1059,12 @@ rule tokenize_amazon:
 
 rule tokenize_opus:
     input:
-        DATA + "/downloaded/opus/{dataset}.{lang}.txt"
+        DATA + "/downloaded/opus/{dataset}.{lang}.txt.gz"
     output:
         DATA + "/tokenized/opus/{dataset}.{lang}.txt"
     shell:
         # Remove country codes and fix mojibake
-        "sed -e 's/([A-Z][A-Z]\+)//g' {input} | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
+        "gunzip -c {input} | sed -e 's/([A-Z][A-Z]\+)//g' | ftfy | xc tokenize -p -l {wildcards.lang} - {output}"
 
 rule tokenize_newscrawl:
     input:
@@ -1060,50 +1109,69 @@ rule tokenize_paracrawl_monolingual:
     shell:
         "cp {input} {output}"
 
-rule tokenize_gzipped_text:
-    input:
-        DATA + "/downloaded/{dir}/{lang}.txt.gz"
-    output:
-        DATA + "/tokenized/{dir}/{lang}.txt"
-    shell:
-        "zcat {input} | xc tokenize -p -l {wildcards.lang} - {output}"
-
 rule tokenize_reddit:
     input:
         DATA + "/extracted/reddit/{date}.txt.gz"
     output:
-        expand(DATA + "/tokenized/reddit/{{date}}/{lang}.txt.gz",
-                lang=SOURCE_LANGUAGES['reddit/merged'])
+        expand(DATA + "/tokenized/reddit/{{date}}/{lang}.txt",
+               lang=SOURCE_LANGUAGES['reddit/merged'])
     params:
         languages = ','.join(SOURCE_LANGUAGES['reddit/merged'])
     shell:
-        "zcat {input} | xc tokenize-by-language -z -l {params.languages} - " \
+        "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
         "{DATA}/tokenized/reddit/{wildcards.date}"
-
 
 rule extract_twitter:
     input:
-        DATA + "/raw/twitter/twitter-{year}.txt.gz"
+        DATA + "/raw/twitter1/twitter-{year}.txt.gz"
     output:
-        DATA + "/extracted/twitter/twitter-{year}.txt.gz"
+        DATA + "/extracted/twitter1/twitter-{year}.txt.gz"
     shell:
         "zcat {input} | xc preprocess-twitter | gzip -c > {output}"
 
 
+rule extract_twitter_v2:
+    input:
+        expand(DATA + "/raw/twitter2/{year}/tweets.{{lang}}.jsonl", year=TWITTER_V2_YEARS)
+    output:
+        DATA + "/extracted/twitter2/{lang}.txt.gz"
+    shell:
+        "jq -r '.text' {input} | gzip -c > {output}"
+
+
 rule tokenize_twitter:
     input:
-        DATA + "/extracted/twitter/twitter-2014.txt.gz",
-        DATA + "/extracted/twitter/twitter-2015.txt.gz",
-        DATA + "/extracted/twitter/twitter-2016.txt.gz",
-        DATA + "/extracted/twitter/twitter-2017.txt.gz",
-        DATA + "/extracted/twitter/twitter-2018.txt.gz"
+        DATA + "/extracted/twitter1/twitter-2014.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2015.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2016.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2017.txt.gz",
+        DATA + "/extracted/twitter1/twitter-2018.txt.gz"
     output:
-        expand(DATA + "/tokenized/twitter/{lang}.txt", lang=SOURCE_LANGUAGES['twitter'])
+        expand(DATA + "/tokenized/twitter1/{lang}.txt", lang=SOURCE_LANGUAGES['twitter1'])
     params:
-        languages = ','.join(SOURCE_LANGUAGES['twitter'])
+        languages = ','.join(SOURCE_LANGUAGES['twitter1'])
     shell:
         "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
-        "{DATA}/tokenized/twitter"
+        "{DATA}/tokenized/twitter1"
+
+
+rule tokenize_twitter_v2_balkans:
+    input:
+        DATA + "/extracted/twitter2/bs.txt.gz",
+        DATA + "/extracted/twitter2/hr.txt.gz",
+        DATA + "/extracted/twitter2/sr.txt.gz"
+    output:
+        DATA + "/tokenized/twitter2/sh.txt"
+    shell:
+        "zcat {input} | xc tokenize -l sh - {output}"
+
+rule tokenize_twitter_v2:
+    input:
+        DATA + "/extracted/twitter2/{lang}.txt.gz"
+    output:
+        DATA + "/tokenized/twitter2/{lang}.txt"
+    shell:
+        "zcat {input} | xc tokenize -c -l {wildcards.lang} - {output}"
 
 rule tokenize_voa:
     input:
@@ -1586,6 +1654,14 @@ rule merge_subtitles:
     shell:
         "cat {input} | xc recount - {output} -l {wildcards.lang}"
 
+rule merge_twitter:
+    input:
+        lambda wildcards: multisource_counts_to_merge('twitter', wildcards.lang)
+    output:
+        DATA + "/counts/twitter/{lang}.txt"
+    shell:
+        "cat {input} | xc recount - {output} -l {wildcards.lang}"
+
 rule merge_web:
     input:
         lambda wildcards: multisource_counts_to_merge('web', wildcards.lang)
@@ -1600,8 +1676,8 @@ rule merge_web:
 
 rule combine_reddit:
     input:
-        expand(DATA + "/tokenized/reddit/{date}/{{lang}}.txt.gz", \
-                 date=REDDIT_SHARDS)
+        expand(DATA + "/tokenized/reddit/{date}/{{lang}}.txt.gz",
+               date=REDDIT_SHARDS)
     output:
         temp(DATA + "/tokenized/reddit/merged/{lang}.txt")
     priority:
@@ -1672,7 +1748,7 @@ rule make_jieba_list:
 ruleorder:
     count_to_freqs > merge_freqs > merge_web > merge_reddit > \
     merge_subtlex_en > merge_opensubtitles_pt > merge_opensubtitles_zh > merge_globalvoices_zh > \
-    merge_news > merge_subtitles > \
+    merge_news > merge_subtitles > merge_twitter > \
+    tokenize_twitter_v2_balkans > tokenize_twitter_v2 > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
-    count_tokens > recount_messy_tokens > \
-    tokenize_parallel_opus > tokenize_opus > tokenize_gzipped_text
+    extract_google_1grams > count_tokens > recount_messy_tokens

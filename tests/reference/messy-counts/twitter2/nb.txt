@@ -1,0 +1,5 @@
+__total__	42
+med	2
+jeg	2
+er	2
+at	2

@@ -1,4 +1,4 @@
-__total__	1157625
+__total__	1157624
 in	473985
 oh	392086
 front	53021
@@ -1037,7 +1037,6 @@ keep	3
 most	3
 important	3
 old	3
-chuckles	3
 coming	3
 marry	3
 game	3
@@ -1258,6 +1257,7 @@ world	2
 ass	2
 dull	2
 card	2
+chuckles	2
 difficult	2
 hot	2
 company	2

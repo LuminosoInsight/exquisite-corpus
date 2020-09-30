@@ -1,0 +1,5 @@
+__total__	36
+halt	2
+in	2
+die	2
+der	2

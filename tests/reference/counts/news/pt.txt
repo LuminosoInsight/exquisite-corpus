@@ -1,4 +1,4 @@
-__total__	14870
+__total__	14868
 de	851
 a	623
 o	484
@@ -1052,7 +1052,6 @@ bens	2
 belo	2
 relata	2
 divulgação	2
-umar	2
 repúdio	2
 day	2
 political	2

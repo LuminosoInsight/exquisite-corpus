@@ -1,0 +1,4 @@
+__total__	42
+att	2
+för	2
+vara	2

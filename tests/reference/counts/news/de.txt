@@ -1,15 +1,15 @@
-__total__	74984
-die	3201
+__total__	74895
+die	3200
 der	3179
 und	2142
-in	1799
+in	1798
 das	1091
 den	1055
-von	950
+von	948
 zu	909
 mit	868
 im	821
-00	801
+00	790
 auf	764
 für	719
 ist	694
@@ -23,22 +23,22 @@ eine	555
 auch	516
 sie	510
 an	463
-am	449
+am	448
 als	438
 dass	423
 bei	415
 aus	386
 er	383
 nach	364
-um	342
-werden	336
+um	341
 hat	336
+werden	335
 wie	324
 sind	294
 einem	291
 einer	277
 vor	274
-zum	270
+zum	269
 ich	269
 war	263
 0000	263
@@ -46,10 +46,10 @@ wird	262
 über	262
 einen	258
 noch	255
-aber	240
+aber	239
 haben	236
 so	230
-wir	229
+wir	228
 wurde	218
 nur	191
 gegen	190
@@ -59,7 +59,7 @@ sein	175
 mehr	170
 durch	159
 zur	156
-000	153
+000	152
 man	151
 hatte	149
 unter	147
@@ -70,16 +70,16 @@ wenn	125
 ihre	125
 wieder	124
 zwei	121
-was	121
 diese	121
 kann	120
 habe	119
+was	119
 schon	118
 seine	116
 beim	114
 jahr	112
-uhr	110
 können	108
+uhr	106
 euro	102
 jahren	102
 gibt	102
@@ -90,7 +90,7 @@ alle	96
 seit	95
 waren	93
 da	91
-1	90
+1	89
 jetzt	89
 sagt	88
 dabei	88
@@ -191,9 +191,9 @@ platz	43
 vergangenen	43
 kommen	43
 etwa	43
-sonntag	42
 grossen	42
 0	41
+sonntag	41
 millionen	41
 fast	41
 ihn	41
@@ -202,11 +202,11 @@ tag	41
 sehen	41
 jedoch	41
 würde	41
-dpa	40
 sechs	40
 werde	40
 weitere	40
 macht	40
+dpa	39
 wochen	39
 gewesen	39
 zehn	39
@@ -239,7 +239,6 @@ zeigt	35
 frauen	35
 stehen	34
 strasse	34
-ja	34
 us	34
 musste	34
 ob	34
@@ -248,16 +247,17 @@ seite	34
 eigenen	34
 finden	34
 team	33
+ja	33
 fünf	33
 könnte	33
 darauf	33
 vielleicht	33
-foto	33
 trainer	32
 lange	32
 zurück	32
 frage	32
 arbeit	32
+foto	32
 deshalb	31
 erklärte	31
 hätten	31
@@ -272,7 +272,6 @@ neben	30
 unternehmen	30
 ihnen	30
 diesen	30
-michael	29
 später	29
 liegt	29
 sogar	29
@@ -283,9 +282,9 @@ würden	29
 familie	29
 gruppe	29
 grund	29
-sagen	29
 denen	29
 lassen	28
+michael	28
 spielen	28
 bleibt	28
 also	28
@@ -293,11 +292,11 @@ wollte	28
 ort	28
 sollten	28
 geben	28
+sagen	28
 twitter	28
 natürlich	27
 bürgermeister	27
 dagegen	27
-november	27
 zusammen	27
 minuten	27
 märz	27
@@ -315,6 +314,7 @@ zuletzt	26
 derzeit	26
 bislang	26
 weiss	26
+november	26
 einfach	26
 erklärt	26
 dessen	26
@@ -339,7 +339,6 @@ bild	25
 nie	25
 wissen	25
 welche	25
-artikel	25
 gegenüber	25
 geschichte	25
 mittwoch	24
@@ -362,6 +361,7 @@ schnell	24
 juni	24
 deren	24
 davon	24
+artikel	24
 mutter	24
 meine	24
 kleinen	23
@@ -403,7 +403,6 @@ knapp	21
 besten	21
 kreis	21
 bayern	21
-meter	21
 a	21
 gekommen	21
 lässt	21
@@ -422,6 +421,7 @@ kurz	20
 eu	20
 junge	20
 verein	20
+meter	20
 gegeben	20
 dienstag	20
 gute	20
@@ -430,7 +430,6 @@ alte	20
 eigentlich	20
 thema	20
 letzte	20
-http	20
 sicher	20
 gestern	20
 neuer	20
@@ -457,6 +456,7 @@ wenig	19
 neues	19
 genau	19
 september	19
+http	19
 programm	19
 nehmen	19
 russland	19
@@ -533,7 +533,6 @@ erhalten	16
 bank	16
 stunden	16
 kamen	16
-hinaus	16
 dadurch	16
 stimmen	16
 dollar	16
@@ -561,13 +560,13 @@ verletzt	15
 kommenden	15
 tsv	15
 besucher	15
-matthias	15
 fragen	15
 unterwegs	15
 zufolge	15
 laufen	15
 jungen	15
 bald	15
+hinaus	15
 zahlen	15
 preise	15
 beispielsweise	15
@@ -595,7 +594,6 @@ acht	14
 sonst	14
 ebenso	14
 hoch	14
-franz	14
 münchen	14
 alten	14
 elf	14
@@ -607,6 +605,7 @@ schliesslich	14
 müsse	14
 berliner	14
 feuerwehr	14
+matthias	14
 wochenende	14
 kollegen	14
 gestellt	14
@@ -655,6 +654,7 @@ wert	13
 könnten	13
 immerhin	13
 staatsanwaltschaft	13
+franz	13
 zunächst	13
 voll	13
 gäste	13
@@ -695,7 +695,6 @@ richtig	12
 verantwortung	12
 inzwischen	12
 entgegen	12
-main	12
 mittlerweile	12
 monaten	12
 frank	12
@@ -755,6 +754,7 @@ journalisten	12
 namen	12
 jemen	12
 hamburg	11
+main	11
 grössten	11
 daniel	11
 übernehmen	11
@@ -879,7 +879,6 @@ gesehen	10
 standen	10
 fenster	10
 täter	10
-is	10
 unserem	10
 versuchen	10
 studie	10
@@ -945,7 +944,6 @@ nahm	9
 betonte	9
 hingegen	9
 zusammenarbeit	9
-alt	9
 keller	9
 milliarden	9
 rahmen	9
@@ -1002,7 +1000,6 @@ weltweit	9
 bekannt	9
 wege	9
 versucht	9
-unseren	9
 hintergrund	9
 google	9
 warten	9
@@ -1059,6 +1056,7 @@ wien	8
 natur	8
 vierten	8
 paul	8
+alt	8
 m	8
 gezeigt	8
 oben	8
@@ -1095,6 +1093,7 @@ hsv	8
 freuen	8
 spieltag	8
 wohnung	8
+is	8
 wolfgang	8
 umwelt	8
 gelassen	8
@@ -1138,6 +1137,7 @@ nachfrage	8
 anderer	8
 information	8
 getan	8
+unseren	8
 parlament	8
 aktivitäten	8
 künstler	8
@@ -1185,7 +1185,6 @@ aufgabe	7
 offen	7
 brauchen	7
 landgericht	7
-©	7
 solchen	7
 behandlung	7
 werner	7
@@ -1220,7 +1219,6 @@ erwartungen	7
 motto	7
 ziemlich	7
 premiere	7
-robert	7
 bernhard	7
 engagement	7
 meist	7
@@ -1239,7 +1237,6 @@ kommission	7
 kündigte	7
 dresden	7
 d	7
-bernd	7
 müller	7
 rückkehr	7
 beendet	7
@@ -1269,7 +1266,6 @@ ausschuss	7
 sebastian	7
 gesichert	7
 café	7
-schmidt	7
 vertreter	7
 schrieb	7
 davor	7
@@ -1279,7 +1275,6 @@ tür	7
 schloss	7
 früh	7
 kapitän	7
-gestohlen	7
 leiter	7
 zusätzliche	7
 fährt	7
@@ -1309,7 +1304,6 @@ zerstört	7
 unterhalten	7
 verhalten	7
 rechten	7
-antwort	7
 angriff	7
 angst	7
 anhänger	7
@@ -1351,7 +1345,6 @@ webseite	7
 cc	7
 by	7
 iran	7
-lukas	6
 übernahme	6
 erreicht	6
 geschäft	6
@@ -1381,6 +1374,7 @@ co	6
 filme	6
 begeistert	6
 gefallen	6
+©	6
 klaren	6
 beamten	6
 training	6
@@ -1431,6 +1425,7 @@ brand	6
 fanden	6
 verbraucher	6
 feierte	6
+robert	6
 hinein	6
 dienst	6
 bekam	6
@@ -1455,6 +1450,7 @@ wilhelm	6
 neustadt	6
 urlaub	6
 vorfeld	6
+bernd	6
 erfahren	6
 abwehr	6
 geschwindigkeit	6
@@ -1509,6 +1505,7 @@ afp	6
 unbekannte	6
 oliver	6
 torhüter	6
+schmidt	6
 david	6
 klang	6
 debatte	6
@@ -1529,6 +1526,7 @@ vorn	6
 könig	6
 augsburg	6
 erlaubt	6
+gestohlen	6
 vfl	6
 zahlreichen	6
 verlor	6
@@ -1569,6 +1567,7 @@ vorfall	6
 hauptsächlich	6
 kritisiert	6
 tat	6
+antwort	6
 befragten	6
 deutet	6
 freie	6
@@ -1610,9 +1609,9 @@ and	6
 blogs	6
 menschenrechte	6
 ländern	6
-gv	6
 verhaftet	6
 ordentlich	5
+lukas	5
 verfügt	5
 i	5
 baut	5
@@ -1687,7 +1686,6 @@ zeigten	5
 partien	5
 her	5
 grenze	5
-nico	5
 rücken	5
 konzern	5
 gerät	5
@@ -1712,7 +1710,6 @@ reicht	5
 kino	5
 wende	5
 entsprechend	5
-regional	5
 position	5
 tief	5
 klingt	5
@@ -1740,7 +1737,6 @@ informiert	5
 jörg	5
 endgültig	5
 ans	5
-gerhard	5
 kostet	5
 entsprechenden	5
 antrag	5
@@ -1796,7 +1792,6 @@ dorf	5
 präsentiert	5
 einrichtung	5
 reichen	5
-simon	5
 holz	5
 gewerkschaft	5
 fördern	5
@@ -2095,6 +2090,7 @@ monatlich	4
 sichern	4
 hallen	4
 verpflichtung	4
+nico	4
 fraktionschef	4
 freue	4
 trainiert	4
@@ -2106,7 +2102,6 @@ laden	4
 erfolgreiche	4
 gregor	4
 erläutert	4
-braun	4
 rechnet	4
 scheitert	4
 barbara	4
@@ -2138,6 +2133,7 @@ freitagabend	4
 früheren	4
 wagner	4
 wechselte	4
+regional	4
 welcher	4
 ausgebaut	4
 planungen	4
@@ -2186,6 +2182,7 @@ hoher	4
 botschaft	4
 nein	4
 bauen	4
+gerhard	4
 ampel	4
 ehrung	4
 wirken	4
@@ -2309,8 +2306,6 @@ genauer	4
 akkus	4
 weiblich	4
 tätig	4
-kevin	4
-dominik	4
 reagiert	4
 sprung	4
 herausforderung	4
@@ -2396,7 +2391,6 @@ zumal	4
 worte	4
 dürften	4
 verwendet	4
-aussen	4
 bastian	4
 fazit	4
 amerikaner	4
@@ -2409,7 +2403,6 @@ beschluss	4
 gefühl	4
 c	4
 tote	4
-verbindet	4
 wald	4
 wandern	4
 umgang	4
@@ -2544,6 +2537,7 @@ thailand	4
 madagaskar	4
 argumentiert	4
 ramadan	4
+gv	4
 genehmigung	4
 hu	4
 fauda	4
@@ -2742,6 +2736,7 @@ grösse	3
 schwerer	3
 locken	3
 favoriten	3
+braun	3
 operation	3
 einzigen	3
 gelangt	3
@@ -2989,6 +2984,7 @@ ungewöhnlich	3
 erfolgen	3
 zdf	3
 sekunde	3
+simon	3
 spitzenreiter	3
 tus	3
 kaufkraft	3
@@ -3059,8 +3055,7 @@ gekleidet	3
 motorradfahrer	3
 allgemeinen	3
 enttäuschung	3
-spvgg	3
-pascal	3
+dominik	3
 erschienen	3
 manch	3
 bremsen	3
@@ -3253,6 +3248,7 @@ brandstiftung	3
 lahm	3
 stimmt	3
 nötig	3
+aussen	3
 durften	3
 kirchlichen	3
 billionen	3
@@ -3287,6 +3283,7 @@ off	3
 kümmern	3
 quartal	3
 beliebten	3
+verbindet	3
 jahrhundert	3
 montreal	3
 depressionen	3
@@ -3372,7 +3369,6 @@ deutschland.de	3
 ansetzen	3
 platzes	3
 vorgenommen	3
-spessart	3
 aufmerksamkeit	3
 eigenes	3
 ausländischen	3
@@ -3386,6 +3382,7 @@ wechseln	3
 hart	3
 klären	3
 entlassen	3
+kevin	3
 anerkennung	3
 erscheint	3
 erfolgs	3
@@ -3405,9 +3402,7 @@ villa	3
 aktiven	3
 formuliert	3
 apotheke	3
-junger	3
 ruf	3
-bundeskanzler	3
 james	3
 benedikt	3
 fit	3
@@ -3644,7 +3639,6 @@ unwägbarkeiten	2
 abgabe	2
 kommentare	2
 einsehen	2
-kitzingen	2
 erhofft	2
 durchweg	2
 schätzungen	2
@@ -3927,7 +3921,6 @@ drehbuch	2
 eingereicht	2
 folgt	2
 apassionata	2
-graf	2
 kasachstan	2
 mitleidenschaft	2
 quadratmeter	2
@@ -4175,7 +4168,6 @@ tanz	2
 mehrzweckhalle	2
 spender	2
 betreuten	2
-schaut	2
 verschwand	2
 geplante	2
 talente	2
@@ -4541,9 +4533,6 @@ silvio	2
 abwarten	2
 profitieren	2
 michelangelo	2
-ruoff	2
-weimer	2
-schau	2
 auslöser	2
 gedrückt	2
 hinauskommen	2
@@ -4981,7 +4970,6 @@ eröffnete	2
 walten	2
 gleichwohl	2
 rechner	2
-förderung	2
 sachsen	2
 schwimmen	2
 aktionäre	2
@@ -5314,6 +5302,7 @@ truppen	2
 jung	2
 mediziner	2
 treffe	2
+spessart	2
 mitunter	2
 bittet	2
 reduzierung	2
@@ -5370,7 +5359,6 @@ hollywood	2
 melanie	2
 scheiden	2
 baur	2
-www.mainpost.de	2
 normal	2
 mordes	2
 gestoppt	2
@@ -5480,6 +5468,7 @@ begleiten	2
 gelingt	2
 fonds	2
 absolvierte	2
+bundeskanzler	2
 verteidigt	2
 sotschi	2
 füssen	2
@@ -5528,6 +5517,7 @@ kommend	2
 stammtisch	2
 übrig	2
 ausweitung	2
+spvgg	2
 verbesserte	2
 teufel	2
 cockpit	2
@@ -5574,6 +5564,7 @@ hauenhorst	2
 richterin	2
 motorrad	2
 reifen	2
+pascal	2
 etage	2
 inhalt	2
 rathauschef	2
@@ -5715,6 +5706,7 @@ final	2
 four	2
 blicken	2
 abfallcontainer	2
+junger	2
 torwart	2
 vogl	2
 karibik	2
@@ -6037,7 +6029,6 @@ hoffnung	2
 telekommunikationsunternehmen	2
 enthüllt	2
 veröffentlichung	2
-msf	2
 verwenden	2
 amir	2
 creative	2

@@ -1,0 +1,4 @@
+.	1
+Beispiel	2
+Exempel	3
+Beispiel	4

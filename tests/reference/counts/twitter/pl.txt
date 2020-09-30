@@ -1,2 +1,11 @@
-__total__	2
-i	2
+__total__	29
+na	5
+i	4
+to	4
+nie	3
+do	3
+sie	2
+tego	2
+w	2
+ma	2
+tak	2

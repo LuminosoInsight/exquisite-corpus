@@ -11,9 +11,9 @@ setup(
     include_package_data=True,
     install_requires=[
         'snakemake < 5.6', 'jieba >= 0.42', 'wordfreq[jieba,mecab] >= 2.3.2',
-        'click', 'regex >= 2018.01.08', 'pycld2', 'msgpack-python',
-        'ordered-set', 'ftfy', 'subword-nmt', 'sentencepiece', 'mmh3',
-        'pytest', 'tqdm', 'lumi-language-id'
+        'click', 'regex >= 2020.04.04', 'pycld2', 'msgpack-python',
+        'ordered-set', 'ftfy', 'subword-nmt', 'sentencepiece==0.1.86', 'mmh3',
+        'pytest', 'tqdm', 'lumi-language-id', 'zstandard', 'langcodes >= 2.1',
     ],
     zip_safe=False,
     classifiers=[

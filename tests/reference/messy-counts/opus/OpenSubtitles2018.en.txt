@@ -1,4 +1,4 @@
-__total__	7040
+__total__	7026
 you	209
 the	203
 to	126
@@ -240,7 +240,6 @@ keep	3
 most	3
 important	3
 old	3
-chuckles	3
 coming	3
 marry	3
 game	3
@@ -349,6 +348,7 @@ double	2
 ass	2
 dull	2
 card	2
+chuckles	2
 life	2
 difficult	2
 hot	2

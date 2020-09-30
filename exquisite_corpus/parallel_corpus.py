@@ -1,4 +1,4 @@
-from lumi_language_id import detect_language
+from exquisite_corpus.language_detection import detect_language_checked
 import sentencepiece
 
 from ftfy import fix_text
@@ -49,11 +49,11 @@ def cleanup_parallel_file(
         # There can be mixed or wrong language in source and/or target; including
         # untranslated source in the target. So, make sure that the sentences on both
         # sides consist of the right language.
-        lang1_pred, _lang1_confidence = detect_language(lang1_sent)
+        lang1_pred, _lang1_confidence = detect_language_checked(lang1_sent)
         lang1 = map_to_fasttext_language(lang1)
         lang1_match = lang1_pred == lang1
 
-        lang2_pred, _lang2_confidence = detect_language(lang2_sent)
+        lang2_pred, _lang2_confidence = detect_language_checked(lang2_sent)
         lang2 = map_to_fasttext_language(lang2)
         lang2_match = lang2_pred == lang2
 
