@@ -92,18 +92,14 @@ SOURCE_LANGUAGES = {
         'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
     ],
     'twitter2': [
-        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
-        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
+        'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
+        'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
+        'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
     ],
     'twitter': [
-        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
-        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
+        'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
+        'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
+        'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
