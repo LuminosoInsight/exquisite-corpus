@@ -801,7 +801,6 @@ rule extract_amazon_acl10:
         "tar xf {input} -C {DATA}/extracted/amazon-acl10 && touch {output}"
 
 rule extract_google_1grams:
-    # FIXME
     input:
         DATA + "/downloaded/google/1grams-{lang}.txt"
     output:
@@ -850,7 +849,6 @@ rule monolingual_corpus_en:
         DATA + "/downloaded/opus/Europarl.en.txt.gz",
         DATA + "/downloaded/opus/GlobalVoices.en.txt.gz",
         expand(DATA + "/extracted/twitter1/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
-        # TODO: include twitter2 data
         expand(DATA + "/extracted/reddit/{shard}.txt.gz", shard=SAMPLED_REDDIT_SHARDS)
     output:
         DATA + "/monolingual/en.txt.gz"
