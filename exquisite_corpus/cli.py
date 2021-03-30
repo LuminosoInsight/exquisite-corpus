@@ -4,7 +4,7 @@ from .preprocess import preprocess_reddit, preprocess_twitter
 from .sparse_assoc import make_sparse_assoc, intersperse_parallel_text
 from .count import count_tokenized, recount_messy
 from .tokens import (
-    tokenize_file, tokenize_by_language, tokenize_with_sentencepiece
+    tokenize_file, tokenize_by_language, tokenize_with_sentencepiece, tokenize_oscar
 )
 from .parallel_corpus import (
     cleanup_parallel_file, train_sentencepiece, encode_with_sp_as_pieces,
@@ -53,6 +53,13 @@ def run_tokenize_by_language(input_file, output_dir, zip, languages):
         languages = languages.split(',')
     os.makedirs(output_dir, exist_ok=True)
     tokenize_by_language(input_file, output_dir, zipped=zip, languages=languages)
+
+
+@cli.command(name='oscar')
+@click.argument('output_file', type=click.File('w', encoding='utf-8'), default='-')
+@click.option('--language', '-l')
+def run_tokenize_oscar(output_file, language):
+    tokenize_oscar(output_file, language)
 
 
 @cli.command(name='preprocess-reddit')

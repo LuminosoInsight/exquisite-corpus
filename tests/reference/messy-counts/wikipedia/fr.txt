@@ -1,15 +1,15 @@
-__total__	95608
+__total__	95629
 de	5192
 la	2598
 le	2090
 et	2081
-l	1709
+l	1715
 les	1473
 à	1450
 des	1433
 en	1422
+d	1160
 du	1156
-d	1156
 est	956
 un	724
 par	669
@@ -37,8 +37,8 @@ on	177
 aux	175
 sous	169
 pays	164
+s	163
 comme	162
-s	161
 sa	157
 deux	157
 ses	149
@@ -66,8 +66,9 @@ depuis	101
 fait	96
 après	96
 ardèche	95
-qu	90
+qu	91
 c	90
+y	90
 partie	88
 habitants	87
 également	86
@@ -77,7 +78,6 @@ jean	84
 afghanistan	82
 alors	80
 allier	78
-y	77
 algorithme	76
 haute	76
 français	75
@@ -85,6 +85,7 @@ même	75
 né	73
 peut	73
 château	73
+n	72
 leur	72
 grand	72
 clermont	72
@@ -98,7 +99,6 @@ fut	68
 lui	67
 trois	67
 ans	67
-n	66
 ces	66
 compte	65
 ouest	65
@@ -414,6 +414,7 @@ janvier	20
 originaire	20
 novembre	20
 travaux	20
+œuvre	20
 domaines	20
 construction	20
 toujours	20
@@ -569,7 +570,6 @@ traité	16
 naissance	16
 al	16
 nombres	16
-œuvre	16
 plan	16
 eux	16
 possède	16
@@ -812,6 +812,7 @@ ganimard	12
 prince	12
 dame	12
 henri	12
+j	12
 communiste	12
 sites	12
 d'afghanistan	12
@@ -1020,7 +1021,6 @@ train	10
 cinéma	10
 romancier	10
 1979	10
-j	10
 devenu	10
 l'inde	10
 hamid	10
@@ -1183,7 +1183,6 @@ résolution	8
 peuvent	8
 aide	8
 travers	8
-n'y	8
 sorte	8
 antiquité	8
 pourrait	8
@@ -2059,6 +2058,7 @@ s'est	5
 isolée	5
 représentée	5
 adaptation	5
+yves	5
 ferté	5
 carré	5
 1957	5
@@ -2540,7 +2540,6 @@ henry	4
 faut	4
 1937	4
 berry	4
-yves	4
 joue	4
 roux	4
 cd	4
@@ -2666,7 +2665,6 @@ devint	4
 languedoc	4
 secours	4
 temple	4
-s'y	4
 gallo	4
 évêques	4
 auvergnates	4
@@ -3113,7 +3111,6 @@ sculpteur	3
 monumentale	3
 soir	3
 victimes	3
-d'y	3
 installer	3
 christophe	3
 exposition	3
@@ -3295,7 +3292,6 @@ contemporain	3
 heure	3
 inspirée	3
 diffusée	3
-l'œuvre	3
 1991	3
 nahum	3
 1883	3
@@ -4375,7 +4371,6 @@ dessinateur	2
 inclus	2
 portraits	2
 trompe	2
-l'œil	2
 future	2
 impératrice	2
 passa	2
@@ -4869,6 +4864,7 @@ instabilité	2
 barakzay	2
 sardar	2
 wazir	2
+n'y	2
 saddozay	2
 servirent	2
 shujah	2
@@ -5181,6 +5177,7 @@ pièges	2
 centaines	2
 jonction	2
 augustonemetum	2
+s'y	2
 tardivement	2
 austremoine	2
 menacée	2
@@ -5784,7 +5781,6 @@ sociale	2
 embauches	2
 champ	2
 info	2
-j'y	2
 vais	2
 bimestrielle	2
 véronique	2
@@ -5947,7 +5943,7 @@ trigano	2
 fabien	2
 footballeur	2
 judo	2
-l'yonne	2
+yonne	2
 barrois	2
 amance	2
 vendeuvre	2

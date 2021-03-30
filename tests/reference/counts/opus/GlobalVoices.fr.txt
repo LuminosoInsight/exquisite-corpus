@@ -1,4 +1,4 @@
-__total__	16279
+__total__	16288
 de	966
 la	594
 les	484
@@ -32,10 +32,10 @@ plus	75
 sont	71
 avec	69
 se	68
+n	66
 son	64
-n	59
+s	59
 je	58
-s	57
 00	57
 mais	56
 nous	53
@@ -45,6 +45,7 @@ ils	46
 0000	46
 comme	45
 être	44
+y	43
 on	41
 pays	40
 vous	40
@@ -53,7 +54,6 @@ c	39
 même	36
 ou	36
 où	35
-y	35
 sa	34
 elle	34
 aussi	33
@@ -327,7 +327,6 @@ travail	6
 question	6
 trouve	6
 maison	6
-n'y	6
 accord	6
 chine	6
 mes	6
@@ -1403,7 +1402,6 @@ constatant	2
 permettant	2
 vente	2
 ahmed	2
-s'y	2
 jusqu'aux	2
 passer	2
 rafah	2

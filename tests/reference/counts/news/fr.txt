@@ -1,13 +1,13 @@
-__total__	99940
+__total__	99997
 de	5863
 la	3300
 le	2761
-l	2383
+l	2386
 à	2217
 les	2168
 et	2072
 des	1803
-d	1732
+d	1734
 en	1648
 a	1553
 un	1463
@@ -29,12 +29,12 @@ qu	504
 plus	486
 son	471
 ne	444
+n	430
+s	416
 avec	415
 se	414
 0000	409
 ont	409
-s	403
-n	395
 été	381
 sont	321
 aux	320
@@ -46,6 +46,7 @@ sa	267
 je	247
 elle	242
 nous	237
+y	227
 être	225
 ses	222
 ils	214
@@ -61,7 +62,6 @@ après	184
 ans	183
 000	183
 tout	181
-y	177
 était	175
 si	161
 ces	149
@@ -78,9 +78,9 @@ autres	122
 contre	121
 m	118
 dont	118
+j	118
 où	118
 très	117
-j	117
 selon	113
 avant	109
 président	103
@@ -288,7 +288,6 @@ mieux	34
 affaires	34
 affaire	34
 grâce	34
-n'y	34
 quelque	34
 aura	34
 histoire	34
@@ -871,7 +870,6 @@ ukraine	13
 espère	13
 outre	13
 actuelle	13
-s'y	13
 anciens	13
 avenir	13
 classe	13
@@ -1637,6 +1635,7 @@ sélectionneur	7
 album	7
 utilisant	7
 nature	7
+œuvre	7
 los	7
 angeles	7
 up	7
@@ -1904,7 +1903,6 @@ rtl	6
 dette	6
 demeure	6
 volume	6
-œuvre	6
 perd	6
 placé	6
 complète	6
@@ -3998,6 +3996,7 @@ agences	3
 confirmation	3
 ateliers	3
 règlements	3
+œil	3
 chasse	3
 rassembler	3
 contrôleurs	3
@@ -6067,7 +6066,6 @@ mobiles	2
 tsahal	2
 cardio	2
 symptômes	2
-d'y	2
 remorqué	2
 enterré	2
 bettencourt	2
@@ -6122,7 +6120,6 @@ organes	2
 cerveau	2
 stoppé	2
 alerter	2
-l'œil	2
 perspectives	2
 rivaux	2
 folie	2

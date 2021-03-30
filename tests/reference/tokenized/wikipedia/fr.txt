@@ -149,7 +149,7 @@ braise : la base raisonnée d' exercices de mathématiques et son chapitre sur l
 --------
 algèbre générale
 l' algèbre générale , ou algèbre abstraite , est la branche des mathématiques qui porte principalement sur l' étude des structures algébriques et de leurs relations . l' appellation algèbre générale s' oppose à celle dalgèbre élémentaire ; cette dernière enseigne le calcul algébrique , c' est - à - dire les règles de manipulation des formules et des expressions algébriques .
-historiquement , les structures algébriques sont apparues dans différents domaines des mathématiques , et n'y ont pas été étudiées séparément . c' est pourquoi l' algèbre générale possède beaucoup de connexions avec toutes les branches des mathématiques .
+historiquement , les structures algébriques sont apparues dans différents domaines des mathématiques , et n' y ont pas été étudiées séparément . c' est pourquoi l' algèbre générale possède beaucoup de connexions avec toutes les branches des mathématiques .
 l' étude des structures algébriques peut être faite de manière abstraite , mais unifiée dans le cadre de l' algèbre universelle .
 
 histoire
@@ -359,7 +359,7 @@ l' argentine est une république présidentielle multipartite , où le présiden
 pouvoir exécutif
 
 les élections présidentielles se déroulent en un ou deux tours . si aucun candidat ne récolte plus de 45 % des votes , alors un deuxième tour est organisé . seuls les deux candidats qui ont remporté le plus de votes participent au deuxième tour ( 2003 ). historiquement , le pays est marqué par le bipartisme entre le parti justicialiste ( ou péroniste ), qui fut cependant interdit de 1955 aux élections de 1973 , puis à nouveau réprimé après le coup d' etat de mars 1976 , et le parti radical ( union civique radicale , ucr ) et l' élection se fait normalement dès le premier tour .
-depuis 1989 , il n'y eut aucun débat télévisé entre deux candidats à la présidentielle .
+depuis 1989 , il n' y eut aucun débat télévisé entre deux candidats à la présidentielle .
 
 histoire
 
@@ -1072,7 +1072,7 @@ arsène lupin versus colonel linnaus ( anthony boucher , paru dans « ellery que
 l’affaire oliveira ( nouvelle de thomas narcejac ) ( 1946 ) dans
 arsène lupin dans la gueule du loup ( nouvelle de boileau - narcejac d' après une pièce radiophonique de pierre boileau )
 ( roman policier contemporain sur les traces d' arsène lupin )
-l' église creuse ( patrick genevaux , éditions l'œil du sphinx , 2009 ) ( nouvelle dans le recueil rêves de razès )
+l' église creuse ( patrick genevaux , éditions l' œil du sphinx , 2009 ) ( nouvelle dans le recueil rêves de razès )
 
 pièces de théâtre et de radio
 
@@ -1095,14 +1095,14 @@ arsène lupin , adaptation et mise en scène de delphine piard , au théâtre mi
 
 opérette
 
-arsène lupin banquier ; livret d'yves mirande ; musique de marcel lattès . première représentation le aux bouffes - parisiens avec albert willemetz et charles - louis pothier . éditée chez salabert en septembre 1930 .
+arsène lupin banquier ; livret d' yves mirande ; musique de marcel lattès . première représentation le aux bouffes - parisiens avec albert willemetz et charles - louis pothier . éditée chez salabert en septembre 1930 .
 
 essais
 
 le secret des rois de france ou la véritable identité d’arsène lupin ( 1955 ) de valère catogan , essai romancé
-arsène lupin supérieur inconnu - la clé de l'œuvre codée de maurice leblanc de patrick ferté , essai traitant de l' aspect ésotérique de l'œuvre de maurice leblanc
+arsène lupin supérieur inconnu - la clé de l' œuvre codée de maurice leblanc de patrick ferté , essai traitant de l' aspect ésotérique de l' œuvre de maurice leblanc
 le véritable secret des rois de france ( 2009 ) d' arnaud de l' estoile , étude analysant l' arrière - plan ésotérique de la geste « lupinienne »
-arsène lupin , une vie ( 2011 ) d' andré - françois ruaud , somme très complète sur le parcours de lupin , sur l'œuvre de leblanc , sous la forme d' une véritable biographie et d' une étude de la figure du gentleman cambrioleur
+arsène lupin , une vie ( 2011 ) d' andré - françois ruaud , somme très complète sur le parcours de lupin , sur l' œuvre de leblanc , sous la forme d' une véritable biographie et d' une étude de la figure du gentleman cambrioleur
 arsène lupin , gentilhomme philosopheur ( 1996 ) de françois george et andré comte - sponville
 
 bande dessinée
@@ -1281,7 +1281,7 @@ une recette de cuisine peut être réduite à un algorithme , si on peut réduir
 des entrées ( les ingrédients , le matériel utilisé ) ;
 des instructions élémentaires simples , dont l' exécution amène au résultat voulu ;
 un résultat : le plat préparé .
-cependant , les recettes de cuisine ne sont en général pas présentées rigoureusement sous forme non ambiguë : il est d' usage d'y employer des termes vagues laissant une liberté d' appréciation à l' exécutant alors qu' un algorithme stricto sensu doit être précis et sans ambiguïté .
+cependant , les recettes de cuisine ne sont en général pas présentées rigoureusement sous forme non ambiguë : il est d' usage d' y employer des termes vagues laissant une liberté d' appréciation à l' exécutant alors qu' un algorithme stricto sensu doit être précis et sans ambiguïté .
 le tissage , surtout tel qu' il a été automatisé par le métier jacquard est une activité que l' on peut dire algorithmique .
 un casse - tête , tel le rubik's cube , peut être résolu de façon systématique par un algorithme qui mécanise sa résolution .
 en sport , l' exécution de séquences répondant à des finalités d' attaque , de défense , de progression , correspond à des algorithmes ( dans un sens assez lâche du terme ).
@@ -1509,7 +1509,7 @@ métaux
 on peut notamment citer : le plomb , le zinc , l' aluminium , le molybdène , le tungstène , le chrome , le baryum , le lithium , mais aussi des métaux très valorisés comme l' étain et le tantale , sans oublier les incontournables que sont le fer et le cuivre . pour ce dernier , l' afghanistan vient d' annoncer la signature de la cession d' exploitation de la mine de cuivre aïnak , dont la teneur en cuivre est estimée à plus de 57 %. les clauses du contrat prévoient un investissement chinois ( les gagnants de l' appel d' offre sont china metallurgical group et jiangxi cooper co ) de , la construction du chemin de fer reliant le nord de l' afghanistan à la frontière pakistanaise , la construction d' une centrale électrique de et des royalties calculées sur 40 % des ventes de cuivre réalisées . en outre , l' afghanistan a obtenu la construction d' une usine de transformation de minerai en lingots de cuivre , ce qui permettra au pays d' en maîtriser la technologie .
 le fer peut également constituer une source importante de devises pour le pays . en effet selon albert - félix de lapparent , la teneur en fer des gisements découverts au sud du bâmiyân ( centre de l' afghanistan ), dans la région de l' hadjigak , est de l' ordre de 60 %. l' exploitation des minerais de fer n' est pour l' instant pas à l' ordre du jour , mais représente un immense potentiel pour le pays .
 par ailleurs , des gisements d’or ont également été découverts dans des régions assez éloignées les unes des autres . au badakhchan , fut découverte dans les années 1960 une importante mine d' or qui n' est pas encore exploitée . plus récemment une autre mine d' or a été découverte en 2003 près d' herat à l' ouest de l' afghanistan . l' exploitation a déjà commencé et c' est une entreprise britannique qui l' assure .
-ces gisements de métaux ferreux et non ferreux constituent un potentiel de développement et de croissance considérable tant pour le pays que pour les entreprises qui envisagent d'y investir .
+ces gisements de métaux ferreux et non ferreux constituent un potentiel de développement et de croissance considérable tant pour le pays que pour les entreprises qui envisagent d' y investir .
 
 pierres ornementales
 
@@ -1566,14 +1566,14 @@ religion
 
 les afghans sont musulmans à 99 %. il y a environ 80 % de sunnites .
 on compte également environ hindous , répartis dans tout le pays , de à zoroastriens ainsi qu' un nombre très réduit de sikhs , de chrétiens et de bouddhistes qui furent tous persécutés par les talibans . . les baha'is , tout comme en iran , sont fortement discriminés , et persécutés , et ils ne sont pas reconnus comme un groupe religieux minoritaire . avant 1992 , il y avait entre 2000 et 3000 chrétiens , qui seront fortement persécutés après 1992 .
-entre 1996 et 2002 , sous les talibans , les hindous et les sikhs , comme les autres religions , furent persécutés . il y avait environ hindous et sikhs en afghanistan en 1975 . au moins 80 % des non - musulmans fuirent avant 2002 . depuis 2003 , des hindous et des sikhs reviennent : ce sont surtout des commerçants , et l' afghanistan entretien des relations diplomatiques avec l' inde . il n'y a aucune statistique pour les chrétiens , fortement persécutés .
+entre 1996 et 2002 , sous les talibans , les hindous et les sikhs , comme les autres religions , furent persécutés . il y avait environ hindous et sikhs en afghanistan en 1975 . au moins 80 % des non - musulmans fuirent avant 2002 . depuis 2003 , des hindous et des sikhs reviennent : ce sont surtout des commerçants , et l' afghanistan entretien des relations diplomatiques avec l' inde . il n' y a aucune statistique pour les chrétiens , fortement persécutés .
 
 éducation
 
 au printemps 2003 , on estimait que 30 % des écoles d' afghanistan avaient été sérieusement endommagées pendant la vingtaine d' années de l' occupation soviétique et de la guerre civile . seulement la moitié des écoles ont indiqué avoir de l' eau potable , tandis qu' un peu moins de 40 % estimait avoir un état sanitaire adéquat . l' éducation pour les garçons ne fut pas une priorité pendant le régime des talibans , tandis que les filles en furent complètement bannies .
 une étude de 2002 menée par le groupe d' aide save the children indique qu' en regard de la pauvreté et de la violence de leur environnement , les enfants afghans s' adaptent . l' étude donne du crédit aux institutions fortes de la famille et de la communauté .
 plus de quatre millions d' enfants afghans , sans doute le nombre maximal , sont reconnus avoir été scolarisés pendant l' année scolaire qui a débuté en mars 2003 . l' éducation est maintenant accessible aux garçons et aux filles .
-le niveau d' alphabétisation de la population est estimé à 43,1 % pour les hommes et 12,6 % pour les femmes . en afghanistan , beaucoup de filles ne reçoivent aucune instruction et celles qui vont à l' école n'y restent en général pas plus de quatre ans .
+le niveau d' alphabétisation de la population est estimé à 43,1 % pour les hommes et 12,6 % pour les femmes . en afghanistan , beaucoup de filles ne reçoivent aucune instruction et celles qui vont à l' école n' y restent en général pas plus de quatre ans .
 
 droits des femmes
 
@@ -2440,7 +2440,7 @@ les revues lo convise d’aurillac ( et leurs éditions ) et parlem ! vai - i qu
 littérature en aurillacois
 
 arsène vermenouze
-la littérature en aurillacois connait une chronologie différente de celle de l' auvergnat . il n'y a pas eu au de bourgeoisie cultivée pour promouvoir la langue . c' est à la fin du et au début du qu' elle connait un véritable printemps grâce à l' heureuse influence du félibrige . le poète fondateur de la littérature de cette langue est sans conteste arsène vermenouze ( 1850 - 1910 ) qui décrit avec sensibilité le pays et les hommes de la terre d' auvergne . à ce sujet , pierre bonnaud dit de son œuvre : . vermenouze associe le talent de poète à celui de conteur et devient le chef de file incontesté des félibres cantaliens : l' escolo oubernhato . le capiscol du mouvement ouvre le chemin à d' autre poètes tels que l' abbé four ou le chanoine francis courchinoux . le duc de la salle de rochemaure écrit les récits carladésiens . a . dusserre , t . laborie , f.bourgade , j .- s . mathieu ou fernand prax ont poursuivi le mouvement . la revue régionaliste " la veillée d' auvergne " épaula le mouvement .
+la littérature en aurillacois connait une chronologie différente de celle de l' auvergnat . il n' y a pas eu au de bourgeoisie cultivée pour promouvoir la langue . c' est à la fin du et au début du qu' elle connait un véritable printemps grâce à l' heureuse influence du félibrige . le poète fondateur de la littérature de cette langue est sans conteste arsène vermenouze ( 1850 - 1910 ) qui décrit avec sensibilité le pays et les hommes de la terre d' auvergne . à ce sujet , pierre bonnaud dit de son œuvre : . vermenouze associe le talent de poète à celui de conteur et devient le chef de file incontesté des félibres cantaliens : l' escolo oubernhato . le capiscol du mouvement ouvre le chemin à d' autre poètes tels que l' abbé four ou le chanoine francis courchinoux . le duc de la salle de rochemaure écrit les récits carladésiens . a . dusserre , t . laborie , f.bourgade , j .- s . mathieu ou fernand prax ont poursuivi le mouvement . la revue régionaliste " la veillée d' auvergne " épaula le mouvement .
 
 écrivains auvergnats
 
@@ -2709,7 +2709,7 @@ le gibier .
 dans les condiments , on trouve le confit d' oignons de l' aisne , le vinaigre de cidre de la thiérache .
 les « logis », les « bistrots de pays », la tourte aux poireaux , la soupe et le velouté au potiron , la crème soissonnaise ou soupe de soissons , la tarte au maroilles , le filet mignon au maroilles , le porc au lait , les tripes au maroilles et au cidre , le lapin au cidre , échalotes et oignons , lard fumé et champignons , de la thiérache , le sauté de lapin à la picarde , la salade au lard , les paupiettes de dindonneau à la picarde , le soissoulet ou cassoulet aux haricots de soissons et canard fermier , le hochepot picard ou pot au feu régional , les rissoles de coucy ou rissolles laonnoises , le fromage maincamp de quierzy , le fromage chauny , les fromages de thiérache : le dauphin , la baguette de thiérache , le losange , les jus de pomme et de poire , le poiré .
 le haricot de soissons , les pavés de laon , les croustillons picards du saint - quentinnois , les biscuits p'tio crac'lin de bohain - en - vermandois , les cugnots ou brioches de saint - quentin , les confitures et gelées artisanales .
-la culture de fruits rouges ( fraises , cerises , framboises ) commence à s'y développer dans le laonnois et la thiérache .
+la culture de fruits rouges ( fraises , cerises , framboises ) commence à s' y développer dans le laonnois et la thiérache .
 des événements rythment l' actualité gastronomique du département : foires aux fromages ( la capelle ), au boudin ( saint - quentin ). les dégustations sur les brocantes et marchés sont de nombreuses occasions de découvrir des produits locaux dans une ambiance traditionnelle .
 dans le sud , les haricots de soissons , les champignons de paris et la route touristique du champagne , où certains champagnes produits dans la région de château - thierry sont au même titre que le maroilles reconnus par une appellation d' origine contrôlée ( aoc ).
 le cidre fermier de thiérache et son eau - de - vie , la « folie douce » ( apéritif à base de fruits rouges ), le pétillant au cidre , la fabrication de la bière ( surtout artisanale ).
@@ -3043,7 +3043,7 @@ pour les causes , on peut relever qu’historiquement , l’allier est un dépar
 
 économie
 
-l' économie du département de l' allier reste très ancrée sur l' agriculture traditionnelle ( notamment l' élevage et la sylviculture ) et sur des ressources héritées du passé . l' agriculture occupe encore une grande part du marché de l' emploi , plus qu' au niveau national ( sur en 2010 ) et représente ainsi 7 à 8 % du produit intérieur brut départemental . s'y ajoutent le tourisme et le thermalisme .
+l' économie du département de l' allier reste très ancrée sur l' agriculture traditionnelle ( notamment l' élevage et la sylviculture ) et sur des ressources héritées du passé . l' agriculture occupe encore une grande part du marché de l' emploi , plus qu' au niveau national ( sur en 2010 ) et représente ainsi 7 à 8 % du produit intérieur brut départemental . s' y ajoutent le tourisme et le thermalisme .
 l' industrie est très présente , principalement avec la métallurgie , la construction mécanique , le matériel électrique et la fabrication de denrées alimentaires , mais aussi avec les produits en caoutchouc et en plastique , ce qui totalise la moitié des emplois industriels du département . les secteurs incluent l' automobile , l' armement , le bâtiment , le textile , l' ameublement , la chimie , la santé . elle comporte plus de petites et moyennes entreprises qu' au niveau national ( seules une vingtaine d' établissements occupent au moins 250 salariés ), mais plutôt plus pérennes et moins renouvelées .
 les services marchands donnent eux une activité bien inférieure à la moyenne métropolitaine ( 38 % contre 46 %), au contraire des services non marchands plus présents ( domaines médical , médico - social et social , en particulier , les établissements du domaine public ).
 
@@ -3301,7 +3301,7 @@ territoires de projets : les pays ( loi voynet )
 économie
 
 le département présente , de par ses caractéristiques propres ( montagne et faible population ), un caractère marqué par une relative faiblesse des activités industrielles , et une évolution vers la création d' emplois dans les domaines du commerce et des services .
-ainsi , selon l' enquête sur les besoins de main - d'œuvre des services de l' assedic , l' essentiel des offres d' emploi est aujourd'hui porté par les professions de l' animation socioculturelle et sportive ( offres recensées sur au total dans le département ), de l' hôtellerie ( 968 offres ), du nettoyage ( 438 offres ), de la restauration ( 345 offres ).
+ainsi , selon l' enquête sur les besoins de main - d' œuvre des services de l' assedic , l' essentiel des offres d' emploi est aujourd'hui porté par les professions de l' animation socioculturelle et sportive ( offres recensées sur au total dans le département ), de l' hôtellerie ( 968 offres ), du nettoyage ( 438 offres ), de la restauration ( 345 offres ).
 toutes ces offres étaient , pour les trois quarts au moins , proposées sur des emplois de caractère saisonnier .
 toutefois , des évolutions sensibles de la situation sociologique du département sont à attendre de l' implantation prochaine , au débouché de la vallée de la durance du projet iter .
 
@@ -3386,7 +3386,7 @@ haute - provence info .
 
 presse gratuite
 
-j'y vais provence , revue bimestrielle gratuite d' informations culturelles et portraits d' artistes du département , créée par véronique basso , directrice de publication et philippe robert , webmestre de jyvais04 . com , ( devenu jyvaisprovence.com ) et diffusée à 4000 exemplaires dans les mairies , les offices du tourisme et certains commerces .
+j' y vais provence , revue bimestrielle gratuite d' informations culturelles et portraits d' artistes du département , créée par véronique basso , directrice de publication et philippe robert , webmestre de jyvais04 . com , ( devenu jyvaisprovence.com ) et diffusée à 4000 exemplaires dans les mairies , les offices du tourisme et certains commerces .
 
 radios locales
 
@@ -3406,7 +3406,7 @@ télé locale provence ( tlp ) était accessible sur la tnt chaîne 30 sur la r�
 
 site internet
 
-jyvaisprovence.com http :// www.jyvaisprovence.com / : ce site gratuit d' informations culturelles a vu le jour en janvier 2011 ( sous le nom jyvais04 . com ). il recense plus de 200 évènements culturels sur le département par semaine . ( la revue bimestrielle gratuite j'y vais provence y est associée ).
+jyvaisprovence.com http :// www.jyvaisprovence.com / : ce site gratuit d' informations culturelles a vu le jour en janvier 2011 ( sous le nom jyvais04 . com ). il recense plus de 200 évènements culturels sur le département par semaine . ( la revue bimestrielle gratuite j' y vais provence y est associée ).
 verdon info : site d' information sur le secteur du pays a ( arrondissement de castellane )
 
 infrastructures
@@ -3969,7 +3969,7 @@ la station thermale de saint - laurent - les - bains .
 l' ardèche verte , au nord du département :
 annonay , berceau de l' aérostation , ville d' origine des frères montgolfier ;
 le pays de saint - agrève , porte du parc naturel régional , avec sur son territoire le lac de devesset ;
-le village de lalouvesc , pour ses randonnées et les traces qu'y a laissé saint jean - françois régis ;
+le village de lalouvesc , pour ses randonnées et les traces qu' y a laissé saint jean - françois régis ;
 peaugres et son safari ;
 le château de crussol , un château ( maintenant en ruines ) construit en pierres calcaires au début du sur une hauteur dominant la vallée du rhône , juste en face de la ville de valence ( drôme ) ;
 le château et le lycée de tournon - sur - rhône ;
@@ -4086,7 +4086,7 @@ climat
 le département est à la limite orientale de la prépondérance océanique dans le régime des pluies , mais d' autres influences se font sentir :
 méditerranéenne , notamment visible par la végétation des collines du piémont , de la vallée de l' ariège vers tarascon et du pays de sault ;
 continentale dans les vallées pyrénéennes ( nombreux orages , amplitude thermique élevée entre le jour et la nuit ).
-il n'y a pas de tendance marquée à la sécheresse estivale : le flux de nord - ouest apporte des pluies tout au long de l' année . la pluviométrie , modérée sur le piémont et dans certaines vallées abritées ( cumuls de 700 à ), s' accroît sensiblement sur les massifs et dans les hautes vallées ( à ). les versants exposés au nord - ouest sont logiquement les plus humides ( aulus , orlu …), ainsi que toutes les crêtes frontalières qui subissent aussi le flux de sud - ouest alors que celui - ci est peu actif ailleurs ( effet de foehn ). l' enneigement est fréquent au - dessus de , durable plusieurs mois de suite au - dessus de à . des espaces péri - glaciaires existent au - dessus de ( le seul glacier ariégeois est celui du mont valier , près de castillon - en - couserans ).
+il n' y a pas de tendance marquée à la sécheresse estivale : le flux de nord - ouest apporte des pluies tout au long de l' année . la pluviométrie , modérée sur le piémont et dans certaines vallées abritées ( cumuls de 700 à ), s' accroît sensiblement sur les massifs et dans les hautes vallées ( à ). les versants exposés au nord - ouest sont logiquement les plus humides ( aulus , orlu …), ainsi que toutes les crêtes frontalières qui subissent aussi le flux de sud - ouest alors que celui - ci est peu actif ailleurs ( effet de foehn ). l' enneigement est fréquent au - dessus de , durable plusieurs mois de suite au - dessus de à . des espaces péri - glaciaires existent au - dessus de ( le seul glacier ariégeois est celui du mont valier , près de castillon - en - couserans ).
 les températures sont douces sur le piémont : à foix , il fait en moyenne en janvier et en juillet . elles déclinent rapidement avec l' altitude : à l' hospitalet (), on relève en janvier et en juillet .
 
 économie
@@ -4284,7 +4284,7 @@ géographie
 situation
 
 
-le département de l’aube est situé au sud - ouest de la région grand est . elle est limitrophe des départements de la marne au nord ( sur de long environ ), de la haute - marne à l' est ( sur de long ), de la côte - d' or au sud - est ( sur ), de l'yonne au sud - ouest ( sur ) et de seine - et - marne à l' ouest ( sur ).
+le département de l’aube est situé au sud - ouest de la région grand est . elle est limitrophe des départements de la marne au nord ( sur de long environ ), de la haute - marne à l' est ( sur de long ), de la côte - d' or au sud - est ( sur ), de l' yonne au sud - ouest ( sur ) et de seine - et - marne à l' ouest ( sur ).
 
 sous - régions ou « pays » aubois
 
@@ -4309,7 +4309,7 @@ le point culminant de l' aube est de 371 1 m situé à champignol - lez - mondev
 
 hydrographie
 
-vingt - trois cours d' eau desservent le département , les quatre principaux étant la seine , l' aube ( affluent de la seine ), l' armance ( affluent de l' armançon ) et la vanne ( affluent de l'yonne ).
+vingt - trois cours d' eau desservent le département , les quatre principaux étant la seine , l' aube ( affluent de la seine ), l' armance ( affluent de l' armançon ) et la vanne ( affluent de l' yonne ).
 
 forêts et lacs
 
