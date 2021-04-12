@@ -40,8 +40,7 @@ def tokenize_file(
 def tokenize_oscar(outfile, language):
     import datasets
     if os.environ.get("XC_BUILD_TEST"):
-        # Don't interact with Datasets or download anything when running in test mode
-        print("mock oscar test data")
+        raise RuntimeError("OSCAR shouldn't be used during tests")
     else:
         dataset = datasets.load_dataset('oscar', f'unshuffled_deduplicated_{language}')
         for line in dataset['train'][0:1000000]['text']:

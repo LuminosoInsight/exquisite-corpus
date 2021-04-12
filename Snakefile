@@ -136,7 +136,7 @@ SOURCE_LANGUAGES = {
         'hu', 'is', 'id', 'it', 'ja', 'kk', 'ko', 'lv', 'lt', 'mk', 'ml',
         'mr', 'el', 'mn', 'nb', 'fa', 'pl', 'pt', 'ro', 'sh',
         'sk', 'sl', 'es', 'sw', 'sv', 'fil', 'ta', 'te', 'th', 'tr', 'uk',
-        'ur', 'vi', 'ru'
+        'ur', 'vi'
 
         # Removed languages that are less than 80% correct when audited:
         # gl, ne, mr 
