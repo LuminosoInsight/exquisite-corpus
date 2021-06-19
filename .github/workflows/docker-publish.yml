@@ -1,0 +1,20 @@
+name: Docker
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build_publish_containers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build/push
+        uses: whoan/docker-build-with-cache-action@v5
+        with:
+          registry: ghcr.io
+          image_name: ${{ github.actor }}/exquisite-corpus
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
