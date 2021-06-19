@@ -1,4 +1,4 @@
-__total__	7789
+__total__	7795
 de	155
 est	147
 je	139
@@ -10,9 +10,9 @@ la	98
 et	92
 que	90
 il	85
-à	81
+à	82
 un	78
-l	75
+l	76
 c	72
 ne	69
 ce	69
@@ -22,16 +22,17 @@ a	55
 on	55
 en	53
 qu	51
-n	47
+n	49
 d	46
 ça	46
 une	40
-j	36
-m	36
+j	37
+m	37
 du	34
 des	34
+t	32
 ai	32
-t	31
+y	31
 nous	30
 qui	30
 dans	30
@@ -39,7 +40,6 @@ bien	28
 plus	28
 suis	27
 moi	27
-y	26
 non	26
 ils	26
 fait	25
@@ -300,7 +300,6 @@ esclavagisme	2
 épaule	2
 ii	2
 aucun	2
-n'y	2
 changer	2
 dessus	2
 regardez	2

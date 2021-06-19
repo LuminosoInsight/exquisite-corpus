@@ -60,7 +60,7 @@ Pontefract	3
 Federbetten	2
 Parlamentsabgeordneten	1
 Mönchlein	6
-ÜBERWEISEN	2
+ÃœBERWEISEN	2
 ThomasHowardHaus	2
 Landwirtschaftsminister	3
 nachdenklich	50
@@ -291,7 +291,7 @@ haargenaues	1
 Entsagung	2
 Gerichtet	5
 UBahnhof	6
-Ärzteteam	9
+Ã"rzteteam	9
 unterversichert	6
 Lhamo	18
 Chilibohnen	2
@@ -314,7 +314,7 @@ wegwarfst	2
 repariert	397
 VARIANTE	1
 Muslims	2
-Ähn	2
+Ã"hn	2
 hier'	6
 reckenhaft	1
 HAKUBASPlTZE	1
@@ -390,7 +390,7 @@ Foucault	1
 ProphetFiveErmittlungen	2
 LebensmittelAllergien	1
 Plastikwaffe	2
-NEUERÃ–FFNUNG	1
+NEUERÖFFNUNG	1
 Trufflehunter	1
 schillernden	8
 Reisebüro	39
@@ -484,7 +484,7 @@ Päpsten	2
 abhaut	42
 rostfreien	1
 Trauring	3
-HÃ–HERE	1
+HÖHERE	1
 JahrHaftstrafen	1
 Familienurlaubs	1
 Dumont	9
@@ -634,10 +634,10 @@ Schwimmsitz	1
 Stolperer	1
 Volkerbund	1
 Brautjungfern	35
-Ã–strogene	4
+Östrogene	4
 Leitspruch	8
 Zooeyismus	1
-AVÜberwachung	2
+AVÃœberwachung	2
 malige	1
 Potentielle	2
 Kaisarow	1
@@ -678,7 +678,7 @@ Strassenstaub	1
 abgefangene	2
 hochverehrten	2
 ahh	8
-Übrigen	41
+Ãœbrigen	41
 Tuttut	2
 Ravi	11
 Matsuwas	2
@@ -713,7 +713,7 @@ frechem	1
 Operationsphase	1
 Starke	78
 Taube	140
-Überlebensinstinkt	12
+Ãœberlebensinstinkt	12
 CIay	1
 Marineladen	1
 Henlon	1

@@ -35,7 +35,7 @@ SOURCE_LANGUAGES = {
         'fa', 'fi', 'fr', 'gl', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt',
         'lv', 'mk', 'ml', 'ms',
         'nl', 'nb', 'pl', 'pt-PT', 'pt-BR', 'pt', 'ro', 'ru', 'sh', 'si', 'sk',
-        'sl', 'sq', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant', 'zh'
+        'sl', 'sq', 'sr', 'sv', 'tr', 'uk', 'vi', 'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # Europarl v7, which also comes from OPUS
@@ -61,16 +61,16 @@ SOURCE_LANGUAGES = {
     # of 20 or more (indicating that they're not mostly written by bots).
     # Some Wikipedias with a depth of 10 or more are grandfathered into this list.
     'wikipedia': [
-        'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'eo', 'es', 'et',
-        'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hu', 'hr', 'hy', 'id', 'it',
-        'ja', 'ka', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl', 'pt',
-        'ro', 'ru', 'sh', 'sk', 'sl', 'sv', 'th', 'tr', 'uk', 'ur', 'uz', 'vi',
-        'zh',
-
-        'ta', 'cy',
+        
+        'ar', 'bg', 'bs', 'ca', 'cs', 'cy', 'da', 'de', 'el', 'en', 'eo', 'es',
+        'et', 'eu', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hu', 'hr', 'hy', 'id',
+        'it', 'ja', 'ka', 'ko', 'la', 'lt', 'lv', 'ms', 'nn', 'nb', 'nl', 'pl',
+        'pt', 'ro', 'ru', 'sh', 'sk', 'sl', 'sv', 'ta', 'th', 'tr', 'uk', 'ur',
+        'uz', 'vi', 'zh',
 
         # Smaller but high-quality, high-depth Wikipedias
-        'mk', 'my', 'te', 'ml', 'bn', 'mr', 'is', 'ku', 'mn', 'si', 'or'
+        'mk', 'my', 'te', 'ml', 'bn', 'mr', 'fil', 'is', 'ku', 'mn', 'si', 'or',
+        'kn', 'an',
     ],
 
     # 99.2% of Reddit is in English. Some text that's in other languages is
@@ -84,22 +84,23 @@ SOURCE_LANGUAGES = {
         'ja', 'eo'
     ],
 
+    # misdetected languages: sw
     'twitter1': [
         'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
         'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
         'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
         'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
+        'sv', 'vi', 'az', 'sq', 'el', 'mk'
     ],
     'twitter2': [
         'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
-        'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
-        'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
+        'fil', 'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms',
+        'nb', 'nl', 'pl', 'pt', 'ru', 'sv', 'ta', 'tr', 'uk', 'ur', 'zh'
     ],
     'twitter': [
         'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
-        'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
-        'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
+        'fil', 'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms',
+        'nb', 'nl', 'pl', 'pt', 'ru', 'sv', 'ta', 'tr', 'uk', 'ur', 'zh'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
@@ -126,9 +127,28 @@ SOURCE_LANGUAGES = {
     # The Hungarian Webcorpus by Halácsy et al., from http://mokk.bme.hu/resources/webcorpus/
     'mokk': ['hu'],
 
-    # ParaCrawl, which aligns Web-crawled text from English to 11 other languages
+    # OSCAR: a large, deduplicated Web-crawled corpus
+    # Including here languages with over 50 million deduplicated words, in the order
+    # they appear on oscar-corpus.com (alphabetical by English name)
+    'oscar': [
+        'sq', 'ar', 'hy', 'az', 'be', 'bn', 'bg', 'ca', 'zh', 'cs', 'da',
+        'nl', 'en', 'et', 'fi', 'fr', 'ka', 'de', 'gu', 'he', 'hi',
+        'hu', 'is', 'id', 'it', 'ja', 'kk', 'ko', 'lv', 'lt', 'mk', 'ml',
+        'mr', 'el', 'mn', 'nb', 'fa', 'pl', 'pt', 'ro', 'sh',
+        'sk', 'sl', 'es', 'sw', 'sv', 'fil', 'ta', 'te', 'th', 'tr', 'uk',
+        'ur', 'vi'
+
+        # Removed languages that are less than 80% correct when audited:
+        # gl, ne, mr 
+        #
+        # based on Caswell et al. (2021), https://arxiv.org/pdf/2103.12028.pdf
+    ],
+
+    # ParaCrawl, which aligns Web-crawled text between pairs of languages.
+    # However, we exclude Italian (it) and Dutch (nl) due to their high error rate
+    # when audited by Caswell et al. (2021).
     'paracrawl': [
-        'cs', 'de', 'en', 'es', 'fi', 'fr', 'it', 'lv', 'nl', 'pl', 'pt', 'ro'
+        'cs', 'de', 'en', 'es', 'fi', 'fr', 'lv', 'pl', 'pt', 'ro'
     ],
 
     # SUBTLEX: word counts from subtitles
@@ -151,13 +171,15 @@ SOURCE_LANGUAGES = {
 
     # OpenSubtitles and SUBTLEX can be merged into 'subtitles'
     'subtitles': [
-        'ar', 'bg', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
-        'fr', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'mk', 'ms',
-        'nl', 'nb', 'pl', 'pt', 'ro', 'ru', 'sh', 'si', 'sk', 'sl', 'sq', 'sv',
-        'tr', 'uk', 'zh-Hans', 'zh-Hant', 'zh'
+        'ar', 'bg', 'bn', 'bs', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es',
+        'fa', 'fi', 'fr', 'gl', 'he', 'hr', 'hu', 'id', 'is', 'it', 'ja',
+        'ko', 'lt', 'lv', 'mk', 'ml', 'ms', 'nl', 'nb', 'pl', 'pt', 'ro',
+        'ru', 'sh', 'si', 'sk', 'sl', 'sq', 'sr', 'sv', 'tr', 'uk', 'vi',
+        'zh-Hans', 'zh-Hant', 'zh'
     ],
 
     # 'web' merges Web-crawled sources: ParaCrawl, Leeds, and Mokk
+    # Possibly obsoleted by 'oscar'
     'web': [
         'ar', 'cs', 'de', 'el', 'en', 'es', 'fi', 'fr', 'hu', 'it', 'ja', 'lv',
         'nl', 'pl', 'pt', 'ro', 'ru', 'zh'
@@ -166,7 +188,7 @@ SOURCE_LANGUAGES = {
 
 COUNT_SOURCES = [
     'subtitles', 'news', 'wikipedia', 'reddit/merged', 'twitter',
-    'google', 'jieba', 'web'
+    'google', 'jieba', 'oscar',
 ]
 
 FULL_TEXT_SOURCES = [
@@ -180,11 +202,11 @@ MERGED_SOURCES = {
     'amazon': ['amazon-snap', 'amazon-acl10'],
     'twitter': ['twitter1', 'twitter2']
 }
-WP_LANGUAGE_MAP = {
+WP_LANGUAGE_MAP = {   # also used for OSCAR
     'fil': 'tl',
     'nb': 'no'
 }
-WP_VERSION = '20200801'
+WP_VERSION = '20210301'
 GOOGLE_LANGUAGE_MAP = {
     'en': 'eng',
     'zh-Hans': 'chi_sim',
@@ -256,7 +278,7 @@ SAMPLED_REDDIT_SHARDS = [
     '2017-10', '2018-03', '2018-08', '2019-01', '2019-06', '2019-11',
 ]
 
-TWITTER_V2_YEARS = ['2020']
+TWITTER_V2_YEARS = ['2020', '2021']
 
 # SNAP's Amazon data is sharded by product department.
 
@@ -294,6 +316,7 @@ if TESTMODE:
     SOURCE_LANGUAGES['wikipedia'] = [
         'ar', 'bn', 'cs', 'en', 'fr', 'hu', 'it', 'nl', 'pl', 'zh'
     ]
+    SOURCE_LANGUAGES['oscar'] = []
     GOOGLE_1GRAM_SHARDS = [
         '2', 'a', 'e', 'm', 'n', 'p', 's', 'r', 't', 'u', 'other',
     ]
@@ -579,7 +602,8 @@ rule download_opus_monolingual:
     run:
         dataset = wildcards.dataset
         source_lang = map_opus_language(dataset, wildcards.lang)
-        shell("wget 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -O {output}")
+        if not TESTMODE:
+            shell("wget 'http://opus.nlpl.eu/download.php?f={dataset}/mono/{dataset}.raw.{source_lang}.gz' -O {output}")
 
 
 rule download_reddit:
@@ -588,8 +612,9 @@ rule download_reddit:
     resources:
         download=1
     priority: 0
-    shell:
-        "wget 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' -O {output}"
+    run:
+        if not TESTMODE:
+            shell("wget 'https://files.pushshift.io/reddit/comments/RC_{wildcards.year}-{wildcards.month}.{wildcards.ext}' -O {output}")
 
 
 rule download_opus_parallel:
@@ -608,9 +633,10 @@ rule download_opus_parallel:
 
         # Manage the version of the OPUS dataset manually
         version = get_opus_version(dataset)
-        shell(
-            "wget 'https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -O {output}"
-        )
+        if not TESTMODE:
+            shell(
+                "wget 'https://object.pouta.csc.fi/{version}/moses/{lang1}-{lang2}.txt.zip' -O {output}"
+            )
 
 
 rule download_wikipedia:
@@ -622,13 +648,15 @@ rule download_wikipedia:
     run:
         source_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
         version = WP_VERSION
-        shell("wget 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -O {output}")
+        if not TESTMODE:
+            shell("wget 'https://dumps.wikimedia.org/{source_lang}wiki/{version}/{source_lang}wiki-{version}-pages-articles.xml.bz2' -O {output}")
 
 rule download_newscrawl:
     output:
         DATA + "/downloaded/newscrawl-2014-monolingual.tar.gz"
-    shell:
-        "wget 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -O {output}"
+    run:
+        if not TESTMODE:
+            shell("wget 'http://www.statmt.org/wmt15/training-monolingual-news-2014.tgz' -O {output}")
 
 rule download_google_1grams:
     resources:
@@ -640,7 +668,8 @@ rule download_google_1grams:
         nshards = GOOGLE_NUM_1GRAM_SHARDS[wildcards.lang]
         for shard in range(nshards):
             url = f'http://storage.googleapis.com/books/ngrams/books/20200217/{source_lang}/1-{shard:>05}-of-{nshards:>05}.gz'
-            shell("curl -Lf '{url}' | gunzip -c | awk -f scripts/google-sum-columns.awk >> {output}")
+            if not TESTMODE:
+                shell("curl -Lf '{url}' | gunzip -c | awk -f scripts/google-sum-columns.awk >> {output}")
 
 rule download_google_ngrams:
     output:
@@ -650,19 +679,22 @@ rule download_google_ngrams:
         shard = wildcards.shard
         n = wildcards.n
         # Do a bit of pre-processing as we download
-        shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-{n}gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
+        if not TESTMODE:
+            shell("curl -Lf 'http://storage.googleapis.com/books/ngrams/books/googlebooks-{source_lang}-fiction-all-{n}gram-20120701-{shard}.gz' | zcat | cut -f 1,3 | gzip -c > {output}")
 
 rule download_amazon_snap:
     output:
         DATA + "/downloaded/amazon/{category}.json.gz"
-    shell:
-        "wget 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -O {output}"
+    run:
+        if not TESTMODE:
+            shell("wget 'http://snap.stanford.edu/data/amazon/productGraph/categoryFiles/reviews_{wildcards.category}_5.json.gz' -O {output}")
 
 rule download_amazon_acl10:
     output:
         DATA + "/downloaded/amazon/cls-acl10-unprocessed.tar.gz"
-    shell:
-        "wget 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -O {output}"
+    run:
+        if not TESTMODE:
+            shell("wget 'http://www.uni-weimar.de/medien/webis/corpora/corpus-webis-cls-10/cls-acl10-unprocessed.tar.gz' -O {output}")
 
 rule download_paracrawl:
     output:
@@ -676,20 +708,23 @@ rule download_paracrawl:
         else:
             raise ValueError("One language in a ParaCrawl pair must be English")
 
-        shell("wget 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -O {output}")
+        if not TESTMODE:
+            shell("wget 'https://s3.amazonaws.com/web-language-models/paracrawl/release1.2/paracrawl-release1.2.en-{otherlang}.withstats.filtered-bicleaner.tmx.gz' -O {output}")
 
 rule download_jesc:
     output:
         DATA + "/downloaded/jesc/raw.tar.gz"
-    shell:
-        "curl -Lf 'https://nlp.stanford.edu/projects/jesc/data/raw.tar.gz' -o {output}"
+    run:
+        if not TESTMODE:
+            shell("curl -Lf 'https://nlp.stanford.edu/projects/jesc/data/raw.tar.gz' -o {output}")
 
 
 rule download_jparacrawl:
     output:
         DATA + "/downloaded/jparacrawl/en-ja.tar.gz"
-    shell:
-        "wget 'http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/release/2.0/bitext/en-ja.tar.gz' -O {output}"
+    run:
+        if not TESTMODE:
+            shell("wget 'http://www.kecl.ntt.co.jp/icl/lirg/jparacrawl/release/2.0/bitext/en-ja.tar.gz' -O {output}")
 
 
 # Handling downloaded data
@@ -1041,6 +1076,15 @@ rule tokenize_wikipedia:
         DATA + "/tokenized/wikipedia/{lang}.txt"
     shell:
         "zcat {input} | xc tokenize -p -l {wildcards.lang} - {output}"
+
+rule tokenize_oscar:
+    resources:
+        download=1
+    output:
+        DATA + "/tokenized/oscar/{lang}.txt"
+    run:
+        oscar_lang = WP_LANGUAGE_MAP.get(wildcards.lang, wildcards.lang)
+        shell("xc oscar -l {oscar_lang} {output}")
 
 rule tokenize_amazon:
     input:
@@ -1545,6 +1589,25 @@ rule debalkanize_opensubtitles_sh:
     shell:
         "grep -vh '[А-Яа-я]' {input} > {output}"
 
+# OSCAR is built with language detection. The separation between 'hr' and 'sr'
+# is probably spurious.
+rule debalkanize_oscar_sh:
+    input:
+        expand(DATA + "/tokenized/oscar/{lang}.txt",
+                    lang=['hr', 'sr'])
+    output:
+        DATA + "/tokenized/oscar/sh.txt"
+    shell:
+        "cat {input} > {output}"
+
+rule recount_messy_opus_tokens:
+    input:
+        DATA + "/messy-counts/opus/{source}.{lang}.txt"
+    output:
+        DATA + "/counts/opus/{source}.{lang}.txt"
+    shell:
+        "xc recount {input} {output} -l {wildcards.lang}"
+
 rule recount_messy_tokens:
     input:
         DATA + "/messy-counts/{source}/{lang}.txt"
@@ -1745,4 +1808,22 @@ ruleorder:
     merge_news > merge_subtitles > merge_twitter > \
     tokenize_twitter_v2_balkans > tokenize_twitter_v2 > \
     combine_reddit > copy_google_zh > copy_tatoeba_zh > copy_europarl_pt > \
-    extract_google_1grams > count_tokens > recount_messy_tokens
+    extract_google_1grams > count_tokens > recount_messy_opus_tokens > recount_messy_tokens
+
+def show_language_stats():
+    import langcodes
+    languages = set()
+    for source_type in COUNT_SOURCES:
+        for language in SOURCE_LANGUAGES[source_type]:
+            languages.add(language)
+
+    for language in sorted(languages):
+        count = len(language_count_sources(language))
+        if count >= 2:
+            print("{}\t{}\t{}".format(
+                language, 
+                count,
+                langcodes.get(language).display_name(),
+            ))
+
+show_language_stats()

@@ -3,8 +3,8 @@ from ftfy import fix_text
 from ftfy.fixes import unescape_html, fix_surrogates
 import langcodes
 import gzip
-import sentencepiece
 import msgpack
+import os
 
 from lumi_language_id import FT_LANGUAGES
 from exquisite_corpus.language_detection import detect_language_checked
@@ -35,6 +35,18 @@ def tokenize_file(
         else: 
             if langcodes.tag_distance(checked_lang, language) < 10:
                 print(' '.join(tokens), file=outfile)
+
+
+def tokenize_oscar(outfile, language):
+    import datasets
+    if os.environ.get("XC_BUILD_TEST"):
+        raise RuntimeError("OSCAR shouldn't be used during tests")
+    else:
+        dataset = datasets.load_dataset('oscar', f'unshuffled_deduplicated_{language}')
+        for line in dataset['train'][0:1000000]['text']:
+            line = fix_text(line.strip()).replace('\n', ' ')
+            tokens = tokenize(line, language, include_punctuation=True, external_wordlist=True)
+            print(' '.join(tokens), file=outfile)
 
 
 def tokenize_by_language(in_file, out_dir, zipped=False, languages=FT_LANGUAGES):
@@ -72,6 +84,7 @@ def tokenize_with_sentencepiece(in_file, out_file, sp_model_filename):
     Take in monolingual plain text, and break it into SentencePiece tokens
     with the given model.
     """
+    import sentencepiece
     sp = sentencepiece.SentencePieceProcessor()
     sp.load(sp_model_filename)
     packer = msgpack.Packer()

@@ -1,14 +1,14 @@
-__total__	74530
+__total__	74555
 de	5192
 la	2598
 le	2090
 et	2081
-l	2071
+l	2077
 les	1473
 à	1450
 des	1433
 en	1427
-d	1354
+d	1358
 0000	1267
 du	1156
 est	994
@@ -33,9 +33,9 @@ son	270
 se	258
 lupin	217
 auvergne	216
+s	189
 ce	187
 saint	185
-s	185
 on	183
 aux	175
 sous	169
@@ -55,8 +55,8 @@ entre	126
 alpes	124
 afghanistan	123
 elle	122
+qu	122
 région	121
-qu	121
 pas	119
 nom	119
 aussi	115
@@ -71,7 +71,9 @@ depuis	101
 ardèche	97
 fait	96
 après	96
+y	94
 allier	92
+n	91
 autres	89
 partie	88
 habitants	87
@@ -79,9 +81,7 @@ habitants	87
 population	85
 algorithme	85
 jean	84
-n	83
 alors	80
-y	77
 haute	76
 français	75
 même	75
@@ -407,6 +407,7 @@ janvier	20
 originaire	20
 novembre	20
 travaux	20
+œuvre	20
 domaines	20
 construction	20
 toujours	20
@@ -548,7 +549,6 @@ tête	16
 traité	16
 naissance	16
 nombres	16
-œuvre	16
 plan	16
 eux	16
 possède	16
@@ -779,6 +779,7 @@ ganimard	12
 prince	12
 dame	12
 henri	12
+j	12
 communiste	12
 sites	12
 montagnes	12
@@ -975,7 +976,6 @@ confidences	10
 train	10
 cinéma	10
 romancier	10
-j	10
 devenu	10
 hamid	10
 assassiné	10
@@ -1127,7 +1127,6 @@ fondée	8
 résolution	8
 peuvent	8
 travers	8
-n'y	8
 sorte	8
 antiquité	8
 pourrait	8
@@ -1916,6 +1915,7 @@ dumas	5
 isolée	5
 représentée	5
 adaptation	5
+yves	5
 ferté	5
 carré	5
 archives	5
@@ -2358,7 +2358,6 @@ traces	4
 henry	4
 faut	4
 berry	4
-yves	4
 joue	4
 roux	4
 cd	4
@@ -2477,7 +2476,6 @@ devint	4
 languedoc	4
 secours	4
 temple	4
-s'y	4
 gallo	4
 évêques	4
 auvergnates	4
@@ -2909,7 +2907,6 @@ sculpteur	3
 monumentale	3
 soir	3
 victimes	3
-d'y	3
 christophe	3
 sculptures	3
 piédroits	3
@@ -3073,7 +3070,6 @@ contemporain	3
 heure	3
 inspirée	3
 diffusée	3
-l'œuvre	3
 nahum	3
 disques	3
 illustré	3
@@ -4073,7 +4069,6 @@ dessinateur	2
 inclus	2
 portraits	2
 trompe	2
-l'œil	2
 future	2
 impératrice	2
 passa	2
@@ -5400,7 +5395,6 @@ sociale	2
 embauches	2
 champ	2
 info	2
-j'y	2
 vais	2
 bimestrielle	2
 véronique	2
@@ -5556,7 +5550,7 @@ trigano	2
 fabien	2
 footballeur	2
 judo	2
-l'yonne	2
+yonne	2
 barrois	2
 amance	2
 vendeuvre	2

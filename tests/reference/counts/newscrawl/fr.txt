@@ -1,13 +1,13 @@
-__total__	83661
+__total__	83709
 de	4897
 la	2706
 le	2285
-l	2004
+l	2007
 à	1862
 les	1684
 et	1641
 des	1444
-d	1438
+d	1440
 en	1349
 a	1299
 un	1187
@@ -28,12 +28,12 @@ ce	418
 qu	416
 plus	411
 son	407
+n	364
 0000	363
+s	357
 ne	356
 se	346
-s	346
 avec	346
-n	336
 ont	323
 été	309
 on	274
@@ -49,6 +49,7 @@ deux	191
 je	189
 nous	184
 avait	184
+y	184
 être	181
 leur	169
 ou	168
@@ -62,7 +63,6 @@ même	157
 fait	154
 tout	149
 était	144
-y	142
 lui	130
 si	129
 depuis	127
@@ -82,8 +82,8 @@ autres	96
 dernier	93
 premier	92
 vous	92
+j	91
 trois	90
-j	90
 pays	89
 ça	88
 ministre	86
@@ -290,7 +290,6 @@ hommes	29
 elles	29
 reste	28
 nationale	28
-n'y	28
 général	28
 services	28
 système	28
@@ -832,7 +831,6 @@ mètres	11
 outre	11
 représente	11
 actuelle	11
-s'y	11
 risques	11
 km	11
 milliers	11
@@ -1474,6 +1472,7 @@ album	7
 sociale	7
 utilisant	7
 nature	7
+œuvre	7
 los	7
 angeles	7
 ouvert	7
@@ -1737,7 +1736,6 @@ demeure	6
 volume	6
 sang	6
 graves	6
-œuvre	6
 permettant	6
 perd	6
 placé	6
@@ -3824,6 +3822,7 @@ agences	3
 confirmation	3
 ateliers	3
 règlements	3
+œil	3
 chasse	3
 rassembler	3
 appliquer	3
@@ -5948,7 +5947,6 @@ tsahal	2
 menaçant	2
 cardio	2
 symptômes	2
-d'y	2
 remorqué	2
 enterré	2
 bettencourt	2
@@ -6007,7 +6005,6 @@ organes	2
 cerveau	2
 stoppé	2
 alerter	2
-l'œil	2
 perspectives	2
 intitulé	2
 rivaux	2

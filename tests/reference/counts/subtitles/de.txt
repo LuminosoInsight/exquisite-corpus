@@ -1,4 +1,4 @@
-__total__	60393
+__total__	60398
 ihr	23311
 nein	15963
 seid	2042
@@ -67,7 +67,7 @@ anbehalten	44
 schussfeld	43
 abhaut	42
 allerletzte	42
-übrigen	41
+ãœbrigen	41
 manner	41
 ja	40
 wildschweine	40
@@ -194,7 +194,7 @@ hey	12
 sicherheitskamera	12
 militärischen	12
 hd	12
-überlebensinstinkt	12
+ãœberlebensinstinkt	12
 verlassener	12
 aol	12
 versicherungsnummer	12
@@ -208,6 +208,7 @@ erweiterten	11
 subtitl	11
 verlor	11
 deutsche	11
+ã	11
 mayfair	11
 lockeren	11
 knievel	11
@@ -243,7 +244,7 @@ apostroph	9
 gummibänder	9
 every	9
 hingebungsvoll	9
-ärzteteam	9
+rzteteam	9
 dumont	9
 erbauung	9
 heiratet	9
@@ -467,8 +468,7 @@ fallbelastung	4
 dankeskarte	4
 zweckd	4
 mauri	4
-ã	4
-strogene	4
+östrogene	4
 sozialer	4
 aufmunternte	4
 chang's	4
@@ -857,7 +857,7 @@ umgebrachtehrlich	2
 mcsteamy	2
 eingeschmissen	2
 federbetten	2
-überweisen	2
+ãœberweisen	2
 thomashowardhaus	2
 urkomische	2
 ikegami	2
@@ -907,7 +907,7 @@ babys	2
 sackgasse	2
 wegwarfst	2
 muslims	2
-ähn	2
+hn	2
 poem	2
 omoteyagyu	2
 lichtsäulen	2
@@ -970,7 +970,7 @@ millitärinformationen	2
 biöder	2
 mikashelli	2
 industry	2
-avüberwachung	2
+avãœberwachung	2
 potentielle	2
 dschiff	2
 essbaren	2
@@ -1200,8 +1200,7 @@ treppenmeister	1
 jimeno's	1
 foucault	1
 lebensmittelallergien	1
-neuerã	1
-ffnung	1
+neueröffnung	1
 trufflehunter	1
 expapagei	1
 jurota's	1
@@ -1241,8 +1240,7 @@ höllenritt	1
 aufklebtattoos	1
 industriestandort	1
 rostfreien	1
-hã	1
-here	1
+höhere	1
 jahrhaftstrafen	1
 familienurlaubs	1
 tamao	1

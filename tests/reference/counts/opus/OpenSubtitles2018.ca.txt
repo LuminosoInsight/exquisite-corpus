@@ -1,4 +1,4 @@
-__total__	4368
+__total__	4369
 no	173
 que	162
 la	158
@@ -11,7 +11,7 @@ per	80
 és	72
 d	65
 en	64
-l	62
+l	63
 una	54
 va	53
 els	53
