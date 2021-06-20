@@ -22,6 +22,7 @@ import os
 from collections import defaultdict
 
 DATA = 'data'
+INCLUDE_TWITTER = "EXCLUDE_TWITTER" not in config
 
 SOURCE_LANGUAGES = {
     # OPUS's data files of OpenSubtitles 2018
@@ -82,24 +83,6 @@ SOURCE_LANGUAGES = {
     'reddit/merged': [
         'en', 'es', 'fr', 'de', 'it', 'sv', 'nb', 'fi', 'pl', 'uk', 'hi',
         'ja', 'eo'
-    ],
-
-    'twitter1': [
-        'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
-        'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
-        'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
-        'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
-        'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
-    ],
-    'twitter2': [
-        'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
-        'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
-        'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
-    ],
-    'twitter': [
-        'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
-        'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
-        'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
     ],
 
     # GlobalVoices (LREC 2012), from OPUS -- languages with over 500,000 tokens
@@ -165,21 +148,45 @@ SOURCE_LANGUAGES = {
 }
 
 COUNT_SOURCES = [
-    'subtitles', 'news', 'wikipedia', 'reddit/merged', 'twitter',
+    'subtitles', 'news', 'wikipedia', 'reddit/merged',
     'google', 'jieba', 'web'
 ]
 
 FULL_TEXT_SOURCES = [
-    'wikipedia', 'reddit/merged', 'twitter', 'opensubtitles', 'tatoeba',
+    'wikipedia', 'reddit/merged', 'opensubtitles', 'tatoeba',
     'newscrawl', 'europarl', 'globalvoices'
 ]
 MERGED_SOURCES = {
     'news': ['newscrawl', 'opus/GlobalVoices', 'voa'],
     'web': ['mokk', 'leeds', 'paracrawl'],
     'subtitles': ['opus/OpenSubtitles2018', 'subtlex'],
-    'amazon': ['amazon-snap', 'amazon-acl10'],
-    'twitter': ['twitter1', 'twitter2']
+    'amazon': ['amazon-snap', 'amazon-acl10']
 }
+
+if INCLUDE_TWITTER:
+    SOURCE_LANGUAGES.update({
+        'twitter1': [
+            'en', 'ar', 'ja', 'ru', 'es', 'tr', 'id', 'pt', 'ko', 'fr', 'ms',
+            'it', 'de', 'nl', 'pl', 'hi', 'fil', 'uk',
+            'ca', 'ta', 'gl', 'fa', 'ne', 'ur', 'he', 'da', 'fi', 'zh',
+            'mn', 'su', 'bn', 'lv', 'jv', 'nb', 'bg', 'cs', 'hu',
+            'sv', 'sw', 'vi', 'az', 'sq', 'el', 'mk'
+        ],
+        'twitter2': [
+            'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
+            'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
+            'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
+        ],
+        'twitter': [
+            'ar', 'bg', 'bn', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi',
+            'fr', 'he', 'hi', 'hu', 'id', 'it', 'ja', 'ko', 'lv', 'mk', 'ms', 'nb',
+            'nl', 'pl', 'pt', 'ru', 'sv', 'tr', 'uk', 'zh'
+        ]
+    })
+    COUNT_SOURCES.append('twitter')
+    FULL_TEXT_SOURCES.append('twitter')
+    MERGED_SOURCES['twitter'] = ['twitter1', 'twitter2']
+
 WP_LANGUAGE_MAP = {
     'fil': 'tl',
     'nb': 'no'
@@ -314,7 +321,6 @@ for _source in COUNT_SOURCES:
 
 SUPPORTED_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 3])
 LARGE_LANGUAGES = sorted([_lang for _lang in LANGUAGE_SOURCES if len(LANGUAGE_SOURCES[_lang]) >= 5 or _lang == 'nl'])
-TWITTER_LANGUAGES = sorted(set(SOURCE_LANGUAGES['twitter']) & set(SUPPORTED_LANGUAGES))
 
 
 # We'll build a parallel text between English and 14 languages. We construct
@@ -848,7 +854,7 @@ rule monolingual_corpus_en:
         DATA + "/downloaded/opus/OpenSubtitles2018.en.txt.gz",
         DATA + "/downloaded/opus/Europarl.en.txt.gz",
         DATA + "/downloaded/opus/GlobalVoices.en.txt.gz",
-        expand(DATA + "/extracted/twitter1/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]),
+        expand(DATA + "/extracted/twitter1/twitter-{year}.txt.gz", year=[2014, 2015, 2016, 2017, 2018]) if INCLUDE_TWITTER else [],
         expand(DATA + "/extracted/reddit/{shard}.txt.gz", shard=SAMPLED_REDDIT_SHARDS)
     output:
         DATA + "/monolingual/en.txt.gz"
@@ -1141,9 +1147,9 @@ rule tokenize_twitter:
         DATA + "/extracted/twitter1/twitter-2017.txt.gz",
         DATA + "/extracted/twitter1/twitter-2018.txt.gz"
     output:
-        expand(DATA + "/tokenized/twitter1/{lang}.txt", lang=SOURCE_LANGUAGES['twitter1'])
+        expand(DATA + "/tokenized/twitter1/{lang}.txt", lang=SOURCE_LANGUAGES.get('twitter1', []))
     params:
-        languages = ','.join(SOURCE_LANGUAGES['twitter1'])
+        languages = ','.join(SOURCE_LANGUAGES.get('twitter1', []))
     shell:
         "zcat {input} | xc tokenize-by-language -l {params.languages} - " \
         "{DATA}/tokenized/twitter1"
